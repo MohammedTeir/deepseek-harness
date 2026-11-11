@@ -1,0 +1,27 @@
+{
+  "kind": "software-emulator-observation",
+  "emulatorVersion": "37.2.13.0",
+  "acceleration": "TCG, -accel off; no KVM",
+  "systemImage": "android-30/google_apis/x86_64",
+  "properties": {
+    "sys.boot_completed": null,
+    "ro.build.version.release": "11",
+    "ro.build.version.sdk": "30",
+    "ro.build.version.security_patch": "2021-08-05",
+    "ro.build.fingerprint": "google/sdk_gphone_x86_64/generic_x86_64_arm64:11/RSR1.240422.006/12134477:userdebug/dev-keys",
+    "ro.product.model": "sdk_gphone_x86_64",
+    "ro.product.cpu.abi": "x86_64",
+    "ro.product.cpu.abilist": "x86_64,x86,arm64-v8a,armeabi-v7a,armeabi",
+    "ro.dalvik.vm.native.bridge": "libndk_translation.so",
+    "ro.enable.native.bridge.exec": "1",
+    "ro.kernel.qemu": "1"
+  },
+  "nativeArm64Hardware": false,
+  "nodeExecuted": false,
+  "harnessInitialized": false,
+  "pageSizeQuery": {
+    "exitCode": 0,
+    "stdout": "4096",
+    "stderr": ""
+  }
+}
