@@ -285,3 +285,45 @@ describe('maintained repository reference policy', () => {
       .toEqual([{ file: '.agents/notes/implemented/process/current.md', line: 1, kind: 'organization-url' }])
   })
 })
+
+
+describe('Android revision evidence validation', () => {
+  const hash = 'abcde'.repeat(8)
+  const fields = ['forkHead', 'forkAncestorUpstream', 'observedUpstreamHead', 'previousAuditedFork', 'refreshBranchHeadAtStart']
+  const file = 'audit/android/baseline.json'
+  const record = Object.fromEntries(fields.map(key => [key, hash]))
+  const json = (value: object): string => JSON.stringify(value, null, 2) + '\n'
+  it('accepts declared full known revisions in canonical evidence', () => {
+    expect(findRepositoryReferences(file, json(record), new Set([hash]))).toEqual([])
+  })
+  it.each(['notes.md', 'audit/android/other.json', 'constructor'])('retains reference rejection in %s', (path) => {
+    expect(findRepositoryReferences(path, json(record), new Set([hash]))).toHaveLength(5)
+  })
+  it.each([
+    ['abbreviated', { ...record, forkHead: hash.slice(0, 12) }],
+    ['unknown', { ...record, forkHead: 'defab'.repeat(8) }],
+    ['missing', { ...record, forkHead: undefined }],
+    ['wrong type', { ...record, forkHead: 123 }],
+  ])('rejects %s evidence', (_name, value) => {
+    expect(findRepositoryReferences(file, json(value), new Set([hash, hash.slice(0, 12)])))
+      .toContainEqual({ file, line: 1, kind: 'invalid-audit-evidence' })
+  })
+  it('validates the sync record with its own required fields', () => {
+    const sync = { previousAuditedFork: hash, syncedFork: hash, includedUpstream: hash }
+    expect(findRepositoryReferences('audit/android/upstream-sync-impact.json', json(sync), new Set([hash]))).toEqual([])
+  })
+  it('rejects malformed or duplicate-field evidence', () => {
+    for (const source of [json(record) + 'extra', json(record).replace('{', `{\n  "forkHead": "${hash}",`)]) {
+      expect(findRepositoryReferences(file, source, new Set([hash])))
+        .toContainEqual({ file, line: 1, kind: 'invalid-audit-evidence' })
+    }
+  })
+  it('retains rejection in undeclared and nested fields', () => {
+    const value = { ...record, note: hash, nested: { forkHead: hash } }
+    expect(findRepositoryReferences(file, json(value), new Set([hash]))).toHaveLength(2)
+  })
+  it('retains forbidden organization URL rejection in evidence', () => {
+    expect(findRepositoryReferences(file, json({ ...record, url: organizationUrl }), new Set([hash])))
+      .toContainEqual({ file, line: 7, kind: 'organization-url' })
+  })
+})

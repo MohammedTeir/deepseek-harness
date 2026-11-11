@@ -75,3 +75,5 @@ Hunt these in any doc; [dsh-doc-writing](../.agents/skills/dsh-doc-writing/SKILL
 ## Repository references
 
 Use relative Markdown links for current files and tags or PR numbers for historical references. `verify-md-links` checks local targets. [Reference validation](../scripts/verify-repository-references.ts) rejects commit identifiers containing a hexadecimal letter and disallowed organization URLs in maintained files. Decimal-only tokens are ignored to avoid collisions with numeric data, even when they identify commits.
+
+The two Android audit JSON records preserve required revision evidence under strict canonical-JSON/full-known-commit validation. Only declared top-level revision fields are admitted; prose, other paths, undeclared fields and organization URLs retain the reference restrictions. See `audit/android/EVIDENCE.md` and the reference-checker regression tests.

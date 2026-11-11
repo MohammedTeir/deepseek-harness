@@ -1,4 +1,4 @@
-/** Reject maintained references to repository commits and the disallowed organization URL. */
+/** Reject prose commit references and disallowed organization URLs; validate declared audit revisions separately. */
 
 import { execFileSync } from 'node:child_process'
 import { lstatSync, readFileSync, readlinkSync } from 'node:fs'
@@ -25,11 +25,36 @@ export interface RepositoryReference {
   /** One-based source line containing the reference. */
   line: number
   /** Whether the line names a repository commit or the disallowed organization URL. */
-  kind: 'commit-hash' | 'organization-url'
+  kind: 'commit-hash' | 'organization-url' | 'invalid-audit-evidence'
 }
 
 function isMaintained(file: string): boolean {
   return !excludedPrefixes.some(prefix => file.startsWith(prefix))
+}
+
+// Revision evidence is validated independently of prose-reference policy.
+const auditRevisionFields: Readonly<Record<string, readonly string[]>> = {
+  'audit/android/baseline.json': ['forkHead', 'forkAncestorUpstream', 'observedUpstreamHead', 'previousAuditedFork', 'refreshBranchHeadAtStart'],
+  'audit/android/upstream-sync-impact.json': ['previousAuditedFork', 'syncedFork', 'includedUpstream'],
+}
+
+function auditRevisionLines(file: string, source: string, commits: ReadonlySet<string>): ReadonlySet<string> | undefined {
+  const required = Object.hasOwn(auditRevisionFields, file) ? auditRevisionFields[file] : undefined
+  if (required === undefined) return new Set()
+  let parsed: unknown
+  try { parsed = JSON.parse(source) }
+  catch (_error: unknown) { return undefined /* Invalid evidence must fail the gate. */ }
+  if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)
+    || JSON.stringify(parsed, null, 2) + '\n' !== source) return undefined
+  const fields: [string, unknown][] = Object.entries(parsed)
+  const approved = new Set<string>()
+  for (const key of required) {
+    const value = fields.find(([name]) => name === key)?.[1]
+    if (typeof value !== 'string' || !/^[a-f0-9]{40}$/.test(value) || !commits.has(value)) return undefined
+    approved.add(`  "${key}": "${value}",`)
+    approved.add(`  "${key}": "${value}"`)
+  }
+  return approved
 }
 
 /**
@@ -39,6 +64,7 @@ function isMaintained(file: string): boolean {
  * @param commits - Lowercase, unambiguous full or abbreviated commit identifiers.
  * @returns One finding per line and reference kind; digests and other Git object types are accepted.
  * Decimal-only tokens are ignored, including actual commit identifiers.
+ * The two audit records require canonical JSON and full known revisions; other fields retain reference rejection.
  */
 export function findRepositoryReferences(
   file: string,
@@ -47,11 +73,13 @@ export function findRepositoryReferences(
 ): RepositoryReference[] {
   if (!isMaintained(file)) return []
   const references: RepositoryReference[] = []
+  const evidenceLines = auditRevisionLines(file, source, commits)
+  if (evidenceLines === undefined) references.push({ file, line: 1, kind: 'invalid-audit-evidence' })
   for (const [index, line] of source.split('\n').entries()) {
     if (organizationUrl.test(canonicalReferenceText(line).replace(kitRepositoryUrl, ''))) {
       references.push({ file, line: index + 1, kind: 'organization-url' })
     }
-    if ([...line.matchAll(commitCandidate)].some(match => commits.has(match[0].toLowerCase()))) {
+    if (!evidenceLines?.has(line) && [...line.matchAll(commitCandidate)].some(match => commits.has(match[0].toLowerCase()))) {
       references.push({ file, line: index + 1, kind: 'commit-hash' })
     }
   }
