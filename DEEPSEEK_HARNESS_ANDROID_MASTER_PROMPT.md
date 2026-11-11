@@ -267,16 +267,21 @@ Proceed through the phases, implementing rather than only writing plans. Each ph
 - Classify every major feature; identify critical blockers and accepted architecture.
 - Produce compatibility matrix, security model and implementation plan.
 
-### Phase 2 — Original UI on Android
-- Build actual existing frontend, bundle it in Android WebView, preserve design.
-- Validate navigation and touch/keyboard behavior; keep original frontend code.
-- Build and inspect a debug APK; do not claim the backend works yet.
+### Phase 2 — Android runtime feasibility and embedded Harness proof (Gate 1 → Gate 2)
+- Complete deep lockfile/native dependency audit and choose a compliant runtime strategy.
+- Prove actual Android ARM64 Node.js/Harness initialization, session storage, and ready/fail signals.
+- Prove real harmless approved tool execution before relying on UI integration.
+- Mark blockers accurately; never substitute a fake or remote backend.
 
-### Phase 3 — Local embedded runtime proof
-- Bring up compatible Android ARM64 Node.js/Harness runtime.
-- Test runtime process, session storage and ready/fail signals.
-- Complete actual agent/tool-result vertical slice with approval and stdout in UI.
-- Mark blockers accurately; don't replace Harness with fake backend.
+### Phase 3 — Local terminal/process capability proof (Gate 3)
+- Verify actual subprocess launch, stdout/stderr, exit codes, cancellation and PTY feasibility on target devices.
+- Record Android/Toybox command discovery, packaging restrictions and compatibility gaps.
+- Keep external Termux explicitly optional; do not silently offload commands.
+
+### Phase 3A — Original UI on Android and secure transport (Gate 4)
+- Build and bundle the real frontend in WebView using an appropriate local HTTPS asset origin.
+- Verify SPA fallback, asset URLs, touch/keyboard navigation and streaming protocol integration.
+- Connect the authenticated frontend to the real local Harness runtime, then verify the agent/tool-result vertical slice end-to-end.
 
 ### Phase 4 — Platform adapters and full integration
 - Connect original UI to local session/agent/model/streaming interfaces.
@@ -299,6 +304,62 @@ Proceed through the phases, implementing rather than only writing plans. Each ph
 - Upload CI artifacts, update documentation; **do not publish a GitHub release without explicit authorization**.
 
 If a phase is blocked due to unavailable equipment, SDK binaries, runtime compilation, network or credentials, document it and continue on independent work. Do not assert end-to-end completion before the vertical slice passes.
+
+---
+
+## 15A. Mandatory platform feasibility gates — blocking technical checkpoints
+
+These gates supersede any conflicting implementation order in the roadmap. They are **technical acceptance criteria**, not documentation-only milestones. Work on independent pieces may proceed in parallel, but no later milestone may be described as integrated/verified if its prerequisite gate remains blocked. Keep evidence in `ANDROID_PORT_STATUS.md`, with device/API/ABI, commit SHA, reproducible commands, test output, and failure modes.
+
+### Gate 1 — Full dependency and runtime compatibility audit (must precede committing to a runtime strategy)
+
+- Traverse the complete pnpm workspace and resolved lockfile dependency graph: direct, transitive, optional, platform-gated and bundled dependencies. Inspect `package.json` scripts, `node-gyp`/`binding.gyp`, prebuilds, `node-addon-api`/N-API, C/C++/Rust, native build helpers, platform conditions and shipped binaries.
+- Classify Android Bionic/glibc ABI boundaries, ELF interpreter and linker requirements, native dependencies, Node `>=24.9.0` or actual checked-out engine requirement, page-size and supported Android SDK/ABI combinations. Do not equate a generic Linux ARM64 binary with an Android build.
+- Inspect actual frontend routes, Vite/SPA asset base paths, absolute vs relative URLs, HTTP/SSE/WebSocket configuration, as well as native and subprocess usage.
+- A package-name-only Python heuristic is **insufficient** as the sole audit. Do not swallow scanner errors silently. Report unresolved transitive risks as unverified.
+- Compare feasible runtime approaches: an NDK-compatible embedded Node shared-library/JNI host, a compliant Android-packaged executable/runtime, or another demonstrably supported design. **Do not assume `libnode.so`/JNI is mandatory or that it automatically solves native addon compatibility.** Follow Android 10+ W^X and writable-directory execution restrictions; never bypass OS security rules.
+- **Pass condition:** reviewed manifest/lockfile/native-code matrix, precise blocker list, chosen integration rationale, and a *testable* runtime strategy. A written strategy is not proof of runtime execution.
+
+### Gate 2 — Local Harness engine execution (must precede claiming backend integration)
+
+- Bring up the **real upstream Harness runtime**, not a mock or substitute agent loop, on Android ARM64 with runtime readiness and error telemetry.
+- Initialize the actual Harness profile/plugin tree, create a persistent session, and register a genuine Harness tool.
+- Prove locally approved execution of a harmless `pwd`-equivalent command and capture real stdout/stderr and exit code; prove a model round trip with an authorized, supported provider when test credentials are available.
+- If credentials, SDK or hardware are unavailable, distinguish verified local execution from unverified provider/device results rather than declaring success.
+- **Pass condition:** reproducible Android runtime logs and executed tool result; no remote desktop, server, or mandatory Termux dependency.
+
+### Gate 3 — Android subprocess, shell, and PTY capability
+
+- Test actual supported Android shell/process APIs, PTY availability (`openpty`/`forkpty` or compatible alternatives), SELinux/device restrictions, cancellation, signals, exit codes, interactive input and output streaming on target API levels.
+- Discover Android/Toybox command availability empirically. Do not assume `bash`, GNU utilities, Python, npm, Git, or `/bin/*` exist. Verify tool packaging and executable loading on the exact target SDK/ABI.
+- An NDK-based PTY bridge is an *option only if testing demonstrates a need*; do not build a custom PTY multiplexer by default.
+- Never silently switch to Termux when embedded capabilities are absent. Present unavailable capabilities, disclose provider differences, and require explicit selection/authorization.
+- For optional Termux, validate documented `RUN_COMMAND`/RunCommandService mechanisms, the applicable `com.termux.permission.RUN_COMMAND` permission, `allow-external-apps` configuration, package visibility, return-channel availability, and supported version/install source. Do not presume interactive streaming works through every interface.
+- **Pass condition:** real, observable commands with accurate stdout/stderr/exit codes, timeout and cancellation, plus evidence about PTY and unsupported tools.
+
+### Gate 4 — Original UI, secure origin, and end-to-end streaming
+
+- Reuse the **actual** upstream frontend code and assets, not screenshots or a reimplementation. Use AndroidX `WebViewAssetLoader` when suitable; its default virtual HTTPS domain is **`https://appassets.androidplatform.net`** (not `https://androidplatform.net`).
+- Verify SPA deep-link and history routing. Provide a restricted fallback to `index.html` for application routes **without** returning HTML for static assets, API endpoints, or missing resources.
+- Confirm built asset base paths, CSP, fonts, WebWorkers (where used), cookies/storage, CORS, same-origin behavior, RPC, WebSockets and/or SSE. AssetLoader alone does **not** solve SPA routing or authenticate local runtime communication.
+- Keep privileged bridges/loopback endpoints restricted and authenticated; do not infer that a virtual HTTPS origin means the embedded runtime itself is secure.
+- **Pass condition:** original UI navigation and genuine Harness session/agent/tool status and streaming results on Android, with browser and backend checks.
+
+### Gate 5 — Trusted root authorization and prompt-injection resistance
+
+- Place root authorization and actual `su` invocation behind a trusted native enforcement boundary independent of LLM-controlled arguments; prefer isolated process/privilege boundaries where feasible.
+- Root access must never be obtained by the Node agent or plugins directly through a persistent root shell or unmediated root-capable subprocess. Restrict execution providers and revoke/cancel on policy violation.
+- Require an authenticated, structured request with tool identity, operation, arguments, target resources, immutable request identifier and scope. Bind the user confirmation to that exact canonical request, reject changed/replayed requests, and enforce backend policy **before** invocation.
+- Present exact command/arguments and potential effects in an Android-controlled approval UI. A modal or physical confirmation is necessary for risky operations but **not sufficient** to guarantee safety: shells, scripts, redirection, environment and indirect subprocesses can have further effects. Prefer narrowly structured commands with argument vectors instead of arbitrary shell strings for elevated operations.
+- Default-deny destructive, persistent, or system-critical operations under an explicit policy. No blanket auto-approval, no privilege bypass or rooting attempts, and no silent embedded→root fallback.
+- Exercise adversarial tests for malicious repository/web text, prompt injection, manipulated JSON, plugin-supplied tools, unauthorized `su`, replay and argument replacement. State residual limitations honestly.
+- **Pass condition:** positive and negative authorization tests with evidence that the model and plugins cannot approve their own privileged operations.
+
+### Gate 6 — Release readiness and claims
+
+- Require verified on-device/Android emulator results covering original UI, local Harness engine, real tool execution, persistence, approved/denied authorization, lifecycle recovery, and platform compatibility.
+- Clearly separate emulator tests, real physical-device tests, simulated test doubles, and untested claims. No 'production-ready', 'complete' or release-success declaration while critical incompatibilities/security blockers remain.
+- Release artifacts must be traceable to source commits, build configuration, native licenses and the Android devices/API levels actually tested.
 
 ---
 
@@ -354,12 +415,14 @@ A complete Android port is **not achieved** until all applicable required tests 
 3. Create/reuse `feature/android-port` without overwriting existing changes.
 4. Read real source/docs, map the original frontend, local runtime, plugins, tool execution, RPC and platform dependencies.
 5. Create the initial audit, Android compatibility matrix, risk register and implementation milestones.
-6. Set up the smallest Android project necessary to run the **original** frontend locally in WebView; build/test it.
-7. Investigate and prototype a **real embedded Harness runtime** on Android ARM64, honoring executable packaging and ABI restrictions.
-8. Connect UI and runtime using the original protocol where possible; demonstrate harmless approved local command and real output in UI.
-9. Incrementally implement verified compatible features, Android adapters, optional Termux/root, CI and tests.
-10. Commit reviewable work and create a PR targeting **my fork** when appropriate. Do not auto-merge/publish releases.
-11. At each milestone, report what actually ran, exact commands and results, what remains unsupported, and next runnable tasks.
+6. Complete Gate 1's lockfile/transitive native dependency audit, identify Node/Android Bionic and SDK/ABI blockers, and select an evidence-based embedded runtime approach.
+7. Prototype the **real embedded Harness runtime** on Android ARM64 and satisfy Gate 2, honoring executable packaging and ABI restrictions.
+8. Test local shell, subprocess, and PTY behavior against Gate 3 before assuming full terminal compatibility.
+9. Set up the smallest Android WebView host for the **original** frontend, validate SPA routing/security and integrate real local runtime under Gate 4.
+10. Implement Gate 5's trusted authorization supervisor before enabling privileged/root operations; test denial and prompt-injection cases.
+11. Incrementally implement verified Android adapters, optional Termux/root, CI and tests; require Gate 6 evidence before release claims.
+12. Commit reviewable work and create a PR targeting **my fork** when appropriate. Do not auto-merge/publish releases.
+13. At each milestone, report what actually ran, exact commands and results, what remains unsupported, and next runnable tasks.
 
 **Do not stop after drafting a plan when implementation is possible. Do not fabricate build results, remove features silently, reproduce the UI in another framework, or call a WebView-only mock a complete port.**
 
