@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-11",
+  "fork": "MohammedTeir/deepseek-harness",
+  "forkHead": "494ef6e803bfc25af58c22e2209d45ad56c1727d",
+  "forkAncestorUpstream": "fcc0ad462172522aaf5c93a7b2e01f6b9f0b0159",
+  "observedUpstreamHead": "e8f7b93a344964de3dca1ace9e72b6e4d6de87cb",
+  "branch": "feature/android-port",
+  "initialTree": "clean",
+  "lockfileSha256": "b6f0946199db2661e45ac0ceead23e6ceedf148604b48ea9b05a6287a4094bcd",
+  "node": "24.22.1",
+  "pnpm": "11.28.5",
+  "os": "Linux x86_64",
+  "androidDeviceTests": false,
+  "python": "3.12.14",
+  "readelf": "GNU binutils 2.44"
+}

@@ -1,0 +1,2571 @@
+{
+  "neededEdges": [
+    {
+      "from": "@anthropic-ai/claude-agent-sdk-linux-x64@0.3.263::claude",
+      "library": "librt.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@anthropic-ai/claude-agent-sdk-linux-x64@0.3.263::claude",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@anthropic-ai/claude-agent-sdk-linux-x64@0.3.263::claude",
+      "library": "ld-linux-x86-64.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@anthropic-ai/claude-agent-sdk-linux-x64@0.3.263::claude",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@anthropic-ai/claude-agent-sdk-linux-x64@0.3.263::claude",
+      "library": "libdl.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@anthropic-ai/claude-agent-sdk-linux-x64@0.3.263::claude",
+      "library": "libm.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@earendil-works/pi-tui@1.3.0::native/linux/prebuilds/linux-arm64/linux-platform-x11.node",
+      "library": "libxcb.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@earendil-works/pi-tui@1.3.0::native/linux/prebuilds/linux-x64/linux-platform-x11.node",
+      "library": "libxcb.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-arm-gnueabihf.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-arm-gnueabihf.node",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-arm-gnueabihf.node",
+      "library": "libdl.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-arm-gnueabihf.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-arm-gnueabihf.node",
+      "library": "ld-linux-armhf.so.3",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-arm64-gnu.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-arm64-gnu.node",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-arm64-gnu.node",
+      "library": "libdl.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-arm64-gnu.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-arm64-gnu.node",
+      "library": "ld-linux-aarch64.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-arm64-musl.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-arm64-musl.node",
+      "library": "libc.musl-aarch64.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-ia32-gnu.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-ia32-gnu.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-ia32-gnu.node",
+      "library": "ld-linux.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-x64-gnu.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-x64-gnu.node",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-x64-gnu.node",
+      "library": "libdl.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-x64-gnu.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-x64-gnu.node",
+      "library": "ld-linux-x86-64.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-x64-musl.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@electron-internal/extract-zip@1.0.5::index.linux-x64-musl.node",
+      "library": "libc.musl-x86_64.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@img/sharp-libvips-linux-x64@1.3.4::lib/libvips-cpp.so.8.18.7",
+      "library": "libresolv.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@img/sharp-libvips-linux-x64@1.3.4::lib/libvips-cpp.so.8.18.7",
+      "library": "libdl.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@img/sharp-libvips-linux-x64@1.3.4::lib/libvips-cpp.so.8.18.7",
+      "library": "libstdc++.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@img/sharp-libvips-linux-x64@1.3.4::lib/libvips-cpp.so.8.18.7",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@img/sharp-libvips-linux-x64@1.3.4::lib/libvips-cpp.so.8.18.7",
+      "library": "libm.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@img/sharp-libvips-linux-x64@1.3.4::lib/libvips-cpp.so.8.18.7",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@img/sharp-libvips-linux-x64@1.3.4::lib/libvips-cpp.so.8.18.7",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@img/sharp-libvips-linux-x64@1.3.4::lib/libvips-cpp.so.8.18.7",
+      "library": "ld-linux-x86-64.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@img/sharp-linux-x64@0.35.5::lib/sharp-linux-x64-0.35.5.node",
+      "library": "libvips-cpp.so.8.18.7",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@img/sharp-linux-x64@0.35.5::lib/sharp-linux-x64-0.35.5.node",
+      "library": "libstdc++.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@img/sharp-linux-x64@0.35.5::lib/sharp-linux-x64-0.35.5.node",
+      "library": "libm.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@img/sharp-linux-x64@0.35.5::lib/sharp-linux-x64-0.35.5.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@img/sharp-linux-x64@0.35.5::lib/sharp-linux-x64-0.35.5.node",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@img/sharp-linux-x64@0.35.5::lib/sharp-linux-x64-0.35.5.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@img/sharp-linux-x64@0.35.5::lib/sharp-linux-x64-0.35.5.node",
+      "library": "ld-linux-x86-64.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@koromix/koffi-linux-x64@3.1.1::linux_x64/koffi.node",
+      "library": "libstdc++.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@koromix/koffi-linux-x64@3.1.1::linux_x64/koffi.node",
+      "library": "libm.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@koromix/koffi-linux-x64@3.1.1::linux_x64/koffi.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@koromix/koffi-linux-x64@3.1.1::linux_x64/koffi.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@koromix/koffi-linux-x64@3.1.1::linux_x64/koffi.node",
+      "library": "ld-linux-x86-64.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@koromix/koffi-linux-x64@3.1.1::musl_x64/koffi.node",
+      "library": "libstdc++.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@koromix/koffi-linux-x64@3.1.1::musl_x64/koffi.node",
+      "library": "libc.musl-x86_64.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@napi-rs/canvas-linux-x64-gnu@1.0.8::skia.linux-x64-gnu.node",
+      "library": "libdl.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@napi-rs/canvas-linux-x64-gnu@1.0.8::skia.linux-x64-gnu.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@napi-rs/canvas-linux-x64-gnu@1.0.8::skia.linux-x64-gnu.node",
+      "library": "librt.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@napi-rs/canvas-linux-x64-gnu@1.0.8::skia.linux-x64-gnu.node",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@napi-rs/canvas-linux-x64-gnu@1.0.8::skia.linux-x64-gnu.node",
+      "library": "libm.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@napi-rs/canvas-linux-x64-gnu@1.0.8::skia.linux-x64-gnu.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@napi-rs/canvas-linux-x64-gnu@1.0.8::skia.linux-x64-gnu.node",
+      "library": "ld-linux-x86-64.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@openai/codex@0.153.4-linux-x64::vendor/x86_64-unknown-linux-musl/codex-resources/zsh/bin/zsh",
+      "library": "libtinfo.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@openai/codex@0.153.4-linux-x64::vendor/x86_64-unknown-linux-musl/codex-resources/zsh/bin/zsh",
+      "library": "libm.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@openai/codex@0.153.4-linux-x64::vendor/x86_64-unknown-linux-musl/codex-resources/zsh/bin/zsh",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@oxc-resolver/binding-linux-x64-gnu@11.20.0::resolver.linux-x64-gnu.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@oxc-resolver/binding-linux-x64-gnu@11.20.0::resolver.linux-x64-gnu.node",
+      "library": "librt.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@oxc-resolver/binding-linux-x64-gnu@11.20.0::resolver.linux-x64-gnu.node",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@oxc-resolver/binding-linux-x64-gnu@11.20.0::resolver.linux-x64-gnu.node",
+      "library": "libdl.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@oxc-resolver/binding-linux-x64-gnu@11.20.0::resolver.linux-x64-gnu.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@oxc-resolver/binding-linux-x64-gnu@11.20.0::resolver.linux-x64-gnu.node",
+      "library": "ld-linux-x86-64.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@oxlint/binding-linux-x64-gnu@1.81.0::oxlint.linux-x64-gnu.node",
+      "library": "libdl.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@oxlint/binding-linux-x64-gnu@1.81.0::oxlint.linux-x64-gnu.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@oxlint/binding-linux-x64-gnu@1.81.0::oxlint.linux-x64-gnu.node",
+      "library": "librt.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@oxlint/binding-linux-x64-gnu@1.81.0::oxlint.linux-x64-gnu.node",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@oxlint/binding-linux-x64-gnu@1.81.0::oxlint.linux-x64-gnu.node",
+      "library": "libm.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@oxlint/binding-linux-x64-gnu@1.81.0::oxlint.linux-x64-gnu.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@oxlint/binding-linux-x64-gnu@1.81.0::oxlint.linux-x64-gnu.node",
+      "library": "ld-linux-x86-64.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rolldown/binding-linux-x64-gnu@1.1.1::rolldown-binding.linux-x64-gnu.node",
+      "library": "libdl.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rolldown/binding-linux-x64-gnu@1.1.1::rolldown-binding.linux-x64-gnu.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rolldown/binding-linux-x64-gnu@1.1.1::rolldown-binding.linux-x64-gnu.node",
+      "library": "librt.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rolldown/binding-linux-x64-gnu@1.1.1::rolldown-binding.linux-x64-gnu.node",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rolldown/binding-linux-x64-gnu@1.1.1::rolldown-binding.linux-x64-gnu.node",
+      "library": "libm.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rolldown/binding-linux-x64-gnu@1.1.1::rolldown-binding.linux-x64-gnu.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rolldown/binding-linux-x64-gnu@1.1.1::rolldown-binding.linux-x64-gnu.node",
+      "library": "ld-linux-x86-64.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rolldown/binding-linux-x64-gnu@1.2.7::rolldown-binding.linux-x64-gnu.node",
+      "library": "libdl.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rolldown/binding-linux-x64-gnu@1.2.7::rolldown-binding.linux-x64-gnu.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rolldown/binding-linux-x64-gnu@1.2.7::rolldown-binding.linux-x64-gnu.node",
+      "library": "librt.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rolldown/binding-linux-x64-gnu@1.2.7::rolldown-binding.linux-x64-gnu.node",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rolldown/binding-linux-x64-gnu@1.2.7::rolldown-binding.linux-x64-gnu.node",
+      "library": "libm.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rolldown/binding-linux-x64-gnu@1.2.7::rolldown-binding.linux-x64-gnu.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rolldown/binding-linux-x64-gnu@1.2.7::rolldown-binding.linux-x64-gnu.node",
+      "library": "ld-linux-x86-64.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rollup/rollup-linux-x64-gnu@4.62.2::rollup.linux-x64-gnu.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rollup/rollup-linux-x64-gnu@4.62.2::rollup.linux-x64-gnu.node",
+      "library": "librt.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rollup/rollup-linux-x64-gnu@4.62.2::rollup.linux-x64-gnu.node",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rollup/rollup-linux-x64-gnu@4.62.2::rollup.linux-x64-gnu.node",
+      "library": "libm.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rollup/rollup-linux-x64-gnu@4.62.2::rollup.linux-x64-gnu.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@rollup/rollup-linux-x64-gnu@4.62.2::rollup.linux-x64-gnu.node",
+      "library": "ld-linux-x86-64.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@trycua/cua-driver-linux-x64-gnu@0.28.0::cua_driver_node_runtime.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@trycua/cua-driver-linux-x64-gnu@0.28.0::cua_driver_node_runtime.node",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@trycua/cua-driver-linux-x64-gnu@0.28.0::cua_driver_node_runtime.node",
+      "library": "libdl.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@trycua/cua-driver-linux-x64-gnu@0.28.0::cua_driver_node_runtime.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@trycua/cua-driver-linux-x64-gnu@0.28.0::cua_driver_node_runtime.node",
+      "library": "ld-linux-x86-64.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@trycua/cua-driver-linux-x64-gnu@0.28.0::libcua_driver_sdk.so",
+      "library": "libX11.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@trycua/cua-driver-linux-x64-gnu@0.28.0::libcua_driver_sdk.so",
+      "library": "libXi.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@trycua/cua-driver-linux-x64-gnu@0.28.0::libcua_driver_sdk.so",
+      "library": "libxkbcommon.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@trycua/cua-driver-linux-x64-gnu@0.28.0::libcua_driver_sdk.so",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@trycua/cua-driver-linux-x64-gnu@0.28.0::libcua_driver_sdk.so",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@trycua/cua-driver-linux-x64-gnu@0.28.0::libcua_driver_sdk.so",
+      "library": "libm.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@trycua/cua-driver-linux-x64-gnu@0.28.0::libcua_driver_sdk.so",
+      "library": "libdl.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@trycua/cua-driver-linux-x64-gnu@0.28.0::libcua_driver_sdk.so",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@trycua/cua-driver-linux-x64-gnu@0.28.0::libcua_driver_sdk.so",
+      "library": "ld-linux-x86-64.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@ubjs/node-linux-x64-gnu@0.31.0-3::uniffi-runtime-napi.linux-x64-gnu.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@ubjs/node-linux-x64-gnu@0.31.0-3::uniffi-runtime-napi.linux-x64-gnu.node",
+      "library": "ld-linux-x86-64.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@ubjs/node-linux-x64-gnu@0.31.0-3::uniffi-runtime-napi.linux-x64-gnu.node",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "@ubjs/node-linux-x64-gnu@0.31.0-3::uniffi-runtime-napi.linux-x64-gnu.node",
+      "library": "libdl.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-fs@4.8.1::prebuilds/android-arm/bare-fs.bare",
+      "library": "libm.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-fs@4.8.1::prebuilds/android-arm/bare-fs.bare",
+      "library": "libdl.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-fs@4.8.1::prebuilds/android-arm/bare-fs.bare",
+      "library": "libc.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-fs@4.8.1::prebuilds/android-arm64/bare-fs.bare",
+      "library": "libm.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-fs@4.8.1::prebuilds/android-arm64/bare-fs.bare",
+      "library": "libdl.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-fs@4.8.1::prebuilds/android-arm64/bare-fs.bare",
+      "library": "libc.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-fs@4.8.1::prebuilds/android-ia32/bare-fs.bare",
+      "library": "libm.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-fs@4.8.1::prebuilds/android-ia32/bare-fs.bare",
+      "library": "libdl.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-fs@4.8.1::prebuilds/android-ia32/bare-fs.bare",
+      "library": "libc.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-fs@4.8.1::prebuilds/android-x64/bare-fs.bare",
+      "library": "libm.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-fs@4.8.1::prebuilds/android-x64/bare-fs.bare",
+      "library": "libdl.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-fs@4.8.1::prebuilds/android-x64/bare-fs.bare",
+      "library": "libc.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-fs@4.8.1::prebuilds/linux-arm64/bare-fs.bare",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-fs@4.8.1::prebuilds/linux-x64/bare-fs.bare",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-path@3.1.2::prebuilds/android-arm/bare-path.bare",
+      "library": "libm.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-path@3.1.2::prebuilds/android-arm/bare-path.bare",
+      "library": "libdl.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-path@3.1.2::prebuilds/android-arm/bare-path.bare",
+      "library": "libc.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-path@3.1.2::prebuilds/android-arm64/bare-path.bare",
+      "library": "libm.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-path@3.1.2::prebuilds/android-arm64/bare-path.bare",
+      "library": "libdl.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-path@3.1.2::prebuilds/android-arm64/bare-path.bare",
+      "library": "libc.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-path@3.1.2::prebuilds/android-ia32/bare-path.bare",
+      "library": "libm.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-path@3.1.2::prebuilds/android-ia32/bare-path.bare",
+      "library": "libdl.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-path@3.1.2::prebuilds/android-ia32/bare-path.bare",
+      "library": "libc.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-path@3.1.2::prebuilds/android-x64/bare-path.bare",
+      "library": "libm.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-path@3.1.2::prebuilds/android-x64/bare-path.bare",
+      "library": "libdl.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-path@3.1.2::prebuilds/android-x64/bare-path.bare",
+      "library": "libc.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-path@3.1.2::prebuilds/linux-arm64/bare-path.bare",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-path@3.1.2::prebuilds/linux-x64/bare-path.bare",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-url@2.5.3::prebuilds/android-arm/bare-url.bare",
+      "library": "libm.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-url@2.5.3::prebuilds/android-arm/bare-url.bare",
+      "library": "libdl.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-url@2.5.3::prebuilds/android-arm/bare-url.bare",
+      "library": "libc.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-url@2.5.3::prebuilds/android-arm64/bare-url.bare",
+      "library": "libm.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-url@2.5.3::prebuilds/android-arm64/bare-url.bare",
+      "library": "libdl.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-url@2.5.3::prebuilds/android-arm64/bare-url.bare",
+      "library": "libc.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-url@2.5.3::prebuilds/android-ia32/bare-url.bare",
+      "library": "libm.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-url@2.5.3::prebuilds/android-ia32/bare-url.bare",
+      "library": "libdl.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-url@2.5.3::prebuilds/android-ia32/bare-url.bare",
+      "library": "libc.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-url@2.5.3::prebuilds/android-x64/bare-url.bare",
+      "library": "libm.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-url@2.5.3::prebuilds/android-x64/bare-url.bare",
+      "library": "libdl.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-url@2.5.3::prebuilds/android-x64/bare-url.bare",
+      "library": "libc.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-url@2.5.3::prebuilds/linux-arm64/bare-url.bare",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "bare-url@2.5.3::prebuilds/linux-x64/bare-url.bare",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "jscpd-linux-x64-gnu@5.1.2::bin/jscpd",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "jscpd-linux-x64-gnu@5.1.2::bin/jscpd",
+      "library": "libm.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "jscpd-linux-x64-gnu@5.1.2::bin/jscpd",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "jscpd-linux-x64-gnu@5.1.2::bin/jscpd",
+      "library": "ld-linux-x86-64.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "lightningcss-linux-x64-gnu@1.33.0::lightningcss.linux-x64-gnu.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "lightningcss-linux-x64-gnu@1.33.0::lightningcss.linux-x64-gnu.node",
+      "library": "librt.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "lightningcss-linux-x64-gnu@1.33.0::lightningcss.linux-x64-gnu.node",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "lightningcss-linux-x64-gnu@1.33.0::lightningcss.linux-x64-gnu.node",
+      "library": "libm.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "lightningcss-linux-x64-gnu@1.33.0::lightningcss.linux-x64-gnu.node",
+      "library": "libdl.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "lightningcss-linux-x64-gnu@1.33.0::lightningcss.linux-x64-gnu.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "lightningcss-linux-x64-gnu@1.33.0::lightningcss.linux-x64-gnu.node",
+      "library": "ld-linux-x86-64.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "node-addon-require-builtin-linux-x64-gnu@0.1.9::prebuilt/linux-x64-gnu-napi-v9.node",
+      "library": "libdl.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "node-addon-require-builtin-linux-x64-gnu@0.1.9::prebuilt/linux-x64-gnu-napi-v9.node",
+      "library": "libstdc++.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "node-addon-require-builtin-linux-x64-gnu@0.1.9::prebuilt/linux-x64-gnu-napi-v9.node",
+      "library": "libm.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "node-addon-require-builtin-linux-x64-gnu@0.1.9::prebuilt/linux-x64-gnu-napi-v9.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "node-addon-require-builtin-linux-x64-gnu@0.1.9::prebuilt/linux-x64-gnu-napi-v9.node",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "node-addon-require-builtin-linux-x64-gnu@0.1.9::prebuilt/linux-x64-gnu-napi-v9.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "node-pty@1.2.0-beta.15::prebuilds/linux-arm64/pty.node",
+      "library": "libutil.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "node-pty@1.2.0-beta.15::prebuilds/linux-arm64/pty.node",
+      "library": "libstdc++.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "node-pty@1.2.0-beta.15::prebuilds/linux-arm64/pty.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "node-pty@1.2.0-beta.15::prebuilds/linux-arm64/pty.node",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "node-pty@1.2.0-beta.15::prebuilds/linux-arm64/pty.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "node-pty@1.2.0-beta.15::prebuilds/linux-arm64/pty.node",
+      "library": "ld-linux-aarch64.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "node-pty@1.2.0-beta.15::prebuilds/linux-x64/pty.node",
+      "library": "libutil.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "node-pty@1.2.0-beta.15::prebuilds/linux-x64/pty.node",
+      "library": "libstdc++.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "node-pty@1.2.0-beta.15::prebuilds/linux-x64/pty.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "node-pty@1.2.0-beta.15::prebuilds/linux-x64/pty.node",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "node-pty@1.2.0-beta.15::prebuilds/linux-x64/pty.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libonnxruntime.so",
+      "library": "libdl.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libonnxruntime.so",
+      "library": "librt.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libonnxruntime.so",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libonnxruntime.so",
+      "library": "libstdc++.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libonnxruntime.so",
+      "library": "libm.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libonnxruntime.so",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libonnxruntime.so",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libonnxruntime.so",
+      "library": "ld-linux-x86-64.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libsherpa-onnx-c-api.so",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libsherpa-onnx-c-api.so",
+      "library": "libonnxruntime.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libsherpa-onnx-c-api.so",
+      "library": "libdl.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libsherpa-onnx-c-api.so",
+      "library": "libm.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libsherpa-onnx-c-api.so",
+      "library": "libstdc++.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libsherpa-onnx-c-api.so",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libsherpa-onnx-c-api.so",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libsherpa-onnx-c-api.so",
+      "library": "ld-linux-x86-64.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libsherpa-onnx-cxx-api.so",
+      "library": "libsherpa-onnx-c-api.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libsherpa-onnx-cxx-api.so",
+      "library": "libpthread.so.0",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libsherpa-onnx-cxx-api.so",
+      "library": "libonnxruntime.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libsherpa-onnx-cxx-api.so",
+      "library": "libdl.so.2",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libsherpa-onnx-cxx-api.so",
+      "library": "libm.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libsherpa-onnx-cxx-api.so",
+      "library": "libstdc++.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libsherpa-onnx-cxx-api.so",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::libsherpa-onnx-cxx-api.so",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::sherpa-onnx.node",
+      "library": "libsherpa-onnx-c-api.so",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::sherpa-onnx.node",
+      "library": "libstdc++.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::sherpa-onnx.node",
+      "library": "libgcc_s.so.1",
+      "resolution": "loader/OS dependent; not established for Android"
+    },
+    {
+      "from": "sherpa-onnx-linux-x64@1.13.8::sherpa-onnx.node",
+      "library": "libc.so.6",
+      "resolution": "loader/OS dependent; not established for Android"
+    }
+  ],
+  "nodes": {
+    "@anthropic-ai/claude-agent-sdk-linux-x64@0.3.263::claude": {
+      "format": "ELF",
+      "interpreter": [
+        "/lib64/ld-linux-x86-64.so.2"
+      ],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "librt.so.1",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2",
+        "libpthread.so.0",
+        "libdl.so.2",
+        "libm.so.6"
+      ],
+      "package": "@anthropic-ai/claude-agent-sdk-linux-x64@0.3.263",
+      "path": "claude",
+      "size": 215662064
+    },
+    "@deepseek-ai/libreoffice-kit-wasm@0.1.5::assets/soffice.wasm": {
+      "format": "WASM",
+      "package": "@deepseek-ai/libreoffice-kit-wasm@0.1.5",
+      "path": "assets/soffice.wasm",
+      "size": 127844128
+    },
+    "@earendil-works/pi-coding-agent@1.3.0::examples/extensions/doom-overlay/doom/build/doom.wasm": {
+      "format": "WASM",
+      "package": "@earendil-works/pi-coding-agent@1.3.0",
+      "path": "examples/extensions/doom-overlay/doom/build/doom.wasm",
+      "size": 380169
+    },
+    "@earendil-works/pi-tui@1.3.0::native/darwin/prebuilds/darwin-arm64/darwin-platform.node": {
+      "format": "Mach-O",
+      "package": "@earendil-works/pi-tui@1.3.0",
+      "path": "native/darwin/prebuilds/darwin-arm64/darwin-platform.node",
+      "size": 52024
+    },
+    "@earendil-works/pi-tui@1.3.0::native/darwin/prebuilds/darwin-x64/darwin-platform.node": {
+      "format": "Mach-O",
+      "package": "@earendil-works/pi-tui@1.3.0",
+      "path": "native/darwin/prebuilds/darwin-x64/darwin-platform.node",
+      "size": 22784
+    },
+    "@earendil-works/pi-tui@1.3.0::native/linux/prebuilds/linux-arm64/linux-platform-x11.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "AArch64"
+      ],
+      "needed": [
+        "libxcb.so.1"
+      ],
+      "package": "@earendil-works/pi-tui@1.3.0",
+      "path": "native/linux/prebuilds/linux-arm64/linux-platform-x11.node",
+      "size": 67240
+    },
+    "@earendil-works/pi-tui@1.3.0::native/linux/prebuilds/linux-x64/linux-platform-x11.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libxcb.so.1"
+      ],
+      "package": "@earendil-works/pi-tui@1.3.0",
+      "path": "native/linux/prebuilds/linux-x64/linux-platform-x11.node",
+      "size": 18008
+    },
+    "@earendil-works/pi-tui@1.3.0::native/win32/prebuilds/win32-arm64/win32-platform.node": {
+      "format": "PE",
+      "package": "@earendil-works/pi-tui@1.3.0",
+      "path": "native/win32/prebuilds/win32-arm64/win32-platform.node",
+      "size": 9216
+    },
+    "@earendil-works/pi-tui@1.3.0::native/win32/prebuilds/win32-x64/win32-platform.node": {
+      "format": "PE",
+      "package": "@earendil-works/pi-tui@1.3.0",
+      "path": "native/win32/prebuilds/win32-x64/win32-platform.node",
+      "size": 8704
+    },
+    "@electron-internal/extract-zip@1.0.5::index.darwin-universal.node": {
+      "format": "extension-only",
+      "package": "@electron-internal/extract-zip@1.0.5",
+      "path": "index.darwin-universal.node",
+      "size": 1374112
+    },
+    "@electron-internal/extract-zip@1.0.5::index.linux-arm-gnueabihf.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "ARM"
+      ],
+      "needed": [
+        "libgcc_s.so.1",
+        "libpthread.so.0",
+        "libdl.so.2",
+        "libc.so.6",
+        "ld-linux-armhf.so.3"
+      ],
+      "package": "@electron-internal/extract-zip@1.0.5",
+      "path": "index.linux-arm-gnueabihf.node",
+      "size": 691300
+    },
+    "@electron-internal/extract-zip@1.0.5::index.linux-arm64-gnu.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "AArch64"
+      ],
+      "needed": [
+        "libgcc_s.so.1",
+        "libpthread.so.0",
+        "libdl.so.2",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "package": "@electron-internal/extract-zip@1.0.5",
+      "path": "index.linux-arm64-gnu.node",
+      "size": 668408
+    },
+    "@electron-internal/extract-zip@1.0.5::index.linux-arm64-musl.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "AArch64"
+      ],
+      "needed": [
+        "libgcc_s.so.1",
+        "libc.musl-aarch64.so.1"
+      ],
+      "package": "@electron-internal/extract-zip@1.0.5",
+      "path": "index.linux-arm64-musl.node",
+      "size": 725720
+    },
+    "@electron-internal/extract-zip@1.0.5::index.linux-ia32-gnu.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Intel 80386"
+      ],
+      "needed": [
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux.so.2"
+      ],
+      "package": "@electron-internal/extract-zip@1.0.5",
+      "path": "index.linux-ia32-gnu.node",
+      "size": 784884
+    },
+    "@electron-internal/extract-zip@1.0.5::index.linux-x64-gnu.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libgcc_s.so.1",
+        "libpthread.so.0",
+        "libdl.so.2",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "package": "@electron-internal/extract-zip@1.0.5",
+      "path": "index.linux-x64-gnu.node",
+      "size": 762832
+    },
+    "@electron-internal/extract-zip@1.0.5::index.linux-x64-musl.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libgcc_s.so.1",
+        "libc.musl-x86_64.so.1"
+      ],
+      "package": "@electron-internal/extract-zip@1.0.5",
+      "path": "index.linux-x64-musl.node",
+      "size": 762656
+    },
+    "@electron-internal/extract-zip@1.0.5::index.win32-arm64-msvc.node": {
+      "format": "PE",
+      "package": "@electron-internal/extract-zip@1.0.5",
+      "path": "index.win32-arm64-msvc.node",
+      "size": 640512
+    },
+    "@electron-internal/extract-zip@1.0.5::index.win32-x64-msvc.node": {
+      "format": "PE",
+      "package": "@electron-internal/extract-zip@1.0.5",
+      "path": "index.win32-x64-msvc.node",
+      "size": 870400
+    },
+    "@esbuild/linux-x64@0.21.5::bin/esbuild": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [],
+      "package": "@esbuild/linux-x64@0.21.5",
+      "path": "bin/esbuild",
+      "size": 9707520
+    },
+    "@esbuild/linux-x64@0.25.12::bin/esbuild": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [],
+      "package": "@esbuild/linux-x64@0.25.12",
+      "path": "bin/esbuild",
+      "size": 10358936
+    },
+    "@esbuild/linux-x64@0.28.1::bin/esbuild": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [],
+      "package": "@esbuild/linux-x64@0.28.1",
+      "path": "bin/esbuild",
+      "size": 11407472
+    },
+    "@esbuild/linux-x64@0.28.2::bin/esbuild": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [],
+      "package": "@esbuild/linux-x64@0.28.2",
+      "path": "bin/esbuild",
+      "size": 11427952
+    },
+    "@img/sharp-libvips-linux-x64@1.3.4::lib/libvips-cpp.so.8.18.7": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libresolv.so.2",
+        "libdl.so.2",
+        "libstdc++.so.6",
+        "libpthread.so.0",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "package": "@img/sharp-libvips-linux-x64@1.3.4",
+      "path": "lib/libvips-cpp.so.8.18.7",
+      "size": 18699288
+    },
+    "@img/sharp-linux-x64@0.35.5::lib/sharp-linux-x64-0.35.5.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libvips-cpp.so.8.18.7",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libpthread.so.0",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "package": "@img/sharp-linux-x64@0.35.5",
+      "path": "lib/sharp-linux-x64-0.35.5.node",
+      "size": 415112
+    },
+    "@koromix/koffi-linux-x64@3.1.1::linux_x64/koffi.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "package": "@koromix/koffi-linux-x64@3.1.1",
+      "path": "linux_x64/koffi.node",
+      "size": 1150432
+    },
+    "@koromix/koffi-linux-x64@3.1.1::musl_x64/koffi.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libstdc++.so.6",
+        "libc.musl-x86_64.so.1"
+      ],
+      "package": "@koromix/koffi-linux-x64@3.1.1",
+      "path": "musl_x64/koffi.node",
+      "size": 1210360
+    },
+    "@napi-rs/canvas-linux-x64-gnu@1.0.8::skia.linux-x64-gnu.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libdl.so.2",
+        "libgcc_s.so.1",
+        "librt.so.1",
+        "libpthread.so.0",
+        "libm.so.6",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "package": "@napi-rs/canvas-linux-x64-gnu@1.0.8",
+      "path": "skia.linux-x64-gnu.node",
+      "size": 33974784
+    },
+    "@openai/codex@0.153.4-linux-x64::vendor/x86_64-unknown-linux-musl/bin/codex": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [],
+      "package": "@openai/codex@0.153.4-linux-x64",
+      "path": "vendor/x86_64-unknown-linux-musl/bin/codex",
+      "size": 258659424
+    },
+    "@openai/codex@0.153.4-linux-x64::vendor/x86_64-unknown-linux-musl/bin/codex-code-mode-host": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [],
+      "package": "@openai/codex@0.153.4-linux-x64",
+      "path": "vendor/x86_64-unknown-linux-musl/bin/codex-code-mode-host",
+      "size": 69460032
+    },
+    "@openai/codex@0.153.4-linux-x64::vendor/x86_64-unknown-linux-musl/codex-path/rg": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [],
+      "package": "@openai/codex@0.153.4-linux-x64",
+      "path": "vendor/x86_64-unknown-linux-musl/codex-path/rg",
+      "size": 5408904
+    },
+    "@openai/codex@0.153.4-linux-x64::vendor/x86_64-unknown-linux-musl/codex-resources/bwrap": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [],
+      "package": "@openai/codex@0.153.4-linux-x64",
+      "path": "vendor/x86_64-unknown-linux-musl/codex-resources/bwrap",
+      "size": 529776
+    },
+    "@openai/codex@0.153.4-linux-x64::vendor/x86_64-unknown-linux-musl/codex-resources/zsh/bin/zsh": {
+      "format": "ELF",
+      "interpreter": [
+        "/lib64/ld-linux-x86-64.so.2"
+      ],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libtinfo.so.6",
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "package": "@openai/codex@0.153.4-linux-x64",
+      "path": "vendor/x86_64-unknown-linux-musl/codex-resources/zsh/bin/zsh",
+      "size": 898480
+    },
+    "@oxc-resolver/binding-linux-x64-gnu@11.20.0::resolver.linux-x64-gnu.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libgcc_s.so.1",
+        "librt.so.1",
+        "libpthread.so.0",
+        "libdl.so.2",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "package": "@oxc-resolver/binding-linux-x64-gnu@11.20.0",
+      "path": "resolver.linux-x64-gnu.node",
+      "size": 2342208
+    },
+    "@oxlint-tsgolint/linux-x64@7.0.2001::tsgolint": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [],
+      "package": "@oxlint-tsgolint/linux-x64@7.0.2001",
+      "path": "tsgolint",
+      "size": 22278306
+    },
+    "@oxlint/binding-linux-x64-gnu@1.81.0::oxlint.linux-x64-gnu.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libdl.so.2",
+        "libgcc_s.so.1",
+        "librt.so.1",
+        "libpthread.so.0",
+        "libm.so.6",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "package": "@oxlint/binding-linux-x64-gnu@1.81.0",
+      "path": "oxlint.linux-x64-gnu.node",
+      "size": 15852384
+    },
+    "@rolldown/binding-linux-x64-gnu@1.1.1::rolldown-binding.linux-x64-gnu.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libdl.so.2",
+        "libgcc_s.so.1",
+        "librt.so.1",
+        "libpthread.so.0",
+        "libm.so.6",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "package": "@rolldown/binding-linux-x64-gnu@1.1.1",
+      "path": "rolldown-binding.linux-x64-gnu.node",
+      "size": 27900800
+    },
+    "@rolldown/binding-linux-x64-gnu@1.2.7::rolldown-binding.linux-x64-gnu.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libdl.so.2",
+        "libgcc_s.so.1",
+        "librt.so.1",
+        "libpthread.so.0",
+        "libm.so.6",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "package": "@rolldown/binding-linux-x64-gnu@1.2.7",
+      "path": "rolldown-binding.linux-x64-gnu.node",
+      "size": 19312448
+    },
+    "@rollup/rollup-linux-x64-gnu@4.62.2::rollup.linux-x64-gnu.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libgcc_s.so.1",
+        "librt.so.1",
+        "libpthread.so.0",
+        "libm.so.6",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "package": "@rollup/rollup-linux-x64-gnu@4.62.2",
+      "path": "rollup.linux-x64-gnu.node",
+      "size": 2067608
+    },
+    "@silvia-odwyer/photon-node@0.3.4::photon_rs_bg.wasm": {
+      "format": "WASM",
+      "package": "@silvia-odwyer/photon-node@0.3.4",
+      "path": "photon_rs_bg.wasm",
+      "size": 1881634
+    },
+    "@trycua/cua-driver-linux-x64-gnu@0.28.0::cua_driver_node_runtime.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libgcc_s.so.1",
+        "libpthread.so.0",
+        "libdl.so.2",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "package": "@trycua/cua-driver-linux-x64-gnu@0.28.0",
+      "path": "cua_driver_node_runtime.node",
+      "size": 976224
+    },
+    "@trycua/cua-driver-linux-x64-gnu@0.28.0::libcua_driver_sdk.so": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libX11.so.6",
+        "libXi.so.6",
+        "libxkbcommon.so.0",
+        "libgcc_s.so.1",
+        "libpthread.so.0",
+        "libm.so.6",
+        "libdl.so.2",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "package": "@trycua/cua-driver-linux-x64-gnu@0.28.0",
+      "path": "libcua_driver_sdk.so",
+      "size": 41996880
+    },
+    "@ubjs/node-linux-x64-gnu@0.31.0-3::uniffi-runtime-napi.linux-x64-gnu.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libc.so.6",
+        "ld-linux-x86-64.so.2",
+        "libpthread.so.0",
+        "libdl.so.2"
+      ],
+      "package": "@ubjs/node-linux-x64-gnu@0.31.0-3",
+      "path": "uniffi-runtime-napi.linux-x64-gnu.node",
+      "size": 739944
+    },
+    "@vscode/ripgrep-linux-x64@1.18.0::bin/rg": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [],
+      "package": "@vscode/ripgrep-linux-x64@1.18.0",
+      "path": "bin/rg",
+      "size": 5728032
+    },
+    "bare-fs@4.8.1::prebuilds/android-arm/bare-fs.bare": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "ARM"
+      ],
+      "needed": [
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "package": "bare-fs@4.8.1",
+      "path": "prebuilds/android-arm/bare-fs.bare",
+      "size": 55048
+    },
+    "bare-fs@4.8.1::prebuilds/android-arm64/bare-fs.bare": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "AArch64"
+      ],
+      "needed": [
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "package": "bare-fs@4.8.1",
+      "path": "prebuilds/android-arm64/bare-fs.bare",
+      "size": 70488
+    },
+    "bare-fs@4.8.1::prebuilds/android-ia32/bare-fs.bare": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Intel 80386"
+      ],
+      "needed": [
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "package": "bare-fs@4.8.1",
+      "path": "prebuilds/android-ia32/bare-fs.bare",
+      "size": 60400
+    },
+    "bare-fs@4.8.1::prebuilds/android-x64/bare-fs.bare": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "package": "bare-fs@4.8.1",
+      "path": "prebuilds/android-x64/bare-fs.bare",
+      "size": 65240
+    },
+    "bare-fs@4.8.1::prebuilds/darwin-arm64/bare-fs.bare": {
+      "format": "Mach-O",
+      "package": "bare-fs@4.8.1",
+      "path": "prebuilds/darwin-arm64/bare-fs.bare",
+      "size": 94336
+    },
+    "bare-fs@4.8.1::prebuilds/darwin-x64/bare-fs.bare": {
+      "format": "Mach-O",
+      "package": "bare-fs@4.8.1",
+      "path": "prebuilds/darwin-x64/bare-fs.bare",
+      "size": 64800
+    },
+    "bare-fs@4.8.1::prebuilds/ios-arm64-simulator/bare-fs.bare": {
+      "format": "Mach-O",
+      "package": "bare-fs@4.8.1",
+      "path": "prebuilds/ios-arm64-simulator/bare-fs.bare",
+      "size": 94272
+    },
+    "bare-fs@4.8.1::prebuilds/ios-arm64/bare-fs.bare": {
+      "format": "Mach-O",
+      "package": "bare-fs@4.8.1",
+      "path": "prebuilds/ios-arm64/bare-fs.bare",
+      "size": 109848
+    },
+    "bare-fs@4.8.1::prebuilds/ios-x64-simulator/bare-fs.bare": {
+      "format": "Mach-O",
+      "package": "bare-fs@4.8.1",
+      "path": "prebuilds/ios-x64-simulator/bare-fs.bare",
+      "size": 64736
+    },
+    "bare-fs@4.8.1::prebuilds/linux-arm64/bare-fs.bare": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "AArch64"
+      ],
+      "needed": [
+        "libc.so.6"
+      ],
+      "package": "bare-fs@4.8.1",
+      "path": "prebuilds/linux-arm64/bare-fs.bare",
+      "size": 62840
+    },
+    "bare-fs@4.8.1::prebuilds/linux-x64/bare-fs.bare": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libc.so.6"
+      ],
+      "package": "bare-fs@4.8.1",
+      "path": "prebuilds/linux-x64/bare-fs.bare",
+      "size": 62208
+    },
+    "bare-fs@4.8.1::prebuilds/win32-arm64/bare-fs.bare": {
+      "format": "PE",
+      "package": "bare-fs@4.8.1",
+      "path": "prebuilds/win32-arm64/bare-fs.bare",
+      "size": 147456
+    },
+    "bare-fs@4.8.1::prebuilds/win32-x64/bare-fs.bare": {
+      "format": "PE",
+      "package": "bare-fs@4.8.1",
+      "path": "prebuilds/win32-x64/bare-fs.bare",
+      "size": 157184
+    },
+    "bare-path@3.1.2::prebuilds/android-arm/bare-path.bare": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "ARM"
+      ],
+      "needed": [
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "package": "bare-path@3.1.2",
+      "path": "prebuilds/android-arm/bare-path.bare",
+      "size": 6576
+    },
+    "bare-path@3.1.2::prebuilds/android-arm64/bare-path.bare": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "AArch64"
+      ],
+      "needed": [
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "package": "bare-path@3.1.2",
+      "path": "prebuilds/android-arm64/bare-path.bare",
+      "size": 8080
+    },
+    "bare-path@3.1.2::prebuilds/android-ia32/bare-path.bare": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Intel 80386"
+      ],
+      "needed": [
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "package": "bare-path@3.1.2",
+      "path": "prebuilds/android-ia32/bare-path.bare",
+      "size": 5964
+    },
+    "bare-path@3.1.2::prebuilds/android-x64/bare-path.bare": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "package": "bare-path@3.1.2",
+      "path": "prebuilds/android-x64/bare-path.bare",
+      "size": 7640
+    },
+    "bare-path@3.1.2::prebuilds/darwin-arm64/bare-path.bare": {
+      "format": "Mach-O",
+      "package": "bare-path@3.1.2",
+      "path": "prebuilds/darwin-arm64/bare-path.bare",
+      "size": 50976
+    },
+    "bare-path@3.1.2::prebuilds/darwin-x64/bare-path.bare": {
+      "format": "Mach-O",
+      "package": "bare-path@3.1.2",
+      "path": "prebuilds/darwin-x64/bare-path.bare",
+      "size": 17664
+    },
+    "bare-path@3.1.2::prebuilds/ios-arm64-simulator/bare-path.bare": {
+      "format": "Mach-O",
+      "package": "bare-path@3.1.2",
+      "path": "prebuilds/ios-arm64-simulator/bare-path.bare",
+      "size": 50912
+    },
+    "bare-path@3.1.2::prebuilds/ios-arm64/bare-path.bare": {
+      "format": "Mach-O",
+      "package": "bare-path@3.1.2",
+      "path": "prebuilds/ios-arm64/bare-path.bare",
+      "size": 66808
+    },
+    "bare-path@3.1.2::prebuilds/ios-x64-simulator/bare-path.bare": {
+      "format": "Mach-O",
+      "package": "bare-path@3.1.2",
+      "path": "prebuilds/ios-x64-simulator/bare-path.bare",
+      "size": 17600
+    },
+    "bare-path@3.1.2::prebuilds/linux-arm64/bare-path.bare": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "AArch64"
+      ],
+      "needed": [
+        "libc.so.6"
+      ],
+      "package": "bare-path@3.1.2",
+      "path": "prebuilds/linux-arm64/bare-path.bare",
+      "size": 8344
+    },
+    "bare-path@3.1.2::prebuilds/linux-x64/bare-path.bare": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libc.so.6"
+      ],
+      "package": "bare-path@3.1.2",
+      "path": "prebuilds/linux-x64/bare-path.bare",
+      "size": 7632
+    },
+    "bare-path@3.1.2::prebuilds/win32-arm64/bare-path.bare": {
+      "format": "PE",
+      "package": "bare-path@3.1.2",
+      "path": "prebuilds/win32-arm64/bare-path.bare",
+      "size": 109056
+    },
+    "bare-path@3.1.2::prebuilds/win32-x64/bare-path.bare": {
+      "format": "PE",
+      "package": "bare-path@3.1.2",
+      "path": "prebuilds/win32-x64/bare-path.bare",
+      "size": 113664
+    },
+    "bare-url@2.5.3::prebuilds/android-arm/bare-url.bare": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "ARM"
+      ],
+      "needed": [
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "package": "bare-url@2.5.3",
+      "path": "prebuilds/android-arm/bare-url.bare",
+      "size": 218980
+    },
+    "bare-url@2.5.3::prebuilds/android-arm64/bare-url.bare": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "AArch64"
+      ],
+      "needed": [
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "package": "bare-url@2.5.3",
+      "path": "prebuilds/android-arm64/bare-url.bare",
+      "size": 236688
+    },
+    "bare-url@2.5.3::prebuilds/android-ia32/bare-url.bare": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Intel 80386"
+      ],
+      "needed": [
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "package": "bare-url@2.5.3",
+      "path": "prebuilds/android-ia32/bare-url.bare",
+      "size": 233588
+    },
+    "bare-url@2.5.3::prebuilds/android-x64/bare-url.bare": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "package": "bare-url@2.5.3",
+      "path": "prebuilds/android-x64/bare-url.bare",
+      "size": 238264
+    },
+    "bare-url@2.5.3::prebuilds/darwin-arm64/bare-url.bare": {
+      "format": "Mach-O",
+      "package": "bare-url@2.5.3",
+      "path": "prebuilds/darwin-arm64/bare-url.bare",
+      "size": 294896
+    },
+    "bare-url@2.5.3::prebuilds/darwin-x64/bare-url.bare": {
+      "format": "Mach-O",
+      "package": "bare-url@2.5.3",
+      "path": "prebuilds/darwin-x64/bare-url.bare",
+      "size": 276104
+    },
+    "bare-url@2.5.3::prebuilds/ios-arm64-simulator/bare-url.bare": {
+      "format": "Mach-O",
+      "package": "bare-url@2.5.3",
+      "path": "prebuilds/ios-arm64-simulator/bare-url.bare",
+      "size": 294896
+    },
+    "bare-url@2.5.3::prebuilds/ios-arm64/bare-url.bare": {
+      "format": "Mach-O",
+      "package": "bare-url@2.5.3",
+      "path": "prebuilds/ios-arm64/bare-url.bare",
+      "size": 308904
+    },
+    "bare-url@2.5.3::prebuilds/ios-x64-simulator/bare-url.bare": {
+      "format": "Mach-O",
+      "package": "bare-url@2.5.3",
+      "path": "prebuilds/ios-x64-simulator/bare-url.bare",
+      "size": 276104
+    },
+    "bare-url@2.5.3::prebuilds/linux-arm64/bare-url.bare": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "AArch64"
+      ],
+      "needed": [
+        "libc.so.6"
+      ],
+      "package": "bare-url@2.5.3",
+      "path": "prebuilds/linux-arm64/bare-url.bare",
+      "size": 274928
+    },
+    "bare-url@2.5.3::prebuilds/linux-x64/bare-url.bare": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libc.so.6"
+      ],
+      "package": "bare-url@2.5.3",
+      "path": "prebuilds/linux-x64/bare-url.bare",
+      "size": 284352
+    },
+    "bare-url@2.5.3::prebuilds/win32-arm64/bare-url.bare": {
+      "format": "PE",
+      "package": "bare-url@2.5.3",
+      "path": "prebuilds/win32-arm64/bare-url.bare",
+      "size": 326144
+    },
+    "bare-url@2.5.3::prebuilds/win32-x64/bare-url.bare": {
+      "format": "PE",
+      "package": "bare-url@2.5.3",
+      "path": "prebuilds/win32-x64/bare-url.bare",
+      "size": 336896
+    },
+    "electron-winstaller@5.4.0::vendor/7z-arm64.dll": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/7z-arm64.dll",
+      "size": 1586176
+    },
+    "electron-winstaller@5.4.0::vendor/7z-arm64.exe": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/7z-arm64.exe",
+      "size": 487936
+    },
+    "electron-winstaller@5.4.0::vendor/7z-x64.dll": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/7z-x64.dll",
+      "size": 1609216
+    },
+    "electron-winstaller@5.4.0::vendor/7z-x64.exe": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/7z-x64.exe",
+      "size": 446976
+    },
+    "electron-winstaller@5.4.0::vendor/Microsoft.Deployment.Resources.dll": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/Microsoft.Deployment.Resources.dll",
+      "size": 45056
+    },
+    "electron-winstaller@5.4.0::vendor/Microsoft.Deployment.WindowsInstaller.dll": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/Microsoft.Deployment.WindowsInstaller.dll",
+      "size": 176128
+    },
+    "electron-winstaller@5.4.0::vendor/Setup.exe": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/Setup.exe",
+      "size": 223232
+    },
+    "electron-winstaller@5.4.0::vendor/Squirrel-Mono.exe": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/Squirrel-Mono.exe",
+      "size": 1856000
+    },
+    "electron-winstaller@5.4.0::vendor/Squirrel.com": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/Squirrel.com",
+      "size": 7680
+    },
+    "electron-winstaller@5.4.0::vendor/Squirrel.exe": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/Squirrel.exe",
+      "size": 1899520
+    },
+    "electron-winstaller@5.4.0::vendor/StubExecutable.exe": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/StubExecutable.exe",
+      "size": 288768
+    },
+    "electron-winstaller@5.4.0::vendor/SyncReleases.exe": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/SyncReleases.exe",
+      "size": 1892864
+    },
+    "electron-winstaller@5.4.0::vendor/WixNetFxExtension.dll": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/WixNetFxExtension.dll",
+      "size": 352256
+    },
+    "electron-winstaller@5.4.0::vendor/WriteZipToSetup.exe": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/WriteZipToSetup.exe",
+      "size": 112128
+    },
+    "electron-winstaller@5.4.0::vendor/candle.exe": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/candle.exe",
+      "size": 28672
+    },
+    "electron-winstaller@5.4.0::vendor/light.exe": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/light.exe",
+      "size": 32768
+    },
+    "electron-winstaller@5.4.0::vendor/nuget.exe": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/nuget.exe",
+      "size": 1664000
+    },
+    "electron-winstaller@5.4.0::vendor/rcedit.exe": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/rcedit.exe",
+      "size": 152576
+    },
+    "electron-winstaller@5.4.0::vendor/signtool.exe": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/signtool.exe",
+      "size": 237392
+    },
+    "electron-winstaller@5.4.0::vendor/wconsole.dll": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/wconsole.dll",
+      "size": 20480
+    },
+    "electron-winstaller@5.4.0::vendor/winterop.dll": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/winterop.dll",
+      "size": 115712
+    },
+    "electron-winstaller@5.4.0::vendor/wix.dll": {
+      "format": "PE",
+      "package": "electron-winstaller@5.4.0",
+      "path": "vendor/wix.dll",
+      "size": 1748992
+    },
+    "esbuild@0.21.5::bin/esbuild": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [],
+      "package": "esbuild@0.21.5",
+      "path": "bin/esbuild",
+      "size": 9707520
+    },
+    "esbuild@0.25.12::bin/esbuild": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [],
+      "package": "esbuild@0.25.12",
+      "path": "bin/esbuild",
+      "size": 10358936
+    },
+    "esbuild@0.28.1::bin/esbuild": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [],
+      "package": "esbuild@0.28.1",
+      "path": "bin/esbuild",
+      "size": 11407472
+    },
+    "esbuild@0.28.2::bin/esbuild": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [],
+      "package": "esbuild@0.28.2",
+      "path": "bin/esbuild",
+      "size": 11427952
+    },
+    "jscpd-linux-x64-gnu@5.1.2::bin/jscpd": {
+      "format": "ELF",
+      "interpreter": [
+        "/lib64/ld-linux-x86-64.so.2"
+      ],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libgcc_s.so.1",
+        "libm.so.6",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "package": "jscpd-linux-x64-gnu@5.1.2",
+      "path": "bin/jscpd",
+      "size": 4637712
+    },
+    "lefthook-linux-x64@2.1.12::bin/lefthook": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [],
+      "package": "lefthook-linux-x64@2.1.12",
+      "path": "bin/lefthook",
+      "size": 13631650
+    },
+    "lightningcss-linux-x64-gnu@1.33.0::lightningcss.linux-x64-gnu.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libgcc_s.so.1",
+        "librt.so.1",
+        "libpthread.so.0",
+        "libm.so.6",
+        "libdl.so.2",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "package": "lightningcss-linux-x64-gnu@1.33.0",
+      "path": "lightningcss.linux-x64-gnu.node",
+      "size": 10032264
+    },
+    "node-addon-require-builtin-linux-x64-gnu@0.1.9::prebuilt/linux-x64-gnu-napi-v9.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libdl.so.2",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libpthread.so.0",
+        "libc.so.6"
+      ],
+      "package": "node-addon-require-builtin-linux-x64-gnu@0.1.9",
+      "path": "prebuilt/linux-x64-gnu-napi-v9.node",
+      "size": 295392
+    },
+    "node-pty@1.2.0-beta.15::prebuilds/darwin-arm64/pty.node": {
+      "format": "Mach-O",
+      "package": "node-pty@1.2.0-beta.15",
+      "path": "prebuilds/darwin-arm64/pty.node",
+      "size": 86904
+    },
+    "node-pty@1.2.0-beta.15::prebuilds/darwin-arm64/spawn-helper": {
+      "format": "Mach-O",
+      "package": "node-pty@1.2.0-beta.15",
+      "path": "prebuilds/darwin-arm64/spawn-helper",
+      "size": 50480
+    },
+    "node-pty@1.2.0-beta.15::prebuilds/darwin-x64/pty.node": {
+      "format": "Mach-O",
+      "package": "node-pty@1.2.0-beta.15",
+      "path": "prebuilds/darwin-x64/pty.node",
+      "size": 58576
+    },
+    "node-pty@1.2.0-beta.15::prebuilds/darwin-x64/spawn-helper": {
+      "format": "Mach-O",
+      "package": "node-pty@1.2.0-beta.15",
+      "path": "prebuilds/darwin-x64/spawn-helper",
+      "size": 9248
+    },
+    "node-pty@1.2.0-beta.15::prebuilds/linux-arm64/pty.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "AArch64"
+      ],
+      "needed": [
+        "libutil.so.1",
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libpthread.so.0",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "package": "node-pty@1.2.0-beta.15",
+      "path": "prebuilds/linux-arm64/pty.node",
+      "size": 69112
+    },
+    "node-pty@1.2.0-beta.15::prebuilds/linux-x64/pty.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libutil.so.1",
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libpthread.so.0",
+        "libc.so.6"
+      ],
+      "package": "node-pty@1.2.0-beta.15",
+      "path": "prebuilds/linux-x64/pty.node",
+      "size": 75976
+    },
+    "node-pty@1.2.0-beta.15::prebuilds/win32-arm64/conpty.node": {
+      "format": "PE",
+      "package": "node-pty@1.2.0-beta.15",
+      "path": "prebuilds/win32-arm64/conpty.node",
+      "size": 279040
+    },
+    "node-pty@1.2.0-beta.15::prebuilds/win32-arm64/conpty/OpenConsole.exe": {
+      "format": "PE",
+      "package": "node-pty@1.2.0-beta.15",
+      "path": "prebuilds/win32-arm64/conpty/OpenConsole.exe",
+      "size": 1110560
+    },
+    "node-pty@1.2.0-beta.15::prebuilds/win32-arm64/conpty/conpty.dll": {
+      "format": "PE",
+      "package": "node-pty@1.2.0-beta.15",
+      "path": "prebuilds/win32-arm64/conpty/conpty.dll",
+      "size": 106528
+    },
+    "node-pty@1.2.0-beta.15::prebuilds/win32-arm64/conpty_console_list.node": {
+      "format": "PE",
+      "package": "node-pty@1.2.0-beta.15",
+      "path": "prebuilds/win32-arm64/conpty_console_list.node",
+      "size": 122368
+    },
+    "node-pty@1.2.0-beta.15::prebuilds/win32-x64/conpty.node": {
+      "format": "PE",
+      "package": "node-pty@1.2.0-beta.15",
+      "path": "prebuilds/win32-x64/conpty.node",
+      "size": 291328
+    },
+    "node-pty@1.2.0-beta.15::prebuilds/win32-x64/conpty/OpenConsole.exe": {
+      "format": "PE",
+      "package": "node-pty@1.2.0-beta.15",
+      "path": "prebuilds/win32-x64/conpty/OpenConsole.exe",
+      "size": 1062472
+    },
+    "node-pty@1.2.0-beta.15::prebuilds/win32-x64/conpty/conpty.dll": {
+      "format": "PE",
+      "package": "node-pty@1.2.0-beta.15",
+      "path": "prebuilds/win32-x64/conpty/conpty.dll",
+      "size": 110152
+    },
+    "node-pty@1.2.0-beta.15::prebuilds/win32-x64/conpty_console_list.node": {
+      "format": "PE",
+      "package": "node-pty@1.2.0-beta.15",
+      "path": "prebuilds/win32-x64/conpty_console_list.node",
+      "size": 134656
+    },
+    "node-pty@1.2.0-beta.15::third_party/conpty/1.25.260303002/win10-arm64/OpenConsole.exe": {
+      "format": "PE",
+      "package": "node-pty@1.2.0-beta.15",
+      "path": "third_party/conpty/1.25.260303002/win10-arm64/OpenConsole.exe",
+      "size": 1110560
+    },
+    "node-pty@1.2.0-beta.15::third_party/conpty/1.25.260303002/win10-arm64/conpty.dll": {
+      "format": "PE",
+      "package": "node-pty@1.2.0-beta.15",
+      "path": "third_party/conpty/1.25.260303002/win10-arm64/conpty.dll",
+      "size": 106528
+    },
+    "node-pty@1.2.0-beta.15::third_party/conpty/1.25.260303002/win10-x64/OpenConsole.exe": {
+      "format": "PE",
+      "package": "node-pty@1.2.0-beta.15",
+      "path": "third_party/conpty/1.25.260303002/win10-x64/OpenConsole.exe",
+      "size": 1062472
+    },
+    "node-pty@1.2.0-beta.15::third_party/conpty/1.25.260303002/win10-x64/conpty.dll": {
+      "format": "PE",
+      "package": "node-pty@1.2.0-beta.15",
+      "path": "third_party/conpty/1.25.260303002/win10-x64/conpty.dll",
+      "size": 110152
+    },
+    "pdfjs-dist@6.3.289::wasm/jbig2.wasm": {
+      "format": "WASM",
+      "package": "pdfjs-dist@6.3.289",
+      "path": "wasm/jbig2.wasm",
+      "size": 104852
+    },
+    "pdfjs-dist@6.3.289::wasm/openjpeg.wasm": {
+      "format": "WASM",
+      "package": "pdfjs-dist@6.3.289",
+      "path": "wasm/openjpeg.wasm",
+      "size": 252032
+    },
+    "pdfjs-dist@6.3.289::wasm/qcms_bg.wasm": {
+      "format": "WASM",
+      "package": "pdfjs-dist@6.3.289",
+      "path": "wasm/qcms_bg.wasm",
+      "size": 96589
+    },
+    "pdfjs-dist@6.3.289::wasm/quickjs-eval.wasm": {
+      "format": "WASM",
+      "package": "pdfjs-dist@6.3.289",
+      "path": "wasm/quickjs-eval.wasm",
+      "size": 469105
+    },
+    "playwright-core@1.63.0-alpha-2026-08-31::lib/webp_codec.wasm": {
+      "format": "WASM",
+      "package": "playwright-core@1.63.0-alpha-2026-08-31",
+      "path": "lib/webp_codec.wasm",
+      "size": 565369
+    },
+    "pnpm@11.28.5::dist/node_modules/@reflink/reflink-darwin-arm64/reflink.darwin-arm64.node": {
+      "format": "Mach-O",
+      "package": "pnpm@11.28.5",
+      "path": "dist/node_modules/@reflink/reflink-darwin-arm64/reflink.darwin-arm64.node",
+      "size": 404184
+    },
+    "pnpm@11.28.5::dist/node_modules/@reflink/reflink-darwin-x64/reflink.darwin-x64.node": {
+      "format": "Mach-O",
+      "package": "pnpm@11.28.5",
+      "path": "dist/node_modules/@reflink/reflink-darwin-x64/reflink.darwin-x64.node",
+      "size": 417392
+    },
+    "pnpm@11.28.5::dist/node_modules/@reflink/reflink-win32-arm64-msvc/reflink.win32-arm64-msvc.node": {
+      "format": "PE",
+      "package": "pnpm@11.28.5",
+      "path": "dist/node_modules/@reflink/reflink-win32-arm64-msvc/reflink.win32-arm64-msvc.node",
+      "size": 332800
+    },
+    "pnpm@11.28.5::dist/node_modules/@reflink/reflink-win32-x64-msvc/reflink.win32-x64-msvc.node": {
+      "format": "PE",
+      "package": "pnpm@11.28.5",
+      "path": "dist/node_modules/@reflink/reflink-win32-x64-msvc/reflink.win32-x64-msvc.node",
+      "size": 361472
+    },
+    "pnpm@11.28.5::dist/vendor/fastlist-0.3.0-x64.exe": {
+      "format": "PE",
+      "package": "pnpm@11.28.5",
+      "path": "dist/vendor/fastlist-0.3.0-x64.exe",
+      "size": 271872
+    },
+    "pnpm@11.28.5::dist/vendor/fastlist-0.3.0-x86.exe": {
+      "format": "PE",
+      "package": "pnpm@11.28.5",
+      "path": "dist/vendor/fastlist-0.3.0-x86.exe",
+      "size": 215040
+    },
+    "quickjs-wasi@3.6.2::extensions/crypto/crypto.so": {
+      "format": "WASM",
+      "package": "quickjs-wasi@3.6.2",
+      "path": "extensions/crypto/crypto.so",
+      "size": 120228
+    },
+    "quickjs-wasi@3.6.2::extensions/encoding/encoding.so": {
+      "format": "WASM",
+      "package": "quickjs-wasi@3.6.2",
+      "path": "extensions/encoding/encoding.so",
+      "size": 7715
+    },
+    "quickjs-wasi@3.6.2::extensions/headers/headers.so": {
+      "format": "WASM",
+      "package": "quickjs-wasi@3.6.2",
+      "path": "extensions/headers/headers.so",
+      "size": 8896
+    },
+    "quickjs-wasi@3.6.2::extensions/structured-clone/structured-clone.so": {
+      "format": "WASM",
+      "package": "quickjs-wasi@3.6.2",
+      "path": "extensions/structured-clone/structured-clone.so",
+      "size": 6007
+    },
+    "quickjs-wasi@3.6.2::extensions/url/url.so": {
+      "format": "WASM",
+      "package": "quickjs-wasi@3.6.2",
+      "path": "extensions/url/url.so",
+      "size": 397332
+    },
+    "quickjs-wasi@3.6.2::quickjs.wasm": {
+      "format": "WASM",
+      "package": "quickjs-wasi@3.6.2",
+      "path": "quickjs.wasm",
+      "size": 637405
+    },
+    "sherpa-onnx-linux-x64@1.13.8::libonnxruntime.so": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libdl.so.2",
+        "librt.so.1",
+        "libpthread.so.0",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "package": "sherpa-onnx-linux-x64@1.13.8",
+      "path": "libonnxruntime.so",
+      "size": 27026609
+    },
+    "sherpa-onnx-linux-x64@1.13.8::libsherpa-onnx-c-api.so": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libpthread.so.0",
+        "libonnxruntime.so",
+        "libdl.so.2",
+        "libm.so.6",
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "package": "sherpa-onnx-linux-x64@1.13.8",
+      "path": "libsherpa-onnx-c-api.so",
+      "size": 5116576
+    },
+    "sherpa-onnx-linux-x64@1.13.8::libsherpa-onnx-cxx-api.so": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libsherpa-onnx-c-api.so",
+        "libpthread.so.0",
+        "libonnxruntime.so",
+        "libdl.so.2",
+        "libm.so.6",
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "package": "sherpa-onnx-linux-x64@1.13.8",
+      "path": "libsherpa-onnx-cxx-api.so",
+      "size": 261840
+    },
+    "sherpa-onnx-linux-x64@1.13.8::sherpa-onnx.node": {
+      "format": "ELF",
+      "interpreter": [],
+      "machine": [
+        "Advanced Micro Devices X86-64"
+      ],
+      "needed": [
+        "libsherpa-onnx-c-api.so",
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "package": "sherpa-onnx-linux-x64@1.13.8",
+      "path": "sherpa-onnx.node",
+      "size": 974496
+    },
+    "shiki@2.5.0::dist/onig.wasm": {
+      "format": "WASM",
+      "package": "shiki@2.5.0",
+      "path": "dist/onig.wasm",
+      "size": 466610
+    },
+    "shiki@4.4.3::dist/onig.wasm": {
+      "format": "WASM",
+      "package": "shiki@4.4.3",
+      "path": "dist/onig.wasm",
+      "size": 466610
+    }
+  }
+}

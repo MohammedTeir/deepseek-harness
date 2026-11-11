@@ -1,0 +1,18 @@
+{
+  "closures": {
+    "apps/cli": 696,
+    "apps/desktop": 43,
+    "apps/desktop-host": 699,
+    "apps/web": 2,
+    "packages/bundle/base": 460,
+    "packages/bundle/sdk-minimal": 178,
+    "packages/bundle/web-app": 309
+  },
+  "edges": 8696,
+  "importers": 394,
+  "installedPackageIdentities": 1426,
+  "packageMetadata": 1755,
+  "platformGated": 342,
+  "resolvedSnapshots": 1762,
+  "unresolved": 0
+}
