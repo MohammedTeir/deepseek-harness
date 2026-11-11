@@ -1,0 +1,60 @@
+{
+  "previousAuditedFork": "494ef6e803bfc25af58c22e2209d45ad56c1727d",
+  "syncedFork": "839c15b42c91b1ede420625dab722283870ec0a9",
+  "includedUpstream": "e8f7b93a344964de3dca1ace9e72b6e4d6de87cb",
+  "changedFiles": 3479,
+  "versionBefore": "0.2.2-rc.1",
+  "versionAfter": "0.2.2-rc.2",
+  "nodeRequirementUnchanged": ">=24.9.0",
+  "packageManagerUnchanged": "pnpm@11.28.5",
+  "lockCounts": {
+    "importers": {
+      "before": 394,
+      "after": 398
+    },
+    "packages": {
+      "before": 1755,
+      "after": 1755
+    },
+    "snapshots": {
+      "before": 1762,
+      "after": 1763
+    }
+  },
+  "addedPackageIdentities": [
+    "@browserbasehq/stagehand@4.4.0",
+    "@deepseek-ai/libreoffice-kit-darwin-arm64@0.2.3",
+    "@deepseek-ai/libreoffice-kit-darwin-x64@0.2.3",
+    "@deepseek-ai/libreoffice-kit-wasm@0.2.3",
+    "@deepseek-ai/libreoffice-kit-win32-arm64@0.2.3",
+    "@deepseek-ai/libreoffice-kit-win32-x64@0.2.3",
+    "@deepseek-ai/libreoffice-kit@0.2.3",
+    "zod@4.6.6"
+  ],
+  "removedPackageIdentities": [
+    "@browserbasehq/stagehand@4.1.0",
+    "@deepseek-ai/libreoffice-kit-darwin-arm64@0.1.5",
+    "@deepseek-ai/libreoffice-kit-darwin-x64@0.1.5",
+    "@deepseek-ai/libreoffice-kit-wasm@0.1.5",
+    "@deepseek-ai/libreoffice-kit-win32-arm64@0.1.5",
+    "@deepseek-ai/libreoffice-kit-win32-x64@0.1.5",
+    "@deepseek-ai/libreoffice-kit@0.1.5",
+    "zod@4.4.3"
+  ],
+  "addedImporters": [
+    "packages/client/ui-account-notifications",
+    "packages/document/office-kit",
+    "packages/document/tool-office",
+    "packages/experimental/cua-windows",
+    "packages/experimental/terminal-panel",
+    "packages/util/error",
+    "packages/util/ripgrep"
+  ],
+  "removedImporters": [
+    "packages/api/account-controller",
+    "packages/credentials/deepseek-account-platform",
+    "packages/document/office-to-pdf"
+  ],
+  "scope": "Read-only impact assessment; full audit regeneration and tests on synced revision not performed",
+  "phase2Started": false
+}

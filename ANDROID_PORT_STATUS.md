@@ -4,6 +4,14 @@
 
 Phase 0 is VERIFIED. Phase 1 audit artifacts are IMPLEMENTED and awaiting review; Gate 1 is not declared accepted. Phase 2 is NOT STARTED. This branch contains documentation and read-only audit tooling/data only. No Android app, runtime prototype, upstream workflow, frontend redesign or replacement agent is introduced. The prior local prototype is archived separately and supplies no Android acceptance evidence here.
 
+## Upstream sync: audit refresh required
+
+The fork now includes upstream release `0.2.2-rc.2`. The [sync impact record](audit/android/upstream-sync-impact.json) identifies both revisions: 3,479 files changed; importers increased from 394 to 398 and resolved snapshots from 1,762 to 1,763. Eight external package identities were replaced, including LibreOffice kit, Stagehand and Zod. The master project specification is unchanged.
+
+All graph counts and test results below belong to the previous audited revision. They are historical evidence, not validation of synced master. Refresh the dependency/payload graph, native matrix and affected source findings; reinstall from the new frozen lockfile before repeating the original frontend build and documentation checks. Review changed approval/cancellation, subprocess, credential/account, profile and frontend code. Node requirements, native lock loader and terminal-bash defaults are unchanged in the compared files, so the existing core blockers remain.
+
+Only the impact assessment has run. The synced source has not been merged into this audit branch or revalidated, and Phase 2 remains NOT STARTED. Preserve the original evidence until replacement records have been generated against the new baseline.
+
 ## Baseline and verification
 
 [Exact baseline and environment](audit/android/baseline.json) records the current fork, original upstream ancestor and observed upstream HEAD separately. The checkout started clean, `origin` points to the author's fork, `upstream` points to the original project, and `feature/android-port` was created from the current fork master. No source update from newer upstream was merged.
