@@ -1,88 +1,130 @@
 {
   "apps/cli": {
-    "package:@deepseek-ai/libreoffice-kit-darwin-arm64@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-darwin-arm64@0.2.3": [
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-skill-office",
-        "to": "workspace:packages/skill/skill-office"
+        "name": "@deepseek-ai/dsh-sdk-app",
+        "to": "workspace:packages/bundle/sdk-app"
+      },
+      {
+        "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-office-kit",
+        "to": "workspace:packages/document/office-kit"
       },
       {
         "kind": "dependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-darwin-arm64",
-        "to": "package:@deepseek-ai/libreoffice-kit-darwin-arm64@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-darwin-arm64@0.2.3"
       }
     ],
-    "package:@deepseek-ai/libreoffice-kit-darwin-x64@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-darwin-x64@0.2.3": [
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-skill-office",
-        "to": "workspace:packages/skill/skill-office"
+        "name": "@deepseek-ai/dsh-sdk-app",
+        "to": "workspace:packages/bundle/sdk-app"
+      },
+      {
+        "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-office-kit",
+        "to": "workspace:packages/document/office-kit"
       },
       {
         "kind": "dependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-darwin-x64",
-        "to": "package:@deepseek-ai/libreoffice-kit-darwin-x64@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-darwin-x64@0.2.3"
       }
     ],
-    "package:@deepseek-ai/libreoffice-kit-wasm@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-wasm@0.2.3": [
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-skill-office",
-        "to": "workspace:packages/skill/skill-office"
+        "name": "@deepseek-ai/dsh-sdk-app",
+        "to": "workspace:packages/bundle/sdk-app"
+      },
+      {
+        "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-office-kit",
+        "to": "workspace:packages/document/office-kit"
       },
       {
         "kind": "dependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-wasm",
-        "to": "package:@deepseek-ai/libreoffice-kit-wasm@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-wasm@0.2.3"
       }
     ],
-    "package:@deepseek-ai/libreoffice-kit-win32-arm64@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-win32-arm64@0.2.3": [
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-skill-office",
-        "to": "workspace:packages/skill/skill-office"
+        "name": "@deepseek-ai/dsh-sdk-app",
+        "to": "workspace:packages/bundle/sdk-app"
+      },
+      {
+        "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-office-kit",
+        "to": "workspace:packages/document/office-kit"
       },
       {
         "kind": "dependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-win32-arm64",
-        "to": "package:@deepseek-ai/libreoffice-kit-win32-arm64@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-win32-arm64@0.2.3"
       }
     ],
-    "package:@deepseek-ai/libreoffice-kit-win32-x64@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-win32-x64@0.2.3": [
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-skill-office",
-        "to": "workspace:packages/skill/skill-office"
+        "name": "@deepseek-ai/dsh-sdk-app",
+        "to": "workspace:packages/bundle/sdk-app"
+      },
+      {
+        "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-office-kit",
+        "to": "workspace:packages/document/office-kit"
       },
       {
         "kind": "dependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-win32-x64",
-        "to": "package:@deepseek-ai/libreoffice-kit-win32-x64@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-win32-x64@0.2.3"
+      }
+    ],
+    "package:@deepseek-ai/libreoffice-kit@0.2.3": [
+      {
+        "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-sdk-app",
+        "to": "workspace:packages/bundle/sdk-app"
+      },
+      {
+        "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-office-kit",
+        "to": "workspace:packages/document/office-kit"
+      },
+      {
+        "kind": "dependencies",
+        "name": "@deepseek-ai/libreoffice-kit",
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       }
     ],
     "package:@img/sharp-darwin-arm64@0.35.5": [
@@ -898,6 +940,11 @@
       },
       {
         "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
+      },
+      {
+        "kind": "dependencies",
         "name": "@vscode/ripgrep",
         "to": "package:@vscode/ripgrep@1.18.0"
       },
@@ -912,6 +959,11 @@
         "kind": "dependencies",
         "name": "@deepseek-ai/dsh-tool-fs-search",
         "to": "workspace:packages/fs/tool-fs-search"
+      },
+      {
+        "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
       },
       {
         "kind": "dependencies",
@@ -932,6 +984,11 @@
       },
       {
         "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
+      },
+      {
+        "kind": "dependencies",
         "name": "@vscode/ripgrep",
         "to": "package:@vscode/ripgrep@1.18.0"
       },
@@ -946,6 +1003,11 @@
         "kind": "dependencies",
         "name": "@deepseek-ai/dsh-tool-fs-search",
         "to": "workspace:packages/fs/tool-fs-search"
+      },
+      {
+        "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
       },
       {
         "kind": "dependencies",
@@ -966,6 +1028,11 @@
       },
       {
         "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
+      },
+      {
+        "kind": "dependencies",
         "name": "@vscode/ripgrep",
         "to": "package:@vscode/ripgrep@1.18.0"
       },
@@ -980,6 +1047,11 @@
         "kind": "dependencies",
         "name": "@deepseek-ai/dsh-tool-fs-search",
         "to": "workspace:packages/fs/tool-fs-search"
+      },
+      {
+        "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
       },
       {
         "kind": "dependencies",
@@ -1000,6 +1072,11 @@
       },
       {
         "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
+      },
+      {
+        "kind": "dependencies",
         "name": "@vscode/ripgrep",
         "to": "package:@vscode/ripgrep@1.18.0"
       },
@@ -1014,6 +1091,11 @@
         "kind": "dependencies",
         "name": "@deepseek-ai/dsh-tool-fs-search",
         "to": "workspace:packages/fs/tool-fs-search"
+      },
+      {
+        "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
       },
       {
         "kind": "dependencies",
@@ -1034,6 +1116,11 @@
       },
       {
         "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
+      },
+      {
+        "kind": "dependencies",
         "name": "@vscode/ripgrep",
         "to": "package:@vscode/ripgrep@1.18.0"
       },
@@ -1048,6 +1135,11 @@
         "kind": "dependencies",
         "name": "@deepseek-ai/dsh-tool-fs-search",
         "to": "workspace:packages/fs/tool-fs-search"
+      },
+      {
+        "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
       },
       {
         "kind": "dependencies",
@@ -1068,6 +1160,11 @@
       },
       {
         "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
+      },
+      {
+        "kind": "dependencies",
         "name": "@vscode/ripgrep",
         "to": "package:@vscode/ripgrep@1.18.0"
       },
@@ -1082,6 +1179,11 @@
         "kind": "dependencies",
         "name": "@deepseek-ai/dsh-tool-fs-search",
         "to": "workspace:packages/fs/tool-fs-search"
+      },
+      {
+        "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
       },
       {
         "kind": "dependencies",
@@ -1404,7 +1506,7 @@
     ]
   },
   "apps/desktop": {
-    "package:@deepseek-ai/libreoffice-kit-darwin-arm64@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-darwin-arm64@0.2.3": [
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/dsh-client-shortcuts",
@@ -1423,15 +1525,15 @@
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-darwin-arm64",
-        "to": "package:@deepseek-ai/libreoffice-kit-darwin-arm64@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-darwin-arm64@0.2.3"
       }
     ],
-    "package:@deepseek-ai/libreoffice-kit-darwin-x64@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-darwin-x64@0.2.3": [
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/dsh-client-shortcuts",
@@ -1450,15 +1552,15 @@
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-darwin-x64",
-        "to": "package:@deepseek-ai/libreoffice-kit-darwin-x64@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-darwin-x64@0.2.3"
       }
     ],
-    "package:@deepseek-ai/libreoffice-kit-wasm@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-wasm@0.2.3": [
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/dsh-client-shortcuts",
@@ -1477,15 +1579,15 @@
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-wasm",
-        "to": "package:@deepseek-ai/libreoffice-kit-wasm@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-wasm@0.2.3"
       }
     ],
-    "package:@deepseek-ai/libreoffice-kit-win32-arm64@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-win32-arm64@0.2.3": [
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/dsh-client-shortcuts",
@@ -1504,15 +1606,15 @@
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-win32-arm64",
-        "to": "package:@deepseek-ai/libreoffice-kit-win32-arm64@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-win32-arm64@0.2.3"
       }
     ],
-    "package:@deepseek-ai/libreoffice-kit-win32-x64@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-win32-x64@0.2.3": [
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/dsh-client-shortcuts",
@@ -1531,12 +1633,34 @@
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-win32-x64",
-        "to": "package:@deepseek-ai/libreoffice-kit-win32-x64@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-win32-x64@0.2.3"
+      }
+    ],
+    "package:@deepseek-ai/libreoffice-kit@0.2.3": [
+      {
+        "kind": "devDependencies",
+        "name": "@deepseek-ai/dsh-client-shortcuts",
+        "to": "workspace:packages/client/shortcuts"
+      },
+      {
+        "kind": "devDependencies",
+        "name": "@deepseek-ai/dsh-client-test-runtime",
+        "to": "workspace:packages/test-support/client-runtime"
+      },
+      {
+        "kind": "devDependencies",
+        "name": "@deepseek-ai/dsh-web-app",
+        "to": "workspace:packages/bundle/web-app"
+      },
+      {
+        "kind": "devDependencies",
+        "name": "@deepseek-ai/libreoffice-kit",
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       }
     ],
     "package:@electron-internal/extract-zip@1.0.5": [
@@ -4932,23 +5056,18 @@
     "package:@vscode/ripgrep-darwin-arm64@1.18.0": [
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-shortcuts",
-        "to": "workspace:packages/client/shortcuts"
+        "name": "@deepseek-ai/dsh-client-ui-file-actions",
+        "to": "workspace:packages/client/ui-file-actions"
       },
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-test-runtime",
-        "to": "workspace:packages/test-support/client-runtime"
-      },
-      {
-        "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-base",
-        "to": "workspace:packages/bundle/base"
+        "name": "@deepseek-ai/dsh-api-workspace-files",
+        "to": "workspace:packages/api/workspace-files"
       },
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-tool-fs-search",
-        "to": "workspace:packages/fs/tool-fs-search"
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
       },
       {
         "kind": "dependencies",
@@ -4964,23 +5083,18 @@
     "package:@vscode/ripgrep-darwin-x64@1.18.0": [
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-shortcuts",
-        "to": "workspace:packages/client/shortcuts"
+        "name": "@deepseek-ai/dsh-client-ui-file-actions",
+        "to": "workspace:packages/client/ui-file-actions"
       },
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-test-runtime",
-        "to": "workspace:packages/test-support/client-runtime"
-      },
-      {
-        "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-base",
-        "to": "workspace:packages/bundle/base"
+        "name": "@deepseek-ai/dsh-api-workspace-files",
+        "to": "workspace:packages/api/workspace-files"
       },
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-tool-fs-search",
-        "to": "workspace:packages/fs/tool-fs-search"
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
       },
       {
         "kind": "dependencies",
@@ -4996,23 +5110,18 @@
     "package:@vscode/ripgrep-linux-arm64@1.18.0": [
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-shortcuts",
-        "to": "workspace:packages/client/shortcuts"
+        "name": "@deepseek-ai/dsh-client-ui-file-actions",
+        "to": "workspace:packages/client/ui-file-actions"
       },
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-test-runtime",
-        "to": "workspace:packages/test-support/client-runtime"
-      },
-      {
-        "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-base",
-        "to": "workspace:packages/bundle/base"
+        "name": "@deepseek-ai/dsh-api-workspace-files",
+        "to": "workspace:packages/api/workspace-files"
       },
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-tool-fs-search",
-        "to": "workspace:packages/fs/tool-fs-search"
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
       },
       {
         "kind": "dependencies",
@@ -5028,23 +5137,18 @@
     "package:@vscode/ripgrep-linux-arm@1.18.0": [
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-shortcuts",
-        "to": "workspace:packages/client/shortcuts"
+        "name": "@deepseek-ai/dsh-client-ui-file-actions",
+        "to": "workspace:packages/client/ui-file-actions"
       },
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-test-runtime",
-        "to": "workspace:packages/test-support/client-runtime"
-      },
-      {
-        "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-base",
-        "to": "workspace:packages/bundle/base"
+        "name": "@deepseek-ai/dsh-api-workspace-files",
+        "to": "workspace:packages/api/workspace-files"
       },
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-tool-fs-search",
-        "to": "workspace:packages/fs/tool-fs-search"
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
       },
       {
         "kind": "dependencies",
@@ -5060,23 +5164,18 @@
     "package:@vscode/ripgrep-linux-ia32@1.18.0": [
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-shortcuts",
-        "to": "workspace:packages/client/shortcuts"
+        "name": "@deepseek-ai/dsh-client-ui-file-actions",
+        "to": "workspace:packages/client/ui-file-actions"
       },
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-test-runtime",
-        "to": "workspace:packages/test-support/client-runtime"
-      },
-      {
-        "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-base",
-        "to": "workspace:packages/bundle/base"
+        "name": "@deepseek-ai/dsh-api-workspace-files",
+        "to": "workspace:packages/api/workspace-files"
       },
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-tool-fs-search",
-        "to": "workspace:packages/fs/tool-fs-search"
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
       },
       {
         "kind": "dependencies",
@@ -5092,23 +5191,18 @@
     "package:@vscode/ripgrep-linux-ppc64@1.18.0": [
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-shortcuts",
-        "to": "workspace:packages/client/shortcuts"
+        "name": "@deepseek-ai/dsh-client-ui-file-actions",
+        "to": "workspace:packages/client/ui-file-actions"
       },
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-test-runtime",
-        "to": "workspace:packages/test-support/client-runtime"
-      },
-      {
-        "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-base",
-        "to": "workspace:packages/bundle/base"
+        "name": "@deepseek-ai/dsh-api-workspace-files",
+        "to": "workspace:packages/api/workspace-files"
       },
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-tool-fs-search",
-        "to": "workspace:packages/fs/tool-fs-search"
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
       },
       {
         "kind": "dependencies",
@@ -5124,23 +5218,18 @@
     "package:@vscode/ripgrep-linux-riscv64@1.18.0": [
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-shortcuts",
-        "to": "workspace:packages/client/shortcuts"
+        "name": "@deepseek-ai/dsh-client-ui-file-actions",
+        "to": "workspace:packages/client/ui-file-actions"
       },
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-test-runtime",
-        "to": "workspace:packages/test-support/client-runtime"
-      },
-      {
-        "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-base",
-        "to": "workspace:packages/bundle/base"
+        "name": "@deepseek-ai/dsh-api-workspace-files",
+        "to": "workspace:packages/api/workspace-files"
       },
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-tool-fs-search",
-        "to": "workspace:packages/fs/tool-fs-search"
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
       },
       {
         "kind": "dependencies",
@@ -5156,23 +5245,18 @@
     "package:@vscode/ripgrep-linux-s390x@1.18.0": [
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-shortcuts",
-        "to": "workspace:packages/client/shortcuts"
+        "name": "@deepseek-ai/dsh-client-ui-file-actions",
+        "to": "workspace:packages/client/ui-file-actions"
       },
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-test-runtime",
-        "to": "workspace:packages/test-support/client-runtime"
-      },
-      {
-        "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-base",
-        "to": "workspace:packages/bundle/base"
+        "name": "@deepseek-ai/dsh-api-workspace-files",
+        "to": "workspace:packages/api/workspace-files"
       },
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-tool-fs-search",
-        "to": "workspace:packages/fs/tool-fs-search"
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
       },
       {
         "kind": "dependencies",
@@ -5188,23 +5272,18 @@
     "package:@vscode/ripgrep-linux-x64@1.18.0": [
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-shortcuts",
-        "to": "workspace:packages/client/shortcuts"
+        "name": "@deepseek-ai/dsh-client-ui-file-actions",
+        "to": "workspace:packages/client/ui-file-actions"
       },
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-test-runtime",
-        "to": "workspace:packages/test-support/client-runtime"
-      },
-      {
-        "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-base",
-        "to": "workspace:packages/bundle/base"
+        "name": "@deepseek-ai/dsh-api-workspace-files",
+        "to": "workspace:packages/api/workspace-files"
       },
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-tool-fs-search",
-        "to": "workspace:packages/fs/tool-fs-search"
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
       },
       {
         "kind": "dependencies",
@@ -5220,23 +5299,18 @@
     "package:@vscode/ripgrep-win32-arm64@1.18.0": [
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-shortcuts",
-        "to": "workspace:packages/client/shortcuts"
+        "name": "@deepseek-ai/dsh-client-ui-file-actions",
+        "to": "workspace:packages/client/ui-file-actions"
       },
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-test-runtime",
-        "to": "workspace:packages/test-support/client-runtime"
-      },
-      {
-        "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-base",
-        "to": "workspace:packages/bundle/base"
+        "name": "@deepseek-ai/dsh-api-workspace-files",
+        "to": "workspace:packages/api/workspace-files"
       },
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-tool-fs-search",
-        "to": "workspace:packages/fs/tool-fs-search"
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
       },
       {
         "kind": "dependencies",
@@ -5252,23 +5326,18 @@
     "package:@vscode/ripgrep-win32-ia32@1.18.0": [
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-shortcuts",
-        "to": "workspace:packages/client/shortcuts"
+        "name": "@deepseek-ai/dsh-client-ui-file-actions",
+        "to": "workspace:packages/client/ui-file-actions"
       },
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-test-runtime",
-        "to": "workspace:packages/test-support/client-runtime"
-      },
-      {
-        "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-base",
-        "to": "workspace:packages/bundle/base"
+        "name": "@deepseek-ai/dsh-api-workspace-files",
+        "to": "workspace:packages/api/workspace-files"
       },
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-tool-fs-search",
-        "to": "workspace:packages/fs/tool-fs-search"
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
       },
       {
         "kind": "dependencies",
@@ -5284,23 +5353,18 @@
     "package:@vscode/ripgrep-win32-x64@1.18.0": [
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-shortcuts",
-        "to": "workspace:packages/client/shortcuts"
+        "name": "@deepseek-ai/dsh-client-ui-file-actions",
+        "to": "workspace:packages/client/ui-file-actions"
       },
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-test-runtime",
-        "to": "workspace:packages/test-support/client-runtime"
-      },
-      {
-        "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-base",
-        "to": "workspace:packages/bundle/base"
+        "name": "@deepseek-ai/dsh-api-workspace-files",
+        "to": "workspace:packages/api/workspace-files"
       },
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-tool-fs-search",
-        "to": "workspace:packages/fs/tool-fs-search"
+        "name": "@deepseek-ai/dsh-util-ripgrep",
+        "to": "workspace:packages/util/ripgrep"
       },
       {
         "kind": "dependencies",
@@ -5617,21 +5681,16 @@
     "package:node-addon-api@7.1.1": [
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-shortcuts",
-        "to": "workspace:packages/client/shortcuts"
+        "name": "@deepseek-ai/dsh-client-ui-file-actions",
+        "to": "workspace:packages/client/ui-file-actions"
       },
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-test-runtime",
-        "to": "workspace:packages/test-support/client-runtime"
+        "name": "@deepseek-ai/dsh-api-workspace-files",
+        "to": "workspace:packages/api/workspace-files"
       },
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-base",
-        "to": "workspace:packages/bundle/base"
-      },
-      {
-        "kind": "dependencies",
         "name": "@deepseek-ai/dsh-subprocess-local",
         "to": "workspace:packages/subprocess/subprocess-local"
       },
@@ -5819,21 +5878,16 @@
     "package:node-pty@1.2.0-beta.15(patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0)": [
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-shortcuts",
-        "to": "workspace:packages/client/shortcuts"
+        "name": "@deepseek-ai/dsh-client-ui-file-actions",
+        "to": "workspace:packages/client/ui-file-actions"
       },
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-client-test-runtime",
-        "to": "workspace:packages/test-support/client-runtime"
+        "name": "@deepseek-ai/dsh-api-workspace-files",
+        "to": "workspace:packages/api/workspace-files"
       },
       {
         "kind": "devDependencies",
-        "name": "@deepseek-ai/dsh-base",
-        "to": "workspace:packages/bundle/base"
-      },
-      {
-        "kind": "dependencies",
         "name": "@deepseek-ai/dsh-subprocess-local",
         "to": "workspace:packages/subprocess/subprocess-local"
       },
@@ -6177,7 +6231,7 @@
     ]
   },
   "apps/web": {
-    "package:@deepseek-ai/libreoffice-kit-darwin-arm64@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-darwin-arm64@0.2.3": [
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/dsh-client-test-runtime",
@@ -6191,15 +6245,15 @@
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-darwin-arm64",
-        "to": "package:@deepseek-ai/libreoffice-kit-darwin-arm64@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-darwin-arm64@0.2.3"
       }
     ],
-    "package:@deepseek-ai/libreoffice-kit-darwin-x64@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-darwin-x64@0.2.3": [
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/dsh-client-test-runtime",
@@ -6213,15 +6267,15 @@
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-darwin-x64",
-        "to": "package:@deepseek-ai/libreoffice-kit-darwin-x64@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-darwin-x64@0.2.3"
       }
     ],
-    "package:@deepseek-ai/libreoffice-kit-wasm@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-wasm@0.2.3": [
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/dsh-client-test-runtime",
@@ -6235,15 +6289,15 @@
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-wasm",
-        "to": "package:@deepseek-ai/libreoffice-kit-wasm@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-wasm@0.2.3"
       }
     ],
-    "package:@deepseek-ai/libreoffice-kit-win32-arm64@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-win32-arm64@0.2.3": [
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/dsh-client-test-runtime",
@@ -6257,15 +6311,15 @@
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-win32-arm64",
-        "to": "package:@deepseek-ai/libreoffice-kit-win32-arm64@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-win32-arm64@0.2.3"
       }
     ],
-    "package:@deepseek-ai/libreoffice-kit-win32-x64@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-win32-x64@0.2.3": [
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/dsh-client-test-runtime",
@@ -6279,12 +6333,29 @@
       {
         "kind": "devDependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-win32-x64",
-        "to": "package:@deepseek-ai/libreoffice-kit-win32-x64@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-win32-x64@0.2.3"
+      }
+    ],
+    "package:@deepseek-ai/libreoffice-kit@0.2.3": [
+      {
+        "kind": "devDependencies",
+        "name": "@deepseek-ai/dsh-client-test-runtime",
+        "to": "workspace:packages/test-support/client-runtime"
+      },
+      {
+        "kind": "devDependencies",
+        "name": "@deepseek-ai/dsh-web-app",
+        "to": "workspace:packages/bundle/web-app"
+      },
+      {
+        "kind": "devDependencies",
+        "name": "@deepseek-ai/libreoffice-kit",
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       }
     ],
     "package:@esbuild/aix-ppc64@0.25.12": [
@@ -9757,7 +9828,7 @@
         "to": "workspace:packages/fs/tool-fs-search"
       },
       {
-        "kind": "dependencies",
+        "kind": "devDependencies",
         "name": "@vscode/ripgrep",
         "to": "package:@vscode/ripgrep@1.18.0"
       },
@@ -9784,7 +9855,7 @@
         "to": "workspace:packages/fs/tool-fs-search"
       },
       {
-        "kind": "dependencies",
+        "kind": "devDependencies",
         "name": "@vscode/ripgrep",
         "to": "package:@vscode/ripgrep@1.18.0"
       },
@@ -9811,7 +9882,7 @@
         "to": "workspace:packages/fs/tool-fs-search"
       },
       {
-        "kind": "dependencies",
+        "kind": "devDependencies",
         "name": "@vscode/ripgrep",
         "to": "package:@vscode/ripgrep@1.18.0"
       },
@@ -9838,7 +9909,7 @@
         "to": "workspace:packages/fs/tool-fs-search"
       },
       {
-        "kind": "dependencies",
+        "kind": "devDependencies",
         "name": "@vscode/ripgrep",
         "to": "package:@vscode/ripgrep@1.18.0"
       },
@@ -9865,7 +9936,7 @@
         "to": "workspace:packages/fs/tool-fs-search"
       },
       {
-        "kind": "dependencies",
+        "kind": "devDependencies",
         "name": "@vscode/ripgrep",
         "to": "package:@vscode/ripgrep@1.18.0"
       },
@@ -9892,7 +9963,7 @@
         "to": "workspace:packages/fs/tool-fs-search"
       },
       {
-        "kind": "dependencies",
+        "kind": "devDependencies",
         "name": "@vscode/ripgrep",
         "to": "package:@vscode/ripgrep@1.18.0"
       },
@@ -9919,7 +9990,7 @@
         "to": "workspace:packages/fs/tool-fs-search"
       },
       {
-        "kind": "dependencies",
+        "kind": "devDependencies",
         "name": "@vscode/ripgrep",
         "to": "package:@vscode/ripgrep@1.18.0"
       },
@@ -9946,7 +10017,7 @@
         "to": "workspace:packages/fs/tool-fs-search"
       },
       {
-        "kind": "dependencies",
+        "kind": "devDependencies",
         "name": "@vscode/ripgrep",
         "to": "package:@vscode/ripgrep@1.18.0"
       },
@@ -9973,7 +10044,7 @@
         "to": "workspace:packages/fs/tool-fs-search"
       },
       {
-        "kind": "dependencies",
+        "kind": "devDependencies",
         "name": "@vscode/ripgrep",
         "to": "package:@vscode/ripgrep@1.18.0"
       },
@@ -10000,7 +10071,7 @@
         "to": "workspace:packages/fs/tool-fs-search"
       },
       {
-        "kind": "dependencies",
+        "kind": "devDependencies",
         "name": "@vscode/ripgrep",
         "to": "package:@vscode/ripgrep@1.18.0"
       },
@@ -10027,7 +10098,7 @@
         "to": "workspace:packages/fs/tool-fs-search"
       },
       {
-        "kind": "dependencies",
+        "kind": "devDependencies",
         "name": "@vscode/ripgrep",
         "to": "package:@vscode/ripgrep@1.18.0"
       },
@@ -10054,7 +10125,7 @@
         "to": "workspace:packages/fs/tool-fs-search"
       },
       {
-        "kind": "dependencies",
+        "kind": "devDependencies",
         "name": "@vscode/ripgrep",
         "to": "package:@vscode/ripgrep@1.18.0"
       },
@@ -10740,7 +10811,7 @@
     ]
   },
   "packages/bundle/sdk-minimal": {
-    "package:@deepseek-ai/libreoffice-kit-darwin-arm64@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-darwin-arm64@0.2.3": [
       {
         "kind": "dependencies",
         "name": "@deepseek-ai/dsh-sdk-app",
@@ -10748,21 +10819,21 @@
       },
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-skill-office",
-        "to": "workspace:packages/skill/skill-office"
+        "name": "@deepseek-ai/dsh-office-kit",
+        "to": "workspace:packages/document/office-kit"
       },
       {
         "kind": "dependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-darwin-arm64",
-        "to": "package:@deepseek-ai/libreoffice-kit-darwin-arm64@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-darwin-arm64@0.2.3"
       }
     ],
-    "package:@deepseek-ai/libreoffice-kit-darwin-x64@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-darwin-x64@0.2.3": [
       {
         "kind": "dependencies",
         "name": "@deepseek-ai/dsh-sdk-app",
@@ -10770,21 +10841,21 @@
       },
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-skill-office",
-        "to": "workspace:packages/skill/skill-office"
+        "name": "@deepseek-ai/dsh-office-kit",
+        "to": "workspace:packages/document/office-kit"
       },
       {
         "kind": "dependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-darwin-x64",
-        "to": "package:@deepseek-ai/libreoffice-kit-darwin-x64@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-darwin-x64@0.2.3"
       }
     ],
-    "package:@deepseek-ai/libreoffice-kit-wasm@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-wasm@0.2.3": [
       {
         "kind": "dependencies",
         "name": "@deepseek-ai/dsh-sdk-app",
@@ -10792,21 +10863,21 @@
       },
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-skill-office",
-        "to": "workspace:packages/skill/skill-office"
+        "name": "@deepseek-ai/dsh-office-kit",
+        "to": "workspace:packages/document/office-kit"
       },
       {
         "kind": "dependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-wasm",
-        "to": "package:@deepseek-ai/libreoffice-kit-wasm@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-wasm@0.2.3"
       }
     ],
-    "package:@deepseek-ai/libreoffice-kit-win32-arm64@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-win32-arm64@0.2.3": [
       {
         "kind": "dependencies",
         "name": "@deepseek-ai/dsh-sdk-app",
@@ -10814,21 +10885,21 @@
       },
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-skill-office",
-        "to": "workspace:packages/skill/skill-office"
+        "name": "@deepseek-ai/dsh-office-kit",
+        "to": "workspace:packages/document/office-kit"
       },
       {
         "kind": "dependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-win32-arm64",
-        "to": "package:@deepseek-ai/libreoffice-kit-win32-arm64@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-win32-arm64@0.2.3"
       }
     ],
-    "package:@deepseek-ai/libreoffice-kit-win32-x64@0.1.5": [
+    "package:@deepseek-ai/libreoffice-kit-win32-x64@0.2.3": [
       {
         "kind": "dependencies",
         "name": "@deepseek-ai/dsh-sdk-app",
@@ -10836,18 +10907,35 @@
       },
       {
         "kind": "dependencies",
-        "name": "@deepseek-ai/dsh-skill-office",
-        "to": "workspace:packages/skill/skill-office"
+        "name": "@deepseek-ai/dsh-office-kit",
+        "to": "workspace:packages/document/office-kit"
       },
       {
         "kind": "dependencies",
         "name": "@deepseek-ai/libreoffice-kit",
-        "to": "package:@deepseek-ai/libreoffice-kit@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       },
       {
         "kind": "optionalDependencies",
         "name": "@deepseek-ai/libreoffice-kit-win32-x64",
-        "to": "package:@deepseek-ai/libreoffice-kit-win32-x64@0.1.5"
+        "to": "package:@deepseek-ai/libreoffice-kit-win32-x64@0.2.3"
+      }
+    ],
+    "package:@deepseek-ai/libreoffice-kit@0.2.3": [
+      {
+        "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-sdk-app",
+        "to": "workspace:packages/bundle/sdk-app"
+      },
+      {
+        "kind": "dependencies",
+        "name": "@deepseek-ai/dsh-office-kit",
+        "to": "workspace:packages/document/office-kit"
+      },
+      {
+        "kind": "dependencies",
+        "name": "@deepseek-ai/libreoffice-kit",
+        "to": "package:@deepseek-ai/libreoffice-kit@0.2.3"
       }
     ],
     "package:@img/sharp-darwin-arm64@0.35.5": [

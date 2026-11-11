@@ -8,7 +8,7 @@ Investigation record, not installation instructions for a working runtime. The r
 
 ## API and binary requirements
 
-The source index records filesystem/fs-promises, crypto, networking/TLS/DNS, streams, workers, VM, SQLite, process/child_process, TTY, async hooks, inspector, SEA and other builtins. Their presence across the repository does not make each mandatory for the minimum profile. Trace imports and the actual chosen plugin tree before excluding a builtin. `node:sqlite` and native session locks are concrete persistence dependencies; browser shims do not establish equivalent semantics.
+The source index records filesystem/fs-promises, crypto, networking/TLS/DNS, streams, workers, VM, SQLite, process/child_process, TTY, async hooks, inspector, SEA and other builtins. The synchronized PTC evaluator also imports `node:domain`; qualify its evaluator/error path if that plugin is included. Their presence across the repository does not make each mandatory for the minimum profile. Trace imports and the actual chosen plugin tree before excluding a builtin. `node:sqlite` and native session locks are concrete persistence dependencies; browser shims do not establish equivalent semantics.
 
 AArch64 ELF is necessary but insufficient: verify Android/Bionic linkage, public NDK symbols at API 29, DT_NEEDED, interpreter where applicable, addon N-API/V8 compatibility, packaged-library access, 16 KB segment/ZIP alignment and actual load/execute behavior. A glibc or musl Linux ARM64 binary is not an Android binary. Native addon platform selection can fail even after successful C cross-compilation.
 

@@ -7,7 +7,7 @@ Only Phase 0 and Phase 1 are authorized in this branch. Phase 2 must wait for re
 | Milestone | Status | Acceptance / next action |
 |---|---|---|
 | Phase 0: fork/baseline | VERIFIED | Correct fork and upstream, clean starting tree, exact revisions and lock digest recorded, requested branch created |
-| Phase 1: locked dependency graph | VERIFIED | All resolved nodes and 8,696 edges enumerated; zero unresolved targets; all package manifests accounted for locally or by integrity-matched registry metadata |
+| Phase 1: locked dependency graph | VERIFIED | All resolved nodes and 8,836 edges enumerated; zero unresolved targets; all package manifests accounted for locally or by integrity-matched registry metadata |
 | Phase 1: source/native/platform audit | IMPLEMENTED | Source-backed report, package payload inventory and risk matrix available; noninstalled payloads and device semantics explicitly unverified |
 | Gate 1 review | IN PROGRESS | Author reviews scope, unresolved artifacts, trust model and runtime qualification plan; no runtime selected as proven |
 | Phase 2 / Gate 2 | NOT STARTED | After review only: compare Android Node packaging candidates and boot real Harness profile/session/tool |

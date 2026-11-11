@@ -217,23 +217,23 @@
     },
     "url": "https://registry.npmjs.org/%40anthropic-ai%2Fclaude-agent-sdk-win32-x64/0.3.263"
   },
-  "@deepseek-ai/libreoffice-kit-darwin-arm64@0.1.5": {
+  "@deepseek-ai/libreoffice-kit-darwin-arm64@0.2.3": {
     "manifest": {
       "cpu": [
         "arm64"
       ],
       "dist": {
-        "fileCount": 737,
-        "integrity": "sha512-SjeXmyaTevEq2TxK7reb1rhCrQZ4QOXmXt/qEwfQD5Fx3odU0ILx2uiXN+nphSCQ95LFCzrElHGgv2c7a824yg==",
-        "shasum": "ef63907838348ee9d5dbc072aade3fdc3e2c4cf0",
+        "fileCount": 801,
+        "integrity": "sha512-0dfiEQR6SqAQjh9hxyY8x77Sj3r+AGC+Xn2A/zF+bag9g40leYPL/c2UirSqYR6xUwE9a/5YgWFIHjw1eOh+3A==",
+        "shasum": "40bee53d5573363fd48a4b5f84bd2a10140836f3",
         "signatures": [
           {
             "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-            "sig": "MEQCIBquRcbyFAeVtpYtaD0ukgc7CY4AzAsXN+Mxeo6OWY5gAiALF4dL7mP3TI2Ef9szvH30JkU0SO5ifjK0A0LG8B3RIA=="
+            "sig": "MEUCIGEUM9WXStnRDIYbDuQAIDU7Ool8DRnRZjtAwVkmh9acAiEA6cY5ucLHg3l5h2JNkYRQFMsDGPWwancEotAt0IEcm+E="
           }
         ],
-        "tarball": "https://registry.npmjs.org/@deepseek-ai/libreoffice-kit-darwin-arm64/-/libreoffice-kit-darwin-arm64-0.1.5.tgz",
-        "unpackedSize": 153160461
+        "tarball": "https://registry.npmjs.org/@deepseek-ai/libreoffice-kit-darwin-arm64/-/libreoffice-kit-darwin-arm64-0.2.3.tgz",
+        "unpackedSize": 161344653
       },
       "license": "MPL-2.0",
       "name": "@deepseek-ai/libreoffice-kit-darwin-arm64",
@@ -243,27 +243,27 @@
       "scripts": {
         "prepack": "node ../../scripts/verify-artifacts.mjs ."
       },
-      "version": "0.1.5"
+      "version": "0.2.3"
     },
-    "url": "https://registry.npmjs.org/%40deepseek-ai%2Flibreoffice-kit-darwin-arm64/0.1.5"
+    "url": "https://registry.npmjs.org/%40deepseek-ai%2Flibreoffice-kit-darwin-arm64/0.2.3"
   },
-  "@deepseek-ai/libreoffice-kit-darwin-x64@0.1.5": {
+  "@deepseek-ai/libreoffice-kit-darwin-x64@0.2.3": {
     "manifest": {
       "cpu": [
         "x64"
       ],
       "dist": {
-        "fileCount": 737,
-        "integrity": "sha512-vuz2tTpH1Edk75+DISwg/TXdQ3BNSNSHoVnWVqxqbGMgrrK9trLOw2+0X7mjT1naGO00Zc1qkyQ4if3kx5XjqQ==",
-        "shasum": "eb858e084954b49ab98c91457eb36779a9570fc9",
+        "fileCount": 801,
+        "integrity": "sha512-vq0Fp7MTlZwV/yxLpmvQmx1uiiozLTjjODmgrOa9WC5WhrSQYZ+M1OiQKI0qbPAjpMZVBzcZvxlAGnDiTrG4jA==",
+        "shasum": "99133f75cf29ac93e31b17743fc41ad861b39041",
         "signatures": [
           {
             "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-            "sig": "MEUCIF4XBdRA3dnpN216/F4kpO7g1uTMqW0D3SDbvVqOOmRHAiEAh+OOj/7egw0+CflEGncUh/2oIcmIicMrlI/8oKYxrgI="
+            "sig": "MEUCIFcs7RqM1e8bz7JAuUCUGvFSyWR0+O2qmnt+h80oniyyAiEA/OkvQyKyGoALrCHHF5DFsnwhTRBsGKl7rHrEbLh+V3c="
           }
         ],
-        "tarball": "https://registry.npmjs.org/@deepseek-ai/libreoffice-kit-darwin-x64/-/libreoffice-kit-darwin-x64-0.1.5.tgz",
-        "unpackedSize": 162997417
+        "tarball": "https://registry.npmjs.org/@deepseek-ai/libreoffice-kit-darwin-x64/-/libreoffice-kit-darwin-x64-0.2.3.tgz",
+        "unpackedSize": 169159623
       },
       "license": "MPL-2.0",
       "name": "@deepseek-ai/libreoffice-kit-darwin-x64",
@@ -273,27 +273,27 @@
       "scripts": {
         "prepack": "node ../../scripts/verify-artifacts.mjs ."
       },
-      "version": "0.1.5"
+      "version": "0.2.3"
     },
-    "url": "https://registry.npmjs.org/%40deepseek-ai%2Flibreoffice-kit-darwin-x64/0.1.5"
+    "url": "https://registry.npmjs.org/%40deepseek-ai%2Flibreoffice-kit-darwin-x64/0.2.3"
   },
-  "@deepseek-ai/libreoffice-kit-win32-arm64@0.1.5": {
+  "@deepseek-ai/libreoffice-kit-win32-arm64@0.2.3": {
     "manifest": {
       "cpu": [
         "arm64"
       ],
       "dist": {
-        "fileCount": 735,
-        "integrity": "sha512-Av3aFfNLaVxfffu0JXP5mqfmsCU3gQtlUH9UD+zdXl8ON06ukVAmu7LqNyuKAz/68WoOMTQ+YBlVQukgDRKd/A==",
-        "shasum": "a19b5fff9843ff0bf6871276190cccdf94741cf4",
+        "fileCount": 799,
+        "integrity": "sha512-cAQ0hRZ/8jt8Dudn7vYdpd5OeWpg0AOHzXqgn6UkkPXmQt1/+HCdc4MZbAM927I+c3lwJyLN1fyKIMW5iXCYpg==",
+        "shasum": "0def63b19abca1cdd2738ff44a5faa93c9645dcc",
         "signatures": [
           {
             "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-            "sig": "MEYCIQDgpD427mNL6NxCad9xyHIqwQOueFfbhJ+SK0zBlzJf2wIhAI1CvgSzCb6HAAzujFLegqnDrlXzfTo58aoyzljd77HN"
+            "sig": "MEUCIQC/hODmhNMmjuL07LWo8NYoLJxxV+4Edjautb/jjGzPJAIgYNU84AsK1qwY/kWC6pso4fNWXGuDbMracjCWLD4pBBQ="
           }
         ],
-        "tarball": "https://registry.npmjs.org/@deepseek-ai/libreoffice-kit-win32-arm64/-/libreoffice-kit-win32-arm64-0.1.5.tgz",
-        "unpackedSize": 180006237
+        "tarball": "https://registry.npmjs.org/@deepseek-ai/libreoffice-kit-win32-arm64/-/libreoffice-kit-win32-arm64-0.2.3.tgz",
+        "unpackedSize": 187069909
       },
       "license": "MPL-2.0",
       "name": "@deepseek-ai/libreoffice-kit-win32-arm64",
@@ -303,27 +303,27 @@
       "scripts": {
         "prepack": "node ../../scripts/verify-artifacts.mjs ."
       },
-      "version": "0.1.5"
+      "version": "0.2.3"
     },
-    "url": "https://registry.npmjs.org/%40deepseek-ai%2Flibreoffice-kit-win32-arm64/0.1.5"
+    "url": "https://registry.npmjs.org/%40deepseek-ai%2Flibreoffice-kit-win32-arm64/0.2.3"
   },
-  "@deepseek-ai/libreoffice-kit-win32-x64@0.1.5": {
+  "@deepseek-ai/libreoffice-kit-win32-x64@0.2.3": {
     "manifest": {
       "cpu": [
         "x64"
       ],
       "dist": {
-        "fileCount": 735,
-        "integrity": "sha512-uKuDGZdofxuW4iRmUh8b3+XWU28JeOCYMTAONzo7tEHIq00DV2cARcgUYiTP7gUH49tH4A/RyPMOVEBzK7qjjw==",
-        "shasum": "42c48a610a707f16ddf07960b2ded7b6ab8c5d8c",
+        "fileCount": 799,
+        "integrity": "sha512-GMW+m/09Ts0m4gRUjIckeRN48OVYgJI7aLG1uoUHcG3LRPDsKnsyeRo+BSQn8rh4CmWtJg5c6qtl0uSW7b9zEg==",
+        "shasum": "b856e0a1956d3d1a3fd9c6652fdc89e7b0ee944c",
         "signatures": [
           {
             "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-            "sig": "MEUCIQDBc2ftIl9QauFiRtQjhplDM2nMvsJ1rC87X8dLPI8fnAIgRdREw1oHYnBRqNLqeDB+a4tV8otJdhGa1U3wjBkRRSw="
+            "sig": "MEUCIQDOJaNGM1DLeSeVlnOB6F8rH9+lgwRXaGBZPdjKY/VltAIgdVCaM5PwuincwALt1snOk0C/iAbXKfEb1AwnrnOaPQ8="
           }
         ],
-        "tarball": "https://registry.npmjs.org/@deepseek-ai/libreoffice-kit-win32-x64/-/libreoffice-kit-win32-x64-0.1.5.tgz",
-        "unpackedSize": 190868740
+        "tarball": "https://registry.npmjs.org/@deepseek-ai/libreoffice-kit-win32-x64/-/libreoffice-kit-win32-x64-0.2.3.tgz",
+        "unpackedSize": 198953813
       },
       "license": "MPL-2.0",
       "name": "@deepseek-ai/libreoffice-kit-win32-x64",
@@ -333,9 +333,9 @@
       "scripts": {
         "prepack": "node ../../scripts/verify-artifacts.mjs ."
       },
-      "version": "0.1.5"
+      "version": "0.2.3"
     },
-    "url": "https://registry.npmjs.org/%40deepseek-ai%2Flibreoffice-kit-win32-x64/0.1.5"
+    "url": "https://registry.npmjs.org/%40deepseek-ai%2Flibreoffice-kit-win32-x64/0.2.3"
   },
   "@electron/windows-sign@1.2.2": {
     "manifest": {
@@ -350,12 +350,6 @@
         "postject": "^1.0.0-alpha.6"
       },
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@electron%2fwindows-sign@1.2.2"
-        },
         "fileCount": 46,
         "integrity": "sha512-dfZeox66AvdPtb2lD8OsIIQh12Tp0GNCRUDfBHIKGpbmopZto2/A8nSpYYLoedPIHpqkeblZ/k8OV0Gy7PYuyQ==",
         "shasum": "8ceaad52d5c1eb18702f48103d5f3bc7c338fa9d",
@@ -389,12 +383,6 @@
         "tslib": "^2.4.0"
       },
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@emnapi%2fcore@1.10.0"
-        },
         "fileCount": 15,
         "integrity": "sha512-yq6OkJ4p82CAfPl0u9mQebQHKPJkY7WrIuk205cTYnYe+k2Z8YBh11FrbRG/H6ihirqcacOgl2BIO8oyMQLeXw==",
         "shasum": "380ccc8f2412ea22d1d972df7f8ee23a3b9c7467",
@@ -423,12 +411,6 @@
         "tslib": "^2.4.0"
       },
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@emnapi%2fcore@1.11.0"
-        },
         "fileCount": 15,
         "integrity": "sha512-l9Oo58x0HOP5znGzVhYW9U3e5wVuA4LAZU2AGezTmkhO1CgQRFDhDg4nneHsu/t3WniXg9QrG2nIXL/ZS8ln8Q==",
         "shasum": "8a655042dbbb10d0266670c9903c34a7001c705b",
@@ -456,12 +438,6 @@
         "tslib": "^2.4.0"
       },
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@emnapi%2fruntime@1.10.0"
-        },
         "fileCount": 17,
         "integrity": "sha512-ewvYlk86xUoGI0zQRNq/mC+16R1QeDlKQy21Ki3oSYXNgLb45GV1P6A0M+/s6nyCuNDqe5VpaY84BzXGwVbwFA==",
         "shasum": "4b260c0d3534204e98c6110b8db1a987d26ec87c",
@@ -489,12 +465,6 @@
         "tslib": "^2.4.0"
       },
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@emnapi%2fruntime@1.11.0"
-        },
         "fileCount": 17,
         "integrity": "sha512-55coeOFKHv1ywEcUXJtWU5f+Jr/W5tZDvZig8DLKSwUN1JpROQ4rk/SNOQiFWmaR/VKF4zuFyW1B8JduOSv6Pg==",
         "shasum": "ce16b3674ff7266bbf50f9668bde8a04f3014d4e",
@@ -522,12 +492,6 @@
         "tslib": "^2.4.0"
       },
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@emnapi%2fruntime@1.11.3"
-        },
         "fileCount": 17,
         "integrity": "sha512-Xz4Tpyki7XyrpbUK1jR1AhdAdaXyhhY4lZ3neLodmhpuWfy2PAQN5B46sAiU4liOXGLkHypn/qU+jvfWSCYYLA==",
         "shasum": "84257ae3b0531eb2aec1ffa23d70700da007ba95",
@@ -559,12 +523,6 @@
         "tslib": "^2.4.0"
       },
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@emnapi%2fwasi-threads@1.2.1"
-        },
         "fileCount": 15,
         "integrity": "sha512-uTII7OYF+/Mes/MrcIOYp5yOtSMLBWSIoLPpcgwipoiKbli6k322tcoFsxoIIxPDqW01SQGAgko4EzZi2BNv2w==",
         "shasum": "28fed21a1ba1ce797c44a070abc94d42f3ae8548",
@@ -594,12 +552,6 @@
         "tslib": "^2.4.0"
       },
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@emnapi%2fwasi-threads@1.2.2"
-        },
         "fileCount": 15,
         "integrity": "sha512-c95qOXkHdydNKhscBTebqEC1CVAZpyqOfVfBzQ1qgzyl3gfeldUjIggDbIZgDKsHLgnsM+igH7TJ/eAasaVuMA==",
         "shasum": "4c93becf5bfa3b13d1bbdcc06aee38321ad8139a",
@@ -683,12 +635,6 @@
         "ppc64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2faix-ppc64@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-Svl7tq8k/08+p6CXPpRjQ1fKX+1odH/BQbb48fV6fj3CWHhsoIOoY87w1oHXm0qEpkIK3ZfVgp0hed3XBXzXMQ==",
         "shasum": "7a01a8d2ec2fbb2dac78adad09b0fa781e4082be",
@@ -716,12 +662,6 @@
         "ppc64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2faix-ppc64@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-XExcO+dvLKvVtNTibSTBej1NCAbaGhWn9Ww1ZPx80qsahhPFe/8jgWP0IchNe0F3HwkU7n8ejhH8bjonqht8mQ==",
         "shasum": "bf6e10303bcf2e7c686975fa52f937ec2728d8bc",
@@ -807,12 +747,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fandroid-arm64@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-34EGEbCIAgosYz6goLcopX6Mo7NyGv9tfwEM2/7Ce2VcVRk568iSvniGWcUXIy7wEDR1wzolcxcriFVrWYcwBg==",
         "shasum": "b540a27d14e4afd058496a4dbec4d3f414db110a",
@@ -840,12 +774,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fandroid-arm64@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-5YfKeeI8qWfBZIX+u2xZC3Zlb3Os/gLS2sbEKM+I4ZOcsWmHS2WLysCcQZDAFRslDUU5Oiq44gf6PYN1vGwG5A==",
         "shasum": "0c6246bc8d2c4d172aac2db3fb1190d72bd65504",
@@ -931,12 +859,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fandroid-arm@0.28.1"
-        },
         "fileCount": 6,
         "integrity": "sha512-0k2F129Xdio1TdJfzJ8sy1Q47vUD2NnwdhiAf7drUN1EBTfPf4hsFCtmMgu/6m8JSzsBrlmVjudMBQqOfG8usQ==",
         "shasum": "704bd297de6d762de54eabbeafbf55f6756abe2f",
@@ -964,12 +886,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fandroid-arm@0.28.2"
-        },
         "fileCount": 6,
         "integrity": "sha512-kXXoiPVVGQcnIYGOeaovwOURpniDBpSq4A03qkQ+BMQqtGG6HYap3xne9C1O1yo4TR3qxlCX5IqqmX6fFo2Lqg==",
         "shasum": "2d84ece6a4e2684d92be26ee13d42757d831c381",
@@ -1055,12 +971,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fandroid-x64@0.28.1"
-        },
         "fileCount": 6,
         "integrity": "sha512-dbwY7ltSMDWsRatcRpCnES4F+im88OCUgGZjy52shC7GqHRE/cYlxNbB4Z4UpJswpcc4Qxd2oE/ufM0p61IKng==",
         "shasum": "d1cb166d34b0fbf0fe8ab460a5594f24a378701e",
@@ -1088,12 +998,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fandroid-x64@0.28.2"
-        },
         "fileCount": 6,
         "integrity": "sha512-O387ite7SzUyCcy3JQX4P4bLtEA7bLLkx+esve5JHnyYfNTxcVpXZo9jhdB0lTKN44gztELTdU7nS8Nr16Fs1Q==",
         "shasum": "fc38d4d6358d8dc1cf53f09f7589fe436eb64801",
@@ -1179,12 +1083,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fdarwin-arm64@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-TZbWkQY7kvTAXbXUT7uVACR5cMHsDiSz9z7ZKAX/RTq/WJEk3QyRr0wZpNhBDX+/0CtdqUIJlOiodQcta6tY3Q==",
         "shasum": "1034b26457fc886368fe61bbd09f653f6afa8e54",
@@ -1212,12 +1110,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fdarwin-arm64@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-n4KqkOQrraxHJcgjM1RvwbigfQKIKJVpM7xp+KsxiyUSrRdIXnt73VhrPAx0fV44hgfmIVKjxMN9J1t5jySVkw==",
         "shasum": "f83afeeac1d7dac01c7a2fd012b3e451a0591fcc",
@@ -1303,12 +1195,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fdarwin-x64@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-zfdzgK9ACBNZLI/CyHTOx81SyNbM6YXn7rxSgX97VjyiPl9W1i4Ka4fgKECEoFCKGpvBj5qArWIGgQjOwkgskQ==",
         "shasum": "65556a432a1e4d72032d8218c1932fcca1a49772",
@@ -1336,12 +1222,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fdarwin-x64@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-uq6suIWYP37qzGddBKPw5QEQPi6HiLGsO7UmkpfyaYNQ3D+rN6w6WfwH+nuqcGXWvawGwxOEroO4YGnFh95azw==",
         "shasum": "510147c055a795588dbbe14fd6b1b8ad0a2f30de",
@@ -1427,12 +1307,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2ffreebsd-arm64@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-wG2EA8ENdEI0qhkSZMjfqrdY+ziCYCPMmtZjjIwOmXFjmyzEHn+UUxk5of+SYsjtfs3VpnlC7QLzSI5hY/rOAw==",
         "shasum": "2e61e0592f9030d7e3dae18ee25ebc535918aef6",
@@ -1460,12 +1334,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2ffreebsd-arm64@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-n+I0BTSRIoy+d6RPKnEVwql5UwBJolytvY4mAOIEJorKlqgPII8ix6slVVrfZ5Tnj7glIZvloylbB/EJPMWEXw==",
         "shasum": "093b9200ecf0b115ba4e5e248a7485c9c5f8bd5e",
@@ -1551,12 +1419,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2ffreebsd-x64@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-i7dZ9vQgnvSCzi/rYCXNgtF/U+eKZNJBzu3eTQbRgHnM7tNSizLOkRFAl3qzVc/Op/u5YkHHa4pf/3DOYHthLQ==",
         "shasum": "c95ec289959ef8079c4dca817a1e2c4be66b9bd3",
@@ -1584,12 +1446,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2ffreebsd-x64@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-78XJTJkvPs0kz2w61301PJjXl4g7q3JqiYMZ/M/yVI73EHBrCRTgkhu9oqG7vPqq+a/yadEW8aD+agKlk5xrmg==",
         "shasum": "0be22b6df925d213e841ea87123af5df80b0faf7",
@@ -1675,12 +1531,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2flinux-arm64@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-yHs+0uc8+nvEAfAfxrWQKK5peSNzBc4PegcMO0EJ2hT71uA7vB8Ihg2e77R2P7SG5uYjPbHlLLmve4LLLRCf0g==",
         "shasum": "40b22175dda06182f3ee8141186c5ff304c4a717",
@@ -1708,12 +1558,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2flinux-arm64@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-pW4AC0P3it8c7do9MVM4p51FzHzdM/TZrerurgRcHJ2WTa1VQ1CIq18xncfpBJw4ojkiZZrKW2yIBWBP92j6Ug==",
         "shasum": "1bdbc651cda9ba9995c53ed9c71ceaa65094762d",
@@ -1799,12 +1643,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2flinux-arm@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-qVXBOHQS+d5Y722GwJzJUtOLlX7km3CraOaGormF1pDtPd2C/l1SHRPgjLunLGe51Sh5YYWKMFDyV4SxgMQYTQ==",
         "shasum": "c09a0f67917592ac0de892a9be4d3814debd2a6c",
@@ -1832,12 +1670,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2flinux-arm@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-XlDnu2q5yoqems+xay6wSAcg9DDD7K9RLKZEBOMZm3ckNpJBvOX20tSfby8KfrrhINDyv9V2YVZKY/SpoGJI8w==",
         "shasum": "beb12ad72b84f72d28488cc1b8ee9f7eb141d753",
@@ -1923,12 +1755,6 @@
         "ia32"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2flinux-ia32@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-d1z4ZuP0ajrfz/FhGT4vv278rX8KnPPJx8i5+AtK7TYbx9Le9F1hyzurZpkEyjkGa9dUGhQow4C1NmeGvqxN2w==",
         "shasum": "a580f9c676797833891e519fc7a1337c8afd8db3",
@@ -1956,12 +1782,6 @@
         "ia32"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2flinux-ia32@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-CYbnj78HsIeA+DhgUKgFCfvNsTHFhMMrinUrMZpDXJXKN8T3XViTZ/+wtHeVxEWY8ewSzTFN+nRmSwO2tZaLUQ==",
         "shasum": "b81f9d55529b45c206a46a138214b1aa6879696b",
@@ -2047,12 +1867,6 @@
         "loong64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2flinux-loong64@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-M5sRjUVZrkm1OAPR3dlOYzNmN+loZKGVi1VUQGrwuqLcbR6qeAz+famMhjASeH3YVKvZz+zT1jlh/keC3Rj/lg==",
         "shasum": "46452cf321dc7f9e91c2fa780a56bb56e79cd68b",
@@ -2080,12 +1894,6 @@
         "loong64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2flinux-loong64@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-buwkd8nsph4R+ajRvw0qM5Hja/TXQow3ptzWO2EbG/cqcIkHloRrdlBtQlshyYGTNFvfkfJ5tpPLVkY4DtsPfQ==",
         "shasum": "598667241a04c99b76ed6ef940ac50038c419f98",
@@ -2171,12 +1979,6 @@
         "mips64el"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2flinux-mips64el@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-mRObBZeHh2OxcBFPWE/FjylkRgZdYuiTR3vaTozquCGOH14iP9oN4x4Ge81CoIDYQrXmIxpFumJBu5MtZpnQJQ==",
         "shasum": "4211b3184dd6608f53dcb22e39f5d34ee08852c8",
@@ -2204,12 +2006,6 @@
         "mips64el"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2flinux-mips64el@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-ZVykbDyk7519VwiNb9Lcj9m8XM6v5V9uKPvrEMkkEedVewf+0itkhahp4HDpgERXhwLRpWFypsGbG/J8s0QjJA==",
         "shasum": "1c51eb9cea903f53d97b5af3b1841db70f5596ca",
@@ -2295,12 +2091,6 @@
         "ppc64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2flinux-ppc64@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-slScBsMAb3GFDcdrCgLwZtPYRoH2H/youv10QiZyRjmsP48fznoveWytSgCI/R0ZcUgpc0ZhIUEx6LHts8yrfQ==",
         "shasum": "697857c2a61cb9b0b6bb6652e40c1dc5e1ca8e5d",
@@ -2328,12 +2118,6 @@
         "ppc64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2flinux-ppc64@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-CAXl+Dtd9UUuJd8pKKdwh6MLm3MUMiqMPmhZ3tTSXPqfyQ3vDl6R5hZdZ/kYojK4ofXtdfSv1tFq8XzWx3heNQ==",
         "shasum": "63dd61f17ceb31a81227f413feac8a71bc2c51f2",
@@ -2419,12 +2203,6 @@
         "riscv64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2flinux-riscv64@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-kw0owk1o0GFETUJyW0jc0G4Yzs0BHZn0JDZ8JRT088vjJYX777BAs1fDGxAC+q831qOs2DTC96mNsG2opdfyyQ==",
         "shasum": "d192943eb146a40ac4c6497d0cf7be35b986bf08",
@@ -2452,12 +2230,6 @@
         "riscv64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2flinux-riscv64@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-GeXCej4IQtU1B+QlDV8W/RRvbzI3O/Stss+/bCXv4lZls5WGRtu2a+3JkA3i4qIUlMXpcHebWpF8AkJhATowuA==",
         "shasum": "3763b08fde5cf25ab1facb8e7752edfe45fbfc27",
@@ -2543,12 +2315,6 @@
         "s390x"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2flinux-s390x@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-/lAIjX8aYFRByhh6L5rYtPEDRqa9de/4V/juOXcta5frjvzXO4/sqEtyytse0g3zZFuWu5cDN0MkLz2qRDD2Ag==",
         "shasum": "acea0356da0e0ebc08f97cf7b9c2e401e1e648dc",
@@ -2576,12 +2342,6 @@
         "s390x"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2flinux-s390x@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-3H1weTYZPxt/WOhByszQZybS9w5lKzUn1FDMsgEChbHWQwHYQQRfBxgCcZvPhjHfKyJjIievvMmEUawJrdY9Dg==",
         "shasum": "1a137ff293a82906eb3176385bd7e8e0e5cfb7cb",
@@ -2640,12 +2400,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fnetbsd-arm64@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-oks0DYbLwWMmaakTsCb+zL4E+aHRVLom9IJZOAthMQEPiQmydXHkziYEsGYRx0uNV/IjEKGAV941JzH02pflqw==",
         "shasum": "8bcd77077a0dce3378b574fedb26d2a253b73d36",
@@ -2673,12 +2427,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fnetbsd-arm64@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-sSATRjPeDBg3pdgHoQfoYBob11Kk1FGa9lui5RIHZCoCkJa9QKlvl3/vKz2usCmYYjs7ymJR/2Nnsqe+Hjt5nw==",
         "shasum": "22571ad951d62bb6accc82d8d1fad5c8c1ac0ba1",
@@ -2764,12 +2512,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fnetbsd-x64@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-aeL6lAnN89Hz43Mlh1G8ARasbuoYvSITDEx0tHh5b7jJnHcssqgjy9Yx430GDpmCa6OyrKoS0aNRjKundRizGg==",
         "shasum": "e7fb2a01e99c830c94e6623cd9fefb4c8fb58347",
@@ -2797,12 +2539,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fnetbsd-x64@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-lqnzCV+mM0gIADaKihiCg6ifgfU2L3h5E33rNQBN1Y4MaVGnzryzmvvf7UHxprpQdE8hpqLolJ9Rl+SkIRDpyw==",
         "shasum": "42fcc57297eb0a0ca3f5fc475291f4c1a3f7c0de",
@@ -2861,12 +2597,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fopenbsd-arm64@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-MEFJe5C3R8pwXdZ5Y21oo6m7ePiS0d9pWucn99O/wvyJZChoIQKrQDxKrGeW8F5+T0okTHesAmDeiHDTIq0V/Q==",
         "shasum": "c52909372db8b86e2c55e05a8940033b5660a3b2",
@@ -2894,12 +2624,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fopenbsd-arm64@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-AL2qJILH7lNjrDmCQDvdxMfAUIv8KMNZOvrwAQ8i8//ntL9FflhOyMJ8OZSMBb8/AWXe3/5v5S20y3zCoZWKoQ==",
         "shasum": "9eb32af104ac3dacf4edca01f596664aab0c73ef",
@@ -2985,12 +2709,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fopenbsd-x64@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-i/ZLIOafE0Z8cI/XANJAixoJL/uRAoS2xOA3rb0xN+KK0K177cMAsQYkzHtBrtMXAKuAc7HGgcWiZ/sRC1Nxgw==",
         "shasum": "c427b9be5a64c262ff9a7eb70b5fbbaadf446c6c",
@@ -3018,12 +2736,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fopenbsd-x64@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-QtiuPytchRyC4rwUKhexJdQKvDuZ6hWloi3igqPQNUJCS1/v9EiO3UTOXR6A3FoMo4fnAKbWJdqaIwhOzh8qEw==",
         "shasum": "febed2402d6088225e91f20fb4ce2522ad0a4efd",
@@ -3082,12 +2794,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fopenharmony-arm64@0.28.1"
-        },
         "fileCount": 6,
         "integrity": "sha512-ge+Z7EXFNt2BO1oAMsVpiQ8EwndV9i1xXerAeTIK7AtPs3bKFXQM7nlRxDSIUIMeueR1CNXxqztLzdNeReKBJg==",
         "shasum": "dc9b147baca2e6c4b3c85571741ef4860a489097",
@@ -3115,12 +2821,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fopenharmony-arm64@0.28.2"
-        },
         "fileCount": 6,
         "integrity": "sha512-WkhYDmpTjLvGlScA1rwjRUmhl4k8oXR3cIbtqWmELgU/dFeHHlEllxDvdWcNJV9rbzCexB5vz8gtNewWLgCT7Q==",
         "shasum": "85641c3d466428bfbccea5f21c26836663fef5ce",
@@ -3206,12 +2906,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fsunos-x64@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-BEjgtECkL3vY+SaSQ6nzVfiALUeFxpawyp8Jmf5PtYhf1Ug40N1h/hxlhts+f1FvSvarEigdxS3BlSMI2PJLcQ==",
         "shasum": "ce866d12df13c15e4c99f073a3d466f6e0649b3a",
@@ -3239,12 +2933,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fsunos-x64@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-GPMSkTOtMnv2U2F8gxe4Io6qmVs+YKyp832Etqqxr0hFngmXQ3rzwytelm3GIn7T4VviRUlf3sOgBOiTdvaf7g==",
         "shasum": "a736f9d8962481045fc4c3e54f5479f22c870fb4",
@@ -3330,12 +3018,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fwin32-arm64@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-lCv9eK/H6ZJWbE7bh2nw54CZ9M2nupBxJcTsdk/QQnWkdSjKGuxmmH8/GWrlT1eMmZfn4dGcCjRte397WqfQXA==",
         "shasum": "7468e3692d01d629d5941e5d83817bb80f9e39b4",
@@ -3363,12 +3045,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fwin32-arm64@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-PIhhEkE9uPBleRBrQEJpUn7MBnibZzbGzYWPmY3x+YoVg/95zbjB4CxPPOQ8l5tYYM4mMaCthF8/1DIfBQQyWQ==",
         "shasum": "ee5ab40fad186201b652a33f8a5eb149e9e42532",
@@ -3454,12 +3130,6 @@
         "ia32"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fwin32-ia32@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-zvb/mB2bSCoJOpoCBgYKKpX6YM6mJBlBUVUtVj41DlZJVEB6/0CKlRYxP5wWl1C1ILiCoAU5wZZ4q1P3qeS6Eg==",
         "shasum": "a5bc0063fb2bcab6d0ed63f2a1537958bc269ec6",
@@ -3487,12 +3157,6 @@
         "ia32"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fwin32-ia32@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-YmJbfTlvU7Sdn9BB+4PRES4oB6pxgS37MAONj+hBr/cpXS1aBPKXxNnDbu+QCWPj0o9dgyxeq79g6c5P8KeuYA==",
         "shasum": "c40d28a6d99a127da6711f2afd74b11cb63b06a7",
@@ -3578,12 +3242,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fwin32-x64@0.28.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-bm4Mowrv+GXMlpWX++EcXw/iLyd1o3+bJkC2DkWXYVvgZCqD/bSj9ctZeAMC3cIxgjRVR2Dufaiu4YPxr5gW1A==",
         "shasum": "10064ee44f4347b90c9a02b446bbf80a91632b12",
@@ -3611,12 +3269,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@esbuild%2fwin32-x64@0.28.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-5ebpxr3nWMzrL/rnUI755Jkuee0bHL/Gq0WTF9lvcpv73wAp5eu8MfBUgWK9bhWvZjj7yX8etf/8tI8Ney695g==",
         "shasum": "b21affb804cc167c133d95f45b3a1dc1323b9a87",
@@ -3648,12 +3300,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-darwin-arm64@0.35.5"
-        },
         "fileCount": 5,
         "integrity": "sha512-QRUlFQ0WxvdWyqqG/WtI3iupfD5rBzmCHXSdPsY91sAtVtTo7Q4cb6zOccZ3gqEqkr0f1As1ehLqmEpDsRf+lg==",
         "shasum": "b1e0276d4e9bf26a7fde7b2adcbe076c71015fc2",
@@ -3688,12 +3334,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-darwin-x64@0.35.5"
-        },
         "fileCount": 5,
         "integrity": "sha512-+BR255RhDlpygUpOc/Jdt1nT6DQ3XG/ERo5wbcdOf5Q320dKtPCKPLR1LJs9VGXRaMa8l1uUa0tkCNOXiAxZUw==",
         "shasum": "bff811f9610ef322415e87f7551fd5d773122928",
@@ -3728,12 +3368,6 @@
         "@img/sharp-wasm32": "0.35.5"
       },
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-freebsd-wasm32@0.35.5"
-        },
         "fileCount": 9,
         "integrity": "sha512-Y/z91nEZ4uIBX5X3nfTovjU9lHNKFYbL2lpHCLVNmXQK03VIZvXBBt0KxbPGp2SdGSF+2mQU4e+hQaWOt86iAw==",
         "shasum": "53b6041958608afa2f5f08323091101407e99086",
@@ -3765,12 +3399,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-libvips-darwin-arm64@1.3.4"
-        },
         "fileCount": 6,
         "integrity": "sha512-5R89nBYiRdUlSWJxPhO+GVtaXzXSxKnRu/xqMn3KTA3L9EB9Oy/P+Nn2f2vlhPuUdy/Zusb2DarbyTpGCfEDuw==",
         "shasum": "f29cbba302384f9a08bdb04d14c57b5cf71da4a4",
@@ -3802,12 +3430,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-libvips-darwin-x64@1.3.4"
-        },
         "fileCount": 6,
         "integrity": "sha512-iR2OKH80yi0U+dUplyh3/xdpFvps6YkCwsXenIJxqxR1v9o+xtKTGbS9H7cps+2Vxjc8B1j96p75NmTGjIhtpQ==",
         "shasum": "527f52721a89dd75614663aef87162a781739bab",
@@ -3839,12 +3461,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-libvips-linux-arm64@1.3.4"
-        },
         "fileCount": 6,
         "integrity": "sha512-Y3dgX/6lE2QhQb+Gxy0WZxfg9MEm/JBjamZpS2IklP7xIQoKN4hzAm7KcMVGtaVDt3neE9OKBC7vAfonA/Lr1A==",
         "shasum": "78c11c6b0a4b4045c72dacacdec3b10f3e521349",
@@ -3879,12 +3495,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-libvips-linux-arm@1.3.4"
-        },
         "fileCount": 6,
         "integrity": "sha512-LmRtTsOHuvM2+wlO2Db37dx5MiZhB0FvSunciw48YjdOkZz9KAiRbm8ujeMOA1INqmei5NapFxYEK1D1ZSidmw==",
         "shasum": "f5ecd8ebb63690e580438e308ce73015b49516a8",
@@ -3919,12 +3529,6 @@
         "ppc64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-libvips-linux-ppc64@1.3.4"
-        },
         "fileCount": 6,
         "integrity": "sha512-Le6boB8Tai0Nis+gIxIpKx68UDVVIqdR8Tin5Yf1z2LJJQLDJvCDRqRu+jC2qCoD+eIomonmOwB4smBRxfVpYQ==",
         "shasum": "b66a4d25bd042eff66c8076b1e4bd99c6d19246e",
@@ -3959,12 +3563,6 @@
         "riscv64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-libvips-linux-riscv64@1.3.4"
-        },
         "fileCount": 6,
         "integrity": "sha512-aHkkIEHPRdQEegJN20MLmGtxYD9R2wQr3Cwpddnu5+YKMt6Uzax7S9h5gpZTo8wyrGuZSlfQ63OevL5mTyOC7Q==",
         "shasum": "9dee8b3fd801c0ff5d6083d6558d3c89b8dedc1b",
@@ -3999,12 +3597,6 @@
         "s390x"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-libvips-linux-s390x@1.3.4"
-        },
         "fileCount": 6,
         "integrity": "sha512-ra/mB6MikESDUO7Yg+Mi95bFBb9GsObURuhnOv3OqknjGe9sZrG8tCe9q0xSIGrtLgvgw0gKnFWcK4blSgQOuQ==",
         "shasum": "55a80f118f9ffd7653d20cefde41fca6ba0241e2",
@@ -4039,12 +3631,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-libvips-linuxmusl-arm64@1.3.4"
-        },
         "fileCount": 6,
         "integrity": "sha512-hvulFwtjUcagsis6BBxHwGFwWoNZjgYmULGVrZcyfNbjA8hKILbRxGg15/7w5HDyXHXUos/j6baAWqnCyQ2DWA==",
         "shasum": "420f2418eaec33cef4346e43d96a7864bb3fcbb4",
@@ -4079,12 +3665,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-libvips-linuxmusl-x64@1.3.4"
-        },
         "fileCount": 6,
         "integrity": "sha512-6zXKeE/p39I1AmA3cJG35eyBGNqNddLnUXjhwBnsGjFPWqf5VKkDBEqaEkPDoTEtkxwi2vv8Tcr2mDyP4So7Fg==",
         "shasum": "eb5696f7fa521f5f7f3d962fd9ade41deeba6a51",
@@ -4119,12 +3699,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-linux-arm64@0.35.5"
-        },
         "fileCount": 5,
         "integrity": "sha512-LYVx5JTsOM2CBzmxreh+nl64/3H6Xb09iSLknqH47z2T2DFFxDeFLP5y4dJwe6H7uGQlHPyEEtIqyo3DYsRwdQ==",
         "shasum": "ffaea1b88310b5bc40de48859a7f8f01d07e5e99",
@@ -4162,12 +3736,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-linux-arm@0.35.5"
-        },
         "fileCount": 5,
         "integrity": "sha512-LEaXK2WdXVK5ykcw0buWyPMsmLLL2vpHLD6yrNSW+JGEL3BZPA4tpKN6iaMc4AxTTAoaX/sU1rOL51lcIz48ZQ==",
         "shasum": "950645b8695c200bfdb3c6eccf17c32c26968c23",
@@ -4205,12 +3773,6 @@
         "ppc64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-linux-ppc64@0.35.5"
-        },
         "fileCount": 5,
         "integrity": "sha512-QVxAAq8evVRI9ia2vqgwrmWucn5Dfv+JdWzj75pD8omHLPSP7f8p20O8jxzjCcuCEQEOtYOZUmX1hkiZ0kdevA==",
         "shasum": "af60c7db090411f7af2df2bc1aa764b93b6b8add",
@@ -4248,12 +3810,6 @@
         "riscv64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-linux-riscv64@0.35.5"
-        },
         "fileCount": 5,
         "integrity": "sha512-LtdreXguaavKODPIfzJ4kffx7UNt1omwtK0rch4EBbbSTXPnxWmYSayXdLJw0fJzQ97kHt1gL/yh4tvU+nCyRQ==",
         "shasum": "afcd42ac0592330fbf4fff5904574e0e049ba0a4",
@@ -4291,12 +3847,6 @@
         "s390x"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-linux-s390x@0.35.5"
-        },
         "fileCount": 5,
         "integrity": "sha512-UZasTOFiYzotTsGOCu42BfUzP6Tu6Do/947iRm1RsLKvlllxwGcn4RN27LibGWceix4Y+Pmw3jsnTcCQIgWjqA==",
         "shasum": "092e584a8f36f2f90ba98652d6f45432edea87cb",
@@ -4334,12 +3884,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-linuxmusl-arm64@0.35.5"
-        },
         "fileCount": 5,
         "integrity": "sha512-9HbMclmI1zlNkFRs3z9/eBtDjfD0sGlrX1z6b1qwmiFY5ElDLh4BC0LPBdVp7z1DXFiKlIcznf+ZlsuZzLxQqg==",
         "shasum": "92d0904211086d10bd3c929de715dd8a81fa7268",
@@ -4377,12 +3921,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-linuxmusl-x64@0.35.5"
-        },
         "fileCount": 5,
         "integrity": "sha512-4KOphqB035HrVdqLZfCgMzzERrQkkzOwRhl4OAkRO1YCldbaFjySXMaK534Mo0V+LndnlJk+sbUyLeU0ULyD1A==",
         "shasum": "1d146eab6dfcdc6429f29b032b8bc3f0180b6d80",
@@ -4420,12 +3958,6 @@
         "@emnapi/runtime": "^1.11.3"
       },
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-wasm32@0.35.5"
-        },
         "fileCount": 7,
         "integrity": "sha512-Ptsga1su4tQx+LLF1ECS9U6nz5kmrXKo6XVbtR48Ke3ZRxxgaWBu7IDtEe1quo8hiupwm6WFqxVlXaSf7IINGQ==",
         "shasum": "5369559c3a4c32e08ce92b6ffba2434175a45a62",
@@ -4457,12 +3989,6 @@
         "@img/sharp-wasm32": "0.35.5"
       },
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-webcontainers-wasm32@0.35.5"
-        },
         "fileCount": 9,
         "integrity": "sha512-hfhF/FmoQyTUkA0bIKFOtw536BQSeBMe6BF6QyWlrPxT754+TFLaZ7sKKTfvvM0yJgKgaYTwnFCIZ/GuDw5SUA==",
         "shasum": "3674eddf41eb85d0e92896d7da01ca00310256b9",
@@ -4491,12 +4017,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-win32-arm64@0.35.5"
-        },
         "fileCount": 8,
         "integrity": "sha512-X4t7g+7ZA5DKblCBEXGjUqqemj4vczING/5viFwAL8h4N3qYeyjwdCvRLHi4EdOUI+2Z7UFlp1VM+p/AuEtm6Q==",
         "shasum": "e3c94326eb0a46ade843b84cf50a3917b79d323f",
@@ -4528,12 +4048,6 @@
         "ia32"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-win32-ia32@0.35.5"
-        },
         "fileCount": 8,
         "integrity": "sha512-5Zm82LoBc43nhwNybZlG7Y1KO//Zhsn306fQl29ZOuStHLGTo3BWL83q3cznX0poxSAMuYL1On/BHBxkBeKr6A==",
         "shasum": "cc5dac453dc3500aac2e63f182b952af0d437bc1",
@@ -4565,12 +4079,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@img%2fsharp-win32-x64@0.35.5"
-        },
         "fileCount": 8,
         "integrity": "sha512-x76eH0vEiHlcMQu8Y8IenntaACtddpT6W0wmXtWrnKcnKI7ME5DdgqhAD6SEWOEl1v2zDvkZDhFA9KnURwpfqg==",
         "shasum": "1785356b8cb396e58430e03865281280acb818b1",
@@ -4980,12 +4488,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@napi-rs%2fcanvas-android-arm64@1.0.8"
-        },
         "fileCount": 3,
         "integrity": "sha512-5+nkh8i3gt6lqS/d2jTZ1xAn6tdgtB4Lf1mW6T0Qm5/rXNwBuV1sAEyLEWan5o9gJPU/GuvHR3rvSeZ+FaGrbw==",
         "shasum": "7455ac1da339af1cf47c7ba9ab788e488a6d8a1f",
@@ -5017,12 +4519,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@napi-rs%2fcanvas-darwin-arm64@1.0.8"
-        },
         "fileCount": 3,
         "integrity": "sha512-7jQ47gi+fZ7KJmfc/5rNyy1CYw/cu4kZ0KPIYbo9UUgSdW0bKQJpt+WihEor6s4Lyp7+xc3a+3HeyXmAEbbnPg==",
         "shasum": "38de9c4344ede82756cf50d2eedcedb1465d5d50",
@@ -5054,12 +4550,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@napi-rs%2fcanvas-darwin-x64@1.0.8"
-        },
         "fileCount": 3,
         "integrity": "sha512-rRjDMZs9pIRKGxgijwezplKc1RnJsqUokrA9h88bbTkqQ+7ePj0ZN4ZnZDy8Vu0tXs7KRlI2tQLaK4mx9QlxHg==",
         "shasum": "135cf78d8d31d9f2a7b6887fca0d6da269a91e80",
@@ -5091,12 +4581,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@napi-rs%2fcanvas-linux-arm-gnueabihf@1.0.8"
-        },
         "fileCount": 3,
         "integrity": "sha512-jGcCd+8ra6Q61xKqZeiItujTpp9a9eRLcQ0jW6qYNku+WpupqOPFPY0SrsuSnXFviJwkpKYT9p7QrB4lsf3LNQ==",
         "shasum": "02872e3c33792d153e1c0c81582a57be4d63751d",
@@ -5128,12 +4612,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@napi-rs%2fcanvas-linux-arm64-gnu@1.0.8"
-        },
         "fileCount": 3,
         "integrity": "sha512-od6I2Y7kU7i1SwZYG2EKW8rWz6JiedtPpko4WEe1DDsiikrfaotVBCRaUTM5/yeZKaZ92EatoAS+5xG+6uJlYA==",
         "shasum": "413349a3bbcd6f8b1845669ff7b043d60423aac8",
@@ -5168,12 +4646,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@napi-rs%2fcanvas-linux-arm64-musl@1.0.8"
-        },
         "fileCount": 3,
         "integrity": "sha512-yYkPbJDJiWj6N0gASA3CAvRypZmVpJnxU0DQg3aBhneLDQde9TPLKADsQkobNoJUtTT/lj46aWpzT48PDb3Qcg==",
         "shasum": "4ecdb165a48f9ab81ab743b9663c57a46154120b",
@@ -5208,12 +4680,6 @@
         "riscv64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@napi-rs%2fcanvas-linux-riscv64-gnu@1.0.8"
-        },
         "fileCount": 3,
         "integrity": "sha512-PB00MSKAp4VwK/xwe6duKxRKmH8UH4GIl1pqHSbxng0jnU9Dr7FwaDypDiqwNFZ774N+8G7mJLGuLtg9NTcQsg==",
         "shasum": "46cbadb0f438da69494cfa4ad84aac55997c8549",
@@ -5248,12 +4714,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@napi-rs%2fcanvas-linux-x64-musl@1.0.8"
-        },
         "fileCount": 3,
         "integrity": "sha512-hb20MxKXXb5IB7AAwN8UHz9WRsa2HmdZfjsDCzjElwJoeV1aotVEwFU4FrFQcYQVzsJQLeaCc/2Qdt/0Q72mMg==",
         "shasum": "e27a823a5275511df2661d05d45fb5a9211d0974",
@@ -5288,12 +4748,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@napi-rs%2fcanvas-win32-arm64-msvc@1.0.8"
-        },
         "fileCount": 3,
         "integrity": "sha512-WwPN08IXE4SkL+FhJyPz/iFnycMAUkbphFIT4cmKLlvbSU0Zfn1R7BGJ3Hqky1S89QUYc0Q4IOScXb/42Re9wQ==",
         "shasum": "75102a26088f8168af359a2b7683b9d7f54afc82",
@@ -5325,12 +4779,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@napi-rs%2fcanvas-win32-x64-msvc@1.0.8"
-        },
         "fileCount": 4,
         "integrity": "sha512-XkrVqKb+pxyba7kjy2LJvABFVBTE0DNpEl7MrG4OYUmaWarrXH+t54z/Czj2YxCKtizYTV4mg6phNm3x24qjhQ==",
         "shasum": "1cccd8d2b05fdf912b7a4fdb54034460c02db522",
@@ -5362,12 +4810,6 @@
         "@tybys/wasm-util": "^0.10.2"
       },
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@napi-rs%2fwasm-runtime@1.1.5"
-        },
         "fileCount": 6,
         "integrity": "sha512-AWPoBRJ9tsnVhor4sjO7rkni+7p+2IAEFj6cx06UgP10jkQHqay/36uRV/bFkgrh18D9vb4cr8Q0Pthskgzy+Q==",
         "shasum": "cccd6ebc40b991dea6936f9126b1b8155b6c4c95",
@@ -5400,12 +4842,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@openai%2fcodex@0.153.4-darwin-arm64"
-        },
         "fileCount": 7,
         "integrity": "sha512-B1qhN3fa1ay0R0wGziXqgwSkB5icpYChNKHhtBHff/0UtSTC7z+l8aTtvMlGjH3E8HEvY3+njIJelM9CAAoVWg==",
         "shasum": "e41d069161e705b82a5a4b9bd4f454d6c57bb826",
@@ -5437,12 +4873,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@openai%2fcodex@0.153.4-darwin-x64"
-        },
         "fileCount": 7,
         "integrity": "sha512-vnSbbPzfoDZmmyzsxswsDDXQ06IVFBzkQU7/hroB3ji93Ok2utcsq8Psfk2tjF5r9mEx8RWFJhzuTGHG26/NDA==",
         "shasum": "bdb2d4d21d98877dca8360793b708d0fb3aa490c",
@@ -5474,12 +4904,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@openai%2fcodex@0.153.4-linux-arm64"
-        },
         "fileCount": 8,
         "integrity": "sha512-QKdjYLYV4hXIuUQDP3P6F4NXuWFoKo9WUoV4nAREIx55kiUyi8UsYdsVobkeXir5n/maEQgYMCKLHVma4rNPiw==",
         "shasum": "db6b35640145b5fc5ab80082518bf05be947e4b3",
@@ -5511,12 +4935,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@openai%2fcodex@0.153.4-win32-arm64"
-        },
         "fileCount": 8,
         "integrity": "sha512-/FBh42976ltF1kxDoPQBg1Q6+hwChRU5/sm5dfeC8kFVQMvOCGoGeY5d8rRZGVJE8XojlXo74VQb0sHowcfgBw==",
         "shasum": "9271a4b0edfeaeea9f1f3d5a044ec5ba96b617d5",
@@ -5548,12 +4966,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@openai%2fcodex@0.153.4-win32-x64"
-        },
         "fileCount": 8,
         "integrity": "sha512-lMkB43kJZH0VFr+hoXc11qqR7QtQIbkr07ALgj4urKL1osNyUyuy1iXd3Vzz2iCYvBUCSw7I0l/W1cEPGx9euQ==",
         "shasum": "7cfbf411090462ace5434833c68bb62fad9c44f9",
@@ -5585,12 +4997,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxc-resolver%2fbinding-android-arm-eabi@11.20.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-IjfWOXRgJFNdORDl+Uf1aibNgZY2guOD3zmOhx1BGVb/MIiqlFTdmjpQNplSN58lhWehnX4UNqC3QwpUo8pjJg==",
         "shasum": "6040f744ee2350f1eee744ea7b16092653c6e221",
@@ -5618,12 +5024,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxc-resolver%2fbinding-android-arm64@11.20.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-QqslZAuFQG8Q9xm7JuIn8JUbvywhSBMVhuQHtYW+auirZJloS41oxUUaBXk7uUhZJgp44c5zQLeVvmFaDQB+2Q==",
         "shasum": "6bf3c61f1245c84a13602f18d6326f42306e69b0",
@@ -5651,12 +5051,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxc-resolver%2fbinding-darwin-arm64@11.20.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-MUcavykj2ewlR+kc5arpg4tC2RvzJkUxWtNv74pf7lcNk00GpIpN43vXMj+j6r4eMmfZhlb8hueKoIb8e9kAGQ==",
         "shasum": "b6fdb43ac0b67bf89c09e2865b848759bc1bcbb6",
@@ -5684,12 +5078,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxc-resolver%2fbinding-darwin-x64@11.20.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-BGB16nRUK5Etiv//ihPyzj8Lj1px0mhh4YIfe0FDf045ywknfSm0GEbiRESpr6Q4K82AvnyaRIhhluHByvS4bg==",
         "shasum": "fc065954554eca454fa50ce3e7643f33ebd14977",
@@ -5717,12 +5105,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxc-resolver%2fbinding-freebsd-x64@11.20.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-JZgtePaqj3qmD5XFHJaSLWzHRxQu0LaPkdoM1KJXYADvAaa83ijXHclV3ej3CueeW0wxfIAbGCZVP45J0CA7uQ==",
         "shasum": "79d9c0262d959fb8eff09dfb2079184132607482",
@@ -5750,12 +5132,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxc-resolver%2fbinding-linux-arm-gnueabihf@11.20.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-hOQ/p3ry3v3SchUBXicrrnszaI/UmYzM4wtS4RGfwgVUX7a+HbyQSzJ5aOzu+o6XZkFkS3ZXN4PZAzhOb77OSg==",
         "shasum": "67d47c22f31f98d42597b258b9daf6acab441bf3",
@@ -5783,12 +5159,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxc-resolver%2fbinding-linux-arm-musleabihf@11.20.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-2ArPksaw0AqeuGBfoS715VF+JvJQAhD2niWgjE5hVO+L+nAfikVQopvngCMX9x4BD8itWoQ3dnikrQyl5Ho5Jg==",
         "shasum": "da835d77174c74c49a371a0409c8a6b802bf814e",
@@ -5816,12 +5186,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxc-resolver%2fbinding-linux-arm64-gnu@11.20.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-0bJnmYFp62JdZ4nVMDUZ/C58BCZOCcqgKtnUlp7L9Ojf/czIN+3j72YlLPeWLkzlr6SlYvIQA4SGV/HyO0d+qg==",
         "shasum": "06123d54159307a9731e70f898e9b751c9670560",
@@ -5852,12 +5216,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxc-resolver%2fbinding-linux-arm64-musl@11.20.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-wKHHzPKZo7Ufhv/Bt6yxT7FOgnIgW4gwXcJUipkShGp68W3wGVqvr1Sr0fY65lN0Oy6y41+g2kIDvkgZaMMUkw==",
         "shasum": "a9df55e94243526e92a1c646f11e844d243aa2a3",
@@ -5888,12 +5246,6 @@
         "ppc64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxc-resolver%2fbinding-linux-ppc64-gnu@11.20.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-RN8goF7Ie0B79L4i4G6OeBocTgSC56vJbQ65VJje+oXnldVpLnOU7j/AQ/dP94TcCS+Yh6WG8u3Qt4ETteXFNQ==",
         "shasum": "45559c56a6c8cb9ea8cafffca03c79d2a04097e1",
@@ -5924,12 +5276,6 @@
         "riscv64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxc-resolver%2fbinding-linux-riscv64-gnu@11.20.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-5l1yU6/xQEqLZRzxqmMxJfWPslpwCmBsdDGaBvABPehxquCXDC7dd7oraNdKSJUMDXSM7VvVj8H2D2FTjU7oWw==",
         "shasum": "8687b6e6cf3592e3cd76a316580d7fcd146e3f1d",
@@ -5960,12 +5306,6 @@
         "riscv64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxc-resolver%2fbinding-linux-riscv64-musl@11.20.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-xHEvkbgz6UC+A3JOyDQy76LkUaxsNSfIr3/GV8slwZsnuooJiIB34gzJfsyvR4JdCYNUUPsRJc/w/oWkODu+hg==",
         "shasum": "90ee1c47c2e0cf2c7ed6f542544e4c528d82f978",
@@ -5996,12 +5336,6 @@
         "s390x"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxc-resolver%2fbinding-linux-s390x-gnu@11.20.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-aWPDUUmSeyHvlW+SoEUd+JIJsQhVhu6a5tBpDRMu058naPAchTgAVGCFy35zjbnFlt0i8hLWziff6HX0D3LU4g==",
         "shasum": "3fe4d600f79978e766a746405bfa54fe05f27a5c",
@@ -6032,12 +5366,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxc-resolver%2fbinding-linux-x64-musl@11.20.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-kcRLEIxpZefeYfLChjpgFf3ilBzRDZ+yobMrpRsQlSrxuFGtm3U6PMU7AaEpMqo3NfDGVyJJseAjnRLzMFHjwQ==",
         "shasum": "c0d5c660faee13a916162f8d83be50015cb72bb5",
@@ -6068,12 +5396,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxc-resolver%2fbinding-openharmony-arm64@11.20.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-HHcfnApSZGtKhTiHqe8OZruOZe5XuFQH5/E0Yhj3u8fnFvzkM4/k6WjacUf4SvA0SPEAbfbgYmVPuo0VX/fIBQ==",
         "shasum": "f4fe37c4c5cf0804be3af07a53684780d5f9d582",
@@ -6106,12 +5428,6 @@
         "@napi-rs/wasm-runtime": "^1.1.4"
       },
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxc-resolver%2fbinding-wasm32-wasi@11.20.0"
-        },
         "fileCount": 7,
         "integrity": "sha512-Tn0y1XOFYHNfK1wp1Z5QK8Rcld/bsOwRISQXfqAZ5IBpv8Gz1IvV39fUWNprqNdRizgcvFhOzWwFun2zkJsyBg==",
         "shasum": "3fbbaf065df34b44d45d8391250aeabf220acf5e",
@@ -6136,12 +5452,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxc-resolver%2fbinding-win32-arm64-msvc@11.20.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-qPi25YNPe4YenS8MgsQU2+bIFHxxpLx1LVna2444cEHqNPhNjvWf9zqj4aWE43H9LpAsTmkkAlA3eL5ElBU3mA==",
         "shasum": "00e204aac6dddd1fa909d80aa53be6bee10e6b91",
@@ -6169,12 +5479,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxc-resolver%2fbinding-win32-x64-msvc@11.20.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-Wb14jWEW8huH6It9F6sXd9vrYmIS7pMrgkU6sxpLxkP+9z+wRgs71hUEhRpcn8FOXAFa27FVWfY2tRpbfTzfLw==",
         "shasum": "56d62047fa2ae7c2695bc901ff16303c8b6429c7",
@@ -6202,12 +5506,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint-tsgolint%2fdarwin-arm64@7.0.2001"
-        },
         "fileCount": 3,
         "integrity": "sha512-CUJEdbSZ54+Xy9OXqOhWLTKZKV0BBiV7C2i/ygyVmXtkUNXx5YCzN8DpSSshTAKktoL7S+tnQ/ftFG/i7X896w==",
         "shasum": "a270683cda2f012d0d5011370bd06384c6bee900",
@@ -6235,12 +5533,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint-tsgolint%2fdarwin-x64@7.0.2001"
-        },
         "fileCount": 3,
         "integrity": "sha512-pXfBb5BqONCcgrXQNUZWXgiYmRSWJzd97S8i41VVOh6ut0tyo+cJ5FKFpczDHxiVNfj/3e7c9B4MtztNdpIVCw==",
         "shasum": "3e93bdf6c8b6668d45c098983f71e269f171cd75",
@@ -6268,12 +5560,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint-tsgolint%2flinux-arm64@7.0.2001"
-        },
         "fileCount": 3,
         "integrity": "sha512-roP7zujb/QDPzDwEKsFFpzNHHy91/Y7oX9vQXk78ekyZtcQj1QXDIMH33gjDdHBfRl4K9pZ36xhRgrP4Zr+R8A==",
         "shasum": "7f335b178f011ba30da27f44e743613d5fd6cc20",
@@ -6301,12 +5587,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint-tsgolint%2fwin32-arm64@7.0.2001"
-        },
         "fileCount": 3,
         "integrity": "sha512-uJZhqB6pdXLuN+AD1F5082byyQti/NPmJA77GtcFlmT2HzRelqbNls3SaIqxpjdFgvSBF9g0yOKGBkGFg7kX8Q==",
         "shasum": "226c7779b0e1bfe970746e8d479a18fabc2f915e",
@@ -6334,12 +5614,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint-tsgolint%2fwin32-x64@7.0.2001"
-        },
         "fileCount": 3,
         "integrity": "sha512-FkDRm8hx9OwzGQqyWG1tO5QrTLRApff9DzSgpz9QZau37BR8d1VYKOxMLGf6shPZntJFoTwIIJYT68VndYDCog==",
         "shasum": "814bcdd2707fa8ab1ae0f0b51a7243b034d2833a",
@@ -6367,12 +5641,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint%2fbinding-android-arm-eabi@1.81.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-IcCRsXiedJoJopY6mpZUBEeVFsUrutmrG7dZ87zMuKJlhg70Ora9bBl1WcCxZQtyI10YpnVdEso5oCg7YcfSHw==",
         "shasum": "86a0305480e680431429c8259c5701ac5592e4a7",
@@ -6400,12 +5668,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint%2fbinding-android-arm64@1.81.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-GRrIPyTGVhx3L3h+0T5xT2A0jFAcdPv4+IfuXpGDLIdl6XeYhgg/zw72A5ILZoUgRqZuM8F1y+V/gfDriXSxzQ==",
         "shasum": "dba51cb2a1258f37eaca15a4e74d5d6ee19f238c",
@@ -6433,12 +5695,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint%2fbinding-darwin-arm64@1.81.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-qNQ9tXRgLuKbqSV1S2h9h4KPHjbovO7RRR2/enUOtHzTkFZ7B9X5zqqHJua8dRyc7dBy7Aoyq5pqTSLFVcAzGQ==",
         "shasum": "f384ae1eddd399429281f88a0073729e287ec0b1",
@@ -6470,12 +5726,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint%2fbinding-darwin-x64@1.81.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-q0QTm32jWga2Gv4j7IaVZN0jYMi9UV73sWVgFtDA4iIfqwMCLLZ3ve+9KwfYtsaKZSgQhmPaogeZWqDZpcY1Pw==",
         "shasum": "7167e3b4c18852fcd1ddade536d232d73d55d30c",
@@ -6507,12 +5757,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint%2fbinding-freebsd-x64@1.81.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-/+8wVWDXEC7wHVAhOc59Fw/SkMc1arLkFD8iQCaSsmzenK1X4doFqquL9H1wrtGUzaiycVqkf/sSpcILK6W1UA==",
         "shasum": "64f230765343bfe7e2280b071bb191bb666303ac",
@@ -6544,12 +5788,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint%2fbinding-linux-arm-gnueabihf@1.81.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-4xt422FEgioRq9hAL4Tq7fujGUWnc8z1BJ+Oi8RN8vB8axaP+sdK6a2xdlcQCCYnJg9QMuMFS0AucuIFx/EacA==",
         "shasum": "5095f021a28009146f7536a7ccd518cdfcbfc3bf",
@@ -6577,12 +5815,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint%2fbinding-linux-arm-musleabihf@1.81.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-u3vna8KdGplH4DRCW9K54D68fcMo7IxVrkCJWwXnIhwtBdnDnYrmzOUA/XjmBlPpcLsgw9Z5BNdY4za9+Dj+MQ==",
         "shasum": "d894dcfb6fb1b8b224b79e6ce07b17403f413749",
@@ -6610,12 +5842,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint%2fbinding-linux-arm64-gnu@1.81.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-3j9k+gsYsE7nv71GWotXsqsa2l9/aJenD7dVHNt/CBvsb0SgRjSMnHFeP59IXUAl1wvVFhqGl2wJNMwWU3UBlA==",
         "shasum": "bf8e362c87e7828ba28c2ec36bae73ad82989ef1",
@@ -6650,12 +5876,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint%2fbinding-linux-arm64-musl@1.81.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-k5iAp3dNxW0/uDCBY+WSm8jKB2szu7SkEQZdgRRpDXvuDd69vvDcqhB3A/pWCfCwXyenjNjFn9Td1fVoyAc+Yg==",
         "shasum": "2aa5214eb5b032e8f77d94a27c9bd3f6dbc446f3",
@@ -6690,12 +5910,6 @@
         "ppc64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint%2fbinding-linux-ppc64-gnu@1.81.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-TFqLja3uYmVSte6nof9GWrex9Z8WgdZrNiLC6Te5rXGDqXB2y4j/26iFhwosXiAFqDhE9JJVuuCkDKLwptTn1g==",
         "shasum": "a0af1af6fd309214555f33b4fa0432f3ec45f242",
@@ -6726,12 +5940,6 @@
         "riscv64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint%2fbinding-linux-riscv64-gnu@1.81.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-UEcySvGS0NOVo7h7n7CYyJL9+6gFAh7Zc/ToDXVScFvzHSTIxtzkMVU30rmQ6+nQ1LF+UdiRDdJajpDu+OylLg==",
         "shasum": "60413a335a63e0911a625d047690e41c03f2a833",
@@ -6762,12 +5970,6 @@
         "riscv64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint%2fbinding-linux-riscv64-musl@1.81.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-H+diDbhD00+wI1IRP8Kz88x/lat+DgtoBJzoTthS16xkTJGNaEkfb8gzmd1rzc/2uDQQMl7GNl+JFUacVeWxIA==",
         "shasum": "5f1dd7bc2bdbe92fa5454df081ee91fa2c499948",
@@ -6802,12 +6004,6 @@
         "s390x"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint%2fbinding-linux-s390x-gnu@1.81.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-8znJ/5TekjOKg1j1Acho4PJMdiAHLtlcXuWEiipOhAMV6rQcXdmDdXCbheyDczN6TjBwiNfjcP81k4AthrKRzw==",
         "shasum": "830c5bdd145ad39c9b5371e3214d0a9f9c1f46b1",
@@ -6838,12 +6034,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint%2fbinding-linux-x64-musl@1.81.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-cPInHp/ddEe5qkyK2IiyQ8Q3Mp2oLLEhhsGgTK2oZx4L6+llGam1H1yBvJZ7qHfOXj8N3hxBS8sj4tO+gtFlIg==",
         "shasum": "758fd6ea69123c6f4c1ba160bfc28f6b84548c11",
@@ -6878,12 +6068,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint%2fbinding-openharmony-arm64@1.81.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-0CQxSX4ajqm07AHBf5U33qQzXKdd7wtq/oTL/7vpY6RNNuxrRi8W4bqUV1Jyu/vj+9KmxQyDhxfeVX1nQL6kfg==",
         "shasum": "e492b7a1875b70ea55ffe13f685d4302e6b1900e",
@@ -6911,12 +6095,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint%2fbinding-win32-arm64-msvc@1.81.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-l0hbeISm9673hVrrQU8j/p2M7YH9Ouoj7p7E/QM55NTrKVLP+P3PF8hLu+OY+x0VtGRW+ggiQKZqmdYps9H+TA==",
         "shasum": "9247fdc1b4c86ecc718747c5f8c68902969677d1",
@@ -6944,12 +6122,6 @@
         "ia32"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint%2fbinding-win32-ia32-msvc@1.81.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-ksqPP5jbFXcYreEQ7zdJh06rJQBymCTyGRCdaXjfcf2aG4f8KxUWY5wcgYHmaTK+FJ4bPG5sUAdOX+6trnH1JA==",
         "shasum": "dfa4eed78612c5f4df788eb056fd5d1b05a75bb1",
@@ -6977,12 +6149,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@oxlint%2fbinding-win32-x64-msvc@1.81.0"
-        },
         "fileCount": 3,
         "integrity": "sha512-IZuUCwGw9emG5JtCp+fYGB+Z4OWEoeEcM8R5BA1pYw63/ieYFVdcU2ylxTpHbVHSenZnsYE+ZZ20uHAJszQ4cA==",
         "shasum": "27a474cc288e47a0e5c2d9c922bee64de0cfd614",
@@ -7014,12 +6180,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-android-arm-eabi@1.2.7"
-        },
         "fileCount": 3,
         "integrity": "sha512-EypzgnYCwyVY4NDHKzGmNJT5b+XaQEBniHxsMdeIQLB/tcCzZnhqrzHpZFbX9iaxx+5RiB8caATBtfvZP7zVxQ==",
         "shasum": "9a0f9b6752ed522254f3715e81c066e5da6de9a9",
@@ -7047,12 +6207,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-android-arm64@1.1.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-BLf9Wak/gfwVb7NQTQW4wBgL3oAfPy7ArEkhwV543OVw/uY6B47z5xYsqPSZ9PDOorvURPinws6ThaFuNgGLgA==",
         "shasum": "a85639fe6fb1eccdc013b0ccb2d06c0c83ab1e3c",
@@ -7080,12 +6234,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-android-arm64@1.2.7"
-        },
         "fileCount": 3,
         "integrity": "sha512-l17HE9EweWaqJZhuUuNBN/FzM62xw+DECVnJyvMsxn8vJFAGLy5QfLDoYAcronkAN8VxKZHezDpulHDPx95vFw==",
         "shasum": "bbc5a5e39deaa1cca5658d073b8c74b9cee329e8",
@@ -7117,12 +6265,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-darwin-arm64@1.1.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-rRZRPy/Ynb+Mxu0O6tfPldHeDgAn0sRij+IOUy6sFdUlv3hArGW/DloE3GfAxtqpOJuRNgF74Nr5gM4xBeU2jQ==",
         "shasum": "17a6d562de7d486b456bd52331391812ae12ce3b",
@@ -7150,12 +6292,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-darwin-arm64@1.2.7"
-        },
         "fileCount": 3,
         "integrity": "sha512-8ED8ELFvHXc6OCETIn4gXObPiaR6bckM/ipXtbzlPVDRMBfEGjCKgO90F9YtfdpDatVx/ZQw7aZ1vUMf/+T3Mw==",
         "shasum": "ff3858531df2592011c5ea19e7babadf22a036fa",
@@ -7187,12 +6323,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-darwin-x64@1.1.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-/MtefPxhKPyWWFM8L45OWiEqRf+eSU2Qv9ZAyTaoZOoGcoPKxbbhjTJO2/U2IThv0uDZ4NWHc3/oTsR6IEOtww==",
         "shasum": "2b66ba9fef25610968a5f94967f523afcdab7b9c",
@@ -7220,12 +6350,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-darwin-x64@1.2.7"
-        },
         "fileCount": 3,
         "integrity": "sha512-/WPripjtiAIZ2tWY7ddijORT0Ujg87wxWW/qcoFVCKAWVDPhtY0xr7Dj0M3GyNGz60jGwTElhro/mkF9dT7dDQ==",
         "shasum": "7be480c60dfa230486e84ec43184803f7e172bae",
@@ -7257,12 +6381,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-freebsd-x64@1.1.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-202K+cpIi1kx/Zn7AtxBi4LTXSY67Aszb2K9rNsuW7FeBeh0nqoNmYLOSZidV0p88VPBzMmTZcHAdPNo3kRYzQ==",
         "shasum": "f15984678f91cb17cc96354c511afeb5b7af5ebf",
@@ -7290,12 +6408,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-freebsd-x64@1.2.7"
-        },
         "fileCount": 3,
         "integrity": "sha512-14DI4NcqpvbICxSnGLx3PmtDaWqRP/KGSGb6C+JLLVPeZRl6dKdHba3pGsqT3vpdTqhEYIPG0MMQ8c0xYqoJxA==",
         "shasum": "533b1b58623c6531baf78c3a911aed586c92fbcd",
@@ -7327,12 +6439,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-linux-arm-gnueabihf@1.1.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-wl9NfeXNUwrXtUc063tddmZFUI6qiNs1CNOwni0OL4vC7MqVSYugra3ZgtDmtVy8e0DluJTENmzIv2BwqLzT4Q==",
         "shasum": "19269ce12552762755285b28abeaf4732270d637",
@@ -7360,12 +6466,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-linux-arm-gnueabihf@1.2.7"
-        },
         "fileCount": 3,
         "integrity": "sha512-bxrWIRvHWQvbJwi+VIie/kDJmQxcNE6xxWwZdqF/ExVAigtHkv54WTLQPb+QsZdnFy18fg7JPfWGL0RH6vwIlQ==",
         "shasum": "24806b5ca49eced31d8a8c98bfd7875942f08fc4",
@@ -7397,12 +6497,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-linux-arm64-gnu@1.1.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-at2EO4o7D/PJLC4Xik16bU4CcjQE2tSv1LfqMA0TRYQYQihRm3gZeDB8xaX28A9SFedibcAk5DeMCKt4REKG0A==",
         "shasum": "fbc5af4e727df57e009d760e6a33d973f4d8c4ea",
@@ -7433,12 +6527,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-linux-arm64-gnu@1.2.7"
-        },
         "fileCount": 3,
         "integrity": "sha512-toOY2BChBZyuxU7OYX6Tn389di4IzAqPTycVcci0O7FSfBqzRB3RZn+K5Is6ANf4tmgRd/K1yZTsNTXbkXsnLg==",
         "shasum": "7e73c4251887102a465f7940bb40cdb6c8f2315c",
@@ -7473,12 +6561,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-linux-arm64-musl@1.1.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-5PUjZx366h9tkJTPJF5eibxOlK3sGoeRiBJLLjjEB5/kLDuhr6qB3LkhqLz1smXNgsX+pBhnbcJBrPE30HznAA==",
         "shasum": "ea13f353966b8eb6cd5e83cfbba35364602179f0",
@@ -7509,12 +6591,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-linux-arm64-musl@1.2.7"
-        },
         "fileCount": 3,
         "integrity": "sha512-lAIXTH/aiLRLxsTgQvfhjo4K1ydWIp00+V0voOr9beb/9ZmkUFrSIb03dXNFRgMNvkE6oGsF10ioQ6UsI+vS5Q==",
         "shasum": "f72f2ca9947916ae68fd790b36db1776c61b9c5d",
@@ -7549,12 +6625,6 @@
         "ppc64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-linux-ppc64-gnu@1.1.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-1WK84XPeio3tjP1sM/TMXiC0G1i1iq1qGZ71KfNQjEFLU1kwD+Cv5T8nGySg/JUFwLbaScu6ve9DmeXlmqpkFA==",
         "shasum": "616faac6d594877d40f4aa2a0c211bd9c6e062ef",
@@ -7585,12 +6655,6 @@
         "ppc64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-linux-ppc64-gnu@1.2.7"
-        },
         "fileCount": 3,
         "integrity": "sha512-kdnwS28Pkenp/mZMRwjXXXwxQ7pIsm+bF919LUK93BOyhcLsrVKdP2p9fxpiPNPAbNuch8ypQt0pm2P2LYCAGg==",
         "shasum": "2a6bc86254e9f400476af7d4971b8cbc532bed1d",
@@ -7625,12 +6689,6 @@
         "s390x"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-linux-s390x-gnu@1.1.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-1nS1X5z1uMJ369RU25hTpKCFvUwXZp12dIzlzk4S+UxCTcSVGsAE6tzkOSufv/7jnmAtK0ZlrsJxh2fGmsnVSw==",
         "shasum": "2c5a54256c24d4486a68d3d40ad07326bfaad957",
@@ -7661,12 +6719,6 @@
         "s390x"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-linux-s390x-gnu@1.2.7"
-        },
         "fileCount": 3,
         "integrity": "sha512-516OdsyLdr5E65paF3yBF55t8mfm9+gmtCsK3xI7XKXIT7EfRlHhxL8K/NR6Hu8BWSgF5+1w74lTL0+nxcc8Qw==",
         "shasum": "07888b936afa9336fdeacbbb2bfbf148e30f64ef",
@@ -7701,12 +6753,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-linux-x64-musl@1.1.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-+n46LhDrJFQM+229y4oXtVpj1G50U/+XuHMlpnisFTEXhrg9f/YIjp/HymX+PVJjBEr7XHRs3CFLelV464pqwA==",
         "shasum": "36214fa98b3a118b33e6c017d7ce35b3b150c512",
@@ -7737,12 +6783,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-linux-x64-musl@1.2.7"
-        },
         "fileCount": 3,
         "integrity": "sha512-pAsE8iiDxUg1xBqdhrTfg45AVDVpirjz00sblEYClGNNcMnDb+e8beQgqIAw6LvauX/APvgxUnwrgun/YYGBhw==",
         "shasum": "ef16286f9d2c091263e65142d1f6204ab6fc4a3a",
@@ -7777,12 +6817,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-openharmony-arm64@1.1.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-qGwEu47zOWYo7LdRHhCWTNhzwGtxXpdY6CERs8QEOqC0PXGGics/e3vHnyEUKt8xK6YkbZXFUCeklrpB6js8ag==",
         "shasum": "db825860179c5276b4cbc1b8adfe3c650c47480d",
@@ -7810,12 +6844,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-openharmony-arm64@1.2.7"
-        },
         "fileCount": 3,
         "integrity": "sha512-lTcIYmmnQQA8Or/2DatS6oSqcdLHvendjS+zLu+FwgToynWMRSmQdpM65fTANJgIS4mjbMOo5KT2lnT9SAb96w==",
         "shasum": "e85c1f6cfed01fbf9e3b16c5159e32548b59a96d",
@@ -7852,12 +6880,6 @@
         "@napi-rs/wasm-runtime": "^1.1.5"
       },
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-wasm32-wasi@1.1.1"
-        },
         "fileCount": 7,
         "integrity": "sha512-qczfgEH8u0wHGGOXtA7UMAybNKuQjjEXairyQaw4WzjiMztfbgatG1h4OKays/smhtwbWltpKCRGtVhU6h40Sg==",
         "shasum": "80bc4d0ea53847592bb4b32da2064d4377af5a04",
@@ -7882,12 +6904,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-win32-arm64-msvc@1.1.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-4psXSh63mSbwJF+mB8/9yfUUEzBiHYcUjxa32EO9ZwKy0Ypwjcg4F10D8SvVXgd+isy2UUUjF9HJJnDu1T/4Gg==",
         "shasum": "55a47128b12ea3de3bf6316c29ac5c735b2bf739",
@@ -7915,12 +6931,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-win32-arm64-msvc@1.2.7"
-        },
         "fileCount": 3,
         "integrity": "sha512-e3Gu3WxbNk/UqQhxqU7YIYO+9ZBvWNz3U+h/qRFosscMFzdRPbXYSaSWgSnklv2fz1TgzBTcti2z35c/7irsHw==",
         "shasum": "833546f8b04904d1453ebdaf81ef8671f95ac926",
@@ -7952,12 +6962,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-win32-x64-msvc@1.1.1"
-        },
         "fileCount": 3,
         "integrity": "sha512-MUvC/HLXVjzkQkWiExdVTEEWf0py+GfWm8WKSZsekG3ih6a21iy0BHPF07X3JIf3ifoklZXTIaHTLPBgH1C3dw==",
         "shasum": "f32a938274003250cc7905e9b352cbc694c44990",
@@ -7985,12 +6989,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rolldown%2fbinding-win32-x64-msvc@1.2.7"
-        },
         "fileCount": 3,
         "integrity": "sha512-W/jg5qoRSqjsEv0+dZi4e687mcHqmVuU0P4fK6qS/xjetW2Gmc1W8j//z5nAeNcC8Ttm0hV46IjcYeuVwYhuiw==",
         "shasum": "96186105008c63fd52b2ca9ed5ef5e74faf5907f",
@@ -8022,12 +7020,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-android-arm-eabi@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-6o7ZLZK+BeenkZCFNDXqpbjw9bD6nuWonvS/lwQJp7NoVVxm6p3qE7qQ5jGuBjiFsgvqjD8mZAU5oWxTmbOeOg==",
         "shasum": "5e9849b661c2229cf967a08dbe2dbbe9e8c991e5",
@@ -8055,12 +7047,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-android-arm64@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-BaH7BllCACHoH1LguOU56UItGfUWjujlO65kS9LAodViaN4bwIKd7oeW/ZHJ/4ljr/7MIiENnNy3HJ0zXv8Zkw==",
         "shasum": "5b0699ee5dd484b222c9ed74aff43c91ea8b17f8",
@@ -8088,12 +7074,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-darwin-arm64@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-v39RCCvj4He82I9sFmk+M1VZ0PLM9sfsLVikjfx2hYBNALhrrOR2D3JjQA6AhlaSOgcR+RzrKY7e1+bT6SUO/A==",
         "shasum": "8bc52c9d7a3ce8d0533c351a9c935de781daa06f",
@@ -8121,12 +7101,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-darwin-x64@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-yl0y2vq3S3lHeuXhEdss6TWfKW8vkujImO12tn4ZkG/4oghr09LvdYm2RElVjokTQiUvDUGXLGsYeLqUMCKpGA==",
         "shasum": "ba2ef3e8fb310f0af35588f270cfa5aa96e48764",
@@ -8154,12 +7128,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-freebsd-arm64@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-tT4pvt4qXD+vEoezupCWi+a1F0vvDiksiHc+PxRlYTOH1I6/X4id9jPxTP+Fg+545euaFT1jJVs4CEdHZAU1vw==",
         "shasum": "93b10bdbfe8ada226b8bc0c02ef6b7f544474d96",
@@ -8187,12 +7155,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-freebsd-x64@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-6nU5F2wCW+qvCBhTn1pdIU3bzsIoF7EUwsCDRxilWGprQR6yd508YnH9+OKFCwpfS8pjZqDUmnCAr7exax0XCg==",
         "shasum": "3e8aa38ef3c9c300946871e3fdbb0c30e0a20f86",
@@ -8220,12 +7182,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-linux-arm-gnueabihf@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-n1GJHPOvpIfhi3TmrCeh6S6URt9BFCt0KQE3qvexyGCTAKpR4Lg+eWvNZEqu7epxwus/8ElT3hacYEucm49SZg==",
         "shasum": "1d7994384bb0ad1bc41921b506e1642d4f9d7fc3",
@@ -8256,12 +7212,6 @@
         "arm"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-linux-arm-musleabihf@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-JqgflS8wEB+UXV/vS1RpRbifGBeN4D5lz8D8oOFbFZw4vedvdOgCFAjfBmIMdW3yL10XpQQ0Ambepw6MXrhOnA==",
         "shasum": "a6540f47cf844a56b80ca9ff95d2acdfb2cef97b",
@@ -8292,12 +7242,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-linux-arm64-gnu@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-wnFJkogWvN4jm/hQRF2UBaeUmk20j5+DmHvoyWii2b8HJDyvz1MF2OU/6ynXt2KR63rbZLWkFpoytpdc/yBuSA==",
         "shasum": "404f2045651840cbf48da91ba6d0f490f0bc2cbf",
@@ -8328,12 +7272,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-linux-arm64-musl@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-HVu2bp0zhvJ8xHEV9+UUs7S90VadmBSY3LcIMvozbPo4AuMGDWlz3ymHLHZPX4hR67TKTt8Qp5PJ5RBg/i+RMQ==",
         "shasum": "a3404ffddf7b474b48c99b9c893b6247bb765ba5",
@@ -8364,12 +7302,6 @@
         "loong64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-linux-loong64-gnu@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-mQqqAV8QaoSgr9I2fKDLY2BAVvmKjWoGiu/cSYQonsLvtqwEn1E4QYfnCOcp5zoEqNhsDYin1s6jx/VJmrxlZg==",
         "shasum": "e8aac6d549b377945e349882f199b7c8eb75ca38",
@@ -8400,12 +7332,6 @@
         "loong64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-linux-loong64-musl@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-IxKLoxCQ2IWi6bT2akyDUBGsOImDKB+sPp4EsTmwFQ/fMwpCKm8uLSSgP/Kx/QYUgKis6SEZ5/Nlhup0DIA0PQ==",
         "shasum": "6e2e44ea50310b3a582078a915e5feb879c820d4",
@@ -8436,12 +7362,6 @@
         "ppc64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-linux-ppc64-gnu@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-Mk5ha2RQSgyFfmYYLkBpPnUk8D8FriBxesO1u9O75X0mHgXL1UQcH5Itl2lurWL2tj0RxV9b9tJgipac0hRY9A==",
         "shasum": "6898302da6d77a0537cde64b2b4c6b60659bd110",
@@ -8472,12 +7392,6 @@
         "ppc64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-linux-ppc64-musl@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-CjvEnqJL/0/TQ3TXX3OPIJ/kmBellrWd4heXUmHeJlTnmwjKpSJzoehLaL6Xk0ZnMHBu9dZuFADNOrtjF4v+2w==",
         "shasum": "333717c95dd5a66bef8f63e7ef8a9fd845fd18d0",
@@ -8508,12 +7422,6 @@
         "riscv64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-linux-riscv64-gnu@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-1SiZbzwdkaDURsew/tSOrooKiYy7EQGT6m8ufavAi9NEyQb/6VuIxFXAL1fqa4iZe3g4NbNk4P7J32z2tw5Mgg==",
         "shasum": "81bc06ba380352004d01f4826eb7cdccefa05bad",
@@ -8544,12 +7452,6 @@
         "riscv64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-linux-riscv64-musl@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-nQts12zJ3NQRoE6uYljOH89v7szzLDvG2JD/vsX+vGXU8w/At1GowTZ5/7qeFQ8m7L55rpR8Okugnuo5bgjy2Q==",
         "shasum": "95a7cd39de21389ad6788a5284eaaa738e29ca4c",
@@ -8580,12 +7482,6 @@
         "s390x"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-linux-s390x-gnu@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-E9/ll019jhPIJgpzfZoIkBGhcz+kKNgVWYRY0zr9srBdPPFVpvOKW8VaJKUbeK+eZXyQF9ltME+Kk6affeaPgg==",
         "shasum": "06e6db2ec1bc48b5374c7923ef83c2eb024b2452",
@@ -8616,12 +7512,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-linux-x64-musl@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-uNN83XxQrRAh/w0/pmAfibcwyb6YWt4gP+dpnQKPVJshAloQ785ii8CT8ZCIxkGg9opVsvAlGhFitSm6D1Jjpg==",
         "shasum": "2080f4a93349e9afd34be6fc1a37e01fc8bfc80f",
@@ -8652,12 +7542,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-openbsd-x64@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-srjEIxSH3LRnJN6THczDHWQplqEMFiAJrTab0msUryh9kwNpkICf3Ea6q6MN/2cZwRFUNx5w+h6Hpi4QuHS6Zg==",
         "shasum": "21d64a8acb66221724b923e51af5333df1af044b",
@@ -8685,12 +7569,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-openharmony-arm64@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-8hOJnxgbyObnCm5AlRA3A931xX19xq80RjVTKgJOvEKWqJruP/Uf12IbAOaDjjEXYRewwHLfmF0YRIdK3OwKWA==",
         "shasum": "8e0fcd9d02141e337b4c5b5cff576cb9a76b1ba0",
@@ -8718,12 +7596,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-win32-arm64-msvc@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-mmF4AY1i0hG/bLWUctUq59gtmgaSIRa3cu/A3JFRp/sCNEme2bgDEiDS22P9FbnJB8NJNF4jPJiSP5RHQpUTDg==",
         "shasum": "bdb4cc4efd58efe808203347f0f5463f0ea16e52",
@@ -8751,12 +7623,6 @@
         "ia32"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-win32-ia32-msvc@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-DZgkknc6jhHrk46V25vbAM0zZkyP0nSDkJB8/dRkLTxv470dOmWDqGoEJl/9A0dFfS7yE3REOwNDxpHwSLSt0Q==",
         "shasum": "dbaebde5afd24eae0eefe915d901632e7cb59860",
@@ -8784,12 +7650,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-win32-x64-gnu@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-T6xr6ucWSFto+VGajA8YH26LdpHRuP4YLHEKAtCWvJDOlnmWcDZVCI2Jmjr+IFHDlt2zRaTAKE4tfjTaWLgJBg==",
         "shasum": "84109e85fea5f8f1353499f96578fdc2a0e8b138",
@@ -8817,12 +7677,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@rollup%2frollup-win32-x64-msvc@4.62.2"
-        },
         "fileCount": 3,
         "integrity": "sha512-BfzEnDJOt9T8M989/lA37EcJgat01wLRnoi5dQf3QzOH7jzpqTAzdDbVfRljVr5r+jzKqpbHeyOfAaXxAd0PAA==",
         "shasum": "3671ce3f9b928d5c01f879792d5c0b60ae14d4ad",
@@ -8850,12 +7704,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@trycua%2fcua-driver-darwin-arm64@0.28.0"
-        },
         "fileCount": 4,
         "integrity": "sha512-T6xvOlCph5uropetrH6tNTvg5ipN9FUzV1n28gNJ1LYoNT3fsqnQUpCRMavlAui/zYkyMqCMaBUqBcfZLA+SnA==",
         "shasum": "20c3c6033cafcdad7176382bd772dd06cd443812",
@@ -8887,12 +7735,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@trycua%2fcua-driver-darwin-x64@0.28.0"
-        },
         "fileCount": 4,
         "integrity": "sha512-8lBtyiTfMOGmEklNY4GHu5SedfxYbg43FjLpPUmKLSVF98+opyQ1bsyI7A7VlfUBW4hdwEBDLtzZnpZqepN9ZA==",
         "shasum": "f756e91044c88996ffb67d0195ad2a2ced5630f8",
@@ -8920,12 +7762,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@trycua%2fcua-driver-linux-arm64-gnu@0.28.0"
-        },
         "fileCount": 4,
         "integrity": "sha512-/sDRM2vUQUA5FY3y3VAOxe0I5U1UHfhDUY3EfvGhASrHteefMVh+Wo8teebcto5TgVjiw4P41YdoTFBFWR3w4g==",
         "shasum": "268c7273f2868d33a4b4786ef60ac9e7478462be",
@@ -8960,12 +7796,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@trycua%2fcua-driver-win32-arm64-msvc@0.28.0"
-        },
         "fileCount": 4,
         "integrity": "sha512-7cbX5v7xyCdGK3KuwPbMKlIuIUjKkKFuGgdPsCl7qZHLv+PQC5f7FrDFl8hFG3YNKvjoyan5ufus0AoTCcmp5w==",
         "shasum": "78a47c25f6180d07cfe2db00b46e82a935cdc483",
@@ -8993,12 +7823,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@trycua%2fcua-driver-win32-x64-msvc@0.28.0"
-        },
         "fileCount": 4,
         "integrity": "sha512-tTWcGIGUCZ/k+mbcdh/4VmehsELp12M/tUj59XQSW97lFwrMSSIUypZ84LAEO+CEBdK9NQBRKO2pMBTH6aakEQ==",
         "shasum": "28694278d14b6fc076bdc9c899bedb54b5e591e0",
@@ -9551,7 +8375,6 @@
       "dist": {
         "fileCount": 5,
         "integrity": "sha512-+R08/oI0nl3vfPcqftZRpytksBXDzOUveBq/NBVx0sUp1axwzPQrKinNx5yd5sxPu8j1wIy8AfnVQ+5eFdha6Q==",
-        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi2s2YACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmohOA/+IhPPGR6MYqjqtmo3bM6HpNE7DmNIeuDkU64paezdGkXVQD5h\r\nGjcRPgAh2Dkk0dpfRLd0Nw+BSHs1b0Ld6ftAfSgCesHBfzKgpeKyDvVQRPvi\r\naMLfyF8kCMzD/YsEMpU0nwwSLh39Sm9iV01tNUudwvphs0L2eQkw6TbCm88K\r\nxYtwjmNUOYvBWhfEWaF/NmSWsZNqzEswNjRCc4Uia0JPVCoZlJS4yGxA2L+W\r\nbhWba4lDt84nk5TdBaaMpyIO/X1lfnhVx9RG15jrJ9q7a2EGs5EupD0peE71\r\napNsOEjO8Z4q5PO6qh2kzzVrt4EAMtmfopwPjkCY6cbceGSLFI4RzFKYRDHd\r\n8BPJnBq2AqNjH2uFE7tNhCLFGvDLSSGdgYmKdQFewnHLjZoOu1zaqF1gGtUF\r\ngWhc//u7VIqIYk2zLvOkWeFc3hqsv/uQWsR49SEFaUjGkdi2EyIYZ8XuVpt6\r\nhbdEQfj8KXoQzqQr+X4Vl8CDIEJD48gHIPs4RoB/36svzA9Z4BomHOuDVxgR\r\nrcTQNgjLl4/SwxfCFS2r8379ukzcEirkRysAJh046WsFYNyp949IQAxN92yE\r\nJbXHyhPCPENBK/eEHi8xBwfP5Rmlh9msUJTYFXUA4+5837y4MsMx3U6LwrLS\r\nElxmgJsr2gSC02zCfoKcGqNsUszKmiMWCNA=\r\n=fPXp\r\n-----END PGP SIGNATURE-----\r\n",
         "shasum": "b899599f30a5389f59e78c150e19f957ad16a37c",
         "signatures": [
           {
@@ -9587,7 +8410,6 @@
       "dist": {
         "fileCount": 6,
         "integrity": "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==",
-        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgHVpKCRA9TVsSAnZWagAAJFMP/Ahi5vRQPbZHNkG+zric\n4/j4kF5XpaQvxCGy75GHF6rNNn7uM3FHjsmbfGjMfnvA+cSVCnbrbI45lhEX\nLWPTAPwb+Plxk9daosAj9IFqDyUFFewS/+dw5wRtP4zfCfa9jT9lsd7sMTee\nrrmWbMb2DLRexKeokZvoBj0RUKOMSHB2oD6/ITulCiD59kwJndxU+nV+NnUC\nycYJY2CQ+jLQQovBWtge5Qv7ur6woVkNmBstYoa/jNJy93GvY82Ka2Rk8oV5\nqPzKQCYqwIaOE0uc9ABb2gQGDvZShFDYtmHqDcsyss7eq23xbJyYM8LMZVgy\nDreGUzJQOMmd03gwoF8djwiWF8NXGZ8km37JbPaW4oIDkhgFB5YJu8jupUMj\ny0xMW2R2tpsrITu96OBWLPuY49rvqBKsH5mGokrsXGZ/J3o1JvNEfHauG3jz\nOlUhRD52hAN3aLyJeaOqXIvpbW/7YpStHYVWmfKv/b/ITa0hjSSIpZsaznSu\nGB/fwueHA3zhCoP55mKbn/tgimhOrA0Uo1dG431LOP9uCAnJzY+df1pBKYGl\nTvVQM5loC7GYutgOZsTuZHNcwTf8YHdm/MazIhVMT76nw/dD59iynAha069G\n9VOK8K0JUsQQwtOcfnd67qraZQeNkfwnS3ifUzMYeHoCESvPBcsAlmJpnnSs\nZn+o\r\n=klC1\r\n-----END PGP SIGNATURE-----\r\n",
         "shasum": "8a526f78b8fdf4623b709e0b975c52c24c02fd1a",
         "signatures": [
           {
@@ -9653,12 +8475,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/jscpd-darwin-arm64@5.1.2"
-        },
         "fileCount": 4,
         "integrity": "sha512-6fYVCBHgE154jVVYcRA+9K17q5AXe0/V9wfPf3hBrDQMxqOiI+99ii2CfMT6OkcEtJULqpi+uJENCsjtYn+nmQ==",
         "shasum": "565e2a85f47076d287495ddeb163e62a44651729",
@@ -9686,12 +8502,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/jscpd-darwin-x64@5.1.2"
-        },
         "fileCount": 4,
         "integrity": "sha512-udNKAqu7ty6NcHvSwaZ7qCktyN+JwET0Z81e6/s1WmRtHkdd6Hnv0Gix04gRN3aVkfqZzI6YKle0YnYPJe4hOA==",
         "shasum": "738f95ee674df97317112ea8635150995b4808a3",
@@ -9719,12 +8529,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/jscpd-linux-arm64-gnu@5.1.2"
-        },
         "fileCount": 4,
         "integrity": "sha512-FYX3IZPXwEooiDn7fQzHEytRbbsSBNqqHUEzxu32EKBXNyQ1Fx1/8hms26X1RFUJ80zpcKkRQCz1J3hPYsYhFA==",
         "shasum": "189f47475a10d271524a7ef473a6850e310dcef9",
@@ -9755,12 +8559,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/jscpd-linux-arm64-musl@5.1.2"
-        },
         "fileCount": 4,
         "integrity": "sha512-SuoKN9xv4pIopLS2yPx3E+ysnmZPNAKdxxAYTwvd6ixrEcO36xIKUma+DGKUw1PLXq1HO6A9M3FlqmnrTCnzYA==",
         "shasum": "09c52ba4fca0e94fe84db9b473e119896f57bc36",
@@ -9791,12 +8589,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/jscpd-linux-x64-musl@5.1.2"
-        },
         "fileCount": 4,
         "integrity": "sha512-46Astr0LnVh/prpqq5/Vehtx18MCvcs0KL8vi49kAIksOe6QdlQ/hdBKH8V61pAAmAgCr64hU9p0dv6DDKHJdg==",
         "shasum": "95ed9154113b38660a264cd765173c27c3971fdf",
@@ -9827,12 +8619,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/jscpd-windows-arm64-msvc@5.1.2"
-        },
         "fileCount": 4,
         "integrity": "sha512-19gpnY+Mid71EGGytBcFwsif/Y1+Vfu2Qp0IJ+L3WFD32Zui9O4vvASwvxocgA7z77kiZNh9zF5sZY9+oQB62A==",
         "shasum": "9f530439c39ad163096cba5501ba985f32d788af",
@@ -9860,12 +8646,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/jscpd-windows-x64-msvc@5.1.2"
-        },
         "fileCount": 4,
         "integrity": "sha512-RZlAnXP7Jmx39LBC66IIpFIGl/Bg4FcSkz4Jr6ThrDm5D1NvM201MDG70Z1i+N3wRrfI8UcDkWp5rsHzGHViSA==",
         "shasum": "4c44d603f9e89cb756e6a8c9b5c4a5cab7ce16dc",
@@ -9897,12 +8677,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/lefthook-darwin-arm64@2.1.12"
-        },
         "fileCount": 3,
         "integrity": "sha512-GSUjqaCuxAYlPOovbjXEWE3HAIa/xOQkTTmZ937zieQldjPLTaC7+s5FHoxKywn+D9riBlofkDqG7Z4f5zzmPA==",
         "shasum": "b28f959d0315f6f3c5441297a6a4da436e5da86e",
@@ -9930,12 +8704,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/lefthook-darwin-x64@2.1.12"
-        },
         "fileCount": 3,
         "integrity": "sha512-qAUHSSw/7Afi5wxkoLkxORxSicCeTBXyVLnRgD6YZra6udviozpK3Aok9Z6FIWeKc5FBijRMSNDxGPTREhsjcQ==",
         "shasum": "8676159a37ed49b24497942215e79acbfe24422b",
@@ -9963,12 +8731,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/lefthook-freebsd-arm64@2.1.12"
-        },
         "fileCount": 3,
         "integrity": "sha512-FHZRfKliFNbyz54zsoGdVe9muq67cNjBTZ6jrPPUjI7xUuyCwSpzA+1OpiwJT00L9pP5ZGONBqnGZKnrpC+7Uw==",
         "shasum": "d34f0ae231cbfa9f5202348d7a4cd02e2dc495f6",
@@ -9996,12 +8758,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/lefthook-freebsd-x64@2.1.12"
-        },
         "fileCount": 3,
         "integrity": "sha512-HYQZPGy2DDEx7dbuotusJpujY5q9igOLgx36qeeQcNQuvvdGHPj2ZGSIsGKhoJ0dw5Qa4knKJoPAHEZQWdV/og==",
         "shasum": "837c34702810643566cd40fdf182bd109e14f12a",
@@ -10029,12 +8785,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/lefthook-linux-arm64@2.1.12"
-        },
         "fileCount": 3,
         "integrity": "sha512-ipjOri2PB/sk4noPrHQuM5fcpNBjmlKo4qMtXyLnxeOxGYHWZzf0Xi0OtrXHQ//tOprcv40ADvhUuSdcGqigLw==",
         "shasum": "d3a930c0b17ad5f75410d82ec9ed58329b90799a",
@@ -10062,12 +8812,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/lefthook-openbsd-arm64@2.1.12"
-        },
         "fileCount": 3,
         "integrity": "sha512-vb0J7bElLvoaCWQmna3HntsvoNqMsGAhfjjC99ss1OdCteufZKM3RxCVoMBEbD50Itv2c1Ua2AFVToltVFTy1Q==",
         "shasum": "858b8445727dd825470fa00febb585c4ef9c33e5",
@@ -10095,12 +8839,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/lefthook-openbsd-x64@2.1.12"
-        },
         "fileCount": 3,
         "integrity": "sha512-QOmhDWqPPK4+99scanfEmbJjUR+JYC93qhr/0bp5Dj3LaR3kVFNWc6zOQUsOTPy/LC6PG759Lej/mr/BtjUL2Q==",
         "shasum": "771ee890e6e6cd122fdd24d88a754623505eed0a",
@@ -10128,12 +8866,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/lefthook-windows-arm64@2.1.12"
-        },
         "fileCount": 3,
         "integrity": "sha512-eErEyr9AHkRFj6TxpCQeKGd0s6IrtL/VEIZ/ssg8dNfG+ycR4jAW/IAlrJSw6/ZQXb3WtWLaQ6QA5c+TLh7vmg==",
         "shasum": "85943b4e430bafe081acc8185555378a9183f22a",
@@ -10161,12 +8893,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/lefthook-windows-x64@2.1.12"
-        },
         "fileCount": 3,
         "integrity": "sha512-0h+WmDVdDriTjloD/UbjPq/ZtqaaJlPAdGcVwMCEdAxfbF0FTgDbKX3igui9g2U/qG2y6QpVhtz1jeiRe7ctaw==",
         "shasum": "b6b1d53735abcc4d3e7235e9b7175e5684c89ab0",
@@ -10754,12 +9480,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/sherpa-onnx-darwin-arm64@1.13.8"
-        },
         "fileCount": 7,
         "integrity": "sha512-FPNgJMgnWVl/KhRTIhG3KL3A4Om63Rn4YKXc9/uHY7SzLcvqLJLc/h7UBWJwduXvv7K18t5NpxHR6XgXn4sjWw==",
         "shasum": "857c77add0e601a36480e51c5f840231772ee572",
@@ -10790,12 +9510,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/sherpa-onnx-darwin-x64@1.13.8"
-        },
         "fileCount": 7,
         "integrity": "sha512-7BLRpjM6w4f9W46/nmkmq8lEKUayhebvcpslCVQ+6QN2uReYlZEMDZlSpXMjme+hUFrPfRz8P3UNq8ep/4d19g==",
         "shasum": "c3f76f941e69e5623203702f372390abc3832190",
@@ -10826,12 +9540,6 @@
         "arm64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/sherpa-onnx-linux-arm64@1.13.8"
-        },
         "fileCount": 7,
         "integrity": "sha512-Tlg7a70b/Wge3OF8IgTHF9jhSVCsLyKQKhwc4BsJ5A+dL/SrFtGBjzuHp4XeLhiiOT7afCxX5PdSn/D4c8Lnuw==",
         "shasum": "7a747a07d286b8ef2a343201f846bf436ab8ba8e",
@@ -10862,12 +9570,6 @@
         "ia32"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/sherpa-onnx-win-ia32@1.13.8"
-        },
         "fileCount": 8,
         "integrity": "sha512-H0Ojln9hfvM+pxWqW0cnjB/XK8/JPq4/k0IWu2JpY5Z458M3zv+XC3Hu+wmot3AoH/K1Bgt23n/tTKtPV9x8qg==",
         "shasum": "4fb1121619c634427b7e995eaf6f3d19978f1a9a",
@@ -10902,12 +9604,6 @@
         "x64"
       ],
       "dist": {
-        "attestations": {
-          "provenance": {
-            "predicateType": "https://slsa.dev/provenance/v1"
-          },
-          "url": "https://registry.npmjs.org/-/npm/v1/attestations/sherpa-onnx-win-x64@1.13.8"
-        },
         "fileCount": 8,
         "integrity": "sha512-oZF1c9VPOKtMwn83Bboc5XSWL+76BRoyB3eUuVnCknBKxwSULZU2Foia9VHWzU+n4I12rPsP6z6H9Rp1hD9o8g==",
         "shasum": "c3dd2315204847f24a928dc96c30ef203339fd80",

@@ -1,18 +1,18 @@
 {
   "closures": {
-    "apps/cli": 696,
+    "apps/cli": 700,
     "apps/desktop": 43,
-    "apps/desktop-host": 699,
+    "apps/desktop-host": 702,
     "apps/web": 2,
-    "packages/bundle/base": 460,
-    "packages/bundle/sdk-minimal": 178,
-    "packages/bundle/web-app": 309
+    "packages/bundle/base": 462,
+    "packages/bundle/sdk-minimal": 181,
+    "packages/bundle/web-app": 314
   },
-  "edges": 8696,
-  "importers": 394,
+  "edges": 8836,
+  "importers": 398,
   "installedPackageIdentities": 1426,
   "packageMetadata": 1755,
-  "platformGated": 342,
-  "resolvedSnapshots": 1762,
+  "platformGated": 341,
+  "resolvedSnapshots": 1763,
   "unresolved": 0
 }

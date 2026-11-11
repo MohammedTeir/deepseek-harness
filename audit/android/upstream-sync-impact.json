@@ -55,6 +55,14 @@
     "packages/credentials/deepseek-account-platform",
     "packages/document/office-to-pdf"
   ],
-  "scope": "Read-only impact assessment; full audit regeneration and tests on synced revision not performed",
-  "phase2Started": false
+  "scope": "Initial read-only impact assessment, followed by Phase 1 refresh against syncedFork; see current ANDROID_PORT_STATUS.md for executed results",
+  "phase2Started": false,
+  "refreshGraph": {
+    "importers": 398,
+    "snapshots": 1763,
+    "edges": 8836,
+    "unresolved": 0,
+    "nativePayloads": 161,
+    "neededEdges": 211
+  }
 }

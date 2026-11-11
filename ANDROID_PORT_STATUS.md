@@ -4,30 +4,30 @@
 
 Phase 0 is VERIFIED. Phase 1 audit artifacts are IMPLEMENTED and awaiting review; Gate 1 is not declared accepted. Phase 2 is NOT STARTED. This branch contains documentation and read-only audit tooling/data only. No Android app, runtime prototype, upstream workflow, frontend redesign or replacement agent is introduced. The prior local prototype is archived separately and supplies no Android acceptance evidence here.
 
-## Upstream sync: audit refresh required
+## Upstream sync: Phase 1 evidence refreshed
 
-The fork now includes upstream release `0.2.2-rc.2`. The [sync impact record](audit/android/upstream-sync-impact.json) identifies both revisions: 3,479 files changed; importers increased from 394 to 398 and resolved snapshots from 1,762 to 1,763. Eight external package identities were replaced, including LibreOffice kit, Stagehand and Zod. The master project specification is unchanged.
+The fork's upstream release `0.2.2-rc.2` is merged into this audit branch with both histories retained. The [sync impact record](audit/android/upstream-sync-impact.json) identifies the old and new revisions. The master specification is unchanged. Graphs, installed payloads, registry manifests and source indexes below now describe synced master, not the earlier release candidate. The former evidence remains in Git history.
 
-All graph counts and test results below belong to the previous audited revision. They are historical evidence, not validation of synced master. Refresh the dependency/payload graph, native matrix and affected source findings; reinstall from the new frozen lockfile before repeating the original frontend build and documentation checks. Review changed approval/cancellation, subprocess, credential/account, profile and frontend code. Node requirements, native lock loader and terminal-bash defaults are unchanged in the compared files, so the existing core blockers remain.
-
-Only the impact assessment has run. The synced source has not been merged into this audit branch or revalidated, and Phase 2 remains NOT STARTED. Preserve the original evidence until replacement records have been generated against the new baseline.
+The refresh reviews structured approval/cancellation errors, PTY load failures, credential masking, the new ripgrep/terminal/Office packages and the PTC evaluator's additional Node API. Native lock platform selection and terminal-bash defaults remain blockers. Neither the sync nor the audit starts Phase 2.
 
 ## Baseline and verification
 
-[Exact baseline and environment](audit/android/baseline.json) records the current fork, original upstream ancestor and observed upstream HEAD separately. The checkout started clean, `origin` points to the author's fork, `upstream` points to the original project, and `feature/android-port` was created from the current fork master. No source update from newer upstream was merged.
+[Exact baseline and environment](audit/android/baseline.json) records the current fork, included upstream baseline and observed upstream HEAD separately. The checkout started clean, `origin` points to the author's fork, `upstream` points to the original project, and `feature/android-port` was created from fork master before the author-synchronized source was merged. The author-synchronized upstream source is included; no separate upstream update was selected.
 
 | Check | Executed result | Limit |
 |---|---|---|
 | `git status --short`, remotes, branches, log and `ls-remote` | Correct fork/remotes; clean start; baseline recorded | Remote observations are point-in-time |
-| `python3 audit/android/collect.py` | 394 importers, 1,755 package identities, 1,762 snapshots, 8,696 edges; zero unresolved endpoints | Complete committed lock graph, not future dynamic downloads |
+| `python3 audit/android/collect.py` | 398 importers, 1,755 package identities, 1,763 snapshots, 8,836 edges; zero unresolved endpoints | Complete committed lock graph, not future dynamic downloads |
 | Installed package scan | 1,426 identities; manifests/hooks/source descriptors/binary headers inspected | Linux installation; no Android execution |
 | Repeated graph/index collection | Four recorded graph/index SHA-256 values reproduced exactly | Same installed tree and source baseline |
-| Native ELF graph | 153 inspected payload nodes and 211 DT_NEEDED edges | Loader resolution on Android remains unverified |
+| Binary payload/ELF dependency graph | 161 inspected payload nodes and 211 DT_NEEDED edges | Loader resolution on Android remains unverified |
 | Registry manifest fetch and integrity comparison | 329/329 retrieved, zero fetch errors, all distribution integrity values match lock | Archive bytes not downloaded or executed |
-| `python3 audit/android/index_sources.py` | 36 Node builtin specifiers, 374 platform-sensitive sites, 17 native source/matrix paths | Static references include different product/build roles |
-| `pnpm run build:web` | PASS, original Vite frontend built in 7.33 seconds; chunk-size warning | Existing host workspace artifacts used; no APK or device claim |
-| `pnpm run doc-sync` | 42 passed, one failed in 162.32 seconds; site build/checks, links, typecheck and graphs passed | Same exact-baseline-hash policy conflict; no checker changed |
-| `pnpm run test:docs` | 20 passed, one failed | Repository-reference gate rejects exact known commit hashes in baseline JSON; retained as explicitly required by the author; checker unchanged |
+| `python3 audit/android/index_sources.py` | 37 Node builtin specifiers, 383 platform-sensitive sites, 17 native source/matrix paths | Static references include different product/build roles |
+| `pnpm install --frozen-lockfile` | PASS, 21.6 seconds; lockfile supply-chain policies passed for 1,755 entries | Host dependency installation only |
+| `DSH_GATE_CONCURRENCY=2 pnpm run build` | PASS: 10 gates, 287.78 seconds; 369 client artifacts recorded | Host native addon, compilers, bundles, Web build and aggregate checks; no Android inference |
+| `pnpm run lint` | PASS, with one existing unused-disable warning in client-ui-cot-translation | Host repository lint only |
+| `pnpm run doc-sync` | 42 passed, one failed in 249.10 seconds | Only repository-reference gate: exact baseline hashes explicitly required by the author; checker unchanged |
+| `pnpm run test:docs` | Initial refresh: 19 passed, two failed; registry metadata field selection corrected and `verify-concrete-terms` then passed | Full doc-sync subsequently passed the corrected metadata check; exact baseline hash gate remains |
 
 ## Blockers and recommendation
 

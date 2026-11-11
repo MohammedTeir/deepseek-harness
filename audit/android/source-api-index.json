@@ -21,6 +21,8 @@
   "nodeModules": {
     "assert/strict": [
       "packages/boot/hmr/src/index.ts:2",
+      "packages/experimental/cua-windows/src/native-runtime.ts:7",
+      "packages/experimental/cua-windows/src/native-transport.ts:4",
       "packages/experimental/cua/src/native-client.ts:3",
       "packages/experimental/webworker-runtime/src/module-proxies.ts:47"
     ],
@@ -38,7 +40,7 @@
       "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/async_hooks.ts:402",
       "packages/ptc-runtime/ptc-runtime-node/src/imports/module-hooks.ts:2",
       "packages/ptc-runtime/ptc-runtime-node/src/process.ts:2",
-      "packages/ptc-runtime/ptc-runtime-node/src/worker.ts:2",
+      "packages/ptc-runtime/ptc-runtime-node/src/worker.ts:5",
       "packages/sdk/server/src/server.ts:9"
     ],
     "buffer": [
@@ -47,11 +49,13 @@
       "packages/attachment/attachment/src/index.ts:3",
       "packages/boot/hmr/src/package-manifest.ts:2",
       "packages/experimental/client-ui-forge/src/patch-cache.ts:6",
-      "packages/experimental/cua/src/api.ts:2",
+      "packages/experimental/client-ui-forge/src/review-cache.ts:6",
       "packages/experimental/cua/src/index.ts:3",
       "packages/experimental/cua/src/protocol.ts:2",
+      "packages/experimental/forge-github/src/threads.ts:3",
       "packages/experimental/inspector/src/worker/cdp/domains/network/session.ts:3",
       "packages/experimental/inspector/src/worker/inspection/network-store.ts:3",
+      "packages/experimental/terminal-panel/src/tools.ts:3",
       "packages/experimental/webworker-runtime/src/module-proxies.ts:39",
       "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/buffer.ts:61",
       "packages/feedback/message-feedback/src/index.ts:6",
@@ -93,7 +97,7 @@
       "packages/subprocess/subprocess-local/src/process-inspector.ts:4",
       "packages/subprocess/subprocess-local/src/runner-launch.ts:3",
       "packages/subprocess/subprocess-local/src/spawn.ts:11",
-      "packages/subprocess/subprocess-local/src/spawn.ts:458",
+      "packages/subprocess/subprocess-local/src/spawn.ts:466",
       "packages/subprocess/subprocess-local/src/windows-inspector.ts:12",
       "packages/subprocess/subprocess-local/src/windows-job.ts:4",
       "packages/test-support/session-snapshot/src/launcher.ts:10",
@@ -122,6 +126,7 @@
       "packages/api/gateway/src/index.ts:8",
       "packages/api/session-controller/src/agent.ts:3",
       "packages/api/session-controller/src/commands.ts:7",
+      "packages/api/terminal-controller/src/index.ts:2",
       "packages/attachment/attachment-local/src/file-store.ts:3",
       "packages/attachment/attachment-local/src/request-image.ts:3",
       "packages/attachment/attachment-local/src/store.ts:3",
@@ -137,13 +142,18 @@
       "packages/compaction/compaction-basic/src/region.ts:8",
       "packages/context/agent-instructions/src/digest.ts:7",
       "packages/core/agent-loop/src/index.ts:10",
-      "packages/credentials/deepseek-account-platform/src/index.ts:2",
+      "packages/credentials/deepseek-account/src/index.ts:2",
       "packages/deliverables/workspace-changes/src/capture.ts:7",
-      "packages/document/office-to-pdf/src/index.ts:2",
-      "packages/document/office-to-pdf/src/queue.ts:2",
+      "packages/document/office-kit/src/index.ts:2",
+      "packages/document/office-kit/src/outputs.ts:2",
+      "packages/document/office-kit/src/queue.ts:2",
+      "packages/experimental/client-ui-forge/src/diff.ts:3",
       "packages/experimental/client-ui-forge/src/states.ts:11",
       "packages/experimental/creation-recommendations/src/index.ts:2",
+      "packages/experimental/cua-macos/src/held-keys.ts:2",
       "packages/experimental/cua-macos/src/shared-native.ts:2",
+      "packages/experimental/cua-windows/src/native-runtime.ts:2",
+      "packages/experimental/cua-windows/src/windows-host.ts:2",
       "packages/experimental/cua/src/native-client.ts:2",
       "packages/experimental/cua/src/permission-store.ts:2",
       "packages/experimental/inspector/src/host/bridge/controller.ts:3",
@@ -179,9 +189,11 @@
       "packages/jobs/jobs-local/src/index.ts:13",
       "packages/llm/llm-deepseek/src/listing-cache.ts:2",
       "packages/llm/llm-deepseek/src/upload-index.ts:3",
+      "packages/llm/llm-pi-ai/src/prefix-binding.ts:22",
       "packages/llm/llm-retry/src/index.ts:8",
       "packages/mcp/mcp-client/src/tools.ts:15",
       "packages/ptc-runtime/ptc-runtime-node/src/imports/module-hooks.ts:3",
+      "packages/ptc-runtime/ptc-runtime-node/src/worker.ts:2",
       "packages/sandbox/sandbox-windows-acl/src/acl.ts:24",
       "packages/sandbox/sandbox-windows-acl/src/workspace-sid.ts:27",
       "packages/schedule/schedule/src/index.ts:2",
@@ -225,12 +237,16 @@
       "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/dns/promises.ts:11",
       "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/dns/promises.ts:17"
     ],
+    "domain": [
+      "packages/ptc-runtime/ptc-runtime-node/src/evaluators/scoped-repl-evaluator.ts:44"
+    ],
     "events": [
       "apps/desktop/src/platform-view.ts:2",
       "apps/desktop/src/update-overlay.ts:3",
       "packages/boot/plugin-manager/src/operations.ts:2",
       "packages/client/ui-trajectory/src/index.ts:2",
       "packages/experimental/client-ui-cot-translation/src/index.ts:2",
+      "packages/experimental/cua-windows/src/native-runtime.ts:4",
       "packages/experimental/translator/src/index.ts:8",
       "packages/experimental/webworker-runtime/src/module-proxies.ts:51",
       "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/events.ts:153",
@@ -244,8 +260,6 @@
       "apps/cli/src/installed-bin.ts:6",
       "apps/cli/src/plugin.ts:7",
       "apps/cli/src/profile-boot.ts:13",
-      "apps/desktop-host/src/office-engine.ts:3",
-      "apps/desktop-host/src/office.ts:3",
       "apps/desktop/src/background-notice.ts:3",
       "apps/desktop/src/command-installation.ts:5",
       "apps/desktop/src/core-package-set.ts:4",
@@ -286,8 +300,12 @@
       "packages/client/hmr/src/index.ts:10",
       "packages/client/modules/src/index.ts:31",
       "packages/context/agent-instructions/src/files.ts:7",
-      "packages/document/office-to-pdf/src/output.ts:2",
+      "packages/document/office-kit/src/locate.ts:2",
+      "packages/document/office-kit/src/output.ts:2",
+      "packages/document/office-kit/src/outputs.ts:3",
       "packages/experimental/cua-macos/src/native-build.ts:2",
+      "packages/experimental/cua-windows/src/native-build.ts:2",
+      "packages/experimental/cua-windows/src/native-runtime.ts:3",
       "packages/experimental/hooks-claude-code/src/index.ts:12",
       "packages/experimental/hooks-codex/src/index.ts:15",
       "packages/experimental/liveshare/src/host/fork-registry.ts:17",
@@ -310,7 +328,6 @@
       "packages/fs/fs-local/src/fsio.ts:9",
       "packages/fs/fs-local/src/fsio.ts:11",
       "packages/fs/fs-sandbox/src/containment.ts:8",
-      "packages/fs/tool-fs-search/src/search-core.ts:22",
       "packages/host/directory-picker-auto/src/probe.ts:9",
       "packages/identity/anonymous-user-id/src/index.ts:20",
       "packages/llm/plugin-package-inventory-deepseek/src/index.ts:8",
@@ -328,7 +345,6 @@
       "packages/shell/pwsh-local/src/resolve.ts:11",
       "packages/shell/pwsh-sandbox/src/helpers.ts:10",
       "packages/skill/skill-filesystem/src/index.ts:13",
-      "packages/skill/skill-office/src/index.ts:3",
       "packages/spill/spill-local/src/cleanup.ts:3",
       "packages/spill/spill-local/src/store.ts:10",
       "packages/ssh/ssh-helper-runtime/src/index.ts:4",
@@ -357,6 +373,7 @@
       "packages/typert/generator/src/tsdown-plugin.ts:12",
       "packages/typert/generator/src/workspace.ts:6",
       "packages/typert/loader/src/index.ts:28",
+      "packages/util/ripgrep/src/index.ts:2",
       "vendor/hmr/src/error.ts:4",
       "vendor/loader/src/resolve.ts:1"
     ],
@@ -397,14 +414,19 @@
       "packages/deliverables/workspace-changes/src/git.ts:2",
       "packages/deliverables/workspace-changes/src/paths.ts:2",
       "packages/deliverables/workspace-changes/src/recorder.ts:2",
-      "packages/document/office-to-pdf/src/index.ts:3",
-      "packages/document/office-to-pdf/src/output.ts:3",
+      "packages/document/office-kit/src/index.ts:3",
+      "packages/document/office-kit/src/output.ts:3",
+      "packages/document/office-kit/src/outputs.ts:4",
       "packages/experimental/browser-use-stagehand-native/src/launch.ts:3",
       "packages/experimental/creation-recommendations/src/generated-bundle.ts:2",
       "packages/experimental/creation-recommendations/src/index.ts:3",
       "packages/experimental/creation-recommendations/src/skill.ts:2",
       "packages/experimental/cua-macos/src/native-build.ts:3",
       "packages/experimental/cua-macos/src/shared-native.ts:3",
+      "packages/experimental/cua-windows/src/native-build.ts:3",
+      "packages/experimental/cua-windows/src/native-runtime.ts:5",
+      "packages/experimental/cua-windows/src/windows-host.ts:3",
+      "packages/experimental/cua/src/native-build.ts:2",
       "packages/experimental/cua/src/permission-store.ts:3",
       "packages/experimental/plugin-recommendations/src/skill.ts:2",
       "packages/experimental/skill-badge/src/index.ts:7",
@@ -435,7 +457,7 @@
       "packages/session/session-persistence-jsonl/src/win32.ts:15",
       "packages/settings/settings/src/index.ts:3",
       "packages/skill/skill-filesystem/src/index.ts:12",
-      "packages/skill/skill-office/src/index.ts:4",
+      "packages/skill/skill-office/src/index.ts:3",
       "packages/skill/tool-workspace-dependencies/src/index.ts:3",
       "packages/spill/spill-local/src/cleanup.ts:2",
       "packages/spill/spill-local/src/store.ts:11",
@@ -472,7 +494,7 @@
       "packages/client/connection/src/http-bridge.ts:6",
       "packages/client/connection/src/index.ts:3",
       "packages/client/hmr/src/index.ts:11",
-      "packages/credentials/deepseek-account-platform/src/index.ts:3",
+      "packages/credentials/deepseek-account/src/index.ts:3",
       "packages/experimental/inspector/src/worker/bridge/endpoint.ts:3",
       "packages/experimental/inspector/src/worker/bridge/endpoint.ts:100",
       "packages/experimental/inspector/src/worker/bridge/endpoint.ts:270",
@@ -500,7 +522,6 @@
       "packages/experimental/inspector/src/worker/realms/host/bridge.ts:3"
     ],
     "module": [
-      "apps/desktop-host/src/office-engine.ts:2",
       "native/system/packages/entry/src/flock.ts:2",
       "native/system/packages/entry/src/index.ts:17",
       "packages/boot/app-boot/src/compatibility-preflight.ts:3",
@@ -511,6 +532,7 @@
       "packages/boot/hmr/src/package-manifest.ts:4",
       "packages/bundle/web-app/src/index.ts:16",
       "packages/client/modules/src/index.ts:33",
+      "packages/document/office-kit/src/locate.ts:3",
       "packages/experimental/liveshare/src/host/shareable-catalog.ts:14",
       "packages/experimental/speech-to-text-sensevoice/src/inference.ts:2",
       "packages/experimental/webworker-runtime/src/compile/transform.ts:577",
@@ -534,6 +556,7 @@
     ],
     "net": [
       "packages/experimental/cua-macos/src/shared-native.ts:4",
+      "packages/experimental/cua-windows/src/native-transport.ts:2",
       "packages/experimental/inspector/src/host/plugin.ts:5",
       "packages/experimental/inspector/src/worker/bridge/endpoint.ts:4",
       "packages/experimental/webworker-runtime/src/module-proxies.ts:65",
@@ -555,13 +578,13 @@
       "packages/api/session-controller/src/index.ts:3",
       "packages/api/workspace-controller/src/default-directory.ts:3",
       "packages/boot/hmr/src/module-files.ts:3",
-      "packages/boot/plugin-manager/src/install-spec.ts:7",
+      "packages/boot/plugin-manager/src/install-spec.ts:8",
       "packages/client/product-analytics/src/environment.ts:2",
-      "packages/credentials/deepseek-account-platform/src/index.ts:5",
+      "packages/credentials/deepseek-account/src/index.ts:5",
       "packages/deliverables/workspace-changes/src/index.ts:11",
       "packages/deliverables/workspace-changes/src/paths.ts:3",
       "packages/deliverables/workspace-changes/src/recorder.ts:3",
-      "packages/document/office-to-pdf/src/index.ts:4",
+      "packages/document/office-kit/src/index.ts:4",
       "packages/experimental/browser-use-stagehand-native/src/launch.ts:4",
       "packages/experimental/cua-macos/src/shared-native.ts:5",
       "packages/experimental/cua/src/index.ts:4",
@@ -595,7 +618,7 @@
       "packages/util/home-paths/src/index.ts:8",
       "packages/util/native-command/src/file-applications-linux.ts:3",
       "packages/util/native-command/src/file-applications-windows.ts:3",
-      "packages/util/native-command/src/path-opener.ts:15",
+      "packages/util/native-command/src/host-environment.ts:2",
       "packages/workflow/workflow-ptc/src/index.ts:8"
     ],
     "path": [
@@ -605,8 +628,6 @@
       "apps/cli/src/startup-diagnostics.ts:5",
       "apps/desktop-host/src/cli.ts:3",
       "apps/desktop-host/src/index.ts:3",
-      "apps/desktop-host/src/office-engine.ts:4",
-      "apps/desktop-host/src/office.ts:4",
       "apps/desktop/src/background-notice.ts:4",
       "apps/desktop/src/command-installation.ts:7",
       "apps/desktop/src/command-management.ts:4",
@@ -647,7 +668,7 @@
       "packages/api/session-controller/src/index.ts:4",
       "packages/api/session-controller/src/media-references.ts:10",
       "packages/api/workspace-controller/src/default-directory.ts:4",
-      "packages/api/workspace-files/src/index.ts:22",
+      "packages/api/workspace-files/src/index.ts:23",
       "packages/attachment/attachment-local/src/file-store.ts:5",
       "packages/attachment/attachment-local/src/index.ts:3",
       "packages/attachment/attachment-local/src/request-image.ts:5",
@@ -674,7 +695,7 @@
       "packages/boot/plugin-manager/src/build-approval.ts:3",
       "packages/boot/plugin-manager/src/github-connection.ts:3",
       "packages/boot/plugin-manager/src/index.ts:5",
-      "packages/boot/plugin-manager/src/install-spec.ts:8",
+      "packages/boot/plugin-manager/src/install-spec.ts:9",
       "packages/boot/plugin-manager/src/official-install-target.ts:3",
       "packages/boot/plugin-manager/src/operations.ts:5",
       "packages/boot/plugin-market/src/detail.ts:7",
@@ -694,7 +715,10 @@
       "packages/deliverables/workspace-changes/src/git.ts:3",
       "packages/deliverables/workspace-changes/src/paths.ts:4",
       "packages/deliverables/workspace-changes/src/recorder.ts:4",
-      "packages/document/office-to-pdf/src/index.ts:5",
+      "packages/document/office-kit/src/index.ts:5",
+      "packages/document/office-kit/src/locate.ts:4",
+      "packages/document/office-kit/src/outputs.ts:5",
+      "packages/document/tool-office/src/index.ts:11",
       "packages/experimental/browser-use-playwright-mcp/src/index.ts:3",
       "packages/experimental/browser-use-stagehand-native/src/launch.ts:5",
       "packages/experimental/client-ui-forge/src/worktree.ts:3",
@@ -703,8 +727,13 @@
       "packages/experimental/cua-macos/src/index.ts:2",
       "packages/experimental/cua-macos/src/native-build.ts:4",
       "packages/experimental/cua-macos/src/shared-native.ts:6",
+      "packages/experimental/cua-windows/src/index.ts:2",
+      "packages/experimental/cua-windows/src/native-build.ts:4",
+      "packages/experimental/cua-windows/src/windows-host.ts:4",
       "packages/experimental/cua/src/index.ts:2",
+      "packages/experimental/cua/src/native-build.ts:3",
       "packages/experimental/cua/src/permission-store.ts:4",
+      "packages/experimental/cua/src/tool-registration.ts:2",
       "packages/experimental/liveshare/src/host/fork-registry.ts:18",
       "packages/experimental/liveshare/src/host/owner-credential-file.ts:4",
       "packages/experimental/liveshare/src/host/share-host.ts:4",
@@ -727,7 +756,7 @@
       "packages/fs/fs-local/src/win32.ts:7",
       "packages/fs/fs-sandbox/src/containment.ts:10",
       "packages/fs/tool-fs-search/src/glob.ts:13",
-      "packages/fs/tool-fs-search/src/search-core.ts:23",
+      "packages/fs/tool-fs-search/src/search-core.ts:22",
       "packages/fs/tool-fs/src/read-image.ts:14",
       "packages/fs/tool-str-replace-editor/src/index.ts:6",
       "packages/host/directory-picker-auto/src/probe.ts:10",
@@ -741,16 +770,17 @@
       "packages/llm/llm-deepseek/src/upload-index.ts:5",
       "packages/llm/llm-pi-ai/src/auth.ts:13",
       "packages/llm/plugin-package-inventory-deepseek/src/index.ts:10",
-      "packages/lsp/tool-lsp/src/render.ts:11",
+      "packages/lsp/tool-lsp/src/render.ts:12",
       "packages/ptc-runtime/ptc-runtime-node/src/evaluators/async-function.ts:2",
       "packages/ptc-runtime/ptc-runtime-node/src/evaluators/repl.ts:3",
+      "packages/ptc-runtime/ptc-runtime-node/src/evaluators/scoped-repl-evaluator.ts:2",
       "packages/ptc-runtime/ptc-runtime-node/src/evaluators/vm-script.ts:2",
       "packages/ptc-runtime/ptc-runtime-node/src/execution.ts:3",
       "packages/ptc-runtime/ptc-runtime-node/src/imports/module-hooks.ts:5",
       "packages/ptc-runtime/ptc-runtime-node/src/imports/vm-modules.ts:4",
       "packages/ptc-runtime/ptc-runtime-node/src/launch.ts:2",
       "packages/sandbox/sandbox-local/src/index.ts:27",
-      "packages/sandbox/sandbox-policy/src/index.ts:24",
+      "packages/sandbox/sandbox-policy/src/index.ts:25",
       "packages/sandbox/sandbox-windows-acl/src/acl-skill.ts:14",
       "packages/sandbox/sandbox-windows-acl/src/acl.ts:26",
       "packages/sandbox/sandbox-windows-acl/src/index.ts:47",
@@ -773,10 +803,11 @@
       "packages/session/working-directory/src/index.ts:6",
       "packages/settings/settings/src/index.ts:4",
       "packages/shell/pwsh-local/src/resolve.ts:12",
+      "packages/shell/shell-env/src/index.ts:11",
       "packages/shell/tool-bash/src/index.ts:18",
       "packages/shell/tool-pwsh/src/index.ts:23",
       "packages/skill/skill-filesystem/src/index.ts:14",
-      "packages/skill/skill-office/src/index.ts:5",
+      "packages/skill/skill-office/src/index.ts:4",
       "packages/skill/tool-workspace-dependencies/src/index.ts:4",
       "packages/spill/spill-local/src/cleanup.ts:4",
       "packages/spill/spill-local/src/index.ts:13",
@@ -823,6 +854,7 @@
       "packages/util/native-command/src/path-opener.ts:16",
       "packages/util/plugin-detail/src/document.ts:5",
       "packages/util/plugin-detail/src/files.ts:6",
+      "packages/util/ripgrep/src/index.ts:3",
       "packages/workspace/workspace/src/paths.ts:7",
       "vendor/hmr/src/index.ts:6",
       "vendor/include/src/index.ts:4",
@@ -851,7 +883,8 @@
       "packages/ptc-runtime/ptc-runtime-node/src/evaluators/repl.ts:2"
     ],
     "sea": [
-      "packages/skill/skill-office/src/index.ts:6",
+      "packages/shell/shell-env/src/index.ts:171",
+      "packages/shell/shell-env/src/index.ts:171",
       "packages/ssh/ssh-helper-runtime/src/index.ts:6",
       "packages/ssh/ssh/src/helper-entry.ts:4"
     ],
@@ -874,9 +907,11 @@
       "packages/api/gateway/src/stream-server.ts:4",
       "packages/client/connection/src/http-bridge.ts:8",
       "packages/client/modules/src/index.ts:35",
-      "packages/credentials/deepseek-account-platform/src/index.ts:6",
+      "packages/credentials/deepseek-account/src/index.ts:6",
       "packages/experimental/cua-macos/src/shared-native.ts:7",
-      "packages/experimental/cua/src/native-client.ts:8",
+      "packages/experimental/cua-windows/src/native-runtime.ts:6",
+      "packages/experimental/cua-windows/src/native-transport.ts:3",
+      "packages/experimental/cua/src/native-client.ts:9",
       "packages/experimental/inspector/src/host/plugin.ts:6",
       "packages/experimental/inspector/src/worker/bridge/endpoint.ts:5",
       "packages/experimental/ptc-runtime-python/src/index.ts:18",
@@ -884,12 +919,13 @@
       "packages/experimental/webworker-runtime/src/module-proxies.ts:66",
       "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/stream.ts:11",
       "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/stream.ts:17",
+      "packages/experimental/worktree/src/process.ts:3",
       "packages/host/webserver/src/index.ts:18",
       "packages/lsp/lsp-stdio/src/connection.ts:13",
       "packages/ptc-runtime/ptc-runtime-node/src/evaluators/repl.ts:4",
       "packages/ptc-runtime/ptc-runtime-node/src/output-stream.ts:2",
       "packages/ptc-runtime/ptc-runtime-node/src/persistent-process.ts:3",
-      "packages/ptc-runtime/ptc-runtime-node/src/process.ts:3",
+      "packages/ptc-runtime/ptc-runtime-node/src/process.ts:4",
       "packages/ptc-runtime/ptc-runtime-node/src/rpc.ts:3",
       "packages/sdk/protocol/src/transport.ts:10",
       "packages/sdk/server/src/index.ts:13",
@@ -927,7 +963,7 @@
       "apps/desktop/src/operation-history.ts:4",
       "apps/desktop/src/operation-report.ts:3",
       "packages/api/session-controller/src/list.ts:4",
-      "packages/credentials/deepseek-account-platform/src/logout.ts:2",
+      "packages/credentials/deepseek-account/src/logout.ts:2",
       "packages/experimental/cua-macos/src/shared-native.ts:8",
       "packages/experimental/webworker-runtime/src/module-proxies.ts:52",
       "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/timers/promises.ts:57",
@@ -951,8 +987,6 @@
     "url": [
       "apps/cli/src/installed-bin.ts:7",
       "apps/cli/src/profile-boot.ts:15",
-      "apps/desktop-host/src/office-engine.ts:5",
-      "apps/desktop-host/src/office.ts:5",
       "apps/desktop/src/command-manager-entry.ts:5",
       "apps/desktop/src/main.ts:12",
       "apps/desktop/src/welcome-window.ts:5",
@@ -973,6 +1007,7 @@
       "packages/experimental/browser-use-playwright-mcp/src/index.ts:4",
       "packages/experimental/creation-recommendations/src/index.ts:5",
       "packages/experimental/cua-macos/src/index.ts:3",
+      "packages/experimental/cua-windows/src/index.ts:3",
       "packages/experimental/inspector/src/host/plugin.ts:4",
       "packages/experimental/liveshare/src/host/tunnel-supervision.ts:13",
       "packages/experimental/skill-badge/src/index.ts:8",
@@ -983,14 +1018,14 @@
       "packages/fs/fs-local/src/index.ts:14",
       "packages/host/directory-picker-native/src/win32-dialog-host.ts:11",
       "packages/llm/plugin-package-inventory-deepseek/src/index.ts:11",
-      "packages/lsp/tool-lsp/src/render.ts:12",
+      "packages/lsp/tool-lsp/src/render.ts:13",
       "packages/ptc-runtime/ptc-runtime-node/src/imports/module-hooks.ts:6",
       "packages/ptc-runtime/ptc-runtime-node/src/imports/vm-modules.ts:5",
       "packages/ptc-runtime/ptc-runtime-node/src/launch.ts:3",
       "packages/sandbox/sandbox-local/src/index.ts:28",
       "packages/sandbox/sandbox-windows-acl/src/acl-skill.ts:15",
       "packages/sdk/client/src/launch.ts:8",
-      "packages/skill/skill-office/src/index.ts:7",
+      "packages/skill/skill-office/src/index.ts:5",
       "packages/ssh/fs-ssh/src/index.ts:3",
       "packages/ssh/ssh-helper-runtime/src/index.ts:7",
       "packages/ssh/ssh/src/helper-entry.ts:3",
@@ -1017,6 +1052,8 @@
       "packages/client/modules/src/index.ts:37",
       "packages/compaction/compaction-basic/src/region.ts:9",
       "packages/context/agent-instructions/src/index.ts:14",
+      "packages/core/tool-executor-ptc/src/ptc.ts:9",
+      "packages/experimental/client-ui-forge/src/panel.ts:3",
       "packages/experimental/webworker-runtime/src/module-proxies.ts:49",
       "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/util.ts:176",
       "packages/feedback/message-feedback/src/index.ts:8",
@@ -1024,7 +1061,9 @@
       "packages/goal/goal-round-driver/src/index.ts:6",
       "packages/mcp/mcp-client/src/tools.ts:16",
       "packages/ptc-runtime/ptc-runtime-node/src/bootstrap.ts:6",
+      "packages/ptc-runtime/ptc-runtime-node/src/evaluators/scoped-repl-evaluator.ts:3",
       "packages/ptc-runtime/ptc-runtime-node/src/imports/vm-modules.ts:6",
+      "packages/ptc-runtime/ptc-runtime-node/src/process.ts:3",
       "packages/schedule/schedule/src/index.ts:3",
       "packages/schedule/schedule/src/storage.ts:3",
       "packages/schedule/schedule/src/update.ts:2",
@@ -1053,6 +1092,8 @@
       "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/vm.ts:32",
       "packages/extensions/cordis-host-runner/src/sandbox.ts:14",
       "packages/ptc-runtime/ptc-runtime-node/src/evaluators/async-function.ts:3",
+      "packages/ptc-runtime/ptc-runtime-node/src/evaluators/scoped-repl-evaluator.ts:4",
+      "packages/ptc-runtime/ptc-runtime-node/src/evaluators/scoped-repl.ts:4",
       "packages/ptc-runtime/ptc-runtime-node/src/evaluators/vm-script.ts:3",
       "packages/ptc-runtime/ptc-runtime-node/src/imports/vm-modules.ts:2",
       "packages/workflow/workflow-ptc/src/index.ts:9",
@@ -1124,13 +1165,8 @@
     },
     {
       "file": "apps/desktop-host/src/cli.ts",
-      "line": 30,
+      "line": 37,
       "text": "if (process.platform === 'win32') {"
-    },
-    {
-      "file": "apps/desktop-host/src/office.ts",
-      "line": 35,
-      "text": "node: join(config.source, 'dependencies', 'node', 'bin', process.platform === 'win32' ? 'node.exe' : 'node'),"
     },
     {
       "file": "apps/desktop-host/src/windows-cli-signals.ts",
@@ -1269,137 +1305,147 @@
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 270,
+      "line": 271,
       "text": "...(process.platform === 'win32' && primary ? {"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 277,
+      "line": 279,
       "text": "...(process.platform === 'darwin' ? {"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 300,
+      "line": 302,
       "text": "if (process.platform === 'darwin' || process.platform === 'win32') {"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 311,
+      "line": 313,
+      "text": "if (process.platform === 'win32' && primary) {"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 320,
       "text": "if (process.platform === 'darwin') {"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 354,
+      "line": 363,
       "text": "...(process.platform === 'win32' && item.role !== undefined && item.role in messages"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 423,
+      "line": 432,
       "text": "let raiseAfterUpdate = process.platform === 'win32' && process.argv.includes('--updated')"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 473,
+      "line": 482,
       "text": "isInstalledLocation: () => process.platform !== 'darwin' || app.isInApplicationsFolder(),"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 523,
+      "line": 532,
       "text": "() => locale.id === 'zh-CN' ? 'zh_CN' : 'en_US', process.platform === 'win32' ? 'win32' : 'darwin',"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 707,
+      "line": 716,
       "text": "const ready = desktopUpdateReadyConfirmation(locale.messages, updates.state.version ?? '', process.platform)"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 809,
+      "line": 818,
       "text": "process.platform === 'darwin' ? 'macos' : process.platform === 'win32' ? 'windows' : 'linux', () => { refreshApplicationMenu() }, window => updateOverlays.input(window))"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 1144,
+      "line": 1171,
       "text": "const darwin = process.platform === 'darwin'"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 1179,
+      "line": 1206,
       "text": "process.platform === 'win32'"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 1185,
+      "line": 1212,
       "text": "...process.platform === 'darwin' || process.platform === 'win32'"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 1200,
+      "line": 1227,
       "text": ": process.platform === 'win32' ? { label: currentDesktopLocale().messages.exitApplication } : {}) },"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 1208,
+      "line": 1235,
       "text": "Menu.setApplicationMenu(Menu.buildFromTemplate(process.platform === 'win32'"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 1217,
+      "line": 1244,
       "text": "if (process.platform === 'win32') {"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 1224,
+      "line": 1251,
       "text": "const backgroundNotice = process.platform === 'win32'"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 1235,
+      "line": 1262,
       "text": "focus: () => { if (process.platform === 'darwin') app.focus({ steal: true }) },"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 1238,
+      "line": 1265,
       "text": "...(process.platform === 'win32' ? { icon: nativeImage.createFromPath(trayIconPath) } : {}),"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 1241,
+      "line": 1268,
       "text": "if (process.platform === 'win32') {"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 1287,
+      "line": 1314,
       "text": "if (process.platform === 'darwin' && window.isFullScreen()) {"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 1312,
+      "line": 1339,
       "text": "if (process.platform === 'win32') {"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 1419,
+      "line": 1375,
+      "text": "if (process.platform === 'win32') window.setBackgroundColor(chromeFallbackFill())"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1447,
       "text": "if (process.platform === 'darwin') mainWindow?.destroy()"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 1469,
+      "line": 1498,
       "text": "if (process.platform !== 'darwin') app.quit()"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 1471,
+      "line": 1500,
       "text": "if (process.platform !== 'win32') powerMonitor.on('shutdown', () => { sessionEnding = true })"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 1532,
+      "line": 1561,
       "text": "if (!['win32', 'darwin'].includes(process.platform) || !['x64', 'arm64'].includes(process.arch)) throw new Error('desktop policy: unsupported platform')"
     },
     {
       "file": "apps/desktop/src/main.ts",
-      "line": 1535,
+      "line": 1564,
       "text": "platform: process.platform as 'win32' | 'darwin', arch: process.arch as 'x64' | 'arm64',"
     },
     {
@@ -1504,7 +1550,7 @@
     },
     {
       "file": "packages/api/terminal-controller/src/shells.ts",
-      "line": 39,
+      "line": 50,
       "text": "* PATH lookup can reach the default through another directory, such as `/usr/bin/bash` for `/bin/bash` on merged-`/usr` systems."
     },
     {
@@ -1524,7 +1570,7 @@
     },
     {
       "file": "packages/boot/app-boot/src/bundle-platform.ts",
-      "line": 22,
+      "line": 23,
       "text": "* @param platform Operating system of the DSH Host, from Node's `process.platform`."
     },
     {
@@ -1539,22 +1585,22 @@
     },
     {
       "file": "packages/boot/plugin-manager/src/index.ts",
-      "line": 521,
+      "line": 535,
       "text": "try { assertBundlePlatform(offered.platforms, process.platform) }"
     },
     {
       "file": "packages/boot/plugin-manager/src/index.ts",
-      "line": 559,
+      "line": 577,
       "text": "try { assertBundlePlatform(info.dsh?.bundle?.platforms, process.platform) }"
     },
     {
       "file": "packages/boot/plugin-manager/src/index.ts",
-      "line": 1175,
+      "line": 1277,
       "text": "assertBundlePlatform(metadata.dsh?.bundle?.platforms, process.platform)"
     },
     {
       "file": "packages/boot/plugin-manager/src/operations.ts",
-      "line": 107,
+      "line": 113,
       "text": "try { assertBundlePlatform(metadata.dsh.bundle.platforms, process.platform) } catch (error) {"
     },
     {
@@ -1594,8 +1640,23 @@
     },
     {
       "file": "packages/experimental/cua-macos/src/index.ts",
-      "line": 58,
+      "line": 75,
       "text": "const architecture = nativeHostArchitecture(process.platform, process.arch)"
+    },
+    {
+      "file": "packages/experimental/cua-windows/src/index.ts",
+      "line": 66,
+      "text": "const architecture = wsl?.architecture ?? nativeHostArchitecture(process.platform, process.arch)"
+    },
+    {
+      "file": "packages/experimental/cua-windows/src/windows-host.ts",
+      "line": 21,
+      "text": "if ((facts.platform ?? process.platform) === 'win32') return 'windows'"
+    },
+    {
+      "file": "packages/experimental/cua/src/access-types.ts",
+      "line": 13,
+      "text": "/** Native access observations tagged with the provider's CUA platform; distinct from Node process.platform values. */"
     },
     {
       "file": "packages/experimental/inspector/src/host/bridge/controller.ts",
@@ -1634,7 +1695,7 @@
     },
     {
       "file": "packages/experimental/ptc-runtime-python/src/index.ts",
-      "line": 2101,
+      "line": 2097,
       "text": "// leader is reaped its `/proc/<pid>/stat` is gone, while the group it"
     },
     {
@@ -1829,22 +1890,22 @@
     },
     {
       "file": "packages/fs/fs-local/src/fsio.ts",
-      "line": 153,
+      "line": 152,
       "text": "if (path === '~' || path.startsWith('~/') || (process.platform === 'win32' && path.startsWith('~\\\\'))) return `${homedir()}${path.slice(1)}`"
     },
     {
       "file": "packages/fs/fs-local/src/fsio.ts",
-      "line": 168,
+      "line": 167,
       "text": "return process.platform === 'win32' ? resolve(cwd, path) : physicalSpelling"
     },
     {
       "file": "packages/fs/fs-local/src/fsio.ts",
-      "line": 209,
+      "line": 207,
       "text": "if (process.platform === 'win32') {"
     },
     {
       "file": "packages/fs/fs-local/src/fsio.ts",
-      "line": 637,
+      "line": 623,
       "text": "const platform = internals.platform ?? process.platform"
     },
     {
@@ -1866,11 +1927,6 @@
       "file": "packages/fs/fs-sandbox/src/containment.ts",
       "line": 61,
       "text": "caseSensitive = process.platform !== 'win32',"
-    },
-    {
-      "file": "packages/fs/tool-fs-search/src/search-core.ts",
-      "line": 174,
-      "text": "const executableSidecar = process.platform === 'win32'"
     },
     {
       "file": "packages/host/directory-picker-auto/src/index.ts",
@@ -2114,17 +2170,17 @@
     },
     {
       "file": "packages/sandbox/sandbox-local/src/index.ts",
-      "line": 117,
+      "line": 135,
       "text": "/** Replaces `process.platform` for chain selection (exercise any platform's chain from any host). */"
     },
     {
       "file": "packages/sandbox/sandbox-local/src/index.ts",
-      "line": 301,
+      "line": 319,
       "text": "if (process.platform === 'win32' && this.runnerCommand === undefined) {"
     },
     {
       "file": "packages/sandbox/sandbox-local/src/index.ts",
-      "line": 514,
+      "line": 554,
       "text": "const chain = this.internals.chain ?? PLATFORM_CHAINS[this.internals.platform ?? process.platform] ?? []"
     },
     {
@@ -2244,7 +2300,7 @@
     },
     {
       "file": "packages/shell/tool-pwsh/src/index.ts",
-      "line": 144,
+      "line": 147,
       "text": "+ 'program\\'s output through piped stdio (Node.js `child_process.spawn`/`exec` with the default '"
     },
     {
@@ -2319,42 +2375,52 @@
     },
     {
       "file": "packages/subprocess/subprocess-local/src/index.ts",
-      "line": 164,
+      "line": 57,
+      "text": "/** Load node-pty, reporting a missing or unloadable native module as `SUBPROCESS_PTY_UNAVAILABLE`. */"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/index.ts",
+      "line": 63,
+      "text": "`subprocess-local: terminals are unavailable because node-pty cannot be loaded: ${String(error)}`,"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/index.ts",
+      "line": 177,
       "text": "if (!absolute && (command.includes('/') || (process.platform === 'win32' && command.includes('\\\\')))) {"
     },
     {
       "file": "packages/subprocess/subprocess-local/src/index.ts",
-      "line": 190,
+      "line": 203,
       "text": "const extensions = process.platform === 'win32' && extname(command) === ''"
     },
     {
       "file": "packages/subprocess/subprocess-local/src/index.ts",
-      "line": 240,
+      "line": 253,
       "text": "const platform = this.internals.platform ?? process.platform"
     },
     {
       "file": "packages/subprocess/subprocess-local/src/index.ts",
-      "line": 283,
+      "line": 296,
       "text": "const platform = process.platform === 'win32' ? 'windows' : 'posix'"
     },
     {
       "file": "packages/subprocess/subprocess-local/src/index.ts",
-      "line": 299,
+      "line": 312,
       "text": "const platform = this.internals.platform ?? process.platform"
     },
     {
       "file": "packages/subprocess/subprocess-local/src/index.ts",
-      "line": 310,
+      "line": 323,
       "text": "// readiness path cannot match; the console host node-pty ships emits it"
     },
     {
       "file": "packages/subprocess/subprocess-local/src/index.ts",
-      "line": 338,
+      "line": 351,
       "text": "// node-pty swallows signal errors; the scope owner requires their delivery result."
     },
     {
       "file": "packages/subprocess/subprocess-local/src/index.ts",
-      "line": 369,
+      "line": 382,
       "text": "if (exact !== undefined || process.platform !== 'win32') return exact"
     },
     {
@@ -2364,27 +2430,37 @@
     },
     {
       "file": "packages/subprocess/subprocess-local/src/linux-execve.ts",
-      "line": 51,
+      "line": 55,
       "text": "const koffi = requireKoffi()"
     },
     {
       "file": "packages/subprocess/subprocess-local/src/linux-execve.ts",
-      "line": 52,
+      "line": 56,
       "text": "const libc = koffi.load(null)"
     },
     {
       "file": "packages/subprocess/subprocess-local/src/linux-execve.ts",
-      "line": 65,
+      "line": 69,
       "text": "if (flags === -1) throw systemError(koffi.errno(), 'fcntl')"
     },
     {
       "file": "packages/subprocess/subprocess-local/src/linux-execve.ts",
-      "line": 68,
+      "line": 72,
       "text": "throw systemError(koffi.errno(), 'fcntl')"
     },
     {
       "file": "packages/subprocess/subprocess-local/src/linux-execve.ts",
-      "line": 76,
+      "line": 79,
+      "text": "if (flags === -1) throw systemError(koffi.errno(), 'fcntl')"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/linux-execve.ts",
+      "line": 81,
+      "text": "throw systemError(koffi.errno(), 'fcntl')"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/linux-execve.ts",
+      "line": 89,
       "text": "throw systemError(koffi.errno(), 'execve', file)"
     },
     {
@@ -2434,32 +2510,32 @@
     },
     {
       "file": "packages/subprocess/subprocess-local/src/process-inspector.ts",
-      "line": 243,
+      "line": 252,
       "text": "const text = internals.readFile(`/proc/${pid}/task/${tid}/syscall`).trim()"
     },
     {
       "file": "packages/subprocess/subprocess-local/src/process-inspector.ts",
-      "line": 263,
+      "line": 272,
       "text": "fd = internals.open(`/proc/${pid}/mem`)"
     },
     {
       "file": "packages/subprocess/subprocess-local/src/process-inspector.ts",
-      "line": 295,
+      "line": 304,
       "text": "return internals.readFile(`/proc/${pid}/task/${tid}/fdinfo/${epfd}`)"
     },
     {
       "file": "packages/subprocess/subprocess-local/src/process-inspector.ts",
-      "line": 320,
+      "line": 329,
       "text": "// `/proc/<pid>/task/<tid>/syscall` uses the kernel ABI's numbers. User-mode"
     },
     {
       "file": "packages/subprocess/subprocess-local/src/process-inspector.ts",
-      "line": 453,
+      "line": 462,
       "text": "for (const tid of numericEntries(this.internals, `/proc/${pid}/task`) ?? []) {"
     },
     {
       "file": "packages/subprocess/subprocess-local/src/process-inspector.ts",
-      "line": 543,
+      "line": 552,
       "text": "platform: NodeJS.Platform = process.platform,"
     },
     {
@@ -2484,12 +2560,12 @@
     },
     {
       "file": "packages/subprocess/subprocess-local/src/spawn.ts",
-      "line": 456,
+      "line": 464,
       "text": "const platform = internals.platform ?? process.platform"
     },
     {
       "file": "packages/subprocess/subprocess-local/src/spawn.ts",
-      "line": 458,
+      "line": 466,
       "text": "const stdio: import('node:child_process').StdioOptions = ["
     },
     {
@@ -2744,7 +2820,7 @@
     },
     {
       "file": "packages/subprocess/subprocess/src/index.ts",
-      "line": 59,
+      "line": 66,
       "text": "* that cannot route through the service (node-pty backends, SDK-managed"
     },
     {
@@ -2948,29 +3024,39 @@
       "text": "const platform = internals.platform ?? process.platform"
     },
     {
+      "file": "packages/util/native-command/src/host-environment.ts",
+      "line": 17,
+      "text": "if ((facts.platform ?? process.platform) !== 'linux') return false"
+    },
+    {
       "file": "packages/util/native-command/src/path-opener.ts",
-      "line": 174,
+      "line": 167,
       "text": "const platform = internals.platform ?? process.platform"
     },
     {
       "file": "packages/util/native-command/src/path-opener.ts",
-      "line": 216,
+      "line": 209,
       "text": "const platform = internals.platform ?? process.platform"
     },
     {
       "file": "packages/util/native-command/src/path-opener.ts",
-      "line": 275,
+      "line": 268,
       "text": "const platform = internals.platform ?? process.platform"
     },
     {
       "file": "packages/util/native-command/src/path-opener.ts",
-      "line": 292,
+      "line": 285,
       "text": "const platform = internals.platform ?? process.platform"
     },
     {
       "file": "packages/util/native-command/src/runner.ts",
       "line": 6,
       "text": "import { execFile } from 'node:child_process'"
+    },
+    {
+      "file": "packages/util/ripgrep/src/index.ts",
+      "line": 17,
+      "text": "const executableSidecar = process.platform === 'win32'"
     },
     {
       "file": "packages/workspace/workspace/src/paths.ts",

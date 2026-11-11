@@ -1077,11 +1077,59 @@
       "path": "claude",
       "size": 215662064
     },
-    "@deepseek-ai/libreoffice-kit-wasm@0.1.5::assets/soffice.wasm": {
+    "@deepseek-ai/libreoffice-kit-wasm@0.2.3::assets/dsoffice.wasm": {
       "format": "WASM",
-      "package": "@deepseek-ai/libreoffice-kit-wasm@0.1.5",
-      "path": "assets/soffice.wasm",
-      "size": 127844128
+      "package": "@deepseek-ai/libreoffice-kit-wasm@0.2.3",
+      "path": "assets/dsoffice.wasm",
+      "size": 127846009
+    },
+    "@deepseek-ai/libreoffice-kit@0.2.3::frame-forwarding/prebuilds/darwin-arm64/frame-forwarding.node": {
+      "format": "Mach-O",
+      "package": "@deepseek-ai/libreoffice-kit@0.2.3",
+      "path": "frame-forwarding/prebuilds/darwin-arm64/frame-forwarding.node",
+      "size": 197952
+    },
+    "@deepseek-ai/libreoffice-kit@0.2.3::frame-forwarding/prebuilds/darwin-arm64/libdsh_frame_forwarding_sdk.a": {
+      "format": "extension-only",
+      "package": "@deepseek-ai/libreoffice-kit@0.2.3",
+      "path": "frame-forwarding/prebuilds/darwin-arm64/libdsh_frame_forwarding_sdk.a",
+      "size": 57584
+    },
+    "@deepseek-ai/libreoffice-kit@0.2.3::frame-forwarding/prebuilds/darwin-x64/frame-forwarding.node": {
+      "format": "Mach-O",
+      "package": "@deepseek-ai/libreoffice-kit@0.2.3",
+      "path": "frame-forwarding/prebuilds/darwin-x64/frame-forwarding.node",
+      "size": 182416
+    },
+    "@deepseek-ai/libreoffice-kit@0.2.3::frame-forwarding/prebuilds/darwin-x64/libdsh_frame_forwarding_sdk.a": {
+      "format": "extension-only",
+      "package": "@deepseek-ai/libreoffice-kit@0.2.3",
+      "path": "frame-forwarding/prebuilds/darwin-x64/libdsh_frame_forwarding_sdk.a",
+      "size": 57984
+    },
+    "@deepseek-ai/libreoffice-kit@0.2.3::frame-forwarding/prebuilds/win32-arm64/dsh_frame_forwarding_sdk.lib": {
+      "format": "extension-only",
+      "package": "@deepseek-ai/libreoffice-kit@0.2.3",
+      "path": "frame-forwarding/prebuilds/win32-arm64/dsh_frame_forwarding_sdk.lib",
+      "size": 1075836
+    },
+    "@deepseek-ai/libreoffice-kit@0.2.3::frame-forwarding/prebuilds/win32-arm64/frame-forwarding.node": {
+      "format": "PE",
+      "package": "@deepseek-ai/libreoffice-kit@0.2.3",
+      "path": "frame-forwarding/prebuilds/win32-arm64/frame-forwarding.node",
+      "size": 209920
+    },
+    "@deepseek-ai/libreoffice-kit@0.2.3::frame-forwarding/prebuilds/win32-x64/dsh_frame_forwarding_sdk.lib": {
+      "format": "extension-only",
+      "package": "@deepseek-ai/libreoffice-kit@0.2.3",
+      "path": "frame-forwarding/prebuilds/win32-x64/dsh_frame_forwarding_sdk.lib",
+      "size": 1048692
+    },
+    "@deepseek-ai/libreoffice-kit@0.2.3::frame-forwarding/prebuilds/win32-x64/frame-forwarding.node": {
+      "format": "PE",
+      "package": "@deepseek-ai/libreoffice-kit@0.2.3",
+      "path": "frame-forwarding/prebuilds/win32-x64/frame-forwarding.node",
+      "size": 222720
     },
     "@earendil-works/pi-coding-agent@1.3.0::examples/extensions/doom-overlay/doom/build/doom.wasm": {
       "format": "WASM",
