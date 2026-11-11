@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-11",
+  "fork": "https://github.com/MohammedTeir/deepseek-harness.git",
+  "upstream": "https://github.com/deepseek-ai/deepseek-harness.git",
+  "forkHead": "fcc0ad462172522aaf5c93a7b2e01f6b9f0b0159",
+  "upstreamHead": "fcc0ad462172522aaf5c93a7b2e01f6b9f0b0159",
+  "lockfileSha256": "b6f0946199db2661e45ac0ceead23e6ceedf148604b48ea9b05a6287a4094bcd",
+  "node": "24.22.1",
+  "pnpm": "11.25.0"
+}

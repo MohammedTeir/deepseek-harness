@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "node": "24.22.1",
+  "platform": "linux",
+  "arch": "x64",
+  "checks": [
+    {
+      "name": "required-node-version",
+      "status": "PASS"
+    },
+    {
+      "name": "android-arm64",
+      "status": "FAIL",
+      "code": "Error"
+    },
+    {
+      "name": "filesystem-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "name": "sqlite",
+      "status": "PASS"
+    },
+    {
+      "name": "worker-thread",
+      "status": "PASS"
+    }
+  ],
+  "unverified": [
+    "DNS/TLS on device",
+    "native flock",
+    "PTY",
+    "Harness profile boot",
+    "authenticated RPC",
+    "approved agent tool roundtrip",
+    "restart persistence"
+  ]
+}

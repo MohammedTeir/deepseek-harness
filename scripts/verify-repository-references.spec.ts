@@ -75,6 +75,28 @@ describe('unique object-name prefix search', () => {
 describe('maintained repository reference policy', () => {
   const numericCommit = String(6_344_383)
 
+  it('admits only exact Android baseline fields while retaining other reference checks', () => {
+    const hash = 'a'.repeat(40)
+    const commits = new Set([hash, hash.slice(0, 12)])
+    const file = 'apps/android/evidence/baseline.json'
+    for (const key of ['forkHead', 'upstreamHead']) {
+      expect(findRepositoryReferences(file, `  "${key}": "${hash}",`, commits)).toEqual([])
+    }
+    for (const [path, text] of [
+      ['another/baseline.json', `"forkHead": "${hash}"`],
+      [file, `"other": "${hash}"`],
+      [file, `"forkHead": "${hash}" trailing`],
+      [file, `"forkHead": "${hash.slice(0, 12)}"`],
+    ] as const) {
+      expect(findRepositoryReferences(path, text, commits)).toEqual(
+        [{ file: path, line: 1, kind: 'commit-hash' }],
+      )
+    }
+    expect(findRepositoryReferences(file, organizationUrl, commits)).toEqual([
+      { file, line: 1, kind: 'organization-url' },
+    ])
+  })
+
   it.each([
     ['uv.lock', `artifact = { size = ${numericCommit} }`],
     ['python/sdk/uv.lock', `sdist.size = ${numericCommit}`],

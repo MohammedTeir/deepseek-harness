@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DeepSeek Harness</string>
+    <string name="runtime_unavailable">Android prototype: local Harness runtime unavailable. Chat and sessions cannot start.</string>
+    <string name="run_diagnostic">Run native execution diagnostic</string>
+    <string name="approve_title">Allow app-scoped command?</string>
+    <string name="approve_message">Provider: embedded diagnostic\nIdentity: application UID\nCommand: /system/bin/sh -c pwd\nDirectory: %1$s\nScope: one execution within 30 seconds. No root.</string>
+    <string name="deny">Deny</string>
+    <string name="allow_once">Allow once</string>
+    <string name="result_title">Native diagnostic result</string>
+    <string name="result_message">stdout: %1$s\nstderr: %2$s\nexit: %3$s\ntimeout: %4$s</string>
+    <string name="diagnostic_failed">Diagnostic failed (%1$s). No agent operation started.</string>
+    <string name="close">Close</string>
+</resources>

@@ -1,0 +1,9 @@
+# Android runtime investigation
+
+Reference. No embedded Android Harness runtime is shipped. Node 24.22.1 `BUILDING.md` explicitly calls Android unsupported and untested by its CI, while retaining an `android-configure` cross-build entry; shared-library embedding, ABI linking and device validation remain required. GitHub's Node.js Mobile latest-release API returned `v18.20.4`; root `package.json` requires >=24.9.0. Android Bionic is not glibc or musl. No desktop/Linux ARM64 executable is accepted as Android evidence.
+
+`apps/android/runtime/probe.mjs` is a candidate diagnostics program, not a launcher or agent. Run it using a candidate Android runtime in app-private storage with a writable temporary directory. It checks actual version/platform/architecture, filesystem round trip, in-memory node:sqlite and a worker thread; failures produce a nonzero exit. Host runs intentionally fail `android-arm64`. The report explicitly leaves native flock, PTY, DNS/TLS, profile boot and agent round trip unverified. It never prints environment variables or credentials.
+
+A qualifying runtime investigation must pin source SHA, NDK/API/ABI/compiler, patches, libnode dynamic dependencies and licenses. Prefer supported APK native-library loading; do not extract writable executables and exec them. Validate the real `dsh --profile` boot path, filesystem/module loading, native addons, TLS, cancellation and cleanup on a supported device. Node embedding restart limitations require lifecycle ownership, not repeated calls to an unproven start API.
+
+Android native support is also blocked by `native/system/packages/entry/src/flock.ts` selecting only Linux/macOS and by node-pty's desktop dependency. Preserve session ownership locks; implement and test a Bionic provider. No mock LLM response counts as runtime proof. Full criteria: [test plan](ANDROID_TEST_PLAN.md).

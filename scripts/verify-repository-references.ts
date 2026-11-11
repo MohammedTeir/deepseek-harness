@@ -51,7 +51,10 @@ export function findRepositoryReferences(
     if (organizationUrl.test(canonicalReferenceText(line).replace(kitRepositoryUrl, ''))) {
       references.push({ file, line: index + 1, kind: 'organization-url' })
     }
-    if ([...line.matchAll(commitCandidate)].some(match => commits.has(match[0].toLowerCase()))) {
+    // Android feasibility reports retain the exact fork/upstream baseline requested for build evidence.
+    const androidBaseline = file === 'apps/android/evidence/baseline.json'
+      && /^\s*"(?:forkHead|upstreamHead)": "[\da-f]{40}",?\s*$/u.test(line)
+    if (!androidBaseline && [...line.matchAll(commitCandidate)].some(match => commits.has(match[0].toLowerCase()))) {
       references.push({ file, line: index + 1, kind: 'commit-hash' })
     }
   }
