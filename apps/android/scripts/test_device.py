@@ -1,0 +1,102 @@
+"""Install the bounded proof APKs on one selected device and retain test evidence.
+
+This runs trusted instrumentation, not a Harness agent or a root provider.
+Only proof-package output is collected; device-wide logcat is never requested.
+"""
+import argparse
+from datetime import datetime, timezone
+import hashlib
+import json
+from pathlib import Path
+import re
+import subprocess
+
+
+def instrumentation_passed(output: str, count: int) -> bool:
+    """Require the expected executed test count and reject Android runner errors."""
+    return (
+        re.search(rf"^OK \({count} tests?\)\s*$", output, re.MULTILINE) is not None
+        and re.search(r"^INSTRUMENTATION_CODE: -1\s*$", output, re.MULTILINE) is not None
+        and not re.search(r"FAILURES!!!|INSTRUMENTATION_FAILED|shortMsg=|INSTRUMENTATION_STATUS_CODE: -[12]", output)
+    )
+
+
+def main() -> int:
+    """Fail on unavailable hardware, install errors, timeouts, or incomplete runs."""
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--adb", default="adb")
+    parser.add_argument("--serial", required=True, help="Device explicitly selected from adb devices")
+    parser.add_argument("--proof", required=True, choices=["packaging", "runtime"])
+    parser.add_argument("--output", required=True, type=Path, help="New evidence directory")
+    args = parser.parse_args()
+    args.output.mkdir(parents=True, exist_ok=False)
+    android = Path(__file__).resolve().parents[1]
+    module, package, tests = (
+        ("packaging-proof", "ai.deepseek.harness.android.packagingproof", 2)
+        if args.proof == "packaging"
+        else ("app", "ai.deepseek.harness.android.runtimepoc", 1)
+    )
+    record = {"schemaVersion": 1, "proof": args.proof,
+              "observedAt": datetime.now(timezone.utc).isoformat(),
+              "status": "BLOCKED", "harnessVerified": False, "steps": []}
+
+    def adb(*command: str, timeout: int = 30) -> str:
+        result = subprocess.run([args.adb, "-s", args.serial, *command],
+                                text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                timeout=timeout, check=False)
+        record["steps"].append({"command": list(command), "exitCode": result.returncode})
+        if result.returncode:
+            raise RuntimeError(result.stdout.strip())
+        return result.stdout
+
+    try:
+        if adb("get-state").strip() != "device":
+            raise RuntimeError("Selected device is not online and authorized")
+        properties = ["ro.build.version.release", "ro.build.version.sdk", "ro.build.version.security_patch",
+                      "ro.build.fingerprint", "ro.product.cpu.abilist", "ro.kernel.qemu", "ro.dalvik.vm.native.bridge"]
+        record["device"] = {key: adb("shell", "getprop", key).strip() for key in properties}
+        record["device"]["kernelArchitecture"] = adb("shell", "uname", "-m").strip()
+        record["device"]["pageSize"] = adb("shell", "getconf", "PAGE_SIZE").strip()
+        if int(record["device"]["ro.build.version.sdk"]) < 29:
+            raise RuntimeError("Android API 29 or later is required")
+        if "arm64-v8a" not in record["device"]["ro.product.cpu.abilist"].split(","):
+            raise RuntimeError("Device does not advertise ARM64 APK support")
+        paths = [android / module / f"build/outputs/apk/debug/{module}-debug.apk",
+                 android / module / f"build/outputs/apk/androidTest/debug/{module}-debug-androidTest.apk"]
+        record["apks"] = {path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in paths}
+        for index, path in enumerate(paths):
+            installed = adb("install", "-r", str(path), timeout=120)
+            (args.output / f"install-{index}.txt").write_text(installed)
+            if not re.search(r"^Success\s*$", installed, re.MULTILINE):
+                raise RuntimeError("Installer did not report success")
+        if args.proof == "runtime":
+            # A failed start must not attach a previous run's API evidence.
+            adb("shell", "run-as", package, "rm", "-f", "files/runtime-probe/result.json")
+        output = adb("shell", "am", "instrument", "-w", "-r",
+                     f"{package}.test/androidx.test.runner.AndroidJUnitRunner", timeout=180)
+        (args.output / "instrumentation.txt").write_text(output)
+        if args.proof == "runtime":
+            try:
+                result = adb("shell", "run-as", package, "cat", "files/runtime-probe/result.json")
+                (args.output / "runtime-result.json").write_text(result)
+                json.loads(result)
+            except (RuntimeError, ValueError, subprocess.TimeoutExpired) as error:
+                record["runtimeResultFailure"] = str(error)
+        if not instrumentation_passed(output, tests):
+            record["status"] = "FAILED"
+            raise RuntimeError("Instrumentation did not complete the expected tests; inspect instrumentation.txt")
+        if "runtimeResultFailure" in record:
+            record["status"] = "FAILED"
+            raise RuntimeError("Runtime test passed without retrievable JSON evidence")
+        record["status"] = "VERIFIED"
+        return 0
+    except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as error:
+        record["failure"] = str(error)
+        return 1
+    finally:
+        (args.output / "device-test.json").write_text(json.dumps(record, indent=2) + "\n")
+        print(f"{args.proof}: {record['status']}; evidence: {args.output}")
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

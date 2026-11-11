@@ -7,7 +7,12 @@
 extern "C" JNIEXPORT jstring JNICALL
 Java_io_github_mohammedteir_deepseekharness_RuntimeService_probeNode(JNIEnv* env, jobject) {
     void* library = dlopen("libnode.so", RTLD_NOW | RTLD_GLOBAL);
-    if (!library) return env->NewStringUTF("BLOCKED: Android libnode.so is not packaged or could not link. Harness has not started.");
+    if (!library) {
+        const char* error = dlerror();
+        const std::string result = std::string("BLOCKED: Android libnode.so could not link: ")
+            + (error ? error : "loader returned no diagnostic");
+        return env->NewStringUTF(result.c_str());
+    }
     void* entry = dlsym(library, "_ZN4node5StartEiPPc");
     const char* result = entry
         ? "Node entry symbol found. Runtime API and Harness execution remain NOT VERIFIED."

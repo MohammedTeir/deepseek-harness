@@ -28,7 +28,8 @@ class RuntimeService : Service() {
                     if (output.exists() && !output.delete()) throw IllegalStateException("Stale result could not be removed")
                     val exit = runNode(script.absolutePath, output.absolutePath)
                     when {
-                        exit < 0 -> probeNode()
+                        exit == -1 || exit == -2 -> probeNode()
+                        exit < 0 -> "BLOCKED: JNI could not prepare Node arguments (code $exit)"
                         exit != 0 -> "BLOCKED: embedded Node API probe exited with code $exit"
                         !output.isFile -> "BLOCKED: embedded Node returned without API evidence"
                         else -> output.readText().take(4096)

@@ -28,7 +28,7 @@ def package(build: Path, ndk: Path, android: Path) -> None:
     source = build / "node-v24.22.1"
     toolchain = ndk / "toolchains/llvm/prebuilt/linux-x86_64"
     readelf = toolchain / "bin/llvm-readelf"
-    library = source / "out/Release/lib.target/libnode.so"
+    library = source / "out/Release/libnode.so"
     dependencies = inspect(readelf, library)
     symbols = subprocess.check_output([str(readelf), "--dyn-syms", "-W", str(library)], text=True)
     if not re.search(r"\bGLOBAL\b.*\bDEFAULT\b\s+(?!UND\b)\S+\s+_ZN4node5StartEiPPc\b", symbols):

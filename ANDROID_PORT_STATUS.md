@@ -1,4 +1,4 @@
-# Android Phase 0 and Phase 1 status
+# Android port status
 
 ## Summary
 
@@ -61,3 +61,15 @@ The runtime code and instrumentation source compile retry passed with in-process
 ## Recovered checkpoint
 
 The workspace recovered with the Phase 2 source intact. The last full runtime-source validation and Node build have no recorded final result and must be resumed; no successful Node library or runtime-ready APK is inferred. Packaging fixture APKs built, but installation attempts failed while emulator package/settings services were unavailable. Framework logs showed system-service failures and restarts. A clean disposable-AVD retry was attempted; no successful fixture instrumentation result was obtained. Phone testing remains required. Generated binaries, emulator images, build caches and the local debug keystore are excluded from this source commit.
+
+## Resumed Phase 2 validation
+
+The Node build resumed against the retained source/object cache; final library generation is still pending. Inspection of the generated Makefile corrected the packager input to `out/Release/libnode.so`. No target binary, runtime-ready APK or Harness execution is inferred from object compilation.
+
+The packaged-executable comparison now has a build script using the unchanged, checksum-verified original Node UNIX entrypoint. Cross-compilation of that entrypoint passed; linking correctly returned BLOCKED/nonzero because libnode is not yet available. No executable runtime strategy is selected or verified by this source check.
+
+Android lint for both modules and packaging debug/test APK assembly passed: 106 tasks in 1m33s. After improving native-linker and JNI argument diagnostics, Kotlin, JNI, instrumentation-source compilation and runtime-module lint passed again: 40 tasks in 23s. Runtime asset preparation was excluded only for these source checks. Packaging APK signature verification and 16 KB ZIP-alignment validation passed; its native fixtures and required notices are present. These checks establish build integrity, not Android execution.
+
+The new selected-device test runner records APK hashes, device properties and complete instrumentation output. Its host regression rejects empty, incomplete, wrong-count and crashed runner output. The unavailable-device path ran and returned BLOCKED/nonzero; no phone or emulator test has passed. The runner preserves the distinction between packaging, Node APIs and authentic Harness acceptance. Gate 2 remains BLOCKED on actual runtime/profile/session/tool evidence.
+
+Resumed validation passed: five host test cases across the result-parser and ELF-parser suites, quick documentation 21/21 in 103.35s, full documentation 43/43 in 445.41s, and repository lint with the existing unused-disable warning. APK digests and signature/alignment checks are retained in `apps/android/evidence/build-validation.json`. These results do not change the device acceptance status.
