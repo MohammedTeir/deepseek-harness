@@ -1,0 +1,58 @@
+[
+  {
+    "url": "https://developer.android.com/about/versions/10/behavior-changes-10",
+    "retrieved": true,
+    "excerpts": [
+      "9;s embedded within an app&#39;s APK file. Untrusted apps that target Android&nbsp;10 cannot invoke execve() directly on files within the app&#39;s home directory. In addition, apps that target Android&nbsp;10 cannot in-memory modify executable code from files which have been opened with dlopen() and expect those changes to be written through to disk, because the library cannot have been mapped PROT_EXEC through a writable file descriptor. This i",
+      "y of Android overall. Removed execute permission for app home directory Execution of files from the writable app home directory is a W^X violation . Apps should load only the binary code that&#39;s embedded within an app&#39;s APK file. Untrusted apps that target Android&nbsp;10 cannot invoke execve() directly on files within the app&#39;s home directory. In addition, apps that target Android&nbsp;10 cannot in-memory modify executable code from f"
+    ]
+  },
+  {
+    "url": "https://developer.android.com/guide/webapps/load-local-content",
+    "retrieved": true,
+    "excerpts": [
+      " content by adding the following code to the onCreate() method: Kotlin webView . loadUrl ( \"https://appassets.androidplatform.net/assets/index.html\" ) Java mWebView . loadUrl ( \"https://appassets.androidplatform.net/assets/index.html\" ); Mix in-app content with resources from your website Your app might need to load a mix of in-app content and content from the internet, such as an in-app HTML page styled by your website&#39;s CSS. WebViewAssetLoa"
+    ]
+  },
+  {
+    "url": "https://developer.android.com/guide/practices/page-sizes",
+    "retrieved": true,
+    "excerpts": [
+      "ter dynamic relocations are complete. Enable the RELRO flag in your build . When GNU_RELRO shares a writable LOAD segment with subsequent writable data (such as .data or .bss ), the end address of the GNU_RELRO segment ( VirtAddr + MemSiz ) must be 16 KB aligned ( 0x4000 ). Otherwise, when the Android Linker marks the 16 KB page containing the end of GNU_RELRO as read-only, any adjacent writable data residing in the remainder of that same 16 KB p",
+      "es and cultures Support different platform versions Filters on Google Play \u2348 64-bit Support Support 16 KB page sizes Build AI experiences Get started Get started Hello, world! Adaptive apps Compose for UI AI-powered IDE Monetization with Play \u2197\ufe0f Developer Verification Registered App Stores Optimize by form factor Phones, tablets, foldables Android for Cars Android TV Android XR Googlebook ChromeOS Wear OS Build by category Games Camera &amp; medi"
+    ]
+  },
+  {
+    "url": "https://developer.android.com/guide/components/foreground-services/service-types",
+    "retrieved": false,
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://developer.android.com/training/data-storage/shared/documents-files",
+    "retrieved": true,
+    "excerpts": [
+      "UMENT intent action allows users to save a file in a specific location. Open a document or file The ACTION_OPEN_DOCUMENT intent action allows users to select a specific document or file to open. Grant access to a directory&#39;s contents The ACTION_OPEN_DOCUMENT_TREE intent action, available on Android 5.0 (API level 21) and higher, allows users to select a specific directory, granting your app access to all of the files and sub-directories withi"
+    ]
+  },
+  {
+    "url": "https://raw.githubusercontent.com/nodejs-mobile/nodejs-mobile/main/src/node_version.h",
+    "retrieved": true,
+    "excerpts": [
+      " OR OTHER DEALINGS IN THE SOFTWARE. #ifndef SRC_NODE_VERSION_H_ #define SRC_NODE_VERSION_H_ #define NODE_MAJOR_VERSION 18 #define NODE_MINOR_VERSION 20 #define NODE_PATCH_VERSION 4 #define NODE_VERSION_IS_LTS 1 #define NODE_VERSION_LTS_CODENAME \"Hydrogen\" #define NODE_VERSION_IS_RELEASE 1 #ifndef NODE_STRINGIFY #define NODE_STRINGIFY(n) NODE_STRINGIFY_HELPER(n) #define NODE_STRINGIFY_HELPER(n) #n #endif #ifndef NODE_RELEASE #define NODE_RELEASE \""
+    ]
+  },
+  {
+    "url": "https://github.com/termux/termux-app/wiki/RUN_COMMAND-Intent",
+    "retrieved": true,
+    "excerpts": [
+      "OverrideUrl\":\"https://api.githubcopilot.com\",\"cmcApiUrl\":\"https://api.github.com/cmc_internal/api\"} RUN_COMMAND Intent \u00b7 termux/termux-app Wiki \u00b7 GitHub Skip to content {\"props\":{\"docsUrl\":\"https://docs.github.com/get-started/accessibility/keyboard-shortcuts\"}} {\"props\":{}} {\"props\":{\"color_mode\":\"dark\",\"logged_in\":false,\"marketing_page\":false,\"home_path\":\"/\",\"login_path\":\"/login?return_to=https%3A%2F%2Fgithub.com%2Ftermux%2Ftermux-app%2Fwiki%2FR"
+    ]
+  },
+  {
+    "url": "https://developer.android.com/develop/background-work/services/fgs/service-types",
+    "retrieved": true,
+    "excerpts": [
+      "riate foreground service types. Camera Foreground service type to declare in manifest under android:foregroundServiceType camera Permission to declare in your manifest FOREGROUND_SERVICE_CAMERA Constant to pass to startForeground() FOREGROUND_SERVICE_TYPE_CAMERA Runtime prerequisites Request and be granted the CAMERA runtime permission Note: The CAMERA runtime permission is subject to while-in-use restrictions. For this reason, you cannot create a camera foreground service while your app is in the background and you cannot launch a camera foreground service from a BOOT_COMPLETED receiver, with"
+    ]
+  }
+]

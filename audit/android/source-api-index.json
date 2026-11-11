@@ -1,0 +1,3072 @@
+{
+  "nativeSourceAndMatrices": [
+    "apps/desktop/cli/link-entry.c",
+    "apps/desktop/installer/window-frame.cpp",
+    "apps/desktop/tests/fixtures/cli-console-probe.cpp",
+    "apps/desktop/tests/windows-installer-extract-report.cpp",
+    "apps/desktop/tests/windows-installer-presentation.cpp",
+    "apps/desktop/tests/windows-installer-progress.cpp",
+    "apps/desktop/tests/windows-installer-render.cpp",
+    "apps/desktop/tests/windows-uninstall-data.cpp",
+    "native/system/packages/darwin-arm64/prebuilds.json",
+    "native/system/packages/darwin-x64/prebuilds.json",
+    "native/system/packages/entry/src/flock.c",
+    "native/system/packages/entry/src/main.c",
+    "native/system/packages/linux-arm64/prebuilds.json",
+    "native/system/packages/linux-x64/prebuilds.json",
+    "native/system/test/fixtures/flock-oracle.c",
+    "packages/sandbox/sandbox-windows-acl/verify/abi-probe.cpp",
+    "packages/subprocess/win32-process/verify/abi-probe.cpp"
+  ],
+  "nodeModules": {
+    "assert/strict": [
+      "packages/boot/hmr/src/index.ts:2",
+      "packages/experimental/cua-windows/src/native-runtime.ts:7",
+      "packages/experimental/cua-windows/src/native-transport.ts:4",
+      "packages/experimental/cua/src/native-client.ts:3",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:47"
+    ],
+    "async_hooks": [
+      "packages/boot/hmr/src/index.ts:3",
+      "packages/core/agent/src/index.ts:10",
+      "packages/experimental/liveshare/src/host/relay-h2-idle.ts:20",
+      "packages/experimental/liveshare/src/host/relay-h2-idle.ts:22",
+      "packages/experimental/liveshare/src/host/relay-h2-idle.ts:23",
+      "packages/experimental/liveshare/src/host/relay-h2-idle.ts:26",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:45",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/async_hooks.ts:335",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/async_hooks.ts:390",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/async_hooks.ts:391",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/async_hooks.ts:402",
+      "packages/ptc-runtime/ptc-runtime-node/src/imports/module-hooks.ts:2",
+      "packages/ptc-runtime/ptc-runtime-node/src/process.ts:2",
+      "packages/ptc-runtime/ptc-runtime-node/src/worker.ts:5",
+      "packages/sdk/server/src/server.ts:9"
+    ],
+    "buffer": [
+      "packages/acp/acp/src/index.ts:13",
+      "packages/attachment/attachment/src/admission.ts:3",
+      "packages/attachment/attachment/src/index.ts:3",
+      "packages/boot/hmr/src/package-manifest.ts:2",
+      "packages/experimental/client-ui-forge/src/patch-cache.ts:6",
+      "packages/experimental/client-ui-forge/src/review-cache.ts:6",
+      "packages/experimental/cua/src/index.ts:3",
+      "packages/experimental/cua/src/protocol.ts:2",
+      "packages/experimental/forge-github/src/threads.ts:3",
+      "packages/experimental/inspector/src/worker/cdp/domains/network/session.ts:3",
+      "packages/experimental/inspector/src/worker/inspection/network-store.ts:3",
+      "packages/experimental/terminal-panel/src/tools.ts:3",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:39",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/buffer.ts:61",
+      "packages/feedback/message-feedback/src/index.ts:6",
+      "packages/fs/fs-local/src/index.ts:10",
+      "packages/lsp/lsp-stdio/src/host.ts:3",
+      "packages/ptc-runtime/ptc-runtime-node/src/rpc.ts:2",
+      "packages/session/session-log-deepseek/src/index.ts:8",
+      "packages/session/session-persistence-jsonl/src/zstd-private-decoder.ts:6",
+      "packages/subprocess/subprocess-local/src/terminal.ts:3",
+      "packages/terminal/terminal-bash/src/sanitize.ts:3",
+      "packages/terminal/terminal-bash/src/session.ts:3",
+      "packages/typert/generator/src/emitter.ts:7"
+    ],
+    "child_process": [
+      "apps/desktop/src/command-installation.ts:4",
+      "apps/desktop/src/command-management.ts:3",
+      "apps/desktop/src/command-manager-entry.ts:3",
+      "apps/desktop/src/host-process.ts:3",
+      "apps/desktop/src/login-shell-environment.ts:3",
+      "apps/plugin-market-generator/src/fetchers.ts:8",
+      "native/system/packages/entry/src/index.ts:16",
+      "packages/bundle/web-app/src/index.ts:15",
+      "packages/client/product-analytics/src/environment-query.ts:2",
+      "packages/experimental/liveshare/src/host/tunnel-worker.ts:4",
+      "packages/experimental/ptc-runtime-python/src/index.ts:13",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:60",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/child_process.ts:30",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/child_process.ts:429",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/child_process.ts:432",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/child_process.ts:435",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/child_process.ts:448",
+      "packages/host/directory-picker-native/src/win32-dialog-host.ts:10",
+      "packages/host/open-in-app/src/resolver.ts:15",
+      "packages/sandbox/sandbox-local/src/index.ts:24",
+      "packages/sdk/client/src/client.ts:15",
+      "packages/sdk/client/src/dispose.ts:11",
+      "packages/ssh/ssh/src/index.ts:3",
+      "packages/subprocess/subprocess-local/src/linux-scope.ts:4",
+      "packages/subprocess/subprocess-local/src/process-inspector.ts:4",
+      "packages/subprocess/subprocess-local/src/runner-launch.ts:3",
+      "packages/subprocess/subprocess-local/src/spawn.ts:11",
+      "packages/subprocess/subprocess-local/src/spawn.ts:466",
+      "packages/subprocess/subprocess-local/src/windows-inspector.ts:12",
+      "packages/subprocess/subprocess-local/src/windows-job.ts:4",
+      "packages/test-support/session-snapshot/src/launcher.ts:10",
+      "packages/util/native-command/src/runner.ts:6"
+    ],
+    "crypto": [
+      "apps/cli/src/startup-diagnostics.ts:3",
+      "apps/desktop-host/src/file-drag.ts:2",
+      "apps/desktop-host/src/index.ts:4",
+      "apps/desktop/src/account-backend.ts:2",
+      "apps/desktop/src/browser-guests.ts:2",
+      "apps/desktop/src/command-installation.ts:3",
+      "apps/desktop/src/core-package-set.ts:3",
+      "apps/desktop/src/file-actions.ts:7",
+      "apps/desktop/src/file-drag-files.ts:2",
+      "apps/desktop/src/file-drag.ts:2",
+      "apps/desktop/src/platform-view.ts:3",
+      "apps/desktop/src/policy-test-auth.ts:2",
+      "apps/desktop/src/runtime-tree.ts:3",
+      "apps/desktop/src/update-journal.ts:2",
+      "apps/desktop/src/welcome-backend.ts:4",
+      "apps/plugin-market-generator/src/fetchers.ts:7",
+      "apps/plugin-market-generator/src/metadata.ts:5",
+      "packages/acp/acp/src/index.ts:14",
+      "packages/acp/acp/src/mcp.ts:4",
+      "packages/api/gateway/src/index.ts:8",
+      "packages/api/session-controller/src/agent.ts:3",
+      "packages/api/session-controller/src/commands.ts:7",
+      "packages/api/terminal-controller/src/index.ts:2",
+      "packages/attachment/attachment-local/src/file-store.ts:3",
+      "packages/attachment/attachment-local/src/request-image.ts:3",
+      "packages/attachment/attachment-local/src/store.ts:3",
+      "packages/boot/plugin-manager/src/index.ts:2",
+      "packages/boot/plugin-market/src/detail.ts:6",
+      "packages/boot/plugin-market/src/repository-cache.ts:8",
+      "packages/bundle/headless/src/index.ts:13",
+      "packages/client/connection/src/browser-auth.ts:3",
+      "packages/client/connection/src/peer.ts:8",
+      "packages/client/file-upload/src/index.ts:3",
+      "packages/client/modules/src/assets.ts:11",
+      "packages/client/modules/src/index.ts:30",
+      "packages/compaction/compaction-basic/src/region.ts:8",
+      "packages/context/agent-instructions/src/digest.ts:7",
+      "packages/core/agent-loop/src/index.ts:10",
+      "packages/credentials/deepseek-account/src/index.ts:2",
+      "packages/deliverables/workspace-changes/src/capture.ts:7",
+      "packages/document/office-kit/src/index.ts:2",
+      "packages/document/office-kit/src/outputs.ts:2",
+      "packages/document/office-kit/src/queue.ts:2",
+      "packages/experimental/client-ui-forge/src/diff.ts:3",
+      "packages/experimental/client-ui-forge/src/states.ts:11",
+      "packages/experimental/creation-recommendations/src/index.ts:2",
+      "packages/experimental/cua-macos/src/held-keys.ts:2",
+      "packages/experimental/cua-macos/src/shared-native.ts:2",
+      "packages/experimental/cua-windows/src/native-runtime.ts:2",
+      "packages/experimental/cua-windows/src/windows-host.ts:2",
+      "packages/experimental/cua/src/native-client.ts:2",
+      "packages/experimental/cua/src/permission-store.ts:2",
+      "packages/experimental/inspector/src/host/bridge/controller.ts:3",
+      "packages/experimental/inspector/src/host/inspection/realm.ts:3",
+      "packages/experimental/inspector/src/worker/bridge/runtime-rpc.ts:3",
+      "packages/experimental/inspector/src/worker/bridge/source-rpc.ts:3",
+      "packages/experimental/inspector/src/worker/cdp/realm-sessions.ts:3",
+      "packages/experimental/inspector/src/worker/realms/client/index.ts:3",
+      "packages/experimental/inspector/src/worker/realms/host/index.ts:3",
+      "packages/experimental/liveshare/src/host/owner-authorization.ts:12",
+      "packages/experimental/liveshare/src/host/owner-persistence.ts:9",
+      "packages/experimental/liveshare/src/host/owner-share-operations.ts:10",
+      "packages/experimental/liveshare/src/host/tunnel-supervision.ts:10",
+      "packages/experimental/liveshare/src/host/tunnel-worker.ts:3",
+      "packages/experimental/liveshare/src/owner-gateway/pending-rpc.ts:3",
+      "packages/experimental/speech-to-text-sensevoice/src/process-server.ts:3",
+      "packages/experimental/speech-to-text-sensevoice/src/recognizer.ts:2",
+      "packages/experimental/speech-to-text-sensevoice/src/runtime.ts:2",
+      "packages/experimental/subagent-oar/src/run.ts:8",
+      "packages/experimental/translator/src/provider.ts:7",
+      "packages/experimental/webhook/src/session.ts:4",
+      "packages/experimental/webworker-packer/src/pack.ts:18",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:36",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/crypto.ts:82",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/crypto.ts:120",
+      "packages/experimental/worktree/src/name.ts:3",
+      "packages/feedback/message-feedback/src/index.ts:7",
+      "packages/fs/fs-local/src/fsio.ts:8",
+      "packages/goal/goal/src/index.ts:7",
+      "packages/host/frontend-static/src/index.ts:19",
+      "packages/identity/anonymous-user-id/src/index.ts:19",
+      "packages/interaction/user-approval/src/index.ts:7",
+      "packages/jobs/jobs-local/src/index.ts:13",
+      "packages/llm/llm-deepseek/src/listing-cache.ts:2",
+      "packages/llm/llm-deepseek/src/upload-index.ts:3",
+      "packages/llm/llm-pi-ai/src/prefix-binding.ts:22",
+      "packages/llm/llm-retry/src/index.ts:8",
+      "packages/mcp/mcp-client/src/tools.ts:15",
+      "packages/ptc-runtime/ptc-runtime-node/src/imports/module-hooks.ts:3",
+      "packages/ptc-runtime/ptc-runtime-node/src/worker.ts:2",
+      "packages/sandbox/sandbox-windows-acl/src/acl.ts:24",
+      "packages/sandbox/sandbox-windows-acl/src/workspace-sid.ts:27",
+      "packages/schedule/schedule/src/index.ts:2",
+      "packages/schedule/schedule/src/runtime.ts:2",
+      "packages/schedule/schedule/src/storage.ts:2",
+      "packages/sdk/client/src/api.ts:8",
+      "packages/sdk/protocol/src/transport.ts:9",
+      "packages/sdk/server/src/user-questions.ts:2",
+      "packages/session-query/session-query-sqlite/src/index.ts:7",
+      "packages/session/session-format-v2-to-v3/src/migration.ts:3",
+      "packages/session/session-persistence-jsonl/src/generation.ts:11",
+      "packages/session/session-persistence-jsonl/src/index.ts:21",
+      "packages/session/session-persistence-jsonl/src/win32.ts:14",
+      "packages/shell/tool-bash-persistent/src/index.ts:7",
+      "packages/shell/tool-pwsh-persistent/src/index.ts:9",
+      "packages/skill/tool-skill/src/index.ts:8",
+      "packages/spill/spill-local/src/store.ts:9",
+      "packages/ssh/ssh/src/helper-processes.ts:2",
+      "packages/ssh/ssh/src/helper.ts:2",
+      "packages/ssh/ssh/src/protocol.ts:3",
+      "packages/storage/storage-json/src/atomic.ts:16",
+      "packages/subagent/subagent-acp/src/run.ts:8",
+      "packages/subagent/subagent-claude-code/src/run.ts:9",
+      "packages/subagent/subagent-codex/src/run.ts:10",
+      "packages/subagent/subagent-dsh-sdk/src/run.ts:13",
+      "packages/subagent/subagent/src/manager.ts:9",
+      "packages/subprocess/subprocess-local/src/linux-scope.ts:5",
+      "packages/subprocess/subprocess-local/src/output.ts:2",
+      "packages/test-support/llm-mock-server/src/index.ts:11",
+      "packages/test-support/session-snapshot/src/harness.ts:21",
+      "packages/util/atomic-write/src/index.ts:14",
+      "packages/workflow/workflow-ptc/src/index.ts:7",
+      "packages/workspace/workspace/src/index.ts:8"
+    ],
+    "diagnostics_channel": [
+      "packages/experimental/liveshare/src/host/relay-h2-idle.ts:85"
+    ],
+    "dns/promises": [
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:63",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/dns/promises.ts:8",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/dns/promises.ts:11",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/dns/promises.ts:17"
+    ],
+    "domain": [
+      "packages/ptc-runtime/ptc-runtime-node/src/evaluators/scoped-repl-evaluator.ts:44"
+    ],
+    "events": [
+      "apps/desktop/src/platform-view.ts:2",
+      "apps/desktop/src/update-overlay.ts:3",
+      "packages/boot/plugin-manager/src/operations.ts:2",
+      "packages/client/ui-trajectory/src/index.ts:2",
+      "packages/experimental/client-ui-cot-translation/src/index.ts:2",
+      "packages/experimental/cua-windows/src/native-runtime.ts:4",
+      "packages/experimental/translator/src/index.ts:8",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:51",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/events.ts:153",
+      "packages/fs/fs-local/src/index.ts:11",
+      "packages/ssh/ssh/src/protocol.ts:4",
+      "packages/subagent/subagent-claude-code/src/process.ts:8",
+      "packages/telemetry/otel/src/event-log.ts:3"
+    ],
+    "fs": [
+      "apps/cli/src/dump-config.ts:9",
+      "apps/cli/src/installed-bin.ts:6",
+      "apps/cli/src/plugin.ts:7",
+      "apps/cli/src/profile-boot.ts:13",
+      "apps/desktop/src/background-notice.ts:3",
+      "apps/desktop/src/command-installation.ts:5",
+      "apps/desktop/src/core-package-set.ts:4",
+      "apps/desktop/src/file-actions.ts:4",
+      "apps/desktop/src/file-drag.ts:3",
+      "apps/desktop/src/locale-cache.ts:2",
+      "apps/desktop/src/owned-directory.ts:3",
+      "apps/desktop/src/project-manager.ts:15",
+      "apps/desktop/src/runtime-tree.ts:4",
+      "apps/desktop/src/update-cleanup-log.ts:2",
+      "apps/desktop/src/update-coordinator.ts:3",
+      "apps/desktop/src/update-journal.ts:3",
+      "apps/desktop/src/update-settings.ts:3",
+      "apps/plugin-market-generator/src/cli.ts:11",
+      "apps/plugin-market-generator/src/fetchers.ts:9",
+      "apps/plugin-market-generator/src/files.ts:2",
+      "apps/plugin-market-generator/src/generate.ts:2",
+      "packages/attachment/attachment-local/src/file-store.ts:4",
+      "packages/attachment/attachment-local/src/store.ts:4",
+      "packages/boot/app-boot/src/compatibility-preflight.ts:2",
+      "packages/boot/app-boot/src/index.ts:10",
+      "packages/boot/app-boot/src/package-meta.ts:3",
+      "packages/boot/app-boot/src/plugin-compatibility.ts:3",
+      "packages/boot/app-boot/src/profile-compatibility.ts:2",
+      "packages/boot/app-boot/src/profile-resolution/legacy-links.ts:3",
+      "packages/boot/app-boot/src/profile-resolution/resolver.ts:3",
+      "packages/boot/app-boot/src/profile-resolution/service.ts:3",
+      "packages/boot/app-boot/src/profile-sanitize.ts:3",
+      "packages/boot/app-boot/src/profile.ts:25",
+      "packages/boot/hmr/src/error.ts:4",
+      "packages/boot/hmr/src/index.ts:10",
+      "packages/boot/hmr/src/module-files.ts:2",
+      "packages/boot/hmr/src/package-manifest.ts:3",
+      "packages/boot/plugin-manager/src/index.ts:3",
+      "packages/boot/plugin-manager/src/official-install-target.ts:2",
+      "packages/boot/plugin-manager/src/operations.ts:3",
+      "packages/boot/plugin-market/src/repository-cache.ts:9",
+      "packages/client/hmr/src/index.ts:10",
+      "packages/client/modules/src/index.ts:31",
+      "packages/context/agent-instructions/src/files.ts:7",
+      "packages/document/office-kit/src/locate.ts:2",
+      "packages/document/office-kit/src/output.ts:2",
+      "packages/document/office-kit/src/outputs.ts:3",
+      "packages/experimental/cua-macos/src/native-build.ts:2",
+      "packages/experimental/cua-windows/src/native-build.ts:2",
+      "packages/experimental/cua-windows/src/native-runtime.ts:3",
+      "packages/experimental/hooks-claude-code/src/index.ts:12",
+      "packages/experimental/hooks-codex/src/index.ts:15",
+      "packages/experimental/liveshare/src/host/fork-registry.ts:17",
+      "packages/experimental/liveshare/src/host/owner-credential-file.ts:3",
+      "packages/experimental/liveshare/src/host/owner-persistence.ts:11",
+      "packages/experimental/liveshare/src/host/shareable-catalog.ts:15",
+      "packages/experimental/liveshare/src/host/tunnel-supervision.ts:12",
+      "packages/experimental/liveshare/src/host/tunnel-worker.ts:5",
+      "packages/experimental/ptc-runtime-python/src/index.ts:14",
+      "packages/experimental/ptc-runtime-python/src/launch.ts:2",
+      "packages/experimental/speech-to-text-sensevoice/src/runtime.ts:3",
+      "packages/experimental/speech-to-text-sensevoice/src/runtime.ts:8",
+      "packages/experimental/webworker-packer/src/bin.ts:11",
+      "packages/experimental/webworker-packer/src/pack.ts:19",
+      "packages/experimental/webworker-packer/src/preview.ts:3",
+      "packages/experimental/webworker-packer/src/repository.ts:10",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:25",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/fs.ts:896",
+      "packages/experimental/webworker-runtime/src/node/builtins.ts:6",
+      "packages/fs/fs-local/src/fsio.ts:9",
+      "packages/fs/fs-local/src/fsio.ts:11",
+      "packages/fs/fs-sandbox/src/containment.ts:8",
+      "packages/host/directory-picker-auto/src/probe.ts:9",
+      "packages/identity/anonymous-user-id/src/index.ts:20",
+      "packages/llm/plugin-package-inventory-deepseek/src/index.ts:8",
+      "packages/sandbox/sandbox-local/src/index.ts:25",
+      "packages/sandbox/sandbox-windows-acl/src/acl-skill.ts:11",
+      "packages/sandbox/sandbox-windows-acl/src/acl.ts:25",
+      "packages/sandbox/sandbox-windows-acl/src/index.ts:46",
+      "packages/sandbox/sandbox-windows-acl/src/path-boundary.ts:7",
+      "packages/sandbox/sandbox-windows-acl/src/runner.ts:48",
+      "packages/sandbox/sandbox/src/diagnostics.ts:2",
+      "packages/sandbox/sandbox/src/roots.ts:16",
+      "packages/sdk/client/src/launch.ts:6",
+      "packages/session/session-persistence-jsonl/src/index.ts:16",
+      "packages/settings/settings/src/index.ts:2",
+      "packages/shell/pwsh-local/src/resolve.ts:11",
+      "packages/shell/pwsh-sandbox/src/helpers.ts:10",
+      "packages/skill/skill-filesystem/src/index.ts:13",
+      "packages/spill/spill-local/src/cleanup.ts:3",
+      "packages/spill/spill-local/src/store.ts:10",
+      "packages/ssh/ssh-helper-runtime/src/index.ts:4",
+      "packages/ssh/ssh/src/helper.ts:3",
+      "packages/storage/storage-json/src/per-record-unit.ts:32",
+      "packages/subagent/subagent-codex/src/run.ts:11",
+      "packages/subagent/subagent-dsh-sdk/src/index.ts:15",
+      "packages/subagent/subagent/src/out-of-process.ts:13",
+      "packages/subprocess/subprocess-local/src/index.ts:11",
+      "packages/subprocess/subprocess-local/src/linux-scope.ts:6",
+      "packages/subprocess/subprocess-local/src/output.ts:3",
+      "packages/subprocess/subprocess-local/src/process-inspector.ts:3",
+      "packages/subprocess/subprocess-local/src/runner-launch.ts:4",
+      "packages/subprocess/subprocess-local/src/runner-protocol.ts:12",
+      "packages/subprocess/subprocess-local/src/shell-activity.ts:2",
+      "packages/subprocess/subprocess-local/src/spawn-runner.ts:4",
+      "packages/subprocess/subprocess-local/src/windows-job.ts:5",
+      "packages/test-support/client-runtime/src/assembly/bundle-roster.ts:16",
+      "packages/test-support/llm-replay/src/index.ts:10",
+      "packages/test-support/session-snapshot/src/harness.ts:20",
+      "packages/test-support/session-snapshot/src/launcher.ts:11",
+      "packages/test-support/session-snapshot/src/suite.ts:22",
+      "packages/typert/generator/src/analyzer.ts:8",
+      "packages/typert/generator/src/artifact-files.ts:8",
+      "packages/typert/generator/src/build-output-guard.ts:11",
+      "packages/typert/generator/src/tsdown-plugin.ts:12",
+      "packages/typert/generator/src/workspace.ts:6",
+      "packages/typert/loader/src/index.ts:28",
+      "packages/util/ripgrep/src/index.ts:2",
+      "vendor/hmr/src/error.ts:4",
+      "vendor/loader/src/resolve.ts:1"
+    ],
+    "fs/promises": [
+      "apps/cli/src/plugin.ts:8",
+      "apps/cli/src/startup-diagnostics.ts:4",
+      "apps/desktop/src/command-installation.ts:6",
+      "apps/desktop/src/crash-report.ts:9",
+      "apps/desktop/src/file-drag-files.ts:3",
+      "apps/desktop/src/file-drag.ts:4",
+      "apps/desktop/src/keybindings.ts:2",
+      "apps/desktop/src/main.ts:10",
+      "apps/desktop/src/operation-history.ts:2",
+      "apps/desktop/src/operation-journal.ts:2",
+      "apps/desktop/src/operation-report.ts:2",
+      "apps/desktop/src/settings-file.ts:2",
+      "apps/desktop/src/updates/electron-updater/discard.ts:3",
+      "apps/desktop/src/web-document.ts:2",
+      "packages/acp/acp/src/index.ts:15",
+      "packages/api/session-controller/src/agent.ts:4",
+      "packages/attachment/attachment-local/src/request-image.ts:4",
+      "packages/attachment/attachment-local/src/store.ts:5",
+      "packages/boot/app-boot/src/config-schema/collect.ts:3",
+      "packages/boot/app-boot/src/profile-compatibility.ts:3",
+      "packages/boot/config-editor/src/index.ts:2",
+      "packages/boot/hmr/src/watch-config.ts:3",
+      "packages/boot/plugin-manager/src/build-approval.ts:2",
+      "packages/boot/plugin-manager/src/github-connection.ts:2",
+      "packages/boot/plugin-manager/src/index.ts:4",
+      "packages/boot/plugin-manager/src/operations.ts:4",
+      "packages/boot/plugin-manager/src/patch.ts:2",
+      "packages/boot/plugin-market/src/repository-cache.ts:10",
+      "packages/client/modules/src/index.ts:32",
+      "packages/context/agent-instructions/src/files.ts:8",
+      "packages/context/file-reference-local/src/search.ts:9",
+      "packages/credentials/credentials-local/src/index.ts:41",
+      "packages/deliverables/workspace-changes/src/capture.ts:8",
+      "packages/deliverables/workspace-changes/src/git.ts:2",
+      "packages/deliverables/workspace-changes/src/paths.ts:2",
+      "packages/deliverables/workspace-changes/src/recorder.ts:2",
+      "packages/document/office-kit/src/index.ts:3",
+      "packages/document/office-kit/src/output.ts:3",
+      "packages/document/office-kit/src/outputs.ts:4",
+      "packages/experimental/browser-use-stagehand-native/src/launch.ts:3",
+      "packages/experimental/creation-recommendations/src/generated-bundle.ts:2",
+      "packages/experimental/creation-recommendations/src/index.ts:3",
+      "packages/experimental/creation-recommendations/src/skill.ts:2",
+      "packages/experimental/cua-macos/src/native-build.ts:3",
+      "packages/experimental/cua-macos/src/shared-native.ts:3",
+      "packages/experimental/cua-windows/src/native-build.ts:3",
+      "packages/experimental/cua-windows/src/native-runtime.ts:5",
+      "packages/experimental/cua-windows/src/windows-host.ts:3",
+      "packages/experimental/cua/src/native-build.ts:2",
+      "packages/experimental/cua/src/permission-store.ts:3",
+      "packages/experimental/plugin-recommendations/src/skill.ts:2",
+      "packages/experimental/skill-badge/src/index.ts:7",
+      "packages/experimental/speech-to-text-sensevoice/src/recognizer.ts:3",
+      "packages/experimental/speech-to-text-sensevoice/src/runtime.ts:4",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:27",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/fs.ts:870",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/fs/promises.ts:3",
+      "packages/experimental/worktree/src/directory.ts:8",
+      "packages/fs/fs-local/src/fsio.ts:10",
+      "packages/fs/fs-sandbox/src/containment.ts:9",
+      "packages/host/directory-picker-browse/src/index.ts:12",
+      "packages/host/frontend-static/src/index.ts:20",
+      "packages/host/open-in-app/src/icons.ts:12",
+      "packages/host/open-in-app/src/index.ts:25",
+      "packages/host/open-in-app/src/resolver.ts:16",
+      "packages/host/webserver/src/index.ts:12",
+      "packages/llm/llm-deepseek/src/upload-index.ts:4",
+      "packages/llm/llm-pi-ai/src/auth.ts:12",
+      "packages/ptc-runtime/ptc-runtime-node/src/imports/vm-modules.ts:3",
+      "packages/sandbox/sandbox-windows-acl/src/acl-skill.ts:12",
+      "packages/session-query/session-query-sqlite/src/schema.ts:4",
+      "packages/session/session-persistence-jsonl/src/catalog-migration.ts:3",
+      "packages/session/session-persistence-jsonl/src/generation.ts:21",
+      "packages/session/session-persistence-jsonl/src/index.ts:17",
+      "packages/session/session-persistence-jsonl/src/lease.ts:31",
+      "packages/session/session-persistence-jsonl/src/lease.ts:32",
+      "packages/session/session-persistence-jsonl/src/win32.ts:15",
+      "packages/settings/settings/src/index.ts:3",
+      "packages/skill/skill-filesystem/src/index.ts:12",
+      "packages/skill/skill-office/src/index.ts:3",
+      "packages/skill/tool-workspace-dependencies/src/index.ts:3",
+      "packages/spill/spill-local/src/cleanup.ts:2",
+      "packages/spill/spill-local/src/store.ts:11",
+      "packages/ssh/ssh/src/helper-processes.ts:3",
+      "packages/ssh/ssh/src/helper.ts:4",
+      "packages/ssh/ssh/src/index.ts:4",
+      "packages/storage/storage-json/src/atomic.ts:14",
+      "packages/storage/storage-json/src/index.ts:9",
+      "packages/storage/storage-json/src/per-record-unit.ts:30",
+      "packages/storage/storage-json/src/single-unit.ts:13",
+      "packages/storage/storage-sqlite/src/schema.ts:10",
+      "packages/subprocess/subprocess-local/src/index.ts:12",
+      "packages/test-support/loader-smoke/src/index.ts:15",
+      "packages/test-support/session-snapshot/src/harness.ts:19",
+      "packages/test-support/session-snapshot/src/suite.ts:21",
+      "packages/test-support/session-snapshot/src/workspace.ts:3",
+      "packages/util/atomic-write/src/index.ts:15",
+      "packages/util/home-paths/src/index.ts:7",
+      "packages/util/native-command/src/desktop-entry.ts:2",
+      "packages/util/native-command/src/file-applications-linux.ts:2",
+      "packages/util/native-command/src/file-applications-windows.ts:2",
+      "packages/util/plugin-detail/src/files.ts:5",
+      "packages/workspace/workspace/src/entity.ts:11",
+      "packages/workspace/workspace/src/index.ts:9",
+      "packages/workspace/workspace/src/paths.ts:6",
+      "vendor/hmr/src/index.ts:7",
+      "vendor/include/src/index.ts:5",
+      "vendor/loader/src/resolve.ts:2"
+    ],
+    "http": [
+      "apps/desktop/src/updates/electron-updater/discard.ts:2",
+      "packages/acp/acp/src/mcp.ts:5",
+      "packages/api/gateway/src/stream-server.ts:3",
+      "packages/client/connection/src/http-bridge.ts:6",
+      "packages/client/connection/src/index.ts:3",
+      "packages/client/hmr/src/index.ts:11",
+      "packages/credentials/deepseek-account/src/index.ts:3",
+      "packages/experimental/inspector/src/worker/bridge/endpoint.ts:3",
+      "packages/experimental/inspector/src/worker/bridge/endpoint.ts:100",
+      "packages/experimental/inspector/src/worker/bridge/endpoint.ts:270",
+      "packages/experimental/speech-to-text-sensevoice/src/process-server.ts:2",
+      "packages/experimental/webhook-github/src/body.ts:3",
+      "packages/experimental/webhook-github/src/handler.ts:4",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:43",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/http.ts:155",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/http.ts:181",
+      "packages/host/open-in-app/src/index.ts:23",
+      "packages/host/product-telemetry-otel/src/index.ts:4",
+      "packages/host/webserver/src/index.ts:13",
+      "packages/host/webserver/src/index.ts:14",
+      "packages/test-support/llm-mock-server/src/index.ts:9",
+      "packages/test-support/llm-mock-server/src/index.ts:10"
+    ],
+    "https": [
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:62",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/https.ts:9",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/https.ts:16",
+      "packages/host/webserver/src/index.ts:15",
+      "packages/telemetry/otel/src/event-transport.ts:2"
+    ],
+    "inspector": [
+      "packages/experimental/inspector/src/worker/realms/host/bridge.ts:3"
+    ],
+    "module": [
+      "native/system/packages/entry/src/flock.ts:2",
+      "native/system/packages/entry/src/index.ts:17",
+      "packages/boot/app-boot/src/compatibility-preflight.ts:3",
+      "packages/boot/app-boot/src/profile-resolution/resolver.ts:4",
+      "packages/boot/app-boot/src/profile-resolution/service.ts:4",
+      "packages/boot/app-boot/src/profile.ts:24",
+      "packages/boot/hmr/src/index.ts:20",
+      "packages/boot/hmr/src/package-manifest.ts:4",
+      "packages/bundle/web-app/src/index.ts:16",
+      "packages/client/modules/src/index.ts:33",
+      "packages/document/office-kit/src/locate.ts:3",
+      "packages/experimental/liveshare/src/host/shareable-catalog.ts:14",
+      "packages/experimental/speech-to-text-sensevoice/src/inference.ts:2",
+      "packages/experimental/webworker-runtime/src/compile/transform.ts:577",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:35",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/module.ts:69",
+      "packages/llm/llm/src/attribution.ts:10",
+      "packages/llm/plugin-package-inventory-deepseek/src/index.ts:9",
+      "packages/ptc-runtime/ptc-runtime-node/src/environment.ts:2",
+      "packages/ptc-runtime/ptc-runtime-node/src/execution.ts:2",
+      "packages/ptc-runtime/ptc-runtime-node/src/imports/module-hooks.ts:4",
+      "packages/ptc-runtime/ptc-runtime-node/src/imports/vm-modules.ts:7",
+      "packages/session/session-telemetry-otel/src/index.ts:11",
+      "packages/ssh/ssh-helper-runtime/src/index.ts:3",
+      "packages/subagent/subagent-codex/src/run.ts:12",
+      "packages/test-support/client-runtime/src/assembly/bundle-roster.ts:17",
+      "packages/test-support/session-snapshot/src/launcher.ts:12",
+      "packages/typert/loader/src/index.ts:29",
+      "packages/util/lazy-require/src/index.ts:3",
+      "vendor/hmr/src/index.ts:11",
+      "vendor/loader/src/internal.ts:1"
+    ],
+    "net": [
+      "packages/experimental/cua-macos/src/shared-native.ts:4",
+      "packages/experimental/cua-windows/src/native-transport.ts:2",
+      "packages/experimental/inspector/src/host/plugin.ts:5",
+      "packages/experimental/inspector/src/worker/bridge/endpoint.ts:4",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:65",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/net.ts:87",
+      "packages/host/webserver/src/index.ts:16",
+      "packages/ssh/ssh/src/helper-processes.ts:5",
+      "packages/ssh/ssh/src/index.ts:6",
+      "packages/ssh/ssh/src/stream-security.ts:3",
+      "packages/ssh/subprocess-ssh/src/index.ts:3",
+      "packages/subprocess/subprocess/src/control.ts:3",
+      "packages/test-support/llm-mock-server/src/index.ts:12"
+    ],
+    "os": [
+      "apps/desktop/src/command-management.ts:5",
+      "apps/desktop/src/device-info.ts:2",
+      "apps/desktop/src/login-shell-environment.ts:4",
+      "apps/plugin-market-generator/src/fetchers.ts:10",
+      "packages/api/remotes/src/index.ts:3",
+      "packages/api/session-controller/src/index.ts:3",
+      "packages/api/workspace-controller/src/default-directory.ts:3",
+      "packages/boot/hmr/src/module-files.ts:3",
+      "packages/boot/plugin-manager/src/install-spec.ts:8",
+      "packages/client/product-analytics/src/environment.ts:2",
+      "packages/credentials/deepseek-account/src/index.ts:5",
+      "packages/deliverables/workspace-changes/src/index.ts:11",
+      "packages/deliverables/workspace-changes/src/paths.ts:3",
+      "packages/deliverables/workspace-changes/src/recorder.ts:3",
+      "packages/document/office-kit/src/index.ts:4",
+      "packages/experimental/browser-use-stagehand-native/src/launch.ts:4",
+      "packages/experimental/cua-macos/src/shared-native.ts:5",
+      "packages/experimental/cua/src/index.ts:4",
+      "packages/experimental/inspector/src/host/bridge/controller.ts:4",
+      "packages/experimental/liveshare/src/host/share-host.ts:3",
+      "packages/experimental/liveshare/src/host/tunnel-worker.ts:6",
+      "packages/experimental/ptc-runtime-python/src/index.ts:15",
+      "packages/experimental/webworker-packer/src/preview.ts:4",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:32",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/os.ts:8",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/os.ts:111",
+      "packages/fs/fs-local/src/fsio.ts:14",
+      "packages/host/directory-picker-browse/src/index.ts:13",
+      "packages/host/open-in-app/src/icons.ts:13",
+      "packages/host/open-in-app/src/resolver.ts:17",
+      "packages/llm/llm-pi-ai/src/auth.ts:11",
+      "packages/sandbox/sandbox-local/src/index.ts:26",
+      "packages/sandbox/sandbox-windows-acl/src/acl-skill.ts:13",
+      "packages/sandbox/sandbox/src/roots.ts:17",
+      "packages/spill/spill-local/src/cleanup.ts:5",
+      "packages/spill/spill-local/src/index.ts:14",
+      "packages/spill/spill-local/src/store.ts:13",
+      "packages/subprocess/subprocess-local/src/index.ts:13",
+      "packages/subprocess/subprocess-local/src/output.ts:5",
+      "packages/subprocess/subprocess-local/src/runner-protocol.ts:13",
+      "packages/subprocess/subprocess-local/src/shell-activity.ts:3",
+      "packages/subprocess/subprocess-local/src/terminal.ts:4",
+      "packages/subprocess/subprocess-local/src/windows-job.ts:6",
+      "packages/test-support/loader-smoke/src/index.ts:16",
+      "packages/test-support/session-snapshot/src/harness.ts:22",
+      "packages/util/home-paths/src/index.ts:8",
+      "packages/util/native-command/src/file-applications-linux.ts:3",
+      "packages/util/native-command/src/file-applications-windows.ts:3",
+      "packages/util/native-command/src/host-environment.ts:2",
+      "packages/workflow/workflow-ptc/src/index.ts:8"
+    ],
+    "path": [
+      "apps/cli/src/dump-config.ts:10",
+      "apps/cli/src/plugin.ts:9",
+      "apps/cli/src/profile-boot.ts:14",
+      "apps/cli/src/startup-diagnostics.ts:5",
+      "apps/desktop-host/src/cli.ts:3",
+      "apps/desktop-host/src/index.ts:3",
+      "apps/desktop/src/background-notice.ts:4",
+      "apps/desktop/src/command-installation.ts:7",
+      "apps/desktop/src/command-management.ts:4",
+      "apps/desktop/src/command-manager-entry.ts:4",
+      "apps/desktop/src/core-package-set.ts:5",
+      "apps/desktop/src/crash-report.ts:10",
+      "apps/desktop/src/file-actions.ts:5",
+      "apps/desktop/src/file-drag-files.ts:4",
+      "apps/desktop/src/file-drag.ts:5",
+      "apps/desktop/src/host-process.ts:4",
+      "apps/desktop/src/keybindings.ts:3",
+      "apps/desktop/src/locale-cache.ts:3",
+      "apps/desktop/src/main.ts:11",
+      "apps/desktop/src/node-environment.ts:3",
+      "apps/desktop/src/operation-history.ts:3",
+      "apps/desktop/src/operation-journal.ts:3",
+      "apps/desktop/src/owned-directory.ts:4",
+      "apps/desktop/src/paths.ts:3",
+      "apps/desktop/src/project-manager.ts:16",
+      "apps/desktop/src/runtime-tree.ts:5",
+      "apps/desktop/src/settings-file.ts:3",
+      "apps/desktop/src/update-cleanup-log.ts:3",
+      "apps/desktop/src/update-coordinator.ts:4",
+      "apps/desktop/src/update-journal.ts:4",
+      "apps/desktop/src/updates/electron-updater/discard.ts:4",
+      "apps/desktop/src/web-document.ts:3",
+      "apps/desktop/src/welcome-window.ts:4",
+      "apps/plugin-market-generator/src/cli.ts:12",
+      "apps/plugin-market-generator/src/fetchers.ts:11",
+      "apps/plugin-market-generator/src/files.ts:3",
+      "apps/plugin-market-generator/src/generate.ts:3",
+      "apps/plugin-market-generator/src/metadata.ts:6",
+      "apps/plugin-market-generator/src/packages.ts:2",
+      "native/system/packages/entry/src/flock.ts:3",
+      "native/system/packages/entry/src/index.ts:18",
+      "packages/acp/acp/src/index.ts:16",
+      "packages/acp/acp/src/mcp.ts:6",
+      "packages/api/session-controller/src/index.ts:4",
+      "packages/api/session-controller/src/media-references.ts:10",
+      "packages/api/workspace-controller/src/default-directory.ts:4",
+      "packages/api/workspace-files/src/index.ts:23",
+      "packages/attachment/attachment-local/src/file-store.ts:5",
+      "packages/attachment/attachment-local/src/index.ts:3",
+      "packages/attachment/attachment-local/src/request-image.ts:5",
+      "packages/attachment/attachment-local/src/store.ts:6",
+      "packages/boot/app-boot/src/compatibility-preflight.ts:4",
+      "packages/boot/app-boot/src/config-schema/collect.ts:4",
+      "packages/boot/app-boot/src/index.ts:14",
+      "packages/boot/app-boot/src/package-meta.ts:4",
+      "packages/boot/app-boot/src/profile-compatibility.ts:4",
+      "packages/boot/app-boot/src/profile-context.ts:2",
+      "packages/boot/app-boot/src/profile-plugins.ts:3",
+      "packages/boot/app-boot/src/profile-resolution/legacy-links.ts:4",
+      "packages/boot/app-boot/src/profile-resolution/resolver.ts:5",
+      "packages/boot/app-boot/src/profile-resolution/service.ts:5",
+      "packages/boot/app-boot/src/profile-sanitize.ts:4",
+      "packages/boot/app-boot/src/profile.ts:26",
+      "packages/boot/config-editor/src/index.ts:3",
+      "packages/boot/hmr/src/index.ts:9",
+      "packages/boot/hmr/src/module-files.ts:4",
+      "packages/boot/hmr/src/package-manifest.ts:5",
+      "packages/boot/hmr/src/package-manifest.ts:115",
+      "packages/boot/hmr/src/package-manifest.ts:116",
+      "packages/boot/hmr/src/watch-config.ts:2",
+      "packages/boot/plugin-manager/src/build-approval.ts:3",
+      "packages/boot/plugin-manager/src/github-connection.ts:3",
+      "packages/boot/plugin-manager/src/index.ts:5",
+      "packages/boot/plugin-manager/src/install-spec.ts:9",
+      "packages/boot/plugin-manager/src/official-install-target.ts:3",
+      "packages/boot/plugin-manager/src/operations.ts:5",
+      "packages/boot/plugin-market/src/detail.ts:7",
+      "packages/boot/plugin-market/src/index.ts:3",
+      "packages/boot/plugin-market/src/repository-cache.ts:11",
+      "packages/bundle/headless/src/startup.ts:10",
+      "packages/bundle/web-app/src/index.ts:17",
+      "packages/client/modules/src/index.ts:34",
+      "packages/client/product-analytics/src/environment.ts:3",
+      "packages/context/agent-instructions/src/config.ts:7",
+      "packages/context/agent-instructions/src/files.ts:9",
+      "packages/context/agent-instructions/src/render.ts:7",
+      "packages/context/file-reference-local/src/search.ts:10",
+      "packages/core/session/src/index.ts:10",
+      "packages/credentials/credentials-local/src/index.ts:42",
+      "packages/deliverables/workspace-changes/src/capture.ts:9",
+      "packages/deliverables/workspace-changes/src/git.ts:3",
+      "packages/deliverables/workspace-changes/src/paths.ts:4",
+      "packages/deliverables/workspace-changes/src/recorder.ts:4",
+      "packages/document/office-kit/src/index.ts:5",
+      "packages/document/office-kit/src/locate.ts:4",
+      "packages/document/office-kit/src/outputs.ts:5",
+      "packages/document/tool-office/src/index.ts:11",
+      "packages/experimental/browser-use-playwright-mcp/src/index.ts:3",
+      "packages/experimental/browser-use-stagehand-native/src/launch.ts:5",
+      "packages/experimental/client-ui-forge/src/worktree.ts:3",
+      "packages/experimental/creation-recommendations/src/generated-bundle.ts:3",
+      "packages/experimental/creation-recommendations/src/index.ts:4",
+      "packages/experimental/cua-macos/src/index.ts:2",
+      "packages/experimental/cua-macos/src/native-build.ts:4",
+      "packages/experimental/cua-macos/src/shared-native.ts:6",
+      "packages/experimental/cua-windows/src/index.ts:2",
+      "packages/experimental/cua-windows/src/native-build.ts:4",
+      "packages/experimental/cua-windows/src/windows-host.ts:4",
+      "packages/experimental/cua/src/index.ts:2",
+      "packages/experimental/cua/src/native-build.ts:3",
+      "packages/experimental/cua/src/permission-store.ts:4",
+      "packages/experimental/cua/src/tool-registration.ts:2",
+      "packages/experimental/liveshare/src/host/fork-registry.ts:18",
+      "packages/experimental/liveshare/src/host/owner-credential-file.ts:4",
+      "packages/experimental/liveshare/src/host/share-host.ts:4",
+      "packages/experimental/liveshare/src/host/shareable-catalog.ts:16",
+      "packages/experimental/liveshare/src/host/tunnel-worker.ts:7",
+      "packages/experimental/ptc-runtime-python/src/index.ts:16",
+      "packages/experimental/speech-to-text-sensevoice/src/index.ts:2",
+      "packages/experimental/speech-to-text-sensevoice/src/runtime.ts:5",
+      "packages/experimental/tool-terminal/src/index.ts:8",
+      "packages/experimental/webhook/src/session.ts:5",
+      "packages/experimental/webworker-packer/src/bin.ts:12",
+      "packages/experimental/webworker-packer/src/pack.ts:20",
+      "packages/experimental/webworker-packer/src/preview.ts:5",
+      "packages/experimental/webworker-packer/src/repository.ts:11",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:29",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/path.ts:423",
+      "packages/experimental/worktree/src/directory.ts:9",
+      "packages/fs/fs-local/src/fsio.ts:12",
+      "packages/fs/fs-local/src/index.ts:13",
+      "packages/fs/fs-local/src/win32.ts:7",
+      "packages/fs/fs-sandbox/src/containment.ts:10",
+      "packages/fs/tool-fs-search/src/glob.ts:13",
+      "packages/fs/tool-fs-search/src/search-core.ts:22",
+      "packages/fs/tool-fs/src/read-image.ts:14",
+      "packages/fs/tool-str-replace-editor/src/index.ts:6",
+      "packages/host/directory-picker-auto/src/probe.ts:10",
+      "packages/host/directory-picker-browse/src/index.ts:14",
+      "packages/host/frontend-static/src/index.ts:21",
+      "packages/host/open-in-app/src/icons.ts:14",
+      "packages/host/open-in-app/src/index.ts:24",
+      "packages/host/open-in-app/src/resolver.ts:18",
+      "packages/host/webserver/src/index.ts:17",
+      "packages/identity/anonymous-user-id/src/index.ts:21",
+      "packages/llm/llm-deepseek/src/upload-index.ts:5",
+      "packages/llm/llm-pi-ai/src/auth.ts:13",
+      "packages/llm/plugin-package-inventory-deepseek/src/index.ts:10",
+      "packages/lsp/tool-lsp/src/render.ts:12",
+      "packages/ptc-runtime/ptc-runtime-node/src/evaluators/async-function.ts:2",
+      "packages/ptc-runtime/ptc-runtime-node/src/evaluators/repl.ts:3",
+      "packages/ptc-runtime/ptc-runtime-node/src/evaluators/scoped-repl-evaluator.ts:2",
+      "packages/ptc-runtime/ptc-runtime-node/src/evaluators/vm-script.ts:2",
+      "packages/ptc-runtime/ptc-runtime-node/src/execution.ts:3",
+      "packages/ptc-runtime/ptc-runtime-node/src/imports/module-hooks.ts:5",
+      "packages/ptc-runtime/ptc-runtime-node/src/imports/vm-modules.ts:4",
+      "packages/ptc-runtime/ptc-runtime-node/src/launch.ts:2",
+      "packages/sandbox/sandbox-local/src/index.ts:27",
+      "packages/sandbox/sandbox-policy/src/index.ts:25",
+      "packages/sandbox/sandbox-windows-acl/src/acl-skill.ts:14",
+      "packages/sandbox/sandbox-windows-acl/src/acl.ts:26",
+      "packages/sandbox/sandbox-windows-acl/src/index.ts:47",
+      "packages/sandbox/sandbox-windows-acl/src/path-boundary.ts:8",
+      "packages/sandbox/sandbox-windows-acl/src/runner.ts:49",
+      "packages/sandbox/sandbox/src/roots.ts:18",
+      "packages/sdk/client/src/api.ts:9",
+      "packages/sdk/client/src/launch.ts:7",
+      "packages/sdk/server/src/server.ts:10",
+      "packages/session-query/session-query-sqlite/src/schema.ts:5",
+      "packages/session/session-format-v0-to-v1/src/validation.ts:1",
+      "packages/session/session-format-v1-to-v2/src/validation.ts:1",
+      "packages/session/session-format-v3-to-v4/src/validation.ts:3",
+      "packages/session/session-persistence-jsonl/src/catalog-migration.ts:4",
+      "packages/session/session-persistence-jsonl/src/format.ts:11",
+      "packages/session/session-persistence-jsonl/src/generation.ts:22",
+      "packages/session/session-persistence-jsonl/src/index.ts:18",
+      "packages/session/session-persistence-jsonl/src/lease.ts:33",
+      "packages/session/session-persistence-jsonl/src/win32.ts:16",
+      "packages/session/working-directory/src/index.ts:6",
+      "packages/settings/settings/src/index.ts:4",
+      "packages/shell/pwsh-local/src/resolve.ts:12",
+      "packages/shell/shell-env/src/index.ts:11",
+      "packages/shell/tool-bash/src/index.ts:18",
+      "packages/shell/tool-pwsh/src/index.ts:23",
+      "packages/skill/skill-filesystem/src/index.ts:14",
+      "packages/skill/skill-office/src/index.ts:4",
+      "packages/skill/tool-workspace-dependencies/src/index.ts:4",
+      "packages/spill/spill-local/src/cleanup.ts:4",
+      "packages/spill/spill-local/src/index.ts:13",
+      "packages/spill/spill-local/src/store.ts:12",
+      "packages/ssh/fs-ssh/src/index.ts:2",
+      "packages/ssh/ssh-helper-runtime/src/index.ts:5",
+      "packages/ssh/ssh/src/helper-processes.ts:4",
+      "packages/ssh/ssh/src/index.ts:5",
+      "packages/storage/storage-json/src/atomic.ts:15",
+      "packages/storage/storage-json/src/per-record-unit.ts:31",
+      "packages/storage/storage-json/src/single-unit.ts:14",
+      "packages/storage/storage-sqlite/src/schema.ts:11",
+      "packages/subagent/subagent-codex/src/run.ts:13",
+      "packages/subagent/subagent-dsh-sdk/src/index.ts:16",
+      "packages/subagent/subagent/src/manager.ts:10",
+      "packages/subagent/subagent/src/out-of-process.ts:14",
+      "packages/subprocess/subprocess-local/src/index.ts:14",
+      "packages/subprocess/subprocess-local/src/linux-scope.ts:7",
+      "packages/subprocess/subprocess-local/src/output.ts:4",
+      "packages/subprocess/subprocess-local/src/runner-launch.ts:5",
+      "packages/subprocess/subprocess-local/src/runner-protocol.ts:14",
+      "packages/subprocess/subprocess-local/src/shell-activity.ts:4",
+      "packages/test-support/client-runtime/src/assembly/bundle-roster.ts:18",
+      "packages/test-support/llm-replay/src/index.ts:11",
+      "packages/test-support/loader-smoke/src/index.ts:17",
+      "packages/test-support/session-snapshot/src/harness.ts:23",
+      "packages/test-support/session-snapshot/src/launcher.ts:13",
+      "packages/test-support/session-snapshot/src/manifest.ts:3",
+      "packages/test-support/session-snapshot/src/session-files.ts:3",
+      "packages/test-support/session-snapshot/src/suite.ts:23",
+      "packages/test-support/session-snapshot/src/workspace.ts:4",
+      "packages/typert/generator/src/analyzer.ts:9",
+      "packages/typert/generator/src/artifact-files.ts:9",
+      "packages/typert/generator/src/build-output-guard.ts:12",
+      "packages/typert/generator/src/emitter.ts:8",
+      "packages/typert/generator/src/tsdown-plugin.ts:13",
+      "packages/typert/generator/src/workspace.ts:7",
+      "packages/typert/loader/src/index.ts:30",
+      "packages/util/atomic-write/src/index.ts:16",
+      "packages/util/home-paths/src/index.ts:9",
+      "packages/util/native-command/src/desktop-entry.ts:3",
+      "packages/util/native-command/src/file-applications-linux.ts:4",
+      "packages/util/native-command/src/file-applications-windows.ts:4",
+      "packages/util/native-command/src/path-opener.ts:16",
+      "packages/util/plugin-detail/src/document.ts:5",
+      "packages/util/plugin-detail/src/files.ts:6",
+      "packages/util/ripgrep/src/index.ts:3",
+      "packages/workspace/workspace/src/paths.ts:7",
+      "vendor/hmr/src/index.ts:6",
+      "vendor/include/src/index.ts:4",
+      "vendor/loader/src/resolve.ts:3"
+    ],
+    "path/posix": [
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:31"
+    ],
+    "perf_hooks": [
+      "packages/api/session-controller/src/list.ts:3",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:53",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/perf_hooks.ts:6",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/perf_hooks.ts:12",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/perf_hooks.ts:24",
+      "packages/session/session-persistence-jsonl/src/generation.ts:23",
+      "packages/session/session-persistence-jsonl/src/index.ts:19"
+    ],
+    "process": [
+      "packages/experimental/webworker-runtime/src/worker-host.ts:211"
+    ],
+    "repl": [
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:71",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/repl.ts:5",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/repl.ts:5",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/repl.ts:11",
+      "packages/ptc-runtime/ptc-runtime-node/src/evaluators/repl.ts:2"
+    ],
+    "sea": [
+      "packages/shell/shell-env/src/index.ts:171",
+      "packages/shell/shell-env/src/index.ts:171",
+      "packages/ssh/ssh-helper-runtime/src/index.ts:6",
+      "packages/ssh/ssh/src/helper-entry.ts:4"
+    ],
+    "sqlite": [
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:73",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/sqlite.ts:8",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/sqlite.ts:11",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/sqlite.ts:14",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/sqlite.ts:28",
+      "packages/session-query/session-query-sqlite/src/index.ts:9",
+      "packages/session-query/session-query-sqlite/src/schema.ts:3",
+      "packages/session-query/session-query-sqlite/src/schema.ts:52",
+      "packages/storage/storage-sqlite/src/index.ts:10",
+      "packages/storage/storage-sqlite/src/schema.ts:9",
+      "packages/storage/storage-sqlite/src/unit.ts:11"
+    ],
+    "stream": [
+      "apps/desktop/src/login-shell-environment.ts:5",
+      "packages/acp/acp/src/index.ts:17",
+      "packages/api/gateway/src/stream-server.ts:4",
+      "packages/client/connection/src/http-bridge.ts:8",
+      "packages/client/modules/src/index.ts:35",
+      "packages/credentials/deepseek-account/src/index.ts:6",
+      "packages/experimental/cua-macos/src/shared-native.ts:7",
+      "packages/experimental/cua-windows/src/native-runtime.ts:6",
+      "packages/experimental/cua-windows/src/native-transport.ts:3",
+      "packages/experimental/cua/src/native-client.ts:9",
+      "packages/experimental/inspector/src/host/plugin.ts:6",
+      "packages/experimental/inspector/src/worker/bridge/endpoint.ts:5",
+      "packages/experimental/ptc-runtime-python/src/index.ts:18",
+      "packages/experimental/speech-to-text-sensevoice/src/runtime.ts:6",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:66",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/stream.ts:11",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/stream.ts:17",
+      "packages/experimental/worktree/src/process.ts:3",
+      "packages/host/webserver/src/index.ts:18",
+      "packages/lsp/lsp-stdio/src/connection.ts:13",
+      "packages/ptc-runtime/ptc-runtime-node/src/evaluators/repl.ts:4",
+      "packages/ptc-runtime/ptc-runtime-node/src/output-stream.ts:2",
+      "packages/ptc-runtime/ptc-runtime-node/src/persistent-process.ts:3",
+      "packages/ptc-runtime/ptc-runtime-node/src/process.ts:4",
+      "packages/ptc-runtime/ptc-runtime-node/src/rpc.ts:3",
+      "packages/sdk/protocol/src/transport.ts:10",
+      "packages/sdk/server/src/index.ts:13",
+      "packages/session/session-persistence-jsonl/src/generation.ts:24",
+      "packages/ssh/ssh/src/helper-processes.ts:7",
+      "packages/ssh/ssh/src/helper.ts:5",
+      "packages/ssh/ssh/src/protocol.ts:5",
+      "packages/ssh/subprocess-ssh/src/index.ts:2",
+      "packages/subagent/subagent-acp/src/run.ts:9",
+      "packages/subagent/subagent-codex/src/wire.ts:10",
+      "packages/subprocess/subprocess-local/src/control-spawn.ts:4",
+      "packages/subprocess/subprocess-local/src/index.ts:15",
+      "packages/subprocess/subprocess-local/src/managed-owner.ts:3",
+      "packages/subprocess/subprocess-local/src/spawn.ts:12",
+      "packages/subprocess/subprocess-local/src/terminal.ts:5",
+      "packages/subprocess/subprocess-local/src/windows-job.ts:7",
+      "packages/subprocess/subprocess/src/control.ts:4",
+      "packages/subprocess/subprocess/src/types.ts:10",
+      "packages/test-support/session-snapshot/src/launcher.ts:14"
+    ],
+    "stream/promises": [
+      "packages/experimental/speech-to-text-sensevoice/src/runtime.ts:7",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:68",
+      "packages/ssh/ssh/src/helper-processes.ts:8"
+    ],
+    "string_decoder": [
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:67",
+      "packages/experimental/webworker-runtime/src/string-decoder-types.ts:3",
+      "packages/sdk/protocol/src/transport.ts:11"
+    ],
+    "timers": [
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/timers/promises.ts:4"
+    ],
+    "timers/promises": [
+      "apps/desktop/src/operation-history.ts:4",
+      "apps/desktop/src/operation-report.ts:3",
+      "packages/api/session-controller/src/list.ts:4",
+      "packages/credentials/deepseek-account/src/logout.ts:2",
+      "packages/experimental/cua-macos/src/shared-native.ts:8",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:52",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/timers/promises.ts:57",
+      "packages/session/session-persistence-jsonl/src/generation.ts:25",
+      "packages/session/session-persistence-jsonl/src/index.ts:20",
+      "packages/subprocess/subprocess-local/src/linux-scope.ts:8",
+      "packages/subprocess/subprocess-local/src/spawn.ts:13",
+      "packages/test-support/llm-mock-server/src/bin.ts:7",
+      "packages/test-support/llm-mock-server/src/index.ts:13",
+      "packages/util/atomic-write/src/index.ts:17",
+      "vendor/include/src/index.ts:6"
+    ],
+    "tls": [
+      "packages/ssh/ssh/src/helper-processes.ts:6",
+      "packages/ssh/ssh/src/stream-security.ts:2"
+    ],
+    "tty": [
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:54",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/tty.ts:19"
+    ],
+    "url": [
+      "apps/cli/src/installed-bin.ts:7",
+      "apps/cli/src/profile-boot.ts:15",
+      "apps/desktop/src/command-manager-entry.ts:5",
+      "apps/desktop/src/main.ts:12",
+      "apps/desktop/src/welcome-window.ts:5",
+      "native/system/packages/entry/src/index.ts:19",
+      "packages/boot/app-boot/src/compatibility-preflight.ts:5",
+      "packages/boot/app-boot/src/config-schema/collect.ts:5",
+      "packages/boot/app-boot/src/index.ts:9",
+      "packages/boot/app-boot/src/package-meta.ts:5",
+      "packages/boot/app-boot/src/plugin-compatibility.ts:4",
+      "packages/boot/app-boot/src/profile-resolution/resolver.ts:6",
+      "packages/boot/hmr/src/index.ts:19",
+      "packages/boot/hmr/src/module-files.ts:5",
+      "packages/boot/hmr/src/package-manifest.ts:6",
+      "packages/boot/plugin-manager/src/index.ts:6",
+      "packages/client/modules/src/index.ts:36",
+      "packages/context/harness-dev-context/src/index.ts:12",
+      "packages/experimental/browser-use-chrome-devtools-mcp/src/index.ts:3",
+      "packages/experimental/browser-use-playwright-mcp/src/index.ts:4",
+      "packages/experimental/creation-recommendations/src/index.ts:5",
+      "packages/experimental/cua-macos/src/index.ts:3",
+      "packages/experimental/cua-windows/src/index.ts:3",
+      "packages/experimental/inspector/src/host/plugin.ts:4",
+      "packages/experimental/liveshare/src/host/tunnel-supervision.ts:13",
+      "packages/experimental/skill-badge/src/index.ts:8",
+      "packages/experimental/speech-to-text-sensevoice/src/runtime.ts:9",
+      "packages/experimental/webworker-packer/src/bin.ts:13",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:34",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/url.ts:67",
+      "packages/fs/fs-local/src/index.ts:14",
+      "packages/host/directory-picker-native/src/win32-dialog-host.ts:11",
+      "packages/llm/plugin-package-inventory-deepseek/src/index.ts:11",
+      "packages/lsp/tool-lsp/src/render.ts:13",
+      "packages/ptc-runtime/ptc-runtime-node/src/imports/module-hooks.ts:6",
+      "packages/ptc-runtime/ptc-runtime-node/src/imports/vm-modules.ts:5",
+      "packages/ptc-runtime/ptc-runtime-node/src/launch.ts:3",
+      "packages/sandbox/sandbox-local/src/index.ts:28",
+      "packages/sandbox/sandbox-windows-acl/src/acl-skill.ts:15",
+      "packages/sdk/client/src/launch.ts:8",
+      "packages/skill/skill-office/src/index.ts:5",
+      "packages/ssh/fs-ssh/src/index.ts:3",
+      "packages/ssh/ssh-helper-runtime/src/index.ts:7",
+      "packages/ssh/ssh/src/helper-entry.ts:3",
+      "packages/subprocess/subprocess-local/src/runner-launch.ts:7",
+      "packages/test-support/client-runtime/src/assembly/bundle-roster.ts:19",
+      "packages/test-support/session-snapshot/src/launcher.ts:15",
+      "packages/typert/loader/src/index.ts:31",
+      "packages/util/native-command/src/path-opener.ts:17",
+      "vendor/hmr/src/index.ts:10",
+      "vendor/include/src/index.ts:7",
+      "vendor/loader/src/resolve.ts:4"
+    ],
+    "util": [
+      "apps/cli/src/startup-diagnostics.ts:6",
+      "apps/desktop-host/src/fatal-diagnostic.ts:3",
+      "apps/desktop/src/command-installation.ts:8",
+      "apps/desktop/src/command-management.ts:6",
+      "apps/desktop/src/crash-report.ts:11",
+      "apps/desktop/src/runtime-tree.ts:6",
+      "apps/plugin-market-generator/src/fetchers.ts:12",
+      "native/system/packages/entry/src/flock.ts:4",
+      "packages/boot/app-boot/src/index.ts:11",
+      "packages/boot/config-editor/src/index.ts:4",
+      "packages/client/modules/src/index.ts:37",
+      "packages/compaction/compaction-basic/src/region.ts:9",
+      "packages/context/agent-instructions/src/index.ts:14",
+      "packages/core/tool-executor-ptc/src/ptc.ts:9",
+      "packages/experimental/client-ui-forge/src/panel.ts:3",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:49",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/util.ts:176",
+      "packages/feedback/message-feedback/src/index.ts:8",
+      "packages/fs/fs-local/src/fsio.ts:13",
+      "packages/goal/goal-round-driver/src/index.ts:6",
+      "packages/mcp/mcp-client/src/tools.ts:16",
+      "packages/ptc-runtime/ptc-runtime-node/src/bootstrap.ts:6",
+      "packages/ptc-runtime/ptc-runtime-node/src/evaluators/scoped-repl-evaluator.ts:3",
+      "packages/ptc-runtime/ptc-runtime-node/src/imports/vm-modules.ts:6",
+      "packages/ptc-runtime/ptc-runtime-node/src/process.ts:3",
+      "packages/schedule/schedule/src/index.ts:3",
+      "packages/schedule/schedule/src/storage.ts:3",
+      "packages/schedule/schedule/src/update.ts:2",
+      "packages/session/session-format-v3-to-v4/src/relationships.ts:3",
+      "packages/session/session-persistence-jsonl/src/generation.ts:26",
+      "packages/session/session-persistence-jsonl/src/zstd.ts:11",
+      "packages/subprocess/subprocess-local/src/linux-execve.ts:3",
+      "packages/subprocess/subprocess-local/src/runner-launch.ts:6",
+      "packages/test-support/llm-mock-server/src/cli.ts:6",
+      "vendor/logger-console/src/index.ts:2"
+    ],
+    "util/types": [
+      "packages/core/agent/src/index.ts:11",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:50",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/util.ts:111"
+    ],
+    "vm": [
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:70",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/vm.ts:8",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/vm.ts:11",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/vm.ts:14",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/vm.ts:17",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/vm.ts:20",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/vm.ts:23",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/vm.ts:26",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/vm.ts:32",
+      "packages/extensions/cordis-host-runner/src/sandbox.ts:14",
+      "packages/ptc-runtime/ptc-runtime-node/src/evaluators/async-function.ts:3",
+      "packages/ptc-runtime/ptc-runtime-node/src/evaluators/scoped-repl-evaluator.ts:4",
+      "packages/ptc-runtime/ptc-runtime-node/src/evaluators/scoped-repl.ts:4",
+      "packages/ptc-runtime/ptc-runtime-node/src/evaluators/vm-script.ts:3",
+      "packages/ptc-runtime/ptc-runtime-node/src/imports/vm-modules.ts:2",
+      "packages/workflow/workflow-ptc/src/index.ts:9",
+      "packages/workflow/workflow-ptc/src/runtime.ts:8"
+    ],
+    "worker_threads": [
+      "apps/desktop/src/operation-report-job.ts:2",
+      "apps/desktop/src/operation-report-worker.ts:2",
+      "packages/boot/app-boot/src/profile-resolution/resolver.ts:7",
+      "packages/boot/app-boot/src/profile-resolution/worker-bootstrap.ts:3",
+      "packages/boot/plugin-market/src/parse-thread.ts:2",
+      "packages/boot/plugin-market/src/worker.ts:2",
+      "packages/experimental/browser-use-stagehand-native/src/worker-client.ts:3",
+      "packages/experimental/browser-use-stagehand-native/src/worker-rpc.ts:3",
+      "packages/experimental/browser-use-stagehand-native/src/worker-rpc.ts:4",
+      "packages/experimental/browser-use-stagehand-native/src/worker.ts:3",
+      "packages/experimental/inspector/src/host/bridge/controller.ts:5",
+      "packages/experimental/inspector/src/host/bridge/lifecycle.ts:3",
+      "packages/experimental/inspector/src/host/bridge/publisher.ts:3",
+      "packages/experimental/inspector/src/host/bridge/rpc.ts:3",
+      "packages/experimental/inspector/src/host/bridge/transport.ts:3",
+      "packages/experimental/inspector/src/worker/entry.ts:3",
+      "packages/experimental/inspector/src/worker/server.ts:3",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:72",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/worker_threads.ts:9",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/worker_threads.ts:12",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/worker_threads.ts:27",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/worker_threads.ts:30",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/worker_threads.ts:33",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/worker_threads.ts:37",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/mock/worker_threads.ts:44",
+      "packages/session/session-persistence-jsonl/src/migration-verifier.ts:3",
+      "packages/session/session-persistence-jsonl/src/migration-verifier.ts:4",
+      "packages/session/session-persistence-jsonl/src/worker.ts:3",
+      "packages/typert/generator/src/tsdown-plugin.ts:14",
+      "packages/typert/generator/src/worker.ts:8"
+    ],
+    "zlib": [
+      "packages/experimental/webworker-packer/src/pack.ts:21",
+      "packages/experimental/webworker-runtime/src/module-proxies.ts:57",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/zlib.ts:15",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/zlib.ts:31",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/zlib.ts:34",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/zlib.ts:38",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/zlib.ts:41",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/zlib.ts:54",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/zlib.ts:58",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/zlib.ts:61",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/zlib.ts:64",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/zlib.ts:67",
+      "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/zlib.ts:78",
+      "packages/session/session-persistence-jsonl/src/generation.ts:27",
+      "packages/session/session-persistence-jsonl/src/zstd-private-decoder.ts:7",
+      "packages/session/session-persistence-jsonl/src/zstd-public-decoder.ts:6",
+      "packages/session/session-persistence-jsonl/src/zstd.ts:10",
+      "packages/telemetry/otel/src/event-transport.ts:3"
+    ]
+  },
+  "platformSites": [
+    {
+      "file": "apps/cli/src/installed-bin.ts",
+      "line": 22,
+      "text": "const entry = process.platform === 'win32' ? pathToFileURL(realpathSync.native(import.meta.filename)).href : import.meta.url"
+    },
+    {
+      "file": "apps/cli/src/startup-diagnostics.ts",
+      "line": 44,
+      "text": "platform: process.platform,"
+    },
+    {
+      "file": "apps/desktop-host/src/cli.ts",
+      "line": 37,
+      "text": "if (process.platform === 'win32') {"
+    },
+    {
+      "file": "apps/desktop-host/src/windows-cli-signals.ts",
+      "line": 10,
+      "text": "const { default: koffi } = await import('koffi')"
+    },
+    {
+      "file": "apps/desktop-host/src/windows-cli-signals.ts",
+      "line": 11,
+      "text": "const kernel = koffi.load('kernel32.dll')"
+    },
+    {
+      "file": "apps/desktop-host/src/windows-cli-signals.ts",
+      "line": 12,
+      "text": "const type = koffi.proto('int __stdcall DshCliConsoleHandler(uint32_t event)')"
+    },
+    {
+      "file": "apps/desktop-host/src/windows-cli-signals.ts",
+      "line": 13,
+      "text": "const handler = koffi.register((event: number) => {"
+    },
+    {
+      "file": "apps/desktop-host/src/windows-cli-signals.ts",
+      "line": 17,
+      "text": "}, koffi.pointer(type))"
+    },
+    {
+      "file": "apps/desktop-host/src/windows-cli-signals.ts",
+      "line": 20,
+      "text": "koffi.unregister(handler)"
+    },
+    {
+      "file": "apps/desktop/src/command-installation.ts",
+      "line": 4,
+      "text": "import { execFile } from 'node:child_process'"
+    },
+    {
+      "file": "apps/desktop/src/command-installation.ts",
+      "line": 161,
+      "text": "if (process.platform === 'darwin') await promisify(execFile)(options.linkHelper, [source, destination])"
+    },
+    {
+      "file": "apps/desktop/src/command-management.ts",
+      "line": 3,
+      "text": "import { execFile } from 'node:child_process'"
+    },
+    {
+      "file": "apps/desktop/src/command-management.ts",
+      "line": 139,
+      "text": "const node = join(this.options.resources, 'runtime', 'primary-runtime', 'dependencies', 'node', 'bin', process.platform === 'win32' ? 'node.exe' : 'node')"
+    },
+    {
+      "file": "apps/desktop/src/command-management.ts",
+      "line": 164,
+      "text": "if (!elevated && process.platform === 'darwin' && operation !== 'inspect' && ['EACCES', 'EPERM'].includes(code)) {"
+    },
+    {
+      "file": "apps/desktop/src/command-management.ts",
+      "line": 169,
+      "text": "return parseState(response.state, process.platform)"
+    },
+    {
+      "file": "apps/desktop/src/command-management.ts",
+      "line": 174,
+      "text": "if (process.platform !== 'darwin') return state"
+    },
+    {
+      "file": "apps/desktop/src/command-management.ts",
+      "line": 195,
+      "text": "const choice = await this.options.show(presentCommandManagement(state, messages, process.platform))"
+    },
+    {
+      "file": "apps/desktop/src/command-management.ts",
+      "line": 201,
+      "text": "&& (state.activeCommand === undefined || sameCommand(state.activeCommand, state.destination, process.platform))"
+    },
+    {
+      "file": "apps/desktop/src/command-management.ts",
+      "line": 215,
+      "text": "const shadowed = current.activeCommand !== undefined && !sameCommand(current.activeCommand, current.destination, process.platform)"
+    },
+    {
+      "file": "apps/desktop/src/command-manager-entry.ts",
+      "line": 3,
+      "text": "import { spawn } from 'node:child_process'"
+    },
+    {
+      "file": "apps/desktop/src/command-manager-entry.ts",
+      "line": 12,
+      "text": "if (process.platform === 'darwin') process.umask(0o022)"
+    },
+    {
+      "file": "apps/desktop/src/command-manager-entry.ts",
+      "line": 17,
+      "text": "if (process.platform === 'darwin') {"
+    },
+    {
+      "file": "apps/desktop/src/command-manager-entry.ts",
+      "line": 23,
+      "text": "} else if (process.platform === 'win32') {"
+    },
+    {
+      "file": "apps/desktop/src/device-info.ts",
+      "line": 11,
+      "text": "const fields = [`platform=${process.platform}`]"
+    },
+    {
+      "file": "apps/desktop/src/host-process.ts",
+      "line": 3,
+      "text": "import { spawn, type ChildProcess } from 'node:child_process'"
+    },
+    {
+      "file": "apps/desktop/src/login-shell-environment.ts",
+      "line": 3,
+      "text": "import { spawn, type ChildProcessByStdio } from 'node:child_process'"
+    },
+    {
+      "file": "apps/desktop/src/login-shell-environment.ts",
+      "line": 11,
+      "text": "const FALLBACK_SHELLS = ['/bin/zsh', '/bin/bash', '/bin/sh'] as const"
+    },
+    {
+      "file": "apps/desktop/src/login-shell-environment.ts",
+      "line": 44,
+      "text": "/** Operating system running Desktop; defaults to `process.platform`. */"
+    },
+    {
+      "file": "apps/desktop/src/login-shell-environment.ts",
+      "line": 175,
+      "text": "const { platform = process.platform, shells = loginShellCandidates(), signal } = options"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 156,
+      "text": "name: app.name, version: app.getVersion(), platform: process.platform, arch: process.arch,"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 271,
+      "text": "...(process.platform === 'win32' && primary ? {"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 279,
+      "text": "...(process.platform === 'darwin' ? {"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 302,
+      "text": "if (process.platform === 'darwin' || process.platform === 'win32') {"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 313,
+      "text": "if (process.platform === 'win32' && primary) {"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 320,
+      "text": "if (process.platform === 'darwin') {"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 363,
+      "text": "...(process.platform === 'win32' && item.role !== undefined && item.role in messages"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 432,
+      "text": "let raiseAfterUpdate = process.platform === 'win32' && process.argv.includes('--updated')"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 482,
+      "text": "isInstalledLocation: () => process.platform !== 'darwin' || app.isInApplicationsFolder(),"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 532,
+      "text": "() => locale.id === 'zh-CN' ? 'zh_CN' : 'en_US', process.platform === 'win32' ? 'win32' : 'darwin',"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 716,
+      "text": "const ready = desktopUpdateReadyConfirmation(locale.messages, updates.state.version ?? '', process.platform)"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 818,
+      "text": "process.platform === 'darwin' ? 'macos' : process.platform === 'win32' ? 'windows' : 'linux', () => { refreshApplicationMenu() }, window => updateOverlays.input(window))"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1171,
+      "text": "const darwin = process.platform === 'darwin'"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1206,
+      "text": "process.platform === 'win32'"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1212,
+      "text": "...process.platform === 'darwin' || process.platform === 'win32'"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1227,
+      "text": ": process.platform === 'win32' ? { label: currentDesktopLocale().messages.exitApplication } : {}) },"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1235,
+      "text": "Menu.setApplicationMenu(Menu.buildFromTemplate(process.platform === 'win32'"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1244,
+      "text": "if (process.platform === 'win32') {"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1251,
+      "text": "const backgroundNotice = process.platform === 'win32'"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1262,
+      "text": "focus: () => { if (process.platform === 'darwin') app.focus({ steal: true }) },"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1265,
+      "text": "...(process.platform === 'win32' ? { icon: nativeImage.createFromPath(trayIconPath) } : {}),"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1268,
+      "text": "if (process.platform === 'win32') {"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1314,
+      "text": "if (process.platform === 'darwin' && window.isFullScreen()) {"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1339,
+      "text": "if (process.platform === 'win32') {"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1375,
+      "text": "if (process.platform === 'win32') window.setBackgroundColor(chromeFallbackFill())"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1447,
+      "text": "if (process.platform === 'darwin') mainWindow?.destroy()"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1498,
+      "text": "if (process.platform !== 'darwin') app.quit()"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1500,
+      "text": "if (process.platform !== 'win32') powerMonitor.on('shutdown', () => { sessionEnding = true })"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1561,
+      "text": "if (!['win32', 'darwin'].includes(process.platform) || !['x64', 'arm64'].includes(process.arch)) throw new Error('desktop policy: unsupported platform')"
+    },
+    {
+      "file": "apps/desktop/src/main.ts",
+      "line": 1564,
+      "text": "platform: process.platform as 'win32' | 'darwin', arch: process.arch as 'x64' | 'arm64',"
+    },
+    {
+      "file": "apps/desktop/src/mandatory-update-window.ts",
+      "line": 52,
+      "text": "private readonly embedded = process.platform === 'win32'"
+    },
+    {
+      "file": "apps/desktop/src/mandatory-update-window.ts",
+      "line": 345,
+      "text": "const locale = process.platform === 'win32'"
+    },
+    {
+      "file": "apps/desktop/src/microphone-permissions.ts",
+      "line": 21,
+      "text": "&& (process.platform !== 'darwin' || systemPreferences.getMediaAccessStatus('microphone') === 'granted')"
+    },
+    {
+      "file": "apps/desktop/src/microphone-permissions.ts",
+      "line": 28,
+      "text": "if (process.platform !== 'darwin') { callback(true); return }"
+    },
+    {
+      "file": "apps/desktop/src/preload-app.ts",
+      "line": 103,
+      "text": "if (process.platform === 'win32') installMandatoryUpdateOverlay()"
+    },
+    {
+      "file": "apps/desktop/src/preload-platform.ts",
+      "line": 11,
+      "text": "const mark = (): void => { document.documentElement.dataset.platform = process.platform }"
+    },
+    {
+      "file": "apps/desktop/src/preload-platform.ts",
+      "line": 26,
+      "text": "if (process.platform !== 'darwin' && process.platform !== 'win32') return"
+    },
+    {
+      "file": "apps/desktop/src/preload-windows.ts",
+      "line": 9,
+      "text": "if (process.platform !== 'win32') return"
+    },
+    {
+      "file": "apps/desktop/src/project-manager.ts",
+      "line": 47,
+      "text": "return `packages:\\n  - .\\n\\n${overrideSection}${WORKSPACE_SETTINGS}allowBuilds:\\n  node-pty: true\\n  koffi: true\\n  fs-ext: true\\n  ${JSON.stringify(coreBuildKey)}: true\\n  '@google/genai': false\\n  protobufjs: false\\n  node-addon-require-builtin: false\\n`"
+    },
+    {
+      "file": "apps/desktop/src/project-manager.ts",
+      "line": 53,
+      "text": "const legacy = `packages:\\n  - .\\n\\n${WORKSPACE_SETTINGS}strictDepBuilds: true\\nallowBuilds:\\n  node-pty: true\\n  koffi: true\\n  fs-ext: true\\n  \"${CORE_BUILD_PACKAGE}\": true\\n  '@google/genai': false\\n  protobufjs: false\\n  node-addon-require-builtin: false\\n`"
+    },
+    {
+      "file": "apps/desktop/src/quit-confirmation.ts",
+      "line": 78,
+      "text": "const windows = (this.options.platform ?? process.platform) === 'win32'"
+    },
+    {
+      "file": "apps/desktop/src/runtime-tree.ts",
+      "line": 79,
+      "text": "executable: process.platform !== 'win32' && (lstatSync(path).mode & 0o111) !== 0 }"
+    },
+    {
+      "file": "apps/desktop/src/runtime-tree.ts",
+      "line": 233,
+      "text": "const comparable = (items: readonly DesktopRuntimeFile[]): unknown => process.platform === 'win32'"
+    },
+    {
+      "file": "apps/desktop/src/update-attention.ts",
+      "line": 15,
+      "text": "constructor(private readonly locale: DesktopLocale, private readonly platform: string = process.platform) {}"
+    },
+    {
+      "file": "apps/desktop/src/update-overlay.ts",
+      "line": 51,
+      "text": "const top = process.platform === 'win32' ? WINDOWS_TITLEBAR_HEIGHT : 0"
+    },
+    {
+      "file": "apps/desktop/src/update-window.ts",
+      "line": 18,
+      "text": "if (process.platform !== 'darwin' || !window.isFullScreen()) return true"
+    },
+    {
+      "file": "apps/desktop/src/welcome-window.ts",
+      "line": 60,
+      "text": "const options = welcomeWindowOptions(process.platform, locale)"
+    },
+    {
+      "file": "apps/plugin-market-generator/src/fetchers.ts",
+      "line": 8,
+      "text": "import { execFile } from 'node:child_process'"
+    },
+    {
+      "file": "native/system/packages/entry/src/index.ts",
+      "line": 16,
+      "text": "import { spawnSync } from 'node:child_process'"
+    },
+    {
+      "file": "native/system/packages/entry/src/index.ts",
+      "line": 72,
+      "text": "const platformPackage = `@deepseek-ai/node-addon-system-${process.platform}-${process.arch}`"
+    },
+    {
+      "file": "packages/api/terminal-controller/src/shells.ts",
+      "line": 50,
+      "text": "* PATH lookup can reach the default through another directory, such as `/usr/bin/bash` for `/bin/bash` on merged-`/usr` systems."
+    },
+    {
+      "file": "packages/api/workspace-controller/src/default-directory.ts",
+      "line": 21,
+      "text": "export function validateDocumentsDirectory(directory: string, platform: NodeJS.Platform = process.platform): string {"
+    },
+    {
+      "file": "packages/api/workspace-controller/src/default-directory.ts",
+      "line": 42,
+      "text": "const platform = internals.platform ?? process.platform"
+    },
+    {
+      "file": "packages/attachment/attachment-local/src/store.ts",
+      "line": 134,
+      "text": "if (process.platform === 'win32') return"
+    },
+    {
+      "file": "packages/boot/app-boot/src/bundle-platform.ts",
+      "line": 23,
+      "text": "* @param platform Operating system of the DSH Host, from Node's `process.platform`."
+    },
+    {
+      "file": "packages/boot/app-boot/src/profile-plugins.ts",
+      "line": 119,
+      "text": "assertBundlePlatform(bundleManifest(options, dependency.name)?.dsh?.bundle?.platforms, process.platform)"
+    },
+    {
+      "file": "packages/boot/app-boot/src/profile.ts",
+      "line": 697,
+      "text": "assertBundlePlatform(bundle.platforms, process.platform)"
+    },
+    {
+      "file": "packages/boot/plugin-manager/src/index.ts",
+      "line": 535,
+      "text": "try { assertBundlePlatform(offered.platforms, process.platform) }"
+    },
+    {
+      "file": "packages/boot/plugin-manager/src/index.ts",
+      "line": 577,
+      "text": "try { assertBundlePlatform(info.dsh?.bundle?.platforms, process.platform) }"
+    },
+    {
+      "file": "packages/boot/plugin-manager/src/index.ts",
+      "line": 1277,
+      "text": "assertBundlePlatform(metadata.dsh?.bundle?.platforms, process.platform)"
+    },
+    {
+      "file": "packages/boot/plugin-manager/src/operations.ts",
+      "line": 113,
+      "text": "try { assertBundlePlatform(metadata.dsh.bundle.platforms, process.platform) } catch (error) {"
+    },
+    {
+      "file": "packages/boot/plugin-manager/src/run-tree.ts",
+      "line": 37,
+      "text": "export function leadsOwnGroup(execution: 'cli' | 'service', platform: NodeJS.Platform = process.platform): boolean {"
+    },
+    {
+      "file": "packages/boot/plugin-manager/src/run-tree.ts",
+      "line": 55,
+      "text": "const platform = internals.platform ?? process.platform"
+    },
+    {
+      "file": "packages/bundle/web-app/src/index.ts",
+      "line": 15,
+      "text": "import { spawn, type ChildProcess } from 'node:child_process'"
+    },
+    {
+      "file": "packages/bundle/web-app/src/index.ts",
+      "line": 91,
+      "text": "if (process.platform === 'win32') {"
+    },
+    {
+      "file": "packages/client/product-analytics/src/environment-query.ts",
+      "line": 2,
+      "text": "import { execFile, type ChildProcess } from 'node:child_process'"
+    },
+    {
+      "file": "packages/credentials/credentials-local/src/index.ts",
+      "line": 137,
+      "text": "if (process.platform === 'win32') return"
+    },
+    {
+      "file": "packages/deliverables/workspace-changes/src/index.ts",
+      "line": 79,
+      "text": "if (process.platform !== 'darwin' || executable !== '/usr/bin/git') return executable"
+    },
+    {
+      "file": "packages/experimental/cua-macos/src/index.ts",
+      "line": 75,
+      "text": "const architecture = nativeHostArchitecture(process.platform, process.arch)"
+    },
+    {
+      "file": "packages/experimental/cua-windows/src/index.ts",
+      "line": 66,
+      "text": "const architecture = wsl?.architecture ?? nativeHostArchitecture(process.platform, process.arch)"
+    },
+    {
+      "file": "packages/experimental/cua-windows/src/windows-host.ts",
+      "line": 21,
+      "text": "if ((facts.platform ?? process.platform) === 'win32') return 'windows'"
+    },
+    {
+      "file": "packages/experimental/cua/src/access-types.ts",
+      "line": 13,
+      "text": "/** Native access observations tagged with the provider's CUA platform; distinct from Node process.platform values. */"
+    },
+    {
+      "file": "packages/experimental/inspector/src/host/bridge/controller.ts",
+      "line": 316,
+      "text": "if (process.platform === 'win32') {"
+    },
+    {
+      "file": "packages/experimental/liveshare/src/host/tunnel-worker.ts",
+      "line": 4,
+      "text": "import { spawn, type ChildProcess } from 'node:child_process'"
+    },
+    {
+      "file": "packages/experimental/ptc-runtime-python/src/index.ts",
+      "line": 13,
+      "text": "import { execFileSync, spawn, type ChildProcessWithoutNullStreams } from 'node:child_process'"
+    },
+    {
+      "file": "packages/experimental/ptc-runtime-python/src/index.ts",
+      "line": 368,
+      "text": "* Linux reads field 22 of `/proc/<pid>/stat` (starttime in clock ticks); the"
+    },
+    {
+      "file": "packages/experimental/ptc-runtime-python/src/index.ts",
+      "line": 381,
+      "text": "if (process.platform !== 'linux') return undefined"
+    },
+    {
+      "file": "packages/experimental/ptc-runtime-python/src/index.ts",
+      "line": 383,
+      "text": "const stat = readFileSync(`/proc/${String(pid)}/stat`, 'utf8')"
+    },
+    {
+      "file": "packages/experimental/ptc-runtime-python/src/index.ts",
+      "line": 784,
+      "text": "if (process.platform === 'win32') {"
+    },
+    {
+      "file": "packages/experimental/ptc-runtime-python/src/index.ts",
+      "line": 2097,
+      "text": "// leader is reaped its `/proc/<pid>/stat` is gone, while the group it"
+    },
+    {
+      "file": "packages/experimental/speech-to-text-sensevoice/src/runtime.ts",
+      "line": 57,
+      "text": "if (!supported.includes(`${process.platform}-${process.arch}`)) throw new Error(`Local speech is unavailable for ${process.platform}-${process.arch}`)"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/module-proxies.ts",
+      "line": 60,
+      "text": "'node:child_process': './node/builtin_modules/implemented/child_process.ts',"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/module-proxies.ts",
+      "line": 77,
+      "text": "'koffi': './node/external_packages/koffi.ts',"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/module-proxies.ts",
+      "line": 79,
+      "text": "'node-pty': './node/external_packages/node-pty.ts',"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/child_process.ts",
+      "line": 2,
+      "text": "* `node:child_process` over the worker's own shell."
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/child_process.ts",
+      "line": 15,
+      "text": "* @module @deepseek-ai/dsh-experimental-webworker-runtime/src/node/builtin_modules/implemented/child_process"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/child_process.ts",
+      "line": 30,
+      "text": "const MODULE = 'node:child_process'"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/child_process.ts",
+      "line": 429,
+      "text": "export const execSync: typeof import('node:child_process').execSync = notImplementedFail(MODULE, 'execSync')"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/child_process.ts",
+      "line": 432,
+      "text": "export const execFileSync: typeof import('node:child_process').execFileSync = notImplementedFail(MODULE, 'execFileSync')"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/child_process.ts",
+      "line": 435,
+      "text": "export const fork: typeof import('node:child_process').fork = notImplementedFail(MODULE, 'fork')"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/child_process.ts",
+      "line": 441,
+      "text": "* The `node:child_process` declarations this module stands in for. The four"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/child_process.ts",
+      "line": 448,
+      "text": "type NodeFace = Partial<Omit<typeof import('node:child_process'), 'spawn' | 'spawnSync' | 'exec' | 'execFile'>>"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/module.ts",
+      "line": 23,
+      "text": "'assert', 'assert/strict', 'async_hooks', 'buffer', 'child_process', 'crypto', 'events', 'fs', 'http', 'module',"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/builtin_modules/implemented/path.ts",
+      "line": 11,
+      "text": "* the worker host reports `process.platform === 'linux'`, so any other Windows"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/builtins.ts",
+      "line": 47,
+      "text": "import * as nodeChildProcess from './builtin_modules/implemented/child_process.ts'"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/builtins.ts",
+      "line": 54,
+      "text": "import * as koffi from './external_packages/koffi.ts'"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/builtins.ts",
+      "line": 56,
+      "text": "import * as nodePty from './external_packages/node-pty.ts'"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/builtins.ts",
+      "line": 73,
+      "text": "child_process: () => nodeChildProcess,"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/builtins.ts",
+      "line": 106,
+      "text": "'koffi': () => koffi,"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/builtins.ts",
+      "line": 108,
+      "text": "'node-pty': () => nodePty,"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/external_packages/koffi.ts",
+      "line": 2,
+      "text": "* `koffi` stub: the FFI bridge the Windows ACL layer and the Landlock launcher"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/external_packages/koffi.ts",
+      "line": 6,
+      "text": "* none of it is reachable (`process.platform === 'linux'`, no sandbox)."
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/external_packages/koffi.ts",
+      "line": 10,
+      "text": "const MODULE = 'koffi'"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/external_packages/koffi.ts",
+      "line": 12,
+      "text": "/** Opaque type descriptor standing in for a koffi type handle. */"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/external_packages/koffi.ts",
+      "line": 21,
+      "text": "/** Primitive sizes koffi's own x64 ABI reports. */"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/external_packages/koffi.ts",
+      "line": 57,
+      "text": "if (size === undefined) throw new Error(`web-preview: koffi type \"${target}\" is unknown to the stub`)"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/external_packages/koffi.ts",
+      "line": 62,
+      "text": "throw new Error(`web-preview: koffi type ${JSON.stringify(target)} is not a stub descriptor`)"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/external_packages/koffi.ts",
+      "line": 81,
+      "text": "* padding rules koffi uses on x64, because the Windows ACL layer compares them"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/external_packages/koffi.ts",
+      "line": 126,
+      "text": "/** The koffi face its consumers read; every call refuses. */"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/external_packages/koffi.ts",
+      "line": 127,
+      "text": "const koffi = {"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/external_packages/koffi.ts",
+      "line": 155,
+      "text": "export default koffi"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/external_packages/node-pty.ts",
+      "line": 2,
+      "text": "* `node-pty` stub: pseudo-terminals belong to the excluded surface. Terminal"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/external_packages/node-pty.ts",
+      "line": 7,
+      "text": "const MODULE = 'node-pty'"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/external_packages/replaced-externals.ts",
+      "line": 15,
+      "text": "'koffi',"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/external_packages/replaced-externals.ts",
+      "line": 16,
+      "text": "'node-pty',"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/external_packages/ripgrep.ts",
+      "line": 4,
+      "text": "* succeeds, and the loud failure comes from the child_process stub when something"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/globals/process.ts",
+      "line": 52,
+      "text": "* Signal one command started through the `node:child_process` shim. Signal"
+    },
+    {
+      "file": "packages/experimental/webworker-runtime/src/node/process-table.ts",
+      "line": 3,
+      "text": "* `node:child_process` shim keeps its own table: one entry per running"
+    },
+    {
+      "file": "packages/fs/fs-local/src/fsio.ts",
+      "line": 152,
+      "text": "if (path === '~' || path.startsWith('~/') || (process.platform === 'win32' && path.startsWith('~\\\\'))) return `${homedir()}${path.slice(1)}`"
+    },
+    {
+      "file": "packages/fs/fs-local/src/fsio.ts",
+      "line": 167,
+      "text": "return process.platform === 'win32' ? resolve(cwd, path) : physicalSpelling"
+    },
+    {
+      "file": "packages/fs/fs-local/src/fsio.ts",
+      "line": 207,
+      "text": "if (process.platform === 'win32') {"
+    },
+    {
+      "file": "packages/fs/fs-local/src/fsio.ts",
+      "line": 623,
+      "text": "const platform = internals.platform ?? process.platform"
+    },
+    {
+      "file": "packages/fs/fs-local/src/win32.ts",
+      "line": 48,
+      "text": "const koffi = (await import('koffi')).default"
+    },
+    {
+      "file": "packages/fs/fs-local/src/win32.ts",
+      "line": 49,
+      "text": "const advapi32 = koffi.load('advapi32.dll')"
+    },
+    {
+      "file": "packages/fs/fs-local/src/win32.ts",
+      "line": 50,
+      "text": "const kernel32 = koffi.load('kernel32.dll')"
+    },
+    {
+      "file": "packages/fs/fs-sandbox/src/containment.ts",
+      "line": 61,
+      "text": "caseSensitive = process.platform !== 'win32',"
+    },
+    {
+      "file": "packages/host/directory-picker-auto/src/index.ts",
+      "line": 73,
+      "text": "platform: process.platform,"
+    },
+    {
+      "file": "packages/host/directory-picker-auto/src/resolve.ts",
+      "line": 28,
+      "text": "/** Host process platform. */"
+    },
+    {
+      "file": "packages/host/directory-picker-browse/src/index.ts",
+      "line": 47,
+      "text": "* @param platform - replaces `process.platform` for deterministic tests."
+    },
+    {
+      "file": "packages/host/directory-picker-browse/src/index.ts",
+      "line": 50,
+      "text": "export function fullyQualified(path: string, platform: NodeJS.Platform = process.platform): boolean {"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/index.ts",
+      "line": 7,
+      "text": "* koffi-driven COM conversation on the child's main thread, preceded by a"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/native-picker.ts",
+      "line": 97,
+      "text": "const platform = internals.platform ?? process.platform"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/native-picker.ts",
+      "line": 106,
+      "text": "// The koffi-backed IFileOpenDialog child process \u2014 the modern picker with"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/native-picker.ts",
+      "line": 107,
+      "text": "// per-monitor-v2 DPI and abort support. koffi is a packaged dependency"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 2,
+      "text": "* koffi-backed Win32 bindings for the folder dialog: the COM vtable calls"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 4,
+      "text": "* driver uses to service aborts. The module loads on every platform; koffi"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 32,
+      "text": "* Generic `koffi.decode(..., 'str16')` expects a pointer variable, so the"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 34,
+      "text": "* @param koffi - the loaded koffi binding."
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 36,
+      "text": "* @param pointerSize - the process's pointer width (`koffi.sizeof('void *')`)."
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 39,
+      "text": "function readUtf16(koffi: Koffi, address: unknown, pointerSize: number): string {"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 41,
+      "text": "// koffi 3 surfaces `_Out_ void **` values as BigInt native addresses."
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 43,
+      "text": "return koffi.decode(pointer.subarray(0, pointerSize), 'str16') as string"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 91,
+      "text": "* Load koffi and expose the dialog bindings for this thread."
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 95,
+      "text": "const koffi = (await import('koffi')).default as Koffi"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 96,
+      "text": "const ole32 = koffi.load('ole32.dll')"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 97,
+      "text": "const user32 = koffi.load('user32.dll')"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 98,
+      "text": "const kernel32 = koffi.load('kernel32.dll')"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 101,
+      "text": "// 4 on ia32 \u2014 koffi reports the running process's width."
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 102,
+      "text": "const pointerSize = koffi.sizeof('void *')"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 110,
+      "text": "const protoShow = koffi.proto('int32 __stdcall DshDialogShow(void *self, void *owner)')"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 111,
+      "text": "const protoSetOptions = koffi.proto('int32 __stdcall DshDialogSetOptions(void *self, uint32 options)')"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 112,
+      "text": "const protoSetTitle = koffi.proto('int32 __stdcall DshDialogSetTitle(void *self, str16 title)')"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 113,
+      "text": "const protoGetResult = koffi.proto('int32 __stdcall DshDialogGetResult(void *self, _Out_ void **item)')"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 114,
+      "text": "const protoGetDisplayName = koffi.proto('int32 __stdcall DshItemGetDisplayName(void *self, int32 form, _Out_ void **name)')"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 115,
+      "text": "const protoRelease = koffi.proto('uint32 __stdcall DshComRelease(void *self)')"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 119,
+      "text": "const vtable = koffi.decode(self, 'void *')"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 120,
+      "text": "const fn = koffi.decode(vtable, slot * pointerSize, 'void *')"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 121,
+      "text": "return (...args: unknown[]) => koffi.call(fn, proto, self, ...args) as number"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 156,
+      "text": "const dialog = koffi.decode(out, 'void *')"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 170,
+      "text": "const path = readUtf16(koffi, nameOut[0], pointerSize)"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 192,
+      "text": "const koffi = (await import('koffi')).default as Koffi"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 193,
+      "text": "const user32 = koffi.load('user32.dll')"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 196,
+      "text": "const protoEnumProc = koffi.proto('int __stdcall DshEnumThreadWndProc(void *hwnd, intptr lparam)')"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 197,
+      "text": "const callback = koffi.register((hwnd: unknown) => {"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 200,
+      "text": "}, koffi.pointer(protoEnumProc))"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-bindings.ts",
+      "line": 204,
+      "text": "koffi.unregister(callback)"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-host.ts",
+      "line": 5,
+      "text": "* static); what stays win32-only is koffi, imported dynamically inside the"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-host.ts",
+      "line": 10,
+      "text": "import { spawn, type StdioOptions } from 'node:child_process'"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-logic.ts",
+      "line": 5,
+      "text": "* any platform. The koffi-backed bindings live in"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog-logic.ts",
+      "line": 113,
+      "text": "* @param bindings - the native surface (koffi-backed in production, fakes in tests)."
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog.ts",
+      "line": 12,
+      "text": "/** The child-process surface the driver drives (satisfied by `node:child_process`). */"
+    },
+    {
+      "file": "packages/host/directory-picker-native/src/win32-dialog.ts",
+      "line": 104,
+      "text": "// unconditional \u2014 an abort before `showing` (child hung in koffi or"
+    },
+    {
+      "file": "packages/host/open-in-app/src/resolver.ts",
+      "line": 15,
+      "text": "import { spawn } from 'node:child_process'"
+    },
+    {
+      "file": "packages/sandbox/sandbox-local/src/index.ts",
+      "line": 24,
+      "text": "import { spawnSync } from 'node:child_process'"
+    },
+    {
+      "file": "packages/sandbox/sandbox-local/src/index.ts",
+      "line": 135,
+      "text": "/** Replaces `process.platform` for chain selection (exercise any platform's chain from any host). */"
+    },
+    {
+      "file": "packages/sandbox/sandbox-local/src/index.ts",
+      "line": 319,
+      "text": "if (process.platform === 'win32' && this.runnerCommand === undefined) {"
+    },
+    {
+      "file": "packages/sandbox/sandbox-local/src/index.ts",
+      "line": 554,
+      "text": "const chain = this.internals.chain ?? PLATFORM_CHAINS[this.internals.platform ?? process.platform] ?? []"
+    },
+    {
+      "file": "packages/sandbox/sandbox-windows-acl/src/acl.ts",
+      "line": 271,
+      "text": "* koffi.decode at pointer offsets \u2014 no memcpy, no pointer arithmetic. The"
+    },
+    {
+      "file": "packages/sandbox/sandbox-windows-acl/src/ffi.ts",
+      "line": 25,
+      "text": "type Koffi = typeof import('koffi')['default']"
+    },
+    {
+      "file": "packages/sandbox/sandbox-windows-acl/src/ffi.ts",
+      "line": 28,
+      "text": "const requireKoffi = createLazyRequire<Koffi>('koffi', import.meta.url)"
+    },
+    {
+      "file": "packages/sandbox/sandbox-windows-acl/src/ffi.ts",
+      "line": 33,
+      "text": "const koffi = requireKoffi()"
+    },
+    {
+      "file": "packages/sandbox/sandbox-windows-acl/src/ffi.ts",
+      "line": 34,
+      "text": "const PVOID = koffi.pointer('void')"
+    },
+    {
+      "file": "packages/sandbox/sandbox-windows-acl/src/ffi.ts",
+      "line": 35,
+      "text": "return cachedTypes = { PVOID, PPVOID: koffi.pointer(PVOID) }"
+    },
+    {
+      "file": "packages/sandbox/sandbox-windows-acl/src/ffi.ts",
+      "line": 235,
+      "text": "const koffi = requireKoffi()"
+    },
+    {
+      "file": "packages/sandbox/sandbox-windows-acl/src/ffi.ts",
+      "line": 244,
+      "text": "'int', PVOID, PVOID, koffi.pointer('uint32'),"
+    },
+    {
+      "file": "packages/sandbox/sandbox-windows-acl/src/ffi.ts",
+      "line": 250,
+      "text": "PVOID, 'int', PVOID, 'uint32', koffi.pointer('uint32'),"
+    },
+    {
+      "file": "packages/sandbox/sandbox-windows-acl/src/runner.ts",
+      "line": 36,
+      "text": "* NULL; an explicit block through koffi trips ERROR_INVALID_PARAMETER in"
+    },
+    {
+      "file": "packages/sandbox/sandbox-windows-acl/src/token.ts",
+      "line": 19,
+      "text": "* GetCurrentProcess() pseudo-handle is not addressable through koffi)."
+    },
+    {
+      "file": "packages/sdk/client/src/client.ts",
+      "line": 15,
+      "text": "import { spawn, type ChildProcess } from 'node:child_process'"
+    },
+    {
+      "file": "packages/sdk/client/src/dispose.ts",
+      "line": 11,
+      "text": "import type { ChildProcess } from 'node:child_process'"
+    },
+    {
+      "file": "packages/sdk/client/src/dispose.ts",
+      "line": 85,
+      "text": "platform: NodeJS.Platform = process.platform,"
+    },
+    {
+      "file": "packages/session/session-persistence-jsonl/src/generation.ts",
+      "line": 229,
+      "text": "platform: process.platform,"
+    },
+    {
+      "file": "packages/session/session-persistence-jsonl/src/index.ts",
+      "line": 1276,
+      "text": "if (process.platform === 'win32') {"
+    },
+    {
+      "file": "packages/session/session-persistence-jsonl/src/index.ts",
+      "line": 1780,
+      "text": "if (process.platform === 'win32') await this.assertLogParentAllowsAbsence(path)"
+    },
+    {
+      "file": "packages/session/session-persistence-jsonl/src/lease.ts",
+      "line": 76,
+      "text": "if (process.platform === 'win32') {"
+    },
+    {
+      "file": "packages/session/session-persistence-jsonl/src/win32.ts",
+      "line": 56,
+      "text": "const koffi = (await import('koffi')).default"
+    },
+    {
+      "file": "packages/session/session-persistence-jsonl/src/win32.ts",
+      "line": 57,
+      "text": "const kernel32 = koffi.load('kernel32.dll')"
+    },
+    {
+      "file": "packages/settings/settings/src/index.ts",
+      "line": 205,
+      "text": "shell: process.platform === 'win32' ? 'pwsh-sandbox' : 'bash-sandbox',"
+    },
+    {
+      "file": "packages/shell/pwsh-local/src/resolve.ts",
+      "line": 62,
+      "text": "* @param platform - the platform to resolve for; defaults to the process platform."
+    },
+    {
+      "file": "packages/shell/pwsh-local/src/resolve.ts",
+      "line": 70,
+      "text": "platform: NodeJS.Platform = process.platform,"
+    },
+    {
+      "file": "packages/shell/tool-pwsh/src/index.ts",
+      "line": 147,
+      "text": "+ 'program\\'s output through piped stdio (Node.js `child_process.spawn`/`exec` with the default '"
+    },
+    {
+      "file": "packages/skill/tool-workspace-dependencies/src/index.ts",
+      "line": 225,
+      "text": "if (manifest.platform !== process.platform || manifest.arch !== process.arch) throw new Error('primary runtime: incompatible platform or architecture')"
+    },
+    {
+      "file": "packages/spill/spill-local/src/cleanup.ts",
+      "line": 50,
+      "text": "if (process.platform === 'win32' || process.geteuid === undefined) return true"
+    },
+    {
+      "file": "packages/spill/spill-local/src/cleanup.ts",
+      "line": 60,
+      "text": "if (process.platform === 'win32') return path.toLowerCase()"
+    },
+    {
+      "file": "packages/spill/spill-local/src/cleanup.ts",
+      "line": 74,
+      "text": "if (process.platform === 'win32' || process.geteuid === undefined) return true"
+    },
+    {
+      "file": "packages/ssh/ssh-helper-runtime/src/index.ts",
+      "line": 20,
+      "text": "const platformPackage = `@deepseek-ai/node-addon-system-${process.platform}-${process.arch}/package.json`"
+    },
+    {
+      "file": "packages/ssh/ssh/src/helper.ts",
+      "line": 57,
+      "text": "if (process.platform !== 'linux' && process.platform !== 'darwin') throw new Error('SSH helper requires a POSIX host')"
+    },
+    {
+      "file": "packages/ssh/ssh/src/helper.ts",
+      "line": 116,
+      "text": "kind: transport.kind, platform: process.platform, nodeVersion: process.version, executable: process.execPath, root, workspace,"
+    },
+    {
+      "file": "packages/ssh/ssh/src/index.ts",
+      "line": 3,
+      "text": "import { spawn, execFile, type ChildProcessWithoutNullStreams } from 'node:child_process'"
+    },
+    {
+      "file": "packages/ssh/ssh/src/index.ts",
+      "line": 90,
+      "text": "if (process.platform !== 'linux' && process.platform !== 'darwin') throw new Error('SSH runtime requires a POSIX client')"
+    },
+    {
+      "file": "packages/storage/storage-json/src/atomic.ts",
+      "line": 49,
+      "text": "if (process.platform === 'win32') return"
+    },
+    {
+      "file": "packages/subagent/subagent-acp/src/run.ts",
+      "line": 70,
+      "text": "* lifetime instead of a package-local child_process path."
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/index.ts",
+      "line": 17,
+      "text": "import type * as NodePty from 'node-pty'"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/index.ts",
+      "line": 18,
+      "text": "import type { IPtyForkOptions, IWindowsPtyForkOptions } from 'node-pty'"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/index.ts",
+      "line": 55,
+      "text": "const requireNodePty = createLazyRequire<typeof NodePty>('node-pty', import.meta.url)"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/index.ts",
+      "line": 57,
+      "text": "/** Load node-pty, reporting a missing or unloadable native module as `SUBPROCESS_PTY_UNAVAILABLE`. */"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/index.ts",
+      "line": 63,
+      "text": "`subprocess-local: terminals are unavailable because node-pty cannot be loaded: ${String(error)}`,"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/index.ts",
+      "line": 177,
+      "text": "if (!absolute && (command.includes('/') || (process.platform === 'win32' && command.includes('\\\\')))) {"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/index.ts",
+      "line": 203,
+      "text": "const extensions = process.platform === 'win32' && extname(command) === ''"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/index.ts",
+      "line": 253,
+      "text": "const platform = this.internals.platform ?? process.platform"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/index.ts",
+      "line": 296,
+      "text": "const platform = process.platform === 'win32' ? 'windows' : 'posix'"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/index.ts",
+      "line": 312,
+      "text": "const platform = this.internals.platform ?? process.platform"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/index.ts",
+      "line": 323,
+      "text": "// readiness path cannot match; the console host node-pty ships emits it"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/index.ts",
+      "line": 351,
+      "text": "// node-pty swallows signal errors; the scope owner requires their delivery result."
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/index.ts",
+      "line": 382,
+      "text": "if (exact !== undefined || process.platform !== 'win32') return exact"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/linux-execve.ts",
+      "line": 7,
+      "text": "const requireKoffi = createLazyRequire<typeof import('koffi')['default']>('koffi', import.meta.url)"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/linux-execve.ts",
+      "line": 55,
+      "text": "const koffi = requireKoffi()"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/linux-execve.ts",
+      "line": 56,
+      "text": "const libc = koffi.load(null)"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/linux-execve.ts",
+      "line": 69,
+      "text": "if (flags === -1) throw systemError(koffi.errno(), 'fcntl')"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/linux-execve.ts",
+      "line": 72,
+      "text": "throw systemError(koffi.errno(), 'fcntl')"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/linux-execve.ts",
+      "line": 79,
+      "text": "if (flags === -1) throw systemError(koffi.errno(), 'fcntl')"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/linux-execve.ts",
+      "line": 81,
+      "text": "throw systemError(koffi.errno(), 'fcntl')"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/linux-execve.ts",
+      "line": 89,
+      "text": "throw systemError(koffi.errno(), 'execve', file)"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/linux-scope.ts",
+      "line": 4,
+      "text": "import { execFile, spawn, spawnSync } from 'node:child_process'"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/linux-scope.ts",
+      "line": 44,
+      "text": "/** Kernel unix socket table read by the user-manager confirmation; defaults to /proc/net/unix. */"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/linux-scope.ts",
+      "line": 63,
+      "text": "/** Flags bit that /proc/net/unix sets on a listening socket (__SO_ACCEPTCON). */"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/linux-scope.ts",
+      "line": 215,
+      "text": "return unixSocketListener(join(runtimeDirectory, 'systemd', 'private'), internals.unixSocketTable ?? '/proc/net/unix')"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/process-inspector.ts",
+      "line": 4,
+      "text": "import { execFileSync } from 'node:child_process'"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/process-inspector.ts",
+      "line": 140,
+      "text": "* Parse fields used from Linux `/proc/<pid>/stat`, including parenthesized comm text."
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/process-inspector.ts",
+      "line": 164,
+      "text": "return parseProcStat(internals.readFile(`/proc/${pid}/stat`))"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/process-inspector.ts",
+      "line": 170,
+      "text": "// `/proc/<pid>/stat` renders tty_nr as a signed 32-bit device number, while"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/process-inspector.ts",
+      "line": 186,
+      "text": "const path = tid === undefined ? `/proc/${pid}/fd/0` : `/proc/${pid}/task/${tid}/fd/0`"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/process-inspector.ts",
+      "line": 252,
+      "text": "const text = internals.readFile(`/proc/${pid}/task/${tid}/syscall`).trim()"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/process-inspector.ts",
+      "line": 272,
+      "text": "fd = internals.open(`/proc/${pid}/mem`)"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/process-inspector.ts",
+      "line": 304,
+      "text": "return internals.readFile(`/proc/${pid}/task/${tid}/fdinfo/${epfd}`)"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/process-inspector.ts",
+      "line": 329,
+      "text": "// `/proc/<pid>/task/<tid>/syscall` uses the kernel ABI's numbers. User-mode"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/process-inspector.ts",
+      "line": 462,
+      "text": "for (const tid of numericEntries(this.internals, `/proc/${pid}/task`) ?? []) {"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/process-inspector.ts",
+      "line": 552,
+      "text": "platform: NodeJS.Platform = process.platform,"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/runner-launch.ts",
+      "line": 3,
+      "text": "import type { StdioOptions } from 'node:child_process'"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/spawn.ts",
+      "line": 11,
+      "text": "import { type ChildProcess, type SpawnOptions, spawn, spawnSync } from 'node:child_process'"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/spawn.ts",
+      "line": 46,
+      "text": "if (process.platform !== 'win32') return { ...env, ...extra }"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/spawn.ts",
+      "line": 58,
+      "text": "/** Process spawner (defaults to `node:child_process` `spawn`). */"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/spawn.ts",
+      "line": 464,
+      "text": "const platform = internals.platform ?? process.platform"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/spawn.ts",
+      "line": 466,
+      "text": "const stdio: import('node:child_process').StdioOptions = ["
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/terminal.ts",
+      "line": 1,
+      "text": "/** Local node-pty terminal-process implementation for the subprocess seam. */"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/terminal.ts",
+      "line": 6,
+      "text": "import type { IDisposable, IPty } from 'node-pty'"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/terminal.ts",
+      "line": 55,
+      "text": "* handle call completes synchronously under the hood (node-pty write, ps-based"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/terminal.ts",
+      "line": 80,
+      "text": "* @param terminal - allocated node-pty process."
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/terminal.ts",
+      "line": 89,
+      "text": "private readonly platform: NodeJS.Platform = process.platform,"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/terminal.ts",
+      "line": 134,
+      "text": "/** Whether node-pty has not yet published the top-level exit event. */"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/terminal.ts",
+      "line": 139,
+      "text": "// node-pty writes synchronously; the seam returns a promise for remote transports."
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/terminal.ts",
+      "line": 209,
+      "text": "// CTRL_C event for attached processes. node-pty's signal kills throw on Windows, so"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/terminal.ts",
+      "line": 259,
+      "text": "// Without a captured identity, node-pty is the only root kill primitive."
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/terminal.ts",
+      "line": 368,
+      "text": "// node-pty's Windows kill(signal) throws (\"Signals not supported on"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/terminal.ts",
+      "line": 375,
+      "text": "// not reliably fire node-pty's exit notification, so the tiers verify the"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/terminal.ts",
+      "line": 465,
+      "text": "// An externally taskkilled Windows shell may never fire node-pty's exit"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 6,
+      "text": "* The koffi bindings load lazily so"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 12,
+      "text": "import { spawnSync } from 'node:child_process'"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 17,
+      "text": "type Koffi = typeof import('koffi')['default']"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 20,
+      "text": "const requireKoffi = createLazyRequire<Koffi>('koffi', import.meta.url)"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 139,
+      "text": "* @param internals - injectable process operations; defaults to the koffi-backed table."
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 165,
+      "text": "* @param value - a handle as koffi may hand it back (pointer, null, or 0n)."
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 174,
+      "text": "/** The lazy koffi binding table: every Win32 call the Windows inspector uses. */"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 192,
+      "text": "* Resolve the koffi Win32 struct types once. Registration is lazy and cached"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 193,
+      "text": "* because koffi's type registry is global per process: test runners that"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 199,
+      "text": "const koffi = requireKoffi()"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 200,
+      "text": "const PVOID = koffi.pointer('void')"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 201,
+      "text": "// koffi PROCESSENTRY32W layout (tlhelp32.h); the size assert pins the x64 layout."
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 202,
+      "text": "const PROCESSENTRY32W = koffi.struct('PROCESSENTRY32W', {"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 212,
+      "text": "szExeFile: koffi.array('char16', 260),"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 214,
+      "text": "// koffi FILETIME layout (minwinbase.h): two 32-bit halves of the 64-bit timestamp."
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 215,
+      "text": "const FILETIME = koffi.struct('FILETIME', {"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 221,
+      "text": "throw new Error(`PROCESSENTRY32W layout mismatch: koffi computed ${PROCESSENTRY32W.size}, Windows headers say 568`)"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 244,
+      "text": "const koffi = requireKoffi()"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 246,
+      "text": "const kernel32 = koffi.load('kernel32.dll')"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 249,
+      "text": "result: ReturnType<typeof koffi.pointer> | string,"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 250,
+      "text": "args: Array<ReturnType<typeof koffi.pointer> | string>,"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 254,
+      "text": "process32FirstW: bind('Process32FirstW', 'int', [PVOID, koffi.pointer(PROCESSENTRY32W)]),"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 255,
+      "text": "process32NextW: bind('Process32NextW', 'int', [PVOID, koffi.pointer(PROCESSENTRY32W)]),"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 259,
+      "text": "koffi.pointer(FILETIME),"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 260,
+      "text": "koffi.pointer(FILETIME),"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 261,
+      "text": "koffi.pointer(FILETIME),"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 262,
+      "text": "koffi.pointer(FILETIME),"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 271,
+      "text": "* Allocate koffi memory as a branded {@link NativePtr}; koffi's TS types are"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 273,
+      "text": "* @param type - the koffi type to allocate."
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 278,
+      "text": "const koffi = requireKoffi()"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 279,
+      "text": "const value: unknown = koffi.alloc(type, count)"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 285,
+      "text": "const koffi = requireKoffi()"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 294,
+      "text": "koffi.encode(entry, 'uint32', PROCESSENTRY32W.size)"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 297,
+      "text": "const record = koffi.decode(entry, PROCESSENTRY32W) as {"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 312,
+      "text": "const koffi = requireKoffi()"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 325,
+      "text": "const record = koffi.decode(creation, FILETIME) as { dwLowDateTime: number; dwHighDateTime: number }"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-inspector.ts",
+      "line": 339,
+      "text": "/** The koffi-backed default internals; bindings resolve lazily on first use. */"
+    },
+    {
+      "file": "packages/subprocess/subprocess-local/src/windows-job.ts",
+      "line": 4,
+      "text": "import { spawn } from 'node:child_process'"
+    },
+    {
+      "file": "packages/subprocess/subprocess/src/index.ts",
+      "line": 66,
+      "text": "* that cannot route through the service (node-pty backends, SDK-managed"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 5,
+      "text": "import { requireKoffi, type Koffi } from './koffi.ts'"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 143,
+      "text": "const koffi = requireKoffi()"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 144,
+      "text": "const PVOID = koffi.pointer('void')"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 145,
+      "text": "const PPVOID = koffi.pointer(PVOID)"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 146,
+      "text": "const STARTUPINFOW = koffi.struct('DSH_STARTUPINFOW', {"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 151,
+      "text": "lpReserved2: koffi.pointer('uint8'), hStdInput: PVOID, hStdOutput: PVOID, hStdError: PVOID,"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 153,
+      "text": "const PROCESS_INFORMATION = koffi.struct('DSH_PROCESS_INFORMATION', {"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 158,
+      "text": "throw new Error(`STARTUPINFOW layout mismatch: koffi computed ${STARTUPINFOW.size}, expected ${abi.STARTUPINFOW_SIZE}`)"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 161,
+      "text": "throw new Error(`PROCESS_INFORMATION layout mismatch: koffi computed ${PROCESS_INFORMATION.size}, expected ${abi.PROCESS_INFORMATION_SIZE}`)"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 259,
+      "text": "const koffi = requireKoffi()"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 260,
+      "text": "const kernel32 = koffi.load('kernel32.dll')"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 261,
+      "text": "const advapi32 = koffi.load('advapi32.dll')"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 263,
+      "text": "lib: ReturnType<typeof koffi.load>,"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 274,
+      "text": "const koffi = requireKoffi()"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 277,
+      "text": "const node = koffi.load(null)"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 289,
+      "text": "koffi.pointer(STARTUPINFOW), koffi.pointer(PROCESS_INFORMATION),"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 293,
+      "text": "koffi.pointer(STARTUPINFOW), koffi.pointer(PROCESS_INFORMATION),"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 295,
+      "text": "readFile: bind(kernel32, 'ReadFile', 'int', [PVOID, PVOID, 'uint32', koffi.pointer('uint32'), PVOID]),"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 297,
+      "text": "PVOID, PVOID, 'uint32', koffi.pointer('uint32'), koffi.pointer('uint32'), koffi.pointer('uint32'),"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/ffi.ts",
+      "line": 300,
+      "text": "getExitCodeProcess: bind(kernel32, 'GetExitCodeProcess', 'int', [PVOID, koffi.pointer('uint32')]),"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/koffi.ts",
+      "line": 3,
+      "text": "import type koffi from 'koffi'"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/koffi.ts",
+      "line": 7,
+      "text": "export type Koffi = typeof koffi"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/koffi.ts",
+      "line": 10,
+      "text": "export const requireKoffi = createLazyRequire<Koffi>('koffi', import.meta.url)"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/process.ts",
+      "line": 19,
+      "text": "import { requireKoffi } from './koffi.ts'"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/process.ts",
+      "line": 447,
+      "text": "const koffi = requireKoffi()"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/process.ts",
+      "line": 448,
+      "text": "controlDescriptorBlock = { pointer: koffi.alloc('uint8', controlBytes.length) as NativePtr, length: controlBytes.length }"
+    },
+    {
+      "file": "packages/subprocess/win32-process/src/process.ts",
+      "line": 449,
+      "text": "koffi.encode(controlDescriptorBlock.pointer, 'uint8', controlBytes, controlBytes.length)"
+    },
+    {
+      "file": "packages/terminal/terminal-bash/src/config.ts",
+      "line": 15,
+      "text": "/** Interactive shell executable (default per dialect: `/bin/bash`, or the resolved pwsh). */"
+    },
+    {
+      "file": "packages/terminal/terminal-bash/src/config.ts",
+      "line": 63,
+      "text": "export const DEFAULT_BASH_SHELL = '/bin/bash'"
+    },
+    {
+      "file": "packages/terminal/terminal-bash/src/sanitize.ts",
+      "line": 34,
+      "text": "* Consume one decoded `node-pty` data chunk."
+    },
+    {
+      "file": "packages/test-support/session-snapshot/src/harness.ts",
+      "line": 231,
+      "text": "platform: NodeJS.Platform = process.platform,"
+    },
+    {
+      "file": "packages/test-support/session-snapshot/src/launcher.ts",
+      "line": 10,
+      "text": "import { spawn, type ChildProcessWithoutNullStreams } from 'node:child_process'"
+    },
+    {
+      "file": "packages/test-support/session-snapshot/src/launcher.ts",
+      "line": 405,
+      "text": "symlinkSync(packageDir, link, process.platform === 'win32' ? 'junction' : 'dir')"
+    },
+    {
+      "file": "packages/test-support/session-snapshot/src/suite.ts",
+      "line": 231,
+      "text": "platform: NodeJS.Platform = process.platform,"
+    },
+    {
+      "file": "packages/test-support/session-snapshot/src/suite.ts",
+      "line": 254,
+      "text": "platform: NodeJS.Platform = process.platform,"
+    },
+    {
+      "file": "packages/test-support/session-snapshot/src/suite.ts",
+      "line": 1314,
+      "text": "it.skipIf(scenarioSkipped(scenario, RECORDING, process.platform, options.hasPwsh))(`snapshot: ${scenario.name} matches the expected outputs`, async ({ expect }) => {"
+    },
+    {
+      "file": "packages/util/atomic-write/src/index.ts",
+      "line": 26,
+      "text": "if (process.platform !== 'win32') return false"
+    },
+    {
+      "file": "packages/util/atomic-write/src/index.ts",
+      "line": 255,
+      "text": "if (process.platform !== 'win32'"
+    },
+    {
+      "file": "packages/util/launch-environment/src/index.ts",
+      "line": 62,
+      "text": "return process.platform === 'win32' ? name.toUpperCase() : name"
+    },
+    {
+      "file": "packages/util/native-command/src/file-applications.ts",
+      "line": 191,
+      "text": "const platform = internals.platform ?? process.platform"
+    },
+    {
+      "file": "packages/util/native-command/src/host-environment.ts",
+      "line": 17,
+      "text": "if ((facts.platform ?? process.platform) !== 'linux') return false"
+    },
+    {
+      "file": "packages/util/native-command/src/path-opener.ts",
+      "line": 167,
+      "text": "const platform = internals.platform ?? process.platform"
+    },
+    {
+      "file": "packages/util/native-command/src/path-opener.ts",
+      "line": 209,
+      "text": "const platform = internals.platform ?? process.platform"
+    },
+    {
+      "file": "packages/util/native-command/src/path-opener.ts",
+      "line": 268,
+      "text": "const platform = internals.platform ?? process.platform"
+    },
+    {
+      "file": "packages/util/native-command/src/path-opener.ts",
+      "line": 285,
+      "text": "const platform = internals.platform ?? process.platform"
+    },
+    {
+      "file": "packages/util/native-command/src/runner.ts",
+      "line": 6,
+      "text": "import { execFile } from 'node:child_process'"
+    },
+    {
+      "file": "packages/util/ripgrep/src/index.ts",
+      "line": 17,
+      "text": "const executableSidecar = process.platform === 'win32'"
+    },
+    {
+      "file": "packages/workspace/workspace/src/paths.ts",
+      "line": 18,
+      "text": "platform: NodeJS.Platform = process.platform,"
+    },
+    {
+      "file": "packages/workspace/workspace/src/paths.ts",
+      "line": 33,
+      "text": "platform: NodeJS.Platform = process.platform,"
+    }
+  ]
+}
