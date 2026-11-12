@@ -24,6 +24,11 @@ public final class FixedPwdExecution implements AutoCloseable {
     private final CommandGrant.Request request;
     private final CommandGrant grant;
     private final OwnedProcess process = new OwnedProcess();
+    private final java.util.concurrent.atomic.AtomicBoolean cancelled = new java.util.concurrent.atomic.AtomicBoolean();
+    private final java.util.concurrent.atomic.AtomicInteger launches = new java.util.concurrent.atomic.AtomicInteger();
+
+    /** Observed starts, including a child whose later output or wait failed. */
+    public int processLaunches() { return launches.get(); }
 
     /** Configure only from native-owned identity and canonical private workspace. */
     public static FixedPwdExecution android(String sessionId, String callId, File workspace,
@@ -47,6 +52,10 @@ public final class FixedPwdExecution implements AutoCloseable {
     public Result execute() throws IOException, InterruptedException {
         CommandGrant.Outcome outcome = grant.consume(request);
         if (outcome != CommandGrant.Outcome.CONSUMED) throw new IOException("Command authorization: " + outcome);
+        File directory = new File(request.cwd);
+        if (!directory.isDirectory() || !directory.getCanonicalPath().equals(request.cwd)) {
+            throw new IOException("Approved workspace changed");
+        }
         File executable = new File(request.executable);
         if (!executable.isFile() || !executable.canExecute()) throw new IOException("Fixed pwd unavailable");
         // Android installation/system policy owns executable immutability; no writable extraction.
@@ -57,8 +66,10 @@ public final class FixedPwdExecution implements AutoCloseable {
         builder.environment().put("PWD", request.cwd);
         try {
             Process child = process.start(builder);
+            launches.incrementAndGet();
             child.getOutputStream().close();
-            if (!child.waitFor(5, TimeUnit.SECONDS)) throw new IOException("Fixed pwd timed out");
+            if (!child.waitFor(5, TimeUnit.SECONDS)) throw new java.net.SocketTimeoutException("Fixed pwd timed out");
+            if (cancelled.get()) throw new java.io.InterruptedIOException("Fixed pwd cancelled");
             return new Result(readBounded(child.getInputStream()), readBounded(child.getErrorStream()), child.exitValue());
         } finally {
             process.close();
@@ -78,6 +89,7 @@ public final class FixedPwdExecution implements AutoCloseable {
 
     /** Revoke pending consent and terminate/reap the owned process on cancellation. */
     @Override public void close() throws IOException {
+        cancelled.set(true);
         grant.close();
         process.close();
     }

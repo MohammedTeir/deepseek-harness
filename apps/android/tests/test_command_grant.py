@@ -22,7 +22,7 @@ class CommandGrantTest(unittest.TestCase):
                         str(android / "tests/CommandGrantFixture.java")], check=True, timeout=60)
 
     def test_policy(self):
-        for mode in ("approval", "mutation", "expiry", "revocation", "concurrency", "immutable", "process", "failed-launch"):
+        for mode in ("approval", "mutation", "expiry", "revocation", "concurrency", "immutable", "process", "failed-launch", "stderr", "timeout", "cancel", "workspace"):
             with self.subTest(mode=mode):
                 result = subprocess.run([self.java, "-cp", str(self.root),
                                          "io.github.mohammedteir.deepseekharness.CommandGrantFixture", mode, str(self.root)],

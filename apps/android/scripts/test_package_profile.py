@@ -17,6 +17,11 @@ class ProfileArchiveTest(unittest.TestCase):
             zip.writestr('image-manifest.json',json.dumps(manifest))
         return archive,manifest
 
+    def test_host_approval_fixture_is_not_shippable(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with self.assertRaises(ValueError):
+                validate_archive(*self.archive(directory, 'apps/android/tests/command-profile-reference.mjs', b'host fixture'))
+
     def test_plain_interpreted_file_is_accepted(self):
         with tempfile.TemporaryDirectory() as directory:
             validate_archive(*self.archive(directory,'lib/index.js',b'export const value = 1;'))

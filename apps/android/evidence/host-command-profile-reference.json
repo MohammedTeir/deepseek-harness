@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "suite": "original-harness-approved-pwd-v1",
+  "node": "v24.22.1",
+  "platform": "linux",
+  "arch": "x64",
+  "kernelIdentity": {
+    "pid": 169747,
+    "parentPid": 169726,
+    "uid": 1000,
+    "source": "/proc/self/status"
+  },
+  "harnessStarted": true,
+  "serverInfo": {
+    "name": "deepseek-harness-sdk-runtime",
+    "version": "0.0.1"
+  },
+  "sessionId": "android-command-host",
+  "runtimeStderr": [
+    "shutdown request failed: dsh profile \"sdk-minimal\": JSON-RPC input closed\nexit code: 0",
+    "shutdown request failed: dsh profile \"sdk-minimal\": JSON-RPC input closed\nexit code: 0"
+  ],
+  "originalRegistryAndPipeline": true,
+  "approvalOutcomes": [
+    {
+      "callId": "deny-host",
+      "outcome": "rejected"
+    },
+    {
+      "callId": "allow-host",
+      "outcome": "allowed-once"
+    }
+  ],
+  "commandResult": {
+    "stdout": "/tmp/hcmd-SEm195/workspace\n",
+    "stderr": "",
+    "exitCode": 0,
+    "cwd": "/tmp/hcmd-SEm195/workspace",
+    "nativeConcurrentConsumers": 2,
+    "nativeConcurrentRejections": 1
+  },
+  "negative": {
+    "unapproved": {
+      "ok": false,
+      "code": "APPROVAL_REQUIRED"
+    },
+    "unauthenticated": {
+      "ok": false,
+      "code": "UNAUTHENTICATED"
+    },
+    "malformed": {
+      "ok": false,
+      "code": "MALFORMED_OR_DISCONNECTED"
+    },
+    "approvalMethod": {
+      "ok": false,
+      "code": "UNSUPPORTED_ACTION"
+    },
+    "duplicate": {
+      "ok": false,
+      "code": "DUPLICATE"
+    },
+    "command": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "arguments": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "cwd": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "session": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "call": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "uid": {
+      "ok": false,
+      "code": "MALFORMED"
+    },
+    "replay": {
+      "ok": false,
+      "code": "USED"
+    }
+  },
+  "history": [
+    {
+      "type": "approval/asked",
+      "seq": 4,
+      "time": 1794526351676,
+      "data": {
+        "id": "56ffd3a4-81de-4545-ad20-1a567b344713",
+        "toolName": "android_qualified_pwd",
+        "callId": "deny-host",
+        "reason": "Native fixed pwd qualification; exact request is rendered by Android."
+      }
+    },
+    {
+      "type": "approval/decided",
+      "seq": 5,
+      "time": 1794526351679,
+      "data": {
+        "id": "56ffd3a4-81de-4545-ad20-1a567b344713",
+        "outcome": "rejected"
+      }
+    },
+    {
+      "type": "command/done",
+      "seq": 6,
+      "time": 1794526351680,
+      "data": {
+        "commandId": "cmd-d2f6fb6e-1",
+        "kind": "success",
+        "text": "{\"callId\":\"deny-host\",\"batch\":{\"results\":[{\"callId\":\"deny-host\",\"result\":{\"isError\":true,\"error\":{\"message\":\"the user rejected tool \\\"android_qualified_pwd\\\"\",\"info\":{\"name\":\"ApprovalError\",\"code\":\"APPROVAL_REJECTED\"}},\"content\":[{\"type\":\"text\",\"text\":\"Error: the user rejected tool \\\"android_qualified_pwd\\\"\"}]}}],\"additionalContexts\":[],\"concluded\":false}}"
+      }
+    },
+    {
+      "type": "approval/asked",
+      "seq": 12,
+      "time": 1794526351686,
+      "data": {
+        "id": "1ebc2fbd-ad2c-478a-9a29-54bfa48609d0",
+        "toolName": "android_qualified_pwd",
+        "callId": "allow-host",
+        "reason": "Native fixed pwd qualification; exact request is rendered by Android."
+      }
+    },
+    {
+      "type": "approval/decided",
+      "seq": 13,
+      "time": 1794526351699,
+      "data": {
+        "id": "1ebc2fbd-ad2c-478a-9a29-54bfa48609d0",
+        "outcome": "allowed-once"
+      }
+    },
+    {
+      "type": "command/done",
+      "seq": 14,
+      "time": 1794526351710,
+      "data": {
+        "commandId": "cmd-d2f6fb6e-2",
+        "kind": "success",
+        "text": "{\"callId\":\"allow-host\",\"batch\":{\"results\":[{\"callId\":\"allow-host\",\"result\":{\"isError\":false,\"content\":[{\"type\":\"text\",\"text\":\"{\\\"stdout\\\":\\\"/tmp/hcmd-SEm195/workspace\\\\n\\\",\\\"stderr\\\":\\\"\\\",\\\"exitCode\\\":0,\\\"cwd\\\":\\\"/tmp/hcmd-SEm195/workspace\\\",\\\"nativeConcurrentConsumers\\\":2,\\\"nativeConcurrentRejections\\\":1}\"}],\"value\":{\"stdout\":\"/tmp/hcmd-SEm195/workspace\\n\",\"stderr\":\"\",\"exitCode\":0,\"cwd\":\"/tmp/hcmd-SEm195/workspace\",\"nativeConcurrentConsumers\":2,\"nativeConcurrentRejections\":1}}}],\"additionalContexts\":[],\"concluded\":false}}"
+      }
+    }
+  ],
+  "recoveredHistory": [
+    {
+      "type": "approval/asked",
+      "seq": 4,
+      "time": 1794526351676,
+      "data": {
+        "id": "56ffd3a4-81de-4545-ad20-1a567b344713",
+        "toolName": "android_qualified_pwd",
+        "callId": "deny-host",
+        "reason": "Native fixed pwd qualification; exact request is rendered by Android."
+      }
+    },
+    {
+      "type": "approval/decided",
+      "seq": 5,
+      "time": 1794526351679,
+      "data": {
+        "id": "56ffd3a4-81de-4545-ad20-1a567b344713",
+        "outcome": "rejected"
+      }
+    },
+    {
+      "type": "command/done",
+      "seq": 6,
+      "time": 1794526351680,
+      "data": {
+        "commandId": "cmd-d2f6fb6e-1",
+        "kind": "success",
+        "text": "{\"callId\":\"deny-host\",\"batch\":{\"results\":[{\"callId\":\"deny-host\",\"result\":{\"isError\":true,\"error\":{\"message\":\"the user rejected tool \\\"android_qualified_pwd\\\"\",\"info\":{\"name\":\"ApprovalError\",\"code\":\"APPROVAL_REJECTED\"}},\"content\":[{\"type\":\"text\",\"text\":\"Error: the user rejected tool \\\"android_qualified_pwd\\\"\"}]}}],\"additionalContexts\":[],\"concluded\":false}}"
+      }
+    },
+    {
+      "type": "approval/asked",
+      "seq": 12,
+      "time": 1794526351686,
+      "data": {
+        "id": "1ebc2fbd-ad2c-478a-9a29-54bfa48609d0",
+        "toolName": "android_qualified_pwd",
+        "callId": "allow-host",
+        "reason": "Native fixed pwd qualification; exact request is rendered by Android."
+      }
+    },
+    {
+      "type": "approval/decided",
+      "seq": 13,
+      "time": 1794526351699,
+      "data": {
+        "id": "1ebc2fbd-ad2c-478a-9a29-54bfa48609d0",
+        "outcome": "allowed-once"
+      }
+    },
+    {
+      "type": "command/done",
+      "seq": 14,
+      "time": 1794526351710,
+      "data": {
+        "commandId": "cmd-d2f6fb6e-2",
+        "kind": "success",
+        "text": "{\"callId\":\"allow-host\",\"batch\":{\"results\":[{\"callId\":\"allow-host\",\"result\":{\"isError\":false,\"content\":[{\"type\":\"text\",\"text\":\"{\\\"stdout\\\":\\\"/tmp/hcmd-SEm195/workspace\\\\n\\\",\\\"stderr\\\":\\\"\\\",\\\"exitCode\\\":0,\\\"cwd\\\":\\\"/tmp/hcmd-SEm195/workspace\\\",\\\"nativeConcurrentConsumers\\\":2,\\\"nativeConcurrentRejections\\\":1}\"}],\"value\":{\"stdout\":\"/tmp/hcmd-SEm195/workspace\\n\",\"stderr\":\"\",\"exitCode\":0,\"cwd\":\"/tmp/hcmd-SEm195/workspace\",\"nativeConcurrentConsumers\":2,\"nativeConcurrentRejections\":1}}}],\"additionalContexts\":[],\"concluded\":false}}"
+      }
+    }
+  ],
+  "sessionRecoveredAcrossRuntimeRestart": true,
+  "persistedJsonlSha256": {
+    "--tmp-hcmd-SEm195-workspace--/android-command-host/session.v4.jsonl": "a36af2332aa061b8bd29c565100457175f3dd69de09c1fdfabbaffe41d20547c"
+  },
+  "eventStorage": "original command/done contains canonical tool batch; original approval audit events; no fabricated model tool/call events",
+  "approvedCommandExecuted": true,
+  "modelRequestExecuted": false,
+  "gate2Passed": false,
+  "hostQualification": {
+    "automatedDecisionFixture": true,
+    "androidIpcTested": false,
+    "androidExecutionTested": false,
+    "humanApprovalTested": false,
+    "actualHostExecutable": "/usr/bin/pwd",
+    "processLaunches": 1
+  }
+}

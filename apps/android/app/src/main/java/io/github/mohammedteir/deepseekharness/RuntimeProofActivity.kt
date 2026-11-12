@@ -13,6 +13,9 @@ class RuntimeProofActivity : Activity() {
     private var connection: ServiceConnection? = null
     private val handler = Handler(Looper.getMainLooper())
     private var generation = 0
+    private var commandActive = false
+    private var commandService: Messenger? = null
+    private var approvalDialog: AlertDialog? = null
     private val timeout = Runnable { output.text = "BLOCKED: runtime probe timed out"; release() }
 
     override fun onCreate(state: Bundle?) {
@@ -45,6 +48,14 @@ class RuntimeProofActivity : Activity() {
             }
         })
         layout.addView(Button(this).apply {
+            text = "Run original tool + native approval proof"
+            setOnClickListener {
+                AlertDialog.Builder(this@RuntimeProofActivity).setTitle("Original Harness command qualification")
+                    .setMessage("Two native prompts follow: DENY the first, APPROVE the second. Only /system/bin/pwd with no arguments may run. Keep the app visible; leaving cancels the proof. Existing sessions are preserved.")
+                    .setNegativeButton("Cancel", null).setPositiveButton("Start test") { _, _ -> runProbe(command = true) }.show()
+            }
+        })
+        layout.addView(Button(this).apply {
             text = "Copy complete result"
             setOnClickListener {
                 (getSystemService(CLIPBOARD_SERVICE) as ClipboardManager).setPrimaryClip(ClipData.newPlainText("Harness runtime proof", output.text))
@@ -55,12 +66,26 @@ class RuntimeProofActivity : Activity() {
         setContentView(layout)
     }
 
-    private fun runProbe(packaged: Boolean = false, profile: Boolean = false) {
+    private fun runProbe(packaged: Boolean = false, profile: Boolean = false, command: Boolean = false) {
         release()
+        commandActive = command
         val current = generation
         output.text = "Starting embedded API probe…"
         val replies = Messenger(Handler(Looper.getMainLooper()) { message ->
-            if (generation == current) {
+            if (generation == current && command && message.what == 2) {
+                val request = org.json.JSONObject(message.data.getString("result") ?: "{}")
+                val decide: (Boolean) -> Unit = { allow ->
+                    try { commandService?.send(Message.obtain(null, 2).apply { data = Bundle().apply {
+                        putString("callId", request.getString("callId")); putBoolean("allow", allow)
+                    } }) } catch (_: RemoteException) { output.text = "BLOCKED: approval connection lost"; release() }
+                }
+                approvalDialog?.dismiss()
+                approvalDialog = AlertDialog.Builder(this).setTitle("Native command approval")
+                    .setMessage("Test action: ${request.getString("expectedTestAction")}\n\nCommand: ${request.getString("executable")}\nArguments: none\nDirectory: ${request.getString("cwd")}\nSession: ${request.getString("sessionId")}\nTool call: ${request.getString("callId")}\nExecution UID: ${request.getInt("uid")} (ordinary app UID)\nAction: run once")
+                    .setNegativeButton("Deny") { _, _ -> decide(false) }
+                    .setPositiveButton("Approve once") { _, _ -> decide(true) }
+                    .setOnCancelListener { decide(false) }.create().also { it.show() }
+            } else if (generation == current) {
                 output.text = message.data.getString("result") ?: "BLOCKED: missing probe result"
                 release()
             }
@@ -69,25 +94,29 @@ class RuntimeProofActivity : Activity() {
         val service = object : ServiceConnection {
             override fun onServiceConnected(name: ComponentName, binder: IBinder) {
                 if (generation != current) return
-                try { Messenger(binder).send(Message.obtain(null, 1).apply { replyTo = replies }) }
+                try { if (command) commandService = Messenger(binder); Messenger(binder).send(Message.obtain(null, 1).apply { replyTo = replies }) }
                 catch (_error: RemoteException) { output.text = "BLOCKED: runtime disconnected"; release() }
             }
             override fun onServiceDisconnected(name: ComponentName) {
                 if (generation == current) { output.text = "BLOCKED: runtime process exited"; release() }
             }
         }
-        val target = if (profile) ProfileProbeService::class.java else if (packaged) ExecutableProbeService::class.java else RuntimeService::class.java
+        val target = if (command) CommandProbeService::class.java else if (profile) ProfileProbeService::class.java else if (packaged) ExecutableProbeService::class.java else RuntimeService::class.java
         if (bindService(Intent(this, target), service, Context.BIND_AUTO_CREATE)) {
             connection = service
-            handler.postDelayed(timeout, if (profile) 120000 else if (packaged) 60000 else 30000)
+            handler.postDelayed(timeout, if (command) 240000 else if (profile) 120000 else if (packaged) 60000 else 30000)
         } else output.text = "BLOCKED: cannot bind runtime"
     }
 
     private fun release() {
+        commandActive = false
+        commandService = null
+        approvalDialog?.dismiss(); approvalDialog = null
         generation++
         handler.removeCallbacks(timeout)
         connection?.let { unbindService(it) }
         connection = null
     }
+    override fun onStop() { if (commandActive) { output.text = "BLOCKED: command proof cancelled while leaving the Activity"; release() }; super.onStop() }
     override fun onDestroy() { release(); super.onDestroy() }
 }

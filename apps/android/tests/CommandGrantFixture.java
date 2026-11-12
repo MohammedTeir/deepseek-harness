@@ -135,6 +135,58 @@ public final class CommandGrantFixture {
                 }
                 break;
             }
+            case "stderr":
+            case "timeout":
+            case "cancel": {
+                java.nio.file.Path root = java.nio.file.Path.of(args[1]);
+                java.nio.file.Path script = root.resolve("host-" + args[0]);
+                String body = args[0].equals("stderr") ? "#!/bin/sh\nprintf 'out\\n'\nprintf 'err\\n' >&2\nexit 7\n" : "#!/bin/sh\nwhile :; do :; done\n";
+                java.nio.file.Files.writeString(script, body);
+                require(script.toFile().setExecutable(true, true));
+                CommandGrant.Request host = request("session", "call", script.toString(), List.of(), root.toString(), 1000);
+                try (CommandGrant grant = new CommandGrant(host, System::nanoTime, 30_000_000_000L);
+                     FixedPwdExecution execution = new FixedPwdExecution("session", "call", root.toFile(), 1000, grant, script.toString())) {
+                    require(grant.decide(true));
+                    if (args[0].equals("stderr")) {
+                        FixedPwdExecution.Result value = execution.execute();
+                        require(value.exitCode == 7 && value.stdout.equals("out\n") && value.stderr.equals("err\n"));
+                    } else if (args[0].equals("timeout")) {
+                        try { execution.execute(); throw new AssertionError(); }
+                        catch (java.net.SocketTimeoutException expected) { /* real five-second deadline */ }
+                    } else {
+                        java.util.concurrent.atomic.AtomicReference<Throwable> failure = new java.util.concurrent.atomic.AtomicReference<>();
+                        Thread thread = new Thread(() -> { try { execution.execute(); } catch (Throwable error) { failure.set(error); } });
+                        thread.start();
+                        try {
+                            long deadline = System.nanoTime() + 5_000_000_000L;
+                            while (execution.processLaunches() == 0 && System.nanoTime() < deadline) Thread.sleep(5);
+                            require(execution.processLaunches() == 1);
+                            execution.close();
+                            thread.join(10000);
+                            require(!thread.isAlive());
+                            require(failure.get() instanceof java.io.InterruptedIOException);
+                        } finally { execution.close(); thread.join(10000); }
+                    }
+                    require(execution.processLaunches() == 1);
+                }
+                break;
+            }
+            case "workspace": {
+                java.nio.file.Path root = java.nio.file.Path.of(args[1]);
+                java.nio.file.Path workspace = java.nio.file.Files.createDirectory(root.resolve("guarded"));
+                String executable = "/usr/bin/pwd";
+                CommandGrant.Request host = request("session", "call", executable, List.of(), workspace.toString(), 1000);
+                try (CommandGrant grant = new CommandGrant(host, System::nanoTime, 10_000_000_000L);
+                     FixedPwdExecution execution = new FixedPwdExecution("session", "call", workspace.toFile(), 1000, grant, executable)) {
+                    require(grant.decide(true));
+                    java.nio.file.Files.move(workspace, root.resolve("moved"));
+                    java.nio.file.Files.createSymbolicLink(workspace, root.resolve("moved"));
+                    try { execution.execute(); throw new AssertionError(); }
+                    catch (java.io.IOException expected) { require(expected.getMessage().contains("workspace changed")); }
+                    require(execution.processLaunches() == 0);
+                }
+                break;
+            }
             default: throw new IllegalArgumentException("Unknown fixture");
         }
         System.out.println(args[0] + " PASS");

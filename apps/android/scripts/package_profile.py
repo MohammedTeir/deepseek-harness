@@ -72,6 +72,8 @@ def validate_archive(archive, manifest):
             raise ValueError('Archive entries differ from manifest')
         if json.loads(zip.read('image-manifest.json')) != manifest:
             raise ValueError('Archive manifest differs from inspected metadata')
+        if 'apps/android/tests/command-profile-reference.mjs' in expected:
+            raise ValueError('Host approval fixture must not enter Android image')
         for name, digest in expected.items():
             if name.startswith('/') or '\\' in name or any(p in {'', '.', '..'} for p in name.split('/')):
                 raise ValueError('Unsafe archive path')
@@ -94,6 +96,12 @@ def validate_host_qualification(directory):
         result=json.loads(data)
         if result.get('platform') != 'linux' or not result.get('harnessStarted') or not result.get(key):
             raise ValueError('Real host profile qualification incomplete')
+    command_result = (directory/'command-relocated-result.json').read_bytes()
+    if marker.get('resultSha256', {}).get('command-relocated-result.json') != hashlib.sha256(command_result).hexdigest():
+        raise ValueError('Command qualification digest mismatch')
+    command_proof = json.loads(command_result)
+    if not command_proof.get('originalRegistryAndPipeline') or not command_proof.get('sessionRecoveredAcrossRuntimeRestart') or command_proof.get('hostQualification', {}).get('processLaunches') != 1:
+        raise ValueError('Original command qualification missing')
     relocation=json.loads((directory/'relocation.json').read_text())
     if not relocation.get('imageOutsideCheckout') or not relocation.get('stateOutsideCheckout'):
         raise ValueError('Host profile must qualify outside checkout')
@@ -114,7 +122,21 @@ def build(output):
         (output / 'trace-run.txt').write_text(observed.stdout + observed.stderr)
         if observed.returncode:
             raise RuntimeError(f'Original profile trace failed: {observed.stderr}')
+        command_prefix = temp / 'command-access'
+        command_trace = ['strace', '-ff', '-qq', '-s', '4096', '-e', 'trace=openat,readlink,readlinkat',
+                         '-o', str(command_prefix), 'node', str(ANDROID/'tests/command-profile-reference.mjs'),
+                         str(temp/'command-reference.json')]
+        command_observed = subprocess.run(command_trace, cwd=ROOT, capture_output=True, text=True, timeout=120)
+        (output/'command-trace-run.txt').write_text(command_observed.stdout + command_observed.stderr)
+        if command_observed.returncode:
+            raise RuntimeError(f'Original command profile trace failed: {command_observed.stderr}')
+        command_files, command_links = collect(ROOT, sorted(temp.glob('command-access.*')))
         files, links = collect(ROOT, sorted(temp.glob('access.*')))
+        files |= command_files
+        for key, value in command_links.items():
+            if key in links and links[key] != value:
+                raise ValueError(f'Command alias differs: {key}')
+            links[key] = value
         # Host tooling is not a phone executable. Android uses the APK's Bionic binding.
         natives = {name for name in files if name.endswith('.node')}
         if natives != HOST_NATIVE:
@@ -123,7 +145,11 @@ def build(output):
         files |= {'LICENSE', 'THIRD_PARTY_NOTICES.md', 'apps/android/runtime/profile/no-execution.patch.yml',
                   'apps/android/runtime/profile-smoke.mjs', 'apps/android/runtime/proc-identity.mjs',
                   'apps/android/runtime/session-diagnostics.mjs', 'native/system/packages/entry/lib/publish.js',
-                  'native/system/packages/entry/package.json'}
+                  'native/system/packages/entry/package.json', 'apps/android/runtime/profile/command-proof.patch.yml',
+                  'apps/android/runtime/command-smoke.mjs', 'apps/android/runtime/command-plugin.mjs',
+                  'apps/android/runtime/command-wire.mjs'}
+        # Automated host decision fixture is not an Android execution component.
+        files.discard('apps/android/tests/command-profile-reference.mjs')
         packages = set()
         for name in list(files):
             directory = (ROOT / name).parent
@@ -159,7 +185,7 @@ def build(output):
             destination.write_bytes(data)
             files.add(name)
             digests[name]=hashlib.sha256(data).hexdigest()
-        manifest = dict(schemaVersion=1,scope='Observed original sdk-minimal startup/session recovery only',
+        manifest = dict(schemaVersion=1,scope='Observed original sdk-minimal startup/session and fixed-command qualification; not full distribution',
                         completeDependencyDistribution=False,files=dict(sorted(digests.items())),links=dict(sorted(links.items())),
                         directories=sorted({target for target in links.values() if (ROOT/target).is_dir()}),
                         packageManifests=sorted(packages),excludedHostNative=sorted(HOST_NATIVE),
@@ -207,12 +233,19 @@ def build(output):
         if repeat.returncode or not json.loads((state/'repeat-result.json').read_text()).get('previousRunSessionRecovered'):
             raise RuntimeError(f'Relocated prior-run recovery failed: {repeat.stderr}')
         shutil.copy2(state/'repeat-result.json',output/'relocated-repeat-result.json')
+        command_relocated = subprocess.run(['node', str(ANDROID/'tests/command-profile-reference.mjs'),
+                                           str(output/'command-relocated-result.json'),
+                                           str(host/'apps/android/runtime/command-smoke.mjs')],
+                                          cwd=host, env=env, capture_output=True, text=True, timeout=120)
+        (output/'command-relocated-run.txt').write_text(command_relocated.stdout+command_relocated.stderr)
+        if command_relocated.returncode:
+            raise RuntimeError(f'Relocated original command profile failed: {command_relocated.stderr}')
         (output/'relocation.json').write_text(json.dumps(dict(imageOutsideCheckout=True,stateOutsideCheckout=True,
             inheritedEnvironmentAllowlist=['PATH','TMPDIR','LANG'],originalHostNativeLibrariesOnly=True,androidNativeExecuted=False),indent=2)+'\n')
         qualification=dict(schemaVersion=1,hostOnly=True,androidVerified=False,
             imageSha256=hashlib.sha256(archive.read_bytes()).hexdigest(),
             resultSha256={name:hashlib.sha256((output/name).read_bytes()).hexdigest()
-                          for name in ['relocated-result.json','relocated-repeat-result.json']})
+                          for name in ['relocated-result.json','relocated-repeat-result.json','command-relocated-result.json']})
         (output/'profile-qualification.json').write_text(json.dumps(qualification,indent=2)+'\n')
         validate_host_qualification(output)
         print(json.dumps(dict(files=len(files),links=len(links),packages=len(packages),archiveBytes=archive.stat().st_size)))
