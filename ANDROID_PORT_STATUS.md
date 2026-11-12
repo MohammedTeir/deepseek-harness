@@ -2,7 +2,7 @@
 
 ## Summary
 
-Phase 0 is VERIFIED. The [Gate 1 review](ANDROID_GATE1_REVIEW.md) accepts the reviewed audit and a bounded Phase 2 runtime experiment. Phase 2 is IN PROGRESS; Gate 2 is not passed. The user reports v3 passing the native-lock stage, then failing on missing process.getuid during result-write. Version 4 reports the absent Node capability and uses separate native Android identity; phone verification is pending. The original frontend and Harness engine are preserved. No full Android API qualification, authentic profile readiness, session recovery or authorized tool result has been verified.
+Phase 0 is VERIFIED. The [Gate 1 review](ANDROID_GATE1_REVIEW.md) accepts the reviewed audit and a bounded Phase 2 runtime experiment. Phase 2 is IN PROGRESS; Gate 2 is not passed. The user reports the complete v4 JNI API probe passing on a Redmi Note 8 Pro. V5 adds an installer-owned Node executable/child comparison; phone results are pending. The original frontend and Harness engine are preserved. Android Harness profile readiness, session recovery and authorized tool execution remain unverified.
 
 ## Upstream sync: Phase 1 evidence refreshed
 
@@ -113,3 +113,19 @@ Node 24.22.1 src/node_internals.h excludes Android from NODE_IMPLEMENTS_POSIX_CR
 Six host tests passed, including an isolated Linux Node preloader that removes getuid to exercise feature-absence reporting; this is not Android execution evidence. Runtime/test APK assembly and Android lint passed: 78 tasks in 15s. APK signatures, alignment, dependencies, notices and source/artifact hashes passed. Evidence is in apps/android/evidence/runtime-identity-build.json. Repeat the full phone probe. Gate 2 remains BLOCKED; production consumers of POSIX credentials, including spill ownership validation, need Android adaptation before enabling those paths.
 
 V4 update checks passed: quick documentation 21/21, full documentation 43/43, and repository lint with the existing unused-disable warning. The Filebin ZIP and its contained APK were downloaded and hash-verified. No v4 Android instrumentation or successful phone result is claimed.
+
+## User-reported JNI API success and executable comparison
+
+The user's complete v4 JSON reports Node v24.22.1/android/arm64, SQLite/worker/ESM/crypto/native-lock success and successful DNS/TLS. Node PID matches native Android PID; UID 10750 is non-root. Node getuid is unavailable as expected. The exact user-provided result and its limits are in `apps/android/evidence/phone-v4-user-result.json`. This is manual user-reported phone evidence, not developer-controlled ADB instrumentation. Android 11 is still unconfirmed by ADB. Harness was explicitly not started.
+
+The reported execPath is `/system/bin/app_process64`; childNodeLaunch remains not-tested. The existing Harness SDK and managed runner use process.execPath, so JNI API success alone cannot establish process launch compatibility. V5 (`0.1.4-executable-proof`, code 5) packages the unchanged original Node UNIX entry as an inspected PIE, with Android-installer extraction into nativeLibraryDir. The app rejects a missing/writable executable and runs only the fixed APK-owned comparison scripts. No native executable is copied into writable app files. The second native button displays the fixed invocation before running; it does not prove Harness tool authorization.
+
+The executable comparison runs the same API probe and launches one real fixed child Node program. It checks actual stdout/exit and separate parent/child PID/UID from each process's own kernel status. Native supervision checks the Node parent and app UID. A single-use process owner synchronizes startup/cancellation, signals TERM then KILL on bounded deadlines, waits for exit, closes streams and preserves interruption. Android OS process-kill/background behavior remains untested; these are diagnostic lifecycle controls, not a sandbox or general command provider.
+
+Eleven host API/process-owner tests and ten ELF/metadata tests passed. The actual Linux parent/child program ran; JVM tests observed exit status, live-child cleanup, interrupted cleanup and cancellation before launch. These do not establish Android execution. Final APK/test assembly and Android lint passed: 79 tasks in 51s. Signatures, alignment, packaged executable interpreter/entry/dependencies and required assets were inspected. Evidence is `apps/android/evidence/runtime-executable-build.json`. Both Android test classes are present and separately selectable; device instrumentation remains unrun.
+
+The genuine public Harness SDK initialized the shipped sdk-minimal profile on Linux, created persistent session state, closed the runtime, initialized a new runtime and resumed the same nondefault working directory. A real session.v4.jsonl file was hashed. No model request, fake model server or replacement agent loop was used. The reproducible host reference and results are `apps/android/tests/host-profile-reference.mjs` and `apps/android/evidence/host-profile-reference.json`. This is not Android Harness startup or storage acceptance.
+
+Next: run the packaged Node comparison on the phone, then select the runtime integration using actual executable/child results. Before Android Harness profile boot, adapt the native lock selector, unavailable UID ownership checks and desktop shell/PTY composition. Gate 2 and later gates remain unpassed; no Termux/root support or original frontend changes were introduced.
+
+V5 validation passed: quick documentation 21/21, full documentation 43/43 and repository lint with the existing unused-disable warning. The Filebin archive and contained APK were downloaded and hash-verified. Device executable/child execution and Android Harness profile results remain unverified.

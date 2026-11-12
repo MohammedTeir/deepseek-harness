@@ -90,7 +90,8 @@ async function main() {
   fs.writeFileSync(pending, result, { mode: 0o600 });
   fs.renameSync(pending, output);
 }
-main().catch(error => {
+/** Completion of the fixed API probe, also awaited by the executable comparison. */
+export const probeCompletion = main().catch(error => {
   console.error(error instanceof Error ? error.stack : String(error));
   const output = process.argv[2];
   if (output && path.isAbsolute(output)) {

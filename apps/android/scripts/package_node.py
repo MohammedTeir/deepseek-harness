@@ -31,6 +31,17 @@ def inspect_addon(readelf: Path, addon: Path) -> None:
         raise ValueError("Android addon must declare libnode.so in DT_NEEDED")
 
 
+def inspect_executable(readelf: Path, executable: Path) -> None:
+    """Require an aligned Android PIE using the bundled Node provider."""
+    inspect_addon(readelf, executable)
+    report = subprocess.check_output([str(readelf), "-h", "-l", "-d", "-W", str(executable)], text=True)
+    if "[Requesting program interpreter: /system/bin/linker64]" not in report or "$ORIGIN" not in report:
+        raise ValueError("Node executable requires Android linker64 and ORIGIN search")
+    entry = re.search(r"Entry point address:\s+0x([0-9a-fA-F]+)", report)
+    if not entry or int(entry.group(1), 16) == 0:
+        raise ValueError("Node executable has no entry point")
+
+
 def package(build: Path, ndk: Path, android: Path) -> None:
     """Stage only inspected binaries and their required license records."""
     source = build / "node-v24.22.1"
@@ -44,7 +55,9 @@ def package(build: Path, ndk: Path, android: Path) -> None:
             raise ValueError(f"Node required entry is missing: {symbol}")
     addon = android / "runtime/out/system/libharness_system.so"
     inspect_addon(readelf, addon)
-    binaries = {"libnode.so": library, "libharness_system.so": addon}
+    executable = android / "runtime/out/executable/libnode_executable.so"
+    inspect_executable(readelf, executable)
+    binaries = {"libnode.so": library, "libharness_system.so": addon, "libnode_executable.so": executable}
     if "libc++_shared.so" in dependencies:
         cpp = toolchain / "sysroot/usr/lib/aarch64-linux-android/libc++_shared.so"
         inspect(readelf, cpp)
@@ -70,6 +83,7 @@ def package(build: Path, ndk: Path, android: Path) -> None:
               "nodeArchiveSha256": "4f5379796280cdaeb0c2f358fd04b6a16cc4fb7dfa83b5a8c91a9d963b435231",
               "systemSourceSha256": hashlib.sha256((android.parents[1] / "native/system/packages/entry/src/flock.c").read_bytes()).hexdigest(),
               "systemNodeDependency": "libnode.so",
+              "packagedNodeExecutable": "libnode_executable.so",
               "deviceVerified": False, "harnessStarted": False, "sha256": hashes}
     (metadata / "runtime-build.json").write_text(json.dumps(record, indent=2) + "\n")
     print("Staged inspected ARM64 libraries and licenses; Android execution remains unverified")

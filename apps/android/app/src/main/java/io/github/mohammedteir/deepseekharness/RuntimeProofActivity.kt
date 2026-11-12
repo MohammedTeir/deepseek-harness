@@ -1,9 +1,11 @@
 package io.github.mohammedteir.deepseekharness
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.*
 import android.os.*
 import android.widget.*
+import java.io.File
 
 /** Native API diagnostics only; no replacement Harness frontend or agent. */
 class RuntimeProofActivity : Activity() {
@@ -21,11 +23,23 @@ class RuntimeProofActivity : Activity() {
             setTextIsSelectable(true)
         }
         layout.addView(Button(this).apply { text = "Run embedded Node API probe"; setOnClickListener { runProbe() } })
+        layout.addView(Button(this).apply {
+            text = "Run packaged Node + child probe"
+            setOnClickListener {
+                val command = listOf(File(applicationInfo.nativeLibraryDir, "libnode_executable.so").absolutePath,
+                    File(filesDir, "executable-probe/executable-smoke.mjs").absolutePath,
+                    File(filesDir, "executable-probe/result.json").absolutePath)
+                AlertDialog.Builder(this@RuntimeProofActivity).setTitle("Run fixed Node comparison?")
+                    .setMessage("App UID only. Runs the APK's API tests and one fixed child Node program. No Harness tool approval is proved.\n\n${command.joinToString("\n")}")
+                    .setNegativeButton("Cancel", null)
+                    .setPositiveButton("Run once") { _, _ -> runProbe(true) }.show()
+            }
+        })
         layout.addView(ScrollView(this).apply { addView(output) }, LinearLayout.LayoutParams(-1, 0, 1f))
         setContentView(layout)
     }
 
-    private fun runProbe() {
+    private fun runProbe(packaged: Boolean = false) {
         release()
         val current = generation
         output.text = "Starting embedded API probe…"
@@ -46,9 +60,10 @@ class RuntimeProofActivity : Activity() {
                 if (generation == current) { output.text = "BLOCKED: runtime process exited"; release() }
             }
         }
-        if (bindService(Intent(this, RuntimeService::class.java), service, Context.BIND_AUTO_CREATE)) {
+        val target = if (packaged) ExecutableProbeService::class.java else RuntimeService::class.java
+        if (bindService(Intent(this, target), service, Context.BIND_AUTO_CREATE)) {
             connection = service
-            handler.postDelayed(timeout, 30000)
+            handler.postDelayed(timeout, if (packaged) 60000 else 30000)
         } else output.text = "BLOCKED: cannot bind runtime"
     }
 

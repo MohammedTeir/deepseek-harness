@@ -24,6 +24,22 @@ class AssetGuardTest(unittest.TestCase):
             self.assertIn("Missing verified Android addon Node dependency", result.stderr)
             self.assertFalse((android / "assets").exists())
 
+    def test_manifest_without_inspected_executable_is_rejected(self):
+        with tempfile.TemporaryDirectory(prefix="harness-no-executable-") as directory:
+            android = Path(directory)
+            script = android / "scripts/prepare_runtime_assets.py"
+            script.parent.mkdir()
+            shutil.copy2(Path(__file__).with_name("prepare_runtime_assets.py"), script)
+            metadata = android / "runtime/out"
+            metadata.mkdir(parents=True)
+            (metadata / "runtime-build.json").write_text(json.dumps({
+                "sha256": {"libnode.so": "0" * 64}, "systemNodeDependency": "libnode.so"}))
+            result = subprocess.run([sys.executable, str(script), str(android / "assets")],
+                                    capture_output=True, text=True, timeout=30, check=False)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("Missing inspected Node executable", result.stderr)
+            self.assertFalse((android / "assets").exists())
+
 
 if __name__ == "__main__":
     unittest.main()

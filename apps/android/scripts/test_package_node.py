@@ -3,7 +3,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from package_node import inspect, inspect_addon
+from package_node import inspect, inspect_addon, inspect_executable
 
 
 class ElfInspectionTests(unittest.TestCase):
@@ -49,6 +49,16 @@ Machine: AArch64
         with patch("package_node.subprocess.check_output", return_value=report):
             with self.assertRaisesRegex(ValueError, "Unreviewed"):
                 inspect_addon(Path("readelf"), Path("addon.so"))
+
+    def test_executable_requires_android_interpreter_and_real_entry(self):
+        report = self.report + "  0x0002 (NEEDED) Shared library: [libnode.so]\nEntry point address: 0x01234\n[Requesting program interpreter: /system/bin/linker64]\n(RUNPATH) [$ORIGIN]\n"
+        with patch("package_node.subprocess.check_output", return_value=report):
+            inspect_executable(Path("readelf"), Path("node.so"))
+        for invalid in [report.replace("/system/bin/linker64", "/lib/ld-linux-aarch64.so.1"),
+                        report.replace("$ORIGIN", "/tmp"), report.replace("0x01234", "0x0")]:
+            with self.subTest(invalid=invalid), patch("package_node.subprocess.check_output", return_value=invalid):
+                with self.assertRaises(ValueError):
+                    inspect_executable(Path("readelf"), Path("node.so"))
 
 
 if __name__ == "__main__":

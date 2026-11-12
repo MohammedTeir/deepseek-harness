@@ -2,7 +2,7 @@
 
 ## Summary
 
-Classifications identify reuse or engineering work, not complete Android support. The user reports Node/SQLite/worker/lock/ESM progress on a phone, then missing getuid during result-write; no full-feature acceptance is claimed. The complete resolved graph, native dependency paths, platform metadata, installed payloads and remaining archive gaps are under [audit evidence](audit/android/EVIDENCE.md).
+Classifications identify reuse or engineering work, not complete Android support. The user reports v4's fixed JNI Node API probe passing, including locks, crypto and DNS/TLS; no Harness profile or full-feature acceptance is claimed. V5's executable comparison is pending on-device tests. The complete resolved graph, native dependency paths, platform metadata, installed payloads and remaining archive gaps are under [audit evidence](audit/android/EVIDENCE.md).
 
 | Feature | Classification | Source evidence | Blocker / mitigation / acceptance evidence |
 |---|---|---|---|
@@ -66,3 +66,7 @@ The new `packages/util/ripgrep` resolves packaged binaries only and uses the sub
 ## Android process identity
 
 Node deliberately omits POSIX credential methods on Android. The user reports v3 failing at getuid after the lock stage. V4 records unavailable Node uid separately from native Android identity. Production ownership checks, including spill-local cleanup's geteuid fallback, need explicit Android adaptation; they are not verified by this probe.
+
+## Runtime launch and profile evidence
+
+The successful v4 user result still reports /system/bin/app_process64 as execPath and childNodeLaunch not-tested. Existing SDK/managed-runner launch uses that path, so it is a concrete integration blocker. V5 packages the original Node main as an Android PIE for installer-owned execution and tests real child launch; all device outcomes remain pending. A genuine sdk-minimal profile/session restart recovery passed on Linux through the public SDK, without model requests. It establishes the reference sequence, not Android compatibility. Original native selection, POSIX ownership fallbacks and bash/PTY defaults still need Android adaptation before that profile is enabled on-device.

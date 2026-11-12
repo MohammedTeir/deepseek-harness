@@ -11,12 +11,13 @@ android {
         minSdk = 29
         targetSdk = 36
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        versionCode = 4
-        versionName = "0.1.3-android-identity"
+        versionCode = 5
+        versionName = "0.1.4-executable-proof"
         ndk { abiFilters += "arm64-v8a" }
     }
     signingConfigs.getByName("debug").storeFile = rootProject.file(".local/debug.keystore")
     ndkVersion = "28.2.13676358"
+    packaging { jniLibs { useLegacyPackaging = true } }
     externalNativeBuild { cmake { path = file("../native/CMakeLists.txt"); version = "3.22.1" } }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17

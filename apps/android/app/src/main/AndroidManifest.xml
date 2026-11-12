@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET" />
-    <application android:label="Harness runtime proof" android:allowBackup="false"
+    <application android:label="Harness runtime proof" android:allowBackup="false" android:extractNativeLibs="true"
         android:usesCleartextTraffic="false" android:theme="@android:style/Theme.Material.Light.NoActionBar">
         <activity android:name=".RuntimeProofActivity" android:exported="true">
             <intent-filter>
@@ -9,5 +9,6 @@
             </intent-filter>
         </activity>
         <service android:name=".RuntimeService" android:exported="false" android:process=":runtime" />
+        <service android:name=".ExecutableProbeService" android:exported="false" android:process=":execproof" />
     </application>
 </manifest>

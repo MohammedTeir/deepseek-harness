@@ -12,8 +12,10 @@ if 'libnode.so' not in record['sha256']:
     raise ValueError('Missing inspected libnode.so; run the runtime build and packager')
 if record.get('systemNodeDependency') != 'libnode.so':
     raise ValueError('Missing verified Android addon Node dependency; rebuild the addon and run the packager')
+if record.get('packagedNodeExecutable') != 'libnode_executable.so' or 'libnode_executable.so' not in record['sha256']:
+    raise ValueError('Missing inspected Node executable; build it and run the packager')
 for name, digest in record['sha256'].items():
-    if name not in {'libnode.so', 'libc++_shared.so', 'libharness_system.so'}:
+    if name not in {'libnode.so', 'libc++_shared.so', 'libharness_system.so', 'libnode_executable.so'}:
         raise ValueError('Unexpected runtime library')
     native = android / 'app/src/main/jniLibs/arm64-v8a' / name
     if hashlib.sha256(native.read_bytes()).hexdigest() != digest:
@@ -21,7 +23,8 @@ for name, digest in record['sha256'].items():
 output = Path(sys.argv[1]) / 'runtime'
 if output.exists(): shutil.rmtree(output)
 output.mkdir(parents=True)
-shutil.copy2(android / 'runtime/smoke.mjs', output / 'smoke.mjs')
+for name in ['smoke.mjs', 'executable-smoke.mjs', 'child-node.mjs', 'proc-identity.mjs']:
+    shutil.copy2(android / 'runtime' / name, output / name)
 for name in ['NODE_LICENSE', 'NDK_NOTICE', 'ANDROID_CPU_FEATURES_NOTICE', 'SYSTEM_ADDON_LICENSE', 'runtime-build.json']:
     shutil.copy2(metadata / name, output / name)
 

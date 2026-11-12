@@ -26,7 +26,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--adb", default="adb")
     parser.add_argument("--serial", required=True, help="Device explicitly selected from adb devices")
-    parser.add_argument("--proof", required=True, choices=["packaging", "runtime"])
+    parser.add_argument("--proof", required=True, choices=["packaging", "runtime", "executable"])
     parser.add_argument("--output", required=True, type=Path, help="New evidence directory")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=False)
@@ -36,6 +36,7 @@ def main() -> int:
         if args.proof == "packaging"
         else ("app", "ai.deepseek.harness.android.runtimepoc", 1)
     )
+    directory = "executable-probe" if args.proof == "executable" else "runtime-probe"
     record = {"schemaVersion": 1, "proof": args.proof,
               "observedAt": datetime.now(timezone.utc).isoformat(),
               "status": "BLOCKED", "harnessVerified": False, "steps": []}
@@ -69,20 +70,22 @@ def main() -> int:
             (args.output / f"install-{index}.txt").write_text(installed)
             if not re.search(r"^Success\s*$", installed, re.MULTILINE):
                 raise RuntimeError("Installer did not report success")
-        if args.proof == "runtime":
+        if args.proof != "packaging":
             # A failed start must not attach a previous run's API evidence.
-            adb("shell", "run-as", package, "rm", "-f", "files/runtime-probe/result.json", "files/runtime-probe/stderr.txt")
-        output = adb("shell", "am", "instrument", "-w", "-r",
+            adb("shell", "run-as", package, "rm", "-f", f"files/{directory}/result.json", f"files/{directory}/stderr.txt")
+        selection = [] if args.proof == "packaging" else ["-e", "class", "io.github.mohammedteir.deepseekharness." + (
+            "ExecutableProbeTest" if args.proof == "executable" else "RuntimeProbeTest")]
+        output = adb("shell", "am", "instrument", "-w", "-r", *selection,
                      f"{package}.test/androidx.test.runner.AndroidJUnitRunner", timeout=180)
         (args.output / "instrumentation.txt").write_text(output)
-        if args.proof == "runtime":
+        if args.proof != "packaging":
             try:
-                diagnostic = adb("shell", "run-as", package, "cat", "files/runtime-probe/stderr.txt")
+                diagnostic = adb("shell", "run-as", package, "cat", f"files/{directory}/stderr.txt")
                 (args.output / "runtime-stderr.txt").write_text(diagnostic)
             except (RuntimeError, subprocess.TimeoutExpired) as error:
                 record["runtimeDiagnosticFailure"] = str(error)
             try:
-                result = adb("shell", "run-as", package, "cat", "files/runtime-probe/result.json")
+                result = adb("shell", "run-as", package, "cat", f"files/{directory}/result.json")
                 (args.output / "runtime-result.json").write_text(result)
                 json.loads(result)
             except (RuntimeError, ValueError, subprocess.TimeoutExpired) as error:

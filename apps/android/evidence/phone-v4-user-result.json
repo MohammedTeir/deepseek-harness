@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-11-12",
+  "evidenceKind": "User-reported manual physical-phone result",
+  "developerControlledInstrumentation": false,
+  "device": {
+    "reportedModel": "Redmi Note 8 Pro",
+    "reportedAndroidVersion": "11, unconfirmed by ADB"
+  },
+  "apkVersionCode": 4,
+  "result": {
+    "schemaVersion": 1,
+    "node": "v24.22.1",
+    "platform": "android",
+    "arch": "arm64",
+    "pid": 23975,
+    "uid": null,
+    "uidApiAvailable": false,
+    "execPath": "/system/bin/app_process64",
+    "childNodeLaunch": "not-tested",
+    "nativeLock": true,
+    "network": {
+      "dns": true,
+      "tls": true,
+      "failure": null
+    },
+    "sqlite": true,
+    "worker": true,
+    "esm": true,
+    "crypto": "ba9c736f19e7f60b7f6764adb0b7908c0a2b394e09b6c09863528c7f2bc86095",
+    "harnessStarted": false,
+    "androidUid": 10750,
+    "androidPid": 23975,
+    "identitySource": "android.os.Process"
+  },
+  "nodeApiProbeUserReportedPass": true,
+  "harnessPhoneGatePassed": false
+}
