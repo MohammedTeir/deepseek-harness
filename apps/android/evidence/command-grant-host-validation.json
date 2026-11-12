@@ -46,6 +46,13 @@
       "gatesPassed": 21,
       "durationSeconds": 42.7,
       "initialFailure": "New baseline commit reference rejected by repository-reference policy; replaced with maintained physical-review evidence path. Validator unchanged."
+    },
+    {
+      "command": "pnpm run doc-sync",
+      "status": "PASS",
+      "exitCode": 0,
+      "gatesPassed": 43,
+      "durationSeconds": 178.84
     }
   ],
   "sourceSha256": {
