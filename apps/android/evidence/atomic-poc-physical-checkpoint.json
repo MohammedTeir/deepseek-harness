@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "proof": "atomic",
+  "observedAt": "2026-11-12T17:08:36.063097+00:00",
+  "status": "BLOCKED",
+  "harnessVerified": false,
+  "steps": [
+    {
+      "command": [
+        "get-state"
+      ],
+      "exitCode": 1
+    }
+  ],
+  "failure": "error: device 'no-physical-device-attached' not found",
+  "deviceListCommand": [
+    "/workspace/android-sdk/platform-tools/adb",
+    "devices",
+    "-l"
+  ],
+  "deviceListOutput": "List of devices attached\n\n",
+  "deviceListExitCode": 0,
+  "attemptExitCode": 1,
+  "mandatoryPhysicalCases": {
+    "A-publication": "BLOCKED",
+    "B-existing-destination": "BLOCKED",
+    "C-independent-processes": "BLOCKED",
+    "D-interruption": "BLOCKED",
+    "E-sync-and-errors": "BLOCKED",
+    "F-device-security": "BLOCKED"
+  },
+  "reason": "No physical device is attached. No Android assertion ran."
+}

@@ -1,0 +1,10 @@
+{
+  "url": "https://filebin.net/29c75ab72ffd43f17695652c/deepseek-harness-atomic-poc-apk1.zip",
+  "archiveSha256": "18c38cd4ec2c3bfa130ecdba264cb17ae7539c7083363221dfc1e2b662c256ad",
+  "apkSha256": "9f7f8a2d342d87056707e2722ca4697b2223a8c538d645dca40bebefd469582f",
+  "testApkSha256": "42339592971be3d61b86b06e91e8760d886032126a12451cc2c958a0fc9abf0f",
+  "downloadedArchiveAndApkHashesMatch": true,
+  "observedDate": "2026-11-12",
+  "physicalDeviceVerification": "BLOCKED",
+  "serviceReportedExpiry": "2026-11-19T17:09:51.967666Z"
+}

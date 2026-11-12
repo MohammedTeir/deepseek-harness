@@ -6,3 +6,4 @@ dependencyResolutionManagement {
 rootProject.name = "DeepSeekHarnessAndroid"
 include(":app")
 include(":packaging-proof")
+include(":atomic-proof")

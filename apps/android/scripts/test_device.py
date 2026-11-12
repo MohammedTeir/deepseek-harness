@@ -10,6 +10,7 @@ import json
 from pathlib import Path
 import re
 import subprocess
+import zipfile
 
 
 def instrumentation_passed(output: str, count: int) -> bool:
@@ -26,7 +27,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--adb", default="adb")
     parser.add_argument("--serial", required=True, help="Device explicitly selected from adb devices")
-    parser.add_argument("--proof", required=True, choices=["packaging", "runtime", "executable", "profile"])
+    parser.add_argument("--proof", required=True, choices=["packaging", "runtime", "executable", "profile", "atomic"])
     parser.add_argument("--output", required=True, type=Path, help="New evidence directory")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=False)
@@ -34,9 +35,10 @@ def main() -> int:
     module, package, tests = (
         ("packaging-proof", "ai.deepseek.harness.android.packagingproof", 2)
         if args.proof == "packaging"
+        else ("atomic-proof", "ai.deepseek.harness.android.atomicpoc", 1) if args.proof == "atomic"
         else ("app", "ai.deepseek.harness.android.runtimepoc", 1)
     )
-    directory = "profile-probe" if args.proof == "profile" else "executable-probe" if args.proof == "executable" else "runtime-probe"
+    directory = "atomic-probe" if args.proof == "atomic" else "profile-probe" if args.proof == "profile" else "executable-probe" if args.proof == "executable" else "runtime-probe"
     record = {"schemaVersion": 1, "proof": args.proof,
               "observedAt": datetime.now(timezone.utc).isoformat(),
               "status": "BLOCKED", "harnessVerified": False, "steps": []}
@@ -74,7 +76,7 @@ def main() -> int:
             # A failed start must not attach a previous run's API evidence.
             adb("shell", "run-as", package, "rm", "-f", f"files/{directory}/result.json", f"files/{directory}/stderr.txt")
         selection = [] if args.proof == "packaging" else ["-e", "class", "io.github.mohammedteir.deepseekharness." + (
-            "ProfileProbeTest" if args.proof == "profile" else "ExecutableProbeTest" if args.proof == "executable" else "RuntimeProbeTest")]
+            "atomic.AtomicProofTest" if args.proof == "atomic" else "ProfileProbeTest" if args.proof == "profile" else "ExecutableProbeTest" if args.proof == "executable" else "RuntimeProbeTest")]
         output = adb("shell", "am", "instrument", "-w", "-r", *selection,
                      f"{package}.test/androidx.test.runner.AndroidJUnitRunner", timeout=180)
         (args.output / "instrumentation.txt").write_text(output)
@@ -96,6 +98,13 @@ def main() -> int:
         if "runtimeResultFailure" in record:
             record["status"] = "FAILED"
             raise RuntimeError("Runtime test passed without retrievable JSON evidence")
+        if args.proof == "atomic":
+            from validate_atomic_result import validate
+            with zipfile.ZipFile(paths[0]) as archive:
+                native_digest = hashlib.sha256(archive.read("lib/arm64-v8a/libatomic_poc.so")).hexdigest()
+            validate(json.loads((args.output / "runtime-result.json").read_text()),
+                     apk_sha256=record["apks"][paths[0].name], native_sha256=native_digest)
+            record["physicalHardwareReviewed"] = False
         record["status"] = "VERIFIED"
         return 0
     except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as error:

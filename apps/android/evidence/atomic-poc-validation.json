@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-11-12",
+  "environment": {
+    "host": "Linux x86_64 cloud; ordinary uid 1000",
+    "JAVA_HOME": "/workspace/.setup-tools/jdk-21.0.13+9",
+    "ANDROID_HOME": "/workspace/android-sdk",
+    "GRADLE_USER_HOME": "/workspace/.cache/gradle",
+    "versions": [
+      {
+        "command": [
+          "/workspace/.setup-tools/jdk-21.0.13+9/bin/java",
+          "-version"
+        ],
+        "exitCode": 0,
+        "output": "openjdk version \"21.0.13\" 2026-10-20 LTS\nOpenJDK Runtime Environment Temurin-21.0.13+9 (build 21.0.13+9-LTS)\nOpenJDK 64-Bit Server VM Temurin-21.0.13+9 (build 21.0.13+9-LTS, mixed mode, sharing)\n"
+      },
+      {
+        "command": [
+          "node",
+          "--version"
+        ],
+        "exitCode": 0,
+        "output": "v24.22.1\n"
+      },
+      {
+        "command": [
+          "pnpm",
+          "--version"
+        ],
+        "exitCode": 0,
+        "output": "11.28.5\n"
+      },
+      {
+        "command": [
+          "/workspace/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android29-clang++",
+          "--version"
+        ],
+        "exitCode": 0,
+        "output": "Android (13624864, +pgo, +bolt, +lto, +mlgo, based on r530567e) clang version 19.0.1 (https://android.googlesource.com/toolchain/llvm-project 97a699bf4812a18fb657c2779f5296a4ab2694d2)\nTarget: aarch64-unknown-linux-android29\nThread model: posix\nInstalledDir: /workspace/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin\n"
+      }
+    ]
+  },
+  "checks": [
+    {
+      "name": "host-native-and-Android-host-regressions",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "apps/android/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "logSha256": "43cd993e5e40e70ccce974b719881a90d2fe22b3ff218ab8449d113744358559",
+      "output": "test_collision_preserves_bytes_and_metadata (test_atomic_native.AtomicNativeTest.test_collision_preserves_bytes_and_metadata) ... ok\ntest_errors_fail_closed_without_fallback (test_atomic_native.AtomicNativeTest.test_errors_fail_closed_without_fallback) ... ok\ntest_evidence_validation_rejects_weakened_or_missing_results (test_atomic_native.AtomicNativeTest.test_evidence_validation_rejects_weakened_or_missing_results) ... ok\ntest_independent_processes_have_one_complete_winner (test_atomic_native.AtomicNativeTest.test_independent_processes_have_one_complete_winner) ... ok\ntest_kill_boundaries_are_explicit_and_recovery_inspected (test_atomic_native.AtomicNativeTest.test_kill_boundaries_are_explicit_and_recovery_inspected) ... ok\ntest_no_harness_or_power_loss_claim (test_atomic_native.AtomicNativeTest.test_no_harness_or_power_loss_claim) ... ok\ntest_nonprivate_root_rejected (test_atomic_native.AtomicNativeTest.test_nonprivate_root_rejected) ... ok\ntest_root_symlink_rejected (test_atomic_native.AtomicNativeTest.test_root_symlink_rejected) ... ok\ntest_success_preserves_identity_and_synchronizes_cleanup (test_atomic_native.AtomicNativeTest.test_success_preserves_identity_and_synchronizes_cleanup) ... ok\ntest_requires_complete_expected_execution (test_device_output.InstrumentationOutputTest.test_requires_complete_expected_execution) ... ok\ntest_real_child_stdout_exit_identity_and_original_apis (test_executable_probe.ExecutableProbeTest.test_real_child_stdout_exit_identity_and_original_apis) ... ok\ntest_rejects_escape_and_cleanup_does_not_follow_symlinks (test_image_files.ImageFilesTest.test_rejects_escape_and_cleanup_does_not_follow_symlinks) ... ok\ntest_cancellation_before_start_rejects_launch (test_owned_process.OwnedProcessTest.test_cancellation_before_start_rejects_launch) ... ok\ntest_close_terminates_and_reaps_a_live_child (test_owned_process.OwnedProcessTest.test_close_terminates_and_reaps_a_live_child) ... ok\ntest_custom_grace_allows_real_delayed_child_shutdown (test_owned_process.OwnedProcessTest.test_custom_grace_allows_real_delayed_child_shutdown) ... ok\ntest_interrupted_cleanup_reaps_and_restores_interruption (test_owned_process.OwnedProcessTest.test_interrupted_cleanup_reaps_and_restores_interruption) ... ok\ntest_real_exit_status_is_observed (test_owned_process.OwnedProcessTest.test_real_exit_status_is_observed) ... ok\ntest_real_worker_denial_retains_stage_and_error_without_success (test_probe_failure.ProbeFailureTest.test_real_worker_denial_retains_stage_and_error_without_success) ... ok\ntest_missing_getuid_is_reported_without_fabricating_identity (test_probe_uid_absence.ProbeUidAbsenceTest.test_missing_getuid_is_reported_without_fabricating_identity) ... ok\ntest_actual_directory_sync_file_sync_and_exclusive_publication (test_session_diagnostics.SessionDiagnosticsTest.test_actual_directory_sync_file_sync_and_exclusive_publication) ... ok\ntest_actual_permission_error_is_preserved (test_session_diagnostics.SessionDiagnosticsTest.test_actual_permission_error_is_preserved) ... ok\ntest_inventory_reports_symlinks_without_following_them (test_session_diagnostics.SessionDiagnosticsTest.test_inventory_reports_symlinks_without_following_them) ... ok\ntest_capture_and_restore_on_explicit_and_scope_exit (test_stderr_capture.StderrCaptureTest.test_capture_and_restore_on_explicit_and_scope_exit) ... ok\ntest_symlink_log_is_rejected_without_overwriting_target (test_stderr_capture.StderrCaptureTest.test_symlink_log_is_rejected_without_overwriting_target) ... ok\ntest_unavailable_log_preserves_original_stderr (test_stderr_capture.StderrCaptureTest.test_unavailable_log_preserves_original_stderr) ... ok\n\n----------------------------------------------------------------------\nRan 25 tests in 7.618s\n\nOK\n",
+      "summary": "25 tests including nine native/checker tests; actual Linux filesystem operations only"
+    },
+    {
+      "name": "ELF-and-profile-packaging-regressions",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "apps/android/scripts",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "logSha256": "a33b81776b7c7020dc1ab23392e621be01962ecf9efcaf6bd9f6eb68d0d41001",
+      "output": "test_addon_node_dependency_does_not_allow_linux_libc (test_package_node.ElfInspectionTests.test_addon_node_dependency_does_not_allow_linux_libc) ... ok\ntest_addon_requires_explicit_node_dependency (test_package_node.ElfInspectionTests.test_addon_requires_explicit_node_dependency) ... ok\ntest_android_dependency (test_package_node.ElfInspectionTests.test_android_dependency) ... ok\ntest_executable_requires_android_interpreter_and_real_entry (test_package_node.ElfInspectionTests.test_executable_requires_android_interpreter_and_real_entry) ... ok\ntest_foreign_abi (test_package_node.ElfInspectionTests.test_foreign_abi) ... ok\ntest_linux_dependency (test_package_node.ElfInspectionTests.test_linux_dependency) ... ok\ntest_node_dependency_is_allowed_only_for_addon_inspection (test_package_node.ElfInspectionTests.test_node_dependency_is_allowed_only_for_addon_inspection) ... ok\ntest_small_page_alignment (test_package_node.ElfInspectionTests.test_small_page_alignment) ... ok\ntest_changed_bytes_reject (test_package_profile.ProfileArchiveTest.test_changed_bytes_reject) ... ok\ntest_credential_read_rejects (test_package_profile.ProfileArchiveTest.test_credential_read_rejects) ... ok\ntest_native_file_rejects_even_with_matching_digest (test_package_profile.ProfileArchiveTest.test_native_file_rejects_even_with_matching_digest) ... ok\ntest_plain_interpreted_file_is_accepted (test_package_profile.ProfileArchiveTest.test_plain_interpreted_file_is_accepted) ... ok\ntest_stale_host_qualification_cannot_approve_new_image (test_package_profile.ProfileArchiveTest.test_stale_host_qualification_cannot_approve_new_image) ... ok\ntest_successful_read_through_outside_symlink_rejects (test_package_profile.ProfileArchiveTest.test_successful_read_through_outside_symlink_rejects) ... ok\ntest_traversal_and_absolute_paths_reject (test_package_profile.ProfileArchiveTest.test_traversal_and_absolute_paths_reject) ... ok\ntest_manifest_without_inspected_executable_is_rejected (test_prepare_runtime_assets.AssetGuardTest.test_manifest_without_inspected_executable_is_rejected) ... ok\ntest_old_manifest_cannot_package_an_unlinked_addon (test_prepare_runtime_assets.AssetGuardTest.test_old_manifest_cannot_package_an_unlinked_addon) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 0.086s\n\nOK\n",
+      "summary": "17 passed"
+    },
+    {
+      "name": "original-persistence-filesystem-attachment-SDK-regressions",
+      "command": [
+        "pnpm",
+        "exec",
+        "vitest",
+        "run",
+        "packages/session/session-persistence-jsonl/tests/jsonl.spec.ts",
+        "packages/session/session-persistence-jsonl/tests/generation.spec.ts",
+        "packages/session/session-persistence-jsonl/tests/lease.spec.ts",
+        "packages/fs/fs-local/tests/fsio.spec.ts",
+        "packages/attachment/attachment-local/tests/store.spec.ts",
+        "packages/sdk/client/tests/runtime-stderr.spec.ts",
+        "packages/sdk/client/tests/dispose.spec.ts"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "logSha256": "d2fd256e1ac657587089ab61f5031e145371b34a1e1a739d0382c6e8df967add",
+      "output": "The plugin \"vite-tsconfig-paths\" is detected. Vite now supports tsconfig paths resolution natively via the resolve.tsconfigPaths option. You can remove the plugin and set resolve.tsconfigPaths: true in your Vite config instead.\nThe plugin \"vite-tsconfig-paths\" is detected. Vite now supports tsconfig paths resolution natively via the resolve.tsconfigPaths option. You can remove the plugin and set resolve.tsconfigPaths: true in your Vite config instead.\nThe plugin \"vite-tsconfig-paths\" is detected. Vite now supports tsconfig paths resolution natively via the resolve.tsconfigPaths option. You can remove the plugin and set resolve.tsconfigPaths: true in your Vite config instead.\n\n RUN  v4.1.11 /workspace/deepseek-harness\n\n\n Test Files  7 passed (7)\n      Tests  399 passed | 3 skipped (402)\n   Start at  15:14:08\n   Duration  7.18s (transform 8.28s, setup 684ms, import 10.13s, tests 6.48s, environment 3ms)\n\n",
+      "summary": "399 passed; three unchanged Windows-only cases skipped on Linux; seven files passed"
+    },
+    {
+      "name": "original-native-lock-and-Android-selector-policy",
+      "command": [
+        "pnpm",
+        "--dir",
+        "native/system",
+        "test:flock"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "logSha256": "143a44dd9e5006e4f93b8c26ae8b9755ab263edfb8d2bf0c9258c4be9e037964",
+      "output": "$ node --test ./test/flock-android-policy.test.js ./test/flock.test.js\n\u2714 Android entry imports lazily and rejects when native addons are disabled (75.129056ms)\n\u2714 Android loader uses only its fixed SONAME and retains flock errno semantics (46.606264ms)\n\u2714 Android missing bindings reject acquisition without caching a failed load (83.083646ms)\n\u2714 unqualified Android architectures reject before native loading (43.061355ms)\n\u2714 import succeeds with native addons disabled (91.342191ms)\n\u2714 calling flock on win32 rejects without loading an addon (53.918439ms)\n\u2714 calling flock on freebsd rejects without loading an addon (38.312334ms)\n\u2714 acquisition resolves asynchronously to void and the same fd can reacquire (6.592055ms)\n\u2714 separate opens of one file contend (2.497815ms)\n\u2714 different files can be locked concurrently (1.125151ms)\n\u2714 closing the locked fd allows an already-open contender to acquire (1.818723ms)\n\u2714 closing another fd for the same file does not release the lock (7.013588ms)\n\u2714 invalid fd rejects asynchronously with EBADF and positive errno (3.797355ms)\n\u2714 native argument errors reject the JavaScript promise without throwing from the entry (0.608551ms)\n\u2714 native callbacks receive asynchronous, request-local success and errno results (3.581275ms)\n\u2714 an exception in the native completion callback is reported as uncaught (47.743837ms)\n\u2714 concurrent calls retain their own syscall errno (1.614321ms)\n\u2714 two child processes exclude each other and normal close transfers ownership (48.962356ms)\n\u2714 SIGKILL releases a child lock after exit (105.875271ms)\n\u2714 worker termination during queued drains native work without taking ownership of the fd (44.071486ms)\n\u2714 worker termination during callback drains native work without taking ownership of the fd (35.350725ms)\n\u2714 an addon exclusive lock blocks an independent C exclusive flock until its fd closes (7.788056ms)\n\u2714 an independent C exclusive flock blocks the addon until explicit unlock (5.714449ms)\n\u2714 an addon exclusive lock blocks an independent C shared flock until its fd closes (5.13534ms)\n\u2714 an independent C shared flock blocks the addon until explicit unlock (7.988364ms)\n\u2714 an advisory exclusive lock permits another process to read and write without locking (61.285925ms)\n\u2714 an inherited fd shares the lock after parent close until the child closes its last reference (56.64096ms)\n\u2139 tests 27\n\u2139 suites 0\n\u2139 pass 27\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 760.046504\n",
+      "summary": "27 host tests; Android metadata policy fixtures are not Android ABI tests"
+    },
+    {
+      "name": "Android-APK-and-instrumentation-build-and-lint",
+      "command": [
+        "./apps/android/gradlew",
+        "-p",
+        "apps/android",
+        ":atomic-proof:assembleDebug",
+        ":atomic-proof:assembleDebugAndroidTest",
+        ":atomic-proof:lintDebug",
+        "--console=plain",
+        "-Pkotlin.compiler.execution.strategy=in-process"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "logSha256": "21c7a7551041f00c41aad0866d1723029ccc1df8e2c8f68eacc1826c0000ed6a",
+      "output": "> Task :atomic-proof:nativeProof\n> Task :atomic-proof:proofNotices UP-TO-DATE\n> Task :atomic-proof:preBuild\n> Task :atomic-proof:preDebugBuild\n> Task :atomic-proof:mergeDebugNativeDebugMetadata NO-SOURCE\n> Task :atomic-proof:checkKotlinGradlePluginConfigurationErrors SKIPPED\n> Task :atomic-proof:checkDebugAarMetadata UP-TO-DATE\n> Task :atomic-proof:processDebugNavigationResources UP-TO-DATE\n> Task :atomic-proof:compileDebugNavigationResources UP-TO-DATE\n> Task :atomic-proof:generateDebugResValues UP-TO-DATE\n> Task :atomic-proof:mapDebugSourceSetPaths UP-TO-DATE\n> Task :atomic-proof:generateDebugResources UP-TO-DATE\n> Task :atomic-proof:mergeDebugResources UP-TO-DATE\n> Task :atomic-proof:packageDebugResources UP-TO-DATE\n> Task :atomic-proof:parseDebugLocalResources UP-TO-DATE\n> Task :atomic-proof:createDebugCompatibleScreenManifests UP-TO-DATE\n> Task :atomic-proof:extractDeepLinksDebug UP-TO-DATE\n> Task :atomic-proof:processDebugMainManifest UP-TO-DATE\n> Task :atomic-proof:processDebugManifest UP-TO-DATE\n> Task :atomic-proof:processDebugManifestForPackage UP-TO-DATE\n> Task :atomic-proof:processDebugResources UP-TO-DATE\n> Task :atomic-proof:compileDebugKotlin UP-TO-DATE\n> Task :atomic-proof:javaPreCompileDebug UP-TO-DATE\n> Task :atomic-proof:compileDebugJavaWithJavac NO-SOURCE\n> Task :atomic-proof:mergeDebugShaders UP-TO-DATE\n> Task :atomic-proof:compileDebugShaders NO-SOURCE\n> Task :atomic-proof:generateDebugAssets UP-TO-DATE\n> Task :atomic-proof:mergeDebugAssets UP-TO-DATE\n> Task :atomic-proof:compressDebugAssets UP-TO-DATE\n> Task :atomic-proof:desugarDebugFileDependencies UP-TO-DATE\n> Task :atomic-proof:dexBuilderDebug UP-TO-DATE\n> Task :atomic-proof:mergeDebugGlobalSynthetics UP-TO-DATE\n> Task :atomic-proof:processDebugJavaRes UP-TO-DATE\n> Task :atomic-proof:mergeDebugJavaResource UP-TO-DATE\n> Task :atomic-proof:checkDebugDuplicateClasses UP-TO-DATE\n> Task :atomic-proof:mergeExtDexDebug UP-TO-DATE\n> Task :atomic-proof:mergeLibDexDebug UP-TO-DATE\n> Task :atomic-proof:mergeProjectDexDebug UP-TO-DATE\n> Task :atomic-proof:mergeDebugJniLibFolders\n> Task :atomic-proof:validateSigningDebug UP-TO-DATE\n> Task :atomic-proof:writeDebugAppMetadata UP-TO-DATE\n> Task :atomic-proof:writeDebugSigningConfigVersions UP-TO-DATE\n> Task :atomic-proof:bundleDebugClassesToCompileJar UP-TO-DATE\n> Task :atomic-proof:preDebugAndroidTestBuild SKIPPED\n> Task :atomic-proof:checkDebugAndroidTestAarMetadata UP-TO-DATE\n> Task :atomic-proof:processDebugAndroidTestNavigationResources UP-TO-DATE\n> Task :atomic-proof:compileDebugAndroidTestNavigationResources UP-TO-DATE\n> Task :atomic-proof:generateDebugAndroidTestResValues UP-TO-DATE\n> Task :atomic-proof:mapDebugAndroidTestSourceSetPaths UP-TO-DATE\n> Task :atomic-proof:generateDebugAndroidTestResources UP-TO-DATE\n> Task :atomic-proof:mergeDebugAndroidTestResources UP-TO-DATE\n> Task :atomic-proof:processDebugAndroidTestManifest UP-TO-DATE\n> Task :atomic-proof:mergeDebugNativeLibs\n> Task :atomic-proof:processDebugAndroidTestResources UP-TO-DATE\n> Task :atomic-proof:stripDebugDebugSymbols\n> Task :atomic-proof:compileDebugAndroidTestKotlin UP-TO-DATE\n> Task :atomic-proof:javaPreCompileDebugAndroidTest UP-TO-DATE\n> Task :atomic-proof:compileDebugAndroidTestJavaWithJavac NO-SOURCE\n> Task :atomic-proof:mergeDebugAndroidTestShaders UP-TO-DATE\n> Task :atomic-proof:compileDebugAndroidTestShaders NO-SOURCE\n> Task :atomic-proof:generateDebugAndroidTestAssets UP-TO-DATE\n> Task :atomic-proof:mergeDebugAndroidTestAssets UP-TO-DATE\n> Task :atomic-proof:compressDebugAndroidTestAssets UP-TO-DATE\n> Task :atomic-proof:desugarDebugAndroidTestFileDependencies UP-TO-DATE\n> Task :atomic-proof:dexBuilderDebugAndroidTest UP-TO-DATE\n> Task :atomic-proof:mergeDebugAndroidTestGlobalSynthetics UP-TO-DATE\n> Task :atomic-proof:processDebugAndroidTestJavaRes UP-TO-DATE\n> Task :atomic-proof:mergeDebugAndroidTestJavaResource UP-TO-DATE\n> Task :atomic-proof:checkDebugAndroidTestDuplicateClasses UP-TO-DATE\n> Task :atomic-proof:mergeExtDexDebugAndroidTest UP-TO-DATE\n> Task :atomic-proof:mergeLibDexDebugAndroidTest UP-TO-DATE\n> Task :atomic-proof:mergeProjectDexDebugAndroidTest UP-TO-DATE\n> Task :atomic-proof:mergeDebugAndroidTestJniLibFolders UP-TO-DATE\n> Task :atomic-proof:mergeDebugAndroidTestNativeLibs NO-SOURCE\n> Task :atomic-proof:stripDebugAndroidTestDebugSymbols NO-SOURCE\n> Task :atomic-proof:validateSigningDebugAndroidTest UP-TO-DATE\n> Task :atomic-proof:writeDebugAndroidTestSigningConfigVersions UP-TO-DATE\n> Task :atomic-proof:packageDebugAndroidTest UP-TO-DATE\n> Task :atomic-proof:createDebugAndroidTestApkListingFileRedirect UP-TO-DATE\n> Task :atomic-proof:assembleDebugAndroidTest UP-TO-DATE\n> Task :atomic-proof:generateDebugAndroidTestLintModel UP-TO-DATE\n> Task :atomic-proof:packageDebug\n> Task :atomic-proof:createDebugApkListingFileRedirect UP-TO-DATE\n> Task :atomic-proof:assembleDebug\n> Task :atomic-proof:extractProguardFiles UP-TO-DATE\n> Task :atomic-proof:generateDebugLintReportModel UP-TO-DATE\n> Task :atomic-proof:preDebugUnitTestBuild\n> Task :atomic-proof:generateDebugUnitTestLintModel UP-TO-DATE\n> Task :atomic-proof:lintAnalyzeDebug UP-TO-DATE\n> Task :atomic-proof:lintAnalyzeDebugAndroidTest UP-TO-DATE\n> Task :atomic-proof:lintAnalyzeDebugUnitTest UP-TO-DATE\n> Task :atomic-proof:lintReportDebug UP-TO-DATE\n> Task :atomic-proof:lintDebug\n\nBUILD SUCCESSFUL in 3s\n77 actionable tasks: 6 executed, 71 up-to-date\n",
+      "summary": "77 tasks; 6 executed, 71 up-to-date; 3 seconds"
+    },
+    {
+      "name": "documentation-quick",
+      "command": [
+        "pnpm",
+        "run",
+        "test:docs"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "logSha256": "4a742dd49698062da321fc6f6769d936ce91fd8240f8da9d63f0386646fc1001",
+      "output": "$ tsx scripts/run-gates.ts doc-quick\nrun-gates: doc-quick running 21 gate(s) with 4 worker(s) from 4 local default worker(s) of 4 CPU(s), doc-quick cap 8.\nrun-gates: start markdown links\nrun-gates: start type equivalence\nrun-gates: start translation pairing\nrun-gates: start markdown wrap\nrun-gates: PASS type equivalence (7.09s)\nrun-gates: start npm dependency catalog\nrun-gates: PASS npm dependency catalog (1.22s)\nrun-gates: start Session format references\nrun-gates: PASS Session format references (9.76s)\nrun-gates: start public repository links\nrun-gates: PASS public repository links (7.43s)\nrun-gates: start repository references\nrun-gates: PASS markdown wrap (26.39s)\nrun-gates: start concrete terms\nrun-gates: PASS markdown links (26.69s)\nrun-gates: start doc refs\nrun-gates: PASS doc refs (1.83s)\nrun-gates: start package README Summaries\nrun-gates: PASS concrete terms (3.11s)\nrun-gates: start package README model experience\nrun-gates: PASS package README Summaries (1.25s)\nrun-gates: start agent note classification\nrun-gates: PASS agent note classification (1.35s)\nrun-gates: start agent note format\nrun-gates: PASS agent note format (1.24s)\nrun-gates: start archived agent notes\nrun-gates: PASS archived agent notes (1.66s)\nrun-gates: start skill invocation metadata\nrun-gates: PASS skill invocation metadata (1.19s)\nrun-gates: start translation prompt\nrun-gates: PASS package README model experience (5.83s)\nrun-gates: start doc budgets\nrun-gates: PASS translation pairing (36.07s)\nrun-gates: start upgrade guides\nrun-gates: PASS translation prompt (1.05s)\nrun-gates: start documentation standard tests\nrun-gates: PASS doc budgets (1.01s)\nrun-gates: start package README limitations\nrun-gates: PASS upgrade guides (1.75s)\nrun-gates: PASS repository references (12.78s)\nrun-gates: PASS documentation standard tests (2.73s)\nrun-gates: PASS package README limitations (5.01s)\n\nrun-gates: 21 passed, 0 failed, 0 skipped in 41.37s.\n",
+      "summary": "21/21"
+    },
+    {
+      "name": "repository-lint",
+      "command": [
+        "pnpm",
+        "run",
+        "lint"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "logSha256": "3f5fd15471b00eccf93a24cd7450c44676efb6f92a81a2b0dd57c292c5f73bcb",
+      "output": "$ tsx scripts/compile-referenced-projects.ts host-contracts && npm run lint:contracts-ready\ngenerate-typert: wrote 39 Typert artifact(s) for 39 package(s) in 20.0s\n\n> @deepseek-ai/dsh-root@0.2.2-rc.2 lint:contracts-ready\n> tsx scripts/run-oxlint.ts .\n\npackages/experimental/client-ui-cot-translation/src/index.ts:82:9: warning: Unused oxlint-disable directive (no problems were reported).\nnpm notice\nnpm notice New major version of npm available! 11.19.1 -> 12.2.2\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2\nnpm notice To update run: npm install -g npm@12.2.2\nnpm notice\n",
+      "summary": "One existing experimental/client-ui-cot-translation unused-disable warning"
+    },
+    {
+      "name": "unavailable-selected-device",
+      "command": [
+        "python3",
+        "apps/android/scripts/test_device.py",
+        "--adb",
+        "/workspace/android-sdk/platform-tools/adb",
+        "--serial",
+        "no-physical-device-attached",
+        "--proof",
+        "atomic",
+        "--output",
+        "/tmp/android-atomic-unavailable-device"
+      ],
+      "exitCode": 1,
+      "status": "BLOCKED",
+      "logSha256": "de03b1dca403f53b24fd89428683723304fe9506919f15f2483e565a6c832576",
+      "output": "atomic: BLOCKED; evidence: /tmp/android-atomic-unavailable-device\n",
+      "summary": "No Android assertion executed; placeholder serial intentionally tests fail-closed unavailable-device behavior"
+    },
+    {
+      "name": "documentation-full",
+      "command": [
+        "pnpm",
+        "run",
+        "doc-sync"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "43/43 in 177.43 seconds",
+      "logSha256": "e3180a4b49a8725432b184b2094eab4ec5c18cfc95e706ea6d9dc4a5cad44e33",
+      "output": "$ tsx scripts/run-gates.ts doc-sync\nrun-gates: doc-sync running 43 gate(s) with 4 worker(s) from 4 local default worker(s) of 4 CPU(s), doc-sync cap 8.\nrun-gates: start doc-typecheck\nrun-gates: start documentation build\nrun-gates: start doc graphs\nrun-gates: start CLI help reference\nrun-gates: PASS CLI help reference (34.45s)\nrun-gates: start markdown links\nrun-gates: PASS doc-typecheck (56.74s)\nrun-gates: start type equivalence\nrun-gates: PASS doc graphs (57.21s)\nrun-gates: start cordis catalog\nrun-gates: PASS type equivalence (6.41s)\nrun-gates: start Cordis inspect catalog\nrun-gates: PASS markdown links (33.18s)\nrun-gates: start workflow guest source\nrun-gates: PASS workflow guest source (2.42s)\nrun-gates: start verify-mermaid\nrun-gates: PASS Cordis inspect catalog (18.40s)\nrun-gates: start translation pairing\nrun-gates: PASS cordis catalog (27.80s)\nrun-gates: start markdown wrap\nrun-gates: PASS documentation build (105.54s)\nrun-gates: start client catalog\nrun-gates: PASS verify-mermaid (39.49s)\nrun-gates: start export jsdoc\nrun-gates: PASS markdown wrap (28.70s)\nrun-gates: start tool catalog\nrun-gates: PASS client catalog (10.50s)\nrun-gates: start config catalog\nrun-gates: PASS tool catalog (4.15s)\nrun-gates: start skill plugin package list\nrun-gates: PASS translation pairing (38.78s)\nrun-gates: start npm dependency catalog\nrun-gates: PASS config catalog (5.51s)\nrun-gates: start persistence catalog\nrun-gates: PASS npm dependency catalog (1.43s)\nrun-gates: start persistence type history\nrun-gates: PASS skill plugin package list (4.84s)\nrun-gates: start released persistence history\nrun-gates: PASS export jsdoc (16.47s)\nrun-gates: start Session format references\nrun-gates: PASS released persistence history (5.32s)\nrun-gates: start Session format catalog\nrun-gates: PASS Session format catalog (1.66s)\nrun-gates: start public repository links\nrun-gates: PASS Session format references (11.29s)\nrun-gates: start repository references\nrun-gates: PASS public repository links (8.23s)\nrun-gates: start concrete terms\nrun-gates: PASS concrete terms (4.09s)\nrun-gates: start doc refs\nrun-gates: PASS doc refs (2.40s)\nrun-gates: start subsystem pages\nrun-gates: PASS subsystem pages (2.26s)\nrun-gates: start package paths\nrun-gates: PASS package paths (2.90s)\nrun-gates: start tsconfig paths\nrun-gates: PASS tsconfig paths (1.15s)\nrun-gates: start config source ownership\nrun-gates: PASS repository references (13.62s)\nrun-gates: start package README Summaries\nrun-gates: PASS config source ownership (1.19s)\nrun-gates: start package README model experience\nrun-gates: PASS persistence type history (30.16s)\nrun-gates: start agent note classification\nrun-gates: PASS package README Summaries (1.78s)\nrun-gates: start agent note format\nrun-gates: PASS agent note classification (1.72s)\nrun-gates: start archived agent notes\nrun-gates: PASS agent note format (1.60s)\nrun-gates: start skill invocation metadata\nrun-gates: PASS persistence catalog (33.03s)\nrun-gates: start translation prompt\nrun-gates: PASS archived agent notes (1.73s)\nrun-gates: start doc budgets\nrun-gates: PASS skill invocation metadata (2.05s)\nrun-gates: start upgrade guides\nrun-gates: PASS translation prompt (1.98s)\nrun-gates: start documentation standard tests\nrun-gates: PASS doc budgets (1.37s)\nrun-gates: start documentation site checks\nrun-gates: PASS upgrade guides (1.46s)\nrun-gates: start package README limitations\nrun-gates: PASS documentation standard tests (4.74s)\nrun-gates: PASS package README model experience (9.72s)\nrun-gates: PASS package README limitations (10.05s)\nrun-gates: PASS documentation site checks (20.65s)\n\nrun-gates: 43 passed, 0 failed, 0 skipped in 177.43s.\n"
+    }
+  ],
+  "physicalDeviceGate": "BLOCKED",
+  "productionAdapterIntegrated": false,
+  "apk2Built": false,
+  "authenticAndroidRecoveryVerified": false,
+  "gate2Passed": false,
+  "developmentCorrections": [
+    "Initial Kotlin compilation resolved the java.lang.Process versus android.os.Process import ambiguity.",
+    "Initial Python test fixture shadowed unittest.run and assumed umask did not mask chmod permissions; fixture corrected.",
+    "Initial all-host run omitted configured JDK from PATH; rerun with JDK 21 passed.",
+    "Initial quick documentation found a prohibited ambiguous identifier; renamed without validation changes."
+  ]
+}

@@ -1,0 +1,559 @@
+{
+  "schemaVersion": 1,
+  "environment": "Linux host, not Android",
+  "command": [
+    "/tmp/harness-atomic-tests-7a3l1lbl/atomic-poc",
+    "/tmp/harness-atomic-tests-7a3l1lbl/positive"
+  ],
+  "exitCode": 0,
+  "sourceSha256": "dc3bfc2e36b2b5a60c5422362450615936e509ed24690bd1b9cc95ab030d23d9",
+  "androidExecuted": false,
+  "result": {
+    "schemaVersion": 1,
+    "suite": "atomic-noreplace-native-v1",
+    "status": "PASS",
+    "uid": 1000,
+    "pid": 93322,
+    "parentPid": 93316,
+    "syscall": "renameat2",
+    "flags": "RENAME_NOREPLACE",
+    "kernel": "6.18.57",
+    "architecture": "x86_64",
+    "filesystemType": "2035054128",
+    "selinuxContext": {
+      "available": true,
+      "value": "kernel\u0000"
+    },
+    "selinuxEnforce": {
+      "available": false,
+      "errno": 2,
+      "code": "ENOENT"
+    },
+    "denialAuditRead": "not-requested; capture permitted AVC diagnostics with adb",
+    "tests": [
+      {
+        "name": "A-publication",
+        "status": "PASS",
+        "evidence": {
+          "fileFsync": true,
+          "directoryFsync": true,
+          "sameInode": true,
+          "sourceConsumed": true,
+          "cleanupSynced": true,
+          "publishedIdentity": {
+            "inode": "3166152",
+            "device": "27",
+            "mode": 33152,
+            "uid": 1000,
+            "gid": 1000,
+            "size": 26,
+            "links": 1,
+            "mtimeSeconds": "1794496473",
+            "mtimeNanos": 91109489,
+            "ctimeSeconds": "1794496473",
+            "ctimeNanos": 92473804
+          }
+        }
+      },
+      {
+        "name": "B-existing-destination",
+        "status": "PASS",
+        "evidence": {
+          "errno": 17,
+          "code": "EEXIST",
+          "beforeContent": "existing destination must survive\n",
+          "afterContent": "existing destination must survive\n",
+          "before": {
+            "inode": "3166153",
+            "device": "27",
+            "mode": 33152,
+            "uid": 1000,
+            "gid": 1000,
+            "size": 34,
+            "links": 1,
+            "mtimeSeconds": "1794496473",
+            "mtimeNanos": 92669462,
+            "ctimeSeconds": "1794496473",
+            "ctimeNanos": 92669462
+          },
+          "after": {
+            "inode": "3166153",
+            "device": "27",
+            "mode": 33152,
+            "uid": 1000,
+            "gid": 1000,
+            "size": 34,
+            "links": 1,
+            "mtimeSeconds": "1794496473",
+            "mtimeNanos": 92669462,
+            "ctimeSeconds": "1794496473",
+            "ctimeNanos": 92669462
+          },
+          "destinationSymlinkProtected": true,
+          "loserCleanupSynced": true
+        }
+      },
+      {
+        "name": "C-independent-processes",
+        "status": "PASS",
+        "evidence": {
+          "processesPerRound": 8,
+          "rounds": 16,
+          "totalPublishers": 128,
+          "totalIndependentObservers": 16,
+          "roundResults": [
+            {
+              "round": 0,
+              "pids": [
+                93329,
+                93325,
+                93328,
+                93324,
+                93323,
+                93326,
+                93327,
+                93330
+              ],
+              "successes": 1,
+              "collisions": 7,
+              "completeReadObservations": 8,
+              "independentObserverPid": 93331,
+              "independentObserverCompleteReads": 1,
+              "lateCollisionProtected": true
+            },
+            {
+              "round": 1,
+              "pids": [
+                93335,
+                93334,
+                93336,
+                93333,
+                93332,
+                93337,
+                93339,
+                93338
+              ],
+              "successes": 1,
+              "collisions": 7,
+              "completeReadObservations": 8,
+              "independentObserverPid": 93340,
+              "independentObserverCompleteReads": 1,
+              "lateCollisionProtected": true
+            },
+            {
+              "round": 2,
+              "pids": [
+                93346,
+                93348,
+                93345,
+                93344,
+                93343,
+                93342,
+                93341,
+                93347
+              ],
+              "successes": 1,
+              "collisions": 7,
+              "completeReadObservations": 8,
+              "independentObserverPid": 93349,
+              "independentObserverCompleteReads": 1,
+              "lateCollisionProtected": true
+            },
+            {
+              "round": 3,
+              "pids": [
+                93350,
+                93352,
+                93351,
+                93355,
+                93354,
+                93356,
+                93353,
+                93357
+              ],
+              "successes": 1,
+              "collisions": 7,
+              "completeReadObservations": 8,
+              "independentObserverPid": 93358,
+              "independentObserverCompleteReads": 1,
+              "lateCollisionProtected": true
+            },
+            {
+              "round": 4,
+              "pids": [
+                93360,
+                93361,
+                93359,
+                93366,
+                93363,
+                93362,
+                93364,
+                93365
+              ],
+              "successes": 1,
+              "collisions": 7,
+              "completeReadObservations": 8,
+              "independentObserverPid": 93367,
+              "independentObserverCompleteReads": 1,
+              "lateCollisionProtected": true
+            },
+            {
+              "round": 5,
+              "pids": [
+                93374,
+                93375,
+                93368,
+                93371,
+                93369,
+                93373,
+                93370,
+                93372
+              ],
+              "successes": 1,
+              "collisions": 7,
+              "completeReadObservations": 8,
+              "independentObserverPid": 93376,
+              "independentObserverCompleteReads": 1,
+              "lateCollisionProtected": true
+            },
+            {
+              "round": 6,
+              "pids": [
+                93379,
+                93383,
+                93381,
+                93377,
+                93382,
+                93380,
+                93378,
+                93384
+              ],
+              "successes": 1,
+              "collisions": 7,
+              "completeReadObservations": 8,
+              "independentObserverPid": 93385,
+              "independentObserverCompleteReads": 1,
+              "lateCollisionProtected": true
+            },
+            {
+              "round": 7,
+              "pids": [
+                93389,
+                93390,
+                93391,
+                93392,
+                93387,
+                93386,
+                93388,
+                93393
+              ],
+              "successes": 1,
+              "collisions": 7,
+              "completeReadObservations": 8,
+              "independentObserverPid": 93394,
+              "independentObserverCompleteReads": 1,
+              "lateCollisionProtected": true
+            },
+            {
+              "round": 8,
+              "pids": [
+                93399,
+                93396,
+                93397,
+                93398,
+                93395,
+                93400,
+                93401,
+                93402
+              ],
+              "successes": 1,
+              "collisions": 7,
+              "completeReadObservations": 8,
+              "independentObserverPid": 93403,
+              "independentObserverCompleteReads": 1,
+              "lateCollisionProtected": true
+            },
+            {
+              "round": 9,
+              "pids": [
+                93410,
+                93407,
+                93405,
+                93406,
+                93404,
+                93409,
+                93411,
+                93408
+              ],
+              "successes": 1,
+              "collisions": 7,
+              "completeReadObservations": 8,
+              "independentObserverPid": 93412,
+              "independentObserverCompleteReads": 1,
+              "lateCollisionProtected": true
+            },
+            {
+              "round": 10,
+              "pids": [
+                93418,
+                93420,
+                93417,
+                93415,
+                93416,
+                93414,
+                93413,
+                93419
+              ],
+              "successes": 1,
+              "collisions": 7,
+              "completeReadObservations": 8,
+              "independentObserverPid": 93421,
+              "independentObserverCompleteReads": 1,
+              "lateCollisionProtected": true
+            },
+            {
+              "round": 11,
+              "pids": [
+                93422,
+                93425,
+                93423,
+                93426,
+                93428,
+                93429,
+                93424,
+                93427
+              ],
+              "successes": 1,
+              "collisions": 7,
+              "completeReadObservations": 8,
+              "independentObserverPid": 93430,
+              "independentObserverCompleteReads": 1,
+              "lateCollisionProtected": true
+            },
+            {
+              "round": 12,
+              "pids": [
+                93438,
+                93437,
+                93436,
+                93432,
+                93431,
+                93434,
+                93435,
+                93433
+              ],
+              "successes": 1,
+              "collisions": 7,
+              "completeReadObservations": 8,
+              "independentObserverPid": 93439,
+              "independentObserverCompleteReads": 1,
+              "lateCollisionProtected": true
+            },
+            {
+              "round": 13,
+              "pids": [
+                93444,
+                93440,
+                93443,
+                93446,
+                93442,
+                93441,
+                93445,
+                93447
+              ],
+              "successes": 1,
+              "collisions": 7,
+              "completeReadObservations": 8,
+              "independentObserverPid": 93448,
+              "independentObserverCompleteReads": 1,
+              "lateCollisionProtected": true
+            },
+            {
+              "round": 14,
+              "pids": [
+                93451,
+                93450,
+                93452,
+                93449,
+                93455,
+                93456,
+                93454,
+                93453
+              ],
+              "successes": 1,
+              "collisions": 7,
+              "completeReadObservations": 8,
+              "independentObserverPid": 93457,
+              "independentObserverCompleteReads": 1,
+              "lateCollisionProtected": true
+            },
+            {
+              "round": 15,
+              "pids": [
+                93458,
+                93459,
+                93460,
+                93465,
+                93461,
+                93463,
+                93464,
+                93462
+              ],
+              "successes": 1,
+              "collisions": 7,
+              "completeReadObservations": 8,
+              "independentObserverPid": 93466,
+              "independentObserverCompleteReads": 1,
+              "lateCollisionProtected": true
+            }
+          ]
+        }
+      },
+      {
+        "name": "D-interruption",
+        "status": "PASS",
+        "evidence": {
+          "iterationsPerBoundary": 2,
+          "cases": [
+            {
+              "boundary": "before-file-sync",
+              "iteration": 0,
+              "pid": 93467,
+              "signal": 9,
+              "published": false,
+              "fileFsyncAcknowledged": false,
+              "directoryFsyncAcknowledged": false,
+              "classification": "unpublished-temporary",
+              "recoveryCleanupSynced": true
+            },
+            {
+              "boundary": "before-file-sync",
+              "iteration": 1,
+              "pid": 93468,
+              "signal": 9,
+              "published": false,
+              "fileFsyncAcknowledged": false,
+              "directoryFsyncAcknowledged": false,
+              "classification": "unpublished-temporary",
+              "recoveryCleanupSynced": true
+            },
+            {
+              "boundary": "after-file-sync",
+              "iteration": 0,
+              "pid": 93469,
+              "signal": 9,
+              "published": false,
+              "fileFsyncAcknowledged": true,
+              "directoryFsyncAcknowledged": false,
+              "classification": "unpublished-temporary",
+              "recoveryCleanupSynced": true
+            },
+            {
+              "boundary": "after-file-sync",
+              "iteration": 1,
+              "pid": 93470,
+              "signal": 9,
+              "published": false,
+              "fileFsyncAcknowledged": true,
+              "directoryFsyncAcknowledged": false,
+              "classification": "unpublished-temporary",
+              "recoveryCleanupSynced": true
+            },
+            {
+              "boundary": "after-publish-before-directory-sync",
+              "iteration": 0,
+              "pid": 93471,
+              "signal": 9,
+              "published": true,
+              "fileFsyncAcknowledged": true,
+              "directoryFsyncAcknowledged": false,
+              "classification": "published-durability-unconfirmed",
+              "recoveryCleanupSynced": true
+            },
+            {
+              "boundary": "after-publish-before-directory-sync",
+              "iteration": 1,
+              "pid": 93472,
+              "signal": 9,
+              "published": true,
+              "fileFsyncAcknowledged": true,
+              "directoryFsyncAcknowledged": false,
+              "classification": "published-durability-unconfirmed",
+              "recoveryCleanupSynced": true
+            },
+            {
+              "boundary": "after-directory-sync",
+              "iteration": 0,
+              "pid": 93473,
+              "signal": 9,
+              "published": true,
+              "fileFsyncAcknowledged": true,
+              "directoryFsyncAcknowledged": true,
+              "classification": "published-directory-sync-acknowledged",
+              "recoveryCleanupSynced": true
+            },
+            {
+              "boundary": "after-directory-sync",
+              "iteration": 1,
+              "pid": 93474,
+              "signal": 9,
+              "published": true,
+              "fileFsyncAcknowledged": true,
+              "directoryFsyncAcknowledged": true,
+              "classification": "published-directory-sync-acknowledged",
+              "recoveryCleanupSynced": true
+            },
+            {
+              "boundary": "during-cleanup",
+              "iteration": 0,
+              "pid": 93475,
+              "signal": 9,
+              "published": true,
+              "fileFsyncAcknowledged": true,
+              "directoryFsyncAcknowledged": true,
+              "classification": "published-directory-sync-acknowledged",
+              "recoveryCleanupSynced": true
+            },
+            {
+              "boundary": "during-cleanup",
+              "iteration": 1,
+              "pid": 93476,
+              "signal": 9,
+              "published": true,
+              "fileFsyncAcknowledged": true,
+              "directoryFsyncAcknowledged": true,
+              "classification": "published-directory-sync-acknowledged",
+              "recoveryCleanupSynced": true
+            }
+          ],
+          "powerLossTested": false
+        }
+      },
+      {
+        "name": "E-errors-and-boundaries",
+        "status": "PASS",
+        "evidence": {
+          "traversalRejected": true,
+          "sourceSymlinkRejected": true,
+          "missingSourceErrno": 2,
+          "invalidDescriptorErrno": 9,
+          "fsyncFailurePropagated": true,
+          "readOnlyDirectoryErrno": 13,
+          "cleanupMissingErrno": 2,
+          "injectedUnsupportedErrors": [
+            "ENOSYS",
+            "EINVAL",
+            "EOPNOTSUPP"
+          ],
+          "postPublicationSyncFailureRetainsFile": true,
+          "syncFailureDescriptorIsInjected": true,
+          "unsupportedErrorsAreSimulated": true,
+          "fallbackUsed": false
+        }
+      }
+    ],
+    "powerLossTested": false,
+    "harnessPersistenceModified": false,
+    "gate2Passed": false
+  }
+}
