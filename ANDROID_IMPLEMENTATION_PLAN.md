@@ -2,7 +2,7 @@
 
 ## Summary
 
-The author has authorized Gate 1 review and a bounded Phase 2 proof when its acceptance criteria are satisfied. The [Gate 1 decision](ANDROID_GATE1_REVIEW.md) accepts the investigation strategy; device execution remains unverified. The master prompt's gates take precedence over earlier prototype work, which is not imported into this branch.
+The author has authorized Gate 1 review and a bounded Phase 2 proof when its acceptance criteria are satisfied. The [Gate 1 decision](ANDROID_GATE1_REVIEW.md) accepts the investigation strategy; the [v5 phone results](apps/android/evidence/phone-v5-user-results.json) now report fixed Node API and installed-child execution passing on Android 11/API 30. Authentic profile/session/tool execution remains unverified. The master prompt's gates take precedence over earlier prototype work, which is not imported into this branch.
 
 | Milestone | Status | Acceptance / next action |
 |---|---|---|
@@ -10,7 +10,7 @@ The author has authorized Gate 1 review and a bounded Phase 2 proof when its acc
 | Phase 1: locked dependency graph | VERIFIED | All resolved nodes and 8,836 edges enumerated; zero unresolved targets; all package manifests accounted for locally or by integrity-matched registry metadata |
 | Phase 1: source/native/platform audit | IMPLEMENTED | Source-backed report, package payload inventory and risk matrix available; noninstalled payloads and device semantics explicitly unverified |
 | Gate 1 review | VERIFIED | Reviewed criteria and bounded experimental decision recorded; no runtime selected as proven |
-| Phase 2 / Gate 2 | IN PROGRESS | Pinned ARM64 cross-build and minimal native host; no device/profile/session proof yet |
+| Phase 2 / Gate 2 | IN PROGRESS | ARM64 runtime builds and user-reported fixed phone probes pass; authentic Android profile/session/tool proof remains blocked |
 | Gate 3 | NOT STARTED | Device commands, streams, signals, timeout/cancel and PTY proof |
 | Gate 4 | NOT STARTED | Original UI boot, origin authentication, deep links, genuine streaming/session result |
 | Gate 5 | NOT STARTED | Separate root policy, canonical request binding, deny/replay/mutation/adversarial tests |
@@ -22,4 +22,4 @@ Approve or revise the minimum trusted plugin set, first device/API targets, supp
 
 ## Exact next engineering milestone
 
-After Phase 1 review, qualify a Node >=24.9 Android ARM64 runtime on API 29 and a recent Android device: load from compliant APK packaging; exercise ESM, workers, TLS/DNS, SQLite and actual lock contention; launch an authentic Harness profile, create/reopen a persistent session, and execute one explicitly approved harmless tool with real output. Capture failure telemetry and denied-operation evidence. No model success claim without authorized credentials. Do not spend this milestone redesigning the UI or implementing optional root/Termux.
+Use the packaged executable selected in the [architecture recommendation](ANDROID_ARCHITECTURE.md) for the next authentic profile experiment. Resolve Android native lock selection, trusted ownership checks and the minimal profile shell/PTY assumptions; launch the original Harness profile, create/reopen a persistent session, and execute one explicitly approved harmless tool with real output. The existing fixed API proof on Android 11 does not replace API 29 and recent-device runtime qualification, lifecycle testing or developer-controlled instrumentation. Capture failure telemetry and denied-operation evidence. No model success claim without authorized credentials. Do not spend this milestone redesigning the UI or implementing optional root/Termux.
