@@ -28,9 +28,9 @@ The result includes the installed APK/native-binding SHA-256, actual process ide
 | New C wrapper and Node-API callback on Linux | VERIFIED on host; not Android ABI proof |
 | Original profile, isolated image and repeated session recovery on Linux | VERIFIED on host; not Android persistence proof |
 | APK #2 build, signature, native dependencies and alignment | See [inspected artifact](../evidence/runtime-atomic-persistence-build.json) |
-| APK #2 native wrapper and original JSONL on Android | BLOCKED pending phone |
-| Runtime restart recovery on Android | BLOCKED pending phone |
-| Previous-invocation recovery on Android | BLOCKED pending phone |
+| APK #2 native wrapper and original JSONL on Android | VERIFIED in the user-reported Android 11 results |
+| Runtime restart recovery on Android | VERIFIED in three user-reported runs |
+| Previous-invocation recovery on Android | VERIFIED in user-reported runs two and three |
 | App restart / process termination during writes | NOT YET VERIFIED; separate scenarios |
 | Physical power loss, API 29 and recent Android devices | NOT YET VERIFIED |
 | Trusted approved command / model request / Gate 2 | BLOCKED; no substitute result |
@@ -66,3 +66,7 @@ python3 apps/android/scripts/validate_profile_result.py /tmp/android-apk2-phone-
 ```
 
 Manual results can be saved as JSON and passed to the same validator. A validator fixture is not device evidence; review actual device identity, artifacts and tester actions. After those two reports pass review, test a separately documented app force-stop/reopen, migration and active-process interruption before broader lifecycle claims. Approved harmless-command integration follows authentic persistence acceptance; optional root/Termux, broad PTY and original Web UI remain later milestones.
+
+## Physical acceptance record
+
+The [physical review](../evidence/runtime-apk2-physical-review.json) retains all three reports and executed validator commands. It distinguishes the manually requested app force-stop/reopen from the raw uninstrumented appRestartVerified field and leaves active-write kill/power-loss acceptance open. The same SDK close intentionally performs a best-effort shutdown even after the controller's explicit acknowledged request; the closed-input note in the supplied reports follows successful replies and exit code 0. Those notes remain in evidence. No new APK or SDK teardown change is required to accept these executed persistence results.

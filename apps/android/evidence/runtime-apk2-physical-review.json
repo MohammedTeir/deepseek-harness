@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-11-12",
+  "source": "Three complete user-reported Redmi Note 8 Pro results, normalized from chat values",
+  "developerControlledAdbInstrumentation": false,
+  "records": [
+    {
+      "path": "apps/android/evidence/phone-runtime-apk2-run1.json",
+      "sha256": "7f8019aeb796c7d992730d6f5b2da94195ef54942be044e87f4f9dc176564d83",
+      "command": [
+        "python3",
+        "apps/android/scripts/validate_profile_result.py",
+        "apps/android/evidence/phone-runtime-apk2-run1.json",
+        "--build-record",
+        "apps/android/evidence/runtime-atomic-persistence-build.json"
+      ],
+      "exitCode": 0,
+      "output": "Original runtime/session assertions PASS; app restart, model and approved command remain separate evidence.\n",
+      "nativePid": 29513,
+      "supervisorPid": 29475,
+      "previousRunSessionRecovered": false,
+      "persistedJsonlFiles": 1,
+      "explicitShutdownAcknowledgements": 2
+    },
+    {
+      "path": "apps/android/evidence/phone-runtime-apk2-run2.json",
+      "sha256": "2f2873a278648c075a40d20f7c87b6165b681effc53228a2482eeecfe31dee33",
+      "command": [
+        "python3",
+        "apps/android/scripts/validate_profile_result.py",
+        "apps/android/evidence/phone-runtime-apk2-run2.json",
+        "--build-record",
+        "apps/android/evidence/runtime-atomic-persistence-build.json",
+        "--require-previous-invocation"
+      ],
+      "exitCode": 0,
+      "output": "Original runtime/session assertions PASS; app restart, model and approved command remain separate evidence.\n",
+      "nativePid": 30446,
+      "supervisorPid": 30306,
+      "previousRunSessionRecovered": true,
+      "persistedJsonlFiles": 2,
+      "explicitShutdownAcknowledgements": 2
+    },
+    {
+      "path": "apps/android/evidence/phone-runtime-apk2-run3-after-force-stop-request.json",
+      "sha256": "d090156b09d3fcdcdfa21df2487a2e6ac2e5f730c383e92f760c645abfeca32f",
+      "command": [
+        "python3",
+        "apps/android/scripts/validate_profile_result.py",
+        "apps/android/evidence/phone-runtime-apk2-run3-after-force-stop-request.json",
+        "--build-record",
+        "apps/android/evidence/runtime-atomic-persistence-build.json",
+        "--require-previous-invocation"
+      ],
+      "exitCode": 0,
+      "output": "Original runtime/session assertions PASS; app restart, model and approved command remain separate evidence.\n",
+      "nativePid": 31161,
+      "supervisorPid": 31062,
+      "previousRunSessionRecovered": true,
+      "persistedJsonlFiles": 3,
+      "explicitShutdownAcknowledgements": 2
+    }
+  ],
+  "artifactDigestsMatchDeliveredBuild": true,
+  "device": {
+    "model": "Redmi Note 8 Pro",
+    "androidRelease": "11",
+    "api": 30,
+    "arch": "arm64",
+    "node": "v24.22.1",
+    "uid": 10751
+  },
+  "acceptance": {
+    "originalProfileInitialization": "VERIFIED by user-reported execution",
+    "nativePublicationBindingOnAndroid": "VERIFIED by executed production preflight and matching binding digest",
+    "runtimeRestartSessionRecovery": "VERIFIED in all three runs",
+    "previousInvocationSessionRecovery": "VERIFIED in runs two and three",
+    "collisionProtectionAndSynchronization": "VERIFIED by production entry preflight",
+    "integrityAfterRejectedMissingSession": "VERIFIED by original SDK failure and unchanged JSONL digests inside each run",
+    "manualAppRestartAfterAcknowledgedShutdown": "SUPPORTED by the third report returned to the explicit force-stop/reopen request; no independent main-Activity PID or ADB force-stop log",
+    "automatedAppRestartVerification": false,
+    "processTerminationDuringHarnessWrites": "NOT YET VERIFIED",
+    "powerLossRecovery": "NOT YET VERIFIED"
+  },
+  "shutdownDiagnostics": {
+    "explicitSuccessfulReplies": 6,
+    "laterBestEffortCloseAttempts": "The unchanged SDK close sends another shutdown request after the controller has received its successful explicit reply. The second attempt encounters a closed JSON-RPC input and appends a diagnostic; each supplied note includes exit code 0.",
+    "errorsRetained": true,
+    "storageFailuresSuppressed": false,
+    "sourcePaths": [
+      "apps/android/runtime/session-diagnostics.mjs",
+      "packages/sdk/client/src/client.ts"
+    ]
+  },
+  "scopeLimits": [
+    "User-reported manual hardware testing, not developer-controlled device instrumentation",
+    "Only this Android 11/API 30 ARM64 device is qualified here",
+    "No claim that a resumed session must retain an unchanged hash across valid subsequent appends; within-run rejection integrity is asserted separately",
+    "No Android migration/generation-race device proof beyond the tested prepared-file mechanism; host migration regressions remain separate",
+    "No active-write kill, power-loss, API 29, newer-device, cross-directory or retained-source alias acceptance",
+    "No original Web UI, model round trip or approved command result is claimed"
+  ],
+  "gate2Passed": false,
+  "nextMilestone": "Implement a narrowly scoped provider through original Harness tools and approval services, with a native one-shot exact-request grant, real harmless subprocess output, and denial/mutation/replay checks."
+}

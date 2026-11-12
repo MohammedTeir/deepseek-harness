@@ -77,3 +77,7 @@ V8 physical execution rejects hardlink publication with EACCES. The isolated [at
 ## APK #2 atomic persistence adapter
 
 Two physical APK #1 reports pass the [native mechanism review](apps/android/evidence/atomic-poc-physical-review.json). The [runtime adapter reference](apps/android/runtime/ATOMIC_PERSISTENCE_ADAPTER.md) records the new shared publication entry, both original JSONL callers, packaging and phone test steps. APK #2 updates the existing larger Node/Harness diagnostic app; its original session recovery and new binding remain device-unverified. Runtime restart, repeated invocation, app restart and process death remain distinct evidence.
+
+## APK #2 physical results
+
+The [three-report physical review](apps/android/evidence/runtime-apk2-physical-review.json) accepts original session persistence/recovery and native-binding execution on the reported Android 11 ARM64 phone. Runtime restart and previous-invocation recovery are separate passing assertions; the third report follows requested manual force-stop/reopen. Raw appRestartVerified stays false because the controller cannot independently measure that action. Extra best-effort SDK close requests generate retained closed-input notes after explicit successful shutdown replies; they are not discarded or substituted for those replies. Active-write termination, power loss and broader devices remain unverified.
