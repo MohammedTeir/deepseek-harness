@@ -191,6 +191,25 @@
       "summary": "43/43 in 177.43 seconds",
       "logSha256": "e3180a4b49a8725432b184b2094eab4ec5c18cfc95e706ea6d9dc4a5cad44e33",
       "output": "$ tsx scripts/run-gates.ts doc-sync\nrun-gates: doc-sync running 43 gate(s) with 4 worker(s) from 4 local default worker(s) of 4 CPU(s), doc-sync cap 8.\nrun-gates: start doc-typecheck\nrun-gates: start documentation build\nrun-gates: start doc graphs\nrun-gates: start CLI help reference\nrun-gates: PASS CLI help reference (34.45s)\nrun-gates: start markdown links\nrun-gates: PASS doc-typecheck (56.74s)\nrun-gates: start type equivalence\nrun-gates: PASS doc graphs (57.21s)\nrun-gates: start cordis catalog\nrun-gates: PASS type equivalence (6.41s)\nrun-gates: start Cordis inspect catalog\nrun-gates: PASS markdown links (33.18s)\nrun-gates: start workflow guest source\nrun-gates: PASS workflow guest source (2.42s)\nrun-gates: start verify-mermaid\nrun-gates: PASS Cordis inspect catalog (18.40s)\nrun-gates: start translation pairing\nrun-gates: PASS cordis catalog (27.80s)\nrun-gates: start markdown wrap\nrun-gates: PASS documentation build (105.54s)\nrun-gates: start client catalog\nrun-gates: PASS verify-mermaid (39.49s)\nrun-gates: start export jsdoc\nrun-gates: PASS markdown wrap (28.70s)\nrun-gates: start tool catalog\nrun-gates: PASS client catalog (10.50s)\nrun-gates: start config catalog\nrun-gates: PASS tool catalog (4.15s)\nrun-gates: start skill plugin package list\nrun-gates: PASS translation pairing (38.78s)\nrun-gates: start npm dependency catalog\nrun-gates: PASS config catalog (5.51s)\nrun-gates: start persistence catalog\nrun-gates: PASS npm dependency catalog (1.43s)\nrun-gates: start persistence type history\nrun-gates: PASS skill plugin package list (4.84s)\nrun-gates: start released persistence history\nrun-gates: PASS export jsdoc (16.47s)\nrun-gates: start Session format references\nrun-gates: PASS released persistence history (5.32s)\nrun-gates: start Session format catalog\nrun-gates: PASS Session format catalog (1.66s)\nrun-gates: start public repository links\nrun-gates: PASS Session format references (11.29s)\nrun-gates: start repository references\nrun-gates: PASS public repository links (8.23s)\nrun-gates: start concrete terms\nrun-gates: PASS concrete terms (4.09s)\nrun-gates: start doc refs\nrun-gates: PASS doc refs (2.40s)\nrun-gates: start subsystem pages\nrun-gates: PASS subsystem pages (2.26s)\nrun-gates: start package paths\nrun-gates: PASS package paths (2.90s)\nrun-gates: start tsconfig paths\nrun-gates: PASS tsconfig paths (1.15s)\nrun-gates: start config source ownership\nrun-gates: PASS repository references (13.62s)\nrun-gates: start package README Summaries\nrun-gates: PASS config source ownership (1.19s)\nrun-gates: start package README model experience\nrun-gates: PASS persistence type history (30.16s)\nrun-gates: start agent note classification\nrun-gates: PASS package README Summaries (1.78s)\nrun-gates: start agent note format\nrun-gates: PASS agent note classification (1.72s)\nrun-gates: start archived agent notes\nrun-gates: PASS agent note format (1.60s)\nrun-gates: start skill invocation metadata\nrun-gates: PASS persistence catalog (33.03s)\nrun-gates: start translation prompt\nrun-gates: PASS archived agent notes (1.73s)\nrun-gates: start doc budgets\nrun-gates: PASS skill invocation metadata (2.05s)\nrun-gates: start upgrade guides\nrun-gates: PASS translation prompt (1.98s)\nrun-gates: start documentation standard tests\nrun-gates: PASS doc budgets (1.37s)\nrun-gates: start documentation site checks\nrun-gates: PASS upgrade guides (1.46s)\nrun-gates: start package README limitations\nrun-gates: PASS documentation standard tests (4.74s)\nrun-gates: PASS package README model experience (9.72s)\nrun-gates: PASS package README limitations (10.05s)\nrun-gates: PASS documentation site checks (20.65s)\n\nrun-gates: 43 passed, 0 failed, 0 skipped in 177.43s.\n"
+    },
+    {
+      "name": "incremental-TypeScript-pre-push",
+      "command": [
+        "git",
+        "push",
+        "origin",
+        "feature/android-port"
+      ],
+      "hookCommand": [
+        "tsx",
+        "scripts/build.ts",
+        "--scope",
+        "typecheck"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Five gates passed: Host Typert, host compiler, client compiler, host aggregate check, client aggregate check; 11.94 seconds. Observed directly in the successful pre-push tool output.",
+      "evidenceSource": "Executed Git pre-push hook output; no manual duplicate typecheck run."
     }
   ],
   "physicalDeviceGate": "BLOCKED",
