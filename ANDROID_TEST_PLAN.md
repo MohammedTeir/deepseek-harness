@@ -45,3 +45,7 @@ V8 retains every original profile/session assertion and additionally requires al
 ## Atomic persistence physical checkpoint
 
 Run APK #1 from the separate atomic-proof module, then retain complete native A–F results, APK/native hashes and actual physical-device properties. The [owning test reference](apps/android/atomic-proof/ATOMIC_PERSISTENCE_REVIEW.md#native-proof-and-guarantees-tested) defines 128 competing publishers, 16 independent observers, 10 controlled kills, actual sync/collision/error checks and explicitly simulated unsupported-error injection. Host tests, compilation and validator fixtures cannot pass physical acceptance. Integration and APK #2 remain BLOCKED until those device results pass review.
+
+## APK #2 authentic persistence acceptance
+
+The [runtime qualification tutorial](apps/android/runtime/ATOMIC_PERSISTENCE_ADAPTER.md#physical-device-tutorial) requires original profile startup, production publication preflight, JSONL creation, acknowledged shutdown, full Node runtime restart and a recovered nondefault directory. A second invocation must recover the previous session; a rejected missing-session request must not alter committed JSONL hashes. Match installed APK/native digests and retain all failure diagnostics. App restart, active-write process death, power loss and approved commands are separate, unverified cases. Host consumed-stage/sync-failure regressions and native callback fixtures cannot satisfy Android acceptance.

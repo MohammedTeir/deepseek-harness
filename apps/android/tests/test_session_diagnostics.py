@@ -17,7 +17,7 @@ class SessionDiagnosticsTest(unittest.TestCase):
     def test_actual_directory_sync_file_sync_and_exclusive_publication(self):
         with tempfile.TemporaryDirectory() as directory:
             result=self.run_node('console.log(JSON.stringify(await probe.storagePrerequisites(process.argv[1])))',directory)
-            self.assertEqual(result,{'directorySync':True,'fileSync':True,'exclusiveHardlinkPublish':True,'existingPathRejected':True})
+            self.assertEqual(result,{'directorySync':True,'fileSync':True,'exclusivePreparedFilePublish':True,'existingPathRejected':True,'publicationStrategy':'hardlink'})
             self.assertEqual(list(Path(directory).iterdir()),[])
 
     @unittest.skipUnless(os.name=='posix' and hasattr(os,'getuid') and os.getuid()!=0,'Non-root POSIX permission check')

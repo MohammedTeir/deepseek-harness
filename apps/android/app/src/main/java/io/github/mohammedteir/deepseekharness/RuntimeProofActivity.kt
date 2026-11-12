@@ -44,6 +44,13 @@ class RuntimeProofActivity : Activity() {
                     .setPositiveButton("Run once") { _, _ -> runProbe(profile = true) }.show()
             }
         })
+        layout.addView(Button(this).apply {
+            text = "Copy complete result"
+            setOnClickListener {
+                (getSystemService(CLIPBOARD_SERVICE) as ClipboardManager).setPrimaryClip(ClipData.newPlainText("Harness runtime proof", output.text))
+                Toast.makeText(this@RuntimeProofActivity, "Result copied", Toast.LENGTH_SHORT).show()
+            }
+        })
         layout.addView(ScrollView(this).apply { addView(output) }, LinearLayout.LayoutParams(-1, 0, 1f))
         setContentView(layout)
     }

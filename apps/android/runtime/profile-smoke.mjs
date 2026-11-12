@@ -94,6 +94,27 @@ async function main() {
   stage = 'profile-restart';
   await second.initialize(initialize);
   diagnostic.beforeResume = await sessionInventory(store);
+  stage = 'session-failure-integrity';
+  const persistedBeforeFailure = await sessionInventory(store);
+  const filesBeforeFailure = {};
+  for (const name of await fs.readdir(store, { recursive: true })) {
+    if (name.endsWith('.jsonl')) filesBeforeFailure[name] = crypto.createHash('sha256').update(await fs.readFile(path.join(store, name))).digest('hex');
+  }
+  let missingRejected = false;
+  try { await second.resumeSession('android-missing-' + crypto.randomUUID()); }
+  catch (error) {
+    if (error.name !== 'JsonRpcResponseError' || !String(error.message).includes('not found')) throw error;
+    missingRejected = true;
+    diagnostic.missingSessionFailure = describeFailure(error);
+  }
+  if (!missingRejected) throw new Error('Missing original session was accepted');
+  for (const [name, digest] of Object.entries(filesBeforeFailure)) {
+    if (crypto.createHash('sha256').update(await fs.readFile(path.join(store, name))).digest('hex') !== digest) {
+      throw new Error('Committed JSONL changed after rejected session recovery');
+    }
+  }
+  diagnostic.sessionIntegrityAfterRejectedRecovery = true;
+  diagnostic.persistedBeforeRejectedRecovery = persistedBeforeFailure;
   stage = 'session-recovery';
   await second.resumeSession(sessionId);
   const recovered = await second.getWorkingDirectory(sessionId);

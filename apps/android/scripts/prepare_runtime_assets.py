@@ -17,8 +17,12 @@ if record.get('packagedNodeExecutable') != 'libnode_executable.so' or 'libnode_e
     raise ValueError('Missing inspected Node executable; build it and run the packager')
 if record.get('requireBuiltinNodeDependency') != 'libnode.so' or 'libharness_require_builtin.so' not in record['sha256']:
     raise ValueError('Missing inspected require-builtin addon; build and package it')
+if record.get('atomicNodeDependency') != 'libnode.so' or 'libharness_atomic.so' not in record['sha256']:
+    raise ValueError('Missing inspected atomic publication binding; build and package it')
+if record.get('atomicSourceSha256') != hashlib.sha256((android.parents[1] / 'native/system/packages/entry/src/atomic_publish.c').read_bytes()).hexdigest():
+    raise ValueError('Atomic publication source changed; rebuild native assets')
 for name, digest in record['sha256'].items():
-    if name not in {'libnode.so', 'libc++_shared.so', 'libharness_system.so', 'libnode_executable.so', 'libharness_require_builtin.so'}:
+    if name not in {'libharness_atomic.so', 'libnode.so', 'libc++_shared.so', 'libharness_system.so', 'libnode_executable.so', 'libharness_require_builtin.so'}:
         raise ValueError('Unexpected runtime library')
     native = android / 'app/src/main/jniLibs/arm64-v8a' / name
     if hashlib.sha256(native.read_bytes()).hexdigest() != digest:
@@ -31,7 +35,7 @@ for name in ['smoke.mjs', 'executable-smoke.mjs', 'child-node.mjs', 'proc-identi
 flock = android.parents[1] / 'native/system/packages/entry/lib/flock.js'
 subprocess.run(['pnpm', '--dir', str(android.parents[1] / 'native/system'), 'build:ts'], check=True)
 shutil.copy2(flock, output / 'harness-flock.mjs')
-for name in ['NODE_LICENSE', 'NDK_NOTICE', 'ANDROID_CPU_FEATURES_NOTICE', 'SYSTEM_ADDON_LICENSE', 'REQUIRE_BUILTIN_LICENSE', 'NODE_ADDON_API_LICENSE', 'require-builtin-build.json', 'runtime-build.json']:
+for name in ['NODE_LICENSE', 'NDK_NOTICE', 'ANDROID_CPU_FEATURES_NOTICE', 'SYSTEM_ADDON_LICENSE', 'REQUIRE_BUILTIN_LICENSE', 'NODE_ADDON_API_LICENSE', 'require-builtin-build.json', 'atomic-build.json', 'runtime-build.json']:
     shutil.copy2(metadata / name, output / name)
 
 for name in ['LICENSE', 'THIRD_PARTY_NOTICES.md']:

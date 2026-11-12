@@ -14,4 +14,6 @@ kind: "package-library"
 
 Android ARM64 嵌入通过宿主原生库链接器命名空间延迟加载固定的 `libharness_system.so` SONAME。Android 宿主必须打包匹配的 Bionic Node-API 绑定及其 Node 依赖；npm 平台包不提供该绑定。加载失败会拒绝锁获取，不回退或直接授予锁。Android 探测使用此入口，但 Android Harness 会话持久化仍未验证。
 
-两个 C 源文件随包分发以供审计。参见工作区[架构](../../docs/architecture.md)、[支持矩阵](../../docs/support-matrix.md)和 [CLI 约定](../../docs/cli-contract.md)。
+`@deepseek-ai/node-addon-system/publish` 导出 `publishPreparedFileExclusive(source, destination)`。非 Android 调用方保留 fs.link 语义。Android ARM64 通过宿主固定的 libharness_atomic.so 与异步 Node-API v8 工作，在同一个规范化、归当前用户所有的 0700 目录内调用 renameat2(RENAME_NOREPLACE) 发布。暂存文件名必须不同，仅含小写 ASCII 字母、数字、点或连字符，且不超过 120 字节。Android 成功时消耗暂存路径，其他平台保留该路径。调用方在发布前 fsync 数据、发布后 fsync 目标目录，并在清理暂存路径时允许 ENOENT。EEXIST 不替换目标；加载、权限或不支持错误均拒绝且不回退。Node 将 errno 95 命名为 ENOTSUP（EOPNOTSUPP 的别名）。发布后的失败不表示回滚。同 UID 恶意修改暂存文件、跨目录发布及保留源文件的别名不属于此 API。Android 宿主提供匹配绑定，npm 平台包不提供。
+
+三个 C 源文件随包分发以供审计。参见工作区[架构](../../docs/architecture.md)、[支持矩阵](../../docs/support-matrix.md)和 [CLI 约定](../../docs/cli-contract.md)。

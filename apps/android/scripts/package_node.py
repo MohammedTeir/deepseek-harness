@@ -59,7 +59,16 @@ def package(build: Path, ndk: Path, android: Path) -> None:
     inspect_executable(readelf, executable)
     builtin = android / "runtime/out/require-builtin/libharness_require_builtin.so"
     inspect_addon(readelf, builtin)
-    binaries = {"libharness_require_builtin.so": builtin, "libnode.so": library, "libharness_system.so": addon, "libnode_executable.so": executable}
+    atomic = android / "runtime/out/atomic/libharness_atomic.so"
+    inspect_addon(readelf, atomic)
+    atomic_record = json.loads((android / "runtime/out/atomic/build.json").read_text())
+    for key, path in [("sourceSha256", android.parents[1] / "native/system/packages/entry/src/atomic_publish.c"),
+                      ("nativeSha256", atomic), ("nodeLibrarySha256", library)]:
+        if atomic_record.get(key) != hashlib.sha256(path.read_bytes()).hexdigest():
+            raise ValueError(f"Stale atomic publication build: {key}")
+    if atomic_record.get("minimumApi") != 29 or atomic_record.get("napiVersion") != 8:
+        raise ValueError("Unqualified atomic publication ABI/API metadata")
+    binaries = {"libharness_atomic.so": atomic, "libharness_require_builtin.so": builtin, "libnode.so": library, "libharness_system.so": addon, "libnode_executable.so": executable}
     if "libc++_shared.so" in dependencies:
         cpp = toolchain / "sysroot/usr/lib/aarch64-linux-android/libc++_shared.so"
         inspect(readelf, cpp)
@@ -83,10 +92,13 @@ def package(build: Path, ndk: Path, android: Path) -> None:
     for name, notice in notices.items():
         shutil.copy2(notice, metadata / name)
     shutil.copy2(android / "runtime/out/require-builtin/build.json", metadata / "require-builtin-build.json")
+    shutil.copy2(android / "runtime/out/atomic/build.json", metadata / "atomic-build.json")
     record = {"nodeVersion": "24.22.1", "abi": "arm64-v8a", "minimumApi": 29,
               "nodeArchiveSha256": "4f5379796280cdaeb0c2f358fd04b6a16cc4fb7dfa83b5a8c91a9d963b435231",
               "systemSourceSha256": hashlib.sha256((android.parents[1] / "native/system/packages/entry/src/flock.c").read_bytes()).hexdigest(),
               "systemNodeDependency": "libnode.so",
+              "atomicNodeDependency": "libnode.so",
+              "atomicSourceSha256": hashlib.sha256((android.parents[1] / "native/system/packages/entry/src/atomic_publish.c").read_bytes()).hexdigest(),
               "requireBuiltinNodeDependency": "libnode.so",
               "packagedNodeExecutable": "libnode_executable.so",
               "deviceVerified": False, "harnessStarted": False, "sha256": hashes}

@@ -105,6 +105,13 @@ def main() -> int:
             validate(json.loads((args.output / "runtime-result.json").read_text()),
                      apk_sha256=record["apks"][paths[0].name], native_sha256=native_digest)
             record["physicalHardwareReviewed"] = False
+        elif args.proof == "profile":
+            from validate_profile_result import validate
+            with zipfile.ZipFile(paths[0]) as archive:
+                native_digest = hashlib.sha256(archive.read("lib/arm64-v8a/libharness_atomic.so")).hexdigest()
+            expected = {"apkSha256": {"app-debug.apk": record["apks"][paths[0].name]},
+                        "packagedLibraries": {"libharness_atomic.so": {"sha256": native_digest}}}
+            validate(json.loads((args.output / "runtime-result.json").read_text()), expected)
         record["status"] = "VERIFIED"
         return 0
     except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as error:

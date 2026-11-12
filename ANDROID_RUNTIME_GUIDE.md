@@ -73,3 +73,7 @@ The storage preflight exercises the same required POSIX primitives independently
 ## Atomic publication proof before persistence integration
 
 V8 physical execution rejects hardlink publication with EACCES. The isolated [atomic persistence investigation](apps/android/atomic-proof/ATOMIC_PERSISTENCE_REVIEW.md) records candidate comparisons, all relevant publication callers, native tests and APK #1 instructions. Its separate app does not initialize Harness or modify sessions. Production publication remains unchanged until mandatory physical-device A–F acceptance. APK #2 and genuine recovery are separate later work.
+
+## APK #2 atomic persistence adapter
+
+Two physical APK #1 reports pass the [native mechanism review](apps/android/evidence/atomic-poc-physical-review.json). The [runtime adapter reference](apps/android/runtime/ATOMIC_PERSISTENCE_ADAPTER.md) records the new shared publication entry, both original JSONL callers, packaging and phone test steps. APK #2 updates the existing larger Node/Harness diagnostic app; its original session recovery and new binding remain device-unverified. Runtime restart, repeated invocation, app restart and process death remain distinct evidence.

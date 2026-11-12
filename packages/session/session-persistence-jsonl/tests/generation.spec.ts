@@ -1351,7 +1351,7 @@ describe('JSONL immutable generation publication', () => {
     const failure = await ensureWithOverrides(request, {
       platform: 'darwin',
       fs: posixSimulationFs({
-        link: async () => { throw fsError('EEXIST') },
+        publishExclusive: async () => { throw fsError('EEXIST') },
         readdir: async () => [`session.V${SESSION_FORMAT_VERSION}.jsonl`],
       }),
     }).then(() => undefined, (error: unknown) => error)
@@ -1368,7 +1368,7 @@ describe('JSONL immutable generation publication', () => {
 
     await expect(ensureWithOverrides(request, {
       platform: 'darwin',
-      fs: posixSimulationFs({ link: async () => { throw fsError('EEXIST') } }),
+      fs: posixSimulationFs({ publishExclusive: async () => { throw fsError('EEXIST') } }),
     })).rejects.toMatchObject({ code: 'ENOENT', path: request.currentPath })
   })
 
@@ -1494,7 +1494,7 @@ describe('JSONL immutable generation publication', () => {
       {
         platform: 'darwin',
         fs: posixSimulationFs({
-          link: async () => { throw publication },
+          publishExclusive: async () => { throw publication },
           rm: removeFile,
         }),
       },
@@ -1588,6 +1588,39 @@ describe('JSONL immutable generation publication', () => {
     expect(await readFile(request.currentPath, 'utf8')).toBe(line(header(SESSION_FORMAT_VERSION)) + line(event0))
   })
 
+  it('cleans an already consumed stage after exclusive publication', async () => {
+    const root = await tempRoot()
+    const request = options(root)
+    const source = Buffer.from(line(header(0)) + line(event0))
+    await writeFile(request.sourcePath, source)
+    // Consumer lifecycle test, not an Android syscall or ABI simulation.
+    await ensureWithOverrides(request, { platform: 'android', fs: posixSimulationFs({
+      publishExclusive: async (from: string, to: string) => { await link(from, to); await rm(from) },
+    }) })
+    expect(await readFile(request.sourcePath)).toEqual(source)
+    expect(await readFile(request.currentPath, 'utf8')).toBe(line(header(SESSION_FORMAT_VERSION)) + line(event0))
+    expect((await readdir(root)).some(name => name.endsWith('.tmp'))).toBe(false)
+  })
+
+  it('retains a published generation when directory sync fails after staging was consumed', async () => {
+    const root = await tempRoot()
+    const request = options(root)
+    const source = Buffer.from(line(header(0)) + line(event0))
+    await writeFile(request.sourcePath, source)
+    let published = false
+    const failure = fsError('EIO')
+    await expect(ensureWithOverrides(request, { platform: 'android', fs: {
+      publishExclusive: async (from: string, to: string) => { await link(from, to); await rm(from); published = true },
+      open: async (path: string, flags: string, mode?: number) => {
+        const handle = await openWithPosixDirectorySync(path, flags, mode)
+        if (published && flags === 'r' && path === root) vi.spyOn(handle, 'sync').mockRejectedValue(failure)
+        return handle
+      },
+    } })).rejects.toBe(failure)
+    expect(await readFile(request.sourcePath)).toEqual(source)
+    expect(await readFile(request.currentPath, 'utf8')).toBe(line(header(SESSION_FORMAT_VERSION)) + line(event0))
+  })
+
   it('accepts an identical target that wins Windows publication', async () => {
     const root = await tempRoot()
     const request = options(root)
@@ -1613,7 +1646,7 @@ describe('JSONL immutable generation publication', () => {
 
       await expect(ensureWithOverrides(request, platform === 'win32'
         ? { platform, publishNewWin32: async () => { throw failure } }
-        : { platform, fs: posixSimulationFs({ link: async () => { throw failure } }) }))
+        : { platform, fs: posixSimulationFs({ publishExclusive: async () => { throw failure } }) }))
         .rejects.toBe(failure)
       expect(await readdir(root)).toEqual(['session.jsonl'])
     }
@@ -1632,7 +1665,7 @@ describe('JSONL immutable generation publication', () => {
 
     await ensureWithOverrides(
       request,
-      { platform: 'darwin', fs: posixSimulationFs({ link: linkFile }) },
+      { platform: 'darwin', fs: posixSimulationFs({ publishExclusive: linkFile }) },
     )
 
     expect(raced).toBe(true)

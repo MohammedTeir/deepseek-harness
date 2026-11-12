@@ -65,3 +65,7 @@ V8 uses the same third action with confirmed-shutdown/storage diagnostics. Build
 ## Isolated atomic proof APK #1
 
 The separate atomic-proof module builds a fixed native syscall test and small Android host without Node, Harness image assets or production persistence changes. Use the [build/install tutorial](apps/android/atomic-proof/ATOMIC_PERSISTENCE_REVIEW.md#build-and-install-tutorial) and [inspected build record](apps/android/evidence/atomic-poc-apk1-build.json). Its package differs from the runtime proof and preserves that app's existing data. Native execution and UI behavior remain physical-device checks.
+
+## APK #2 runtime update
+
+Follow the [runtime rebuild tutorial](apps/android/runtime/ATOMIC_PERSISTENCE_ADAPTER.md#rebuild-tutorial). The new build-atomic-addon.sh and package_node.py require matching source/binary/Node hashes before APK assembly. [Runtime APK inspection](apps/android/evidence/runtime-atomic-persistence-build.json) records the new fixed binding, original profile image, signatures and alignment; Android execution is not inferred from these checks. APK #2 updates Harness runtime proof and preserves app data.

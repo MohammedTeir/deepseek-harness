@@ -1,6 +1,7 @@
 // Bounded diagnostics for the original JSONL prerequisites; never a session-store replacement.
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { publishPreparedFileExclusive } from '../../../native/system/packages/entry/lib/publish.js';
 
 export function describeFailure(error, depth = 0) {
   if (depth > 3) return { message: 'Nested diagnostic limit' };
@@ -28,19 +29,24 @@ export async function storagePrerequisites(base) {
     const handle = await fs.open(pending, 'wx', 0o600);
     try { await handle.writeFile('harness-storage-proof\n'); await handle.sync(); }
     finally { await handle.close(); }
-    stage = 'exclusive-hardlink-publish';
-    await fs.link(pending, published);
+    stage = 'exclusive-prepared-publication';
     const original = await fs.stat(pending);
+    await publishPreparedFileExclusive(pending, published);
     const linked = await fs.stat(published);
     if (original.ino !== linked.ino || original.dev !== linked.dev) throw new Error('Published inode differs');
+    const second = path.join(directory, 'second');
+    const secondHandle = await fs.open(second, 'wx', 0o600);
+    try { await secondHandle.writeFile('must not replace'); await secondHandle.sync(); } finally { await secondHandle.close(); }
     let rejected = false;
-    try { await fs.link(pending, published); }
+    try { await publishPreparedFileExclusive(second, published); }
     catch (error) { if (error.code !== 'EEXIST') throw error; rejected = true; }
     if (!rejected) throw new Error('Exclusive publication overwrote an existing path');
     await syncDirectory();
-    await fs.unlink(pending);
+    await fs.rm(pending, { force: true });
+    await fs.unlink(second);
     if (await fs.readFile(published, 'utf8') !== 'harness-storage-proof\n') throw new Error('Published bytes differ');
-    return { directorySync: true, fileSync: true, exclusiveHardlinkPublish: true, existingPathRejected: true };
+    return { directorySync: true, fileSync: true, exclusivePreparedFilePublish: true, existingPathRejected: true,
+      publicationStrategy: process.platform === 'android' ? 'renameat2-noreplace' : 'hardlink' };
   } catch (error) {
     error.storageStage = stage;
     throw error;

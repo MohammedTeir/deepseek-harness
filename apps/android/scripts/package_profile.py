@@ -122,7 +122,8 @@ def build(output):
         files -= natives
         files |= {'LICENSE', 'THIRD_PARTY_NOTICES.md', 'apps/android/runtime/profile/no-execution.patch.yml',
                   'apps/android/runtime/profile-smoke.mjs', 'apps/android/runtime/proc-identity.mjs',
-                  'apps/android/runtime/session-diagnostics.mjs'}
+                  'apps/android/runtime/session-diagnostics.mjs', 'native/system/packages/entry/lib/publish.js',
+                  'native/system/packages/entry/package.json'}
         packages = set()
         for name in list(files):
             directory = (ROOT / name).parent

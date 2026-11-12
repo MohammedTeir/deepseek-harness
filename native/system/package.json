@@ -11,7 +11,7 @@
     "build:native": "tsx ./scripts/build.ts",
     "build:test-oracle": "node ./scripts/build-test-oracle.mjs",
     "typecheck": "tsc --noEmit && tsc -b --dry",
-    "test": "node ./test/entry.test.js && node ./test/launcher.test.js && node --test ./test/flock-android-policy.test.js ./test/flock.test.js ./test/package-matrix.test.js ./test/release-packing.test.js",
+    "test": "node ./test/entry.test.js && node ./test/launcher.test.js && node --test ./test/publish.test.js ./test/flock-android-policy.test.js ./test/flock.test.js ./test/package-matrix.test.js ./test/release-packing.test.js",
     "test:entry": "node ./test/entry.test.js",
     "test:launcher": "node ./test/launcher.test.js",
     "test:flock": "node --test ./test/flock-android-policy.test.js ./test/flock.test.js",
@@ -23,7 +23,8 @@
     "release:verify": "node ./scripts/verify-release.mjs",
     "release:pack": "node ./scripts/pack-release.mjs",
     "release:publish": "node ./scripts/publish-release.mjs",
-    "release:verify-packed-install": "node ./scripts/verify-packed-install.mjs"
+    "release:verify-packed-install": "node ./scripts/verify-packed-install.mjs",
+    "test:publish": "node --test ./test/publish.test.js"
   },
   "devDependencies": {
     "@deepseek-ai/node-addon-system": "workspace:~",

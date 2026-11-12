@@ -20,6 +20,18 @@ class ProfileProbeService : Service() {
         check(file.length() <= 65536) { "Profile diagnostic exceeds limit" }
         return file.readText()
     }
+    private fun digest(file: File): String {
+        val digest = java.security.MessageDigest.getInstance("SHA-256")
+        file.inputStream().use { stream ->
+            val buffer = ByteArray(65536)
+            while (true) {
+                val count = stream.read(buffer)
+                if (count < 0) break
+                digest.update(buffer, 0, count)
+            }
+        }
+        return digest.digest().joinToString("") { "%02x".format(it) }
+    }
     private fun runProbe(): String {
         val directory = File(filesDir, "profile-probe").canonicalFile.apply { mkdirs() }
         val output = File(directory, "result.json")
@@ -46,6 +58,11 @@ class ProfileProbeService : Service() {
                 check(result.getString("execPath") == executable.absolutePath)
                 check(!result.getBoolean("modelRequestExecuted") && !result.getBoolean("approvedCommandExecuted") && !result.getBoolean("gate2Passed"))
                 result.put("device", JSONObject().put("model", Build.MODEL).put("androidRelease", Build.VERSION.RELEASE).put("api", Build.VERSION.SDK_INT))
+                val publication = File(applicationInfo.nativeLibraryDir, "libharness_atomic.so").canonicalFile
+                check(publication.isFile && !publication.canWrite()) { "Publication binding missing or writable" }
+                result.put("apkSha256", digest(File(applicationInfo.sourceDir)))
+                result.put("nativePublicationSha256", digest(publication))
+                result.put("installedPublicationBindingWritable", publication.canWrite())
                 result.put("supervisorPid", android.os.Process.myPid()).put("supervisorUid", android.os.Process.myUid())
                 val pending = File(directory, "result.host.pending")
                 pending.writeText(result.toString())

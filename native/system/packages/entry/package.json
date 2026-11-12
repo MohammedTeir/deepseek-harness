@@ -17,14 +17,19 @@
       "types": "./lib/flock.d.ts",
       "default": "./lib/flock.js"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./publish": {
+      "types": "./lib/publish.d.ts",
+      "default": "./lib/publish.js"
+    }
   },
   "files": [
     "README.md",
     "lib/",
     "!lib/*.tsbuildinfo",
     "src/main.c",
-    "src/flock.c"
+    "src/flock.c",
+    "src/atomic_publish.c"
   ],
   "scripts": {
     "build:js": "tsc -b",
