@@ -2,7 +2,7 @@
 
 ## Summary
 
-Phase 0 is VERIFIED. The [Gate 1 review](ANDROID_GATE1_REVIEW.md) accepts the reviewed audit and a bounded Phase 2 runtime experiment. Phase 2 is IN PROGRESS; Gate 2 is not passed. A genuine Node ARM64 runtime API debug APK and its instrumentation APK build successfully. The user reported a failed phone probe with exit code 1. The original frontend and Harness engine are preserved. No successful Android API qualification, authentic profile readiness, session recovery or authorized tool result has been verified.
+Phase 0 is VERIFIED. The [Gate 1 review](ANDROID_GATE1_REVIEW.md) accepts the reviewed audit and a bounded Phase 2 runtime experiment. Phase 2 is IN PROGRESS; Gate 2 is not passed. The user reports Node 24.22.1 executing on Android ARM64 through SQLite and worker checks, then failing to resolve a Node-API symbol while loading the original lock addon. Version 3 adds explicit addon-to-Node linkage; phone verification is pending. The original frontend and Harness engine are preserved. No full Android API qualification, authentic profile readiness, session recovery or authorized tool result has been verified.
 
 ## Upstream sync: Phase 1 evidence refreshed
 
@@ -93,3 +93,13 @@ Version code 2 (`0.1.1-runtime-diagnostics`) captures Node startup/module-loader
 Five host tests passed: real POSIX stderr capture/restoration, unavailable-file and symlink rejection, actual Linux Node worker denial with stage/error retention, and runner parsing. These do not reproduce the Android cause. Runtime APK/test APK assembly and Android lint passed: 78 tasks in 17s. Signature/alignment, packaged ELF, required notices and source/artifact hashes were inspected. `apps/android/evidence/runtime-diagnostics-build.json` records the new artifact separately; the original APK evidence remains unchanged. Next: repeat the phone probe and use its actual error to identify the fix. Gate 2 remains BLOCKED.
 
 Diagnostic-update documentation checks passed: quick 21/21 and full 43/43; repository lint passed with the same existing unused-disable warning. The v2 download archive and its contained APK were downloaded and hash-verified before handoff. No successful v2 phone result is claimed.
+
+## Explicit Node-API linkage candidate
+
+The user's v2 transcript identifies `stage: native-lock`, Node `v24.22.1`, platform `android`, arch `arm64`, and a loader failure resolving `napi_create_function` from `libharness_system.so`. By the shipped probe's ordering, SQLite SELECT 42 and the worker response/termination completed before this stage. This is partial user-reported phone evidence, not developer-run instrumentation or full runtime acceptance. Lock semantics, later API checks and Harness remain unverified.
+
+ELF inspection confirms Node exports the symbol while the old addon omitted `libnode.so` from DT_NEEDED. Version code 3 (`0.1.2-native-linkage`) links the unchanged original C source explicitly against the bundled Node library and uses `-z defs` to reject unresolved addon symbols at link time. Packaging requires that dependency and the Node export; asset preparation rejects old linkage metadata. Other binaries retain the narrower Android dependency allowlist. No production flock platform selection or agent code was changed.
+
+Eight host ELF/metadata regressions passed. The actual v2 addon extracted from its hash-verified APK is rejected by the new guard; the real newly linked addon is accepted. Normal runtime APK/test APK assembly and Android lint passed: 78 tasks in 7s. The packaged addon retains DT_NEEDED `libnode.so`, and the packaged Node library exports the required function. Signatures, alignment, notices and hashes were inspected. Evidence is separate in `apps/android/evidence/runtime-native-linkage-build.json`; earlier artifact records remain unchanged. Re-run the full phone probe to test this candidate. Gate 2 remains BLOCKED.
+
+V3 update validation passed: quick documentation 21/21, full documentation 43/43, repository lint with the existing unused-disable warning, and matching Android source/artifact hashes. Initial Filebin delivery failed with HTTP 507 (service storage full); no v3 download or phone success is inferred from that attempt.

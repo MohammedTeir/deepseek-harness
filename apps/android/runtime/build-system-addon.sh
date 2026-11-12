@@ -8,12 +8,16 @@ grep -qx "Pkg.Revision = 28.2.13676358" "$ANDROID_NDK_HOME/source.properties"
 : "${ANDROID_NODE_BUILD_DIR:?Set the directory used by build-node.sh}"
 headers="$ANDROID_NODE_BUILD_DIR/node-v24.22.1/src"
 test -f "$headers/node_api.h"
+node_library_dir="$ANDROID_NODE_BUILD_DIR/node-v24.22.1/out/Release"
+test -f "$node_library_dir/libnode.so"
 toolchain="$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64"
 mkdir -p "$script_dir/out/system"
 "$toolchain/bin/aarch64-linux-android29-clang" \
   -std=c11 -O2 -Wall -Wextra -Werror -fPIC -fvisibility=hidden \
   -DNAPI_VERSION=8 -I "$headers" -shared -Wl,-z,max-page-size=16384 \
   "$repo_dir/native/system/packages/entry/src/flock.c" \
+  -Wl,-z,defs -L "$node_library_dir" -l:libnode.so \
+  -Wl,-rpath-link,"$toolchain/sysroot/usr/lib/aarch64-linux-android" \
   -o "$script_dir/out/system/libharness_system.so"
 cp "$repo_dir/native/system/LICENSE" "$script_dir/out/system/LICENSE"
 "$toolchain/bin/llvm-readelf" -h -l -d -W "$script_dir/out/system/libharness_system.so"

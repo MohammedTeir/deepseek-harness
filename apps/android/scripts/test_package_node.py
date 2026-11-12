@@ -3,7 +3,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from package_node import inspect
+from package_node import inspect, inspect_addon
 
 
 class ElfInspectionTests(unittest.TestCase):
@@ -31,6 +31,24 @@ Machine: AArch64
     def test_small_page_alignment(self):
         with self.assertRaisesRegex(ValueError, "16 KB"):
             self.inspect_report(self.report.replace("0x4000", "0x1000"))
+
+    def test_addon_requires_explicit_node_dependency(self):
+        with patch("package_node.subprocess.check_output", return_value=self.report):
+            with self.assertRaisesRegex(ValueError, "DT_NEEDED"):
+                inspect_addon(Path("readelf"), Path("addon.so"))
+
+    def test_node_dependency_is_allowed_only_for_addon_inspection(self):
+        report = self.report + "  0x0002 (NEEDED) Shared library: [libnode.so]\n"
+        with self.assertRaisesRegex(ValueError, "Unreviewed"):
+            self.inspect_report(report)
+        with patch("package_node.subprocess.check_output", return_value=report):
+            inspect_addon(Path("readelf"), Path("addon.so"))
+
+    def test_addon_node_dependency_does_not_allow_linux_libc(self):
+        report = self.report.replace("libc.so", "libc.so.6") + "  0x0002 (NEEDED) Shared library: [libnode.so]\n"
+        with patch("package_node.subprocess.check_output", return_value=report):
+            with self.assertRaisesRegex(ValueError, "Unreviewed"):
+                inspect_addon(Path("readelf"), Path("addon.so"))
 
 
 if __name__ == "__main__":

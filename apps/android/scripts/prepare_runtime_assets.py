@@ -10,6 +10,8 @@ metadata = android / 'runtime/out'
 record = json.loads((metadata / 'runtime-build.json').read_text())
 if 'libnode.so' not in record['sha256']:
     raise ValueError('Missing inspected libnode.so; run the runtime build and packager')
+if record.get('systemNodeDependency') != 'libnode.so':
+    raise ValueError('Missing verified Android addon Node dependency; rebuild the addon and run the packager')
 for name, digest in record['sha256'].items():
     if name not in {'libnode.so', 'libc++_shared.so', 'libharness_system.so'}:
         raise ValueError('Unexpected runtime library')

@@ -2,21 +2,21 @@
 
 ## Summary
 
-Classifications identify reuse or engineering work, not tested Android support. No row has on-device evidence. The complete resolved graph, native dependency paths, platform metadata, installed payloads and remaining archive gaps are under [audit evidence](audit/android/EVIDENCE.md).
+Classifications identify reuse or engineering work, not complete Android support. The user reports partial Node/SQLite/worker progress on a phone, followed by a native-addon symbol resolution failure; no full-feature acceptance is claimed. The complete resolved graph, native dependency paths, platform metadata, installed payloads and remaining archive gaps are under [audit evidence](audit/android/EVIDENCE.md).
 
 | Feature | Classification | Source evidence | Blocker / mitigation / acceptance evidence |
 |---|---|---|---|
 | Agent loop, tool/session event model | REUSE DIRECTLY | `packages/core/agent-loop`, `core/tools`, `core/session` | Preserve logic; real profile and tool round trip still unverified |
 | Cordis profile/plugin composition | ADAPT | `apps/cli/src/profile-boot.ts`, `packages/boot/app-boot`, bundle YAML | Choose explicit Android composition; audit native and privileged plugins |
-| Node >=24.9 | NOT YET VERIFIED | Root engines; Node 24 Android BUILDING guidance | Unsupported upstream target; compare two packaging candidates before commitment |
+| Node >=24.9 | NOT YET VERIFIED | Root engines; Node 24 Android BUILDING guidance; user v2 diagnostic transcript | Source build passes; user reports v24.22.1 Android ARM64 execution reaching native-lock. Full qualification and strategy comparison remain incomplete |
 | Original frontend source | REUSE DIRECTLY | `apps/web/src/main.ts`, `packages/client` | Linux Vite build passed; Android rendering/touch not tested |
 | Frontend boot/dynamic modules | ADAPT | `packages/client/web`, `client/modules`, `host/frontend-static` | Preserve injections and plugin assets; static index alone is insufficient |
 | Routes/assets/workers/fonts | ADAPT | Vite `base: './'`, explicit root/index static handler | Specify real routes and restricted fallback; reject missing assets/API paths; preview worker is not backend proof |
 | HTTP/RPC/WebSocket streams | ADAPT | `client/connection`, `api/gateway/src/stream-protocol.ts` | `/api/remote.mux`; prove origin/cookies/token flow and restart streaming |
 | Electron OS integrations | REIMPLEMENT ADAPTER | `apps/desktop/src/preload-app.ts` | File pick/save/share, clipboard, window/lifecycle; mark unavailable desktop features |
 | JSONL sessions | ADAPT | `session/session-persistence-jsonl/src/lease.ts` | Native flock loader rejects Android; preserve locking/fsync/recovery semantics |
-| SQLite storage | NOT YET VERIFIED | `storage/storage-sqlite/src/schema.ts` | Requires actual embedded `node:sqlite`, concurrency and crash tests |
-| Native POSIX flock | ADAPT | `native/system/packages/entry/src/flock.ts`, `flock.c`, prebuild matrices | Rebuild and add deliberate Android selection; no glibc/musl substitution |
+| SQLite storage | NOT YET VERIFIED | `storage/storage-sqlite/src/schema.ts`; user v2 probe ordering | In-memory SELECT passed before the reported native-lock stage; actual persistent storage, concurrency and crash recovery remain untested |
+| Native POSIX flock | ADAPT | `native/system/packages/entry/src/flock.ts`, `flock.c`, prebuild matrices | Original C source rebuilt; v2 failed symbol resolution. V3 explicit Node dependency awaits phone testing; production Android selection remains absent |
 | Plain subprocess execution | REIMPLEMENT ADAPTER | `subprocess/subprocess-local/src/spawn.ts` | Supported executable location, structured errors, signals, ownership and real device output required |
 | Persistent terminal | ADAPT | `terminal/terminal-bash/src/config.ts`, node-pty payload | Default `/bin/bash`; prompt-control logic is bash/pwsh-specific; Toybox sh is not a drop-in equivalent |
 | PTY backend | NOT YET VERIFIED | NDK `pty.h`; node-pty `binding.gyp`/prebuilds | API 23 symbols exist; glibc prebuilds unusable; actual SELinux/fork/PTY/cancel behavior needed |

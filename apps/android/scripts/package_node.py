@@ -8,7 +8,7 @@ import subprocess
 from pathlib import Path
 
 
-def inspect(readelf: Path, library: Path) -> set[str]:
+def inspect(readelf: Path, library: Path, *, allow_node: bool = False) -> set[str]:
     """Reject foreign ABIs, unaligned segments, and non-Android dependencies."""
     report = subprocess.check_output([str(readelf), "-h", "-l", "-d", "-W", str(library)], text=True)
     if not re.search(r"Machine:\s+AArch64", report) or not re.search(r"Type:\s+DYN", report):
@@ -18,9 +18,17 @@ def inspect(readelf: Path, library: Path) -> set[str]:
         raise ValueError(f"Library lacks 16 KB LOAD alignment: {library}")
     dependencies = set(re.findall(r"\(NEEDED\).*\[([^]]+)\]", report))
     allowed = {"libc.so", "libm.so", "libdl.so", "liblog.so", "libc++_shared.so"}
+    if allow_node:
+        allowed.add("libnode.so")
     if dependencies - allowed:
         raise ValueError(f"Unreviewed dependencies: {sorted(dependencies - allowed)}")
     return dependencies
+
+
+def inspect_addon(readelf: Path, addon: Path) -> None:
+    """Require explicit Node linkage; RTLD_GLOBAL alone failed on the test phone."""
+    if "libnode.so" not in inspect(readelf, addon, allow_node=True):
+        raise ValueError("Android addon must declare libnode.so in DT_NEEDED")
 
 
 def package(build: Path, ndk: Path, android: Path) -> None:
@@ -31,10 +39,11 @@ def package(build: Path, ndk: Path, android: Path) -> None:
     library = source / "out/Release/libnode.so"
     dependencies = inspect(readelf, library)
     symbols = subprocess.check_output([str(readelf), "--dyn-syms", "-W", str(library)], text=True)
-    if not re.search(r"\bGLOBAL\b.*\bDEFAULT\b\s+(?!UND\b)\S+\s+_ZN4node5StartEiPPc\b", symbols):
-        raise ValueError("Node Start entry is missing")
+    for symbol in ["_ZN4node5StartEiPPc", "napi_create_function"]:
+        if not re.search(r"\bGLOBAL\b.*\bDEFAULT\b\s+(?!UND\b)\S+\s+" + re.escape(symbol) + r"\b", symbols):
+            raise ValueError(f"Node required entry is missing: {symbol}")
     addon = android / "runtime/out/system/libharness_system.so"
-    inspect(readelf, addon)
+    inspect_addon(readelf, addon)
     binaries = {"libnode.so": library, "libharness_system.so": addon}
     if "libc++_shared.so" in dependencies:
         cpp = toolchain / "sysroot/usr/lib/aarch64-linux-android/libc++_shared.so"
@@ -60,6 +69,7 @@ def package(build: Path, ndk: Path, android: Path) -> None:
     record = {"nodeVersion": "24.22.1", "abi": "arm64-v8a", "minimumApi": 29,
               "nodeArchiveSha256": "4f5379796280cdaeb0c2f358fd04b6a16cc4fb7dfa83b5a8c91a9d963b435231",
               "systemSourceSha256": hashlib.sha256((android.parents[1] / "native/system/packages/entry/src/flock.c").read_bytes()).hexdigest(),
+              "systemNodeDependency": "libnode.so",
               "deviceVerified": False, "harnessStarted": False, "sha256": hashes}
     (metadata / "runtime-build.json").write_text(json.dumps(record, indent=2) + "\n")
     print("Staged inspected ARM64 libraries and licenses; Android execution remains unverified")
