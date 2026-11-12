@@ -121,7 +121,8 @@ def build(output):
             raise ValueError(f'Unreviewed native dependency set: {sorted(natives)}')
         files -= natives
         files |= {'LICENSE', 'THIRD_PARTY_NOTICES.md', 'apps/android/runtime/profile/no-execution.patch.yml',
-                  'apps/android/runtime/profile-smoke.mjs', 'apps/android/runtime/proc-identity.mjs'}
+                  'apps/android/runtime/profile-smoke.mjs', 'apps/android/runtime/proc-identity.mjs',
+                  'apps/android/runtime/session-diagnostics.mjs'}
         packages = set()
         for name in list(files):
             directory = (ROOT / name).parent

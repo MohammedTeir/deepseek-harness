@@ -11,8 +11,8 @@ android {
         minSdk = 29
         targetSdk = 36
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        versionCode = 7
-        versionName = "0.1.6-original-profile"
+        versionCode = 8
+        versionName = "0.1.7-session-diagnostics"
         ndk { abiFilters += "arm64-v8a" }
     }
     signingConfigs.getByName("debug").storeFile = rootProject.file(".local/debug.keystore")

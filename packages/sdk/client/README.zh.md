@@ -109,6 +109,8 @@ console.log(result.finalResponse)
 
 本客户端为每种失败模式导出类型化错误：`JsonRpcResponseError`（协议错误响应，保留 code 与 data）、`RequestTimeoutError`（配置的时限已到）、`SdkProtocolError`（响应超出文档化协议）、`TransportClosedError`（运行时已消失——消息携带退出码与有界 stderr 尾部）。`close()` 先请求协议 `shutdown`（受 `shutdownTimeoutMs` 约束，默认 1000 毫秒），然后走 stdin-EOF → SIGTERM → SIGKILL 阶梯直到进程退出；幂等，已关闭的客户端拒绝复用。`HarnessClientOptions.env` 给定时整体替换子进程环境（`undefined` 原样继承父进程环境）；凭据策略归调用方——`dsh-subprocess` 的 `scrubbedParentEnv` 是面向隔离启动的共享擦除基底。
 
+`HarnessClient.runtimeStderr()` 返回保留的非空运行时 stderr 与 SDK 关闭失败记录的只读快照，关闭后也可读取。它仅等待既有的有界流收尾时段，不保证仍在运行的进程输出完整。文本不可信，可能包含敏感数据且不会脱敏；保留和展示策略由调用方负责。应用若要求协议确认，应显式调用 `request('shutdown')`：`close()` 将该交换视为尽力而为，确认失败后仍会回收进程。
+
 <a id="native-user-questions"></a>
 ### 原生用户问答
 

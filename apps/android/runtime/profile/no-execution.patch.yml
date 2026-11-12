@@ -15,3 +15,7 @@
   disabled: true
 - id: tool-fs
   disabled: true
+
+# Persistent storage must be ready before this qualification accepts SDK requests.
+- id: sdk-jsonrpc-server
+  inject: [sdkAppStartup, loader, sessionPersistence]

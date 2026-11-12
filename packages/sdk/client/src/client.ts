@@ -509,6 +509,17 @@ export class HarnessClient {
     this.failSubscriptions(this.closedError('DeepSeek Harness runtime closed'))
   }
 
+  /**
+   * Read retained runtime stderr and SDK shutdown-failure notes without changing client state.
+   * Waits at most the existing stream-settle bound; a live process can emit more later.
+   * Output is untrusted and may contain sensitive data; no redaction is applied.
+   * @returns A text snapshot, empty before launch or when no lines were retained.
+   */
+  async runtimeStderr(): Promise<string> {
+    if (this.child !== undefined) await this.settleStreams()
+    return this.stderrTail.join('\n')
+  }
+
   private dispatchNotification(notification: HarnessNotification): void {
     this.recordSessionRelationship(notification)
     for (const subscription of this.subscriptions.values()) subscription.push(notification)

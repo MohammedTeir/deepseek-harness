@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "platform": "linux",
+  "node": "v24.22.1",
+  "originalProfile": "sdk-minimal",
+  "fault": "Real temporary JSONL file made read-only for non-root process",
+  "plainClose": {
+    "rejected": false,
+    "error": null,
+    "stderr": "shutdown request failed: EACCES: permission denied, open '/tmp/harness-durability-reference-VOD9DX/plain/home/sessions/--tmp-harness-durability-reference-VOD9DX-plain-workspace--/durability-reference/session.v4.jsonl'"
+  },
+  "confirmedShutdown": {
+    "rejected": true,
+    "error": {
+      "phase": "shutdown",
+      "name": "JsonRpcResponseError",
+      "message": "EACCES: permission denied, open '/tmp/harness-durability-reference-VOD9DX/confirmed/home/sessions/--tmp-harness-durability-reference-VOD9DX-confirmed-workspace--/durability-reference/session.v4.jsonl'"
+    },
+    "stderr": "shutdown request failed: EACCES: permission denied, open '/tmp/harness-durability-reference-VOD9DX/confirmed/home/sessions/--tmp-harness-durability-reference-VOD9DX-confirmed-workspace--/durability-reference/session.v4.jsonl'"
+  },
+  "androidReproduced": false,
+  "androidRootCauseEstablished": false
+}

@@ -34,10 +34,13 @@ try {
     for (const id of disabled) {
       if (rows.find(row => row.id === id)?.disabled !== true) throw new Error(`Execution row remains enabled: ${id}`);
     }
+    if (!rows.find(row => row.id === 'sdk-jsonrpc-server')?.inject?.includes('sessionPersistence')) {
+      throw new Error('Profile qualification must require persistence readiness');
+    }
     if (rows.some(row => row.name === '@deepseek-ai/dsh-spill-local')) throw new Error('Unqualified ownership cleanup must not be mounted');
     composition = { disabledRows: disabled, spillLocalMounted: false,
       patchSha256: crypto.createHash('sha256').update(await fs.readFile(patch)).digest('hex'),
-      originalProfileWithOverlay: true, securitySandboxClaim: false };
+      originalProfileWithOverlay: true, requiresPersistenceBeforeSdk: true, securitySandboxClaim: false };
   }
   const options = { profile: 'sdk-minimal', ...(bounded ? { patches: [patch] } : {}), dshHome: path.join(root, 'home'), processCwd: workspace,
     env, initializeTimeoutMs: 30000, requestTimeoutMs: 10000 };

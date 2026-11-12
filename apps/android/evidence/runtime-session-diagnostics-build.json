@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-11-12",
+  "environment": "Linux x86_64 cloud host",
+  "scope": "V8 confirmed shutdown/storage diagnostics and APK inspection; phone root cause not established",
+  "apkBuild": {
+    "exitCode": 0,
+    "summary": "BUILD SUCCESSFUL in 16s; 79 actionable tasks: 9 executed, 70 up-to-date",
+    "runtimeAssetsExcluded": false,
+    "kotlinCompilerStrategy": "in-process"
+  },
+  "apkVersionCode": 8,
+  "apkVersionName": "0.1.7-session-diagnostics",
+  "apkSha256": {
+    "app-debug.apk": "768aa3e8e0dd50c0b7a4f115d76e88a9191a7ce1356105d4cba9be84147c46a4",
+    "app-debug-androidTest.apk": "00edbc988a7b70ab07f3d0f4ce2a3cd7c924a75d5c5e013b17cc0b1192c55c0c"
+  },
+  "apkBytes": {
+    "app-debug.apk": 50246580,
+    "app-debug-androidTest.apk": 2193547
+  },
+  "packagedLibraries": {
+    "libnode.so": {
+      "sha256": "dce2e18255bd582ff3651f3c00013d026799e0eb549f2da24fee0feedfa29437",
+      "bytes": 110704112,
+      "dependencies": [
+        "libc++_shared.so",
+        "libc.so",
+        "libdl.so",
+        "liblog.so",
+        "libm.so"
+      ],
+      "loadAlignmentAtLeast16384": true
+    },
+    "libharness_system.so": {
+      "sha256": "78469b9ea728137161615e1993a09d8297d51692b054b9e54500eccdab13c2e5",
+      "bytes": 8720,
+      "dependencies": [
+        "libc.so",
+        "libdl.so",
+        "libnode.so"
+      ],
+      "loadAlignmentAtLeast16384": true
+    },
+    "libnode_executable.so": {
+      "sha256": "07b91cc6fa5ed0489b95bc237929fd14a009c9bfa8d309b514fceca3d977e408",
+      "bytes": 4456,
+      "dependencies": [
+        "libc++_shared.so",
+        "libc.so",
+        "libdl.so",
+        "libm.so",
+        "libnode.so"
+      ],
+      "loadAlignmentAtLeast16384": true
+    },
+    "libc++_shared.so": {
+      "sha256": "cd61762848882a16c8244c964a6f396c0caa0b440588a210ce9cc4ab0e6d9f0c",
+      "bytes": 1253544,
+      "dependencies": [
+        "libc.so",
+        "libdl.so",
+        "libm.so"
+      ],
+      "loadAlignmentAtLeast16384": true
+    },
+    "libharness_probe.so": {
+      "sha256": "4b387cde02c6c248966fec13b8ff0721b294914e8f02b624eb9024ad4be113dc",
+      "bytes": 349600,
+      "dependencies": [
+        "libc.so",
+        "libdl.so",
+        "libm.so"
+      ],
+      "loadAlignmentAtLeast16384": true
+    },
+    "libharness_require_builtin.so": {
+      "sha256": "0f577571c27c6148be2173a660f146d826d259e7001ff3bdaefdcf5f5f8b5757",
+      "bytes": 69568,
+      "dependencies": [
+        "libc++_shared.so",
+        "libc.so",
+        "libdl.so",
+        "libm.so",
+        "libnode.so"
+      ],
+      "loadAlignmentAtLeast16384": true
+    }
+  },
+  "assets": {
+    "smoke.mjs": {
+      "sha256": "ffd35a510a2479d7f84ebb4719a2aa8d34ec00e7eb771f2bbbcfcc85de0318e8",
+      "source": "apps/android/runtime/smoke.mjs"
+    },
+    "executable-smoke.mjs": {
+      "sha256": "efd7169f8f41289eab52c74e8b3305e1fec5a98f60a73e54b65bb20f0d6c44b7",
+      "source": "apps/android/runtime/executable-smoke.mjs"
+    },
+    "child-node.mjs": {
+      "sha256": "3758568aaf64cbf9aa69c9561551b6c5b1e1076b182cbe3e8a47453d7aaca6f0",
+      "source": "apps/android/runtime/child-node.mjs"
+    },
+    "proc-identity.mjs": {
+      "sha256": "04ef65df8fbe352337a43390ca94777583ffacb916fae85d8bf3621a35723d40",
+      "source": "apps/android/runtime/proc-identity.mjs"
+    },
+    "harness-flock.mjs": {
+      "sha256": "10f2bf5333f2f5f69632901c77c7ddfb0fd2660311f5622fc6b9b66b22bacab9",
+      "source": "native/system/packages/entry/lib/flock.js"
+    }
+  },
+  "checks": [
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/apksigner",
+        "verify",
+        "/workspace/deepseek-harness/apps/android/app/build/outputs/apk/debug/app-debug.apk"
+      ],
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/zipalign",
+        "-c",
+        "-P",
+        "16",
+        "4",
+        "/workspace/deepseek-harness/apps/android/app/build/outputs/apk/debug/app-debug.apk"
+      ],
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/apksigner",
+        "verify",
+        "/workspace/deepseek-harness/apps/android/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
+      ],
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/zipalign",
+        "-c",
+        "-P",
+        "16",
+        "4",
+        "/workspace/deepseek-harness/apps/android/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
+      ],
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/aapt",
+        "dump",
+        "badging",
+        "/workspace/deepseek-harness/apps/android/app/build/outputs/apk/debug/app-debug.apk"
+      ],
+      "exitCode": 0,
+      "output": "package: name='ai.deepseek.harness.android.runtimepoc' versionCode='8' versionName='0.1.7-session-diagnostics' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'\nsdkVersion:'29'\ntargetSdkVersion:'36'\nuses-permission: name='android.permission.INTERNET'\napplication: label='' icon=''\napplication-debuggable\nlaunchable-activity: name='io.github.mohammedteir.deepseekharness.RuntimeProofActivity'  label='' icon=''\nfeature-group: label=''\n  uses-feature: name='android.hardware.faketouch'\n  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'\nmain\nother-services\nsupports-screens: 'small' 'normal' 'large' 'xlarge'\nsupports-any-density: 'true'\nlocales:\ndensities:\nnative-code: 'arm64-v8a'\n"
+    }
+  ],
+  "hostTests": {
+    "androidHostTests": 16,
+    "sdkStderrAndDisposalTests": 17,
+    "elfMetadataAndProfileArchiveTests": 17
+  },
+  "originalProfileReference": "host-confirmed-session-reference.json",
+  "androidNativeInternalLoaderExecuted": false,
+  "harnessInitializedOnAndroid": false,
+  "gate2Passed": false,
+  "profileImage": {
+    "sha256": "9a36fe6750d38e92bc6938e11b8ffb4641fd6c15d0865722fa453cdf5de56002",
+    "bytes": 2584605,
+    "files": 1337,
+    "links": 844,
+    "packageManifests": 647,
+    "excludedHostNative": [
+      "native/system/packages/linux-x64/bin/glibc/system.node",
+      "node_modules/.pnpm/node-addon-require-builtin-linux-x64-gnu@0.1.9/node_modules/node-addon-require-builtin-linux-x64-gnu/prebuilt/linux-x64-gnu-napi-v9.node"
+    ],
+    "completeDependencyDistribution": false
+  },
+  "requireBuiltin": {
+    "version": "0.1.9",
+    "backend": "napi",
+    "sourceModified": false,
+    "androidExecuted": false,
+    "sourcePinSha256": "aee0c7873d159bf6c86d3766eaede9778a2c086142098733bf94ad4a053b4d4d",
+    "sha256": "a767828752581c8e3991d742f9013fa4b7033239e697d99bbc715d6f1840699a"
+  },
+  "sourceFilesSha256": {
+    "packages/sdk/client/src/client.ts": "9e76665b20e261689c560db863d81f5d0313043e9fc58bca8bc3d81a25eaf3ba",
+    "packages/sdk/client/lib/index.js": "1942c605b711b79ff8251bb5cedab661d625b42a48ffeb8e1a3a76b761ef5e24",
+    "apps/android/app/build.gradle.kts": "7e24e639962c024697c4c44f80a6873e8d569992502069f9ad685a9b6f09c386",
+    "apps/android/app/src/main/AndroidManifest.xml": "d0d42006a0488e3549cea798a94014ef90670c36b6b48c931ef8bb54b2e431ed",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/ExecutableProbeService.kt": "333e11ca5cf63235bbe77a65937223a926d3fa33cec85b5694f002be48cbd205",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/ProfileImage.kt": "6e6c7d2715c25f3eda59aecaf401f1f2b368b4c5fe94f5da03dd6537eb86cbc0",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/ProfileProbeService.kt": "e11169c4ca9e0dc34040ef2aad7a9486ec6a249abb6b819095dde674c054d34a",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/RuntimeProofActivity.kt": "36798e2efa0fba894362a60baf5500ca406b96da116fee687d6c03f4c83f14c2",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/RuntimeService.kt": "4240450604d31dfd101e30d7e09de2b75bbdb782640ce8f2701112f118c9c129",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/ImageFiles.java": "c002c7263f2d51acf32d4dd5eaa30af35315306cc44058ed1bf16a0741233563",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/OwnedProcess.java": "4cae9672555adaf39fcc31e4f64899f3cd118b8fcc4f0ba52ac8121b7dbfd3ac",
+    "apps/android/scripts/package_node.py": "23177e8961c1cf398b60528323c7c895921b3e85f1d10e43a4d8392003e5cb71",
+    "apps/android/scripts/package_profile.py": "e482965919de29c0e944d921bd6bb20de24d631652ec3e2b81aaeeecd191d1f2",
+    "apps/android/scripts/prepare_runtime_assets.py": "0a1042c8a28e516969b5de1ac6bbf923c4e5e5ea3f5a0abbf44b1446c59aa309",
+    "apps/android/scripts/test_device.py": "3cf6ebba4edac1324ea0e14f5e78f90dbe7b928021fa198d7d33f418a616a40d",
+    "apps/android/scripts/test_package_node.py": "378113842c54237264f4dd74974248c553ad89b0f79f9e0eac094c8b9d78e964",
+    "apps/android/scripts/test_package_profile.py": "8a03b8f9f152daa20d275c2a931d39af95d92a31c54b39b28b6ab3b65ded55a5",
+    "apps/android/scripts/test_prepare_runtime_assets.py": "5be94852bddd3e30050ae01fff171df7864415e1c793e63bcff130856b9ca03e",
+    "apps/android/runtime/build_require_builtin.py": "8d8766979e7720d63c8c386278aa11cee68f5be70954c34ce1a5c493c3535379",
+    "apps/android/runtime/child-node.mjs": "3758568aaf64cbf9aa69c9561551b6c5b1e1076b182cbe3e8a47453d7aaca6f0",
+    "apps/android/runtime/executable-smoke.mjs": "efd7169f8f41289eab52c74e8b3305e1fec5a98f60a73e54b65bb20f0d6c44b7",
+    "apps/android/runtime/proc-identity.mjs": "04ef65df8fbe352337a43390ca94777583ffacb916fae85d8bf3621a35723d40",
+    "apps/android/runtime/profile-smoke.mjs": "c470831fbf883478dfcc251b3355047db9ea19b612f4b911d18f542661b16df2",
+    "apps/android/runtime/session-diagnostics.mjs": "ed6c5c744ffa055e9c64e5605ac7aa10c0583e6cfbeef0d2f21d0a3ec9fc3d93",
+    "apps/android/runtime/smoke.mjs": "ffd35a510a2479d7f84ebb4719a2aa8d34ec00e7eb771f2bbbcfcc85de0318e8",
+    "apps/android/runtime/require-builtin-source.json": "aee0c7873d159bf6c86d3766eaede9778a2c086142098733bf94ad4a053b4d4d",
+    "apps/android/runtime/require-builtin-carrier/index.cjs": "2221c39fe2af593a0842d9e2fb97ecfc357d825f9bc432eed7fc0ffe303e7adf",
+    "apps/android/runtime/require-builtin-carrier/package.json": "87d88bc9f971d6e733994eb1122a6da5209cd609a2231f2d52dc1104d1e0d2e4"
+  },
+  "androidRootCauseEstablished": false,
+  "hostShutdownFailureReference": "host-sdk-shutdown-failure.json",
+  "hostQualificationSha256": "aa1de3dbbed87f27bd3feb6ec03c3290130d2f88d73a3589b866440f748082ee"
+}
