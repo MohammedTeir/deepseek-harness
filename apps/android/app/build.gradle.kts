@@ -24,6 +24,8 @@ android {
     }
     kotlinOptions { jvmTarget = "17" }
     sourceSets["main"].assets.srcDir(layout.buildDirectory.dir("generated/runtimeAssets"))
+    sourceSets["main"].assets.srcDir(rootProject.file("licenses"))
+    sourceSets["androidTest"].assets.srcDir(rootProject.file("licenses"))
 }
 val prepareRuntimeAssets by tasks.registering(Exec::class) {
     workingDir(rootProject.projectDir)

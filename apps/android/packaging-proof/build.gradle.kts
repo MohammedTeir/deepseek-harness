@@ -24,6 +24,8 @@ android {
     }
     kotlinOptions { jvmTarget = "17" }
     sourceSets["main"].assets.srcDir(layout.buildDirectory.dir("generated/proofAssets"))
+    sourceSets["main"].assets.srcDir(rootProject.file("licenses"))
+    sourceSets["androidTest"].assets.srcDir(rootProject.file("licenses"))
     sourceSets["main"].jniLibs.srcDir(layout.buildDirectory.dir("generated/fixtures"))
 }
 val sdk = providers.environmentVariable("ANDROID_HOME").get()

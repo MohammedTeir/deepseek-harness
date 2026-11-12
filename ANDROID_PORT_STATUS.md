@@ -2,7 +2,7 @@
 
 ## Summary
 
-Phase 0 is VERIFIED. The [Gate 1 review](ANDROID_GATE1_REVIEW.md) accepts the reviewed audit and a bounded Phase 2 runtime experiment. Phase 2 is IN PROGRESS; Gate 2 is not passed. The branch now includes a native diagnostic host, JNI shim and pinned Android runtime build tools. The original frontend and Harness engine are preserved. No Android device execution, authentic profile readiness, session recovery or authorized tool result has been verified.
+Phase 0 is VERIFIED. The [Gate 1 review](ANDROID_GATE1_REVIEW.md) accepts the reviewed audit and a bounded Phase 2 runtime experiment. Phase 2 is IN PROGRESS; Gate 2 is not passed. A genuine Node ARM64 runtime API debug APK and its instrumentation APK now build successfully. The original frontend and Harness engine are preserved. No Android device execution, authentic profile readiness, session recovery or authorized tool result has been verified.
 
 ## Upstream sync: Phase 1 evidence refreshed
 
@@ -49,7 +49,7 @@ After the accepted Gate 1 review, the current milestone is an Android ARM64/API 
 - The unchanged upstream flock source cross-compiled with NDK r28c for ARM64/API 29. Its runtime loading/contention tests remain unrun on Android.
 - Four ELF parser rejection/acceptance tests passed; they use synthetic inspection text and are not Android compatibility evidence.
 - The API probe ran on Linux x64 Node 24.22.1: SQLite, workers, ESM, crypto and result-file output passed. Native Android locking was not run. DNS returned EAI_AGAIN, so DNS/TLS are unverified. Harness was explicitly not started.
-- Pinned Node ARM64 source compilation was interrupted by the environment outage; no final exit result was retained. The host-generator optimization was changed from the previously failing `-O0` to `-O1`; no completion is claimed yet.
+- Pinned Node ARM64 source compilation resumed after interruption and completed with exit code 0. Host generators use `-O1`; the earlier `-O0` failure remains a failed attempt. Current binary/APK inspection evidence is recorded below.
 - No physical device is attached and `/dev/kvm` is absent. Official emulator 37.2.13 and an API 30 x86_64 Google APIs image installed successfully. A software boot reached ADB online. The guest reports Android 11/API 30, 4 KB pages, x86_64 plus ARM64 ABI support through libndk_translation; sys.boot_completed was unset at observation. Node/Harness execution is not yet tested. Any ARM translation results must be labeled separately from native ARM64 hardware. Device/profile/session/tool acceptance remains BLOCKED. Normal APK generation requires inspected runtime libraries and notices and cannot silently package a replacement backend.
 
 The production native lock selector still rejects Android. The runtime probe exercises the original C binding directly as a qualification step; it is not session integration. Genuine Harness profile boot, durable sessions and a native-authorized command must still be integrated and tested after runtime qualification. Optional Termux/root and original-UI integration are outside this bounded prototype.
@@ -60,16 +60,26 @@ The runtime code and instrumentation source compile retry passed with in-process
 
 ## Recovered checkpoint
 
-The workspace recovered with the Phase 2 source intact. The last full runtime-source validation and Node build have no recorded final result and must be resumed; no successful Node library or runtime-ready APK is inferred. Packaging fixture APKs built, but installation attempts failed while emulator package/settings services were unavailable. Framework logs showed system-service failures and restarts. A clean disposable-AVD retry was attempted; no successful fixture instrumentation result was obtained. Phone testing remains required. Generated binaries, emulator images, build caches and the local debug keystore are excluded from this source commit.
+The workspace recovered with the Phase 2 source intact; the resumed Node build's final result is now available. Packaging fixture installation attempts failed while emulator package/settings services were unavailable. Framework logs showed system-service failures and restarts. A clean disposable-AVD retry produced no successful fixture instrumentation result. Phone testing remains required. Generated binaries, emulator images, build caches and the local debug keystore remain excluded from Git.
 
 ## Resumed Phase 2 validation
 
-The Node build resumed against the retained source/object cache; final library generation is still pending. Inspection of the generated Makefile corrected the packager input to `out/Release/libnode.so`. No target binary, runtime-ready APK or Harness execution is inferred from object compilation.
+The Node build resumed against the retained source/object cache and produced `out/Release/libnode.so`. The packager uses this actual Makefile output. Successful source compilation and APK assembly do not establish Android execution or Harness readiness.
 
-The packaged-executable comparison now has a build script using the unchanged, checksum-verified original Node UNIX entrypoint. Cross-compilation of that entrypoint passed; linking correctly returned BLOCKED/nonzero because libnode is not yet available. No executable runtime strategy is selected or verified by this source check.
+The packaged-executable comparison uses the unchanged, checksum-verified original Node UNIX entrypoint. Its first link attempt correctly returned BLOCKED while libnode was absent. After library completion, linking passed: Android ARM64 PIE, `/system/bin/linker64`, `$ORIGIN` search path and 16 KB LOAD alignment were inspected. This executable is not included in the JNI runtime APK and has not run on Android. Neither runtime strategy is selected by compilation alone.
 
 Android lint for both modules and packaging debug/test APK assembly passed: 106 tasks in 1m33s. After improving native-linker and JNI argument diagnostics, Kotlin, JNI, instrumentation-source compilation and runtime-module lint passed again: 40 tasks in 23s. Runtime asset preparation was excluded only for these source checks. Packaging APK signature verification and 16 KB ZIP-alignment validation passed; its native fixtures and required notices are present. These checks establish build integrity, not Android execution.
 
 The new selected-device test runner records APK hashes, device properties and complete instrumentation output. Its host regression rejects empty, incomplete, wrong-count and crashed runner output. The unavailable-device path ran and returned BLOCKED/nonzero; no phone or emulator test has passed. The runner preserves the distinction between packaging, Node APIs and authentic Harness acceptance. Gate 2 remains BLOCKED on actual runtime/profile/session/tool evidence.
 
 Resumed validation passed: five host test cases across the result-parser and ELF-parser suites, quick documentation 21/21 in 103.35s, full documentation 43/43 in 445.41s, and repository lint with the existing unused-disable warning. APK digests and signature/alignment checks are retained in `apps/android/evidence/build-validation.json`. These results do not change the device acceptance status.
+
+## Real Node runtime APK build
+
+VERIFIED for cross-build and packaging only: Node 24.22.1, NDK 28.2.13676358, ARM64/API 29, on the Linux x86_64 cloud host. The retained Node build exited 0. ELF inspection accepted Android dependencies and 16 KB LOAD alignment; the original flock addon, C++ runtime and notices were staged with hashes. Normal runtime/fixture debug and test APK assembly plus Android lint passed in 18s, 156 tasks, without excluding runtime asset preparation.
+
+The runtime debug APK is 114,942,107 bytes; instrumentation APK is 2,176,494 bytes. Both passed signature and 16 KB ZIP-alignment verification. Inspection of the packaged, stripped libraries confirmed ARM64, allowed dependencies, LOAD alignment and the exported Node Start entry. Both input and packaged-byte hashes are retained because stripping changes binary bytes. Required scripts/licenses/build metadata are present. Explicit Kotlin/AndroidX, JUnit and Hamcrest license assets are included in all four runtime/fixture APKs and checked against their source texts. See `apps/android/evidence/runtime-apk-build.json` for commands, output and digests.
+
+Next acceptance remains BLOCKED on device execution. Run the fixed API probe and instrumentation on the planned Redmi Note 8 Pro; Android 11 is user-reported and unconfirmed by ADB. Successful Node API results must precede authentic profile/native-lock integration, persistent session recovery and the approved command proof. No model, Harness profile, session or tool execution is included in this diagnostic APK. Gate 2 remains unpassed.
+
+Validation for this artifact update: quick documentation 21/21 in 36.54s; full documentation 43/43 in 176.36s; repository lint passed with the existing unused-disable warning. Android assembly/lint, APK inspection and matching source/artifact hashes passed. Android instrumentation remains unrun because no device is attached.

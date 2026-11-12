@@ -1,0 +1,10 @@
+Android runtime qualification dependency notices
+
+Kotlin standard library and JetBrains annotations: JetBrains; Apache License 2.0.
+AndroidX test and annotation libraries: The Android Open Source Project; Apache License 2.0.
+JUnit (instrumentation only): JUnit contributors; Eclipse Public License 1.0.
+Hamcrest 1.3 (instrumentation only): www.hamcrest.org; BSD license.
+
+The corresponding license texts are included in this directory. Instrumentation-only
+libraries are used by the test APKs, not the runtime application. Node, the original
+flock addon, and NDK notices are included separately in the runtime assets.
