@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-11-12",
+  "source": "user-provided physical-phone transcript",
+  "independentlyReproduced": false,
+  "deviceContext": {
+    "previouslyReportedModel": "Redmi Note 8 Pro",
+    "previouslyReportedAndroidRelease": "11",
+    "previouslyReportedApi": 30,
+    "freshBuildPropertiesProvided": false
+  },
+  "reportedResult": {
+    "stage": "storage-prerequisites",
+    "storageStage": "exclusive-hardlink-publish",
+    "harnessStarted": true,
+    "gate2Passed": false,
+    "node": "v24.22.1",
+    "platform": "android",
+    "arch": "arm64",
+    "pid": 22644,
+    "parentPid": 22589,
+    "uid": 10751,
+    "error": {
+      "code": "EACCES",
+      "errno": -13,
+      "syscall": "link",
+      "path": "/data/data/ai.deepseek.harness.android.runtimepoc/files/profile-probe/storage-check-jnorJG/pending",
+      "dest": "/data/data/ai.deepseek.harness.android.runtimepoc/files/profile-probe/storage-check-jnorJG/published"
+    },
+    "shutdownAcknowledgements": 0
+  },
+  "inventorySummary": {
+    "previousSessionDirectories": 2,
+    "observedFiles": [
+      "session.lock"
+    ],
+    "sessionJsonlObserved": false
+  },
+  "interpretation": {
+    "hardlinkPublicationRejected": true,
+    "directoryAndFileSyncReachedBeforeLink": true,
+    "selinuxDenialConfirmed": false,
+    "v7RootCauseDirectlyReproduced": false,
+    "sessionRecoveryVerified": false
+  },
+  "nextMilestone": "Qualify Android atomic no-replace publication, including concurrent collisions, existing destination preservation and directory durability, before adapting both original JSONL publication paths."
+}
