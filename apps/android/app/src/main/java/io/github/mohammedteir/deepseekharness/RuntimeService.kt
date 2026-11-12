@@ -9,8 +9,18 @@ import java.util.concurrent.atomic.AtomicBoolean
 
 /** One-shot embedded API probe; its result never implies Harness startup. */
 class RuntimeService : Service() {
+    private fun readDiagnostic(file: File, limit: Int): String = file.reader().use { reader ->
+        val buffer = CharArray(limit)
+        var used = 0
+        while (used < limit) {
+            val count = reader.read(buffer, used, limit - used)
+            if (count < 0) break
+            used += count
+        }
+        String(buffer, 0, used)
+    }
     private external fun probeNode(): String
-    private external fun runNode(script: String, output: String): Int
+    private external fun runNode(script: String, output: String, diagnostic: String): Int
     private val executor = Executors.newSingleThreadExecutor { task ->
         Thread(null, task, "HarnessNode", 8L * 1024 * 1024)
     }
@@ -26,11 +36,20 @@ class RuntimeService : Service() {
                     assets.open("runtime/smoke.mjs").use { input -> script.outputStream().use(input::copyTo) }
                     val output = File(directory, "result.json")
                     if (output.exists() && !output.delete()) throw IllegalStateException("Stale result could not be removed")
-                    val exit = runNode(script.absolutePath, output.absolutePath)
+                    val diagnostic = File(directory, "stderr.txt")
+                    if (diagnostic.exists() && !diagnostic.delete()) throw IllegalStateException("Stale diagnostics could not be removed")
+                    val exit = runNode(script.absolutePath, output.absolutePath, diagnostic.absolutePath)
                     when {
                         exit == -1 || exit == -2 -> probeNode()
+                        exit == -4 -> "BLOCKED: cannot capture Node stderr"
+                        exit == -5 -> "BLOCKED: cannot restore Node stderr"
                         exit < 0 -> "BLOCKED: JNI could not prepare Node arguments (code $exit)"
-                        exit != 0 -> "BLOCKED: embedded Node API probe exited with code $exit"
+                        exit != 0 -> buildString {
+                            append("BLOCKED: embedded Node API probe exited with code $exit\n")
+                            if (output.isFile) append(readDiagnostic(output, 4096))
+                            append("\nNode stderr:\n")
+                            append(if (diagnostic.isFile) readDiagnostic(diagnostic, 8192) else "No diagnostics file")
+                        }
                         !output.isFile -> "BLOCKED: embedded Node returned without API evidence"
                         else -> output.readText().take(4096)
                     }

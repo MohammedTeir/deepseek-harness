@@ -1,5 +1,6 @@
 #include <jni.h>
 #include <dlfcn.h>
+#include "stderr_capture.h"
 #include <string>
 #include <vector>
 
@@ -23,7 +24,7 @@ Java_io_github_mohammedteir_deepseekharness_RuntimeService_probeNode(JNIEnv* env
 
 // Called once on a worker thread in the dedicated Android runtime process.
 extern "C" JNIEXPORT jint JNICALL
-Java_io_github_mohammedteir_deepseekharness_RuntimeService_runNode(JNIEnv* env, jobject, jstring script, jstring output) {
+Java_io_github_mohammedteir_deepseekharness_RuntimeService_runNode(JNIEnv* env, jobject, jstring script, jstring output, jstring diagnostic) {
     void* library = dlopen("libnode.so", RTLD_NOW | RTLD_GLOBAL);
     if (!library) return -1;
     auto start = reinterpret_cast<int (*)(int, char**)>(dlsym(library, "_ZN4node5StartEiPPc"));
@@ -36,10 +37,18 @@ Java_io_github_mohammedteir_deepseekharness_RuntimeService_runNode(JNIEnv* env, 
     if (!output_chars) return -3;
     std::string output_path(output_chars);
     env->ReleaseStringUTFChars(output, output_chars);
+    const char* diagnostic_chars = env->GetStringUTFChars(diagnostic, nullptr);
+    if (!diagnostic_chars) return -3;
+    std::string diagnostic_path(diagnostic_chars);
+    env->ReleaseStringUTFChars(diagnostic, diagnostic_chars);
     // Node/libuv may rewrite argv storage; use one contiguous mutable allocation.
     std::string arguments = std::string("node") + '\0' + script_path + '\0' + output_path + '\0';
     std::vector<char> storage(arguments.begin(), arguments.end());
     char* argv[] = {storage.data(), storage.data() + 5, storage.data() + 6 + script_path.size(), nullptr};
+    // Capture startup/module-loader errors even when JavaScript never begins.
+    StderrCapture capture(diagnostic_path.c_str());
+    if (!capture.active()) return -4;
     // Keep libnode loaded until process teardown; V8 retains process-global state.
-    return start(3, argv);
+    int result = start(3, argv);
+    return capture.restore() ? result : -5;
 }

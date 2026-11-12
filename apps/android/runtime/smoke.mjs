@@ -8,13 +8,17 @@ import dns from 'node:dns/promises';
 import https from 'node:https';
 import { constants } from 'node:os';
 
+let stage = 'startup';
+
 async function main() {
   const output = process.argv[2];
   if (!output || !path.isAbsolute(output)) throw new Error('An absolute result path is required');
+  stage = 'sqlite';
   const sqlite = new DatabaseSync(':memory:');
   try {
     if (sqlite.prepare('select 42 as answer').get().answer !== 42) throw new Error('SQLite result mismatch');
   } finally { sqlite.close(); }
+  stage = 'worker';
   const worker = new Worker("require('node:worker_threads').parentPort.postMessage(42)", { eval: true });
   try {
     const answer = await new Promise((resolve, reject) => {
@@ -24,6 +28,7 @@ async function main() {
     });
     if (answer !== 42) throw new Error('Worker result mismatch');
   } finally { await worker.terminate(); }
+  stage = 'native-lock';
   let lock = false;
   if (process.platform === 'android') {
     const binding = { exports: {} };
@@ -49,9 +54,11 @@ async function main() {
       if (second !== undefined) fs.closeSync(second);
     }
   }
+  stage = 'esm';
   const esm = await import('node:path');
   if (esm.basename('/probe/test') !== 'test') throw new Error('ESM import mismatch');
   // Fixed public host, no credentials. Failures are retained as unverified API evidence.
+  stage = 'network';
   const network = { dns: false, tls: false, failure: null };
   try {
     const controller = new AbortController();
@@ -74,6 +81,7 @@ async function main() {
     });
     network.tls = true;
   } catch (error) { network.failure = error instanceof Error ? error.message : 'Network probe failed'; }
+  stage = 'result-write';
   const result = JSON.stringify({ schemaVersion: 1, node: process.version, platform: process.platform,
     arch: process.arch, pid: process.pid, uid: process.getuid(), execPath: process.execPath, childNodeLaunch: 'not-tested', nativeLock: lock, network, sqlite: true, worker: true, esm: true,
     crypto: crypto.createHash('sha256').update('probe').digest('hex'), harnessStarted: false });
@@ -81,4 +89,18 @@ async function main() {
   fs.writeFileSync(pending, result, { mode: 0o600 });
   fs.renameSync(pending, output);
 }
-main().catch(error => { console.error(error.message); process.exitCode = 1; });
+main().catch(error => {
+  console.error(error instanceof Error ? error.stack : String(error));
+  const output = process.argv[2];
+  if (output && path.isAbsolute(output)) {
+    try {
+      const pending = output + '.pending';
+      fs.writeFileSync(pending, JSON.stringify({ schemaVersion: 1, stage,
+        failure: error instanceof Error ? error.message : String(error),
+        node: process.version, platform: process.platform, arch: process.arch,
+        harnessStarted: false }), { mode: 0o600 });
+      fs.renameSync(pending, output);
+    } catch (writeError) { console.error('Failure result could not be written:', writeError.message); }
+  }
+  process.exitCode = 1;
+});

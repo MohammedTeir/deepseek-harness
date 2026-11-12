@@ -2,7 +2,7 @@
 
 ## Summary
 
-Phase 0 is VERIFIED. The [Gate 1 review](ANDROID_GATE1_REVIEW.md) accepts the reviewed audit and a bounded Phase 2 runtime experiment. Phase 2 is IN PROGRESS; Gate 2 is not passed. A genuine Node ARM64 runtime API debug APK and its instrumentation APK now build successfully. The original frontend and Harness engine are preserved. No Android device execution, authentic profile readiness, session recovery or authorized tool result has been verified.
+Phase 0 is VERIFIED. The [Gate 1 review](ANDROID_GATE1_REVIEW.md) accepts the reviewed audit and a bounded Phase 2 runtime experiment. Phase 2 is IN PROGRESS; Gate 2 is not passed. A genuine Node ARM64 runtime API debug APK and its instrumentation APK build successfully. The user reported a failed phone probe with exit code 1. The original frontend and Harness engine are preserved. No successful Android API qualification, authentic profile readiness, session recovery or authorized tool result has been verified.
 
 ## Upstream sync: Phase 1 evidence refreshed
 
@@ -83,3 +83,13 @@ The runtime debug APK is 114,942,107 bytes; instrumentation APK is 2,176,494 byt
 Next acceptance remains BLOCKED on device execution. Run the fixed API probe and instrumentation on the planned Redmi Note 8 Pro; Android 11 is user-reported and unconfirmed by ADB. Successful Node API results must precede authentic profile/native-lock integration, persistent session recovery and the approved command proof. No model, Harness profile, session or tool execution is included in this diagnostic APK. Gate 2 remains unpassed.
 
 Validation for this artifact update: quick documentation 21/21 in 36.54s; full documentation 43/43 in 176.36s; repository lint passed with the existing unused-disable warning. Android assembly/lint, APK inspection and matching source/artifact hashes passed. Android instrumentation remains unrun because no device is attached.
+
+## Phone failure and diagnostic update
+
+The user supplied a screenshot showing `BLOCKED: embedded Node API probe exited with code 1` from the first APK on the reported Redmi Note 8 Pro. This is a user-reported failure, not a successful Node API test. The root cause is unknown: the previous host discarded Node stderr and displayed only the exit code. It does not establish whether JavaScript began or which API failed. No developer-controlled physical-device reproduction has run.
+
+Version code 2 (`0.1.1-runtime-diagnostics`) captures Node startup/module-loader stderr in the dedicated runtime process, restores the descriptor after Node returns, and retains JavaScript failure stage/message in private JSON when possible. Failed exits remain failed; API assertions are unchanged. Error display reads bounded text and can scroll/select for reporting. The device runner also retains the fixed stderr file and removes stale evidence before testing.
+
+Five host tests passed: real POSIX stderr capture/restoration, unavailable-file and symlink rejection, actual Linux Node worker denial with stage/error retention, and runner parsing. These do not reproduce the Android cause. Runtime APK/test APK assembly and Android lint passed: 78 tasks in 17s. Signature/alignment, packaged ELF, required notices and source/artifact hashes were inspected. `apps/android/evidence/runtime-diagnostics-build.json` records the new artifact separately; the original APK evidence remains unchanged. Next: repeat the phone probe and use its actual error to identify the fix. Gate 2 remains BLOCKED.
+
+Diagnostic-update documentation checks passed: quick 21/21 and full 43/43; repository lint passed with the same existing unused-disable warning. The v2 download archive and its contained APK were downloaded and hash-verified before handoff. No successful v2 phone result is claimed.

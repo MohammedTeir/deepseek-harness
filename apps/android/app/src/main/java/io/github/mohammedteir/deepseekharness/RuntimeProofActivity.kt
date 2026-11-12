@@ -16,9 +16,12 @@ class RuntimeProofActivity : Activity() {
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
         val layout = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
-        output = TextView(this).apply { text = "Runtime proof only. Harness profile, sessions and tools are not initialized." }
+        output = TextView(this).apply {
+            text = "Runtime proof only. Harness profile, sessions and tools are not initialized."
+            setTextIsSelectable(true)
+        }
         layout.addView(Button(this).apply { text = "Run embedded Node API probe"; setOnClickListener { runProbe() } })
-        layout.addView(output)
+        layout.addView(ScrollView(this).apply { addView(output) }, LinearLayout.LayoutParams(-1, 0, 1f))
         setContentView(layout)
     }
 

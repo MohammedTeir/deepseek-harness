@@ -71,11 +71,16 @@ def main() -> int:
                 raise RuntimeError("Installer did not report success")
         if args.proof == "runtime":
             # A failed start must not attach a previous run's API evidence.
-            adb("shell", "run-as", package, "rm", "-f", "files/runtime-probe/result.json")
+            adb("shell", "run-as", package, "rm", "-f", "files/runtime-probe/result.json", "files/runtime-probe/stderr.txt")
         output = adb("shell", "am", "instrument", "-w", "-r",
                      f"{package}.test/androidx.test.runner.AndroidJUnitRunner", timeout=180)
         (args.output / "instrumentation.txt").write_text(output)
         if args.proof == "runtime":
+            try:
+                diagnostic = adb("shell", "run-as", package, "cat", "files/runtime-probe/stderr.txt")
+                (args.output / "runtime-stderr.txt").write_text(diagnostic)
+            except (RuntimeError, subprocess.TimeoutExpired) as error:
+                record["runtimeDiagnosticFailure"] = str(error)
             try:
                 result = adb("shell", "run-as", package, "cat", "files/runtime-probe/result.json")
                 (args.output / "runtime-result.json").write_text(result)
