@@ -12,4 +12,6 @@ The lock operation attempts `LOCK_EX | LOCK_NB` asynchronously. Keep the caller-
 
 Optional OS/CPU platform packages carry the binaries. Their `~x.y.z` dependency ranges allow later patches within the same minor version. Linux has `bin/landlock-run` and separate `bin/glibc/system.node` / `bin/musl/system.node`; macOS has `bin/system.node`. Missing or unloadable flock bindings reject acquisition, without installation-time compilation. Landlock remains a separate executable with its existing fail-closed protocol; unsupported kernels/platforms probe unusable.
 
+Android ARM64 embedding uses a lazy, fixed `libharness_system.so` SONAME through the carrier's native-library linker namespace. The Android carrier must package a matching Bionic Node-API binding and its Node dependency; npm platform packages do not supply it. Loading failure rejects acquisition without falling back or granting a lock. The Android probe uses this entry, but Android Harness session persistence remains unverified.
+
 The two C sources ship for auditability. See the workspace [architecture](../../docs/architecture.md), [support matrix](../../docs/support-matrix.md), and [CLI contract](../../docs/cli-contract.md).

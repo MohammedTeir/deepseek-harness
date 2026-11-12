@@ -12,4 +12,6 @@ kind: "package-library"
 
 可选操作系统/CPU 平台包携带二进制。它们的 `~x.y.z` 依赖范围允许同一次版本内的后续补丁版本。Linux 包含 `bin/landlock-run` 和分别用于两种 libc 的 `bin/glibc/system.node` / `bin/musl/system.node`；macOS 包含 `bin/system.node`。flock 绑定缺失或无法加载时，锁获取请求会被拒绝，不在安装时编译。Landlock 仍是遵循既有失败关闭协议的独立可执行文件；不支持的内核或平台探测结果为不可用。
 
+Android ARM64 嵌入通过宿主原生库链接器命名空间延迟加载固定的 `libharness_system.so` SONAME。Android 宿主必须打包匹配的 Bionic Node-API 绑定及其 Node 依赖；npm 平台包不提供该绑定。加载失败会拒绝锁获取，不回退或直接授予锁。Android 探测使用此入口，但 Android Harness 会话持久化仍未验证。
+
 两个 C 源文件随包分发以供审计。参见工作区[架构](../../docs/architecture.md)、[支持矩阵](../../docs/support-matrix.md)和 [CLI 约定](../../docs/cli-contract.md)。

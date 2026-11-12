@@ -6,7 +6,6 @@ import { Worker } from 'node:worker_threads';
 import { DatabaseSync } from 'node:sqlite';
 import dns from 'node:dns/promises';
 import https from 'node:https';
-import { constants } from 'node:os';
 
 let stage = 'startup';
 
@@ -31,23 +30,25 @@ async function main() {
   stage = 'native-lock';
   let lock = false;
   if (process.platform === 'android') {
-    const binding = { exports: {} };
-    process.dlopen(binding, 'libharness_system.so');
+    const { tryLockExclusive } = await import('./harness-flock.mjs');
     const file = path.join(path.dirname(output), 'probe.lock');
     let first;
     let second;
-    const acquire = fd => new Promise(resolve => binding.exports.tryLock(fd, resolve));
+    const acquire = tryLockExclusive;
     try {
       first = fs.openSync(file, 'a');
       second = fs.openSync(file, 'a');
-      if (await acquire(first) !== 0) throw new Error('Native lock acquisition failed');
-      const contention = await acquire(second);
-      if (contention !== constants.errno.EAGAIN && contention !== constants.errno.EWOULDBLOCK) {
-        throw new Error('Native lock contention was not rejected');
+      await acquire(first);
+      let rejected = false;
+      try { await acquire(second); }
+      catch (error) {
+        if (!['EAGAIN', 'EWOULDBLOCK'].includes(error.code) || error.syscall !== 'flock') throw error;
+        rejected = true;
       }
+      if (!rejected) throw new Error('Native lock contention was not rejected');
       fs.closeSync(first);
       first = undefined;
-      if (await acquire(second) !== 0) throw new Error('Native lock release/reacquisition failed');
+      await acquire(second);
       lock = true;
     } finally {
       if (first !== undefined) fs.closeSync(first);
@@ -84,7 +85,8 @@ async function main() {
   stage = 'result-write';
   const result = JSON.stringify({ schemaVersion: 1, node: process.version, platform: process.platform,
     arch: process.arch, pid: process.pid, uid: typeof process.getuid === 'function' ? process.getuid() : null,
-    uidApiAvailable: typeof process.getuid === 'function', execPath: process.execPath, childNodeLaunch: 'not-tested', nativeLock: lock, network, sqlite: true, worker: true, esm: true,
+    uidApiAvailable: typeof process.getuid === 'function', execPath: process.execPath, childNodeLaunch: 'not-tested', nativeLock: lock,
+    nativeLockProvider: lock ? 'upstream-system-entry' : 'not-tested', network, sqlite: true, worker: true, esm: true,
     crypto: crypto.createHash('sha256').update('probe').digest('hex'), harnessStarted: false });
   const pending = output + '.pending';
   fs.writeFileSync(pending, result, { mode: 0o600 });

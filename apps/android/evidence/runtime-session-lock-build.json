@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-11-12",
+  "environment": "Linux x86_64 cloud host",
+  "scope": "APK build and inspection; Android execution of the updated upstream flock entry is not verified",
+  "apkBuild": {
+    "exitCode": 0,
+    "summary": "BUILD SUCCESSFUL in 23s; 79 actionable tasks: 28 executed, 51 up-to-date",
+    "runtimeAssetsExcluded": false,
+    "kotlinDaemonFallbackObserved": true
+  },
+  "apkVersionCode": 6,
+  "apkVersionName": "0.1.5-session-lock-loader",
+  "apkSha256": {
+    "app-debug.apk": "2d0be8803157222c9b5a3c09414315f234b0f31b50b83c8d4908ae9f3709a316",
+    "app-debug-androidTest.apk": "f47aa4d46cfd454a6824bc8c6df6b6c890ac7ef616c03ab568decccbb9e835ab"
+  },
+  "apkBytes": {
+    "app-debug.apk": 45673728,
+    "app-debug-androidTest.apk": 2189739
+  },
+  "packagedLibraries": {
+    "libnode.so": {
+      "sha256": "dce2e18255bd582ff3651f3c00013d026799e0eb549f2da24fee0feedfa29437",
+      "bytes": 110704112,
+      "dependencies": [
+        "libc++_shared.so",
+        "libc.so",
+        "libdl.so",
+        "liblog.so",
+        "libm.so"
+      ],
+      "loadAlignmentAtLeast16384": true
+    },
+    "libharness_system.so": {
+      "sha256": "78469b9ea728137161615e1993a09d8297d51692b054b9e54500eccdab13c2e5",
+      "bytes": 8720,
+      "dependencies": [
+        "libc.so",
+        "libdl.so",
+        "libnode.so"
+      ],
+      "loadAlignmentAtLeast16384": true
+    },
+    "libnode_executable.so": {
+      "sha256": "07b91cc6fa5ed0489b95bc237929fd14a009c9bfa8d309b514fceca3d977e408",
+      "bytes": 4456,
+      "dependencies": [
+        "libc++_shared.so",
+        "libc.so",
+        "libdl.so",
+        "libm.so",
+        "libnode.so"
+      ],
+      "loadAlignmentAtLeast16384": true
+    },
+    "libc++_shared.so": {
+      "sha256": "cd61762848882a16c8244c964a6f396c0caa0b440588a210ce9cc4ab0e6d9f0c",
+      "bytes": 1253544,
+      "dependencies": [
+        "libc.so",
+        "libdl.so",
+        "libm.so"
+      ],
+      "loadAlignmentAtLeast16384": true
+    },
+    "libharness_probe.so": {
+      "sha256": "4b387cde02c6c248966fec13b8ff0721b294914e8f02b624eb9024ad4be113dc",
+      "bytes": 349600,
+      "dependencies": [
+        "libc.so",
+        "libdl.so",
+        "libm.so"
+      ],
+      "loadAlignmentAtLeast16384": true
+    }
+  },
+  "assets": {
+    "smoke.mjs": {
+      "sha256": "ffd35a510a2479d7f84ebb4719a2aa8d34ec00e7eb771f2bbbcfcc85de0318e8",
+      "source": "apps/android/runtime/smoke.mjs"
+    },
+    "executable-smoke.mjs": {
+      "sha256": "efd7169f8f41289eab52c74e8b3305e1fec5a98f60a73e54b65bb20f0d6c44b7",
+      "source": "apps/android/runtime/executable-smoke.mjs"
+    },
+    "child-node.mjs": {
+      "sha256": "3758568aaf64cbf9aa69c9561551b6c5b1e1076b182cbe3e8a47453d7aaca6f0",
+      "source": "apps/android/runtime/child-node.mjs"
+    },
+    "proc-identity.mjs": {
+      "sha256": "04ef65df8fbe352337a43390ca94777583ffacb916fae85d8bf3621a35723d40",
+      "source": "apps/android/runtime/proc-identity.mjs"
+    },
+    "harness-flock.mjs": {
+      "sha256": "10f2bf5333f2f5f69632901c77c7ddfb0fd2660311f5622fc6b9b66b22bacab9",
+      "source": "native/system/packages/entry/lib/flock.js"
+    }
+  },
+  "checks": [
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/apksigner",
+        "verify",
+        "/workspace/deepseek-harness/apps/android/app/build/outputs/apk/debug/app-debug.apk"
+      ],
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/zipalign",
+        "-c",
+        "-P",
+        "16",
+        "4",
+        "/workspace/deepseek-harness/apps/android/app/build/outputs/apk/debug/app-debug.apk"
+      ],
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/apksigner",
+        "verify",
+        "/workspace/deepseek-harness/apps/android/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
+      ],
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/zipalign",
+        "-c",
+        "-P",
+        "16",
+        "4",
+        "/workspace/deepseek-harness/apps/android/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
+      ],
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/aapt",
+        "dump",
+        "badging",
+        "/workspace/deepseek-harness/apps/android/app/build/outputs/apk/debug/app-debug.apk"
+      ],
+      "exitCode": 0,
+      "output": "package: name='ai.deepseek.harness.android.runtimepoc' versionCode='6' versionName='0.1.5-session-lock-loader' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'\nsdkVersion:'29'\ntargetSdkVersion:'36'\nuses-permission: name='android.permission.INTERNET'\napplication: label='' icon=''\napplication-debuggable\nlaunchable-activity: name='io.github.mohammedteir.deepseekharness.RuntimeProofActivity'  label='' icon=''\nfeature-group: label=''\n  uses-feature: name='android.hardware.faketouch'\n  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'\nmain\nother-services\nsupports-screens: 'small' 'normal' 'large' 'xlarge'\nsupports-any-density: 'true'\nlocales:\ndensities:\nnative-code: 'arm64-v8a'\n"
+    }
+  ],
+  "hostTests": {
+    "nativeFlockTests": 27,
+    "sessionLeaseTests": 19,
+    "androidHostTests": 11,
+    "elfAndMetadataTests": 10
+  },
+  "originalProfileReference": "host-no-execution-profile-reference.json",
+  "androidNativeEntryExecuted": false,
+  "harnessInitializedOnAndroid": false,
+  "gate2Passed": false
+}

@@ -3,6 +3,7 @@ import hashlib
 import json
 from pathlib import Path
 import shutil
+import subprocess
 import sys
 
 android = Path(__file__).resolve().parents[1]
@@ -25,6 +26,9 @@ if output.exists(): shutil.rmtree(output)
 output.mkdir(parents=True)
 for name in ['smoke.mjs', 'executable-smoke.mjs', 'child-node.mjs', 'proc-identity.mjs']:
     shutil.copy2(android / 'runtime' / name, output / name)
+flock = android.parents[1] / 'native/system/packages/entry/lib/flock.js'
+subprocess.run(['pnpm', '--dir', str(android.parents[1] / 'native/system'), 'build:ts'], check=True)
+shutil.copy2(flock, output / 'harness-flock.mjs')
 for name in ['NODE_LICENSE', 'NDK_NOTICE', 'ANDROID_CPU_FEATURES_NOTICE', 'SYSTEM_ADDON_LICENSE', 'runtime-build.json']:
     shutil.copy2(metadata / name, output / name)
 

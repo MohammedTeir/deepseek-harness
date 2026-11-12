@@ -24,7 +24,7 @@ class ExecutableProbeService : Service() {
         val directory = File(filesDir, "executable-probe").apply { mkdirs() }
         val executable = File(applicationInfo.nativeLibraryDir, "libnode_executable.so").canonicalFile
         check(executable.isFile && !executable.canWrite()) { "Installer-owned Node executable missing or writable" }
-        for (name in listOf("smoke.mjs", "executable-smoke.mjs", "child-node.mjs", "proc-identity.mjs")) {
+        for (name in listOf("smoke.mjs", "executable-smoke.mjs", "child-node.mjs", "proc-identity.mjs", "harness-flock.mjs")) {
             assets.open("runtime/$name").use { source -> File(directory, name).outputStream().use(source::copyTo) }
         }
         val output = File(directory, "result.json")

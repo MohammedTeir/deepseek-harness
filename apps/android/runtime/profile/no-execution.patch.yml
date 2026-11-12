@@ -1,0 +1,17 @@
+# Bounded original-profile startup/session proof, not a command-capable product.
+# Keep the original agent, provider, tool registry, working_directory and JSONL.
+# None of these disabled services is an Android sandbox or approved executor.
+- id: subprocess
+  disabled: true
+- id: pty
+  disabled: true
+- id: terminal-bash
+  disabled: true
+- id: terminal-pwsh
+  disabled: true
+- id: persistent-bash
+  disabled: true
+- id: persistent-pwsh
+  disabled: true
+- id: tool-fs
+  disabled: true

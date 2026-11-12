@@ -35,6 +35,9 @@ class RuntimeService : Service() {
                     val directory = File(filesDir, "runtime-probe").apply { mkdirs() }
                     val script = File(directory, "smoke.mjs")
                     assets.open("runtime/smoke.mjs").use { input -> script.outputStream().use(input::copyTo) }
+                    assets.open("runtime/harness-flock.mjs").use { input ->
+                        File(directory, "harness-flock.mjs").outputStream().use(input::copyTo)
+                    }
                     val output = File(directory, "result.json")
                     if (output.exists() && !output.delete()) throw IllegalStateException("Stale result could not be removed")
                     val diagnostic = File(directory, "stderr.txt")

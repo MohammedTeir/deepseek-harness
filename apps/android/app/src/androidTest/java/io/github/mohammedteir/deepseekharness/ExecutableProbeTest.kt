@@ -58,6 +58,7 @@ class ExecutableProbeTest {
             assertEquals(0, evidence.getJSONObject("childResult").getInt("exitCode"))
             for (api in listOf("sqlite", "worker", "esm", "nativeLock")) assertTrue(api, evidence.getBoolean(api))
             assertEquals("ba9c736f19e7f60b7f6764adb0b7908c0a2b394e09b6c09863528c7f2bc86095", evidence.getString("crypto"))
+            assertEquals("upstream-system-entry", evidence.getString("nativeLockProvider"))
             val network = evidence.getJSONObject("network")
             assertTrue("DNS failed: $network", network.getBoolean("dns"))
             assertTrue("TLS failed: $network", network.getBoolean("tls"))
