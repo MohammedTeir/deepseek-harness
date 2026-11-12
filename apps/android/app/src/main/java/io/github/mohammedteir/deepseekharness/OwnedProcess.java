@@ -7,6 +7,16 @@ import java.util.concurrent.TimeUnit;
 
 /** One child owner. Closing waits for exit; concurrent closes await the same cleanup. */
 public final class OwnedProcess implements AutoCloseable {
+    private final long termSeconds;
+
+    public OwnedProcess() { this(2); }
+
+    /** Allow the original SDK time to reap its own profile children on TERM. */
+    public OwnedProcess(long termSeconds) {
+        if (termSeconds < 1 || termSeconds > 20) throw new IllegalArgumentException("Invalid TERM grace");
+        this.termSeconds = termSeconds;
+    }
+
     private Process child;
     private boolean closed;
 
@@ -38,7 +48,7 @@ public final class OwnedProcess implements AutoCloseable {
         try {
             if (child.isAlive()) {
                 child.destroy();
-                if (!await(child, 2, interrupted)) {
+                if (!await(child, termSeconds, interrupted)) {
                     child.destroyForcibly();
                     if (!await(child, 3, interrupted)) failure = new IOException("Child did not exit after KILL");
                 }

@@ -13,6 +13,12 @@ public final class OwnedProcessFixture {
     }
     public static void main(String[] args) throws Exception {
         if (args[0].equals("child")) {
+            if (args[1].equals("grace")) {
+                Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                    try { Thread.sleep(3000); }
+                    catch (InterruptedException error) { Thread.currentThread().interrupt(); }
+                }));
+            }
             System.out.println("ready");
             System.out.flush();
             if (args[1].equals("exit")) System.exit(7);
@@ -33,8 +39,8 @@ public final class OwnedProcessFixture {
             }
             return;
         }
-        try (OwnedProcess owner = new OwnedProcess()) {
-            Process process = owner.start(builder(args[0].equals("normal") ? "exit" : "sleep"));
+        try (OwnedProcess owner = new OwnedProcess(args[0].equals("grace") ? 5 : 2)) {
+            Process process = owner.start(builder(args[0].equals("normal") ? "exit" : args[0].equals("grace") ? "grace" : "sleep"));
             if (!"ready".equals(new BufferedReader(new InputStreamReader(process.getInputStream())).readLine())) {
                 throw new AssertionError("Child never became ready");
             }
@@ -46,6 +52,7 @@ public final class OwnedProcessFixture {
             boolean interrupt = args[0].equals("interrupted");
             if (interrupt) Thread.currentThread().interrupt();
             owner.close();
+            if (args[0].equals("grace") && process.exitValue() != 143) throw new AssertionError("TERM grace did not allow child shutdown");
             if (process.isAlive()) throw new AssertionError("Child still alive after close");
             if (interrupt && !Thread.currentThread().isInterrupted()) throw new AssertionError("Interruption lost");
             Thread.interrupted();

@@ -1,0 +1,7 @@
+{
+  "name": "node-addon-require-builtin-android-arm64",
+  "version": "0.1.9",
+  "private": true,
+  "main": "index.cjs",
+  "license": "MIT"
+}

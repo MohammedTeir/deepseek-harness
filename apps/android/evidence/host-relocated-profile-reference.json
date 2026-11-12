@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "evidenceKind": "Real original profile in an isolated relocated Linux carrier",
+  "androidVerified": false,
+  "firstInvocation": {
+    "schemaVersion": 1,
+    "node": "v24.22.1",
+    "platform": "linux",
+    "arch": "x64",
+    "nativeInternalLoader": {
+      "product": "require-builtin",
+      "backend": "napi",
+      "abi": "napi-v9",
+      "mode": "napi"
+    },
+    "pid": 74670,
+    "kernelIdentity": {
+      "pid": 74670,
+      "parentPid": 74613,
+      "uid": 1000,
+      "source": "/proc/self/status"
+    },
+    "execPath": "/workspace/.setup-tools/node-v24.22.1-linux-x64/bin/node",
+    "profile": "sdk-minimal",
+    "serverInfo": {
+      "name": "deepseek-harness-sdk-runtime",
+      "version": "0.0.1"
+    },
+    "harnessStarted": true,
+    "previousRunSessionRecovered": false,
+    "appRestartVerified": false,
+    "sessionRecoveredAcrossRuntimeRestart": true,
+    "recoveredNondefaultDirectory": true,
+    "persistedJsonlSha256": {
+      "--tmp-android-profile-trace-u9og9l93-state-workspace--/android-profile-58f6da62-d661-4e02-b27c-04638fd11954/session.v4.jsonl": "a8a86f43057ff3d9fe8c14f66f1b1b5b2da3ebb48a257ef677e2f06a3458c6f5"
+    },
+    "modelRequestExecuted": false,
+    "approvedCommandExecuted": false,
+    "gate2Passed": false
+  },
+  "secondInvocation": {
+    "schemaVersion": 1,
+    "node": "v24.22.1",
+    "platform": "linux",
+    "arch": "x64",
+    "nativeInternalLoader": {
+      "product": "require-builtin",
+      "backend": "napi",
+      "abi": "napi-v9",
+      "mode": "napi"
+    },
+    "pid": 74703,
+    "kernelIdentity": {
+      "pid": 74703,
+      "parentPid": 74613,
+      "uid": 1000,
+      "source": "/proc/self/status"
+    },
+    "execPath": "/workspace/.setup-tools/node-v24.22.1-linux-x64/bin/node",
+    "profile": "sdk-minimal",
+    "serverInfo": {
+      "name": "deepseek-harness-sdk-runtime",
+      "version": "0.0.1"
+    },
+    "harnessStarted": true,
+    "previousRunSessionRecovered": true,
+    "appRestartVerified": false,
+    "sessionRecoveredAcrossRuntimeRestart": true,
+    "recoveredNondefaultDirectory": true,
+    "persistedJsonlSha256": {
+      "--tmp-android-profile-trace-u9og9l93-state-workspace--/android-profile-58f6da62-d661-4e02-b27c-04638fd11954/session.v4.jsonl": "e66cbcacbf56d79b345955ef31f211596bce2c16c93e2cded8215af4d4de90b5",
+      "--tmp-android-profile-trace-u9og9l93-state-workspace--/android-profile-4bc01652-de98-4713-bbd0-00d0fbdb39dd/session.v4.jsonl": "dc72071c305036751c4d3fd575c19c0fa16ca6b3ac39264b386ee618767144ca"
+    },
+    "modelRequestExecuted": false,
+    "approvedCommandExecuted": false,
+    "gate2Passed": false
+  },
+  "relocation": {
+    "imageOutsideCheckout": true,
+    "stateOutsideCheckout": true,
+    "inheritedEnvironmentAllowlist": [
+      "PATH",
+      "TMPDIR",
+      "LANG"
+    ],
+    "originalHostNativeLibrariesOnly": true,
+    "androidNativeExecuted": false
+  },
+  "nativeLibraries": "Original published Linux bindings in host validation only; excluded from Android interpreted image",
+  "gate2Passed": false,
+  "qualification": {
+    "schemaVersion": 1,
+    "hostOnly": true,
+    "androidVerified": false,
+    "imageSha256": "574dcfe50ea3ae21c200608e4e91e2046f85766c00f69847f96c4f26861013a5",
+    "resultSha256": {
+      "relocated-result.json": "27ea9cff8e851b1efb5bb50dce900bceebef4605909eaa459e1763e35f97d606",
+      "relocated-repeat-result.json": "2015ee722f48adf5216431257fc1a1c725699d609111dee4da3b0b82e2684b45"
+    }
+  }
+}

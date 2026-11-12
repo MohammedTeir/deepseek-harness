@@ -19,7 +19,7 @@ class RuntimeProofActivity : Activity() {
         super.onCreate(state)
         val layout = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         output = TextView(this).apply {
-            text = "Runtime proof only. Harness profile, sessions and tools are not initialized."
+            text = "Select a diagnostic. The profile test starts original Harness and checks session recovery; commands and model requests remain untested."
             setTextIsSelectable(true)
         }
         layout.addView(Button(this).apply { text = "Run embedded Node API probe"; setOnClickListener { runProbe() } })
@@ -35,11 +35,20 @@ class RuntimeProofActivity : Activity() {
                     .setPositiveButton("Run once") { _, _ -> runProbe(true) }.show()
             }
         })
+        layout.addView(Button(this).apply {
+            text = "Run original Harness profile + session recovery"
+            setOnClickListener {
+                AlertDialog.Builder(this@RuntimeProofActivity).setTitle("Run original Harness profile?")
+                    .setMessage("Starts and restarts the original sdk-minimal profile with execution providers disabled. Creates persistent app-private session files. No model request or approved command is tested.")
+                    .setNegativeButton("Cancel", null)
+                    .setPositiveButton("Run once") { _, _ -> runProbe(profile = true) }.show()
+            }
+        })
         layout.addView(ScrollView(this).apply { addView(output) }, LinearLayout.LayoutParams(-1, 0, 1f))
         setContentView(layout)
     }
 
-    private fun runProbe(packaged: Boolean = false) {
+    private fun runProbe(packaged: Boolean = false, profile: Boolean = false) {
         release()
         val current = generation
         output.text = "Starting embedded API probe…"
@@ -60,10 +69,10 @@ class RuntimeProofActivity : Activity() {
                 if (generation == current) { output.text = "BLOCKED: runtime process exited"; release() }
             }
         }
-        val target = if (packaged) ExecutableProbeService::class.java else RuntimeService::class.java
+        val target = if (profile) ProfileProbeService::class.java else if (packaged) ExecutableProbeService::class.java else RuntimeService::class.java
         if (bindService(Intent(this, target), service, Context.BIND_AUTO_CREATE)) {
             connection = service
-            handler.postDelayed(timeout, if (packaged) 60000 else 30000)
+            handler.postDelayed(timeout, if (profile) 120000 else if (packaged) 60000 else 30000)
         } else output.text = "BLOCKED: cannot bind runtime"
     }
 

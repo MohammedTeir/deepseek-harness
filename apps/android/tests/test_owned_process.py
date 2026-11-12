@@ -35,6 +35,9 @@ class OwnedProcessTest(unittest.TestCase):
     def test_interrupted_cleanup_reaps_and_restores_interruption(self):
         self.assertIn("child reaped", self.run_mode("interrupted"))
 
+    def test_custom_grace_allows_real_delayed_child_shutdown(self):
+        self.assertIn("child reaped", self.run_mode("grace"))
+
     def test_cancellation_before_start_rejects_launch(self):
         self.assertIn("launch rejected", self.run_mode("preclosed"))
 

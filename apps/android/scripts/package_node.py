@@ -57,7 +57,9 @@ def package(build: Path, ndk: Path, android: Path) -> None:
     inspect_addon(readelf, addon)
     executable = android / "runtime/out/executable/libnode_executable.so"
     inspect_executable(readelf, executable)
-    binaries = {"libnode.so": library, "libharness_system.so": addon, "libnode_executable.so": executable}
+    builtin = android / "runtime/out/require-builtin/libharness_require_builtin.so"
+    inspect_addon(readelf, builtin)
+    binaries = {"libharness_require_builtin.so": builtin, "libnode.so": library, "libharness_system.so": addon, "libnode_executable.so": executable}
     if "libc++_shared.so" in dependencies:
         cpp = toolchain / "sysroot/usr/lib/aarch64-linux-android/libc++_shared.so"
         inspect(readelf, cpp)
@@ -66,6 +68,7 @@ def package(build: Path, ndk: Path, android: Path) -> None:
                "ANDROID_CPU_FEATURES_NOTICE": source / "deps/zlib/ANDROID_CPU_FEATURES_NOTICE",
                "NDK_NOTICE": ndk / "NOTICE",
                "SYSTEM_ADDON_LICENSE": android / "runtime/out/system/LICENSE"}
+    notices.update({name: android / "runtime/out/require-builtin" / name for name in ["REQUIRE_BUILTIN_LICENSE", "NODE_ADDON_API_LICENSE"]})
     for notice in notices.values():
         if not notice.is_file():
             raise ValueError(f"Missing license: {notice}")
@@ -79,10 +82,12 @@ def package(build: Path, ndk: Path, android: Path) -> None:
         hashes[name] = hashlib.sha256(binary.read_bytes()).hexdigest()
     for name, notice in notices.items():
         shutil.copy2(notice, metadata / name)
+    shutil.copy2(android / "runtime/out/require-builtin/build.json", metadata / "require-builtin-build.json")
     record = {"nodeVersion": "24.22.1", "abi": "arm64-v8a", "minimumApi": 29,
               "nodeArchiveSha256": "4f5379796280cdaeb0c2f358fd04b6a16cc4fb7dfa83b5a8c91a9d963b435231",
               "systemSourceSha256": hashlib.sha256((android.parents[1] / "native/system/packages/entry/src/flock.c").read_bytes()).hexdigest(),
               "systemNodeDependency": "libnode.so",
+              "requireBuiltinNodeDependency": "libnode.so",
               "packagedNodeExecutable": "libnode_executable.so",
               "deviceVerified": False, "harnessStarted": False, "sha256": hashes}
     (metadata / "runtime-build.json").write_text(json.dumps(record, indent=2) + "\n")

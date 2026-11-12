@@ -26,7 +26,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--adb", default="adb")
     parser.add_argument("--serial", required=True, help="Device explicitly selected from adb devices")
-    parser.add_argument("--proof", required=True, choices=["packaging", "runtime", "executable"])
+    parser.add_argument("--proof", required=True, choices=["packaging", "runtime", "executable", "profile"])
     parser.add_argument("--output", required=True, type=Path, help="New evidence directory")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=False)
@@ -36,7 +36,7 @@ def main() -> int:
         if args.proof == "packaging"
         else ("app", "ai.deepseek.harness.android.runtimepoc", 1)
     )
-    directory = "executable-probe" if args.proof == "executable" else "runtime-probe"
+    directory = "profile-probe" if args.proof == "profile" else "executable-probe" if args.proof == "executable" else "runtime-probe"
     record = {"schemaVersion": 1, "proof": args.proof,
               "observedAt": datetime.now(timezone.utc).isoformat(),
               "status": "BLOCKED", "harnessVerified": False, "steps": []}
@@ -74,7 +74,7 @@ def main() -> int:
             # A failed start must not attach a previous run's API evidence.
             adb("shell", "run-as", package, "rm", "-f", f"files/{directory}/result.json", f"files/{directory}/stderr.txt")
         selection = [] if args.proof == "packaging" else ["-e", "class", "io.github.mohammedteir.deepseekharness." + (
-            "ExecutableProbeTest" if args.proof == "executable" else "RuntimeProbeTest")]
+            "ProfileProbeTest" if args.proof == "profile" else "ExecutableProbeTest" if args.proof == "executable" else "RuntimeProbeTest")]
         output = adb("shell", "am", "instrument", "-w", "-r", *selection,
                      f"{package}.test/androidx.test.runner.AndroidJUnitRunner", timeout=180)
         (args.output / "instrumentation.txt").write_text(output)
