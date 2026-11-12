@@ -81,3 +81,5 @@ Two physical APK #1 reports pass the [native mechanism review](apps/android/evid
 ## APK #2 physical results
 
 The [three-report physical review](apps/android/evidence/runtime-apk2-physical-review.json) accepts original session persistence/recovery and native-binding execution on the reported Android 11 ARM64 phone. Runtime restart and previous-invocation recovery are separate passing assertions; the third report follows requested manual force-stop/reopen. Raw appRestartVerified stays false because the controller cannot independently measure that action. Extra best-effort SDK close requests generate retained closed-input notes after explicit successful shutdown replies; they are not discarded or substituted for those replies. Active-write termination, power loss and broader devices remain unverified.
+
+The next command proof has isolated [native grant/process components](apps/android/execution/COMMAND_PROOF.md) with host tests and Android Java/lint validation. They are not wired to a UI, IPC or original tool yet, and do not change the delivered persistence APK or its acceptance scope.

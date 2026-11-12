@@ -49,3 +49,7 @@ Run APK #1 from the separate atomic-proof module, then retain complete native Aâ
 ## APK #2 authentic persistence acceptance
 
 The [runtime qualification tutorial](apps/android/runtime/ATOMIC_PERSISTENCE_ADAPTER.md#physical-device-tutorial) requires original profile startup, production publication preflight, JSONL creation, acknowledged shutdown, full Node runtime restart and a recovered nondefault directory. A second invocation must recover the previous session; a rejected missing-session request must not alter committed JSONL hashes. Match installed APK/native digests and retain all failure diagnostics. App restart, active-write process death, power loss and approved commands are separate, unverified cases. Host consumed-stage/sync-failure regressions and native callback fixtures cannot satisfy Android acceptance.
+
+## Fixed command qualification
+
+The [native command reference](apps/android/execution/COMMAND_PROOF.md) records host-only request binding, rejection, expiry, revocation, concurrent one-shot consumption and real host pwd output checks. Android compilation/lint is separate from execution. A subsequent device test must exercise native human consent and the original tool pipeline together, demonstrate actual local output/exit, and reject unapproved, changed and replayed operations without spawning additional processes. No command-capable APK is delivered by the component checkpoint.
