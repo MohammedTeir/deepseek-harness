@@ -83,7 +83,8 @@ async function main() {
   } catch (error) { network.failure = error instanceof Error ? error.message : 'Network probe failed'; }
   stage = 'result-write';
   const result = JSON.stringify({ schemaVersion: 1, node: process.version, platform: process.platform,
-    arch: process.arch, pid: process.pid, uid: process.getuid(), execPath: process.execPath, childNodeLaunch: 'not-tested', nativeLock: lock, network, sqlite: true, worker: true, esm: true,
+    arch: process.arch, pid: process.pid, uid: typeof process.getuid === 'function' ? process.getuid() : null,
+    uidApiAvailable: typeof process.getuid === 'function', execPath: process.execPath, childNodeLaunch: 'not-tested', nativeLock: lock, network, sqlite: true, worker: true, esm: true,
     crypto: crypto.createHash('sha256').update('probe').digest('hex'), harnessStarted: false });
   const pending = output + '.pending';
   fs.writeFileSync(pending, result, { mode: 0o600 });

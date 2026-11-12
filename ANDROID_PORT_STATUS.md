@@ -2,7 +2,7 @@
 
 ## Summary
 
-Phase 0 is VERIFIED. The [Gate 1 review](ANDROID_GATE1_REVIEW.md) accepts the reviewed audit and a bounded Phase 2 runtime experiment. Phase 2 is IN PROGRESS; Gate 2 is not passed. The user reports Node 24.22.1 executing on Android ARM64 through SQLite and worker checks, then failing to resolve a Node-API symbol while loading the original lock addon. Version 3 adds explicit addon-to-Node linkage; phone verification is pending. The original frontend and Harness engine are preserved. No full Android API qualification, authentic profile readiness, session recovery or authorized tool result has been verified.
+Phase 0 is VERIFIED. The [Gate 1 review](ANDROID_GATE1_REVIEW.md) accepts the reviewed audit and a bounded Phase 2 runtime experiment. Phase 2 is IN PROGRESS; Gate 2 is not passed. The user reports v3 passing the native-lock stage, then failing on missing process.getuid during result-write. Version 4 reports the absent Node capability and uses separate native Android identity; phone verification is pending. The original frontend and Harness engine are preserved. No full Android API qualification, authentic profile readiness, session recovery or authorized tool result has been verified.
 
 ## Upstream sync: Phase 1 evidence refreshed
 
@@ -103,3 +103,13 @@ ELF inspection confirms Node exports the symbol while the old addon omitted `lib
 Eight host ELF/metadata regressions passed. The actual v2 addon extracted from its hash-verified APK is rejected by the new guard; the real newly linked addon is accepted. Normal runtime APK/test APK assembly and Android lint passed: 78 tasks in 7s. The packaged addon retains DT_NEEDED `libnode.so`, and the packaged Node library exports the required function. Signatures, alignment, notices and hashes were inspected. Evidence is separate in `apps/android/evidence/runtime-native-linkage-build.json`; earlier artifact records remain unchanged. Re-run the full phone probe to test this candidate. Gate 2 remains BLOCKED.
 
 V3 update validation passed: quick documentation 21/21, full documentation 43/43, repository lint with the existing unused-disable warning, and matching Android source/artifact hashes. Initial Filebin delivery failed with HTTP 507 (service storage full). A later retry uploaded v3 successfully, and the downloaded ZIP and APK hashes matched the inspected files. V3 phone verification remains pending.
+
+## Android identity reporting adapter
+
+The user's v3 transcript reaches result-write, then fails at process.getuid. By probe ordering, SQLite, workers, lock acquisition/contention/release and dynamic ESM completed; network tests were attempted but their flags were not returned. Crypto result generation and full serialization did not complete. These are partial user-reported observations, not developer-run instrumentation.
+
+Node 24.22.1 src/node_internals.h excludes Android from NODE_IMPLEMENTS_POSIX_CREDENTIALS, and bootstrap omits the associated methods. V4 (0.1.3-android-identity, version code 4) preserves uid null and uidApiAvailable false when unavailable. Kotlin records separate androidUid/androidPid and identitySource android.os.Process after matching Node's PID to the service PID, and persists the combined evidence. No global process polyfill or fabricated UID is supplied. Instrumentation still requires app UID, non-root identity, correct process separation and all original API results.
+
+Six host tests passed, including an isolated Linux Node preloader that removes getuid to exercise feature-absence reporting; this is not Android execution evidence. Runtime/test APK assembly and Android lint passed: 78 tasks in 15s. APK signatures, alignment, dependencies, notices and source/artifact hashes passed. Evidence is in apps/android/evidence/runtime-identity-build.json. Repeat the full phone probe. Gate 2 remains BLOCKED; production consumers of POSIX credentials, including spill ownership validation, need Android adaptation before enabling those paths.
+
+V4 update checks passed: quick documentation 21/21, full documentation 43/43, and repository lint with the existing unused-disable warning. The Filebin ZIP and its contained APK were downloaded and hash-verified. No v4 Android instrumentation or successful phone result is claimed.

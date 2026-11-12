@@ -2,7 +2,7 @@
 
 ## Summary
 
-Classifications identify reuse or engineering work, not complete Android support. The user reports partial Node/SQLite/worker progress on a phone, followed by a native-addon symbol resolution failure; no full-feature acceptance is claimed. The complete resolved graph, native dependency paths, platform metadata, installed payloads and remaining archive gaps are under [audit evidence](audit/android/EVIDENCE.md).
+Classifications identify reuse or engineering work, not complete Android support. The user reports Node/SQLite/worker/lock/ESM progress on a phone, then missing getuid during result-write; no full-feature acceptance is claimed. The complete resolved graph, native dependency paths, platform metadata, installed payloads and remaining archive gaps are under [audit evidence](audit/android/EVIDENCE.md).
 
 | Feature | Classification | Source evidence | Blocker / mitigation / acceptance evidence |
 |---|---|---|---|
@@ -16,7 +16,7 @@ Classifications identify reuse or engineering work, not complete Android support
 | Electron OS integrations | REIMPLEMENT ADAPTER | `apps/desktop/src/preload-app.ts` | File pick/save/share, clipboard, window/lifecycle; mark unavailable desktop features |
 | JSONL sessions | ADAPT | `session/session-persistence-jsonl/src/lease.ts` | Native flock loader rejects Android; preserve locking/fsync/recovery semantics |
 | SQLite storage | NOT YET VERIFIED | `storage/storage-sqlite/src/schema.ts`; user v2 probe ordering | In-memory SELECT passed before the reported native-lock stage; actual persistent storage, concurrency and crash recovery remain untested |
-| Native POSIX flock | ADAPT | `native/system/packages/entry/src/flock.ts`, `flock.c`, prebuild matrices | Original C source rebuilt; v2 failed symbol resolution. V3 explicit Node dependency awaits phone testing; production Android selection remains absent |
+| Native POSIX flock | ADAPT | `native/system/packages/entry/src/flock.ts`, `flock.c`, prebuild matrices | Original C source rebuilt; v2 failed symbol resolution. V3 user ordering indicates lock checks completed; production Android selection and session integration remain absent |
 | Plain subprocess execution | REIMPLEMENT ADAPTER | `subprocess/subprocess-local/src/spawn.ts` | Supported executable location, structured errors, signals, ownership and real device output required |
 | Persistent terminal | ADAPT | `terminal/terminal-bash/src/config.ts`, node-pty payload | Default `/bin/bash`; prompt-control logic is bash/pwsh-specific; Toybox sh is not a drop-in equivalent |
 | PTY backend | NOT YET VERIFIED | NDK `pty.h`; node-pty `binding.gyp`/prebuilds | API 23 symbols exist; glibc prebuilds unusable; actual SELinux/fork/PTY/cancel behavior needed |
@@ -62,3 +62,7 @@ Android 10-targeted apps cannot execute files from writable app home using execv
 Scoped storage/SAF gives URI grants, not arbitrary POSIX paths. Android 11+ package visibility affects optional Termux/root-manager discovery. Recent Android foreground-service types, permissions, start restrictions and timeouts constrain agent jobs; an app process may be killed. No broad storage permission or unlimited background service is assumed. Version-specific official sources and retrieval outcomes are in [platform references](audit/android/platform-references.json).
 
 The new `packages/util/ripgrep` resolves packaged binaries only and uses the subprocess service. `packages/experimental/terminal-panel` adds a consumer of existing terminal services, not Android execution. Structured approval and PTY-unavailable errors in rc.2 improve failure reporting; native ABI and executable restrictions remain blockers.
+
+## Android process identity
+
+Node deliberately omits POSIX credential methods on Android. The user reports v3 failing at getuid after the lock stage. V4 records unavailable Node uid separately from native Android identity. Production ownership checks, including spill-local cleanup's geteuid fallback, need explicit Android adaptation; they are not verified by this probe.

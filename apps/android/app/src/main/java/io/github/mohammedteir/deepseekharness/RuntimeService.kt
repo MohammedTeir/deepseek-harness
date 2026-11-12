@@ -6,6 +6,7 @@ import android.os.*
 import java.io.File
 import java.util.concurrent.Executors
 import java.util.concurrent.atomic.AtomicBoolean
+import org.json.JSONObject
 
 /** One-shot embedded API probe; its result never implies Harness startup. */
 class RuntimeService : Service() {
@@ -51,7 +52,17 @@ class RuntimeService : Service() {
                             append(if (diagnostic.isFile) readDiagnostic(diagnostic, 8192) else "No diagnostics file")
                         }
                         !output.isFile -> "BLOCKED: embedded Node returned without API evidence"
-                        else -> output.readText().take(4096)
+                        else -> {
+                            val evidence = JSONObject(readDiagnostic(output, 4096))
+                            check(evidence.getInt("pid") == android.os.Process.myPid()) { "Node PID does not match runtime process" }
+                            evidence.put("androidUid", android.os.Process.myUid())
+                            evidence.put("androidPid", android.os.Process.myPid())
+                            evidence.put("identitySource", "android.os.Process")
+                            val pending = File(directory, "result.host.pending")
+                            pending.writeText(evidence.toString())
+                            check(pending.renameTo(output)) { "Host identity evidence could not be persisted" }
+                            evidence.toString()
+                        }
                     }
                 } catch (_: UnsatisfiedLinkError) { "BLOCKED: native probe library could not load" }
                 catch (error: Exception) { "BLOCKED: ${error.javaClass.simpleName} during runtime probe" }

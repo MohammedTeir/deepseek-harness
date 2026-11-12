@@ -39,8 +39,15 @@ class RuntimeProbeTest {
             assertEquals("android", evidence.getString("platform"))
             assertEquals("arm64", evidence.getString("arch"))
             assertNotEquals("Runtime must have its own process", android.os.Process.myPid(), evidence.getInt("pid"))
-            assertEquals("Runtime shares application UID", android.os.Process.myUid(), evidence.getInt("uid"))
-            assertNotEquals("Runtime must not be root", 0, evidence.getInt("uid"))
+            assertEquals("Node PID matches runtime host", evidence.getInt("pid"), evidence.getInt("androidPid"))
+            assertEquals("android.os.Process", evidence.getString("identitySource"))
+            assertEquals("Runtime shares application UID", android.os.Process.myUid(), evidence.getInt("androidUid"))
+            assertNotEquals("Runtime must not be root", 0, evidence.getInt("androidUid"))
+            if (evidence.getBoolean("uidApiAvailable")) {
+                assertEquals(evidence.getInt("androidUid"), evidence.getInt("uid"))
+            } else {
+                assertTrue("Unavailable Node getuid must remain null", evidence.isNull("uid"))
+            }
             for (api in listOf("sqlite", "worker", "esm")) assertTrue(api, evidence.getBoolean(api))
             assertEquals("ba9c736f19e7f60b7f6764adb0b7908c0a2b394e09b6c09863528c7f2bc86095", evidence.getString("crypto"))
             assertTrue("Native lock acquisition/contention/release", evidence.getBoolean("nativeLock"))
