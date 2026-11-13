@@ -53,3 +53,7 @@ APK #5 is VERIFIED for the submitted Android 11 ARM64 fixed-pwd service run; see
 ## Original node-pty before a custom bridge
 
 The [source experiment](apps/android/execution/NODE_PTY_QUALIFICATION.md) builds the original addon without C++ changes and passes host tests. APK #6 must verify actual Android loading, PTY I/O, nonzero exit and signals before production use. If accepted, implement the existing terminal-process contract with real ownership and foreground observations; keep Linux/Bash assumptions disabled until separately verified. No custom multiplexer or Termux fallback is selected.
+
+## Original node-pty physical checkpoint and next adapter step
+
+APK #6 is VERIFIED for the submitted fixed Android 11 ARM64 suite. The [handle prototype](apps/android/execution/PTY_HANDLE_QUALIFICATION.md) is host-only and implements the original interface with truthful unknown foreground/activity facts. Next implement trusted native-authorized allocation and original owner-scoped terminal registration, preserving allocation rollback and complete cleanup evidence. Do not activate the host prototype on Android merely by removing its platform guard.

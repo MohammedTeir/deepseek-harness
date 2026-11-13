@@ -54,3 +54,7 @@ The [accepted submitted phone result](ANDROID_GATE3_REVIEW.md) verifies native d
 ## Fixed original node-pty qualification
 
 The new unexported same-UID service starts only a reviewed fixed suite after native consent. It exposes no arbitrary executable, arguments or PTY input interface. Original node-pty is loaded only in its isolated qualification runtime; this is not a malicious-plugin boundary. Fixture parent-death setup, direct-child identity and exit observations do not prove general descendant, descriptor or OS-death isolation. Android behavior remains unverified until APK #6 results. See [scope](apps/android/execution/NODE_PTY_QUALIFICATION.md).
+
+## PTY qualification authority remains separate
+
+The APK #6 phone suite verifies fixed direct-child PTY behavior, not a general execution authority. The host terminal-handle prototype has no native grant or agent registration and rejects Android use. It refuses foreground signalling without proven group identity and never infers shell idle state from silence. Future activation requires trusted native authorization, original owner binding and verified cleanup/rollback. The same-UID malicious-plugin limitation remains unchanged.

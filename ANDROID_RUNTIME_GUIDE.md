@@ -111,3 +111,7 @@ The [selected-device review](ANDROID_GATE3_REVIEW.md) accepts the new original s
 ## APK #6 original node-pty probe
 
 Install the update without clearing data and select Run original node-pty proof, below the previous process/PTY button. Authorize the fixed suite once, keep the Activity visible and copy complete result. The [guide](apps/android/execution/NODE_PTY_QUALIFICATION.md) distinguishes original addon qualification from the existing agent/tool proof and lists the validator. This suite intentionally reports harnessStarted=false and originalTerminalIntegrated=false. The fourth original-tool test remains available and unchanged.
+
+## APK #6 received result
+
+The [submitted fixed original node-pty result](ANDROID_GATE3_REVIEW.md) passes artifact and behavior validation on Android 11 ARM64. No repeat or replacement APK is needed for that checkpoint. The new typed handle work is a host experiment, not an updated Android terminal feature. Existing app tests and data remain unchanged.

@@ -281,3 +281,7 @@ Status: VERIFIED for fixed pwd through the original SubprocessRuntime service on
 ## Original node-pty qualification checkpoint
 
 Status: IMPLEMENTED and host tested; physical execution BLOCKED pending APK #6. The [original dependency experiment](apps/android/execution/NODE_PTY_QUALIFICATION.md) cross-builds unmodified node-pty C++ for API 29 ARM64 and reuses its original JavaScript through a narrow installed-library loader. The Android compile path uses forkpty directly, not the Apple spawn-helper. Real host source-addon tests cover input/resize, exit 7, SIGINT, TERM and deadline/KILL. Existing engine/tool proofs remain unchanged. Gate 3 stays IN PROGRESS; no original terminal backend or generic command provider is enabled.
+
+## Original node-pty accepted; handle contract prototype
+
+The [APK #6 phone review](ANDROID_GATE3_REVIEW.md) verifies original node-pty loading and all five fixed cases on Android 11 ARM64 with matching fingerprints. A [host-only SubprocessTerminalHandle prototype](apps/android/execution/PTY_HANDLE_QUALIFICATION.md) now passes the original strict type contract and real input/resize, exit/signal and concurrent cleanup tests. It is explicitly disabled on Android and is not shipped or registered as an agent tool. Gate 3 remains IN PROGRESS. Next: native-authorized allocation, original Agent/terminal ownership, foreground identity and rollback/cleanup proof, followed by a new device milestone. No APK #6 replacement or repeat is required to accept its submitted result.

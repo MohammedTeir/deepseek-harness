@@ -81,3 +81,7 @@ The complete phone-subprocess-apk5-run1.json report passes validate_command_resu
 ## Original node-pty phone gate
 
 The [qualification guide](apps/android/execution/NODE_PTY_QUALIFICATION.md) defines real source-addon host tests, parser/asset negative controls and the new fixed phone suite. Require actual original node-pty loading, controlling TTY/input/resize, exit 7, Ctrl-C signal 2, TERM 15 and timeout/KILL 9 with direct-child exit observations. Validate complete output against runtime-node-pty-apk6-build.json. Host PASS and Android compilation do not satisfy the physical gate.
+
+## Accepted node-pty report and handle tests
+
+phone-node-pty-apk6-run1.json passes validate_node_pty_result.py against runtime-node-pty-apk6-build.json, with all original result fields retained. The [host handle guide](apps/android/execution/PTY_HANDLE_QUALIFICATION.md) lists the strict original-interface typecheck and real source-addon test, including normal exit versus signals, explicit unsupported operations, owner abort and concurrent teardown. No new handle behavior is attributed to Android yet.

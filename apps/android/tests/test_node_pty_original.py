@@ -35,5 +35,9 @@ class OriginalNodePtyTest(unittest.TestCase):
             missing=subprocess.run(['node',str(ANDROID/'runtime/node-pty-proof/smoke.mjs'),str(root/'missing.json')],cwd=root,env=missing_env,capture_output=True,text=True,timeout=10)
             self.assertEqual(missing.returncode,1)
             self.assertIn('no shell fallback',json.loads((root/'missing.json').read_text())['failure'])
+            handle_result=subprocess.run(['node',str(ANDROID/'tests/terminal-handle-reference.mjs'),str(root/'handle.json')],cwd=root,env=env,capture_output=True,text=True,timeout=20)
+            self.assertEqual(handle_result.returncode,0,handle_result.stdout+handle_result.stderr)
+            if os.environ.get('HARNESS_PTY_HANDLE_HOST_EVIDENCE'):
+                Path(os.environ['HARNESS_PTY_HANDLE_HOST_EVIDENCE']).write_text((root/'handle.json').read_text()+'\n')
             if os.environ.get('HARNESS_NODE_PTY_HOST_EVIDENCE'):
                 Path(os.environ['HARNESS_NODE_PTY_HOST_EVIDENCE']).write_text(json.dumps({'environment':'Linux host only; NOT Android evidence','result':value,'stdout':result.stdout,'stderr':result.stderr,'exitCode':result.returncode},indent=2)+'\n')

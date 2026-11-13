@@ -1,0 +1,58 @@
+{
+  "environment": "Linux host only; not Android evidence",
+  "scope": "Fixed fixture handles only; not an execution authority",
+  "launches": 5,
+  "reports": [
+    {
+      "role": "--tty-child",
+      "pid": 50260,
+      "outcome": {
+        "exitCode": 0,
+        "signal": null
+      },
+      "output": "IDENTITY:{\"uid\":1000,\"pid\":50260,\"parentPid\":50253}\r\nTTY-READY\r\npty-input\r\nTTY-INPUT:pty-input ROWS:40 COLS:100\r\nTTY-STDERR\r\n"
+    },
+    {
+      "role": "--exit-seven",
+      "pid": 50266,
+      "outcome": {
+        "exitCode": 7,
+        "signal": null
+      },
+      "output": "IDENTITY:{\"uid\":1000,\"pid\":50266,\"parentPid\":50253}\r\nEXIT-SEVEN\r\n"
+    },
+    {
+      "role": "--wait",
+      "pid": 50268,
+      "outcome": {
+        "exitCode": null,
+        "signal": "SIGINT"
+      },
+      "output": "IDENTITY:{\"uid\":1000,\"pid\":50268,\"parentPid\":50253}\r\nREADY\r\n^C"
+    },
+    {
+      "role": "--ignore-term",
+      "pid": 50270,
+      "outcome": {
+        "exitCode": null,
+        "signal": "SIGKILL"
+      },
+      "output": "IDENTITY:{\"uid\":1000,\"pid\":50270,\"parentPid\":50253}\r\nREADY\r\n"
+    },
+    {
+      "role": "--wait",
+      "pid": 50272,
+      "outcome": {
+        "exitCode": null,
+        "signal": "SIGTERM"
+      },
+      "output": "IDENTITY:{\"uid\":1000,\"pid\":50272,\"parentPid\":50253}\r\nREADY\r\n"
+    }
+  ],
+  "originalHandleInterface": "SubprocessTerminalHandle; strict typecheck recorded separately",
+  "managedRange": "Fixed direct child only",
+  "foregroundIdentityVerified": false,
+  "androidHandleExecuted": false,
+  "originalTerminalIntegrated": false,
+  "gate3Passed": false
+}

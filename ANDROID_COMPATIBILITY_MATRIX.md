@@ -104,3 +104,7 @@ Fixed pwd through the original SubprocessRuntime service is now VERIFIED on the 
 ## Original node-pty build result
 
 Original node-pty 1.2.0-beta.15 C++ is ADAPT / cross-compiled for Android ARM64 API 29 without native source changes. Its Linux/Android branch uses forkpty; spawn-helper is Apple-only here. Original JavaScript plus the installed-addon loader pass real host tests. Android loading and behavior remain NOT YET VERIFIED pending APK #6. Stock GNU/Linux prebuilds remain BLOCKED; the [source qualification](apps/android/execution/NODE_PTY_QUALIFICATION.md) does not enable the original terminal backend.
+
+## Original node-pty physical result
+
+Original node-pty source/addon and its original JavaScript are VERIFIED for the five fixed Android 11 ARM64 cases in [the phone review](ANDROID_GATE3_REVIEW.md). The original SubprocessTerminalHandle adapter is IMPLEMENTED / host VERIFIED only, with Android activation blocked on authorization/ownership integration. General shell jobs, foreground inspection, descendants and other Android versions remain NOT YET VERIFIED.

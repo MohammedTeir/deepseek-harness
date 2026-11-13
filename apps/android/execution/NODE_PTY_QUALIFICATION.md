@@ -64,3 +64,7 @@ python3 apps/android/scripts/validate_node_pty_result.py result.json --build-rec
 ```
 
 No attached ADB device is available for this milestone. Native UI rendering and actual addon behavior are BLOCKED on phone execution. Overall Gate 3 remains IN PROGRESS. If the phone passes, adapt the original SubprocessTerminalHandle and terminal registry with explicit authorization and actual ownership/foreground/termination observations. Existing Linux process-inspection, shell activity, Bash prompt assumptions and broader lifecycle handling still require adaptation; do not enable them merely because this fixture passes.
+
+## Physical result received
+
+The [APK #6 review](../../../ANDROID_GATE3_REVIEW.md) accepts the complete matching user-reported Android 11 ARM64 output: all five cases pass. Earlier pending-device statements above retain the build checkpoint. The separate [typed handle experiment](PTY_HANDLE_QUALIFICATION.md) remains host-only and is not added to the delivered APK or original agent profile. No additional phone execution is needed to accept this particular submitted result.
