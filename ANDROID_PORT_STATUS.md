@@ -255,3 +255,9 @@ Status: IN PROGRESS. The [command qualification reference](apps/android/executio
 ## APK #3 original-tool/native approval qualification
 
 Status: IMPLEMENTED with host integration and Android build checks; physical execution BLOCKED. The [command reference](apps/android/execution/COMMAND_PROOF.md) documents the genuine registry/executor/approval path, private native broker/UI, one-shot concurrent consumption, actual output and original command-event persistence/recovery. The host uses explicitly automated decisions and a real Linux subprocess; it does not verify Android IPC, rendering or human consent. Install the delivered update and return the full two-prompt phone result. Gate 2 remains BLOCKED.
+
+## APK #3 physical command acceptance and Gate 2 review
+
+Status: VERIFIED for the bounded local-engine criteria in the [Gate 2 review](ANDROID_GATE2_REVIEW.md). The user-reported Android 11 ARM64 result matches APK/native hashes and passes the unchanged validator: original profile/tool/approval, explicit Deny then Approve, one actual pwd process with stdout/stderr/exit, concurrent/replay/mutation denial and identical recovered original records. Raw gate2Passed remains false; the review decision is recorded separately. External model inference remains unverified without credentials.
+
+Leaving the Activity during confirmation produced the intended cancellation message according to the tester. This is UI evidence only, not proof of native child termination or full background/lifecycle behavior. Retained nonfatal linker and SDK shutdown notes are explained in the owning review; historical failures remain untouched. The next milestone is Gate 3 process/shell/PTY qualification, with original UI, cross-UID isolation, device matrix and release acceptance still separate.

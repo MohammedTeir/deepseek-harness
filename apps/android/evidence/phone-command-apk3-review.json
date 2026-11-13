@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-11-13",
+  "status": "VERIFIED",
+  "decision": "ACCEPTED bounded Gate 2 local-engine criteria on the reported Android 11 ARM64 phone",
+  "attribution": "User-supplied complete phone JSON and manual action description; no developer-controlled ADB or screenshot inspection",
+  "normalizedEvidence": "phone-command-apk3-run1.json",
+  "normalization": "Whitespace and JSON slash escaping normalized; duplicate recovered records retained with supplied values; decision/result fields unchanged",
+  "evidenceSha256": "eb17d851ed0a98c74340a35321a6ba5b4f181301250bc606be80f36d43fd2b14",
+  "buildRecord": "runtime-command-apk3-build.json",
+  "validation": {
+    "command": "python3 apps/android/scripts/validate_command_result.py apps/android/evidence/phone-command-apk3-run1.json --build-record apps/android/evidence/runtime-command-apk3-build.json",
+    "exitCode": 0,
+    "status": "PASS"
+  },
+  "device": {
+    "model": "Redmi Note 8 Pro",
+    "api": 30,
+    "androidRelease": "11",
+    "abi": "arm64-v8a,armeabi-v7a,armeabi"
+  },
+  "apkSha256": "3f0e2cd234fb64647b60d3953dc5c2a698b6d8e4f11399f0edbd6068ef0c7c00",
+  "nativeNodeSha256": "07b91cc6fa5ed0489b95bc237929fd14a009c9bfa8d309b514fceca3d977e408",
+  "nativePublicationSha256": "1c5fae1ac01ebdc9431f3ec9b5b11691d8fce489ec096fdef7cae566d7ced34e",
+  "uid": 10751,
+  "supervisorPid": 7246,
+  "controllerPid": 7294,
+  "executionPeerPid": 7309,
+  "testTimeMillis": 1794551732560,
+  "testTimeUtc": "2026-11-13T06:35:32.560000+00:00",
+  "processLaunches": 1,
+  "concurrentConsumers": 2,
+  "concurrentRejections": 1,
+  "originalApprovalOutcomes": [
+    "rejected",
+    "allowed-once"
+  ],
+  "actualExitCode": 0,
+  "actualStderr": "",
+  "recoveredOriginalRecords": 6,
+  "sessionRecoveredAcrossRuntimeRestart": true,
+  "localGate2Accepted": true,
+  "rawGate2PassedRetained": false,
+  "modelRequestExecuted": false,
+  "modelIntegration": "NOT YET VERIFIED; no test credentials supplied",
+  "reportedCancellation": {
+    "message": "BLOCKED: command proof cancelled while leaving the Activity",
+    "classification": "User-reported UI cancellation after leaving a confirmation and returning",
+    "structuredRunResultSupplied": false,
+    "processTerminationVerified": false,
+    "backgroundExecutionAbsenceVerified": false
+  },
+  "limits": [
+    "Qualification-triggered original tool, not LLM-generated call",
+    "Canonical tool batch persists in original command lifecycle, not model-step tool events",
+    "No developer-controlled ADB test or independent UI screenshot inspection",
+    "No separate-UID attacker test or hostile-plugin isolation proof",
+    "No complete Android cancellation-run audit or active-write process-kill/power-loss proof",
+    "API29, recent devices, general shell/PTY and original Web UI remain unqualified"
+  ],
+  "nextMilestone": "Gate 3: bounded Android process/shell/PTY capability qualification; no root/Termux requirement",
+  "documentationValidation": {
+    "command": "pnpm run doc-sync",
+    "exitCode": 0,
+    "status": "PASS",
+    "gatesPassed": 43,
+    "durationSeconds": 155.55,
+    "logSha256": "fc20f9a1796ecdd8cd6726bf584efbd579017def7777415100eafa296cc4d27f"
+  },
+  "validatorRegression": {
+    "command": "python3 -m unittest discover -s apps/android/tests -p test_command_evidence.py -v",
+    "exitCode": 0,
+    "testsPassed": 2,
+    "scope": "Parser fixtures only; independent from supplied phone evidence"
+  }
+}

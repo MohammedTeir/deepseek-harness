@@ -2,7 +2,7 @@
 
 ## Summary
 
-The author has authorized Gate 1 review and a bounded Phase 2 proof when its acceptance criteria are satisfied. The [Gate 1 decision](ANDROID_GATE1_REVIEW.md) accepts the investigation strategy; the [v5 phone results](apps/android/evidence/phone-v5-user-results.json) now report fixed Node API and installed-child execution passing on Android 11/API 30. The later APK #2 physical review accepts authentic profile/session recovery on one phone; original-tool/native-approval device execution remains pending. The master prompt's gates take precedence over earlier prototype work, which is not imported into this branch.
+The author has authorized Gate 1 review and a bounded Phase 2 proof when its acceptance criteria are satisfied. The [Gate 1 decision](ANDROID_GATE1_REVIEW.md) accepts the investigation strategy; the [v5 phone results](apps/android/evidence/phone-v5-user-results.json) now report fixed Node API and installed-child execution passing on Android 11/API 30. The later APK #2 physical review accepts authentic profile/session recovery on one phone; the bounded original-tool/native-approval phone proof is now accepted by the Gate 2 review. The master prompt's gates take precedence over earlier prototype work, which is not imported into this branch.
 
 | Milestone | Status | Acceptance / next action |
 |---|---|---|
@@ -10,7 +10,7 @@ The author has authorized Gate 1 review and a bounded Phase 2 proof when its acc
 | Phase 1: locked dependency graph | VERIFIED | All resolved nodes and 8,836 edges enumerated; zero unresolved targets; all package manifests accounted for locally or by integrity-matched registry metadata |
 | Phase 1: source/native/platform audit | IMPLEMENTED | Source-backed report, package payload inventory and risk matrix available; noninstalled payloads and device semantics explicitly unverified |
 | Gate 1 review | VERIFIED | Reviewed criteria and bounded experimental decision recorded; no runtime selected as proven |
-| Phase 2 / Gate 2 | IN PROGRESS | ARM64 runtime builds and user-reported fixed phone probes pass; Android profile/session evidence is accepted; original-tool/native-approval physical proof remains blocked |
+| Phase 2 / Gate 2 | VERIFIED (bounded local engine) | ARM64 runtime builds and user-reported fixed phone probes pass; Android profile/session and fixed original-tool/native-approval phone evidence accepted; external model remains unverified without credentials |
 | Gate 3 | NOT STARTED | Device commands, streams, signals, timeout/cancel and PTY proof |
 | Gate 4 | NOT STARTED | Original UI boot, origin authentication, deep links, genuine streaming/session result |
 | Gate 5 | NOT STARTED | Separate root policy, canonical request binding, deny/replay/mutation/adversarial tests |
@@ -29,3 +29,7 @@ The isolated [native grant/process components](apps/android/execution/COMMAND_PR
 ## Current command integration checkpoint
 
 The [APK #3 command proof](apps/android/execution/COMMAND_PROOF.md) implements the original-tool/native-approval path and passes host composition/relocation checks. Next run the signed update on the existing physical Android 11 ARM64 phone, deny the first request, approve the second and review native start counts, replay/mutation rejection and recovered original records. Do not begin broader providers or claim Gate 2 passed before that evidence is accepted.
+
+## Accepted local-engine checkpoint
+
+The [Gate 2 review](ANDROID_GATE2_REVIEW.md) accepts the supplied fixed-command local proof on one Android 11 ARM64 phone. Next qualify Gate 3 command availability, streaming, failure, cancellation and PTY behavior; preserve explicit provider capabilities and unavailable states. This acceptance does not verify model inference, original Web UI, arbitrary plugins, root, Termux or production readiness.

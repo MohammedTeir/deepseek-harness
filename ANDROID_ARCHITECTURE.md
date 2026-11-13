@@ -2,7 +2,7 @@
 
 ## Summary
 
-Recommend retaining the original Cordis/profile engine and Web UI behind a Kotlin lifecycle/permission host. The [Gate 1 review](ANDROID_GATE1_REVIEW.md) selects an APK-loaded shared-library experiment; production packaging remains subject to qualification. The user-reported v5 phone results qualify the fixed Node API probes in both modes on one Android 11/API 30 ARM64 phone; the later APK #2 physical review accepts authentic profile/session recovery on that phone, while APK #3 command execution remains pending. The packaged executable is selected for the next bounded profile experiment, not production qualification.
+Recommend retaining the original Cordis/profile engine and Web UI behind a Kotlin lifecycle/permission host. The [Gate 1 review](ANDROID_GATE1_REVIEW.md) selects an APK-loaded shared-library experiment; production packaging remains subject to qualification. The user-reported v5 phone results qualify the fixed Node API probes in both modes on one Android 11/API 30 ARM64 phone; the later APK #2 physical review accepts authentic profile/session recovery on that phone, and the bounded APK #3 command proof is accepted in the [Gate 2 review](ANDROID_GATE2_REVIEW.md). The packaged executable is selected for the next bounded profile experiment, not production qualification.
 
 | Candidate | Reuse and benefits | Blocking questions | Recommendation |
 |---|---|---|---|
@@ -36,3 +36,7 @@ The accepted [APK #1 physical checkpoint](apps/android/evidence/atomic-poc-physi
 ## Original tool qualification composition
 
 The [APK #3 reference](apps/android/execution/COMMAND_PROOF.md) connects the original tool pipeline and approval service to the private native fixed-command broker. A genuine pre-step context initiates qualification without a model response; canonical results persist through the existing command lifecycle rather than fabricated model-step tool events. Runtime restart/recovery is exercised on the host; the physical command/UI checkpoint remains pending. This does not change the original frontend or select general shell/PTY support.
+
+## APK #3 physical review
+
+The [Gate 2 review](ANDROID_GATE2_REVIEW.md) accepts the bounded original local-engine/tool/native-approval composition on the reported phone. Qualification-triggered tool results persist through the original command lifecycle; model-requested tool history, original frontend integration, broad process capability and hostile-plugin isolation remain separate.

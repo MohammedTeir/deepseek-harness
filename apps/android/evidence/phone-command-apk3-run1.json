@@ -1,0 +1,352 @@
+{
+  "schemaVersion": 1,
+  "suite": "original-harness-approved-pwd-v1",
+  "node": "v24.22.1",
+  "platform": "android",
+  "arch": "arm64",
+  "kernelIdentity": {
+    "pid": 7294,
+    "parentPid": 7246,
+    "uid": 10751,
+    "source": "/proc/self/status"
+  },
+  "harnessStarted": true,
+  "serverInfo": {
+    "name": "deepseek-harness-sdk-runtime",
+    "version": "0.0.1"
+  },
+  "sessionId": "android-command-8e770aff-41d2-462f-a947-4eede7c83155",
+  "runtimeStderr": [
+    "WARNING: linker: Warning: \"/data/app/~~3gYFZdV_8w7Kj4bq9WzN7A==/ai.deepseek.harness.android.runtimepoc-nCPJs0b2MS7V2mhhEaOf0A==/lib/arm64/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\nshutdown request failed: dsh profile \"sdk-minimal\": JSON-RPC input closed\nexit code: 0\nstderr tail:\nWARNING: linker: Warning: \"/data/app/~~3gYFZdV_8w7Kj4bq9WzN7A==/ai.deepseek.harness.android.runtimepoc-nCPJs0b2MS7V2mhhEaOf0A==/lib/arm64/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)",
+    "WARNING: linker: Warning: \"/data/app/~~3gYFZdV_8w7Kj4bq9WzN7A==/ai.deepseek.harness.android.runtimepoc-nCPJs0b2MS7V2mhhEaOf0A==/lib/arm64/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\nshutdown request failed: dsh profile \"sdk-minimal\": JSON-RPC input closed\nexit code: 0\nstderr tail:\nWARNING: linker: Warning: \"/data/app/~~3gYFZdV_8w7Kj4bq9WzN7A==/ai.deepseek.harness.android.runtimepoc-nCPJs0b2MS7V2mhhEaOf0A==/lib/arm64/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)"
+  ],
+  "originalRegistryAndPipeline": true,
+  "approvalOutcomes": [
+    {
+      "callId": "deny-6c754fc8-1d87-46c9-bb09-4bd33a2f5b77",
+      "outcome": "rejected"
+    },
+    {
+      "callId": "allow-e1ca3c49-b17d-4d89-b95f-78951ca38bf5",
+      "outcome": "allowed-once"
+    }
+  ],
+  "commandResult": {
+    "stdout": "/data/data/ai.deepseek.harness.android.runtimepoc/files/command-probe/workspace\n",
+    "stderr": "",
+    "exitCode": 0,
+    "cwd": "/data/data/ai.deepseek.harness.android.runtimepoc/files/command-probe/workspace",
+    "nativeConcurrentConsumers": 2,
+    "nativeConcurrentRejections": 1
+  },
+  "negative": {
+    "unapproved": {
+      "ok": false,
+      "code": "APPROVAL_REQUIRED"
+    },
+    "unauthenticated": {
+      "ok": false,
+      "code": "UNAUTHENTICATED"
+    },
+    "malformed": {
+      "ok": false,
+      "code": "MALFORMED_OR_DISCONNECTED"
+    },
+    "approvalMethod": {
+      "ok": false,
+      "code": "UNSUPPORTED_ACTION"
+    },
+    "duplicate": {
+      "ok": false,
+      "code": "DUPLICATE"
+    },
+    "command": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "arguments": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "cwd": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "session": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "call": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "uid": {
+      "ok": false,
+      "code": "MALFORMED"
+    },
+    "replay": {
+      "ok": false,
+      "code": "USED"
+    }
+  },
+  "history": [
+    {
+      "type": "approval/asked",
+      "seq": 4,
+      "time": 1794551720049,
+      "data": {
+        "id": "88efb9de-6184-4c63-b50b-b393938bfbbb",
+        "toolName": "android_qualified_pwd",
+        "callId": "deny-6c754fc8-1d87-46c9-bb09-4bd33a2f5b77",
+        "reason": "Native fixed pwd qualification; exact request is rendered by Android."
+      }
+    },
+    {
+      "type": "approval/decided",
+      "seq": 5,
+      "time": 1794551727689,
+      "data": {
+        "id": "88efb9de-6184-4c63-b50b-b393938bfbbb",
+        "outcome": "rejected"
+      }
+    },
+    {
+      "type": "command/done",
+      "seq": 6,
+      "time": 1794551727695,
+      "data": {
+        "commandId": "cmd-69fd0184-1",
+        "kind": "success",
+        "text": "{\"callId\":\"deny-6c754fc8-1d87-46c9-bb09-4bd33a2f5b77\",\"batch\":{\"results\":[{\"callId\":\"deny-6c754fc8-1d87-46c9-bb09-4bd33a2f5b77\",\"result\":{\"isError\":true,\"error\":{\"message\":\"the user rejected tool \\\"android_qualified_pwd\\\"\",\"info\":{\"name\":\"ApprovalError\",\"code\":\"APPROVAL_REJECTED\"}},\"content\":[{\"type\":\"text\",\"text\":\"Error: the user rejected tool \\\"android_qualified_pwd\\\"\"}]}}],\"additionalContexts\":[],\"concluded\":false}}"
+      }
+    },
+    {
+      "type": "approval/asked",
+      "seq": 12,
+      "time": 1794551727743,
+      "data": {
+        "id": "8fa23e41-ac08-44a0-a31b-9e392adc8070",
+        "toolName": "android_qualified_pwd",
+        "callId": "allow-e1ca3c49-b17d-4d89-b95f-78951ca38bf5",
+        "reason": "Native fixed pwd qualification; exact request is rendered by Android."
+      }
+    },
+    {
+      "type": "approval/decided",
+      "seq": 13,
+      "time": 1794551729433,
+      "data": {
+        "id": "8fa23e41-ac08-44a0-a31b-9e392adc8070",
+        "outcome": "allowed-once"
+      }
+    },
+    {
+      "type": "command/done",
+      "seq": 14,
+      "time": 1794551729586,
+      "data": {
+        "commandId": "cmd-69fd0184-2",
+        "kind": "success",
+        "text": "{\"callId\":\"allow-e1ca3c49-b17d-4d89-b95f-78951ca38bf5\",\"batch\":{\"results\":[{\"callId\":\"allow-e1ca3c49-b17d-4d89-b95f-78951ca38bf5\",\"result\":{\"isError\":false,\"content\":[{\"type\":\"text\",\"text\":\"{\\\"stdout\\\":\\\"/data/data/ai.deepseek.harness.android.runtimepoc/files/command-probe/workspace\\\\n\\\",\\\"stderr\\\":\\\"\\\",\\\"exitCode\\\":0,\\\"cwd\\\":\\\"/data/data/ai.deepseek.harness.android.runtimepoc/files/command-probe/workspace\\\",\\\"nativeConcurrentConsumers\\\":2,\\\"nativeConcurrentRejections\\\":1}\"}],\"value\":{\"stdout\":\"/data/data/ai.deepseek.harness.android.runtimepoc/files/command-probe/workspace\\n\",\"stderr\":\"\",\"exitCode\":0,\"cwd\":\"/data/data/ai.deepseek.harness.android.runtimepoc/files/command-probe/workspace\",\"nativeConcurrentConsumers\":2,\"nativeConcurrentRejections\":1}}}],\"additionalContexts\":[],\"concluded\":false}}"
+      }
+    }
+  ],
+  "recoveredHistory": [
+    {
+      "type": "approval/asked",
+      "seq": 4,
+      "time": 1794551720049,
+      "data": {
+        "id": "88efb9de-6184-4c63-b50b-b393938bfbbb",
+        "toolName": "android_qualified_pwd",
+        "callId": "deny-6c754fc8-1d87-46c9-bb09-4bd33a2f5b77",
+        "reason": "Native fixed pwd qualification; exact request is rendered by Android."
+      }
+    },
+    {
+      "type": "approval/decided",
+      "seq": 5,
+      "time": 1794551727689,
+      "data": {
+        "id": "88efb9de-6184-4c63-b50b-b393938bfbbb",
+        "outcome": "rejected"
+      }
+    },
+    {
+      "type": "command/done",
+      "seq": 6,
+      "time": 1794551727695,
+      "data": {
+        "commandId": "cmd-69fd0184-1",
+        "kind": "success",
+        "text": "{\"callId\":\"deny-6c754fc8-1d87-46c9-bb09-4bd33a2f5b77\",\"batch\":{\"results\":[{\"callId\":\"deny-6c754fc8-1d87-46c9-bb09-4bd33a2f5b77\",\"result\":{\"isError\":true,\"error\":{\"message\":\"the user rejected tool \\\"android_qualified_pwd\\\"\",\"info\":{\"name\":\"ApprovalError\",\"code\":\"APPROVAL_REJECTED\"}},\"content\":[{\"type\":\"text\",\"text\":\"Error: the user rejected tool \\\"android_qualified_pwd\\\"\"}]}}],\"additionalContexts\":[],\"concluded\":false}}"
+      }
+    },
+    {
+      "type": "approval/asked",
+      "seq": 12,
+      "time": 1794551727743,
+      "data": {
+        "id": "8fa23e41-ac08-44a0-a31b-9e392adc8070",
+        "toolName": "android_qualified_pwd",
+        "callId": "allow-e1ca3c49-b17d-4d89-b95f-78951ca38bf5",
+        "reason": "Native fixed pwd qualification; exact request is rendered by Android."
+      }
+    },
+    {
+      "type": "approval/decided",
+      "seq": 13,
+      "time": 1794551729433,
+      "data": {
+        "id": "8fa23e41-ac08-44a0-a31b-9e392adc8070",
+        "outcome": "allowed-once"
+      }
+    },
+    {
+      "type": "command/done",
+      "seq": 14,
+      "time": 1794551729586,
+      "data": {
+        "commandId": "cmd-69fd0184-2",
+        "kind": "success",
+        "text": "{\"callId\":\"allow-e1ca3c49-b17d-4d89-b95f-78951ca38bf5\",\"batch\":{\"results\":[{\"callId\":\"allow-e1ca3c49-b17d-4d89-b95f-78951ca38bf5\",\"result\":{\"isError\":false,\"content\":[{\"type\":\"text\",\"text\":\"{\\\"stdout\\\":\\\"/data/data/ai.deepseek.harness.android.runtimepoc/files/command-probe/workspace\\\\n\\\",\\\"stderr\\\":\\\"\\\",\\\"exitCode\\\":0,\\\"cwd\\\":\\\"/data/data/ai.deepseek.harness.android.runtimepoc/files/command-probe/workspace\\\",\\\"nativeConcurrentConsumers\\\":2,\\\"nativeConcurrentRejections\\\":1}\"}],\"value\":{\"stdout\":\"/data/data/ai.deepseek.harness.android.runtimepoc/files/command-probe/workspace\\n\",\"stderr\":\"\",\"exitCode\":0,\"cwd\":\"/data/data/ai.deepseek.harness.android.runtimepoc/files/command-probe/workspace\",\"nativeConcurrentConsumers\":2,\"nativeConcurrentRejections\":1}}}],\"additionalContexts\":[],\"concluded\":false}}"
+      }
+    }
+  ],
+  "sessionRecoveredAcrossRuntimeRestart": true,
+  "persistedJsonlSha256": {
+    "--data-data-ai.deepseek.harness.android.runtimepoc-files-command-probe-workspace--/android-command-a2cbadce-d182-47f1-99be-3af9201af301/session.v4.jsonl": "1ab6f9ceb8b2d14f989e78aac59ec7e79549671329c8ae053a9aa9a5eae165e1",
+    "--data-data-ai.deepseek.harness.android.runtimepoc-files-command-probe-workspace--/android-command-8e770aff-41d2-462f-a947-4eede7c83155/session.v4.jsonl": "604dfc5eed06aabe9da15034573e2512f22c5cf362d666b1de48e2c7c9aa367f",
+    "--data-data-ai.deepseek.harness.android.runtimepoc-files-command-probe-workspace--/android-command-68fb5381-fd77-4cfe-83b3-f76b40c287a2/session.v4.jsonl": "1418730713c05ddaa7f3be8f24d054da35ccd4770fe8f12946d048539e81369b",
+    "--data-data-ai.deepseek.harness.android.runtimepoc-files-command-probe-workspace--/android-command-2ebe1d0f-b81f-49a4-870f-cbe2b741d7fe/session.v4.jsonl": "b2fab75acd920edea273939e7228e6f2376f6f2ada318513b6cdfe349275c31b"
+  },
+  "eventStorage": "original command/done contains canonical tool batch; original approval audit events; no fabricated model tool/call events",
+  "approvedCommandExecuted": true,
+  "modelRequestExecuted": false,
+  "gate2Passed": false,
+  "nativeBroker": {
+    "uid": 10751,
+    "sessionId": "android-command-8e770aff-41d2-462f-a947-4eede7c83155",
+    "audit": [
+      {
+        "action": "execute",
+        "code": "APPROVAL_REQUIRED",
+        "peerPid": 7294,
+        "uid": 10751,
+        "timeMillis": 1794551718171
+      },
+      {
+        "action": "prepare",
+        "code": "rejected",
+        "peerPid": 7294,
+        "uid": 10751,
+        "timeMillis": 1794551727683
+      },
+      {
+        "action": "prepare",
+        "code": "allowed-once",
+        "peerPid": 7294,
+        "uid": 10751,
+        "timeMillis": 1794551729358
+      },
+      {
+        "action": "execute",
+        "code": "REQUEST_CHANGED",
+        "peerPid": 7294,
+        "uid": 10751,
+        "timeMillis": 1794551729379
+      },
+      {
+        "action": "execute",
+        "code": "REQUEST_CHANGED",
+        "peerPid": 7294,
+        "uid": 10751,
+        "timeMillis": 1794551729394
+      },
+      {
+        "action": "execute",
+        "code": "REQUEST_CHANGED",
+        "peerPid": 7294,
+        "uid": 10751,
+        "timeMillis": 1794551729401
+      },
+      {
+        "action": "execute",
+        "code": "REQUEST_CHANGED",
+        "peerPid": 7294,
+        "uid": 10751,
+        "timeMillis": 1794551729412
+      },
+      {
+        "action": "execute",
+        "code": "REQUEST_CHANGED",
+        "peerPid": 7294,
+        "uid": 10751,
+        "timeMillis": 1794551729417
+      },
+      {
+        "action": "execute",
+        "code": "USED",
+        "peerPid": 7309,
+        "uid": 10751,
+        "timeMillis": 1794551729475
+      },
+      {
+        "action": "execute",
+        "code": "EXECUTED",
+        "peerPid": 7309,
+        "uid": 10751,
+        "timeMillis": 1794551729574
+      },
+      {
+        "action": "execute",
+        "code": "USED",
+        "peerPid": 7294,
+        "uid": 10751,
+        "timeMillis": 1794551729609
+      }
+    ],
+    "cwd": "/data/data/ai.deepseek.harness.android.runtimepoc/files/command-probe/workspace",
+    "callIds": [
+      "deny-6c754fc8-1d87-46c9-bb09-4bd33a2f5b77",
+      "allow-e1ca3c49-b17d-4d89-b95f-78951ca38bf5"
+    ],
+    "requests": [
+      {
+        "sessionId": "android-command-8e770aff-41d2-462f-a947-4eede7c83155",
+        "callId": "deny-6c754fc8-1d87-46c9-bb09-4bd33a2f5b77",
+        "executable": "/system/bin/pwd",
+        "arguments": [],
+        "cwd": "/data/data/ai.deepseek.harness.android.runtimepoc/files/command-probe/workspace",
+        "uid": 10751,
+        "identitySource": "android.os.Process",
+        "action": "Run fixed pwd once"
+      },
+      {
+        "sessionId": "android-command-8e770aff-41d2-462f-a947-4eede7c83155",
+        "callId": "allow-e1ca3c49-b17d-4d89-b95f-78951ca38bf5",
+        "executable": "/system/bin/pwd",
+        "arguments": [],
+        "cwd": "/data/data/ai.deepseek.harness.android.runtimepoc/files/command-probe/workspace",
+        "uid": 10751,
+        "identitySource": "android.os.Process",
+        "action": "Run fixed pwd once"
+      }
+    ],
+    "transport": "AF_UNIX abstract; SO_PEERCRED UID plus per-run secret",
+    "processLaunches": 1
+  },
+  "device": {
+    "model": "Redmi Note 8 Pro",
+    "api": 30,
+    "androidRelease": "11",
+    "abi": "arm64-v8a,armeabi-v7a,armeabi"
+  },
+  "apkSha256": "3f0e2cd234fb64647b60d3953dc5c2a698b6d8e4f11399f0edbd6068ef0c7c00",
+  "nativeNodeSha256": "07b91cc6fa5ed0489b95bc237929fd14a009c9bfa8d309b514fceca3d977e408",
+  "nativePublicationSha256": "1c5fae1ac01ebdc9431f3ec9b5b11691d8fce489ec096fdef7cae566d7ced34e",
+  "supervisorUid": 10751,
+  "supervisorPid": 7246,
+  "testTimeMillis": 1794551732560,
+  "nativeStderr": "WARNING: linker: Warning: \"/data/app/~~3gYFZdV_8w7Kj4bq9WzN7A==/ai.deepseek.harness.android.runtimepoc-nCPJs0b2MS7V2mhhEaOf0A==/lib/arm64/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+}

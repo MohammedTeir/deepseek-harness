@@ -2,7 +2,7 @@
 
 ## Summary
 
-Investigation and bounded runtime qualification record. APK #2 has accepted user-reported physical profile/session recovery; APK #3 command/native-approval acceptance is pending. The root manifest requires Node >=24.9.0. Node 24.22.1's `BUILDING.md` explicitly calls Android unsupported and untested in its CI, despite retaining `android-configure`. This is a feasibility risk, not proof that a port is impossible.
+Investigation and bounded runtime qualification record. APK #2 has accepted user-reported physical profile/session recovery; APK #3 has accepted user-reported fixed-command/native-approval evidence within the Gate 2 local scope. The root manifest requires Node >=24.9.0. Node 24.22.1's `BUILDING.md` explicitly calls Android unsupported and untested in its CI, despite retaining `android-configure`. This is a feasibility risk, not proof that a port is impossible.
 
 [Node source guidance](https://github.com/nodejs/node/blob/v24.22.1/BUILDING.md#android) and [retrieved platform references](audit/android/platform-references.json) support the candidate comparison in [architecture](ANDROID_ARCHITECTURE.md). The local source headers are investigation inputs, not evidence that Android Node executes.
 
@@ -87,3 +87,7 @@ The next command proof has isolated [native grant/process components](apps/andro
 ## APK #3 original registered tool
 
 The [command qualification reference](apps/android/execution/COMMAND_PROOF.md) owns the native broker, approval UI, original pre-step/tool/approval integration, command-event result persistence and phone instructions. The new fourth diagnostic action runs this proof; the three earlier diagnostics and existing persisted data remain available. The automated host decision fixture is excluded from the Android image. Android execution and UI acceptance for this APK remain pending physical results.
+
+## APK #3 physical review
+
+The [Gate 2 review](ANDROID_GATE2_REVIEW.md) accepts the user-reported APK #3 fixed-command/native-approval and runtime-recovered original records on Android 11 ARM64. The controller flag is intentionally unchanged; external model inference remains unverified. The separately reported leave-Activity message is intended cancellation UI, not a full process-termination test.

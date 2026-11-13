@@ -30,3 +30,7 @@ The APK #2 publication worker opens one owned private directory with O_NOFOLLOW,
 ## Bounded command qualification implementation
 
 [APK #3](apps/android/execution/COMMAND_PROOF.md) adds a private native human-decision path and AF_UNIX peer/secret checks for one fixed command, with exact native session/call/workspace bindings and one-shot consumption. The agent IPC exposes cancellation but no approval decision. Same-UID hostile-plugin confinement is not provided; only reviewed bundled code is qualified. Device peer rejection, UI/lifecycle behavior and human-approved execution remain unverified until physical tests; no general sandbox, credential isolation, root or Termux guarantee follows.
+
+## APK #3 physical review
+
+The [phone command review](apps/android/evidence/phone-command-apk3-review.json) accepts the supplied exact-request, one-shot, denial and authentication-negative cases under the ordinary app UID. It does not verify a separate-UID attack, hostile same-UID isolation, all expiry/cancellation paths or background process termination. The manual leave-Activity message is retained as UI evidence only.
