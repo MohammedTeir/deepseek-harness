@@ -289,3 +289,7 @@ The [APK #6 phone review](ANDROID_GATE3_REVIEW.md) verifies original node-pty lo
 ## Original terminal registry checkpoint
 
 The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.
+
+## Native terminal allocation grant checkpoint
+
+The [native allocation policy](apps/android/execution/TERMINAL_ALLOCATION_AUTHORIZATION.md) is IMPLEMENTED with JVM tests and Android compile/lint. It binds the registry terminal/Agent and complete fixed request to the existing one-shot grant, rejects resource changes and preserves denial/expiry/replay handling. It is not wired to IPC, UI or runtime allocation. No new APK or device result is claimed. Gate 3 remains IN PROGRESS.

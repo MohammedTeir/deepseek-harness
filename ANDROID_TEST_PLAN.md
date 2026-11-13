@@ -89,3 +89,7 @@ phone-node-pty-apk6-run1.json passes validate_node_pty_result.py against runtime
 ## Original terminal ownership and recovery tests
 
 The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.
+
+## Native terminal allocation policy tests
+
+Run the [JVM policy qualification](apps/android/execution/TERMINAL_ALLOCATION_AUTHORIZATION.md) for exact bindings, 32-consumer contention, expiry/revocation and changed native resources. Physical-device file identity support, native consent and end-to-end terminal allocation remain unverified; host policy success cannot satisfy them.

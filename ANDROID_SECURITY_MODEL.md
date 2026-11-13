@@ -62,3 +62,7 @@ The APK #6 phone suite verifies fixed direct-child PTY behavior, not a general e
 ## Terminal qualification authority boundary
 
 The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.
+
+## Native terminal allocation binding
+
+The [allocation authority reference](apps/android/execution/TERMINAL_ALLOCATION_AUTHORIZATION.md) defines the immutable request and resource checks, required native identity derivation, and remaining TOCTOU/same-UID limits. The Java policy alone authenticates no caller and launches no process; it is not yet reachable from the application.

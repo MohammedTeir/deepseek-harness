@@ -119,3 +119,7 @@ The [submitted fixed original node-pty result](ANDROID_GATE3_REVIEW.md) passes a
 ## Host terminal registry qualification
 
 The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.
+
+## Native allocation policy evidence
+
+The [native grant reference](apps/android/execution/TERMINAL_ALLOCATION_AUTHORIZATION.md) separates JVM policy tests and Android compilation from pending IPC/UI/runtime/device evidence. The installed app and existing APK tests do not invoke this component.

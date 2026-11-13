@@ -61,3 +61,7 @@ APK #6 is VERIFIED for the submitted fixed Android 11 ARM64 suite. The [handle p
 ## Terminal registry next milestone
 
 The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.
+
+## Allocation authority integration checkpoint
+
+The [native grant component](apps/android/execution/TERMINAL_ALLOCATION_AUTHORIZATION.md) is implemented. Next wire the actual registry-issued terminal ID through original ApprovalService to authenticated native IPC, native human approval and one-shot consumption before allocation, then qualify rollback and build the phone test APK. Existing host authority remains a fixture.
