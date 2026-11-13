@@ -27,6 +27,7 @@ class RuntimeProofActivity : Activity() {
             text = "Select a diagnostic. Original tool approval and fixed process/PTY capability tests are separate. Model requests remain untested."
             setTextIsSelectable(true)
         }
+        layout.addView(Button(this).apply { text = "Open original web assets (backend unavailable)"; setOnClickListener { startActivity(android.content.Intent(this@RuntimeProofActivity, OriginalWebActivity::class.java)) } })
         layout.addView(Button(this).apply { text = "Run embedded Node API probe"; setOnClickListener { runProbe() } })
         layout.addView(Button(this).apply {
             text = "Run packaged Node + child probe"

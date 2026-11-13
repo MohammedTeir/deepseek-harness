@@ -36,6 +36,7 @@ val prepareRuntimeAssets by tasks.registering(Exec::class) {
 tasks.named("preBuild") { dependsOn(prepareRuntimeAssets) }
 
 dependencies {
+    implementation("androidx.webkit:webkit:1.14.0")
     androidTestImplementation("androidx.test:runner:1.6.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
 }
@@ -64,3 +65,16 @@ val nodePtyAssets by tasks.registering(Exec::class) {
     outputs.upToDateWhen { false }
 }
 tasks.named("preBuild") { dependsOn(nodePtyAssets) }
+
+// The original compiled web frontend; runtime boot and transport remain separate.
+val buildOriginalWeb by tasks.registering(Exec::class) {
+    workingDir(rootProject.projectDir.parentFile.parentFile)
+    commandLine("pnpm", "--filter", "@deepseek-ai/dsh-web-frontend", "build")
+}
+val bundleOriginalWeb by tasks.registering(Sync::class) {
+    dependsOn(buildOriginalWeb)
+    from(rootProject.file("../../apps/web/dist")) { exclude("**/*.map", "preview/**", "preview.html") }
+    into(layout.buildDirectory.dir("generated/originalWebAssets/web"))
+}
+android.sourceSets["main"].assets.srcDir(layout.buildDirectory.dir("generated/originalWebAssets"))
+tasks.named("preBuild") { dependsOn(bundleOriginalWeb) }

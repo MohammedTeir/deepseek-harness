@@ -77,3 +77,7 @@ The [APK #7 reference](apps/android/execution/TERMINAL_ANDROID_PROOF.md) records
 ## Original terminal lifecycle milestone
 
 The next device checkpoint is the [APK #8 procedure](apps/android/execution/TERMINAL_LIFECYCLE_PROOF.md#phone-procedure). Require a real running timeout result, SIGINT cancellation, child cleanup and recovered original records before accepting this milestone.
+
+## Original WebView asset milestone
+
+The [asset inspection](apps/android/execution/ORIGINAL_WEB_ASSETS.md) precedes integration of the original web boot graph and authenticated runtime transport. Keep the Gate 3 API 29 and recent-device coverage gap explicit and independently testable.

@@ -321,3 +321,7 @@ The [phone lifecycle review](apps/android/evidence/phone-apk8-lifecycle-result-r
 ## Consolidated Gate 3 review
 
 The [Gate 3 coverage review](apps/android/execution/GATE3_REVIEW.md) accepts the bounded user-reported API 30 subprocess, node-pty and original-terminal capabilities, including APK #8 lifecycle results. Gate 3 remains IN PROGRESS: Android 10/API 29 and recent-Android coverage are BLOCKED by unavailable target execution evidence. The next checkpoint reuses the existing diagnostic APK on those environments; no new general shell or frontend implementation is claimed.
+
+## Original WebView asset inspection
+
+The [original frontend asset inspection](apps/android/execution/ORIGINAL_WEB_ASSETS.md) builds and packages the existing web frontend in a restricted Android activity. Harness boot injection, client plugin bundles, authenticated transport, SPA routing and Android device verification remain incomplete. Gate 4 is IN PROGRESS; the APK does not yet demonstrate original screens or a connected backend.

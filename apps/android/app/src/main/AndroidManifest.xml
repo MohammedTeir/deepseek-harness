@@ -8,6 +8,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".OriginalWebActivity" android:exported="false" />
         <service android:name=".ProcessCapabilityService" android:exported="false" android:process=":processproof" />
         <service android:name=".CommandProbeService" android:exported="false" android:process=":commandproof" />
         <service android:name=".RuntimeService" android:exported="false" android:process=":runtime" />

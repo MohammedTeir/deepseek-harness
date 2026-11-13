@@ -105,3 +105,7 @@ The [APK #7 reference](apps/android/execution/TERMINAL_ANDROID_PROOF.md) records
 ## Original terminal lifecycle acceptance
 
 Follow the [APK #8 procedure](apps/android/execution/TERMINAL_LIFECYCLE_PROOF.md#phone-procedure). Keep host transport-double results separate from physical-device results and retain the original APK #7 phone evidence.
+
+## Original web asset inspection
+
+The [asset inspection](apps/android/execution/ORIGINAL_WEB_ASSETS.md) requires APK asset-integrity inspection and Android WebView tests for local origin, denied navigation, missing assets, CSP, file access and lifecycle. The original boot error is expected until the actual host boot graph and transport are connected.
