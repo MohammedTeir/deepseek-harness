@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "userReportedFailure": "BLOCKED: original terminal IOException: Terminal broker cleanup failed",
+  "rootCauseConfirmed": false,
+  "listenerWakeupAndroidVerified": false,
+  "deviceTests": "BLOCKED: no connected adb device",
+  "instrumentationCasesAdded": [
+    "idle listener close repeated 16 times",
+    "partial request client shutdown"
+  ],
+  "buildCommand": "GRADLE_USER_HOME=/workspace/.cache/gradle ANDROID_HOME=/workspace/android-sdk JAVA_HOME=/workspace/.setup-tools/jdk-21.0.13+9 ./apps/android/gradlew -p apps/android :app:assembleDebug :app:assembleDebugAndroidTest :app:lintDebug --console=plain",
+  "buildExitCode": 0,
+  "inspection": "apps/android/evidence/terminal-cleanup-build.json",
+  "downloadPage": "https://gofile.io/d/uvIbhAqp",
+  "apkSha256": "6aea3e9fcc05d9c5ab14e07a0d09b28ab2de16beda492cffd73fcd37c61364a8",
+  "bytes": 48999847,
+  "serverMd5": "1f4720b0f615d9eb2015c198361d8689",
+  "serverMd5MatchesLocal": true,
+  "downloadSha256Verified": false,
+  "gate3Passed": false
+}

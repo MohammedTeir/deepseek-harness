@@ -101,4 +101,25 @@ class TerminalAllocationBrokerTest {
         assertTrue(prompts.isEmpty()); assertEquals(0, broker.evidence().getInt("allocationsConsumed"))
     }
 
+    @Test fun idleListenerClosesRepeatedlyWithoutAClient() {
+        repeat(16) {
+            runCase { broker, prompts, _ ->
+                broker.close()
+                broker.close()
+                assertFalse(broker.decide(broker.callIds[0], "pty-1", true))
+                assertTrue(prompts.isEmpty())
+            }
+        }
+    }
+    @Test fun closeInterruptsAClientWaitingForItsRequestBody() = runCase { broker, _, _ ->
+        LocalSocket().use { socket ->
+            socket.connect(LocalSocketAddress(broker.launchEnvironment().getValue("HARNESS_TERMINAL_SOCKET"), LocalSocketAddress.Namespace.ABSTRACT))
+            socket.outputStream.write('{'.code)
+            socket.outputStream.flush()
+            broker.close()
+            broker.close()
+            assertEquals(0, broker.evidence().getInt("allocationsConsumed"))
+        }
+    }
+
 }

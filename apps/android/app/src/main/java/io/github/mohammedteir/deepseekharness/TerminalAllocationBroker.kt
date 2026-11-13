@@ -223,13 +223,15 @@ class TerminalAllocationBroker(context: Context, private val workspace: File,
         fun attempt(action: () -> Unit) { try { action() } catch (error: Exception) { failures.add(error) } }
         try {
             synchronized(lock) { grants.values.forEach { it.close() }; answers.values.forEach { it.complete("cancelled") } }
+            // shutdown wakes a blocked accept before its descriptor is closed on Android.
+            attempt { Os.shutdown(server.fileDescriptor, OsConstants.SHUT_RDWR) }
             attempt { server.close() }; sockets.forEach { attempt { it.close() } }; workers.shutdownNow()
             try { acceptThread.join(2000) } catch (_: InterruptedException) { interrupted = true }
             val deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(8)
             while (!workers.isTerminated && System.nanoTime() < deadline) {
                 try { workers.awaitTermination(100, TimeUnit.MILLISECONDS) } catch (_: InterruptedException) { interrupted = true }
             }
-            if (acceptThread.isAlive || !workers.isTerminated) failures.add(IOException("Terminal broker cleanup incomplete"))
+            if (acceptThread.isAlive || !workers.isTerminated) failures.add(IOException("Terminal broker cleanup incomplete: acceptAlive=${acceptThread.isAlive}, workersTerminated=${workers.isTerminated}, sockets=${sockets.size}"))
             if (failures.isNotEmpty()) throw IOException("Terminal broker cleanup failed").apply { failures.forEach { addSuppressed(it) } }
             cleaned.complete(Unit)
         } catch (error: Exception) { cleaned.completeExceptionally(error); throw error }

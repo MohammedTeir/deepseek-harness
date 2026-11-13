@@ -18,6 +18,15 @@ class TerminalProbeService : Service() {
     private val owner = OwnedProcess(10)
     @Volatile private var broker: TerminalAllocationBroker? = null
     @Volatile private var reply: Messenger? = null
+    @Volatile private var completedResult: File? = null
+    private fun failureDetails(error: Throwable, depth: Int = 0): JSONObject = JSONObject()
+        .put("name", error.javaClass.simpleName).put("message", error.message?.take(2048))
+        .also { value ->
+            if (depth < 4) {
+                value.put("suppressed", org.json.JSONArray(error.suppressed.take(8).map { failureDetails(it, depth + 1) }))
+                error.cause?.let { value.put("cause", failureDetails(it, depth + 1)) }
+            }
+        }
     private fun send(what: Int, value: String) {
         reply?.send(Message.obtain(null, what).apply { data = Bundle().apply { putString("result", value) } })
     }
@@ -56,6 +65,7 @@ class TerminalProbeService : Service() {
             }
             val native = TerminalAllocationBroker(this, workspace) { request -> send(2, request.toString()) }
             broker = native
+            var primaryFailure: Exception? = null
             try {
                 val output = File(work, "result.json")
                 val builder = ProcessBuilder(node.path, File(image, "apps/android/runtime/terminal-smoke.mjs").path, output.path)
@@ -85,9 +95,24 @@ class TerminalProbeService : Service() {
                     check(result.getBoolean("harnessStarted") && result.getBoolean("sessionRecoveredAcrossRuntimeRestart"))
                     check(native.evidence().getInt("allocationsConsumed") == 1 && result.getJSONObject("report").getInt("starts") == 1)
                 }
-                File(work, "complete-result.json").writeText(result.toString())
+                File(work, "complete-result.json").also {
+                    it.writeText(result.toString()); completedResult = it
+                }
                 return if (child.exitValue() == 0) result.toString() else "BLOCKED: original terminal exit ${child.exitValue()}\n$result"
-            } finally { try { native.close() } finally { broker = null; owner.close() } }
+            } catch (primary: Exception) {
+                primaryFailure = primary
+                throw primary
+            } finally {
+                val cleanupFailures = mutableListOf<Exception>()
+                try { native.close() } catch (cleanup: Exception) { cleanupFailures.add(cleanup) }
+                broker = null
+                try { owner.close() } catch (cleanup: Exception) { cleanupFailures.add(cleanup) }
+                if (cleanupFailures.isNotEmpty()) {
+                    val primary = primaryFailure
+                    if (primary != null) cleanupFailures.forEach { primary.addSuppressed(it) }
+                    else throw java.io.IOException("Terminal owner cleanup failed").apply { cleanupFailures.forEach { addSuppressed(it) } }
+                }
+            }
         } finally { ProfileImage.remove(image.parentFile!!) }
     }
     private val messenger = Messenger(Handler(Looper.getMainLooper()) { message ->
@@ -97,7 +122,15 @@ class TerminalProbeService : Service() {
         } else if (message.what == 1 && message.replyTo != null && started.compareAndSet(false, true)) {
             reply = message.replyTo
             executor.execute {
-                val result = try { runProof() } catch (error: Exception) { "BLOCKED: original terminal ${error.javaClass.simpleName}: ${error.message}" }
+                val result = try { runProof() } catch (error: Exception) {
+                    Log.e("HarnessTerminal", "Original terminal qualification failed", error)
+                    val failure = JSONObject().put("status", "BLOCKED").put("failure", failureDetails(error)).put("gate3Passed", false)
+                    completedResult?.let { file ->
+                        try { failure.put("qualificationBeforeCleanup", JSONObject(bounded(file))) }
+                        catch (read: Exception) { failure.put("resultReadFailure", failureDetails(read)) }
+                    }
+                    "BLOCKED: original terminal ${error.javaClass.simpleName}: ${error.message}\n$failure"
+                }
                 try { send(1, result) } catch (_: RemoteException) { /* The Activity left; owner cleanup revokes approval. */ }
             }
         }

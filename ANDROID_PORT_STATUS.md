@@ -301,3 +301,7 @@ The [broker integration reference](apps/android/execution/TERMINAL_BROKER_INTEGR
 ## APK #7 original terminal qualification
 
 The [APK #7 reference](apps/android/execution/TERMINAL_ANDROID_PROOF.md) records the original registry/tool/approval path, authenticated native broker, human UI and fixed Android PTY factory. Host and relocated-profile tests and Android build/inspection pass. Physical execution is BLOCKED pending phone evidence. This is a fixed benign fixture, not general shell or the original Web UI. Gate 3 remains IN PROGRESS; preserve existing data when updating the single runtime app.
+
+## APK #7 phone cleanup blocker
+
+Physical execution reported `Terminal broker cleanup failed` without underlying details. Gate 3 remains BLOCKED for phone acceptance. The [terminal diagnosis](apps/android/execution/TERMINAL_ANDROID_PROOF.md#cleanup-failure-diagnosis) describes the listener shutdown change and preservation of the original qualification report. Device confirmation remains pending.
