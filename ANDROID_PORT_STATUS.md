@@ -317,3 +317,7 @@ The [APK #8 qualification](apps/android/execution/TERMINAL_LIFECYCLE_PROOF.md) a
 ## APK #8 phone lifecycle checkpoint
 
 The [phone lifecycle review](apps/android/evidence/phone-apk8-lifecycle-result-review.json) records a matching APK and four native-library hashes on Redmi Note 8 Pro/API 30. The bounded original-terminal wait timeout and SIGINT cancellation are VERIFIED at user-reported physical-device evidence level: timeout kept the single child running, explicit cancellation ended it, repeated cancellation failed, owner activity drained and original records recovered across runtime restart. Controller exit 0 is distinct from the child signal exit with null exitCode. Historical warnings and failures remain retained. Gate 3 remains IN PROGRESS pending a consolidated acceptance review and remaining target-device coverage; no app-restart, general-shell or malicious-plugin isolation claim is added.
+
+## Consolidated Gate 3 review
+
+The [Gate 3 coverage review](apps/android/execution/GATE3_REVIEW.md) accepts the bounded user-reported API 30 subprocess, node-pty and original-terminal capabilities, including APK #8 lifecycle results. Gate 3 remains IN PROGRESS: Android 10/API 29 and recent-Android coverage are BLOCKED by unavailable target execution evidence. The next checkpoint reuses the existing diagnostic APK on those environments; no new general shell or frontend implementation is claimed.
