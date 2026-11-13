@@ -15,6 +15,7 @@ export interface FixtureBackendOptions {
   authorize(request: Readonly<TerminalBackendSpawnSpec>, signal: AbortSignal): Promise<void>
   createHandle(request: Readonly<TerminalBackendSpawnSpec>, ownerSignal: AbortSignal): SubprocessTerminalHandle
   startupMs: number
+  authorizationMs?: number
 }
 
 function aborted(signal: AbortSignal): Promise<never> {
@@ -26,24 +27,36 @@ function aborted(signal: AbortSignal): Promise<never> {
 
 /** Adapt a fixed native input/exit fixture to the original TerminalBackend interface on Linux hosts only. */
 export function createFixtureTerminalBackend(options: FixtureBackendOptions): TerminalBackend {
-  if (process.platform !== 'linux') throw new TerminalError('No Android terminal authority is installed', 'INIT_REJECTED')
+  if (process.platform !== 'linux') throw new TerminalError('Linux qualification only', 'INIT_REJECTED')
+  return createBackend(options, 'android-fixture-host')
+}
+
+/** Native permission is supplied by the reviewed original-tool qualification composition. */
+export function createAndroidFixtureTerminalBackend(options: FixtureBackendOptions): TerminalBackend {
+  if (process.platform !== 'android') throw new TerminalError('Android qualification only', 'INIT_REJECTED')
+  return createBackend(options, 'android-fixed-pty-v1')
+}
+
+function createBackend(options: FixtureBackendOptions, type: string): TerminalBackend {
   const { authorize, createHandle, startupMs } = options
+  const authorizationMs = options.authorizationMs ?? startupMs
   if (!Number.isSafeInteger(startupMs) || startupMs < 1 || startupMs > 10000
+    || !Number.isSafeInteger(authorizationMs) || authorizationMs < 1 || authorizationMs > 70000
     || typeof authorize !== 'function' || typeof createHandle !== 'function') {
     throw new TerminalError('Invalid fixed backend configuration', 'INIT_REJECTED')
   }
   return {
-    type: 'android-fixture-host',
+    type,
     async spawn(spec) {
       const allocationSignal = spec.signal
       allocationSignal?.throwIfAborted()
-      if (spec.type !== 'android-fixture-host' || typeof spec.cwd !== 'string' || !isAbsolute(spec.cwd)) {
+      if (spec.type !== type || typeof spec.cwd !== 'string' || !isAbsolute(spec.cwd)) {
         throw new TerminalError('An explicit fixed workspace is required', 'INIT_REJECTED')
       }
       const request = Object.freeze({ ...spec })
       const owner = new AbortController()
       const startup = new AbortController()
-      const timer = setTimeout(() => startup.abort(new TerminalError('Fixture startup deadline', 'STARTUP_TIMEOUT')), startupMs)
+      let timer = setTimeout(() => startup.abort(new TerminalError('Fixture authorization deadline', 'STARTUP_TIMEOUT')), authorizationMs)
       const abort = () => owner.abort(allocationSignal?.reason)
       allocationSignal?.addEventListener('abort', abort, { once: true })
       const signal = AbortSignal.any([owner.signal, startup.signal])
@@ -52,6 +65,8 @@ export function createFixtureTerminalBackend(options: FixtureBackendOptions): Te
       try {
         await Promise.race([authorize(request, signal), aborted(signal)])
         signal.throwIfAborted()
+        clearTimeout(timer)
+        timer = setTimeout(() => startup.abort(new TerminalError('Fixture startup deadline', 'STARTUP_TIMEOUT')), startupMs)
         handle = createHandle(request, owner.signal)
         const processHandle = handle
         let text = '', truncated = false, state: TerminalSessionStatus = { kind: 'running' }

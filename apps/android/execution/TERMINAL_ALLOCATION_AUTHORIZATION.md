@@ -1,6 +1,6 @@
 # Native terminal allocation grant
 
-Reference scope: a qualification-only Java policy component for one fixed PTY allocation. Status: IMPLEMENTED with host JVM tests and Android compilation/lint. The [private broker and original approval adapter](TERMINAL_BROKER_INTEGRATION.md) are implemented and compiled/tested at their stated evidence levels. Human approval UI, Android runtime wiring and physical execution remain NOT STARTED. The [original terminal registry host qualification](TERMINAL_REGISTRY_QUALIFICATION.md) remains a separate evidence level.
+Reference scope: a qualification-only Java policy component for one fixed PTY allocation. Status: IMPLEMENTED with host JVM tests and Android compilation/lint. The [private broker and original approval adapter](TERMINAL_BROKER_INTEGRATION.md) are implemented and compiled/tested at their stated evidence levels. The [APK #7 qualification](TERMINAL_ANDROID_PROOF.md) implements native UI/runtime wiring with physical execution still pending. The [original terminal registry host qualification](TERMINAL_REGISTRY_QUALIFICATION.md) remains a separate evidence level.
 
 ## Binding and consumption
 
@@ -26,10 +26,8 @@ cd apps/android
 ./gradlew :app:compileDebugKotlin :app:compileDebugJavaWithJavac :app:lintDebug --console=plain
 ```
 
-The test uses a unique non-root Linux temporary directory and host JDK. Android compile/lint does not establish on-device file identity support. No APK was assembled or delivered for this checkpoint; the app has no path to this new component.
+The test uses a unique non-root Linux temporary directory and host JDK. Android compile/lint does not establish on-device file identity support. The [APK #7 proof](TERMINAL_ANDROID_PROOF.md) now ships the component through its private native broker. Device execution remains pending.
 
-## Next integration checkpoint
+## Physical integration checkpoint
 
-The original terminal ID becomes available inside backend allocation, after a tool's initial guard decision. Bind the request there and ask through the existing ApprovalService within the real open tool context; preserve upstream guard decisions. The authenticated native broker must render that complete immutable allocation, resolve the original approval, consume the same grant before the fixed PTY is created, and revoke it on cancellation or lost communication. Agent-controlled text must never authorize allocation.
-
-Then qualify original registry rollback, owner disposal, cancellation and persisted tool/approval results together. Build a new full-runtime APK only after that wiring and host tests pass, verify its artifact and require phone execution. Gate 3 remains IN PROGRESS; no general shell, foreground group identity, arbitrary descendants, Root, Termux or original Web UI integration is claimed.
+The [APK #7 composition](TERMINAL_ANDROID_PROOF.md) binds the actual registry allocation through the original ApprovalService, native UI and authenticated broker before the fixed PTY is created. Original guards and runtime/session formats remain unchanged. Collect its phone output before accepting Android resource identity, consent, cancellation and execution. Gate 3 remains IN PROGRESS; general shell, process groups, untrusted-plugin isolation and original Web UI remain separate work.

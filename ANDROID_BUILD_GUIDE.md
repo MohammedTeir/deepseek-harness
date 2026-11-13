@@ -73,3 +73,7 @@ Follow the [runtime rebuild tutorial](apps/android/runtime/ATOMIC_PERSISTENCE_AD
 ## Original node-pty qualification build
 
 Build the locked source using ANDROID_NDK_HOME and ANDROID_NODE_BUILD_DIR with apps/android/runtime/build-node-pty.py, then run the existing Android Gradle build. The asset guard requires its inspected output and unchanged original package bytes. Use inspect_process_apk.py --node-pty-proof for APK #6 signature/alignment/native/notice inspection. Exact commands, supported scope and mandatory phone verification are in [the guide](apps/android/execution/NODE_PTY_QUALIFICATION.md).
+
+## Qualified terminal image and APK build
+
+The [APK #7 reference](apps/android/execution/TERMINAL_ANDROID_PROOF.md) records the original registry/tool/approval path, authenticated native broker, human UI and fixed Android PTY factory. Host and relocated-profile tests and Android build/inspection pass. Physical execution is BLOCKED pending phone evidence. This is a fixed benign fixture, not general shell or the original Web UI. Gate 3 remains IN PROGRESS; preserve existing data when updating the single runtime app.

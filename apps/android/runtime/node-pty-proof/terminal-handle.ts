@@ -1,10 +1,13 @@
 /// <reference path="../../../../packages/subprocess/subprocess-local/node_modules/node-pty/typings/node-pty.d.ts" />
 /** Host-only qualification of the original terminal-process contract; not an Android execution authority. */
 import { PassThrough } from 'node:stream'
+import { createRequire } from 'node:module'
 import { isAbsolute } from 'node:path'
 import type { IPty, IPtyForkOptions } from 'node-pty'
 import type { SubprocessOutcome, SubprocessTerminalHandle, SubprocessTerminalSignal } from '../../../../packages/subprocess/subprocess/src/types.ts'
-import { SubprocessError } from '../../../../packages/subprocess/subprocess/src/error.ts'
+const resolver = createRequire(new URL('../../../../packages/subprocess/subprocess-local/package.json', import.meta.url))
+const { SubprocessError } = await import(resolver.resolve('@deepseek-ai/dsh-subprocess')) as
+  typeof import('../../../../packages/subprocess/subprocess/src/error.ts')
 
 type Factory = { spawn: (file: string, args: string[], options: IPtyForkOptions) => IPty }
 type Role = '--tty-child' | '--wait' | '--ignore-term' | '--exit-seven'
@@ -34,8 +37,20 @@ async function within(promise: Promise<void>, milliseconds: number): Promise<boo
  * Android use fails closed: native authorization and the original terminal registry are not wired yet.
  */
 export function createFixtureTerminalHandle(pty: Factory, options: FixtureTerminalOptions): SubprocessTerminalHandle {
+  if (process.platform !== 'linux') throw new SubprocessError('Linux qualification only', 'SUBPROCESS_PTY_UNAVAILABLE')
+  return createHandle(pty, options)
+}
+
+/** Reviewed Android qualification only; caller must consume the native exact-request receipt first. */
+export function createAndroidFixtureTerminalHandle(pty: Factory, options: FixtureTerminalOptions): SubprocessTerminalHandle {
+  if (process.platform !== 'android' || options.role !== '--tty-child') {
+    throw new SubprocessError('Only the Android fixed TTY qualification is enabled', 'SUBPROCESS_PTY_UNAVAILABLE')
+  }
+  return createHandle(pty, options)
+}
+
+function createHandle(pty: Factory, options: FixtureTerminalOptions): SubprocessTerminalHandle {
   options.ownerSignal?.throwIfAborted()
-  if (process.platform !== 'linux') throw new SubprocessError('Host fixture adapter is not enabled on Android', 'SUBPROCESS_PTY_UNAVAILABLE')
   if (!isAbsolute(options.fixtureExecutable) || !isAbsolute(options.cwd)
     || !['--tty-child', '--wait', '--ignore-term', '--exit-seven'].includes(options.role)
     || !Number.isSafeInteger(options.graceMs) || options.graceMs < 1 || options.graceMs > 10000) throw failure('Invalid fixed fixture request')

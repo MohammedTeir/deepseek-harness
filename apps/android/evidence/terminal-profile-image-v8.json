@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-13",
+  "imageSha256": "41655d48198958ed1539d9793a05fc2a6bd4696e84372376c0827c07e3734303",
+  "files": 1359,
+  "links": 862,
+  "packageManifests": 647,
+  "excludedHostNative": [
+    "native/system/packages/linux-x64/bin/glibc/system.node",
+    "node_modules/.pnpm/node-addon-require-builtin-linux-x64-gnu@0.1.9/node_modules/node-addon-require-builtin-linux-x64-gnu/prebuilt/linux-x64-gnu-napi-v9.node",
+    "node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/linux-x64/pty.node"
+  ],
+  "adapterSourcesSha256": {
+    "apps/android/runtime/node-pty-proof/terminal-backend.ts": "f28640966c3676315f2d993769679558a290f985ccdde3052d7ad0e93bff7949",
+    "apps/android/runtime/node-pty-proof/terminal-handle.ts": "84f0f423d9312c560e6739c1af28d586dfb73999af50954a0963ba6cc133c1ac",
+    "apps/android/scripts/build_terminal_bundle.mjs": "9b192fbc41c56f38ac87d02c87cc97756e67c398803a9029e4ea058595a97e66",
+    "pnpm-lock.yaml": "c42783bd9f1c61f18867e0b41b60f7514d1447c09f993673cc02dbe90fab21c0"
+  },
+  "hostQualification": {
+    "schemaVersion": 1,
+    "hostOnly": true,
+    "androidVerified": false,
+    "imageSha256": "41655d48198958ed1539d9793a05fc2a6bd4696e84372376c0827c07e3734303",
+    "resultSha256": {
+      "relocated-result.json": "7189ce1957b100dd00ea30352b878f5852f179a90a800cba4e5d650bd142fd6e",
+      "relocated-repeat-result.json": "00d0ccac66efe8d61fd4a15cce2cd7d73bc48f6bb69f03872a10dc2337be9e77",
+      "command-relocated-result.json": "4a2d51499afb615652b58b7adbaf29a8da5deb48100727343b87c3635281330b",
+      "terminal-relocated-result.json": "5a0169a00deec4292254a404ced08b15feaca2097b8793967d2226020893cec9"
+    }
+  },
+  "relocation": {
+    "imageOutsideCheckout": true,
+    "stateOutsideCheckout": true,
+    "inheritedEnvironmentAllowlist": [
+      "PATH",
+      "TMPDIR",
+      "LANG"
+    ],
+    "originalHostNativeLibrariesOnly": true,
+    "androidNativeExecuted": false
+  },
+  "androidExecutionVerified": false,
+  "completeDependencyDistribution": false,
+  "gate3Passed": false
+}

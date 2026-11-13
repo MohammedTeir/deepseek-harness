@@ -1,6 +1,6 @@
 # Fixed terminal allocation broker and approval relay
 
-Reference scope: the private native allocation protocol and its original-service approval adapter. Status: IMPLEMENTED with host adapter tests and Android compilation. Android socket instrumentation and native human approval remain unverified. No application service or UI invokes this broker, and no Android terminal backend is enabled. No APK is assembled for this checkpoint.
+Reference scope: the private native allocation protocol and its original-service approval adapter. Status: IMPLEMENTED with host adapter tests and Android compilation. Android socket instrumentation and native human approval remain unverified. The [APK #7 qualification](TERMINAL_ANDROID_PROOF.md) now connects a private bound service, native UI and fixed Android backend. Its APK is built and inspected; physical execution is pending.
 
 ## Native protocol
 
@@ -31,8 +31,8 @@ python3 -m unittest discover -s apps/android/tests -p 'test_terminal*.py' -v
 ./apps/android/gradlew -p apps/android :app:compileDebugKotlin :app:compileDebugJavaWithJavac :app:compileDebugAndroidTestKotlin :app:lintDebug --console=plain
 ```
 
-## Remaining integration gate
+## Remaining physical gate
 
-Next connect the private native callback to an Activity-owned human approval surface and authenticated runtime transport, then mount the fixed adapter in the Android profile. Keep the original guards, owner rollback and session evidence. The startup budget must accommodate human approval separately from PTY readiness; the current host-only backend still has its short host deadline and Android guard. Verify interpreted asset closure, installed native fingerprints and full-runtime APK packaging before requesting phone tests.
+The [APK #7 proof](TERMINAL_ANDROID_PROOF.md) implements the private bound service, native human surface, authenticated Node transport and fixed Android backend. Authorization and PTY startup have separate deadlines. The original host-only factories remain Linux-only; the Android composition uses separate qualification factories and native receipts. Host automated decision fixtures are excluded from the interpreted image.
 
-Android fileKey support, socket behavior, actual human consent, same-UID lifecycle cancellation and native receipt-to-PTY creation remain unverified for this new path. Existing phone node-pty evidence does not verify it. Gate 3 remains IN PROGRESS. No general shell, arbitrary process-tree cleanup, foreground group support, original terminal UI, Root or Termux integration is claimed.
+Android fileKey support, actual human consent, socket behavior, same-UID lifecycle cancellation and native receipt-to-PTY creation remain unverified until the new device test passes. Existing phone node-pty evidence does not verify this path. Gate 3 remains IN PROGRESS. No general shell, arbitrary process-tree cleanup, foreground group support, original terminal UI, Root or Termux integration is claimed.

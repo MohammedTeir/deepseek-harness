@@ -42,10 +42,15 @@ for name in ['LICENSE', 'THIRD_PARTY_NOTICES.md']:
     shutil.copy2(android.parents[1] / name, output / name)
 
 from package_profile import validate_archive, validate_host_qualification
-profile = android / 'runtime/out/profile-v7'
+profile = android / 'runtime/out/profile-v8'
 validate_host_qualification(profile)
 image = profile / 'profile-image.zip'
 manifest = json.loads((profile / 'image-manifest.json').read_text())
+if manifest.get('terminalQualificationIncluded') is not True:
+    raise ValueError('Original terminal qualification image is required')
+for name, digest in manifest['adapterSourcesSha256'].items():
+    if hashlib.sha256((android.parents[1]/name).read_bytes()).hexdigest() != digest:
+        raise ValueError('Terminal adapter input changed; rebuild the observed image: '+name)
 validate_archive(image, manifest)
 for name, digest in manifest['files'].items():
     if name.startswith('node_modules/node-addon-require-builtin-android-arm64/'):

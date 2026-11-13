@@ -8,6 +8,7 @@ import argparse
 import ast
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import shutil
@@ -77,6 +78,7 @@ def validate_archive(archive, manifest):
             'apps/android/tests/terminal-registry-reference.mjs',
             'apps/android/tests/terminal-registry-plugin.mjs',
             'apps/android/tests/terminal-authority-plugin.mjs',
+            'apps/android/tests/terminal-profile-reference.mjs',
         }
         if automated_approval_fixtures.intersection(expected):
             raise ValueError('Host approval fixture must not enter Android image')
@@ -108,6 +110,14 @@ def validate_host_qualification(directory):
     command_proof = json.loads(command_result)
     if not command_proof.get('originalRegistryAndPipeline') or not command_proof.get('sessionRecoveredAcrossRuntimeRestart') or command_proof.get('hostQualification', {}).get('processLaunches') != 1:
         raise ValueError('Original command qualification missing')
+    manifest=json.loads((directory/'image-manifest.json').read_text())
+    if manifest.get('terminalQualificationIncluded'):
+        data=(directory/'terminal-relocated-result.json').read_bytes()
+        if marker.get('resultSha256',{}).get('terminal-relocated-result.json') != hashlib.sha256(data).hexdigest():
+            raise ValueError('Terminal qualification digest mismatch')
+        terminal=json.loads(data)
+        if terminal.get('platform') != 'linux' or not terminal.get('sessionRecoveredAcrossRuntimeRestart') or terminal.get('report',{}).get('starts') != 1:
+            raise ValueError('Real relocated terminal qualification missing')
     relocation=json.loads((directory/'relocation.json').read_text())
     if not relocation.get('imageOutsideCheckout') or not relocation.get('stateOutsideCheckout'):
         raise ValueError('Host profile must qualify outside checkout')
@@ -118,6 +128,7 @@ def build(output):
     if output.exists():
         raise ValueError('Output must be a new directory')
     output.mkdir(parents=True)
+    subprocess.run(['node',str(ANDROID/'scripts/build_terminal_bundle.mjs')],cwd=ROOT,check=True,timeout=30)
     with tempfile.TemporaryDirectory(prefix='android-profile-trace-') as temporary:
         temp = Path(temporary)
         prefix = temp / 'access'
@@ -136,16 +147,30 @@ def build(output):
         (output/'command-trace-run.txt').write_text(command_observed.stdout + command_observed.stderr)
         if command_observed.returncode:
             raise RuntimeError(f'Original command profile trace failed: {command_observed.stderr}')
+        fixture = temp / 'libharness_pty_fixture.so'
+        subprocess.run(['c++', '-std=c++17', '-Wall', '-Wextra', '-Werror',
+                        str(ANDROID/'runtime/node-pty-proof/fixture.cpp'), '-o', str(fixture)], check=True, timeout=60)
+        terminal_prefix = temp/'terminal-access'
+        terminal_trace = ['strace', '-ff', '-qq', '-s', '4096', '-e', 'trace=openat,readlink,readlinkat',
+                          '-o', str(terminal_prefix), 'node', str(ANDROID/'tests/terminal-profile-reference.mjs'),
+                          str(temp/'terminal-reference.json')]
+        terminal_observed = subprocess.run(terminal_trace, cwd=ROOT, capture_output=True, text=True, timeout=150,
+                                          env={**os.environ, 'HARNESS_TERMINAL_FIXTURE': str(fixture)})
+        (output/'terminal-trace-run.txt').write_text(terminal_observed.stdout+terminal_observed.stderr)
+        if terminal_observed.returncode:
+            raise RuntimeError(f'Original terminal trace failed: {terminal_observed.stderr}')
+        terminal_files, terminal_links = collect(ROOT, sorted(temp.glob('terminal-access.*')))
         command_files, command_links = collect(ROOT, sorted(temp.glob('command-access.*')))
         files, links = collect(ROOT, sorted(temp.glob('access.*')))
-        files |= command_files
-        for key, value in command_links.items():
+        files |= command_files | terminal_files
+        for key, value in list(command_links.items()) + list(terminal_links.items()):
             if key in links and links[key] != value:
                 raise ValueError(f'Command alias differs: {key}')
             links[key] = value
         # Host tooling is not a phone executable. Android uses the APK's Bionic binding.
         natives = {name for name in files if name.endswith('.node')}
-        if natives != HOST_NATIVE:
+        pty_native = relative((ROOT/'packages/subprocess/subprocess-local/node_modules/node-pty/prebuilds/linux-x64/pty.node').resolve(), ROOT)
+        if natives != HOST_NATIVE | {pty_native}:
             raise ValueError(f'Unreviewed native dependency set: {sorted(natives)}')
         files -= natives
         files |= {'LICENSE', 'THIRD_PARTY_NOTICES.md', 'apps/android/runtime/profile/no-execution.patch.yml',
@@ -153,9 +178,14 @@ def build(output):
                   'apps/android/runtime/session-diagnostics.mjs', 'native/system/packages/entry/lib/publish.js',
                   'native/system/packages/entry/package.json', 'apps/android/runtime/profile/command-proof.patch.yml',
                   'apps/android/runtime/command-smoke.mjs', 'apps/android/runtime/command-plugin.mjs', 'apps/android/runtime/android-subprocess.mjs',
-                  'apps/android/runtime/command-wire.mjs'}
+                  'apps/android/runtime/command-wire.mjs', 'apps/android/runtime/terminal-smoke.mjs',
+                  'apps/android/runtime/terminal-plugin.mjs', 'apps/android/runtime/terminal-wire.mjs',
+                  'apps/android/runtime/terminal-authorization.mjs', 'apps/android/runtime/node-pty-proof/loader.cjs',
+                  'apps/android/runtime/node-pty-proof/terminal-backend.bundle.mjs',
+                  'apps/android/runtime/node-pty-proof/terminal-handle.bundle.mjs'}
         # Automated host decision fixture is not an Android execution component.
         files.discard('apps/android/tests/command-profile-reference.mjs')
+        files.discard('apps/android/tests/terminal-profile-reference.mjs')
         packages = set()
         for name in list(files):
             directory = (ROOT / name).parent
@@ -194,7 +224,11 @@ def build(output):
         manifest = dict(schemaVersion=1,scope='Observed original sdk-minimal startup/session and fixed-command qualification; not full distribution',
                         completeDependencyDistribution=False,files=dict(sorted(digests.items())),links=dict(sorted(links.items())),
                         directories=sorted({target for target in links.values() if (ROOT/target).is_dir()}),
-                        packageManifests=sorted(packages),excludedHostNative=sorted(HOST_NATIVE),
+                        packageManifests=sorted(packages),excludedHostNative=sorted(natives),terminalQualificationIncluded=True,
+                        adapterSourcesSha256={name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in [
+                            'apps/android/runtime/node-pty-proof/terminal-backend.ts',
+                            'apps/android/runtime/node-pty-proof/terminal-handle.ts',
+                            'apps/android/scripts/build_terminal_bundle.mjs','pnpm-lock.yaml']},
                         modelRequestExecuted=False,androidVerified=False,gate2Passed=False)
         (output / 'image-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
         archive = output / 'profile-image.zip'
@@ -218,7 +252,6 @@ def build(output):
             destination = host/name
             destination.parent.mkdir(parents=True,exist_ok=True)
             shutil.copy2(ROOT/name,destination)
-        import os
         for name, target in sorted(links.items()):
             destination=host/name
             destination.parent.mkdir(parents=True,exist_ok=True)
@@ -246,12 +279,20 @@ def build(output):
         (output/'command-relocated-run.txt').write_text(command_relocated.stdout+command_relocated.stderr)
         if command_relocated.returncode:
             raise RuntimeError(f'Relocated original command profile failed: {command_relocated.stderr}')
+        terminal_relocated = subprocess.run(['node', str(ANDROID/'tests/terminal-profile-reference.mjs'),
+                                             str(output/'terminal-relocated-result.json'),
+                                             str(host/'apps/android/runtime/terminal-smoke.mjs')], cwd=host,
+                                            env={**env, 'HARNESS_TERMINAL_FIXTURE': str(fixture)},
+                                            capture_output=True, text=True, timeout=150)
+        (output/'terminal-relocated-run.txt').write_text(terminal_relocated.stdout+terminal_relocated.stderr)
+        if terminal_relocated.returncode:
+            raise RuntimeError(f'Relocated original terminal failed: {terminal_relocated.stderr}')
         (output/'relocation.json').write_text(json.dumps(dict(imageOutsideCheckout=True,stateOutsideCheckout=True,
             inheritedEnvironmentAllowlist=['PATH','TMPDIR','LANG'],originalHostNativeLibrariesOnly=True,androidNativeExecuted=False),indent=2)+'\n')
         qualification=dict(schemaVersion=1,hostOnly=True,androidVerified=False,
             imageSha256=hashlib.sha256(archive.read_bytes()).hexdigest(),
             resultSha256={name:hashlib.sha256((output/name).read_bytes()).hexdigest()
-                          for name in ['relocated-result.json','relocated-repeat-result.json','command-relocated-result.json']})
+                          for name in ['relocated-result.json','relocated-repeat-result.json','command-relocated-result.json','terminal-relocated-result.json']})
         (output/'profile-qualification.json').write_text(json.dumps(qualification,indent=2)+'\n')
         validate_host_qualification(output)
         print(json.dumps(dict(files=len(files),links=len(links),packages=len(packages),archiveBytes=archive.stat().st_size)))

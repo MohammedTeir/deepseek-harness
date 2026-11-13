@@ -1,6 +1,6 @@
 # Original terminal handle: fixed host qualification
 
-Status: IMPLEMENTED and VERIFIED on the Linux host only. The separate original node-pty source/addon phone suite is now VERIFIED for the submitted Android 11 ARM64 run; see [the review](../../../ANDROID_GATE3_REVIEW.md). That does not verify this new handle adapter on Android.
+Status: IMPLEMENTED and VERIFIED on the Linux host only. The separate original node-pty source/addon phone suite is now VERIFIED for the submitted Android 11 ARM64 run; see [the review](../../../ANDROID_GATE3_REVIEW.md). The [APK #7 proof](TERMINAL_ANDROID_PROOF.md) now ships a separate native-authorized fixed Android factory; physical acceptance is pending. The original host report does not verify Android execution.
 
 ## Original contract and authority boundary
 

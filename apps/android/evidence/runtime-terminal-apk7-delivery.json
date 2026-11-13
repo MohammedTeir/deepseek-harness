@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-13",
+  "url": "https://filebin.net/harness-terminal-17872339ac62c7cf/deepseek-harness-runtime-apk7.zip",
+  "archiveSha256": "21317c10face43e65b32545cd1615a0dee709cdfff4bf33b3eb6ff83f13a21b8",
+  "apkSha256": "c55fde2fca0ef5cc6732c267580b736acf22c808ab822cdc1653933a2ef73da0",
+  "apkBytes": 48994607,
+  "numberOfApksInArchive": 1,
+  "uploadExitCode": 0,
+  "downloadExitCode": 0,
+  "downloadedArchiveAndApkHashesMatch": true,
+  "serviceReportedExpiry": "2026-11-20T16:07:26.252864Z",
+  "physicalExecutionVerified": false,
+  "gate3Passed": false
+}

@@ -56,3 +56,7 @@ An isolated service qualifies the locked original node-pty source and JavaScript
 ## Original terminal backend seam
 
 The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.
+
+## Fixed native terminal vertical slice
+
+The [APK #7 reference](apps/android/execution/TERMINAL_ANDROID_PROOF.md) records the original registry/tool/approval path, authenticated native broker, human UI and fixed Android PTY factory. Host and relocated-profile tests and Android build/inspection pass. Physical execution is BLOCKED pending phone evidence. This is a fixed benign fixture, not general shell or the original Web UI. Gate 3 remains IN PROGRESS; preserve existing data when updating the single runtime app.

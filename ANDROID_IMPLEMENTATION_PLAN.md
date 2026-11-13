@@ -69,3 +69,7 @@ The [native grant component](apps/android/execution/TERMINAL_ALLOCATION_AUTHORIZ
 ## Terminal broker composition checkpoint
 
 The [broker integration reference](apps/android/execution/TERMINAL_BROKER_INTEGRATION.md) records the private native protocol, exact original-service approval adapter and host-only genuine profile/PTY test with an explicit native transport double. Android broker instrumentation is compiled, not executed. UI/runtime activation and full APK/device acceptance remain pending; the existing Android guards are retained. Gate 3 remains IN PROGRESS.
+
+## Native terminal physical checkpoint
+
+The [APK #7 reference](apps/android/execution/TERMINAL_ANDROID_PROOF.md) records the original registry/tool/approval path, authenticated native broker, human UI and fixed Android PTY factory. Host and relocated-profile tests and Android build/inspection pass. Physical execution is BLOCKED pending phone evidence. This is a fixed benign fixture, not general shell or the original Web UI. Gate 3 remains IN PROGRESS; preserve existing data when updating the single runtime app.

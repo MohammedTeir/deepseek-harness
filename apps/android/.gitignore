@@ -8,3 +8,4 @@ app/src/main/jniLibs/
 runtime/out/
 
 .local/
+/runtime/node-pty-proof/*.bundle.mjs

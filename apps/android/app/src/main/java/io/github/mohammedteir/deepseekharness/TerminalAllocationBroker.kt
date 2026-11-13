@@ -44,6 +44,7 @@ class TerminalAllocationBroker(context: Context, private val workspace: File,
     private val audit = mutableListOf<JSONObject>()
     private val omittedAudit = AtomicInteger()
     private val allocationsConsumed = AtomicInteger()
+    @Volatile private var resourceFailure: JSONObject? = null
     private val acceptThread = Thread({
         while (!closed.get()) {
             val socket = try { server.accept() } catch (_: IOException) { break }
@@ -149,8 +150,13 @@ class TerminalAllocationBroker(context: Context, private val workspace: File,
                         if (closed.get()) { reply = error("CLOSED"); return }
                         if (call in cancelledCalls) { reply = error("CLOSED"); return }
                         if (grants.containsKey(call)) { reply = error("DUPLICATE"); return }
+                        if (answers.isNotEmpty()) { reply = error("BUSY"); return }
                         if (terminal in terminalClaims) { reply = error("TERMINAL_ALREADY_BOUND"); return }
-                        grant = TerminalAllocationGrant(sessionId, call, sessionId, terminal, workspace, executable, uid, System::nanoTime, 90_000_000_000L)
+                        try { grant = TerminalAllocationGrant(sessionId, call, sessionId, terminal, workspace, executable, uid, System::nanoTime, 90_000_000_000L) }
+                        catch (failure: IOException) {
+                            resourceFailure = JSONObject().put("name", failure.javaClass.simpleName).put("message", failure.message?.take(1024))
+                            reply = error("RESOURCE_REJECTED").put("failure", resourceFailure); record(action, "RESOURCE_REJECTED", peer.pid); return
+                        }
                         grants[call] = grant; answers[call] = answer; terminalClaims.add(terminal)
                     }
                     callForReply = call
@@ -174,7 +180,10 @@ class TerminalAllocationBroker(context: Context, private val workspace: File,
                             if (closed.get() || call in cancelledCalls) { reply = error("CLOSED"); return }
                             if (grant == null) { reply = error("APPROVAL_REQUIRED"); return }
                             // Every wire field matched native configuration; a caller UID is never accepted.
-                            val result = grant.consume(grant.request())
+                            val result = try { grant.consume(grant.request()) } catch (failure: IOException) {
+                                resourceFailure = JSONObject().put("name", failure.javaClass.simpleName).put("message", failure.message?.take(1024))
+                                reply = error("RESOURCE_REJECTED").put("failure", resourceFailure); record(action, "RESOURCE_REJECTED", peer.pid); return
+                            }
                             if (result == CommandGrant.Outcome.CONSUMED) allocationsConsumed.incrementAndGet()
                             reply = if (result == CommandGrant.Outcome.CONSUMED) success().put("allocation", snapshot(call, terminal)) else error(result.name)
                             record(action, result.name, peer.pid)
@@ -205,6 +214,7 @@ class TerminalAllocationBroker(context: Context, private val workspace: File,
         .put("audit", synchronized(audit) { JSONArray(audit.toList()) }).put("omittedAuditEntries", omittedAudit.get())
         .put("allocationsConsumed", allocationsConsumed.get())
         .put("transport", "AF_UNIX abstract; SO_PEERCRED UID and per-run secret")
+        .put("resourceFailure", resourceFailure ?: JSONObject.NULL)
         .put("processLauncherImplemented", false).put("maliciousSameUidPluginIsolation", false)
     /** Native owner cleanup only; never call from a worker or main UI thread. */
     override fun close() {

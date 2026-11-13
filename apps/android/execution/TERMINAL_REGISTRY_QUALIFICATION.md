@@ -8,7 +8,7 @@ Reference scope: host-only integration of the original TerminalSessionService wi
 
 [The profile plugin](../tests/terminal-registry-plugin.mjs) registers the backend and a qualification tool through original extension points. Genuine Agent instances own terminals. The original tool executor and approval service record denial and permission, and the original terminal registry enforces ownership, name reservations and rollback. The controller uses automated SDK decisions and a host fixture authority scope, not native human authorization. Same-process reviewed fixture code is not a security boundary against malicious plugins.
 
-Both the backend and its underlying handle reject Android. Neither is added to the APK assets or an Android runtime profile. The existing APK remains unchanged.
+The original host factories still reject Android. The [APK #7 proof](TERMINAL_ANDROID_PROOF.md) adds separate fixed Android factories under native authorization; its physical verification is pending. This earlier host report remains host evidence only.
 
 ## Executed evidence
 

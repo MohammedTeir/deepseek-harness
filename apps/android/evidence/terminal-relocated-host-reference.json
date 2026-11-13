@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 1,
+  "suite": "original-harness-native-terminal-v1",
+  "node": "v24.22.1",
+  "platform": "linux",
+  "arch": "x64",
+  "kernelIdentity": {
+    "pid": 83366,
+    "parentPid": 83355,
+    "uid": 1000,
+    "source": "/proc/self/status"
+  },
+  "harnessStarted": true,
+  "serverInfo": {
+    "name": "deepseek-harness-sdk-runtime",
+    "version": "0.0.1"
+  },
+  "sessionId": "android-terminal-host",
+  "report": {
+    "originalTerminalRegistry": true,
+    "terminalId": "pty-2",
+    "result": {
+      "viewport": "IDENTITY:{\"uid\":1000,\"pid\":83388,\"parentPid\":83377}\r\nTTY-READY\r\npty-input\r\nTTY-INPUT:pty-input ROWS:40 COLS:100\r\nTTY-STDERR\r\n",
+      "waitReason": "session_exit",
+      "sessionStatus": {
+        "kind": "exited",
+        "exitCode": 0,
+        "signal": null
+      },
+      "truncated": false
+    },
+    "nativeIdentity": {
+      "uid": 1000,
+      "pid": 83388,
+      "parentPid": 83377
+    },
+    "engineIdentity": {
+      "pid": 83377,
+      "parentPid": 83366,
+      "uid": 1000,
+      "source": "/proc/self/status"
+    },
+    "starts": 1,
+    "concurrentConsumers": 2,
+    "concurrentRejections": 1,
+    "changedReceiptRejected": true,
+    "replayedReceiptRejected": true,
+    "ownerActivityDrained": true,
+    "stderrMergedByPty": true
+  },
+  "approvalOutcomes": [
+    {
+      "callId": "deny-host",
+      "outcome": "rejected"
+    },
+    {
+      "callId": "allow-host",
+      "outcome": "allowed-once"
+    }
+  ],
+  "negative": {
+    "unapproved": {
+      "ok": false,
+      "code": "APPROVAL_REQUIRED"
+    },
+    "unauthenticated": {
+      "ok": false,
+      "code": "UNAUTHENTICATED"
+    },
+    "agentApproval": {
+      "ok": false,
+      "code": "UNSUPPORTED_ACTION"
+    },
+    "duplicate": {
+      "ok": false,
+      "code": "DUPLICATE"
+    },
+    "terminal": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "owner": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "executable": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "arguments": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "cwd": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "columns": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "rows": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "session": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "call": {
+      "ok": false,
+      "code": "REQUEST_CHANGED"
+    },
+    "uid": {
+      "ok": false,
+      "code": "MALFORMED"
+    },
+    "replay": {
+      "ok": false,
+      "code": "CLOSED"
+    }
+  },
+  "history": [
+    {
+      "type": "approval/asked",
+      "seq": 4,
+      "time": 1794575732961,
+      "data": {
+        "id": "1cce2df7-7adb-4489-92a7-a9b2658d7e50",
+        "toolName": "android_qualified_terminal",
+        "callId": "deny-host",
+        "reason": "{\"sessionId\":\"android-terminal-host\",\"ownerId\":\"android-terminal-host\",\"callId\":\"deny-host\",\"terminalId\":\"pty-1\",\"backend\":\"android-fixed-pty-v1\",\"executable\":\"/tmp/android-profile-trace-pwdls_yj/libharness_pty_fixture.so\",\"arguments\":[\"--tty-child\"],\"cwd\":\"/tmp/hterm-nffuM0/workspace\",\"columns\":80,\"rows\":24}"
+      }
+    },
+    {
+      "type": "approval/decided",
+      "seq": 5,
+      "time": 1794575732964,
+      "data": {
+        "id": "1cce2df7-7adb-4489-92a7-a9b2658d7e50",
+        "outcome": "rejected"
+      }
+    },
+    {
+      "type": "command/done",
+      "seq": 6,
+      "time": 1794575732967,
+      "data": {
+        "commandId": "cmd-f1c28097-1",
+        "kind": "success",
+        "text": "{\"terminalProof\":true,\"callId\":\"deny-host\",\"batch\":{\"results\":[{\"callId\":\"deny-host\",\"result\":{\"isError\":true,\"error\":{\"message\":\"Original approval did not authorize terminal allocation\",\"info\":{\"name\":\"TerminalAuthorizationError\",\"code\":\"TERMINAL_APPROVAL_REJECTED\"}},\"content\":[{\"type\":\"text\",\"text\":\"Error: Original approval did not authorize terminal allocation\"}]}}],\"additionalContexts\":[],\"concluded\":false},\"processStarts\":0}"
+      }
+    },
+    {
+      "type": "approval/asked",
+      "seq": 12,
+      "time": 1794575732973,
+      "data": {
+        "id": "6b085e2a-7d27-4c79-8090-501bd94c40e2",
+        "toolName": "android_qualified_terminal",
+        "callId": "allow-host",
+        "reason": "{\"sessionId\":\"android-terminal-host\",\"ownerId\":\"android-terminal-host\",\"callId\":\"allow-host\",\"terminalId\":\"pty-2\",\"backend\":\"android-fixed-pty-v1\",\"executable\":\"/tmp/android-profile-trace-pwdls_yj/libharness_pty_fixture.so\",\"arguments\":[\"--tty-child\"],\"cwd\":\"/tmp/hterm-nffuM0/workspace\",\"columns\":80,\"rows\":24}"
+      }
+    },
+    {
+      "type": "approval/decided",
+      "seq": 13,
+      "time": 1794575732978,
+      "data": {
+        "id": "6b085e2a-7d27-4c79-8090-501bd94c40e2",
+        "outcome": "allowed-once"
+      }
+    },
+    {
+      "type": "command/done",
+      "seq": 14,
+      "time": 1794575732989,
+      "data": {
+        "commandId": "cmd-f1c28097-2",
+        "kind": "success",
+        "text": "{\"terminalProof\":true,\"callId\":\"allow-host\",\"batch\":{\"results\":[{\"callId\":\"allow-host\",\"result\":{\"isError\":false,\"content\":[{\"type\":\"text\",\"text\":\"{\\\"originalTerminalRegistry\\\":true,\\\"terminalId\\\":\\\"pty-2\\\",\\\"result\\\":{\\\"viewport\\\":\\\"IDENTITY:{\\\\\\\"uid\\\\\\\":1000,\\\\\\\"pid\\\\\\\":83388,\\\\\\\"parentPid\\\\\\\":83377}\\\\r\\\\nTTY-READY\\\\r\\\\npty-input\\\\r\\\\nTTY-INPUT:pty-input ROWS:40 COLS:100\\\\r\\\\nTTY-STDERR\\\\r\\\\n\\\",\\\"waitReason\\\":\\\"session_exit\\\",\\\"sessionStatus\\\":{\\\"kind\\\":\\\"exited\\\",\\\"exitCode\\\":0,\\\"signal\\\":null},\\\"truncated\\\":false},\\\"nativeIdentity\\\":{\\\"uid\\\":1000,\\\"pid\\\":83388,\\\"parentPid\\\":83377},\\\"engineIdentity\\\":{\\\"pid\\\":83377,\\\"parentPid\\\":83366,\\\"uid\\\":1000,\\\"source\\\":\\\"/proc/self/status\\\"},\\\"starts\\\":1,\\\"concurrentConsumers\\\":2,\\\"concurrentRejections\\\":1,\\\"changedReceiptRejected\\\":true,\\\"replayedReceiptRejected\\\":true,\\\"ownerActivityDrained\\\":true,\\\"stderrMergedByPty\\\":true}\"}],\"value\":{\"report\":\"{\\\"originalTerminalRegistry\\\":true,\\\"terminalId\\\":\\\"pty-2\\\",\\\"result\\\":{\\\"viewport\\\":\\\"IDENTITY:{\\\\\\\"uid\\\\\\\":1000,\\\\\\\"pid\\\\\\\":83388,\\\\\\\"parentPid\\\\\\\":83377}\\\\r\\\\nTTY-READY\\\\r\\\\npty-input\\\\r\\\\nTTY-INPUT:pty-input ROWS:40 COLS:100\\\\r\\\\nTTY-STDERR\\\\r\\\\n\\\",\\\"waitReason\\\":\\\"session_exit\\\",\\\"sessionStatus\\\":{\\\"kind\\\":\\\"exited\\\",\\\"exitCode\\\":0,\\\"signal\\\":null},\\\"truncated\\\":false},\\\"nativeIdentity\\\":{\\\"uid\\\":1000,\\\"pid\\\":83388,\\\"parentPid\\\":83377},\\\"engineIdentity\\\":{\\\"pid\\\":83377,\\\"parentPid\\\":83366,\\\"uid\\\":1000,\\\"source\\\":\\\"/proc/self/status\\\"},\\\"starts\\\":1,\\\"concurrentConsumers\\\":2,\\\"concurrentRejections\\\":1,\\\"changedReceiptRejected\\\":true,\\\"replayedReceiptRejected\\\":true,\\\"ownerActivityDrained\\\":true,\\\"stderrMergedByPty\\\":true}\"}}}],\"additionalContexts\":[],\"concluded\":false},\"processStarts\":1}"
+      }
+    }
+  ],
+  "recoveredHistory": [
+    {
+      "type": "approval/asked",
+      "seq": 4,
+      "time": 1794575732961,
+      "data": {
+        "id": "1cce2df7-7adb-4489-92a7-a9b2658d7e50",
+        "toolName": "android_qualified_terminal",
+        "callId": "deny-host",
+        "reason": "{\"sessionId\":\"android-terminal-host\",\"ownerId\":\"android-terminal-host\",\"callId\":\"deny-host\",\"terminalId\":\"pty-1\",\"backend\":\"android-fixed-pty-v1\",\"executable\":\"/tmp/android-profile-trace-pwdls_yj/libharness_pty_fixture.so\",\"arguments\":[\"--tty-child\"],\"cwd\":\"/tmp/hterm-nffuM0/workspace\",\"columns\":80,\"rows\":24}"
+      }
+    },
+    {
+      "type": "approval/decided",
+      "seq": 5,
+      "time": 1794575732964,
+      "data": {
+        "id": "1cce2df7-7adb-4489-92a7-a9b2658d7e50",
+        "outcome": "rejected"
+      }
+    },
+    {
+      "type": "command/done",
+      "seq": 6,
+      "time": 1794575732967,
+      "data": {
+        "commandId": "cmd-f1c28097-1",
+        "kind": "success",
+        "text": "{\"terminalProof\":true,\"callId\":\"deny-host\",\"batch\":{\"results\":[{\"callId\":\"deny-host\",\"result\":{\"isError\":true,\"error\":{\"message\":\"Original approval did not authorize terminal allocation\",\"info\":{\"name\":\"TerminalAuthorizationError\",\"code\":\"TERMINAL_APPROVAL_REJECTED\"}},\"content\":[{\"type\":\"text\",\"text\":\"Error: Original approval did not authorize terminal allocation\"}]}}],\"additionalContexts\":[],\"concluded\":false},\"processStarts\":0}"
+      }
+    },
+    {
+      "type": "approval/asked",
+      "seq": 12,
+      "time": 1794575732973,
+      "data": {
+        "id": "6b085e2a-7d27-4c79-8090-501bd94c40e2",
+        "toolName": "android_qualified_terminal",
+        "callId": "allow-host",
+        "reason": "{\"sessionId\":\"android-terminal-host\",\"ownerId\":\"android-terminal-host\",\"callId\":\"allow-host\",\"terminalId\":\"pty-2\",\"backend\":\"android-fixed-pty-v1\",\"executable\":\"/tmp/android-profile-trace-pwdls_yj/libharness_pty_fixture.so\",\"arguments\":[\"--tty-child\"],\"cwd\":\"/tmp/hterm-nffuM0/workspace\",\"columns\":80,\"rows\":24}"
+      }
+    },
+    {
+      "type": "approval/decided",
+      "seq": 13,
+      "time": 1794575732978,
+      "data": {
+        "id": "6b085e2a-7d27-4c79-8090-501bd94c40e2",
+        "outcome": "allowed-once"
+      }
+    },
+    {
+      "type": "command/done",
+      "seq": 14,
+      "time": 1794575732989,
+      "data": {
+        "commandId": "cmd-f1c28097-2",
+        "kind": "success",
+        "text": "{\"terminalProof\":true,\"callId\":\"allow-host\",\"batch\":{\"results\":[{\"callId\":\"allow-host\",\"result\":{\"isError\":false,\"content\":[{\"type\":\"text\",\"text\":\"{\\\"originalTerminalRegistry\\\":true,\\\"terminalId\\\":\\\"pty-2\\\",\\\"result\\\":{\\\"viewport\\\":\\\"IDENTITY:{\\\\\\\"uid\\\\\\\":1000,\\\\\\\"pid\\\\\\\":83388,\\\\\\\"parentPid\\\\\\\":83377}\\\\r\\\\nTTY-READY\\\\r\\\\npty-input\\\\r\\\\nTTY-INPUT:pty-input ROWS:40 COLS:100\\\\r\\\\nTTY-STDERR\\\\r\\\\n\\\",\\\"waitReason\\\":\\\"session_exit\\\",\\\"sessionStatus\\\":{\\\"kind\\\":\\\"exited\\\",\\\"exitCode\\\":0,\\\"signal\\\":null},\\\"truncated\\\":false},\\\"nativeIdentity\\\":{\\\"uid\\\":1000,\\\"pid\\\":83388,\\\"parentPid\\\":83377},\\\"engineIdentity\\\":{\\\"pid\\\":83377,\\\"parentPid\\\":83366,\\\"uid\\\":1000,\\\"source\\\":\\\"/proc/self/status\\\"},\\\"starts\\\":1,\\\"concurrentConsumers\\\":2,\\\"concurrentRejections\\\":1,\\\"changedReceiptRejected\\\":true,\\\"replayedReceiptRejected\\\":true,\\\"ownerActivityDrained\\\":true,\\\"stderrMergedByPty\\\":true}\"}],\"value\":{\"report\":\"{\\\"originalTerminalRegistry\\\":true,\\\"terminalId\\\":\\\"pty-2\\\",\\\"result\\\":{\\\"viewport\\\":\\\"IDENTITY:{\\\\\\\"uid\\\\\\\":1000,\\\\\\\"pid\\\\\\\":83388,\\\\\\\"parentPid\\\\\\\":83377}\\\\r\\\\nTTY-READY\\\\r\\\\npty-input\\\\r\\\\nTTY-INPUT:pty-input ROWS:40 COLS:100\\\\r\\\\nTTY-STDERR\\\\r\\\\n\\\",\\\"waitReason\\\":\\\"session_exit\\\",\\\"sessionStatus\\\":{\\\"kind\\\":\\\"exited\\\",\\\"exitCode\\\":0,\\\"signal\\\":null},\\\"truncated\\\":false},\\\"nativeIdentity\\\":{\\\"uid\\\":1000,\\\"pid\\\":83388,\\\"parentPid\\\":83377},\\\"engineIdentity\\\":{\\\"pid\\\":83377,\\\"parentPid\\\":83366,\\\"uid\\\":1000,\\\"source\\\":\\\"/proc/self/status\\\"},\\\"starts\\\":1,\\\"concurrentConsumers\\\":2,\\\"concurrentRejections\\\":1,\\\"changedReceiptRejected\\\":true,\\\"replayedReceiptRejected\\\":true,\\\"ownerActivityDrained\\\":true,\\\"stderrMergedByPty\\\":true}\"}}}],\"additionalContexts\":[],\"concluded\":false},\"processStarts\":1}"
+      }
+    }
+  ],
+  "persistedJsonlSha256": {
+    "--tmp-hterm-nffuM0-workspace--/android-terminal-host/session.v4.jsonl": "e4a7d397f0e88e3a8b0bb6ece3e9979ce5d1ca47cbf701778749d18b79a4997e"
+  },
+  "sessionRecoveredAcrossRuntimeRestart": true,
+  "appRestartVerified": false,
+  "modelRequestExecuted": false,
+  "generalShellProviderImplemented": false,
+  "gate3Passed": false,
+  "runtimeStderr": [
+    "shutdown request failed: dsh profile \"sdk-minimal\": JSON-RPC input closed\nexit code: 0",
+    "shutdown request failed: dsh profile \"sdk-minimal\": JSON-RPC input closed\nexit code: 0"
+  ],
+  "hostQualification": {
+    "nativeTransportIsDouble": true,
+    "automatedDecisions": true,
+    "androidExecuted": false,
+    "humanApprovalVerified": false,
+    "consumed": 1
+  }
+}
