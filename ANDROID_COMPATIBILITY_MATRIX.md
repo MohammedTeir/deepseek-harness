@@ -96,3 +96,7 @@ The earlier Gate 3 NOT YET VERIFIED rows describe the build checkpoint. The [rec
 ## Original subprocess adapter
 
 Original SubprocessRuntime fixed pwd integration is ADAPT / IMPLEMENTED with host tests; Android adapter execution remains NOT YET VERIFIED pending APK #5. Native process/PTY primitives retain their separate Android 11 acceptance. Raw streams, general commands, spills, custom environment, signal classification and the original interactive terminal backend remain unsupported by this bounded adapter. See [scope and evidence](apps/android/execution/SUBPROCESS_ADAPTER.md).
+
+## APK #5 physical adapter update
+
+Fixed pwd through the original SubprocessRuntime service is now VERIFIED on the reported Android 11/API 30 ARM64 device, based on [matching artifact and session evidence](ANDROID_GATE3_REVIEW.md). Earlier host-only rows retain the build checkpoint. General subprocess commands, streaming raw pipes, nonzero/signal classification, interactive PTY transport and original terminal backend remain unsupported or NOT YET VERIFIED as documented in the adapter guide.

@@ -103,3 +103,7 @@ The [Gate 3 review](ANDROID_GATE3_REVIEW.md) accepts one matching user-reported 
 ## APK #5 original subprocess proof
 
 Use the fourth original-tool approval test in the updated large app. Deny the first request, approve the second, keep the Activity visible and copy complete result. Data and old sessions must be preserved. The [adapter guide](apps/android/execution/SUBPROCESS_ADAPTER.md) defines required service markers and the validator command. This update keeps the fifth fixed capability test but does not implement an interactive terminal.
+
+## APK #5 phone result accepted
+
+The [selected-device review](ANDROID_GATE3_REVIEW.md) accepts the new original subprocess service path with matching delivered fingerprints, native denial/approval and recovered canonical tool results. The submitted report is retained under apps/android/evidence/phone-subprocess-apk5-run1.json. The tester does not need to repeat this fixed successful run. The current app remains a qualification host; live interactive terminal and original Web UI integration remain future milestones.

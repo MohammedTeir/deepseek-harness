@@ -273,3 +273,7 @@ Status: VERIFIED for the selected-device fixed suite; overall Gate 3 remains IN 
 ## Original subprocess adapter checkpoint
 
 Status: IMPLEMENTED and host verified; physical execution BLOCKED pending APK #5. The [fixed adapter](apps/android/execution/SUBPROCESS_ADAPTER.md) mounts the original SubprocessRuntime service in the authentic profile and routes the existing approved pwd tool through its spawn/done/collected/waitForExit contract. Unsupported pipes, spill, custom environment, commands and interactive PTY fail closed. Native authorization and session format remain unchanged. Gate 3 remains IN PROGRESS; APK #4 phone evidence does not verify this new integration.
+
+## APK #5 physical original-service acceptance
+
+Status: VERIFIED for fixed pwd through the original SubprocessRuntime service on Redmi Note 8 Pro / Android 11 API 30 ARM64. The [physical review](apps/android/evidence/phone-subprocess-apk5-review.json) accepts the delivered APK/native fingerprints, original service marker, native Deny then Approve, one actual process, exact-request/replay rejection, genuine stdout/exit and identical recovered session records. The complete submitted report and historical failures are retained. Earlier host-only/pending-device statements describe the build checkpoint. Gate 3 remains IN PROGRESS; live PTY/original terminal, adapter cancellation on Android, API 29/recent devices and broader lifecycle remain unverified. No new APK is required for this acceptance.

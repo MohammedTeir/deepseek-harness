@@ -45,3 +45,7 @@ The [physical review](ANDROID_GATE3_REVIEW.md) verifies the fixed capability sui
 ## Bounded original subprocess integration
 
 The [fixed native adapter](apps/android/execution/SUBPROCESS_ADAPTER.md) is IMPLEMENTED and host tested through the original service/profile. Next acceptance is the APK #5 original-tool test on the phone, requiring native Deny then Approve and original session recovery. Then design persistent authenticated PTY I/O and accurate process signal outcomes before extending TerminalBackend or enabling general commands. Do not infer interactive-shell support from the earlier fixed PTY fixture.
+
+## Fixed original subprocess phone checkpoint
+
+APK #5 is VERIFIED for the submitted Android 11 ARM64 fixed-pwd service run; see [the selected-device review](ANDROID_GATE3_REVIEW.md). The next engineering milestone first evaluates the original node-pty Android build/helper packaging before selecting a bounded live PTY adaptation. Require real input/output/resize/termination tests through the existing SubprocessTerminalHandle and original terminal registry. Do not default to a new native bridge or custom multiplexer. Preserve explicit authorization and do not enable arbitrary shells or claim a generic terminal from the fixed capability fixture. Version/lifecycle coverage remains outstanding.

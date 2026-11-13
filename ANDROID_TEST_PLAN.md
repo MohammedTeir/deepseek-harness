@@ -73,3 +73,7 @@ apps/android/evidence/phone-process-apk4-run1.json passes the unchanged process-
 ## Original subprocess service proof
 
 Run the Android host regressions and subprocess-adapter-reference.mjs for actual original-service contracts, real Linux pwd, exact-request rejection, bounded readers, cancellation acknowledgment and awaited disposal. The original command-profile reference and relocated image check must pass before packaging. Synthetic transport/parser fixtures are not phone evidence. Run the fourth APK #5 test with native Deny then Approve and validate using --require-subprocess as described in [the adapter guide](apps/android/execution/SUBPROCESS_ADAPTER.md). Old direct-broker results must fail this new requirement.
+
+## APK #5 selected-device original service result
+
+The complete phone-subprocess-apk5-run1.json report passes validate_command_result.py with --require-subprocess against runtime-subprocess-apk5-build.json. Original registry, approval and service markers, one real execution, mutation/replay rejection and identical recovered events pass. Evidence is attributed to user-executed Android 11 ARM64 testing; no developer ADB instrumentation is claimed. Broader adapter cancellation, nonzero/signal handling and live terminal tests remain outstanding. See [the review](ANDROID_GATE3_REVIEW.md).

@@ -46,3 +46,7 @@ The [selected-device review](ANDROID_GATE3_REVIEW.md) records actual TERM cancel
 ## Fixed subprocess adapter authority
 
 The [original-service adapter](apps/android/execution/SUBPROCESS_ADAPTER.md) cannot approve a grant or select a command. It binds a reviewed original tool call and still relies on native one-shot exact-request authorization. Cleanup acknowledgment is required before reporting quiescence; unsupported commands, environment forwarding and descriptor modes fail closed. Same-UID plugins are not isolated. Android execution of this added service path remains unverified until APK #5 results arrive.
+
+## APK #5 native grant through original service
+
+The [accepted submitted phone result](ANDROID_GATE3_REVIEW.md) verifies native denial followed by one approved execution through the original subprocess service, with changed-request rejection and one-shot replay/concurrency protection. It does not verify adapter cancellation on Android, root-context error propagation, process-death cleanup or isolation from hostile same-UID code. Those limits remain unchanged. Runtime diagnostic notes and denied canonical tool outcomes are preserved.

@@ -37,3 +37,7 @@ python3 apps/android/scripts/validate_command_result.py result.json --build-reco
 ```
 
 No connected ADB device is assumed. Successful host tests and APK inspection do not establish Android execution of the new adapter. Overall Gate 3 stays IN PROGRESS; API 29/recent-device coverage, live terminal transport, PTY session lifecycle, original terminal backend, original frontend and model requests remain separate milestones.
+
+## Physical checkpoint accepted
+
+Status: VERIFIED for the submitted fixed-pwd original-service path on Android 11/API 30 ARM64. The [selected-device review](../../../ANDROID_GATE3_REVIEW.md) and complete phone-subprocess-apk5-run1.json report match APK #5 and native digests. The original service marker, native denial/approval, one actual process, replay/mutation rejection and original session recovery pass. Earlier pending-device statements retain the build history. This does not enable interactive terminal I/O, broader commands or new signal semantics. No repeat of this successful fixed test is required.
