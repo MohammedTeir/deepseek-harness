@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "environment": {
+    "platform": "linux",
+    "arch": "x64",
+    "node": "v24.22.1"
+  },
+  "profile": "sdk-minimal",
+  "composition": {
+    "disabledRows": [
+      "subprocess",
+      "pty",
+      "terminal-bash",
+      "terminal-pwsh",
+      "persistent-bash",
+      "persistent-pwsh",
+      "tool-fs"
+    ],
+    "spillLocalMounted": false,
+    "patchSha256": "0168fb18295faa9a79b0ab221c573ba8ee3bc8f93aa5307d6d151e9a5c63c85a",
+    "originalProfileWithOverlay": true,
+    "securitySandboxClaim": false
+  },
+  "serverInfo": {
+    "name": "deepseek-harness-sdk-runtime",
+    "version": "0.0.1"
+  },
+  "sessionId": "android-host-reference-d8aa44a1-9265-4e88-93fa-78fec96b6bd4",
+  "realProfileInitialized": true,
+  "sessionRecoveredAcrossRuntimeRestart": true,
+  "recoveredNondefaultDirectory": true,
+  "persistedJsonlSha256": {
+    "--tmp-android-host-profile-B4xE6n-workspace--/android-host-reference-d8aa44a1-9265-4e88-93fa-78fec96b6bd4/session.v4.jsonl": "7f01019927cb4a1b88b715d89b0d530aa3fee7f87389ddd6479293ade30aade7"
+  },
+  "modelRequestExecuted": false,
+  "androidVerified": false,
+  "harnessPhoneGatePassed": false
+}

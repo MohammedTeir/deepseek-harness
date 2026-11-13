@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "platform": "linux",
+  "node": "v24.22.1",
+  "realNodeApiWrapper": true,
+  "publication": true,
+  "sourceConsumed": true,
+  "collisionProtected": true,
+  "errorsPropagated": true,
+  "rounds": [
+    {
+      "round": 0,
+      "pids": [
+        120957,
+        120958,
+        120959,
+        120960,
+        120962,
+        120969,
+        120978,
+        120990
+      ],
+      "successes": 1,
+      "collisions": 7
+    },
+    {
+      "round": 1,
+      "pids": [
+        121045,
+        121046,
+        121047,
+        121048,
+        121049,
+        121051,
+        121076,
+        121077
+      ],
+      "successes": 1,
+      "collisions": 7
+    },
+    {
+      "round": 2,
+      "pids": [
+        121133,
+        121134,
+        121135,
+        121136,
+        121142,
+        121143,
+        121145,
+        121150
+      ],
+      "successes": 1,
+      "collisions": 7
+    },
+    {
+      "round": 3,
+      "pids": [
+        121221,
+        121222,
+        121223,
+        121224,
+        121225,
+        121237,
+        121247,
+        121258
+      ],
+      "successes": 1,
+      "collisions": 7
+    }
+  ],
+  "androidVerified": false,
+  "gate2Passed": false,
+  "sourceSha256": "9b3a919d5e418512eae5dfc1b7d4e864e12f6c3abd7c6cbf3a1fe6304f1afd6a",
+  "scope": "Real Linux N-API and native publication, not Android ABI evidence"
+}

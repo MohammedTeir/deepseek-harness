@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-11-12",
+  "evidenceKind": "User-reported manual physical-phone results",
+  "developerControlledInstrumentation": false,
+  "apkVersionCode": 5,
+  "artifactAttribution": "Version inferred from the executable-proof fields; no independently retrieved phone APK digest",
+  "redaction": "Ephemeral installed native directory replaced consistently with <installer-native-dir>, including child stdout/stderr. Child stdout JSON reserialized after redaction; not byte-for-byte original.",
+  "jniResult": {
+    "schemaVersion": 1,
+    "node": "v24.22.1",
+    "platform": "android",
+    "arch": "arm64",
+    "pid": 12363,
+    "uid": null,
+    "uidApiAvailable": false,
+    "execPath": "/system/bin/app_process64",
+    "childNodeLaunch": "not-tested",
+    "nativeLock": true,
+    "network": {
+      "dns": true,
+      "tls": true,
+      "failure": null
+    },
+    "sqlite": true,
+    "worker": true,
+    "esm": true,
+    "crypto": "ba9c736f19e7f60b7f6764adb0b7908c0a2b394e09b6c09863528c7f2bc86095",
+    "harnessStarted": false,
+    "androidUid": 10751,
+    "androidPid": 12363,
+    "identitySource": "android.os.Process"
+  },
+  "executableResult": {
+    "schemaVersion": 1,
+    "node": "v24.22.1",
+    "platform": "android",
+    "arch": "arm64",
+    "pid": 12971,
+    "uid": null,
+    "uidApiAvailable": false,
+    "execPath": "<installer-native-dir>/libnode_executable.so",
+    "childNodeLaunch": "passed",
+    "nativeLock": true,
+    "network": {
+      "dns": true,
+      "tls": true,
+      "failure": null
+    },
+    "sqlite": true,
+    "worker": true,
+    "esm": true,
+    "crypto": "ba9c736f19e7f60b7f6764adb0b7908c0a2b394e09b6c09863528c7f2bc86095",
+    "harnessStarted": false,
+    "executionStrategy": "packaged-executable",
+    "kernelIdentity": {
+      "pid": 12971,
+      "parentPid": 12936,
+      "uid": 10751,
+      "source": "/proc/self/status"
+    },
+    "childNode": {
+      "pid": 12979,
+      "parentPid": 12971,
+      "uid": 10751,
+      "source": "/proc/self/status",
+      "node": "v24.22.1",
+      "platform": "android",
+      "arch": "arm64",
+      "execPath": "<installer-native-dir>/libnode_executable.so",
+      "cwd": "/data/data/ai.deepseek.harness.android.runtimepoc/files/executable-probe"
+    },
+    "childResult": {
+      "exitCode": 0,
+      "stdout": "{\"pid\":12979,\"parentPid\":12971,\"uid\":10751,\"source\":\"/proc/self/status\",\"node\":\"v24.22.1\",\"platform\":\"android\",\"arch\":\"arm64\",\"execPath\":\"<installer-native-dir>/libnode_executable.so\",\"cwd\":\"/data/data/ai.deepseek.harness.android.runtimepoc/files/executable-probe\"}",
+      "stderr": "WARNING: linker: Warning: \"<installer-native-dir>/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+    },
+    "supervisorPid": 12936,
+    "supervisorUid": 10751,
+    "installedExecutableWritable": false,
+    "device": {
+      "model": "Redmi Note 8 Pro",
+      "manufacturer": "Xiaomi",
+      "androidRelease": "11",
+      "api": 30
+    }
+  },
+  "nodeApiProbeUserReportedPass": true,
+  "installedNodeAndChildUserReportedPass": true,
+  "harnessPhoneGatePassed": false,
+  "limitations": [
+    "No developer-controlled ADB instrumentation or phone logs",
+    "One Android 11/API 30 physical device; Android 10 and recent/16 KB devices not tested",
+    "Original Harness profile, session recovery, agent tool approval and model requests not executed",
+    "Observed linker warning retained; nonfatal in this run, not qualified on other Android releases"
+  ]
+}

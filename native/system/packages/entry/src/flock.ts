@@ -12,6 +12,14 @@ let binding: FlockBinding | undefined
 function loadBinding(): FlockBinding {
   if (binding) return binding
   const { platform, arch } = process
+  if (platform === 'android' && arch === 'arm64') {
+    // The Android carrier packages this binding in the installer's native-library
+    // directory. Resolve its fixed SONAME through that carrier's linker namespace.
+    const nativeModule = { exports: {} }
+    process.dlopen(nativeModule, 'libharness_system.so')
+    binding = nativeModule.exports as FlockBinding
+    return binding
+  }
   if (platform !== 'linux' && platform !== 'darwin') {
     throw Object.assign(new Error(`flock is not supported on ${platform}-${arch}`), {
       code: 'ERR_FLOCK_UNSUPPORTED_PLATFORM',

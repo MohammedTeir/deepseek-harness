@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "milestone": "fixed-command-native-components",
+  "date": "2026-11-12",
+  "environment": "Linux cloud host; JDK 21.0.13; Android compile SDK 36, min API 29; no connected physical device",
+  "status": "IN PROGRESS",
+  "checks": [
+    {
+      "command": "JAVA_HOME=/workspace/.setup-tools/jdk-21.0.13+9 python3 -m unittest discover -s apps/android/tests -p test_command_grant.py -v",
+      "exitCode": 0,
+      "status": "PASS",
+      "fixtureModes": [
+        "approval",
+        "mutation",
+        "expiry",
+        "revocation",
+        "concurrency",
+        "immutable",
+        "process",
+        "failed-launch"
+      ],
+      "concurrentConsumers": 32,
+      "successfulConsumers": 1,
+      "hostExecutable": "/usr/bin/pwd",
+      "logSha256": "c50f1835aac47748bf23dc165e471b0d108b5a5e5fa2e9b3c87caeb60b9a2a79"
+    },
+    {
+      "command": "JAVA_HOME=/workspace/.setup-tools/jdk-21.0.13+9 python3 -m unittest discover -s apps/android/tests -p test_owned_process.py -v",
+      "exitCode": 0,
+      "status": "PASS",
+      "tests": 5
+    },
+    {
+      "command": "./apps/android/gradlew -p apps/android :app:compileDebugJavaWithJavac :app:lintDebug --console=plain -Pkotlin.compiler.execution.strategy=in-process",
+      "exitCode": 0,
+      "status": "PASS",
+      "tasks": 30,
+      "durationSeconds": 41,
+      "logSha256": "0db227fd5d3eca7a102f974de1c558e0e8e968d3ae6754f13f77d39b4b2c4f34",
+      "warning": "Read-only /home/agent/.android/analytics.settings; Android metrics unavailable"
+    },
+    {
+      "command": "pnpm run test:docs",
+      "status": "PASS",
+      "exitCode": 0,
+      "gatesPassed": 21,
+      "durationSeconds": 42.7,
+      "initialFailure": "New baseline commit reference rejected by repository-reference policy; replaced with maintained physical-review evidence path. Validator unchanged."
+    },
+    {
+      "command": "pnpm run doc-sync",
+      "status": "PASS",
+      "exitCode": 0,
+      "gatesPassed": 43,
+      "durationSeconds": 178.84
+    }
+  ],
+  "sourceSha256": {
+    "app/src/main/java/io/github/mohammedteir/deepseekharness/CommandGrant.java": "5e5f9afa184a0b6bf29bc39c766a5d456804b788641fa4e7ac7ebe09e718557e",
+    "app/src/main/java/io/github/mohammedteir/deepseekharness/FixedPwdExecution.java": "f0c6c5f3218a3d09d65b32d88b1f4d9b2700b2c96d45ad8330f93e84ca1034da",
+    "tests/CommandGrantFixture.java": "74796436c01546f787efa5f7d8462e34ff7ba5802491486c6a7611253789b97b",
+    "tests/test_command_grant.py": "dd15881d31e525c0dcf64eca07d79d7b3835215f0bec1227aef4a1cb53f9488b"
+  },
+  "originalToolIntegrated": false,
+  "nativeApprovalUiImplemented": false,
+  "ipcImplemented": false,
+  "androidCommandExecutionVerified": false,
+  "newApkDelivered": false,
+  "gate2Passed": false,
+  "baselineEvidence": "apps/android/evidence/runtime-apk2-physical-review.json"
+}

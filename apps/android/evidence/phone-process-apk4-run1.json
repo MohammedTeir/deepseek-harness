@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "platform": "android",
+  "suite": "android-process-capability-v1",
+  "status": "PASS",
+  "uid": 10751,
+  "pid": 10107,
+  "parentPid": 10069,
+  "kernel": "4.14.186-g4e5507d5edae",
+  "architecture": "aarch64",
+  "execPath": "/data/app/~~PAAYE66OHLQLxossmRnyWQ==/ai.deepseek.harness.android.runtimepoc-cvQ7g4cju7ILzxTpYeG-Ng==/lib/arm64/libharness_process_probe.so",
+  "cwd": "/data/data/ai.deepseek.harness.android.runtimepoc/files/process-probe/run-528561090361315824",
+  "cases": {
+    "streaming": {
+      "pid": 10110,
+      "exitCode": 7,
+      "signal": 0,
+      "reaped": true,
+      "timedOut": false,
+      "explicitCancellation": false,
+      "stdoutReads": 2,
+      "stderrReads": 2,
+      "streamObservedBeforeAckAndExit": true,
+      "stdout": "OUT-1\nOUT-2\n",
+      "stderr": "ERR-1\nERR-2\n"
+    },
+    "backpressure": {
+      "pid": 10111,
+      "exitCode": 9,
+      "signal": 0,
+      "reaped": true,
+      "timedOut": false,
+      "explicitCancellation": false,
+      "stdoutReads": 16,
+      "stderrReads": 16,
+      "streamObservedBeforeAckAndExit": false,
+      "stdoutBytes": 16384,
+      "stderrBytes": 16384,
+      "completeBytesVerified": true
+    },
+    "missingExecutable": {
+      "pid": 10112,
+      "exitCode": 127,
+      "signal": 0,
+      "reaped": true,
+      "timedOut": false,
+      "explicitCancellation": false,
+      "stdoutReads": 0,
+      "stderrReads": 1,
+      "streamObservedBeforeAckAndExit": false,
+      "stdout": "",
+      "stderr": "exec errno=2\n"
+    },
+    "cancellation": {
+      "pid": 10113,
+      "exitCode": -1,
+      "signal": 15,
+      "reaped": true,
+      "timedOut": false,
+      "explicitCancellation": true,
+      "stdoutReads": 1,
+      "stderrReads": 0,
+      "streamObservedBeforeAckAndExit": false,
+      "stdout": "READY\n",
+      "stderr": ""
+    },
+    "timeoutAndKill": {
+      "pid": 10116,
+      "exitCode": -1,
+      "signal": 9,
+      "reaped": true,
+      "timedOut": true,
+      "explicitCancellation": false,
+      "stdoutReads": 1,
+      "stderrReads": 0,
+      "streamObservedBeforeAckAndExit": false,
+      "stdout": "READY\n",
+      "stderr": ""
+    },
+    "descendantGroup": {
+      "pid": 10129,
+      "exitCode": 0,
+      "signal": 0,
+      "reaped": true,
+      "timedOut": false,
+      "explicitCancellation": true,
+      "stdoutReads": 2,
+      "stderrReads": 0,
+      "streamObservedBeforeAckAndExit": false,
+      "stdout": "GRANDCHILD:10130\nREADY\nGRANDCHILD-REAPED\n",
+      "stderr": "",
+      "grandchildPid": 10130,
+      "descendantReaped": true
+    },
+    "systemShell": {
+      "pid": 10131,
+      "exitCode": 7,
+      "signal": 0,
+      "reaped": true,
+      "timedOut": false,
+      "explicitCancellation": false,
+      "stdoutReads": 2,
+      "stderrReads": 1,
+      "streamObservedBeforeAckAndExit": false,
+      "stdout": "SH-OUT\n/data/data/ai.deepseek.harness.android.runtimepoc/files/process-probe/run-528561090361315824\n",
+      "stderr": "SH-ERR\n"
+    }
+  },
+  "discovery": {
+    "sh": {
+      "path": "/system/bin/sh",
+      "executable": true,
+      "errno": 0
+    },
+    "pwd": {
+      "path": "/system/bin/pwd",
+      "executable": true,
+      "errno": 0
+    },
+    "printf": {
+      "path": "/system/bin/printf",
+      "executable": true,
+      "errno": 0
+    },
+    "cat": {
+      "path": "/system/bin/cat",
+      "executable": true,
+      "errno": 0
+    },
+    "sleep": {
+      "path": "/system/bin/sleep",
+      "executable": true,
+      "errno": 0
+    },
+    "echo": {
+      "path": "/system/bin/echo",
+      "executable": true,
+      "errno": 0
+    },
+    "stty": {
+      "path": "/system/bin/stty",
+      "executable": true,
+      "errno": 0
+    },
+    "toybox": {
+      "path": "/system/bin/toybox",
+      "executable": true,
+      "errno": 0
+    },
+    "git": {
+      "path": "/system/bin/git",
+      "executable": false,
+      "errno": 2
+    },
+    "curl": {
+      "path": "/system/bin/curl",
+      "executable": false,
+      "errno": 2
+    },
+    "python3": {
+      "path": "/system/bin/python3",
+      "executable": false,
+      "errno": 2
+    },
+    "ssh": {
+      "path": "/system/bin/ssh",
+      "executable": false,
+      "errno": 2
+    }
+  },
+  "pty": {
+    "status": "PASS",
+    "pid": 10134,
+    "reaped": true,
+    "exitCode": 0,
+    "combinedOutput": "TTY-READY\r\npty-input\r\nTTY-INPUT:pty-input ROWS:40 COLS:100\r\nTTY-STDERR\r\n",
+    "stdinStdoutStderrAreTty": true,
+    "resizeAndInputVerified": true,
+    "stderrMergedByPty": true
+  },
+  "shellTestPath": "/system/bin/sh",
+  "nativeWorkersRequireParentDeathKill": true,
+  "generalShellProviderImplemented": false,
+  "originalTerminalIntegrated": false,
+  "descendantTreeCleanupTested": true,
+  "descendantCleanupScope": "cooperative native worker group; not arbitrary trees or OS process death",
+  "gate3Passed": false,
+  "nativeExitCode": 0,
+  "nativeStderr": "HARNESS_PROCESS_REAPED pid=10113\nHARNESS_PROCESS_READY pid=10116 mode=--ignore-term\nHARNESS_PROCESS_REAPED pid=10116\nHARNESS_PROCESS_REAPED pid=10129\n",
+  "apkSha256": "a64622d92a7fced4d07b20e5d9e0ed1ebaf4b3c322e32cae50eb8a7b4bb18844",
+  "nativeProbeSha256": "d136b262d110039dff02b788844dd563db3f4c24b629a9fed767f37d0fa372d3",
+  "installedProbeWritable": false,
+  "supervisorPid": 10069,
+  "supervisorUid": 10751,
+  "expectedWorkspace": "/data/data/ai.deepseek.harness.android.runtimepoc/files/process-probe/run-528561090361315824",
+  "testTimeMillis": 1794555495747,
+  "evidenceDirectory": "run-528561090361315824",
+  "device": {
+    "model": "Redmi Note 8 Pro",
+    "androidRelease": "11",
+    "api": 30,
+    "abi": "arm64-v8a,armeabi-v7a,armeabi"
+  }
+}

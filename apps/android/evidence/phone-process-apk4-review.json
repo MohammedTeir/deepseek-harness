@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-11-13",
+  "evidenceAttribution": "User-reported physical phone execution; not developer-controlled ADB or attestation",
+  "rawEvidenceSha256": "c4daf62d17474a4170efbcc55181e883428b17809d522c74c9a76388b2398164",
+  "device": {
+    "model": "Redmi Note 8 Pro",
+    "androidRelease": "11",
+    "api": 30,
+    "abi": "arm64-v8a,armeabi-v7a,armeabi"
+  },
+  "kernel": "4.14.186-g4e5507d5edae",
+  "testTimeMillis": 1794555495747,
+  "apkSha256": "a64622d92a7fced4d07b20e5d9e0ed1ebaf4b3c322e32cae50eb8a7b4bb18844",
+  "nativeProbeSha256": "d136b262d110039dff02b788844dd563db3f4c24b629a9fed767f37d0fa372d3",
+  "selectedDeviceCapabilityDecision": "PASS",
+  "gate3Status": "IN PROGRESS",
+  "rawGate3PassedRetained": false,
+  "generalShellProviderImplemented": false,
+  "originalTerminalIntegrated": false,
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "apps/android/scripts/validate_process_result.py",
+        "apps/android/evidence/phone-process-apk4-run1.json",
+        "--build-record",
+        "apps/android/evidence/process-apk4-build.json"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "output": "PASS: supplied OS probe record is consistent; device attribution and remaining terminal capabilities require review\n"
+    },
+    {
+      "command": "python3 -m unittest discover -s apps/android/tests -p 'test_process_result_validation.py' -v",
+      "exitCode": 0,
+      "status": "PASS",
+      "tests": 2,
+      "scope": "Synthetic parser regressions; not physical evidence"
+    },
+    {
+      "command": "pnpm run doc-sync",
+      "exitCode": 0,
+      "status": "PASS",
+      "gates": 43,
+      "summary": "run-gates: 43 passed, 0 failed, 0 skipped in 175.78s.",
+      "logSha256": "61fa5cb97265b65df27d11d55398f098652b605d612a7b485bbb6ea79c3c2cad"
+    },
+    {
+      "command": "pnpm run lint",
+      "exitCode": 0,
+      "status": "PASS",
+      "logSha256": "2e0036674f075afecce3cc8486903a25a523a370331f5d57a16abb93c8384efc",
+      "retainedWarning": "Existing unused oxlint-disable in packages/experimental/client-ui-cot-translation/src/index.ts:82:9"
+    }
+  ],
+  "unverified": [
+    "API 29",
+    "Recent Android version",
+    "Activity/service/OS death cleanup",
+    "Actual parent-death termination",
+    "Arbitrary process-tree cleanup",
+    "PTY job control and Ctrl-C",
+    "Original terminal backend integration",
+    "Model request",
+    "Hostile same-UID plugin isolation"
+  ],
+  "toolDiscoveryScope": "Exact /system/bin paths only; access checks do not certify full command behavior",
+  "remainingBlockers": {
+    "targetVersionCoverage": "API 29 and recent Android are not exercised by this report",
+    "originalTerminal": "The fixed native PTY child is not an interactive shell or Harness terminal backend"
+  }
+}

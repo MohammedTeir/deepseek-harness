@@ -7,10 +7,10 @@
  * @module @deepseek-ai/dsh-session-persistence-jsonl/generation
  */
 
+import { publishPreparedFileExclusive } from '@deepseek-ai/node-addon-system/publish'
 import { currentSessionMessageProjections } from '@deepseek-ai/dsh-session-format-catalog/message-projections'
 import { createHash, randomBytes } from 'node:crypto'
 import {
-  link as fsLink,
   lstat as fsLstat,
   open as fsOpen,
   readFile as fsReadFile,
@@ -179,7 +179,8 @@ interface GenerationFileSystem {
   readdir(path: string): Promise<string[]>
   stat(path: string): Promise<JsonlPhysicalIdentity>
   lstat(path: string): Promise<{ isFile(): boolean; isSymbolicLink(): boolean }>
-  link(existingPath: string, newPath: string): Promise<void>
+  /** Exclusive prepared-file publication; Android consumes staging on success. */
+  publishExclusive(existingPath: string, newPath: string): Promise<void>
   rm(path: string): Promise<void>
 }
 
@@ -219,7 +220,7 @@ const defaultFileSystem: GenerationFileSystem = {
   readdir: path => fsReaddir(path),
   stat: path => fsStat(path, { bigint: true }),
   lstat: path => fsLstat(path),
-  link: fsLink,
+  publishExclusive: publishPreparedFileExclusive,
   rm: path => fsRm(path, { force: true }),
 }
 
@@ -831,7 +832,7 @@ async function publishCurrentExclusive(
     }
   }
   try {
-    await internals.fs.link(staged, currentPath)
+    await internals.fs.publishExclusive(staged, currentPath)
   } catch (error) {
     /* v8 ignore else -- a non-collision filesystem error propagates unchanged. */
     if (isEEXIST(error)) return false

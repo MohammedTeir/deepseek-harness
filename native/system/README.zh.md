@@ -39,3 +39,5 @@ Linux x64/arm64 包包含静态 Landlock 可执行文件，以及分别用于 gl
 ### Dev Note
 
 无。
+
+`@deepseek-ai/node-addon-system/publish` 导出 `publishPreparedFileExclusive(source, destination)`。非 Android 调用方保留 fs.link 语义。Android ARM64 通过宿主固定的 libharness_atomic.so 与异步 Node-API v8 工作，在同一个规范化、归当前用户所有的 0700 目录内调用 renameat2(RENAME_NOREPLACE) 发布。暂存文件名必须不同，仅含小写 ASCII 字母、数字、点或连字符，且不超过 120 字节。Android 成功时消耗暂存路径，其他平台保留该路径。调用方在发布前 fsync 数据、发布后 fsync 目标目录，并在清理暂存路径时允许 ENOENT。EEXIST 不替换目标；加载、权限或不支持错误均拒绝且不回退。Node 将 errno 95 命名为 ENOTSUP（EOPNOTSUPP 的别名）。发布后的失败不表示回滚。同 UID 恶意修改暂存文件、跨目录发布及保留源文件的别名不属于此 API。Android 宿主提供匹配绑定，npm 平台包不提供。

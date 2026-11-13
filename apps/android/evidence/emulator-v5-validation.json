@@ -1,0 +1,387 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-11-12",
+  "evidenceKind": "Developer-controlled software-emulator attempt",
+  "status": "BLOCKED",
+  "androidInstrumentationExecuted": false,
+  "harnessVerified": false,
+  "host": {
+    "kvmAvailable": false,
+    "acceleration": "off",
+    "emulatorVersion": "37.2.13",
+    "avd": "harness-api30-validation",
+    "cpuCores": 2,
+    "ramMiB": 4096,
+    "heapMiB": 256,
+    "display": "480x800"
+  },
+  "device": {
+    "ro.build.version.release": "11",
+    "ro.build.version.sdk": "30",
+    "ro.build.version.security_patch": "2021-08-05",
+    "ro.build.fingerprint": "google/sdk_gphone_x86_64/generic_x86_64_arm64:11/RSR1.240422.006/12134477:userdebug/dev-keys",
+    "ro.product.cpu.abilist": "x86_64,x86,arm64-v8a,armeabi-v7a,armeabi",
+    "ro.kernel.qemu": "1",
+    "ro.dalvik.vm.native.bridge": "libndk_translation.so",
+    "kernelArchitecture": "x86_64",
+    "pageSize": "4096"
+  },
+  "apks": {
+    "app-debug.apk": "b98affd15239db97870d9d1a47939418117d3058b914606d5cf146eaf952b97b",
+    "app-debug-androidTest.apk": "65b9751ebf1e58d2533edd9d7bcd96aca8be0f8bd8b7c37c61351583aad0456d"
+  },
+  "attempts": [
+    {
+      "schemaVersion": 1,
+      "proof": "runtime",
+      "observedAt": "2026-11-12T10:44:57.479091+00:00",
+      "status": "BLOCKED",
+      "harnessVerified": false,
+      "steps": [
+        {
+          "command": [
+            "get-state"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "shell",
+            "getprop",
+            "ro.build.version.release"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "shell",
+            "getprop",
+            "ro.build.version.sdk"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "shell",
+            "getprop",
+            "ro.build.version.security_patch"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "shell",
+            "getprop",
+            "ro.build.fingerprint"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "shell",
+            "getprop",
+            "ro.product.cpu.abilist"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "shell",
+            "getprop",
+            "ro.kernel.qemu"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "shell",
+            "getprop",
+            "ro.dalvik.vm.native.bridge"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "shell",
+            "uname",
+            "-m"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "shell",
+            "getconf",
+            "PAGE_SIZE"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "install",
+            "-r",
+            "/workspace/deepseek-harness/apps/android/app/build/outputs/apk/debug/app-debug.apk"
+          ],
+          "exitCode": 1
+        }
+      ],
+      "device": {
+        "ro.build.version.release": "11",
+        "ro.build.version.sdk": "30",
+        "ro.build.version.security_patch": "2021-08-05",
+        "ro.build.fingerprint": "google/sdk_gphone_x86_64/generic_x86_64_arm64:11/RSR1.240422.006/12134477:userdebug/dev-keys",
+        "ro.product.cpu.abilist": "x86_64,x86,arm64-v8a,armeabi-v7a,armeabi",
+        "ro.kernel.qemu": "1",
+        "ro.dalvik.vm.native.bridge": "libndk_translation.so",
+        "kernelArchitecture": "x86_64",
+        "pageSize": "4096"
+      },
+      "apks": {
+        "app-debug.apk": "b98affd15239db97870d9d1a47939418117d3058b914606d5cf146eaf952b97b",
+        "app-debug-androidTest.apk": "65b9751ebf1e58d2533edd9d7bcd96aca8be0f8bd8b7c37c61351583aad0456d"
+      },
+      "failure": "Performing Streamed Install\nadb: failed to install /workspace/deepseek-harness/apps/android/app/build/outputs/apk/debug/app-debug.apk: cmd: Can't find service: package"
+    },
+    {
+      "schemaVersion": 1,
+      "proof": "runtime",
+      "observedAt": "2026-11-12T10:49:00.425518+00:00",
+      "status": "BLOCKED",
+      "harnessVerified": false,
+      "steps": [
+        {
+          "command": [
+            "get-state"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "shell",
+            "getprop",
+            "ro.build.version.release"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "shell",
+            "getprop",
+            "ro.build.version.sdk"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "shell",
+            "getprop",
+            "ro.build.version.security_patch"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "shell",
+            "getprop",
+            "ro.build.fingerprint"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "shell",
+            "getprop",
+            "ro.product.cpu.abilist"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "shell",
+            "getprop",
+            "ro.kernel.qemu"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "shell",
+            "getprop",
+            "ro.dalvik.vm.native.bridge"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "shell",
+            "uname",
+            "-m"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "shell",
+            "getconf",
+            "PAGE_SIZE"
+          ],
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "install",
+            "-r",
+            "/workspace/deepseek-harness/apps/android/app/build/outputs/apk/debug/app-debug.apk"
+          ],
+          "exitCode": 1
+        }
+      ],
+      "device": {
+        "ro.build.version.release": "11",
+        "ro.build.version.sdk": "30",
+        "ro.build.version.security_patch": "2021-08-05",
+        "ro.build.fingerprint": "google/sdk_gphone_x86_64/generic_x86_64_arm64:11/RSR1.240422.006/12134477:userdebug/dev-keys",
+        "ro.product.cpu.abilist": "x86_64,x86,arm64-v8a,armeabi-v7a,armeabi",
+        "ro.kernel.qemu": "1",
+        "ro.dalvik.vm.native.bridge": "libndk_translation.so",
+        "kernelArchitecture": "x86_64",
+        "pageSize": "4096"
+      },
+      "apks": {
+        "app-debug.apk": "b98affd15239db97870d9d1a47939418117d3058b914606d5cf146eaf952b97b",
+        "app-debug-androidTest.apk": "65b9751ebf1e58d2533edd9d7bcd96aca8be0f8bd8b7c37c61351583aad0456d"
+      },
+      "failure": "Performing Streamed Install\nadb: failed to install /workspace/deepseek-harness/apps/android/app/build/outputs/apk/debug/app-debug.apk: cmd: Can't find service: package"
+    }
+  ],
+  "readiness": {
+    "ready": true,
+    "history": [
+      {
+        "elapsedSeconds": 0,
+        "adb": "error: device offline",
+        "boot": "",
+        "package": "",
+        "settings": "",
+        "ready": false
+      },
+      {
+        "elapsedSeconds": 49,
+        "adb": "device",
+        "boot": "",
+        "package": "Service package: not found",
+        "settings": "cmd: Can't find service: settings",
+        "ready": false
+      },
+      {
+        "elapsedSeconds": 157,
+        "adb": "device",
+        "boot": "",
+        "package": "Service package: found",
+        "settings": "cmd: Can't find service: settings",
+        "ready": false
+      },
+      {
+        "elapsedSeconds": 173,
+        "adb": "device",
+        "boot": "",
+        "package": "Service package: found",
+        "settings": "0",
+        "ready": false
+      },
+      {
+        "elapsedSeconds": 291,
+        "adb": "device",
+        "boot": "",
+        "package": "Service package: found",
+        "settings": "1",
+        "ready": false
+      },
+      {
+        "elapsedSeconds": 346,
+        "adb": "device",
+        "boot": "1",
+        "package": "Service package: found",
+        "settings": "ADB request timed out",
+        "ready": false
+      },
+      {
+        "elapsedSeconds": 380,
+        "adb": "device",
+        "boot": "1",
+        "package": "Service package: found",
+        "settings": "1",
+        "ready": true
+      },
+      {
+        "elapsedSeconds": 452,
+        "adb": "device",
+        "boot": "1",
+        "package": "Service package: found",
+        "settings": "ADB request timed out",
+        "ready": false
+      },
+      {
+        "elapsedSeconds": 475,
+        "adb": "device",
+        "boot": "1",
+        "package": "Service package: found",
+        "settings": "1",
+        "ready": true
+      },
+      {
+        "elapsedSeconds": 487,
+        "adb": "device",
+        "boot": "1",
+        "package": "Service package: not found",
+        "settings": "cmd: Can't find service: settings",
+        "ready": false
+      },
+      {
+        "elapsedSeconds": 559,
+        "adb": "device",
+        "boot": "1",
+        "package": "Service package: found",
+        "settings": "cmd: Can't find service: settings",
+        "ready": false
+      },
+      {
+        "elapsedSeconds": 569,
+        "adb": "device",
+        "boot": "1",
+        "package": "Service package: found",
+        "settings": "1",
+        "ready": true
+      }
+    ]
+  },
+  "observedFrameworkFailure": "DeadSystemException: The system died; earlier logs will point to the root cause",
+  "failureAttribution": "Package service disappeared during both real APK installation attempts; instrumentation was not reached. Framework root cause not established.",
+  "translationLimit": "x86_64 guest advertises libndk_translation ARM support; this is not native ARM64 device qualification",
+  "logs": [
+    {
+      "localPath": "/tmp/android-validation-emulator.log",
+      "bytes": 9511,
+      "sha256": "8a2173fa355097a61a759c72825373893b968e9fb2e1a8c32a4d9b0820bd1016",
+      "committed": false
+    },
+    {
+      "localPath": "/tmp/android-validation-crashes-latest.log",
+      "bytes": 1182,
+      "sha256": "b41fff8838ead23e9412e49abb30eacff174fd8000650c2af1a1d2b2ef647778",
+      "committed": false
+    },
+    {
+      "localPath": "/tmp/android-validation-readiness.json",
+      "bytes": 2248,
+      "sha256": "04028fad9a1a498604e31cf1c6446a09645d24b0b5e4abd5b0be4bf473bb75ea",
+      "committed": false
+    },
+    {
+      "localPath": "/tmp/android-validation-final-logcat.txt",
+      "bytes": 427798,
+      "sha256": "7458e91426ce8816882b4feef711c70d81849667a50aaea51f5c40f8ac5b5d61",
+      "committed": false
+    }
+  ]
+}

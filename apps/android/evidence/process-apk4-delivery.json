@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-13",
+  "url": "https://filebin.net/harness-process-28ee971f577257bb/deepseek-harness-runtime-apk4.zip",
+  "archiveSha256": "423d80eaf2e4ec4ec6902aaa3b0f5163793874240c12395511f52d3bcc5a4faa",
+  "apkSha256": "a64622d92a7fced4d07b20e5d9e0ed1ebaf4b3c322e32cae50eb8a7b4bb18844",
+  "apkBytes": 48597051,
+  "numberOfApksInArchive": 1,
+  "uploadExitCode": 0,
+  "downloadExitCode": 0,
+  "downloadedArchiveAndApkHashesMatch": true,
+  "serviceReportedExpiry": "2026-11-20T07:30:24.414396Z",
+  "initialDownloadVerification": "Initial GET did not match archive; redirected binary GET verified exact uploaded bytes.",
+  "physicalDeviceProcessVerified": false,
+  "gate3Passed": false
+}

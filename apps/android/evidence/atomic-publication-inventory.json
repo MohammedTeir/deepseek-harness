@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-11-12",
+  "scope": "Maintained direct and aliased filesystem publication callers; not a replacement for the full locked-dependency audit",
+  "searches": [
+    "rg -n 'linkFile|linkSync|linkat|await link' packages native apps/cli --glob '!**/lib/**' --glob '!**/node_modules/**'",
+    "Reviewed original node:fs imports, materialization and migration generation helpers, attachment staging/alias and storage-json replacement"
+  ],
+  "callSites": [
+    {
+      "path": "packages/session/session-persistence-jsonl/src/index.ts",
+      "lineAtInspection": 1304,
+      "sourceSha256": "1475457333ca86a01f7ea72dcf33de25b02be8b9c670fb32e8b99d8efb54cd81",
+      "expression": "await link(tmp, finalPath)",
+      "role": "session-materialization",
+      "independentPublisherCollisionPossible": true,
+      "requirements": "Atomic no-replace, file sync then directory sync; cleanup unpublished stage on failure.",
+      "androidOperationQualification": "NOT YET VERIFIED beyond v8 hardlink preflight",
+      "decision": "candidate-after-physical-gate",
+      "productionModified": false
+    },
+    {
+      "path": "packages/session/session-persistence-jsonl/src/generation.ts",
+      "lineAtInspection": 834,
+      "sourceSha256": "43a400aaa47be789173ef4d5dd3226bce374cbfac300c2bff199b5a7d108efd6",
+      "expression": "await internals.fs.link(staged, currentPath)",
+      "role": "generation-and-migration-publication",
+      "independentPublisherCollisionPossible": true,
+      "requirements": "EEXIST validates existing generation; other failures propagate; directory sync on publication.",
+      "androidOperationQualification": "NOT YET VERIFIED beyond v8 hardlink preflight",
+      "decision": "candidate-after-physical-gate",
+      "productionModified": false
+    },
+    {
+      "path": "packages/fs/fs-local/src/fsio.ts",
+      "lineAtInspection": 653,
+      "sourceSha256": "c8eb0a79a08a8586cebc37b6b633721cc764fee806566c7beaeb20979ae8e66c",
+      "expression": "await linkFile(tempPath, absolutePath)",
+      "role": "create-if-absent",
+      "independentPublisherCollisionPossible": true,
+      "requirements": "No-replace across private staging subdirectory and target parent; guarded create errors.",
+      "androidOperationQualification": "NOT YET VERIFIED beyond v8 hardlink preflight",
+      "decision": "separate-cross-directory-qualification",
+      "productionModified": false
+    },
+    {
+      "path": "packages/attachment/attachment-local/src/store.ts",
+      "lineAtInspection": 359,
+      "sourceSha256": "d685538bd4c16272141d3cb45d472341d45c3f0e2d51c2edf20075a3773b8177",
+      "expression": "await link(staged.path, target)",
+      "role": "immutable-object-publication",
+      "independentPublisherCollisionPossible": true,
+      "requirements": "Exclusive publication or EEXIST digest verification; read-only mode and ancestor sync.",
+      "androidOperationQualification": "NOT YET VERIFIED beyond v8 hardlink preflight",
+      "decision": "separate-cross-directory-and-dedup-qualification",
+      "productionModified": false
+    },
+    {
+      "path": "packages/attachment/attachment-local/src/store.ts",
+      "lineAtInspection": 283,
+      "sourceSha256": "d685538bd4c16272141d3cb45d472341d45c3f0e2d51c2edf20075a3773b8177",
+      "expression": "await link(source, target)",
+      "role": "immutable-alias",
+      "independentPublisherCollisionPossible": true,
+      "requirements": "Retain original source and add another name; EEXIST integrity check.",
+      "androidOperationQualification": "NOT YET VERIFIED beyond v8 hardlink preflight",
+      "decision": "blocked-not-equivalent-to-source-consuming-rename",
+      "productionModified": false
+    }
+  ],
+  "excludedSemantics": [
+    "storage-json intentional atomic replacement",
+    "experimental webworker-runtime in-memory links",
+    "PTC ESM module.link",
+    "symlink/unlink/readlink operations",
+    "Windows platform publication; unchanged"
+  ],
+  "nativePublisherFoundInSystemSources": false,
+  "sharedAdapterDecision": "Candidate for prepared file publication only after physical verification; immutable aliases and cross-directory staging require separate review."
+}

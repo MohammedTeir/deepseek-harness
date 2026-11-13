@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "environment": {
+    "platform": "linux",
+    "arch": "x64",
+    "node": "v24.22.1"
+  },
+  "profile": "sdk-minimal",
+  "serverInfo": {
+    "name": "deepseek-harness-sdk-runtime",
+    "version": "0.0.1"
+  },
+  "sessionId": "android-host-reference-a1d4b5a2-6279-427b-b1cb-8734863ed596",
+  "realProfileInitialized": true,
+  "sessionRecoveredAcrossRuntimeRestart": true,
+  "recoveredNondefaultDirectory": true,
+  "persistedJsonlSha256": {
+    "--tmp-android-host-profile-gwAGtD-workspace--/android-host-reference-a1d4b5a2-6279-427b-b1cb-8734863ed596/session.v4.jsonl": "ea6d1986ad9ecaa22be32fd84b0bd30a9bd4e71169f6bdfe32ab509a98d6faa7"
+  },
+  "modelRequestExecuted": false,
+  "androidVerified": false,
+  "harnessPhoneGatePassed": false,
+  "command": [
+    "node",
+    "apps/android/tests/host-profile-reference.mjs",
+    "/tmp/android-host-profile-reference-final.json"
+  ],
+  "evidenceKind": "Executed host reference using the original SDK and shipped profile; not Android"
+}

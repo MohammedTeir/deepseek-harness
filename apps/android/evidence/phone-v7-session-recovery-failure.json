@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "evidenceKind": "User-reported manual Android failure",
+  "apkVersionCode": 7,
+  "artifactAttribution": "V7 third-action transcript; phone APK digest and current device properties not independently retrieved",
+  "reportedExitCode": 1,
+  "result": {
+    "schemaVersion": 1,
+    "stage": "session-recovery",
+    "failure": "session \"android-profile-f7251c86-37aa-40b1-953d-161e00c2d8e4\" not found",
+    "harnessStarted": true,
+    "gate2Passed": false
+  },
+  "stderrExcerpt": "JsonRpcResponseError: session \"android-profile-f7251c86-37aa-40b1-953d-161e00c2d8e4\" not found",
+  "linkerWarning": "libc++_shared.so unused processor-specific DT entry 0x70000001; nonfatal before session recovery",
+  "stageInference": "V7 code reaches session-recovery only after the original internal-loader check and both SDK initialize calls complete; no successful recovery or independent binding telemetry is inferred",
+  "androidRootCauseEstablished": false,
+  "gate2Passed": false
+}

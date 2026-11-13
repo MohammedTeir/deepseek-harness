@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-11-12",
+  "records": [
+    {
+      "name": "rename-man",
+      "url": "https://man7.org/linux/man-pages/man2/rename.2.html",
+      "httpStatus": 200,
+      "bytes": 23571,
+      "sha256": "8772946a809a0db54f4854f200908f10bee758ea452e8df5efd955bc3b8e6e57"
+    },
+    {
+      "name": "bionic-stdio",
+      "url": "https://android.googlesource.com/platform/bionic/+/refs/tags/android-10.0.0_r1/libc/include/stdio.h?format=TEXT",
+      "httpStatus": 200,
+      "bytes": 11329,
+      "sha256": "07abb86bc0b0116fd9d8889b9e3871fd6a8bd6c708a813cebf6824dbf4711843"
+    },
+    {
+      "name": "bionic-syscalls",
+      "url": "https://android.googlesource.com/platform/bionic/+/refs/tags/android-10.0.0_r1/libc/SYSCALLS.TXT?format=TEXT",
+      "httpStatus": 200,
+      "bytes": 19048,
+      "sha256": "d7538c6d4850d5cff188502762b9180a792415071bdc52b39ce507db91622994"
+    },
+    {
+      "name": "sepolicy-app",
+      "url": "https://android.googlesource.com/platform/system/sepolicy/+/refs/tags/android-11.0.0_r1/private/app_neverallows.te?format=TEXT",
+      "httpStatus": 200,
+      "bytes": 10683,
+      "sha256": "6fed9c1f174fc47ddc2b5bb6127c7bed55af87b49ec66051c248874550910bf9"
+    },
+    {
+      "name": "selinux-guide",
+      "url": "https://source.android.com/docs/security/features/selinux",
+      "httpStatus": 200,
+      "bytes": 160916,
+      "sha256": "6e6f3a65c06d6256a6ab79ded0a4a33d2144a9b118f9ecdfef1c0047ee2fdf9c"
+    },
+    {
+      "name": "upstream-discussion",
+      "url": "https://api.github.com/repos/deepseek-ai/deepseek-harness/discussions/487",
+      "httpStatus": 200,
+      "bytes": 9586,
+      "sha256": "4ee7476a05c5bb86e0c01fd4e4b307074bfdb2c7bf2148fd53db567564c9481d"
+    },
+    {
+      "name": "linux-arm64",
+      "url": "https://raw.githubusercontent.com/torvalds/linux/v4.14/include/uapi/asm-generic/unistd.h",
+      "httpStatus": 200,
+      "bytes": 30244,
+      "sha256": "5677bbcd5c765af12ec7d38a866e4224a240de42b67c0a0af9cbb596e53a0f53"
+    },
+    {
+      "name": "f2fs",
+      "url": "https://raw.githubusercontent.com/torvalds/linux/v4.14/fs/f2fs/namei.c",
+      "httpStatus": 200,
+      "bytes": 28687,
+      "sha256": "9153dfd0c614da206ee3655ad3804fdfe9acbca9e65626b4ef5b4de9b8e0bc79"
+    },
+    {
+      "name": "ext4",
+      "url": "https://raw.githubusercontent.com/torvalds/linux/v4.14/fs/ext4/namei.c",
+      "httpStatus": 200,
+      "bytes": 105483,
+      "sha256": "00c33de7ea0b66ee1789c98be890e10322ed00773b38e0f09bb68647bc19d53f"
+    },
+    {
+      "name": "bionic-api-map",
+      "url": "https://android.googlesource.com/platform/bionic/+/refs/tags/android-11.0.0_r1/libc/libc.map.txt?format=TEXT",
+      "httpStatus": 200,
+      "bytes": 46131,
+      "sha256": "64fb64b5b1b753690f374bb4eb48718cfb46c25ddadb1b7468b0475bead7b9c2"
+    },
+    {
+      "name": "bionic-seccomp",
+      "url": "https://android.googlesource.com/platform/bionic/+/refs/tags/android-10.0.0_r1/libc/seccomp/arm64_app_policy.cpp?format=TEXT",
+      "failure": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "linux-vfs",
+      "url": "https://raw.githubusercontent.com/torvalds/linux/v4.14/fs/namei.c",
+      "httpStatus": 200,
+      "bytes": 124013,
+      "sha256": "c4e6319a3fdcbebc963470968ecd9b29e89371e7ac8c33488f2539e6822ae1d8"
+    },
+    {
+      "name": "bionic10-tree",
+      "url": "https://android.googlesource.com/platform/bionic/+/refs/tags/android-10.0.0_r1/libc/?format=JSON",
+      "httpStatus": 200,
+      "bytes": 5777,
+      "sha256": "a099a72cf024349bf64ba998c79b062d0678d6c5de1ece3c4fe3c66d27d07d60"
+    },
+    {
+      "name": "bionic10-common-whitelist",
+      "url": "https://android.googlesource.com/platform/bionic/+/refs/tags/android-10.0.0_r1/libc/SECCOMP_WHITELIST_COMMON.TXT?format=TEXT",
+      "httpStatus": 200,
+      "bytes": 4381,
+      "sha256": "905d9ce1b731dca57a14635720a623f317ca999c4a9ac22c2481665dc8f81c79"
+    },
+    {
+      "name": "bionic10-app-whitelist",
+      "url": "https://android.googlesource.com/platform/bionic/+/refs/tags/android-10.0.0_r1/libc/SECCOMP_WHITELIST_APP.TXT?format=TEXT",
+      "httpStatus": 200,
+      "bytes": 2735,
+      "sha256": "46b2fe70fa645154344c3792737fa547212076e3505205f555d071bcd0057497"
+    },
+    {
+      "name": "bionic10-seccomp-source",
+      "url": "https://android.googlesource.com/platform/bionic/+/refs/tags/android-10.0.0_r1/libc/seccomp/seccomp_policy.cpp?format=TEXT",
+      "httpStatus": 200,
+      "bytes": 12650,
+      "sha256": "aeb0671e8685f6816bc71c66df10a70ac104ac85aaa835f92c02796416a5884c"
+    }
+  ],
+  "conclusions": {
+    "aospPolicyForbidsUntrustedHardlinks": true,
+    "vendorAvcCaptured": false,
+    "bionicRenameat2IntroducedApi": 30,
+    "api29DirectSyscallRuntimeVerified": false,
+    "kernelAndFilesystemSupportRequiresDeviceTest": true,
+    "upstreamCheckThenRenamePatchAdopted": false,
+    "aospAndroid10CommonWhitelistIncludesRenameat2": true
+  }
+}

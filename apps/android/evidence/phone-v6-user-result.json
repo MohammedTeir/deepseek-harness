@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-11-12",
+  "evidenceKind": "User-reported manual physical-phone result",
+  "developerControlledInstrumentation": false,
+  "apkVersionCode": 6,
+  "artifactAttribution": "V6 result supplied by user; phone APK digest not independently retrieved",
+  "redaction": "Ephemeral installed native directory replaced consistently with <installer-native-dir>, including child stdout/stderr. Child stdout JSON reserialized after redaction; not byte-for-byte original.",
+  "executableResult": {
+    "schemaVersion": 1,
+    "node": "v24.22.1",
+    "platform": "android",
+    "arch": "arm64",
+    "pid": 23487,
+    "uid": null,
+    "uidApiAvailable": false,
+    "execPath": "<installer-native-dir>/libnode_executable.so",
+    "childNodeLaunch": "passed",
+    "nativeLock": true,
+    "network": {
+      "dns": true,
+      "tls": true,
+      "failure": null
+    },
+    "sqlite": true,
+    "worker": true,
+    "esm": true,
+    "crypto": "ba9c736f19e7f60b7f6764adb0b7908c0a2b394e09b6c09863528c7f2bc86095",
+    "harnessStarted": false,
+    "executionStrategy": "packaged-executable",
+    "kernelIdentity": {
+      "pid": 23487,
+      "parentPid": 23454,
+      "uid": 10751,
+      "source": "/proc/self/status"
+    },
+    "childNode": {
+      "pid": 23495,
+      "parentPid": 23487,
+      "uid": 10751,
+      "source": "/proc/self/status",
+      "node": "v24.22.1",
+      "platform": "android",
+      "arch": "arm64",
+      "execPath": "<installer-native-dir>/libnode_executable.so",
+      "cwd": "/data/data/ai.deepseek.harness.android.runtimepoc/files/executable-probe"
+    },
+    "childResult": {
+      "exitCode": 0,
+      "stdout": "{\"pid\":23495,\"parentPid\":23487,\"uid\":10751,\"source\":\"/proc/self/status\",\"node\":\"v24.22.1\",\"platform\":\"android\",\"arch\":\"arm64\",\"execPath\":\"<installer-native-dir>/libnode_executable.so\",\"cwd\":\"/data/data/ai.deepseek.harness.android.runtimepoc/files/executable-probe\"}",
+      "stderr": "WARNING: linker: Warning: \"<installer-native-dir>/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+    },
+    "supervisorPid": 23454,
+    "supervisorUid": 10751,
+    "installedExecutableWritable": false,
+    "device": {
+      "model": "Redmi Note 8 Pro",
+      "manufacturer": "Xiaomi",
+      "androidRelease": "11",
+      "api": 30
+    },
+    "nativeLockProvider": "upstream-system-entry"
+  },
+  "upstreamLockEntryUserReportedPass": true,
+  "jniModeV6Reported": false,
+  "harnessPhoneGatePassed": false,
+  "limitations": [
+    "Selected packaged-executable mode only; no new JNI result supplied",
+    "One Android 11/API 30 physical phone",
+    "Original Harness profile and approved command not started in this result",
+    "Nonfatal linker warning retained"
+  ]
+}

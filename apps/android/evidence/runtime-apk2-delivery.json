@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-11-12",
+  "url": "https://filebin.net/8508cfc35091759b724b8090/deepseek-harness-runtime-apk2.zip",
+  "archiveSha256": "dc07b4fdee25ab4308ffcdf79a3d5989547ce210585fc077d78289342ed86b6a",
+  "apkSha256": "e6b9efd40b6618c2ee0d3cc85933dd0fed99abac09704397c3d9d2b7d3edac66",
+  "apkBytes": 48055657,
+  "downloadedArchiveAndApkHashesMatch": true,
+  "numberOfApksInArchive": 1,
+  "serviceReportedExpiry": "2026-11-19T18:14:35.781831Z",
+  "androidProfileRecoveryVerified": false,
+  "gate2Passed": false
+}

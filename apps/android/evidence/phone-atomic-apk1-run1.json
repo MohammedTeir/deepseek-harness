@@ -1,0 +1,567 @@
+{
+  "schemaVersion": 1,
+  "suite": "atomic-noreplace-native-v1",
+  "status": "PASS",
+  "uid": 10752,
+  "pid": 22239,
+  "parentPid": 22178,
+  "syscall": "renameat2",
+  "flags": "RENAME_NOREPLACE",
+  "kernel": "4.14.186-g4e5507d5edae",
+  "architecture": "aarch64",
+  "filesystemType": "61267",
+  "selinuxContext": {
+    "available": true,
+    "value": "u:r:untrusted_app:s0:c240,c258,c512,c768\u0000"
+  },
+  "selinuxEnforce": {
+    "available": false,
+    "errno": 13,
+    "code": "EACCES"
+  },
+  "denialAuditRead": "not-requested; capture permitted AVC diagnostics with adb",
+  "tests": [
+    {
+      "name": "A-publication",
+      "status": "PASS",
+      "evidence": {
+        "fileFsync": true,
+        "directoryFsync": true,
+        "sameInode": true,
+        "sourceConsumed": true,
+        "cleanupSynced": true,
+        "publishedIdentity": {
+          "inode": "2129945",
+          "device": "66334",
+          "mode": 33152,
+          "uid": 10752,
+          "gid": 10752,
+          "size": 26,
+          "links": 1,
+          "mtimeSeconds": "1794504730",
+          "mtimeNanos": 534050424,
+          "ctimeSeconds": "1794504730",
+          "ctimeNanos": 538050424
+        }
+      }
+    },
+    {
+      "name": "B-existing-destination",
+      "status": "PASS",
+      "evidence": {
+        "errno": 17,
+        "code": "EEXIST",
+        "beforeContent": "existing destination must survive\n",
+        "afterContent": "existing destination must survive\n",
+        "before": {
+          "inode": "2294432",
+          "device": "66334",
+          "mode": 33152,
+          "uid": 10752,
+          "gid": 10752,
+          "size": 34,
+          "links": 1,
+          "mtimeSeconds": "1794504730",
+          "mtimeNanos": 546050424,
+          "ctimeSeconds": "1794504730",
+          "ctimeNanos": 546050424
+        },
+        "after": {
+          "inode": "2294432",
+          "device": "66334",
+          "mode": 33152,
+          "uid": 10752,
+          "gid": 10752,
+          "size": 34,
+          "links": 1,
+          "mtimeSeconds": "1794504730",
+          "mtimeNanos": 546050424,
+          "ctimeSeconds": "1794504730",
+          "ctimeNanos": 546050424
+        },
+        "destinationSymlinkProtected": true,
+        "loserCleanupSynced": true,
+        "beforeSha256": "23cbcf91524da3cfb6381d46fd69890d03aea3a70a7afcb0abd46542f4515dc5",
+        "afterSha256": "23cbcf91524da3cfb6381d46fd69890d03aea3a70a7afcb0abd46542f4515dc5"
+      }
+    },
+    {
+      "name": "C-independent-processes",
+      "status": "PASS",
+      "evidence": {
+        "processesPerRound": 8,
+        "rounds": 16,
+        "totalPublishers": 128,
+        "totalIndependentObservers": 16,
+        "roundResults": [
+          {
+            "round": 0,
+            "pids": [
+              22242,
+              22248,
+              22246,
+              22245,
+              22244,
+              22241,
+              22243,
+              22247
+            ],
+            "successes": 1,
+            "collisions": 7,
+            "completeReadObservations": 8,
+            "independentObserverPid": 22249,
+            "independentObserverCompleteReads": 32,
+            "lateCollisionProtected": true
+          },
+          {
+            "round": 1,
+            "pids": [
+              22252,
+              22256,
+              22255,
+              22254,
+              22253,
+              22250,
+              22251,
+              22257
+            ],
+            "successes": 1,
+            "collisions": 7,
+            "completeReadObservations": 8,
+            "independentObserverPid": 22258,
+            "independentObserverCompleteReads": 4,
+            "lateCollisionProtected": true
+          },
+          {
+            "round": 2,
+            "pids": [
+              22262,
+              22263,
+              22264,
+              22266,
+              22265,
+              22259,
+              22260,
+              22261
+            ],
+            "successes": 1,
+            "collisions": 7,
+            "completeReadObservations": 8,
+            "independentObserverPid": 22267,
+            "independentObserverCompleteReads": 4,
+            "lateCollisionProtected": true
+          },
+          {
+            "round": 3,
+            "pids": [
+              22269,
+              22275,
+              22273,
+              22272,
+              22268,
+              22271,
+              22274,
+              22270
+            ],
+            "successes": 1,
+            "collisions": 7,
+            "completeReadObservations": 8,
+            "independentObserverPid": 22276,
+            "independentObserverCompleteReads": 4,
+            "lateCollisionProtected": true
+          },
+          {
+            "round": 4,
+            "pids": [
+              22281,
+              22282,
+              22278,
+              22283,
+              22277,
+              22284,
+              22280,
+              22279
+            ],
+            "successes": 1,
+            "collisions": 7,
+            "completeReadObservations": 8,
+            "independentObserverPid": 22285,
+            "independentObserverCompleteReads": 30,
+            "lateCollisionProtected": true
+          },
+          {
+            "round": 5,
+            "pids": [
+              22292,
+              22291,
+              22290,
+              22288,
+              22289,
+              22287,
+              22286,
+              22293
+            ],
+            "successes": 1,
+            "collisions": 7,
+            "completeReadObservations": 8,
+            "independentObserverPid": 22294,
+            "independentObserverCompleteReads": 4,
+            "lateCollisionProtected": true
+          },
+          {
+            "round": 6,
+            "pids": [
+              22301,
+              22299,
+              22300,
+              22296,
+              22295,
+              22297,
+              22302,
+              22298
+            ],
+            "successes": 1,
+            "collisions": 7,
+            "completeReadObservations": 8,
+            "independentObserverPid": 22303,
+            "independentObserverCompleteReads": 4,
+            "lateCollisionProtected": true
+          },
+          {
+            "round": 7,
+            "pids": [
+              22310,
+              22305,
+              22304,
+              22308,
+              22309,
+              22307,
+              22311,
+              22306
+            ],
+            "successes": 1,
+            "collisions": 7,
+            "completeReadObservations": 8,
+            "independentObserverPid": 22312,
+            "independentObserverCompleteReads": 28,
+            "lateCollisionProtected": true
+          },
+          {
+            "round": 8,
+            "pids": [
+              22318,
+              22314,
+              22315,
+              22316,
+              22313,
+              22320,
+              22317,
+              22319
+            ],
+            "successes": 1,
+            "collisions": 7,
+            "completeReadObservations": 8,
+            "independentObserverPid": 22321,
+            "independentObserverCompleteReads": 2,
+            "lateCollisionProtected": true
+          },
+          {
+            "round": 9,
+            "pids": [
+              22327,
+              22323,
+              22326,
+              22325,
+              22324,
+              22329,
+              22322,
+              22328
+            ],
+            "successes": 1,
+            "collisions": 7,
+            "completeReadObservations": 8,
+            "independentObserverPid": 22330,
+            "independentObserverCompleteReads": 3,
+            "lateCollisionProtected": true
+          },
+          {
+            "round": 10,
+            "pids": [
+              22333,
+              22336,
+              22334,
+              22337,
+              22335,
+              22332,
+              22331,
+              22338
+            ],
+            "successes": 1,
+            "collisions": 7,
+            "completeReadObservations": 8,
+            "independentObserverPid": 22339,
+            "independentObserverCompleteReads": 2,
+            "lateCollisionProtected": true
+          },
+          {
+            "round": 11,
+            "pids": [
+              22345,
+              22347,
+              22343,
+              22341,
+              22340,
+              22344,
+              22346,
+              22342
+            ],
+            "successes": 1,
+            "collisions": 7,
+            "completeReadObservations": 8,
+            "independentObserverPid": 22348,
+            "independentObserverCompleteReads": 27,
+            "lateCollisionProtected": true
+          },
+          {
+            "round": 12,
+            "pids": [
+              22353,
+              22354,
+              22349,
+              22355,
+              22356,
+              22350,
+              22351,
+              22352
+            ],
+            "successes": 1,
+            "collisions": 7,
+            "completeReadObservations": 8,
+            "independentObserverPid": 22357,
+            "independentObserverCompleteReads": 3,
+            "lateCollisionProtected": true
+          },
+          {
+            "round": 13,
+            "pids": [
+              22361,
+              22360,
+              22365,
+              22364,
+              22359,
+              22358,
+              22362,
+              22363
+            ],
+            "successes": 1,
+            "collisions": 7,
+            "completeReadObservations": 8,
+            "independentObserverPid": 22366,
+            "independentObserverCompleteReads": 3,
+            "lateCollisionProtected": true
+          },
+          {
+            "round": 14,
+            "pids": [
+              22368,
+              22373,
+              22370,
+              22367,
+              22371,
+              22372,
+              22374,
+              22369
+            ],
+            "successes": 1,
+            "collisions": 7,
+            "completeReadObservations": 8,
+            "independentObserverPid": 22375,
+            "independentObserverCompleteReads": 3,
+            "lateCollisionProtected": true
+          },
+          {
+            "round": 15,
+            "pids": [
+              22377,
+              22381,
+              22379,
+              22380,
+              22383,
+              22376,
+              22378,
+              22382
+            ],
+            "successes": 1,
+            "collisions": 7,
+            "completeReadObservations": 8,
+            "independentObserverPid": 22384,
+            "independentObserverCompleteReads": 7,
+            "lateCollisionProtected": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "D-interruption",
+      "status": "PASS",
+      "evidence": {
+        "iterationsPerBoundary": 2,
+        "cases": [
+          {
+            "boundary": "before-file-sync",
+            "iteration": 0,
+            "pid": 22385,
+            "signal": 9,
+            "published": false,
+            "fileFsyncAcknowledged": false,
+            "directoryFsyncAcknowledged": false,
+            "classification": "unpublished-temporary",
+            "recoveryCleanupSynced": true
+          },
+          {
+            "boundary": "before-file-sync",
+            "iteration": 1,
+            "pid": 22386,
+            "signal": 9,
+            "published": false,
+            "fileFsyncAcknowledged": false,
+            "directoryFsyncAcknowledged": false,
+            "classification": "unpublished-temporary",
+            "recoveryCleanupSynced": true
+          },
+          {
+            "boundary": "after-file-sync",
+            "iteration": 0,
+            "pid": 22387,
+            "signal": 9,
+            "published": false,
+            "fileFsyncAcknowledged": true,
+            "directoryFsyncAcknowledged": false,
+            "classification": "unpublished-temporary",
+            "recoveryCleanupSynced": true
+          },
+          {
+            "boundary": "after-file-sync",
+            "iteration": 1,
+            "pid": 22388,
+            "signal": 9,
+            "published": false,
+            "fileFsyncAcknowledged": true,
+            "directoryFsyncAcknowledged": false,
+            "classification": "unpublished-temporary",
+            "recoveryCleanupSynced": true
+          },
+          {
+            "boundary": "after-publish-before-directory-sync",
+            "iteration": 0,
+            "pid": 22389,
+            "signal": 9,
+            "published": true,
+            "fileFsyncAcknowledged": true,
+            "directoryFsyncAcknowledged": false,
+            "classification": "published-durability-unconfirmed",
+            "recoveryCleanupSynced": true
+          },
+          {
+            "boundary": "after-publish-before-directory-sync",
+            "iteration": 1,
+            "pid": 22390,
+            "signal": 9,
+            "published": true,
+            "fileFsyncAcknowledged": true,
+            "directoryFsyncAcknowledged": false,
+            "classification": "published-durability-unconfirmed",
+            "recoveryCleanupSynced": true
+          },
+          {
+            "boundary": "after-directory-sync",
+            "iteration": 0,
+            "pid": 22391,
+            "signal": 9,
+            "published": true,
+            "fileFsyncAcknowledged": true,
+            "directoryFsyncAcknowledged": true,
+            "classification": "published-directory-sync-acknowledged",
+            "recoveryCleanupSynced": true
+          },
+          {
+            "boundary": "after-directory-sync",
+            "iteration": 1,
+            "pid": 22392,
+            "signal": 9,
+            "published": true,
+            "fileFsyncAcknowledged": true,
+            "directoryFsyncAcknowledged": true,
+            "classification": "published-directory-sync-acknowledged",
+            "recoveryCleanupSynced": true
+          },
+          {
+            "boundary": "during-cleanup",
+            "iteration": 0,
+            "pid": 22393,
+            "signal": 9,
+            "published": true,
+            "fileFsyncAcknowledged": true,
+            "directoryFsyncAcknowledged": true,
+            "classification": "published-directory-sync-acknowledged",
+            "recoveryCleanupSynced": true
+          },
+          {
+            "boundary": "during-cleanup",
+            "iteration": 1,
+            "pid": 22394,
+            "signal": 9,
+            "published": true,
+            "fileFsyncAcknowledged": true,
+            "directoryFsyncAcknowledged": true,
+            "classification": "published-directory-sync-acknowledged",
+            "recoveryCleanupSynced": true
+          }
+        ],
+        "powerLossTested": false
+      }
+    },
+    {
+      "name": "E-errors-and-boundaries",
+      "status": "PASS",
+      "evidence": {
+        "traversalRejected": true,
+        "sourceSymlinkRejected": true,
+        "missingSourceErrno": 2,
+        "invalidDescriptorErrno": 9,
+        "fsyncFailurePropagated": true,
+        "readOnlyDirectoryErrno": 13,
+        "cleanupMissingErrno": 2,
+        "injectedUnsupportedErrors": [
+          "ENOSYS",
+          "EINVAL",
+          "EOPNOTSUPP"
+        ],
+        "postPublicationSyncFailureRetainsFile": true,
+        "syncFailureDescriptorIsInjected": true,
+        "unsupportedErrorsAreSimulated": true,
+        "fallbackUsed": false
+      }
+    }
+  ],
+  "powerLossTested": false,
+  "harnessPersistenceModified": false,
+  "gate2Passed": false,
+  "nativeExitCode": 0,
+  "nativeStderr": "",
+  "device": {
+    "model": "Redmi Note 8 Pro",
+    "manufacturer": "Xiaomi",
+    "androidRelease": "11",
+    "api": 30,
+    "abis": "arm64-v8a,armeabi-v7a,armeabi",
+    "hardware": "mt6785",
+    "fingerprint": "Redmi/begoniain/begoniain:11/RP1A.200720.011/V12.5.10.0.RGGINXM:user/release-keys"
+  },
+  "supervisorUid": 10752,
+  "supervisorPid": 22178,
+  "apkSha256": "9f7f8a2d342d87056707e2722ca4697b2223a8c538d645dca40bebefd469582f",
+  "nativeSha256": "b88beb36f401d0db961a441d9c0f15f499800d9e772deb15306aadf803e620fb",
+  "installedExecutableWritable": false,
+  "evidenceDirectory": "run-3777230109690695173"
+}

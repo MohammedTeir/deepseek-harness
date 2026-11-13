@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-11-12",
+  "source": "Two complete user-reported physical-phone results; normalized JSON values from chat",
+  "developerControlledInstrumentation": false,
+  "records": [
+    {
+      "path": "apps/android/evidence/phone-atomic-apk1-run1.json",
+      "sha256": "afae8297da20354b6e27bf8b398c940505192353b5567dabaeaa3463ad34cf35",
+      "command": [
+        "python3",
+        "apps/android/scripts/validate_atomic_result.py",
+        "apps/android/evidence/phone-atomic-apk1-run1.json",
+        "--build-record",
+        "apps/android/evidence/atomic-poc-apk1-build.json"
+      ],
+      "exitCode": 0,
+      "output": "Evidence assertions PASS; physical hardware identity and test review are still required before integration.\n",
+      "nativePid": 22239,
+      "supervisorPid": 22178,
+      "evidenceDirectory": "run-3777230109690695173",
+      "completeIndependentObserverReads": 160
+    },
+    {
+      "path": "apps/android/evidence/phone-atomic-apk1-run2.json",
+      "sha256": "a20ad628c4fcc77994870bb06362a3738f195fe2931cce7e13a0379bbc57b679",
+      "command": [
+        "python3",
+        "apps/android/scripts/validate_atomic_result.py",
+        "apps/android/evidence/phone-atomic-apk1-run2.json",
+        "--build-record",
+        "apps/android/evidence/atomic-poc-apk1-build.json"
+      ],
+      "exitCode": 0,
+      "output": "Evidence assertions PASS; physical hardware identity and test review are still required before integration.\n",
+      "nativePid": 24239,
+      "supervisorPid": 24206,
+      "evidenceDirectory": "run-5016219428026723895",
+      "completeIndependentObserverReads": 55
+    }
+  ],
+  "decision": "PASS for the fixed same-directory native publication proof on this device",
+  "mandatoryCases": {
+    "A-publication": "PASS",
+    "B-existing-destination": "PASS",
+    "C-independent-processes": "PASS",
+    "D-interruption": "PASS",
+    "E-sync-and-errors": "PASS",
+    "F-device-security": "PASS"
+  },
+  "device": {
+    "model": "Redmi Note 8 Pro",
+    "manufacturer": "Xiaomi",
+    "androidRelease": "11",
+    "api": 30,
+    "architecture": "aarch64",
+    "kernel": "4.14.186-g4e5507d5edae",
+    "uid": 10752,
+    "selinuxDomain": "untrusted_app",
+    "filesystemMagicDecimal": "61267",
+    "filesystemMagicHex": "0xef53",
+    "filesystemInterpretation": "EXT-family magic; exact mount subtype not independently inspected"
+  },
+  "artifactDigestsMatchDeliveredBuild": true,
+  "independentRuns": {
+    "differentNativePids": true,
+    "differentSupervisorPids": true,
+    "differentOwnedTestDirectories": true
+  },
+  "totals": {
+    "publisherProcesses": 256,
+    "independentObserverProcesses": 32,
+    "controlledKilledProcesses": 20
+  },
+  "limitations": [
+    "User-reported manual phone evidence, not developer-operated ADB instrumentation",
+    "SELinux enforce-file read denied with EACCES; matching AVC and vendor policy not captured",
+    "Unsupported syscall errors and bad sync descriptor were deliberately injected",
+    "No power-loss, API-29, recent Android, arbitrary cross-directory or retained-source alias qualification",
+    "No Node native-addon or original Harness persistence integration is established by APK #1",
+    "Full Gate 2, genuine session recovery and approved command remain unverified"
+  ],
+  "productionAdapterIntegrated": false,
+  "apk2Built": false,
+  "gate2Passed": false,
+  "nextAction": "Implement narrow Android prepared-file publication adapter for both original JSONL paths, preserve cleanup and error behavior, then qualify APK #2 with original SDK/profile and on-device session recovery."
+}

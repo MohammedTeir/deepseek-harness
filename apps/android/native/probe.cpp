@@ -1,0 +1,54 @@
+#include <jni.h>
+#include <dlfcn.h>
+#include "stderr_capture.h"
+#include <string>
+#include <vector>
+
+// Resolve only from the application's packaged library search path.
+extern "C" JNIEXPORT jstring JNICALL
+Java_io_github_mohammedteir_deepseekharness_RuntimeService_probeNode(JNIEnv* env, jobject) {
+    void* library = dlopen("libnode.so", RTLD_NOW | RTLD_GLOBAL);
+    if (!library) {
+        const char* error = dlerror();
+        const std::string result = std::string("BLOCKED: Android libnode.so could not link: ")
+            + (error ? error : "loader returned no diagnostic");
+        return env->NewStringUTF(result.c_str());
+    }
+    void* entry = dlsym(library, "_ZN4node5StartEiPPc");
+    const char* result = entry
+        ? "Node entry symbol found. Runtime API and Harness execution remain NOT VERIFIED."
+        : "BLOCKED: libnode.so does not export the required Node entry symbol.";
+    dlclose(library);
+    return env->NewStringUTF(result);
+}
+
+// Called once on a worker thread in the dedicated Android runtime process.
+extern "C" JNIEXPORT jint JNICALL
+Java_io_github_mohammedteir_deepseekharness_RuntimeService_runNode(JNIEnv* env, jobject, jstring script, jstring output, jstring diagnostic) {
+    void* library = dlopen("libnode.so", RTLD_NOW | RTLD_GLOBAL);
+    if (!library) return -1;
+    auto start = reinterpret_cast<int (*)(int, char**)>(dlsym(library, "_ZN4node5StartEiPPc"));
+    if (!start) return -2;
+    const char* script_chars = env->GetStringUTFChars(script, nullptr);
+    if (!script_chars) return -3;
+    std::string script_path(script_chars);
+    env->ReleaseStringUTFChars(script, script_chars);
+    const char* output_chars = env->GetStringUTFChars(output, nullptr);
+    if (!output_chars) return -3;
+    std::string output_path(output_chars);
+    env->ReleaseStringUTFChars(output, output_chars);
+    const char* diagnostic_chars = env->GetStringUTFChars(diagnostic, nullptr);
+    if (!diagnostic_chars) return -3;
+    std::string diagnostic_path(diagnostic_chars);
+    env->ReleaseStringUTFChars(diagnostic, diagnostic_chars);
+    // Node/libuv may rewrite argv storage; use one contiguous mutable allocation.
+    std::string arguments = std::string("node") + '\0' + script_path + '\0' + output_path + '\0';
+    std::vector<char> storage(arguments.begin(), arguments.end());
+    char* argv[] = {storage.data(), storage.data() + 5, storage.data() + 6 + script_path.size(), nullptr};
+    // Capture startup/module-loader errors even when JavaScript never begins.
+    StderrCapture capture(diagnostic_path.c_str());
+    if (!capture.active()) return -4;
+    // Keep libnode loaded until process teardown; V8 retains process-global state.
+    int result = start(3, argv);
+    return capture.restore() ? result : -5;
+}

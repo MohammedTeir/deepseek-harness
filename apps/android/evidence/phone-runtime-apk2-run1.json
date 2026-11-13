@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "node": "v24.22.1",
+  "platform": "android",
+  "arch": "arm64",
+  "persistenceDiagnostics": {
+    "shutdownAcknowledgements": 2,
+    "serverInfo": {
+      "name": "deepseek-harness-sdk-runtime",
+      "version": "0.0.1"
+    },
+    "node": "v24.22.1",
+    "platform": "android",
+    "arch": "arm64",
+    "kernelIdentity": {
+      "pid": 29513,
+      "parentPid": 29475,
+      "uid": 10751,
+      "source": "/proc/self/status"
+    },
+    "storage": {
+      "directorySync": true,
+      "fileSync": true,
+      "exclusivePreparedFilePublish": true,
+      "existingPathRejected": true,
+      "publicationStrategy": "renameat2-noreplace"
+    },
+    "afterFirstShutdown": {
+      "root": "/data/data/ai.deepseek.harness.android.runtimepoc/files/profile-probe/home/sessions",
+      "entries": [
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--",
+          "bytes": 4096,
+          "direntDirectory": true,
+          "statDirectory": true,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-d533867e-f90e-412e-a16e-5c9c7a757425",
+          "bytes": 4096,
+          "direntDirectory": true,
+          "statDirectory": true,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-d533867e-f90e-412e-a16e-5c9c7a757425/session.lock",
+          "bytes": 0,
+          "direntDirectory": false,
+          "statDirectory": false,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-eb150f8b-699a-487c-8e67-bef68e4b4484",
+          "bytes": 4096,
+          "direntDirectory": true,
+          "statDirectory": true,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-eb150f8b-699a-487c-8e67-bef68e4b4484/session.lock",
+          "bytes": 0,
+          "direntDirectory": false,
+          "statDirectory": false,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-eb150f8b-699a-487c-8e67-bef68e4b4484/session.v4.jsonl",
+          "bytes": 1025,
+          "direntDirectory": false,
+          "statDirectory": false,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-f7251c86-37aa-40b1-953d-161e00c2d8e4",
+          "bytes": 4096,
+          "direntDirectory": true,
+          "statDirectory": true,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-f7251c86-37aa-40b1-953d-161e00c2d8e4/session.lock",
+          "bytes": 0,
+          "direntDirectory": false,
+          "statDirectory": false,
+          "symbolicLink": false
+        }
+      ]
+    },
+    "beforeResume": {
+      "root": "/data/data/ai.deepseek.harness.android.runtimepoc/files/profile-probe/home/sessions",
+      "entries": [
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--",
+          "bytes": 4096,
+          "direntDirectory": true,
+          "statDirectory": true,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-d533867e-f90e-412e-a16e-5c9c7a757425",
+          "bytes": 4096,
+          "direntDirectory": true,
+          "statDirectory": true,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-d533867e-f90e-412e-a16e-5c9c7a757425/session.lock",
+          "bytes": 0,
+          "direntDirectory": false,
+          "statDirectory": false,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-eb150f8b-699a-487c-8e67-bef68e4b4484",
+          "bytes": 4096,
+          "direntDirectory": true,
+          "statDirectory": true,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-eb150f8b-699a-487c-8e67-bef68e4b4484/session.lock",
+          "bytes": 0,
+          "direntDirectory": false,
+          "statDirectory": false,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-eb150f8b-699a-487c-8e67-bef68e4b4484/session.v4.jsonl",
+          "bytes": 1025,
+          "direntDirectory": false,
+          "statDirectory": false,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-f7251c86-37aa-40b1-953d-161e00c2d8e4",
+          "bytes": 4096,
+          "direntDirectory": true,
+          "statDirectory": true,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-f7251c86-37aa-40b1-953d-161e00c2d8e4/session.lock",
+          "bytes": 0,
+          "direntDirectory": false,
+          "statDirectory": false,
+          "symbolicLink": false
+        }
+      ]
+    },
+    "missingSessionFailure": {
+      "name": "JsonRpcResponseError",
+      "message": "session \"android-missing-febb8206-2e70-4326-98ed-f97e63b918a5\" not found",
+      "code": -32603
+    },
+    "sessionIntegrityAfterRejectedRecovery": true,
+    "persistedBeforeRejectedRecovery": {
+      "root": "/data/data/ai.deepseek.harness.android.runtimepoc/files/profile-probe/home/sessions",
+      "entries": [
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--",
+          "bytes": 4096,
+          "direntDirectory": true,
+          "statDirectory": true,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-d533867e-f90e-412e-a16e-5c9c7a757425",
+          "bytes": 4096,
+          "direntDirectory": true,
+          "statDirectory": true,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-d533867e-f90e-412e-a16e-5c9c7a757425/session.lock",
+          "bytes": 0,
+          "direntDirectory": false,
+          "statDirectory": false,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-eb150f8b-699a-487c-8e67-bef68e4b4484",
+          "bytes": 4096,
+          "direntDirectory": true,
+          "statDirectory": true,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-eb150f8b-699a-487c-8e67-bef68e4b4484/session.lock",
+          "bytes": 0,
+          "direntDirectory": false,
+          "statDirectory": false,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-eb150f8b-699a-487c-8e67-bef68e4b4484/session.v4.jsonl",
+          "bytes": 1025,
+          "direntDirectory": false,
+          "statDirectory": false,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-f7251c86-37aa-40b1-953d-161e00c2d8e4",
+          "bytes": 4096,
+          "direntDirectory": true,
+          "statDirectory": true,
+          "symbolicLink": false
+        },
+        {
+          "path": "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-f7251c86-37aa-40b1-953d-161e00c2d8e4/session.lock",
+          "bytes": 0,
+          "direntDirectory": false,
+          "statDirectory": false,
+          "symbolicLink": false
+        }
+      ]
+    },
+    "runtimeStderr": [
+      "WARNING: linker: Warning: \"/data/app/~~5qslchFX40dyPTpKBuxM9g==/ai.deepseek.harness.android.runtimepoc-QgH_gKpoG-KndzuBAFLKBA==/lib/arm64/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\nshutdown request failed: dsh profile \"sdk-minimal\": JSON-RPC input closed\nexit code: 0\nstderr tail:\nWARNING: linker: Warning: \"/data/app/~~5qslchFX40dyPTpKBuxM9g==/ai.deepseek.harness.android.runtimepoc-QgH_gKpoG-KndzuBAFLKBA==/lib/arm64/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)",
+      "WARNING: linker: Warning: \"/data/app/~~5qslchFX40dyPTpKBuxM9g==/ai.deepseek.harness.android.runtimepoc-QgH_gKpoG-KndzuBAFLKBA==/lib/arm64/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\nshutdown request failed: dsh profile \"sdk-minimal\": JSON-RPC input closed\nexit code: 0\nstderr tail:\nWARNING: linker: Warning: \"/data/app/~~5qslchFX40dyPTpKBuxM9g==/ai.deepseek.harness.android.runtimepoc-QgH_gKpoG-KndzuBAFLKBA==/lib/arm64/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)"
+    ]
+  },
+  "nativeInternalLoader": {
+    "product": "require-builtin",
+    "backend": "napi",
+    "abi": "napi-v9",
+    "mode": "napi"
+  },
+  "pid": 29513,
+  "kernelIdentity": {
+    "pid": 29513,
+    "parentPid": 29475,
+    "uid": 10751,
+    "source": "/proc/self/status"
+  },
+  "execPath": "/data/app/~~5qslchFX40dyPTpKBuxM9g==/ai.deepseek.harness.android.runtimepoc-QgH_gKpoG-KndzuBAFLKBA==/lib/arm64/libnode_executable.so",
+  "profile": "sdk-minimal",
+  "serverInfo": {
+    "name": "deepseek-harness-sdk-runtime",
+    "version": "0.0.1"
+  },
+  "harnessStarted": true,
+  "previousRunSessionRecovered": false,
+  "appRestartVerified": false,
+  "sessionRecoveredAcrossRuntimeRestart": true,
+  "recoveredNondefaultDirectory": true,
+  "persistedJsonlSha256": {
+    "--data-data-ai.deepseek.harness.android.runtimepoc-files-profile-probe-workspace--/android-profile-eb150f8b-699a-487c-8e67-bef68e4b4484/session.v4.jsonl": "935289b8ebaebbb76b4ac5d576ac803052556a20f691be59c11adbf8a4a070e5"
+  },
+  "modelRequestExecuted": false,
+  "approvedCommandExecuted": false,
+  "gate2Passed": false,
+  "device": {
+    "model": "Redmi Note 8 Pro",
+    "androidRelease": "11",
+    "api": 30
+  },
+  "apkSha256": "e6b9efd40b6618c2ee0d3cc85933dd0fed99abac09704397c3d9d2b7d3edac66",
+  "nativePublicationSha256": "1c5fae1ac01ebdc9431f3ec9b5b11691d8fce489ec096fdef7cae566d7ced34e",
+  "installedPublicationBindingWritable": false,
+  "supervisorPid": 29475,
+  "supervisorUid": 10751
+}

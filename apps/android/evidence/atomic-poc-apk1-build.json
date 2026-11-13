@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "scope": "APK #1 isolated native proof; not production persistence",
+  "environment": "Linux x86_64 cloud; NDK 28.2.13676358; API 29 ARM64; SDK 36; JDK 21; AGP 8.13.2",
+  "physicalDeviceTests": "BLOCKED",
+  "productionAdapterIntegrated": false,
+  "sessionRecoveryVerified": false,
+  "gate2Passed": false,
+  "checks": [
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/apksigner",
+        "verify",
+        "--verbose",
+        "--print-certs",
+        "/workspace/deepseek-harness/apps/android/atomic-proof/build/outputs/apk/debug/atomic-proof-debug.apk"
+      ],
+      "exitCode": 0,
+      "stdout": "Verifies\nVerified using v1 scheme (JAR signing): false\nVerified using v2 scheme (APK Signature Scheme v2): true\nVerified using v3 scheme (APK Signature Scheme v3): false\nVerified using v3.1 scheme (APK Signature Scheme v3.1): false\nVerified using v4 scheme (APK Signature Scheme v4): false\nVerified for SourceStamp: false\nNumber of signers: 1\nSigner #1 certificate DN: CN=Android Debug, O=Android, C=US\nSigner #1 certificate SHA-256 digest: f8bd2f18a8414169898623658a8812abc985606c73b9d14e9e05a4e8e59549fc\nSigner #1 certificate SHA-1 digest: 13312fb3a14c909192fcc57d2925775dfc11d89c\nSigner #1 certificate MD5 digest: 2fe527e311b0f11a950dab2cac2965c3\nSigner #1 key algorithm: RSA\nSigner #1 key size (bits): 2048\nSigner #1 public key SHA-256 digest: 2c38cabee15bc16ada039ff6e5a445457f6bb092c5c7c3a397beb49d8fb3ebc3\nSigner #1 public key SHA-1 digest: 16ae764b19e92618d828ce8e4488ed270a38c9d5\nSigner #1 public key MD5 digest: 2936d154e59277efb9a65e25e0181b93\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/zipalign",
+        "-c",
+        "-P",
+        "16",
+        "4",
+        "/workspace/deepseek-harness/apps/android/atomic-proof/build/outputs/apk/debug/atomic-proof-debug.apk"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/apksigner",
+        "verify",
+        "--verbose",
+        "--print-certs",
+        "/workspace/deepseek-harness/apps/android/atomic-proof/build/outputs/apk/androidTest/debug/atomic-proof-debug-androidTest.apk"
+      ],
+      "exitCode": 0,
+      "stdout": "Verifies\nVerified using v1 scheme (JAR signing): false\nVerified using v2 scheme (APK Signature Scheme v2): true\nVerified using v3 scheme (APK Signature Scheme v3): false\nVerified using v3.1 scheme (APK Signature Scheme v3.1): false\nVerified using v4 scheme (APK Signature Scheme v4): false\nVerified for SourceStamp: false\nNumber of signers: 1\nSigner #1 certificate DN: CN=Android Debug, O=Android, C=US\nSigner #1 certificate SHA-256 digest: f8bd2f18a8414169898623658a8812abc985606c73b9d14e9e05a4e8e59549fc\nSigner #1 certificate SHA-1 digest: 13312fb3a14c909192fcc57d2925775dfc11d89c\nSigner #1 certificate MD5 digest: 2fe527e311b0f11a950dab2cac2965c3\nSigner #1 key algorithm: RSA\nSigner #1 key size (bits): 2048\nSigner #1 public key SHA-256 digest: 2c38cabee15bc16ada039ff6e5a445457f6bb092c5c7c3a397beb49d8fb3ebc3\nSigner #1 public key SHA-1 digest: 16ae764b19e92618d828ce8e4488ed270a38c9d5\nSigner #1 public key MD5 digest: 2936d154e59277efb9a65e25e0181b93\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/zipalign",
+        "-c",
+        "-P",
+        "16",
+        "4",
+        "/workspace/deepseek-harness/apps/android/atomic-proof/build/outputs/apk/androidTest/debug/atomic-proof-debug-androidTest.apk"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/aapt",
+        "dump",
+        "badging",
+        "/workspace/deepseek-harness/apps/android/atomic-proof/build/outputs/apk/debug/atomic-proof-debug.apk"
+      ],
+      "exitCode": 0,
+      "stdout": "package: name='ai.deepseek.harness.android.atomicpoc' versionCode='1' versionName='0.1.0-atomic-proof' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'\nsdkVersion:'29'\ntargetSdkVersion:'36'\napplication: label='' icon=''\napplication-debuggable\nlaunchable-activity: name='io.github.mohammedteir.deepseekharness.atomic.AtomicProofActivity'  label='' icon=''\nfeature-group: label=''\n  uses-feature: name='android.hardware.faketouch'\n  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'\nmain\nother-services\nsupports-screens: 'small' 'normal' 'large' 'xlarge'\nsupports-any-density: 'true'\nlocales:\ndensities:\nnative-code: 'arm64-v8a'\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readelf",
+        "-h",
+        "-l",
+        "-d",
+        "-n",
+        "-W",
+        "/tmp/atomic-apk-inspection-6g8dr8ps/libatomic_poc.so"
+      ],
+      "exitCode": 0,
+      "stdout": "ELF Header:\n  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00\n  Class:                             ELF64\n  Data:                              2's complement, little endian\n  Version:                           1 (current)\n  OS/ABI:                            UNIX - System V\n  ABI Version:                       0\n  Type:                              DYN (Shared object file)\n  Machine:                           AArch64\n  Version:                           0x1\n  Entry point address:               0x414E0\n  Start of program headers:          64 (bytes into file)\n  Start of section headers:          772360 (bytes into file)\n  Flags:                             0x0\n  Size of this header:               64 (bytes)\n  Size of program headers:           56 (bytes)\n  Number of program headers:         12\n  Size of section headers:           64 (bytes)\n  Number of section headers:         28\n  Section header string table index: 27\n\nElf file type is DYN (Shared object file)\nEntry point 0x414e0\nThere are 12 program headers, starting at offset 64\n\nProgram Headers:\n  Type           Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align\n  PHDR           0x000040 0x0000000000000040 0x0000000000000040 0x0002a0 0x0002a0 R   0x8\n  INTERP         0x0002e0 0x00000000000002e0 0x00000000000002e0 0x000015 0x000015 R   0x1\n      [Requesting program interpreter: /system/bin/linker64]\n  LOAD           0x000000 0x0000000000000000 0x0000000000000000 0x03d4d4 0x03d4d4 R   0x4000\n  LOAD           0x03d4e0 0x00000000000414e0 0x00000000000414e0 0x077010 0x077010 R E 0x4000\n  LOAD           0x0b4500 0x00000000000bc500 0x00000000000bc500 0x008028 0x008b00 RW  0x4000\n  LOAD           0x0bc528 0x00000000000c8528 0x00000000000c8528 0x000200 0x0028b8 RW  0x4000\n  TLS            0x0b4500 0x00000000000bc500 0x00000000000bc500 0x000000 0x000000 R   0x40\n  DYNAMIC        0x0bb9e0 0x00000000000c39e0 0x00000000000c39e0 0x000190 0x000190 RW  0x8\n  GNU_RELRO      0x0b4500 0x00000000000bc500 0x00000000000bc500 0x008028 0x008b00 R   0x1\n  GNU_EH_FRAME   0x023544 0x0000000000023544 0x0000000000023544 0x003dfc 0x003dfc R   0x4\n  GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x0\n  NOTE           0x0002f8 0x00000000000002f8 0x00000000000002f8 0x000098 0x000098 R   0x4\n\n Section to Segment mapping:\n  Segment Sections...\n   00     \n   01     .interp \n   02     .interp .note.android.ident .dynsym .gnu.version .gnu.version_r .gnu.hash .dynstr .rela.dyn .rela.plt .rodata .gcc_except_table .eh_frame_hdr .eh_frame \n   03     .text __lcxx_override .plt \n   04     .tdata .data.rel.ro .init_array .dynamic .got .got.plt .relro_padding \n   05     .data .bss \n   06     \n   07     .dynamic \n   08     .tdata .data.rel.ro .init_array .dynamic .got .got.plt .relro_padding \n   09     .eh_frame_hdr \n   10     \n   11     .note.android.ident \n   None   .comment .shstrtab \nDynamic section at offset 0xbb9e0 contains 25 entries:\n  Tag                Type           Name/Value\n  0x0000000000000001 (NEEDED)       Shared library: [libm.so]\n  0x0000000000000001 (NEEDED)       Shared library: [libdl.so]\n  0x0000000000000001 (NEEDED)       Shared library: [libc.so]\n  0x000000000000001e (FLAGS)        BIND_NOW \n  0x000000006ffffffb (FLAGS_1)      NOW PIE \n  0x0000000000000015 (DEBUG)        0x0\n  0x0000000000000007 (RELA)         0x17d0\n  0x0000000000000008 (RELASZ)       82416 (bytes)\n  0x0000000000000009 (RELAENT)      24 (bytes)\n  0x000000006ffffff9 (RELACOUNT)    3431\n  0x0000000000000017 (JMPREL)       0x159c0\n  0x0000000000000002 (PLTRELSZ)     3336 (bytes)\n  0x0000000000000003 (PLTGOT)       0xc40b8\n  0x0000000000000014 (PLTREL)       RELA\n  0x0000000000000006 (SYMTAB)       0x390\n  0x000000000000000b (SYMENT)       24 (bytes)\n  0x0000000000000005 (STRTAB)       0x125c\n  0x000000000000000a (STRSZ)        1393 (bytes)\n  0x000000006ffffef5 (GNU_HASH)     0x1240\n  0x0000000000000019 (INIT_ARRAY)   0xc39c8\n  0x000000000000001b (INIT_ARRAYSZ) 24 (bytes)\n  0x000000006ffffff0 (VERSYM)       0x10e0\n  0x000000006ffffffe (VERNEED)      0x11fc\n  0x000000006fffffff (VERNEEDNUM)   2\n  0x0000000000000000 (NULL)         0x0\nDisplaying notes found in: .note.android.ident\n  Owner                Data size \tDescription\n  Android              0x00000084\tNT_ANDROID_TYPE_IDENT\n   description data: 1d 00 00 00 72 32 38 63 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 31 33 36 37 36 33 35 38 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readelf",
+        "--dyn-syms",
+        "-W",
+        "/tmp/atomic-apk-inspection-6g8dr8ps/libatomic_poc.so"
+      ],
+      "exitCode": 0,
+      "stdout": "\nSymbol table '.dynsym' contains 142 entries:\n   Num:    Value          Size Type    Bind   Vis       Ndx Name\n     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT   UND \n     1: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND __libc_init@LIBC\n     2: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND __cxa_atexit@LIBC\n     3: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND __register_atfork@LIBC\n     4: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND alarm@LIBC\n     5: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND getuid@LIBC\n     6: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND open@LIBC\n     7: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND fstatfs@LIBC\n     8: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND uname@LIBC\n     9: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND getpid@LIBC\n    10: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND getppid@LIBC\n    11: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND strlen@LIBC\n    12: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND memcpy@LIBC\n    13: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND close@LIBC\n    14: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND memmove@LIBC\n    15: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND fstatat@LIBC\n    16: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND __errno@LIBC\n    17: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND strerror@LIBC\n    18: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND fsync@LIBC\n    19: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND memcmp@LIBC\n    20: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND symlinkat@LIBC\n    21: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND pipe2@LIBC\n    22: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND memset@LIBC\n    23: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND poll@LIBC\n    24: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND _exit@LIBC\n    25: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND kill@LIBC\n    26: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND openat@LIBC\n    27: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND pause@LIBC\n    28: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND fchmod@LIBC\n    29: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND unlinkat@LIBC\n    30: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND read@LIBC\n    31: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND mkdirat@LIBC\n    32: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND syscall@LIBC\n    33: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND write@LIBC\n    34: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND fork@LIBC\n    35: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND prctl@LIBC\n    36: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND waitpid@LIBC\n    37: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND memchr@LIBC\n    38: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND wcslen@LIBC\n    39: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND wmemchr@LIBC\n    40: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND wmemcmp@LIBC\n    41: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND strtol@LIBC\n    42: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND strtoul@LIBC\n    43: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND strtoll@LIBC\n    44: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND strtoull@LIBC\n    45: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND strtof@LIBC\n    46: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND strtod@LIBC\n    47: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND strtold@LIBC\n    48: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND wcstol@LIBC\n    49: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND wcstoul@LIBC\n    50: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND wcstoll@LIBC\n    51: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND wcstoull@LIBC\n    52: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND wcstof@LIBC\n    53: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND wcstod@LIBC\n    54: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND wcstold@LIBC\n    55: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND snprintf@LIBC\n    56: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND swprintf@LIBC\n    57: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND realloc@LIBC\n    58: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND free@LIBC\n    59: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND malloc@LIBC\n    60: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND strerror_r@LIBC\n    61: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND abort@LIBC\n    62: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND fopen@LIBC\n    63: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND fseek@LIBC\n    64: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND fclose@LIBC\n    65: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND fread@LIBC\n    66: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND fwrite@LIBC\n    67: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND fseeko@LIBC\n    68: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND ftello@LIBC\n    69: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND fflush@LIBC\n    70: 0000000000000000     0 OBJECT  GLOBAL DEFAULT   UND __sF@LIBC\n    71: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND ungetc@LIBC\n    72: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND getc@LIBC\n    73: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND ungetwc@LIBC\n    74: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND getwc@LIBC\n    75: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND fputwc@LIBC\n    76: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND newlocale@LIBC\n    77: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND uselocale@LIBC\n    78: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND vsscanf@LIBC\n    79: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND vsnprintf@LIBC\n    80: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND strftime_l@LIBC\n    81: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND mbsrtowcs@LIBC\n    82: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND sscanf@LIBC\n    83: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND vasprintf@LIBC\n    84: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND setlocale@LIBC\n    85: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND freelocale@LIBC\n    86: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND strcoll_l@LIBC\n    87: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND strxfrm_l@LIBC\n    88: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND wcscoll_l@LIBC\n    89: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND wcsxfrm_l@LIBC\n    90: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND iswlower_l@LIBC\n    91: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND iswspace_l@LIBC\n    92: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND iswprint_l@LIBC\n    93: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND iswblank_l@LIBC\n    94: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND iswcntrl_l@LIBC\n    95: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND iswupper_l@LIBC\n    96: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND iswalpha_l@LIBC\n    97: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND iswdigit_l@LIBC\n    98: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND iswpunct_l@LIBC\n    99: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND iswxdigit_l@LIBC\n   100: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND towupper_l@LIBC\n   101: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND towlower_l@LIBC\n   102: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND btowc@LIBC\n   103: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND wctob@LIBC\n   104: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND wcsnrtombs@LIBC\n   105: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND wcrtomb@LIBC\n   106: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND mbsnrtowcs@LIBC\n   107: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND mbrtowc@LIBC\n   108: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND mbtowc@LIBC\n   109: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND __ctype_get_mb_cur_max@LIBC\n   110: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND mbrlen@LIBC\n   111: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND strcmp@LIBC\n   112: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND localeconv@LIBC\n   113: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND strtoll_l@LIBC\n   114: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND strtoull_l@LIBC\n   115: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND strtold_l@LIBC\n   116: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND pthread_mutex_lock@LIBC\n   117: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND pthread_mutex_unlock@LIBC\n   118: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND pthread_cond_wait@LIBC\n   119: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND pthread_cond_broadcast@LIBC\n   120: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND vfprintf@LIBC\n   121: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND fputc@LIBC\n   122: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND android_set_abort_message@LIBC\n   123: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND openlog@LIBC\n   124: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND syslog@LIBC\n   125: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND closelog@LIBC\n   126: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND posix_memalign@LIBC\n   127: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND calloc@LIBC\n   128: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND pthread_getspecific@LIBC\n   129: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND pthread_once@LIBC\n   130: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND pthread_setspecific@LIBC\n   131: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND pthread_key_delete@LIBC\n   132: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND pthread_key_create@LIBC\n   133: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND getauxval@LIBC\n   134: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND __system_property_get@LIBC\n   135: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND strncmp@LIBC\n   136: 0000000000000000     0 NOTYPE  WEAK   DEFAULT   UND memfd_create\n   137: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND fprintf@LIBC\n   138: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND pthread_rwlock_wrlock@LIBC\n   139: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND pthread_rwlock_unlock@LIBC\n   140: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND dl_iterate_phdr@LIBC\n   141: 0000000000000000     0 FUNC    GLOBAL DEFAULT   UND pthread_rwlock_rdlock@LIBC\n",
+      "stderr": ""
+    }
+  ],
+  "nativeDependencies": [
+    "libc.so",
+    "libdl.so",
+    "libm.so"
+  ],
+  "nativePackagedSha256": "b88beb36f401d0db961a441d9c0f15f499800d9e772deb15306aadf803e620fb",
+  "licenseAssets": [
+    "assets/licenses/LICENSE",
+    "assets/licenses/NDK_NOTICE",
+    "assets/licenses/THIRD_PARTY_NOTICES.md",
+    "assets/third-party/APACHE-2.0.txt",
+    "assets/third-party/HAMCREST-BSD.txt",
+    "assets/third-party/JUNIT-LICENSE.txt",
+    "assets/third-party/NOTICE.txt"
+  ],
+  "apkPath": "apps/android/atomic-proof/build/outputs/apk/debug/atomic-proof-debug.apk",
+  "apkBytes": 3116217,
+  "apkSha256": "9f7f8a2d342d87056707e2722ca4697b2223a8c538d645dca40bebefd469582f",
+  "testApkPath": "apps/android/atomic-proof/build/outputs/apk/androidTest/debug/atomic-proof-debug-androidTest.apk",
+  "testApkSha256": "42339592971be3d61b86b06e91e8760d886032126a12451cc2c958a0fc9abf0f",
+  "nativeBuildSha256": "f208d89af88b6178f81657836c9637df6db990f33ab16d47cce53429661453bc",
+  "sourceFilesSha256": {
+    "apps/android/atomic-proof/build.gradle.kts": "97c7fc1705b442c4c94057b495046ef08be63b79a60093b1f63b3fe196a0ca95",
+    "apps/android/atomic-proof/native/atomic_poc.cpp": "dc3bfc2e36b2b5a60c5422362450615936e509ed24690bd1b9cc95ab030d23d9",
+    "apps/android/atomic-proof/src/androidTest/java/io/github/mohammedteir/deepseekharness/atomic/AtomicProofTest.kt": "93a98f386f0a35bcad995d4655d82498e318ddafb14bde09bf1fea46cdc9a68f",
+    "apps/android/atomic-proof/src/main/AndroidManifest.xml": "ec56087e44a040ae4a2131ad774df7ae9a2ac26dacafad07290277818a2c0a11",
+    "apps/android/atomic-proof/src/main/java/io/github/mohammedteir/deepseekharness/atomic/AtomicProofActivity.kt": "e114b86ed6f07e5ae263b1e22699d9907c3027892ade80a32400b938ff174a18",
+    "apps/android/atomic-proof/src/main/java/io/github/mohammedteir/deepseekharness/atomic/AtomicProofService.kt": "cfb90f635ee02b40eeaf9cd439519ff77fd90cf9b87b8f3900a5030ff4d2e5e0",
+    "apps/android/settings.gradle.kts": "a093a4c6e0fb6d2e0917b942db1c51564be4bb7a72de4f70d32f138c458e72ad",
+    "apps/android/scripts/test_device.py": "94d01ec529720cb070b4f07705b1ad44e2dc0e3f7732429757ca35797c0572a3",
+    "apps/android/scripts/inspect_atomic_apk.py": "c21f85ea38ccbdf0a1ca6bfa8c51dae61f03f454325587599855e33bc365d2e8",
+    "apps/android/scripts/validate_atomic_result.py": "7724449650be8ed65c45764794aea323e5015c8764a173cc4673f83fe5bb0b41",
+    "apps/android/tests/test_atomic_native.py": "32bf2c231fe391ef3dcecffd1d411a60e245b8febdc7d2ac2915b287a8e451b6"
+  },
+  "artifactInspection": "PASS"
+}

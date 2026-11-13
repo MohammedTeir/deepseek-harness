@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "scope": "Wider checks and independently reproduced baseline failures; no validation weakened",
+  "rescope": {
+    "currentCommand": [
+      "pnpm",
+      "run",
+      "rescope-vendor:check"
+    ],
+    "currentExitCode": 1,
+    "baselineCommand": [
+      "pnpm",
+      "--dir",
+      "/tmp/android-apk2-baseline-rescope",
+      "run",
+      "rescope-vendor:check"
+    ],
+    "baselineExitCode": 1,
+    "baselineOutput": "native/system/packages/darwin-arm64      | [WARN] Unsupported platform: wanted: {\"cpu\":[\"arm64\"],\"os\":[\"darwin\"],\"libc\":[\"any\"]} (current: {\"os\":\"linux\",\"cpu\":\"x64\",\"libc\":\"glibc\"})\nnative/system/packages/darwin-x64        | [WARN] Unsupported platform: wanted: {\"cpu\":[\"x64\"],\"os\":[\"darwin\"],\"libc\":[\"any\"]} (current: {\"os\":\"linux\",\"cpu\":\"x64\",\"libc\":\"glibc\"})\nnative/system/packages/linux-arm64       | [WARN] Unsupported platform: wanted: {\"cpu\":[\"arm64\"],\"os\":[\"linux\"],\"libc\":[\"any\"]} (current: {\"os\":\"linux\",\"cpu\":\"x64\",\"libc\":\"glibc\"})\npackages/experimental/cua-macos          | [WARN] Unsupported platform: wanted: {\"cpu\":[\"any\"],\"os\":[\"darwin\"],\"libc\":[\"any\"]} (current: {\"os\":\"linux\",\"cpu\":\"x64\",\"libc\":\"glibc\"})\nScope: all 398 workspace projects\n[ENOENT] ENOENT: no such file or directory, mkdir '/home/agent/.local/share/pnpm'\n\npnpm: ENOENT: no such file or directory, mkdir '/home/agent/.local/share/pnpm'\n    at async Object.mkdir (node:internal/fs/promises:1571:10)\n    at async createNewStoreController (file:///workspace/.setup-tools/node_modules/pnpm/dist/pnpm.mjs:197018:5)\n    at async installDeps (file:///workspace/.setup-tools/node_modules/pnpm/dist/pnpm.mjs:244144:17)\n    at async Object.handler5 (file:///workspace/.setup-tools/node_modules/pnpm/dist/pnpm.mjs:245061:3)\n    at async runCommand (file:///workspace/.setup-tools/node_modules/pnpm/dist/pnpm.mjs:369512:17)\n    at async runCommandWithConfig (file:///workspace/.setup-tools/node_modules/pnpm/dist/pnpm.mjs:369427:32)\n    at async main4 (file:///workspace/.setup-tools/node_modules/pnpm/dist/pnpm.mjs:369328:3)\n    at async runPnpm (file:///workspace/.setup-tools/node_modules/pnpm/dist/pnpm.mjs:369701:5)\n[WARN] The install that runs before scripts failed, so your node_modules may be out of sync with your lockfile. Set \"verifyDepsBeforeRun: false\" to skip this install.\n$ tsx scripts/rescope-vendor.ts --check\nrescope-vendor: check over 14441 tracked files\n  Markdown fences and docs prose    2 file(s), 2 line(s)\n  code specifiers             2 file(s), 4 line(s)\nrescope-vendor: residue: apps/web/tests/creator-persona.e2e.ts still carries a pre-rescope name token\nrescope-vendor: residue: docs/upgrade-guide/v0.2.2-rc.1/subagent-interrupt-default/guide.md still carries a pre-rescope name token\nrescope-vendor: residue: docs/upgrade-guide/v0.2.2-rc.1/subagent-interrupt-default/guide.zh.md still carries a pre-rescope name token\nrescope-vendor: residue: packages/experimental/cua/tests/agent-scopes.spec.ts still carries a pre-rescope name token\nrescope-vendor: 4 problem(s); the mapping or an upstream site moved.\n[ELIFECYCLE] Command failed with exit code 1.\n",
+    "unchangedFiles": [
+      {
+        "path": "apps/web/tests/creator-persona.e2e.ts",
+        "sha256": "19e556ea19284fe0090d1cfc8b1eaf3462a9a49074f5d44b7655af33e9bcefa6",
+        "identicalInBaselineAndCurrent": true
+      },
+      {
+        "path": "docs/upgrade-guide/v0.2.2-rc.1/subagent-interrupt-default/guide.md",
+        "sha256": "3819544d3de9e88acc239f5040090c6ec3dd11ee050ca7253393dbeed75e7002",
+        "identicalInBaselineAndCurrent": true
+      },
+      {
+        "path": "docs/upgrade-guide/v0.2.2-rc.1/subagent-interrupt-default/guide.zh.md",
+        "sha256": "9937f052d208bbd41de17e9123372bfb7c82b647d4ae9e17b9fd1fab1005924c",
+        "identicalInBaselineAndCurrent": true
+      },
+      {
+        "path": "packages/experimental/cua/tests/agent-scopes.spec.ts",
+        "sha256": "bb34466b2536759fc1f253794cdbd54f579b214863876902f2c18aa42588bf64",
+        "identicalInBaselineAndCurrent": true
+      },
+      {
+        "path": "scripts/rescope-vendor.ts",
+        "sha256": "350e66cd98bd05ee1754a4a5a04b0216c362f074407ebaae7eb8add19974a17c",
+        "identicalInBaselineAndCurrent": true
+      }
+    ],
+    "changedToHideFailure": false,
+    "baselineIsDetachedWorktreeUsedOnlyForCheck": true
+  },
+  "constraints": {
+    "initialStatus": "FAIL on three obsolete generated-only package directories",
+    "preservedDirectories": [
+      {
+        "original": "packages/api/account-controller",
+        "preservedAt": "/tmp/android-apk2-stale-builds-g0oav_d_/account-controller",
+        "children": [
+          "lib",
+          "node_modules"
+        ],
+        "trackedFiles": 0
+      },
+      {
+        "original": "packages/credentials/deepseek-account-platform",
+        "preservedAt": "/tmp/android-apk2-stale-builds-g0oav_d_/deepseek-account-platform",
+        "children": [
+          "lib",
+          "node_modules"
+        ],
+        "trackedFiles": 0
+      },
+      {
+        "original": "packages/document/office-to-pdf",
+        "preservedAt": "/tmp/android-apk2-stale-builds-g0oav_d_/office-to-pdf",
+        "children": [
+          "lib",
+          "node_modules"
+        ],
+        "trackedFiles": 0
+      }
+    ],
+    "finalCommand": [
+      "pnpm",
+      "run",
+      "constraints"
+    ],
+    "finalExitCode": 0
+  },
+  "fullNativeSuite": {
+    "command": [
+      "pnpm",
+      "--dir",
+      "native/system",
+      "test"
+    ],
+    "exitCode": 1,
+    "status": "BLOCKED by absent prebuilt Landlock launcher and unavailable musl-gcc; entry tests passed before failure",
+    "output": "$ node ./test/entry.test.js && node ./test/launcher.test.js && node --test ./test/publish.test.js ./test/flock-android-policy.test.js ./test/flock.test.js ./test/package-matrix.test.js ./test/release-packing.test.js\nentry.test: ok\nnode:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: launcher.test: no built launcher at /workspace/deepseek-harness/native/system/packages/linux-x64/bin/landlock-run \u2014 run `pnpm build:native` (apt-get install musl-tools) first\n    at file:///workspace/deepseek-harness/native/system/test/launcher.test.js:37:8\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  generatedMessage: false,\n  code: 'ERR_ASSERTION',\n  actual: false,\n  expected: true,\n  operator: '==',\n  diff: 'simple'\n}\n\nNode.js v24.22.1\n[ELIFECYCLE] Test failed. See above for more details.\n",
+    "systemPackageInstallerAvailable": false,
+    "sudoAvailable": false,
+    "relevantFlockAndPublicationAndPackagingChecksExecutedSeparately": true
+  },
+  "gate2Passed": false
+}

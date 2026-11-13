@@ -109,6 +109,8 @@ Task-owning consumers can subscribe before `prompt()`, then call `request('sessi
 
 The client exports typed errors for every failure mode: `JsonRpcResponseError` (a wire error response, code and data preserved), `RequestTimeoutError` (a configured bound elapsed), `SdkProtocolError` (a response outside the documented protocol), and `TransportClosedError` (the runtime is gone — the message carries the exit code and a bounded stderr tail). `close()` requests protocol `shutdown` (bounded by `shutdownTimeoutMs`, default 1000 ms), then walks a stdin-EOF → SIGTERM → SIGKILL ladder until the process has exited; it is idempotent, and a closed client refuses reuse. `HarnessClientOptions.env` replaces the child environment entirely when given (`undefined` inherits the parent's); callers own credential policy — `scrubbedParentEnv` from `dsh-subprocess` is the shared scrub base for isolation-minded launches.
 
+`HarnessClient.runtimeStderr()` returns a read-only snapshot of retained nonblank runtime stderr and SDK shutdown-failure notes, including after close. It waits only for the existing bounded stream-settle interval and does not guarantee complete output from a live process. The text is untrusted, may contain sensitive data and is not redacted; callers own its retention and display policy. Call `request('shutdown')` explicitly when an application requires the protocol acknowledgement: `close()` treats that exchange as best-effort and still reaps the process after a failed acknowledgement.
+
 <a id="native-user-questions"></a>
 ### Native user questions
 

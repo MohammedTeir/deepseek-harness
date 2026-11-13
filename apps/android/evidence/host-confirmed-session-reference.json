@@ -1,0 +1,327 @@
+{
+  "schemaVersion": 1,
+  "evidenceKind": "Original profile with confirmed shutdown and explicit persistence readiness; isolated Linux only",
+  "firstInvocation": {
+    "schemaVersion": 1,
+    "node": "v24.22.1",
+    "platform": "linux",
+    "arch": "x64",
+    "persistenceDiagnostics": {
+      "shutdownAcknowledgements": 2,
+      "serverInfo": {
+        "name": "deepseek-harness-sdk-runtime",
+        "version": "0.0.1"
+      },
+      "node": "v24.22.1",
+      "platform": "linux",
+      "arch": "x64",
+      "kernelIdentity": {
+        "pid": 82462,
+        "parentPid": 82416,
+        "uid": 1000,
+        "source": "/proc/self/status"
+      },
+      "storage": {
+        "directorySync": true,
+        "fileSync": true,
+        "exclusiveHardlinkPublish": true,
+        "existingPathRejected": true
+      },
+      "afterFirstShutdown": {
+        "root": "/tmp/android-profile-trace-lg5q4gwl/state/home/sessions",
+        "entries": [
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--",
+            "bytes": 4096,
+            "direntDirectory": true,
+            "statDirectory": true,
+            "symbolicLink": false
+          },
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-9563048d-5ae8-4364-89af-f5a9081a81d1",
+            "bytes": 4096,
+            "direntDirectory": true,
+            "statDirectory": true,
+            "symbolicLink": false
+          },
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-9563048d-5ae8-4364-89af-f5a9081a81d1/session.lock",
+            "bytes": 0,
+            "direntDirectory": false,
+            "statDirectory": false,
+            "symbolicLink": false
+          },
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-9563048d-5ae8-4364-89af-f5a9081a81d1/session.v4.jsonl",
+            "bytes": 913,
+            "direntDirectory": false,
+            "statDirectory": false,
+            "symbolicLink": false
+          }
+        ]
+      },
+      "beforeResume": {
+        "root": "/tmp/android-profile-trace-lg5q4gwl/state/home/sessions",
+        "entries": [
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--",
+            "bytes": 4096,
+            "direntDirectory": true,
+            "statDirectory": true,
+            "symbolicLink": false
+          },
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-9563048d-5ae8-4364-89af-f5a9081a81d1",
+            "bytes": 4096,
+            "direntDirectory": true,
+            "statDirectory": true,
+            "symbolicLink": false
+          },
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-9563048d-5ae8-4364-89af-f5a9081a81d1/session.lock",
+            "bytes": 0,
+            "direntDirectory": false,
+            "statDirectory": false,
+            "symbolicLink": false
+          },
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-9563048d-5ae8-4364-89af-f5a9081a81d1/session.v4.jsonl",
+            "bytes": 913,
+            "direntDirectory": false,
+            "statDirectory": false,
+            "symbolicLink": false
+          }
+        ]
+      },
+      "runtimeStderr": [
+        "shutdown request failed: dsh profile \"sdk-minimal\": JSON-RPC input closed\nexit code: 0",
+        "shutdown request failed: dsh profile \"sdk-minimal\": JSON-RPC input closed\nexit code: 0"
+      ]
+    },
+    "nativeInternalLoader": {
+      "product": "require-builtin",
+      "backend": "napi",
+      "abi": "napi-v9",
+      "mode": "napi"
+    },
+    "pid": 82462,
+    "kernelIdentity": {
+      "pid": 82462,
+      "parentPid": 82416,
+      "uid": 1000,
+      "source": "/proc/self/status"
+    },
+    "execPath": "/workspace/.setup-tools/node-v24.22.1-linux-x64/bin/node",
+    "profile": "sdk-minimal",
+    "serverInfo": {
+      "name": "deepseek-harness-sdk-runtime",
+      "version": "0.0.1"
+    },
+    "harnessStarted": true,
+    "previousRunSessionRecovered": false,
+    "appRestartVerified": false,
+    "sessionRecoveredAcrossRuntimeRestart": true,
+    "recoveredNondefaultDirectory": true,
+    "persistedJsonlSha256": {
+      "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-9563048d-5ae8-4364-89af-f5a9081a81d1/session.v4.jsonl": "5ec3049cb0cb14c80c9adc464b7f110c1f3e399a5376a7917df191c6078928ea"
+    },
+    "modelRequestExecuted": false,
+    "approvedCommandExecuted": false,
+    "gate2Passed": false
+  },
+  "secondInvocation": {
+    "schemaVersion": 1,
+    "node": "v24.22.1",
+    "platform": "linux",
+    "arch": "x64",
+    "persistenceDiagnostics": {
+      "shutdownAcknowledgements": 2,
+      "serverInfo": {
+        "name": "deepseek-harness-sdk-runtime",
+        "version": "0.0.1"
+      },
+      "node": "v24.22.1",
+      "platform": "linux",
+      "arch": "x64",
+      "kernelIdentity": {
+        "pid": 82495,
+        "parentPid": 82416,
+        "uid": 1000,
+        "source": "/proc/self/status"
+      },
+      "storage": {
+        "directorySync": true,
+        "fileSync": true,
+        "exclusiveHardlinkPublish": true,
+        "existingPathRejected": true
+      },
+      "afterFirstShutdown": {
+        "root": "/tmp/android-profile-trace-lg5q4gwl/state/home/sessions",
+        "entries": [
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--",
+            "bytes": 4096,
+            "direntDirectory": true,
+            "statDirectory": true,
+            "symbolicLink": false
+          },
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-29472c15-235e-4f19-96b7-e85e93d1a81f",
+            "bytes": 4096,
+            "direntDirectory": true,
+            "statDirectory": true,
+            "symbolicLink": false
+          },
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-29472c15-235e-4f19-96b7-e85e93d1a81f/session.lock",
+            "bytes": 0,
+            "direntDirectory": false,
+            "statDirectory": false,
+            "symbolicLink": false
+          },
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-29472c15-235e-4f19-96b7-e85e93d1a81f/session.v4.jsonl",
+            "bytes": 913,
+            "direntDirectory": false,
+            "statDirectory": false,
+            "symbolicLink": false
+          },
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-9563048d-5ae8-4364-89af-f5a9081a81d1",
+            "bytes": 4096,
+            "direntDirectory": true,
+            "statDirectory": true,
+            "symbolicLink": false
+          },
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-9563048d-5ae8-4364-89af-f5a9081a81d1/session.lock",
+            "bytes": 0,
+            "direntDirectory": false,
+            "statDirectory": false,
+            "symbolicLink": false
+          },
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-9563048d-5ae8-4364-89af-f5a9081a81d1/session.v4.jsonl",
+            "bytes": 1171,
+            "direntDirectory": false,
+            "statDirectory": false,
+            "symbolicLink": false
+          }
+        ]
+      },
+      "beforeResume": {
+        "root": "/tmp/android-profile-trace-lg5q4gwl/state/home/sessions",
+        "entries": [
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--",
+            "bytes": 4096,
+            "direntDirectory": true,
+            "statDirectory": true,
+            "symbolicLink": false
+          },
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-29472c15-235e-4f19-96b7-e85e93d1a81f",
+            "bytes": 4096,
+            "direntDirectory": true,
+            "statDirectory": true,
+            "symbolicLink": false
+          },
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-29472c15-235e-4f19-96b7-e85e93d1a81f/session.lock",
+            "bytes": 0,
+            "direntDirectory": false,
+            "statDirectory": false,
+            "symbolicLink": false
+          },
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-29472c15-235e-4f19-96b7-e85e93d1a81f/session.v4.jsonl",
+            "bytes": 913,
+            "direntDirectory": false,
+            "statDirectory": false,
+            "symbolicLink": false
+          },
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-9563048d-5ae8-4364-89af-f5a9081a81d1",
+            "bytes": 4096,
+            "direntDirectory": true,
+            "statDirectory": true,
+            "symbolicLink": false
+          },
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-9563048d-5ae8-4364-89af-f5a9081a81d1/session.lock",
+            "bytes": 0,
+            "direntDirectory": false,
+            "statDirectory": false,
+            "symbolicLink": false
+          },
+          {
+            "path": "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-9563048d-5ae8-4364-89af-f5a9081a81d1/session.v4.jsonl",
+            "bytes": 1171,
+            "direntDirectory": false,
+            "statDirectory": false,
+            "symbolicLink": false
+          }
+        ]
+      },
+      "runtimeStderr": [
+        "shutdown request failed: dsh profile \"sdk-minimal\": JSON-RPC input closed\nexit code: 0",
+        "shutdown request failed: dsh profile \"sdk-minimal\": JSON-RPC input closed\nexit code: 0"
+      ]
+    },
+    "nativeInternalLoader": {
+      "product": "require-builtin",
+      "backend": "napi",
+      "abi": "napi-v9",
+      "mode": "napi"
+    },
+    "pid": 82495,
+    "kernelIdentity": {
+      "pid": 82495,
+      "parentPid": 82416,
+      "uid": 1000,
+      "source": "/proc/self/status"
+    },
+    "execPath": "/workspace/.setup-tools/node-v24.22.1-linux-x64/bin/node",
+    "profile": "sdk-minimal",
+    "serverInfo": {
+      "name": "deepseek-harness-sdk-runtime",
+      "version": "0.0.1"
+    },
+    "harnessStarted": true,
+    "previousRunSessionRecovered": true,
+    "appRestartVerified": false,
+    "sessionRecoveredAcrossRuntimeRestart": true,
+    "recoveredNondefaultDirectory": true,
+    "persistedJsonlSha256": {
+      "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-9563048d-5ae8-4364-89af-f5a9081a81d1/session.v4.jsonl": "47fe68861be3496e628d4566fd6704911581a063bb06472a84543de00884b97f",
+      "--tmp-android-profile-trace-lg5q4gwl-state-workspace--/android-profile-29472c15-235e-4f19-96b7-e85e93d1a81f/session.v4.jsonl": "f7c3fe6b2455a7fdde8e401b784ebd92afd24e46ff8b780ceaa2820957d32d55"
+    },
+    "modelRequestExecuted": false,
+    "approvedCommandExecuted": false,
+    "gate2Passed": false
+  },
+  "qualification": {
+    "schemaVersion": 1,
+    "hostOnly": true,
+    "androidVerified": false,
+    "imageSha256": "9a36fe6750d38e92bc6938e11b8ffb4641fd6c15d0865722fa453cdf5de56002",
+    "resultSha256": {
+      "relocated-result.json": "27d3d815c7cbbb0518920e258accfde292b9602f86a843c69c2107d496f5cf28",
+      "relocated-repeat-result.json": "cd95d8fd973dd6aba5d0f53dd8bbb25719f9a14cc643cf24c6335866b565011f"
+    }
+  },
+  "relocation": {
+    "imageOutsideCheckout": true,
+    "stateOutsideCheckout": true,
+    "inheritedEnvironmentAllowlist": [
+      "PATH",
+      "TMPDIR",
+      "LANG"
+    ],
+    "originalHostNativeLibrariesOnly": true,
+    "androidNativeExecuted": false
+  },
+  "androidVerified": false,
+  "androidRootCauseEstablished": false,
+  "gate2Passed": false
+}

@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.22.1)
+project(harness_probe LANGUAGES CXX)
+add_library(harness_probe SHARED probe.cpp)
+target_compile_features(harness_probe PRIVATE cxx_std_17)
+target_compile_options(harness_probe PRIVATE -Wall -Wextra -Werror)
+target_link_options(harness_probe PRIVATE "-Wl,-z,max-page-size=16384")
+target_link_libraries(harness_probe PRIVATE dl)

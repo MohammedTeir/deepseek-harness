@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 1,
+  "environment": {
+    "host": "Linux x86_64 cloud, ordinary UID 1000",
+    "node": "24.22.1",
+    "JAVA_HOME": "/workspace/.setup-tools/jdk-21.0.13+9",
+    "ANDROID_HOME": "/workspace/android-sdk",
+    "ANDROID_NDK_HOME": "/workspace/android-sdk/ndk/28.2.13676358",
+    "ANDROID_NODE_BUILD_DIR": "/workspace/android-node",
+    "GRADLE_USER_HOME": "/workspace/.cache/gradle",
+    "compiler": "aarch64-linux-android29-clang; C11; -O2; NAPI_VERSION=8; explicit -l:libnode.so and -z defs; 16 KB LOAD alignment"
+  },
+  "checks": [
+    {
+      "name": "workspace-build",
+      "command": [
+        "pnpm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "DSH_GATE_CONCURRENCY=2; 10/10 gates including original Web build; 65.96 seconds",
+      "logSha256": "d931b2da1c2e341de9ecaa7e96054bd6090c6cadeec4ce4c8805831ef58756a6",
+      "output": "$ tsx scripts/build.ts\nrun-gates: build running 10 gate(s) with 2 worker(s) from $DSH_GATE_CONCURRENCY.\nrun-gates: start native addon\nrun-gates: start Host Typert\nrun-gates: PASS native addon (1.68s)\nrun-gates: PASS Host Typert (10.49s)\nrun-gates: start host compiler\nrun-gates: PASS host compiler (15.58s)\nrun-gates: start Host bundle\nrun-gates: start host aggregate check\nrun-gates: PASS Host bundle (10.61s)\nrun-gates: start Desktop bundle\nrun-gates: PASS Desktop bundle (3.26s)\nrun-gates: start client compiler\nrun-gates: PASS host aggregate check (20.31s)\nrun-gates: PASS client compiler (8.77s)\nrun-gates: start Client bundle\nrun-gates: start client aggregate check\nrun-gates: PASS client aggregate check (8.26s)\nrun-gates: PASS Client bundle (8.82s)\nrun-gates: start Web build\nrun-gates: PASS Web build (8.42s)\n\nrun-gates: 10 passed, 0 failed, 0 skipped in 65.96s.\nbuild: recorded 369 client artifact(s) with 3 public value(s)\n"
+    },
+    {
+      "name": "aggregate-types-after-new-consumer-tests",
+      "command": [
+        "pnpm",
+        "run",
+        "build:check"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "2/2",
+      "logSha256": "b7c34531529db6ee0965f7c17440436d3b6971f93bd75621630b099ed5b07fd2",
+      "output": "$ tsx scripts/build.ts --scope check\nrun-gates: build:check running 2 gate(s) with 2 worker(s) from 4 local default worker(s) of 4 CPU(s).\nrun-gates: start host aggregate check\nrun-gates: start client aggregate check\nrun-gates: PASS client aggregate check (14.65s)\nrun-gates: PASS host aggregate check (26.98s)\n\nrun-gates: 2 passed, 0 failed, 0 skipped in 26.98s.\n"
+    },
+    {
+      "name": "original-regressions",
+      "command": [
+        "pnpm",
+        "exec",
+        "vitest",
+        "run",
+        "packages/session/session-persistence-jsonl/tests/jsonl.spec.ts",
+        "packages/session/session-persistence-jsonl/tests/generation.spec.ts",
+        "packages/session/session-persistence-jsonl/tests/lease.spec.ts",
+        "packages/fs/fs-local/tests/fsio.spec.ts",
+        "packages/attachment/attachment-local/tests/store.spec.ts",
+        "packages/sdk/client/tests/runtime-stderr.spec.ts",
+        "packages/sdk/client/tests/dispose.spec.ts"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "401 passed, three unchanged Windows-only skips; seven files",
+      "logSha256": "eca89d60eb375adc345a8725bbd4e60c8ff37db3a2767b0c79e83eea12273ebd",
+      "output": "The plugin \"vite-tsconfig-paths\" is detected. Vite now supports tsconfig paths resolution natively via the resolve.tsconfigPaths option. You can remove the plugin and set resolve.tsconfigPaths: true in your Vite config instead.\nThe plugin \"vite-tsconfig-paths\" is detected. Vite now supports tsconfig paths resolution natively via the resolve.tsconfigPaths option. You can remove the plugin and set resolve.tsconfigPaths: true in your Vite config instead.\nThe plugin \"vite-tsconfig-paths\" is detected. Vite now supports tsconfig paths resolution natively via the resolve.tsconfigPaths option. You can remove the plugin and set resolve.tsconfigPaths: true in your Vite config instead.\n\n RUN  v4.1.11 /workspace/deepseek-harness\n\n\n Test Files  7 passed (7)\n      Tests  401 passed | 3 skipped (404)\n   Start at  17:50:55\n   Duration  7.30s (transform 6.06s, setup 675ms, import 7.73s, tests 6.88s, environment 1ms)\n\n"
+    },
+    {
+      "name": "Android-host-and-native-fixtures",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "apps/android/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "25 passed at that source point; profile-checker tests added separately below",
+      "logSha256": "79e906e24153fd86c9688aa0ae10c05a812ccf619e4ee04b100b2809d968ba27",
+      "output": "test_collision_preserves_bytes_and_metadata (test_atomic_native.AtomicNativeTest.test_collision_preserves_bytes_and_metadata) ... ok\ntest_errors_fail_closed_without_fallback (test_atomic_native.AtomicNativeTest.test_errors_fail_closed_without_fallback) ... ok\ntest_evidence_validation_rejects_weakened_or_missing_results (test_atomic_native.AtomicNativeTest.test_evidence_validation_rejects_weakened_or_missing_results) ... ok\ntest_independent_processes_have_one_complete_winner (test_atomic_native.AtomicNativeTest.test_independent_processes_have_one_complete_winner) ... ok\ntest_kill_boundaries_are_explicit_and_recovery_inspected (test_atomic_native.AtomicNativeTest.test_kill_boundaries_are_explicit_and_recovery_inspected) ... ok\ntest_no_harness_or_power_loss_claim (test_atomic_native.AtomicNativeTest.test_no_harness_or_power_loss_claim) ... ok\ntest_nonprivate_root_rejected (test_atomic_native.AtomicNativeTest.test_nonprivate_root_rejected) ... ok\ntest_root_symlink_rejected (test_atomic_native.AtomicNativeTest.test_root_symlink_rejected) ... ok\ntest_success_preserves_identity_and_synchronizes_cleanup (test_atomic_native.AtomicNativeTest.test_success_preserves_identity_and_synchronizes_cleanup) ... ok\ntest_requires_complete_expected_execution (test_device_output.InstrumentationOutputTest.test_requires_complete_expected_execution) ... ok\ntest_real_child_stdout_exit_identity_and_original_apis (test_executable_probe.ExecutableProbeTest.test_real_child_stdout_exit_identity_and_original_apis) ... ok\ntest_rejects_escape_and_cleanup_does_not_follow_symlinks (test_image_files.ImageFilesTest.test_rejects_escape_and_cleanup_does_not_follow_symlinks) ... ok\ntest_cancellation_before_start_rejects_launch (test_owned_process.OwnedProcessTest.test_cancellation_before_start_rejects_launch) ... ok\ntest_close_terminates_and_reaps_a_live_child (test_owned_process.OwnedProcessTest.test_close_terminates_and_reaps_a_live_child) ... ok\ntest_custom_grace_allows_real_delayed_child_shutdown (test_owned_process.OwnedProcessTest.test_custom_grace_allows_real_delayed_child_shutdown) ... ok\ntest_interrupted_cleanup_reaps_and_restores_interruption (test_owned_process.OwnedProcessTest.test_interrupted_cleanup_reaps_and_restores_interruption) ... ok\ntest_real_exit_status_is_observed (test_owned_process.OwnedProcessTest.test_real_exit_status_is_observed) ... ok\ntest_real_worker_denial_retains_stage_and_error_without_success (test_probe_failure.ProbeFailureTest.test_real_worker_denial_retains_stage_and_error_without_success) ... ok\ntest_missing_getuid_is_reported_without_fabricating_identity (test_probe_uid_absence.ProbeUidAbsenceTest.test_missing_getuid_is_reported_without_fabricating_identity) ... ok\ntest_actual_directory_sync_file_sync_and_exclusive_publication (test_session_diagnostics.SessionDiagnosticsTest.test_actual_directory_sync_file_sync_and_exclusive_publication) ... ok\ntest_actual_permission_error_is_preserved (test_session_diagnostics.SessionDiagnosticsTest.test_actual_permission_error_is_preserved) ... ok\ntest_inventory_reports_symlinks_without_following_them (test_session_diagnostics.SessionDiagnosticsTest.test_inventory_reports_symlinks_without_following_them) ... ok\ntest_capture_and_restore_on_explicit_and_scope_exit (test_stderr_capture.StderrCaptureTest.test_capture_and_restore_on_explicit_and_scope_exit) ... ok\ntest_symlink_log_is_rejected_without_overwriting_target (test_stderr_capture.StderrCaptureTest.test_symlink_log_is_rejected_without_overwriting_target) ... ok\ntest_unavailable_log_preserves_original_stderr (test_stderr_capture.StderrCaptureTest.test_unavailable_log_preserves_original_stderr) ... ok\n\n----------------------------------------------------------------------\nRan 25 tests in 9.753s\n\nOK\n"
+    },
+    {
+      "name": "profile-result-parser",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "apps/android/tests",
+        "-p",
+        "test_profile_evidence.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Two passed, with explicitly synthetic metadata; no Android claim",
+      "logSha256": "35e273eca4df867c66eb584b8cc0e8d92f604685b1ac22c088662d06349de5ec",
+      "output": "test_previous_invocation_is_separate_from_runtime_restart (test_profile_evidence.ProfileEvidenceTest.test_previous_invocation_is_separate_from_runtime_restart) ... ok\ntest_rejects_changed_artifacts_and_weakened_assertions (test_profile_evidence.ProfileEvidenceTest.test_rejects_changed_artifacts_and_weakened_assertions) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "name": "ELF-and-image-guards",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "apps/android/scripts",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "19 passed, including missing binding and changed-source rejection",
+      "logSha256": "b54a6aa1ba6c9fee3cab98ad1fc203f9142dec95fc914280a8ef2f60605e98d0",
+      "output": "test_addon_node_dependency_does_not_allow_linux_libc (test_package_node.ElfInspectionTests.test_addon_node_dependency_does_not_allow_linux_libc) ... ok\ntest_addon_requires_explicit_node_dependency (test_package_node.ElfInspectionTests.test_addon_requires_explicit_node_dependency) ... ok\ntest_android_dependency (test_package_node.ElfInspectionTests.test_android_dependency) ... ok\ntest_executable_requires_android_interpreter_and_real_entry (test_package_node.ElfInspectionTests.test_executable_requires_android_interpreter_and_real_entry) ... ok\ntest_foreign_abi (test_package_node.ElfInspectionTests.test_foreign_abi) ... ok\ntest_linux_dependency (test_package_node.ElfInspectionTests.test_linux_dependency) ... ok\ntest_node_dependency_is_allowed_only_for_addon_inspection (test_package_node.ElfInspectionTests.test_node_dependency_is_allowed_only_for_addon_inspection) ... ok\ntest_small_page_alignment (test_package_node.ElfInspectionTests.test_small_page_alignment) ... ok\ntest_changed_bytes_reject (test_package_profile.ProfileArchiveTest.test_changed_bytes_reject) ... ok\ntest_credential_read_rejects (test_package_profile.ProfileArchiveTest.test_credential_read_rejects) ... ok\ntest_native_file_rejects_even_with_matching_digest (test_package_profile.ProfileArchiveTest.test_native_file_rejects_even_with_matching_digest) ... ok\ntest_plain_interpreted_file_is_accepted (test_package_profile.ProfileArchiveTest.test_plain_interpreted_file_is_accepted) ... ok\ntest_stale_host_qualification_cannot_approve_new_image (test_package_profile.ProfileArchiveTest.test_stale_host_qualification_cannot_approve_new_image) ... ok\ntest_successful_read_through_outside_symlink_rejects (test_package_profile.ProfileArchiveTest.test_successful_read_through_outside_symlink_rejects) ... ok\ntest_traversal_and_absolute_paths_reject (test_package_profile.ProfileArchiveTest.test_traversal_and_absolute_paths_reject) ... ok\ntest_changed_atomic_source_cannot_reuse_inspected_binary (test_prepare_runtime_assets.AssetGuardTest.test_changed_atomic_source_cannot_reuse_inspected_binary) ... ok\ntest_manifest_without_atomic_binding_is_rejected (test_prepare_runtime_assets.AssetGuardTest.test_manifest_without_atomic_binding_is_rejected) ... ok\ntest_manifest_without_inspected_executable_is_rejected (test_prepare_runtime_assets.AssetGuardTest.test_manifest_without_inspected_executable_is_rejected) ... ok\ntest_old_manifest_cannot_package_an_unlinked_addon (test_prepare_runtime_assets.AssetGuardTest.test_old_manifest_cannot_package_an_unlinked_addon) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 0.193s\n\nOK\n"
+    },
+    {
+      "name": "publication-policy",
+      "command": [
+        "pnpm",
+        "--dir",
+        "native/system",
+        "test:publish"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Four passed; Android metadata/errno fixtures are simulated, non-Android file operations are real",
+      "logSha256": "c432bd584458f4494a94685a9c85e80a588d9bed713548c0afca5373350a3c6f",
+      "output": "$ node --test ./test/publish.test.js\n\u2714 non-Android publication retains staging and rejects an existing destination (7.482699ms)\n\u2714 Android importing is lazy and disabled native loading rejects (33.02813ms)\n\u2714 Android rejects cross-directory and unqualified architectures before loading (34.116417ms)\n\u2714 Android uses a fixed SONAME and propagates unsupported and collision errno without fallback (49.059031ms)\n\u2139 tests 4\n\u2139 suites 0\n\u2139 pass 4\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 183.967475\n"
+    },
+    {
+      "name": "original-locks",
+      "command": [
+        "pnpm",
+        "--dir",
+        "native/system",
+        "test:flock"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "27 passed",
+      "logSha256": "a8159355130da2b25fda10c19c4580e5382423c141f524ff4f8bca1ecee513ac",
+      "output": "$ node --test ./test/flock-android-policy.test.js ./test/flock.test.js\n\u2714 Android entry imports lazily and rejects when native addons are disabled (101.854011ms)\n\u2714 Android loader uses only its fixed SONAME and retains flock errno semantics (115.299811ms)\n\u2714 Android missing bindings reject acquisition without caching a failed load (109.878929ms)\n\u2714 unqualified Android architectures reject before native loading (109.525537ms)\n\u2714 import succeeds with native addons disabled (168.081299ms)\n\u2714 calling flock on win32 rejects without loading an addon (120.491436ms)\n\u2714 calling flock on freebsd rejects without loading an addon (115.336021ms)\n\u2714 acquisition resolves asynchronously to void and the same fd can reacquire (17.71328ms)\n\u2714 separate opens of one file contend (1.940888ms)\n\u2714 different files can be locked concurrently (1.202807ms)\n\u2714 closing the locked fd allows an already-open contender to acquire (3.356829ms)\n\u2714 closing another fd for the same file does not release the lock (4.323242ms)\n\u2714 invalid fd rejects asynchronously with EBADF and positive errno (5.153493ms)\n\u2714 native argument errors reject the JavaScript promise without throwing from the entry (0.783688ms)\n\u2714 native callbacks receive asynchronous, request-local success and errno results (9.009881ms)\n\u2714 an exception in the native completion callback is reported as uncaught (137.918345ms)\n\u2714 concurrent calls retain their own syscall errno (1.176588ms)\n\u2714 two child processes exclude each other and normal close transfers ownership (194.0401ms)\n\u2714 SIGKILL releases a child lock after exit (225.893772ms)\n\u2714 worker termination during queued drains native work without taking ownership of the fd (101.414457ms)\n\u2714 worker termination during callback drains native work without taking ownership of the fd (91.216677ms)\n\u2714 an addon exclusive lock blocks an independent C exclusive flock until its fd closes (38.856017ms)\n\u2714 an independent C exclusive flock blocks the addon until explicit unlock (14.51539ms)\n\u2714 an addon exclusive lock blocks an independent C shared flock until its fd closes (13.750215ms)\n\u2714 an independent C shared flock blocks the addon until explicit unlock (13.363047ms)\n\u2714 an advisory exclusive lock permits another process to read and write without locking (106.957202ms)\n\u2714 an inherited fd shares the lock after parent close until the child closes its last reference (154.405689ms)\n\u2139 tests 27\n\u2139 suites 0\n\u2139 pass 27\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 1764.60226\n"
+    },
+    {
+      "name": "native-package-packing",
+      "command": [
+        "pnpm",
+        "--dir",
+        "native/system",
+        "test:packaging"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "31 passed",
+      "logSha256": "bcb14642ebfb18f0e5d0d3ad15a3758c3e00898e86a65cedc861f2bc1c24e906",
+      "output": "$ node --test ./test/package-matrix.test.js ./test/release-packing.test.js\n\u2714 the real Landlock subpath imports without platform packages or dlopen, while the root is unexported (135.754646ms)\n\u2714 accepts linux-x64 addon metadata and header (5.024669ms)\n\u2714 accepts linux-arm64 addon metadata and header (29.731259ms)\n\u2714 accepts darwin-x64 addon metadata and header (5.70277ms)\n\u2714 accepts darwin-arm64 addon metadata and header (3.42048ms)\n\u2714 accepts the Linux static launcher format (4.010182ms)\n\u2714 rejects unknown platform (1.819276ms)\n\u2714 rejects mismatched platform (3.532456ms)\n\u2714 rejects path outside bin (1.424694ms)\n\u2714 rejects duplicate binary (4.642345ms)\n\u2714 rejects unknown kind (1.204859ms)\n\u2714 rejects wrong NAPI version (7.167162ms)\n\u2714 rejects missing Linux libc (0.968931ms)\n\u2714 rejects missing payload (0.842224ms)\n\u2714 rejects wrong ELF architecture (1.061878ms)\n\u2714 rejects wrong ELF type (0.989201ms)\n\u2714 rejects truncated ELF (0.863194ms)\n\u2714 rejects missing NAPI exports (4.940254ms)\n\u2714 rejects undeclared nested file (1.388581ms)\n\u2714 rejects Linux libc metadata on macOS (1.072404ms)\n\u2714 rejects invalid Mach-O field at 0 (5.947943ms)\n\u2714 rejects invalid Mach-O field at 4 (0.935632ms)\n\u2714 rejects invalid Mach-O field at 12 (0.796416ms)\n\u2714 rejects a launcher whose executable bit was lost (0.744078ms)\n\u2714 rejects a symbolic-link payload (1.145522ms)\n\u2714 entry prepack rejects a missing exported flock file even when the Landlock entry exists (261.274775ms)\n\u2714 packing local artifacts preserves source manifests and native payloads (3665.60033ms)\n\u2714 packing workflow artifacts preserves source manifests and native payloads (3395.169067ms)\n\u2714 a package-local license takes precedence over the workspace license during workflow packing (2775.752663ms)\n\u2714 invalid workflow identity fails before deleting existing pack output (283.577879ms)\n\u2714 a prepack rejection cleans staging and leaves source manifests unchanged (1317.47496ms)\n\u2139 tests 31\n\u2139 suites 0\n\u2139 pass 31\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 11682.114359\n"
+    },
+    {
+      "name": "actual-NodeAPI-wrapper",
+      "command": [
+        "node",
+        "apps/android/tests/atomic-addon-reference.mjs",
+        "/tmp/harness-atomic-addon.node",
+        "/tmp/android-apk2-host-addon-result.json"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Real Linux C binding, complete publication, collision/error handling, 32 independent publishers",
+      "logSha256": "0f97039d1d4214ccdf9d1e8525f720ad5f919cd158c11d43926ffcef64a4266a",
+      "output": "{\"schemaVersion\":1,\"platform\":\"linux\",\"node\":\"v24.22.1\",\"realNodeApiWrapper\":true,\"publication\":true,\"sourceConsumed\":true,\"collisionProtected\":true,\"errorsPropagated\":true,\"rounds\":[{\"round\":0,\"pids\":[120957,120958,120959,120960,120962,120969,120978,120990],\"successes\":1,\"collisions\":7},{\"round\":1,\"pids\":[121045,121046,121047,121048,121049,121051,121076,121077],\"successes\":1,\"collisions\":7},{\"round\":2,\"pids\":[121133,121134,121135,121136,121142,121143,121145,121150],\"successes\":1,\"collisions\":7},{\"round\":3,\"pids\":[121221,121222,121223,121224,121225,121237,121247,121258],\"successes\":1,\"collisions\":7}],\"androidVerified\":false,\"gate2Passed\":false}\n"
+    },
+    {
+      "name": "original-relocated-profile",
+      "command": [
+        "python3",
+        "apps/android/scripts/package_profile.py",
+        "apps/android/runtime/out/profile-v7"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Original profile/SDK; two isolated invocations recover real JSONL and reject a missing session without modifying committed logs",
+      "logSha256": "8bea99f4e52306abb835626d6371cd322a96451c0f47d5e9bb6c5af34a314df1",
+      "output": "{\"files\": 1338, \"links\": 844, \"packages\": 647, \"archiveBytes\": 2586357}\n"
+    },
+    {
+      "name": "Android-build-and-lint",
+      "command": [
+        "./apps/android/gradlew",
+        "-p",
+        "apps/android",
+        ":app:assembleDebug",
+        ":app:assembleDebugAndroidTest",
+        ":app:lintDebug",
+        "--console=plain",
+        "-Pkotlin.compiler.execution.strategy=in-process"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Normal guarded asset preparation; 79 tasks, 9 executed, 70 up-to-date; 6 seconds",
+      "logSha256": "20efbddfea8c1bde7c843d468c4edbc784465d5536d42a1d305cc9bf4ed4b8bb",
+      "output": "\n> Task :app:prepareRuntimeAssets\n$ tsc -b\n\n> Task :app:preBuild\n> Task :app:preDebugBuild\n> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE\n> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED\n> Task :app:checkDebugAarMetadata UP-TO-DATE\n> Task :app:processDebugNavigationResources UP-TO-DATE\n> Task :app:compileDebugNavigationResources UP-TO-DATE\n> Task :app:generateDebugResValues UP-TO-DATE\n> Task :app:mapDebugSourceSetPaths UP-TO-DATE\n> Task :app:generateDebugResources UP-TO-DATE\n> Task :app:mergeDebugResources UP-TO-DATE\n> Task :app:packageDebugResources UP-TO-DATE\n> Task :app:parseDebugLocalResources UP-TO-DATE\n> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE\n> Task :app:extractDeepLinksDebug UP-TO-DATE\n> Task :app:processDebugMainManifest UP-TO-DATE\n> Task :app:processDebugManifest UP-TO-DATE\n> Task :app:processDebugManifestForPackage UP-TO-DATE\n> Task :app:processDebugResources UP-TO-DATE\n> Task :app:compileDebugKotlin UP-TO-DATE\n> Task :app:javaPreCompileDebug UP-TO-DATE\n> Task :app:compileDebugJavaWithJavac UP-TO-DATE\n> Task :app:mergeDebugShaders UP-TO-DATE\n> Task :app:compileDebugShaders NO-SOURCE\n> Task :app:generateDebugAssets UP-TO-DATE\n> Task :app:mergeDebugAssets\n> Task :app:compressDebugAssets\n> Task :app:desugarDebugFileDependencies UP-TO-DATE\n> Task :app:dexBuilderDebug UP-TO-DATE\n> Task :app:mergeDebugGlobalSynthetics UP-TO-DATE\n> Task :app:processDebugJavaRes UP-TO-DATE\n> Task :app:mergeDebugJavaResource UP-TO-DATE\n> Task :app:checkDebugDuplicateClasses UP-TO-DATE\n> Task :app:mergeExtDexDebug UP-TO-DATE\n> Task :app:mergeLibDexDebug UP-TO-DATE\n> Task :app:mergeProjectDexDebug UP-TO-DATE\n> Task :app:configureCMakeDebug[arm64-v8a]\n> Task :app:buildCMakeDebug[arm64-v8a]\n> Task :app:mergeDebugJniLibFolders\n> Task :app:validateSigningDebug UP-TO-DATE\n> Task :app:writeDebugAppMetadata UP-TO-DATE\n> Task :app:writeDebugSigningConfigVersions UP-TO-DATE\n> Task :app:bundleDebugClassesToCompileJar UP-TO-DATE\n> Task :app:preDebugAndroidTestBuild SKIPPED\n> Task :app:checkDebugAndroidTestAarMetadata UP-TO-DATE\n> Task :app:processDebugAndroidTestNavigationResources UP-TO-DATE\n> Task :app:compileDebugAndroidTestNavigationResources UP-TO-DATE\n> Task :app:generateDebugAndroidTestResValues UP-TO-DATE\n> Task :app:mapDebugAndroidTestSourceSetPaths UP-TO-DATE\n> Task :app:generateDebugAndroidTestResources UP-TO-DATE\n> Task :app:mergeDebugAndroidTestResources UP-TO-DATE\n> Task :app:processDebugAndroidTestManifest UP-TO-DATE\n> Task :app:processDebugAndroidTestResources UP-TO-DATE\n> Task :app:compileDebugAndroidTestKotlin UP-TO-DATE\n> Task :app:javaPreCompileDebugAndroidTest UP-TO-DATE\n> Task :app:compileDebugAndroidTestJavaWithJavac NO-SOURCE\n> Task :app:mergeDebugAndroidTestShaders UP-TO-DATE\n> Task :app:compileDebugAndroidTestShaders NO-SOURCE\n> Task :app:generateDebugAndroidTestAssets UP-TO-DATE\n> Task :app:mergeDebugAndroidTestAssets UP-TO-DATE\n> Task :app:compressDebugAndroidTestAssets UP-TO-DATE\n> Task :app:desugarDebugAndroidTestFileDependencies UP-TO-DATE\n> Task :app:dexBuilderDebugAndroidTest UP-TO-DATE\n> Task :app:mergeDebugAndroidTestGlobalSynthetics UP-TO-DATE\n> Task :app:processDebugAndroidTestJavaRes UP-TO-DATE\n> Task :app:mergeDebugAndroidTestJavaResource UP-TO-DATE\n> Task :app:checkDebugAndroidTestDuplicateClasses UP-TO-DATE\n> Task :app:mergeExtDexDebugAndroidTest UP-TO-DATE\n> Task :app:mergeLibDexDebugAndroidTest UP-TO-DATE\n> Task :app:mergeProjectDexDebugAndroidTest UP-TO-DATE\n> Task :app:mergeDebugAndroidTestJniLibFolders UP-TO-DATE\n> Task :app:validateSigningDebugAndroidTest UP-TO-DATE\n> Task :app:writeDebugAndroidTestSigningConfigVersions UP-TO-DATE\n> Task :app:generateDebugAndroidTestLintModel UP-TO-DATE\n> Task :app:extractProguardFiles UP-TO-DATE\n> Task :app:generateDebugLintReportModel\n> Task :app:preDebugUnitTestBuild\n> Task :app:generateDebugUnitTestLintModel UP-TO-DATE\n> Task :app:mergeDebugNativeLibs\n> Task :app:stripDebugDebugSymbols\n> Task :app:packageDebug\n> Task :app:createDebugApkListingFileRedirect UP-TO-DATE\n> Task :app:assembleDebug\n> Task :app:mergeDebugAndroidTestNativeLibs NO-SOURCE\n> Task :app:stripDebugAndroidTestDebugSymbols NO-SOURCE\n> Task :app:packageDebugAndroidTest UP-TO-DATE\n> Task :app:createDebugAndroidTestApkListingFileRedirect UP-TO-DATE\n> Task :app:assembleDebugAndroidTest UP-TO-DATE\n> Task :app:lintAnalyzeDebugAndroidTest UP-TO-DATE\n> Task :app:lintAnalyzeDebugUnitTest UP-TO-DATE\n> Task :app:lintAnalyzeDebug\n> Task :app:lintReportDebug UP-TO-DATE\n> Task :app:lintDebug\n\nBUILD SUCCESSFUL in 5s\n79 actionable tasks: 12 executed, 67 up-to-date\n"
+    },
+    {
+      "name": "APK-inspection",
+      "command": [
+        "python3",
+        "apps/android/scripts/inspect_runtime_apk.py",
+        "--build-log",
+        "/tmp/android-apk2-gradle-qualified.log"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Signatures, ZIP/ELF alignment, Android dependencies, exact image/notices and source hashes",
+      "logSha256": "3970e0ce4f7196e97f132269b2e98ef45683bbca257f03b2b6288a5049d48443",
+      "output": "{\n  \"apkSha256\": {\n    \"app-debug.apk\": \"e6b9efd40b6618c2ee0d3cc85933dd0fed99abac09704397c3d9d2b7d3edac66\",\n    \"app-debug-androidTest.apk\": \"c63ad7fb56d1bf26b17d5ef8bca20b2100d4fe56d027313b113a428aa07aeeed\"\n  },\n  \"apkBytes\": {\n    \"app-debug.apk\": 48055657,\n    \"app-debug-androidTest.apk\": 2193691\n  }\n}\n"
+    },
+    {
+      "name": "root-lint",
+      "command": [
+        "pnpm",
+        "run",
+        "lint"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Passed with the existing experimental/client-ui-cot-translation unused-disable warning",
+      "logSha256": "25181317994caab2167ee0b30af37da4375e9f6edd026e5e865d6041fbb5459f",
+      "output": "$ tsx scripts/compile-referenced-projects.ts host-contracts && npm run lint:contracts-ready\ngenerate-typert: wrote 39 Typert artifact(s) for 39 package(s) in 17.9s\n\n> @deepseek-ai/dsh-root@0.2.2-rc.2 lint:contracts-ready\n> tsx scripts/run-oxlint.ts .\n\npackages/experimental/client-ui-cot-translation/src/index.ts:82:9: warning: Unused oxlint-disable directive (no problems were reported).\nnpm notice\nnpm notice New major version of npm available! 11.19.1 -> 12.2.2\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2\nnpm notice To update run: npm install -g npm@12.2.2\nnpm notice\n"
+    },
+    {
+      "name": "documentation-quick",
+      "command": [
+        "pnpm",
+        "run",
+        "test:docs"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "21/21",
+      "logSha256": "9ee0612b48d8612d6d551b8140bcdf1b6bc30316460efda99898b5ee19fa703b",
+      "output": "$ tsx scripts/run-gates.ts doc-quick\nrun-gates: doc-quick running 21 gate(s) with 4 worker(s) from 4 local default worker(s) of 4 CPU(s), doc-quick cap 8.\nrun-gates: start markdown links\nrun-gates: start type equivalence\nrun-gates: start translation pairing\nrun-gates: start markdown wrap\nrun-gates: PASS type equivalence (7.54s)\nrun-gates: start npm dependency catalog\nrun-gates: PASS npm dependency catalog (1.09s)\nrun-gates: start Session format references\nrun-gates: PASS Session format references (9.48s)\nrun-gates: start public repository links\nrun-gates: PASS public repository links (5.66s)\nrun-gates: start repository references\nrun-gates: PASS markdown wrap (25.92s)\nrun-gates: start concrete terms\nrun-gates: PASS markdown links (27.51s)\nrun-gates: start doc refs\nrun-gates: PASS concrete terms (3.03s)\nrun-gates: start package README Summaries\nrun-gates: PASS doc refs (1.88s)\nrun-gates: start package README model experience\nrun-gates: PASS package README Summaries (1.16s)\nrun-gates: start agent note classification\nrun-gates: PASS agent note classification (1.33s)\nrun-gates: start agent note format\nrun-gates: PASS agent note format (1.42s)\nrun-gates: start archived agent notes\nrun-gates: PASS archived agent notes (1.33s)\nrun-gates: start skill invocation metadata\nrun-gates: PASS translation pairing (35.16s)\nrun-gates: start translation prompt\nrun-gates: PASS skill invocation metadata (1.14s)\nrun-gates: start doc budgets\nrun-gates: PASS package README model experience (6.49s)\nrun-gates: start upgrade guides\nrun-gates: PASS translation prompt (0.97s)\nrun-gates: start documentation standard tests\nrun-gates: PASS doc budgets (1.14s)\nrun-gates: start package README limitations\nrun-gates: PASS repository references (12.71s)\nrun-gates: PASS upgrade guides (1.41s)\nrun-gates: PASS documentation standard tests (2.09s)\nrun-gates: PASS package README limitations (4.80s)\n\nrun-gates: 21 passed, 0 failed, 0 skipped in 41.28s.\n"
+    },
+    {
+      "name": "config-catalog-corrected",
+      "command": [
+        "pnpm",
+        "run",
+        "verify-config-catalog"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Generated English/Chinese source location updated from line 94 to 95 after the added import; no config/schema changes",
+      "logSha256": "f2b5e1da4136c3bd6d71a25b31284bb6be0de901a23329dd0b4a816a371fa0cf",
+      "output": "$ tsx scripts/gen-config-catalog.ts --check\ngen-config-catalog: 3 artifact(s) are up to date.\n"
+    },
+    {
+      "name": "full-hygiene-initial",
+      "command": [
+        "pnpm",
+        "run",
+        "hygiene"
+      ],
+      "exitCode": 1,
+      "status": "FAIL",
+      "summary": "22/24 initially; constraints passed after preserving obsolete generated folders; vendor rescope reproduced unchanged on baseline",
+      "logSha256": "d09ac4c69d4cfbba4c9578fdfd8959ed85645a5b553ae6e47ff727d09385b25a",
+      "output": "$ tsx scripts/run-gates.ts hygiene\nrun-gates: hygiene running 24 gate(s) with 4 worker(s) from 4 local default worker(s) of 4 CPU(s), hygiene cap 8.\nrun-gates: start vendor rescope\nrun-gates: start publint\nrun-gates: start constraints\nrun-gates: start default product isolation\n\n== FAILED constraints (6.69s) ==\ncommand: pnpm run constraints\noutcome: exit 1\n$ tsx scripts/check-workspace-constraints.ts\npackages/api/account-controller: expected a package here (no package.json found) \u2014 the hierarchy is exactly packages/<group>/<pkg>, no deeper nesting\npackages/credentials/deepseek-account-platform: expected a package here (no package.json found) \u2014 the hierarchy is exactly packages/<group>/<pkg>, no deeper nesting\npackages/document/office-to-pdf: expected a package here (no package.json found) \u2014 the hierarchy is exactly packages/<group>/<pkg>, no deeper nesting\n[ELIFECYCLE] Command failed with exit code 1.\nrun-gates: start product package classification\nrun-gates: PASS default product isolation (18.54s)\nrun-gates: start Official bundle catalog\nrun-gates: PASS Official bundle catalog (2.71s)\nrun-gates: start pi-ai provider metadata\nrun-gates: PASS publint (21.34s)\nrun-gates: start package dependencies\nrun-gates: PASS pi-ai provider metadata (3.01s)\nrun-gates: start application entrypoints\n\n== FAILED vendor rescope (25.77s) ==\ncommand: pnpm run rescope-vendor:check\noutcome: exit 1\n$ tsx scripts/rescope-vendor.ts --check\nrescope-vendor: check over 14441 tracked files\n  Markdown fences and docs prose    2 file(s), 2 line(s)\n  code specifiers             2 file(s), 4 line(s)\nrescope-vendor: residue: apps/web/tests/creator-persona.e2e.ts still carries a pre-rescope name token\nrescope-vendor: residue: docs/upgrade-guide/v0.2.2-rc.1/subagent-interrupt-default/guide.md still carries a pre-rescope name token\nrescope-vendor: residue: docs/upgrade-guide/v0.2.2-rc.1/subagent-interrupt-default/guide.zh.md still carries a pre-rescope name token\nrescope-vendor: residue: packages/experimental/cua/tests/agent-scopes.spec.ts still carries a pre-rescope name token\nrescope-vendor: 4 problem(s); the mapping or an upstream site moved.\n[ELIFECYCLE] Command failed with exit code 1.\nrun-gates: start DSH package licenses\nrun-gates: PASS DSH package licenses (2.08s)\nrun-gates: start node-next types\nrun-gates: PASS application entrypoints (3.87s)\nrun-gates: start optional dependency imports\nrun-gates: PASS product package classification (28.49s)\nrun-gates: start client packages\nrun-gates: PASS node-next types (11.67s)\nrun-gates: start Windows installer locales\nrun-gates: PASS Windows installer locales (1.46s)\nrun-gates: start plugin locale metadata\nrun-gates: PASS plugin locale metadata (7.96s)\nrun-gates: start client UI i18n\nrun-gates: PASS client UI i18n (5.73s)\nrun-gates: start client route resolution\nrun-gates: PASS client route resolution (11.96s)\nrun-gates: start proxy-aware dispatchers\nrun-gates: PASS client packages (31.84s)\nrun-gates: start plugin record callers\nrun-gates: PASS proxy-aware dispatchers (3.02s)\nrun-gates: start no new unknown casts\nrun-gates: PASS optional dependency imports (55.16s)\nrun-gates: start no module-scope await\nrun-gates: PASS no module-scope await (6.48s)\nrun-gates: start plugin entry exports\nrun-gates: PASS no new unknown casts (21.68s)\nrun-gates: start Cordis config\nrun-gates: PASS Cordis config (6.37s)\nrun-gates: start runtime closure\nrun-gates: PASS runtime closure (2.08s)\nrun-gates: PASS plugin record callers (33.79s)\nrun-gates: PASS plugin entry exports (43.80s)\nrun-gates: PASS package dependencies (361.83s)\n\nrun-gates: 22 passed, 2 failed, 0 skipped in 383.17s.\nrun-gates: unsuccessful gates:\n  - FAILED vendor rescope (25.77s, exit 1)\n    pnpm run rescope-vendor:check\n  - FAILED constraints (6.69s, exit 1)\n    pnpm run constraints\n[ELIFECYCLE] Command failed with exit code 1.\n"
+    },
+    {
+      "name": "full-documentation-after-catalog-regeneration",
+      "command": [
+        "pnpm",
+        "run",
+        "doc-sync"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "43/43 in 169.01 seconds",
+      "logSha256": "0a312ed3d248b340d4b5f6b629fed5a48e6e46f2f59ded844921c67e2d35f36c",
+      "output": "$ tsx scripts/run-gates.ts doc-sync\nrun-gates: doc-sync running 43 gate(s) with 4 worker(s) from 4 local default worker(s) of 4 CPU(s), doc-sync cap 8.\nrun-gates: start doc-typecheck\nrun-gates: start documentation build\nrun-gates: start doc graphs\nrun-gates: start CLI help reference\nrun-gates: PASS CLI help reference (34.12s)\nrun-gates: start markdown links\nrun-gates: PASS doc graphs (55.62s)\nrun-gates: start type equivalence\nrun-gates: PASS doc-typecheck (56.93s)\nrun-gates: start cordis catalog\nrun-gates: PASS type equivalence (6.18s)\nrun-gates: start Cordis inspect catalog\nrun-gates: PASS markdown links (29.38s)\nrun-gates: start workflow guest source\nrun-gates: PASS workflow guest source (2.30s)\nrun-gates: start verify-mermaid\nrun-gates: PASS Cordis inspect catalog (16.37s)\nrun-gates: start translation pairing\nrun-gates: PASS cordis catalog (27.68s)\nrun-gates: start markdown wrap\nrun-gates: PASS verify-mermaid (35.46s)\nrun-gates: start client catalog\nrun-gates: PASS documentation build (109.13s)\nrun-gates: start export jsdoc\nrun-gates: PASS client catalog (9.37s)\nrun-gates: start tool catalog\nrun-gates: PASS markdown wrap (27.85s)\nrun-gates: start config catalog\nrun-gates: PASS tool catalog (4.63s)\nrun-gates: start skill plugin package list\nrun-gates: PASS translation pairing (39.25s)\nrun-gates: start npm dependency catalog\nrun-gates: PASS config catalog (5.71s)\nrun-gates: start persistence catalog\nrun-gates: PASS npm dependency catalog (1.35s)\nrun-gates: start persistence type history\nrun-gates: PASS skill plugin package list (4.88s)\nrun-gates: start released persistence history\nrun-gates: PASS export jsdoc (16.27s)\nrun-gates: start Session format references\nrun-gates: PASS released persistence history (5.62s)\nrun-gates: start Session format catalog\nrun-gates: PASS Session format catalog (1.24s)\nrun-gates: start public repository links\nrun-gates: PASS public repository links (7.78s)\nrun-gates: start repository references\nrun-gates: PASS Session format references (9.53s)\nrun-gates: start concrete terms\nrun-gates: PASS concrete terms (3.55s)\nrun-gates: start doc refs\nrun-gates: PASS doc refs (2.33s)\nrun-gates: start subsystem pages\nrun-gates: PASS subsystem pages (1.78s)\nrun-gates: start package paths\nrun-gates: PASS package paths (2.00s)\nrun-gates: start tsconfig paths\nrun-gates: PASS tsconfig paths (1.21s)\nrun-gates: start config source ownership\nrun-gates: PASS persistence type history (27.09s)\nrun-gates: start package README Summaries\nrun-gates: PASS config source ownership (1.07s)\nrun-gates: start package README model experience\nrun-gates: PASS package README Summaries (1.15s)\nrun-gates: start agent note classification\nrun-gates: PASS repository references (12.30s)\nrun-gates: start agent note format\nrun-gates: PASS persistence catalog (30.34s)\nrun-gates: start archived agent notes\nrun-gates: PASS agent note classification (1.67s)\nrun-gates: start skill invocation metadata\nrun-gates: PASS agent note format (1.65s)\nrun-gates: start translation prompt\nrun-gates: PASS archived agent notes (1.22s)\nrun-gates: start doc budgets\nrun-gates: PASS skill invocation metadata (1.12s)\nrun-gates: start upgrade guides\nrun-gates: PASS translation prompt (1.17s)\nrun-gates: start documentation standard tests\nrun-gates: PASS doc budgets (1.67s)\nrun-gates: start documentation site checks\nrun-gates: PASS upgrade guides (2.11s)\nrun-gates: start package README limitations\nrun-gates: PASS documentation standard tests (3.66s)\nrun-gates: PASS package README model experience (7.27s)\nrun-gates: PASS package README limitations (8.69s)\nrun-gates: PASS documentation site checks (17.58s)\n\nrun-gates: 43 passed, 0 failed, 0 skipped in 169.01s.\n"
+    }
+  ],
+  "actualNativeCompilation": [
+    "cc -std=c11 -O2 -Wall -Wextra -Werror -DNAPI_VERSION=8 -fPIC -shared -I /workspace/android-node/node-v24.22.1/src native/system/packages/entry/src/atomic_publish.c -o /tmp/harness-atomic-addon.node",
+    "bash apps/android/runtime/build-atomic-addon.sh",
+    "python3 apps/android/scripts/package_node.py --build /workspace/android-node --ndk /workspace/android-sdk/ndk/28.2.13676358"
+  ],
+  "nativeBuildRecord": "runtime-atomic-persistence-build.json",
+  "widerFailures": "runtime-apk2-wider-checks.json",
+  "physicalMechanismReview": "atomic-poc-physical-review.json",
+  "androidNativeWrapperExecuted": false,
+  "androidSessionRecoveryVerified": false,
+  "gate2Passed": false,
+  "developmentCorrections": [
+    "Node names errno 95 ENOTSUP, the EOPNOTSUPP alias; assertions and API documentation now name that exact behavior.",
+    "Removed an unsupported packager CLI option; normal guarded packaging then passed.",
+    "The first inspection script targeted the historical V8 report path; restored the exact committed V8 bytes and corrected the separate APK2 target before committing.",
+    "Generated config catalog required a one-line source-location update from the new import; regenerated both language artifacts without weakening validation."
+  ]
+}

@@ -1,0 +1,12 @@
+# Original profile plus explicit reviewed qualification extensions only.
+- insert:
+    - id: android-proof-approval
+      name: '@deepseek-ai/dsh-user-approval'
+      config:
+        policy: ask
+    - id: android-proof-commands
+      name: '@deepseek-ai/dsh-commands'
+    - id: android-proof-tool
+      name: __ANDROID_COMMAND_PLUGIN__
+- id: sdk-jsonrpc-server
+  inject: [sdkAppStartup, loader, sessionPersistence, approval, commands, androidCommandQualificationReady]
