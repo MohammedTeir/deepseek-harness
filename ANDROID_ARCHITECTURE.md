@@ -44,3 +44,7 @@ The [Gate 2 review](ANDROID_GATE2_REVIEW.md) accepts the bounded original local-
 ## Gate 3 diagnostic boundary
 
 The new process/PTY proof is a fixed native capability suite hosted by a private Android service. It is independent of Harness tool qualification and preserves the existing Node/profile architecture. It informs a later adapter for original subprocess and terminal interfaces; it is not that adapter. The original UI and Bash terminal protocol remain unchanged. See [the qualification guide](apps/android/execution/process-proof/PROCESS_CAPABILITY_PROOF.md).
+
+## Original subprocess service adapter
+
+AndroidFixedPwdSubprocess subclasses the original service and is mounted as a separate profile plugin. The registered tool now uses ctx.subprocess with a scoped immutable call binding. The authenticated native broker and human grant remain the execution authority. Only bounded collected fixed pwd is supported; batch RPC cannot provide raw streams or a live SubprocessTerminalHandle. See [the adapter contract](apps/android/execution/SUBPROCESS_ADAPTER.md).

@@ -92,3 +92,7 @@ The [process qualification guide](apps/android/execution/process-proof/PROCESS_C
 ## APK #4 physical capability update
 
 The earlier Gate 3 NOT YET VERIFIED rows describe the build checkpoint. The [received Android 11/API 30 ARM64 report](ANDROID_GATE3_REVIEW.md) now verifies the fixed native process, shell script and PTY cases on that phone. General shell provider and original terminal backend remain ADAPT / NOT YET VERIFIED; API 29 and recent-device behavior remain NOT YET VERIFIED. Discovery is limited to twelve exact system paths.
+
+## Original subprocess adapter
+
+Original SubprocessRuntime fixed pwd integration is ADAPT / IMPLEMENTED with host tests; Android adapter execution remains NOT YET VERIFIED pending APK #5. Native process/PTY primitives retain their separate Android 11 acceptance. Raw streams, general commands, spills, custom environment, signal classification and the original interactive terminal backend remain unsupported by this bounded adapter. See [scope and evidence](apps/android/execution/SUBPROCESS_ADAPTER.md).

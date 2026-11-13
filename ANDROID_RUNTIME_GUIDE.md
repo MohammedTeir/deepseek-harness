@@ -99,3 +99,7 @@ Install the single APK from apps/android/evidence/process-apk4-delivery.json as 
 ## APK #4 received phone result
 
 The [Gate 3 review](ANDROID_GATE3_REVIEW.md) accepts one matching user-reported Android 11 ARM64 run of the fixed process and PTY suite. No replacement APK or repeat test is required for accepting that specific report. Broader lifecycle/version tests remain outstanding. The old delivery instructions and blocked-at-build evidence are historical checkpoints, not current phone status.
+
+## APK #5 original subprocess proof
+
+Use the fourth original-tool approval test in the updated large app. Deny the first request, approve the second, keep the Activity visible and copy complete result. Data and old sessions must be preserved. The [adapter guide](apps/android/execution/SUBPROCESS_ADAPTER.md) defines required service markers and the validator command. This update keeps the fifth fixed capability test but does not implement an interactive terminal.

@@ -6,6 +6,8 @@
         policy: ask
     - id: android-proof-commands
       name: '@deepseek-ai/dsh-commands'
+    - id: android-proof-subprocess
+      name: __ANDROID_SUBPROCESS_PLUGIN__
     - id: android-proof-tool
       name: __ANDROID_COMMAND_PLUGIN__
 - id: sdk-jsonrpc-server

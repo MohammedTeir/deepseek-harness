@@ -41,3 +41,7 @@ The fixed process/PTY native diagnostic is IMPLEMENTED and host tested. Physical
 ## APK #4 selected-device checkpoint
 
 The [physical review](ANDROID_GATE3_REVIEW.md) verifies the fixed capability suite on Android 11/API 30 ARM64. Overall Gate 3 remains IN PROGRESS for version coverage and limits. Next runnable task: inspect and design the smallest adapter for the existing Subprocess/TerminalBackend contracts, preserving native authorization and reporting missing capabilities. Do not assume Bash or general shell support from a passing native PTY fixture.
+
+## Bounded original subprocess integration
+
+The [fixed native adapter](apps/android/execution/SUBPROCESS_ADAPTER.md) is IMPLEMENTED and host tested through the original service/profile. Next acceptance is the APK #5 original-tool test on the phone, requiring native Deny then Approve and original session recovery. Then design persistent authenticated PTY I/O and accurate process signal outcomes before extending TerminalBackend or enabling general commands. Do not infer interactive-shell support from the earlier fixed PTY fixture.

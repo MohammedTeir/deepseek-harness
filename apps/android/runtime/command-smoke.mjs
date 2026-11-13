@@ -37,7 +37,7 @@ async function main() {
   env.HARNESS_COMMAND_PLUGIN = fileURLToPath(new URL('./command-plugin.mjs', import.meta.url));
   const patch = path.join(path.dirname(output), 'command-proof.generated.patch.yml');
   const template = await fs.readFile(new URL('./profile/command-proof.patch.yml', import.meta.url), 'utf8');
-  await fs.writeFile(patch, template.replace('__ANDROID_COMMAND_PLUGIN__', JSON.stringify(env.HARNESS_COMMAND_PLUGIN)));
+  await fs.writeFile(patch, template.replace('__ANDROID_COMMAND_PLUGIN__', JSON.stringify(env.HARNESS_COMMAND_PLUGIN)).replace('__ANDROID_SUBPROCESS_PLUGIN__', JSON.stringify(fileURLToPath(new URL('./android-subprocess.mjs', import.meta.url)))));
   const { HarnessClient } = await import(resolveCli.resolve('@deepseek-ai/dsh-sdk-client'));
   const options = { profile: 'sdk-minimal', dshHome: path.join(path.dirname(output), 'home'), processCwd: config.cwd, env,
     patches: [fileURLToPath(new URL('./profile/no-execution.patch.yml', import.meta.url)), patch],
@@ -92,6 +92,7 @@ async function main() {
   if (calls.length !== 2 || !calls[0].batch.results[0].result.isError || calls[1].batch.results[0].result.isError) throw new Error('Expected human Deny then Approve; original outcomes differ');
   if (calls[0].batch.results[0].result.error?.info?.code !== 'APPROVAL_REJECTED') throw new Error('Original denial code missing');
   const commandResult = JSON.parse(calls[1].batch.results[0].result.content[0].text);
+  if (commandResult.subprocessProvider !== 'android-fixed-pwd-v1') throw new Error('Original subprocess adapter was bypassed');
   diagnostic.commandResult = commandResult;
   if (commandResult.stdout !== config.cwd + '\n' || commandResult.exitCode !== 0 || typeof commandResult.stderr !== 'string') throw new Error('Real pwd output differs');
   negative.replay = await brokerRequest('execute', fields(config.callIds[1]));
@@ -117,7 +118,7 @@ async function main() {
   return { schemaVersion: 1, suite: 'original-harness-approved-pwd-v1', node: process.version, platform: process.platform, arch: process.arch,
     kernelIdentity: readProcIdentity(), harnessStarted: true, serverInfo: identity.serverInfo, sessionId,
     runtimeStderr: await Promise.all(observedClients.map(async current => redact(await current.runtimeStderr()))),
-    originalRegistryAndPipeline: true, approvalOutcomes: outcomes, commandResult, negative, history, recoveredHistory: recovered,
+    originalRegistryAndPipeline: true, originalSubprocessService: true, approvalOutcomes: outcomes, commandResult, negative, history, recoveredHistory: recovered,
     sessionRecoveredAcrossRuntimeRestart: true, persistedJsonlSha256: hashes,
     eventStorage: 'original command/done contains canonical tool batch; original approval audit events; no fabricated model tool/call events',
     approvedCommandExecuted: true, modelRequestExecuted: false, gate2Passed: false };

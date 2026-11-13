@@ -15,12 +15,14 @@ ROOT = ANDROID.parents[1]
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--build-log', type=Path, required=True)
 parser.add_argument('--output', type=Path, required=True)
+parser.add_argument('--subprocess-proof', action='store_true')
 args = parser.parse_args()
 base = ANDROID / 'runtime/out/process-base-inspection.json'
 subprocess.run(['python3', str(ANDROID/'scripts/inspect_runtime_apk.py'), '--build-log', str(args.build_log),
                 '--command-proof', '--output', str(base)], check=True)
 record = json.loads(base.read_text())
-assert record['apkVersionCode'] == 11 and record['apkVersionName'] == '0.1.10-process-capability-proof'
+assert record['apkVersionCode'] == (12 if args.subprocess_proof else 11)
+assert record['apkVersionName'] == ('0.1.11-native-subprocess-proof' if args.subprocess_proof else '0.1.10-process-capability-proof')
 previous = json.loads((ANDROID/'evidence/runtime-command-apk3-build.json').read_text())
 for name, data in previous['packagedLibraries'].items():
     assert record['packagedLibraries'][name]['sha256'] == data['sha256'], name
@@ -48,6 +50,9 @@ record['observedDate'] = '2026-11-13'
 record.pop('hostTests', None)
 record.pop('originalProfileReference', None)
 record['scope'] = 'APK #4 fixed process/shell/PTY OS qualification; not an original terminal provider'
+if args.subprocess_proof:
+    record['scope'] = 'APK #5 original SubprocessRuntime fixed-pwd adapter; phone execution pending'
+    record['androidSubprocessAdapterExecuted'] = False
 record['gate2NativeLibrariesUnchanged'] = True
 record['gate3Passed'] = False
 record['androidProcessProbeExecuted'] = False

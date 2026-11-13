@@ -100,7 +100,7 @@ class CommandBroker(private val workspace: File, private val showApproval: (JSON
             val action = request.getString("action")
             if (action == "describe") {
                 check(keys == base)
-                reply = success().put("cwd", workspace.path).put("uid", uid).put("sessionId", sessionId).put("callIds", JSONArray(callIds))
+                reply = success().put("fixedExecutableAvailable", File("/system/bin/pwd").canExecute()).put("cwd", workspace.path).put("uid", uid).put("sessionId", sessionId).put("callIds", JSONArray(callIds))
                 return
             }
             if (action !in setOf("prepare", "execute", "cancel")) { reply = error("UNSUPPORTED_ACTION"); return }

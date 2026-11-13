@@ -269,3 +269,7 @@ Status: IN PROGRESS; physical execution BLOCKED pending phone results. The [fixe
 ## APK #4 physical process capability review
 
 Status: VERIFIED for the selected-device fixed suite; overall Gate 3 remains IN PROGRESS. The [Gate 3 review](ANDROID_GATE3_REVIEW.md) accepts matching APK/native fingerprints, separate streams, stdin, nonzero exits, launch errors, TERM cancellation, timeout/KILL/reaping, cooperative descendant cleanup, fixed system-shell execution and PTY input/resize on Redmi Note 8 Pro / Android 11 API 30. The complete user-reported result is retained without changing gate3Passed=false. API 29/recent-device coverage, Activity/OS-death cleanup, general shell and original terminal integration remain unverified. Next: map the demonstrated capabilities into existing subprocess/terminal contracts with authorization preserved.
+
+## Original subprocess adapter checkpoint
+
+Status: IMPLEMENTED and host verified; physical execution BLOCKED pending APK #5. The [fixed adapter](apps/android/execution/SUBPROCESS_ADAPTER.md) mounts the original SubprocessRuntime service in the authentic profile and routes the existing approved pwd tool through its spawn/done/collected/waitForExit contract. Unsupported pipes, spill, custom environment, commands and interactive PTY fail closed. Native authorization and session format remain unchanged. Gate 3 remains IN PROGRESS; APK #4 phone evidence does not verify this new integration.

@@ -42,3 +42,7 @@ APK #4 adds a private same-UID service for reviewed fixed native tests only. Nat
 ## APK #4 reported signal and cleanup evidence
 
 The [selected-device review](ANDROID_GATE3_REVIEW.md) records actual TERM cancellation, readiness-triggered timeout/KILL, waitpid completion and cooperative grandchild reaping on Android 11/API 30. This improves the earlier host-only evidence for those fixed cases. It does not prove Activity/service/OS-death cleanup, hostile process containment, arbitrary descendant cleanup or same-UID plugin isolation. Parent-death setup was reached but actual parent termination was not tested. Existing command grants and agent authorization remain unchanged.
+
+## Fixed subprocess adapter authority
+
+The [original-service adapter](apps/android/execution/SUBPROCESS_ADAPTER.md) cannot approve a grant or select a command. It binds a reviewed original tool call and still relies on native one-shot exact-request authorization. Cleanup acknowledgment is required before reporting quiescence; unsupported commands, environment forwarding and descriptor modes fail closed. Same-UID plugins are not isolated. Android execution of this added service path remains unverified until APK #5 results arrive.

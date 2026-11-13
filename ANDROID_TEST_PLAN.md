@@ -69,3 +69,7 @@ Run `python3 -m unittest discover -s apps/android/tests -p 'test_process*.py' -v
 ## APK #4 physical evidence received
 
 apps/android/evidence/phone-process-apk4-run1.json passes the unchanged process-result validator against process-apk4-build.json. This is user-reported physical execution with exact artifact digests, not host evidence. See [the acceptance review](ANDROID_GATE3_REVIEW.md) for observed streams, signals, exits, PTY and limited discovery. API 29, recent Android, actual parent death, Activity cancellation and broader PTY/process behavior remain unverified.
+
+## Original subprocess service proof
+
+Run the Android host regressions and subprocess-adapter-reference.mjs for actual original-service contracts, real Linux pwd, exact-request rejection, bounded readers, cancellation acknowledgment and awaited disposal. The original command-profile reference and relocated image check must pass before packaging. Synthetic transport/parser fixtures are not phone evidence. Run the fourth APK #5 test with native Deny then Approve and validate using --require-subprocess as described in [the adapter guide](apps/android/execution/SUBPROCESS_ADAPTER.md). Old direct-broker results must fail this new requirement.

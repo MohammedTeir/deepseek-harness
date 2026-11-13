@@ -146,7 +146,7 @@ def build(output):
                   'apps/android/runtime/profile-smoke.mjs', 'apps/android/runtime/proc-identity.mjs',
                   'apps/android/runtime/session-diagnostics.mjs', 'native/system/packages/entry/lib/publish.js',
                   'native/system/packages/entry/package.json', 'apps/android/runtime/profile/command-proof.patch.yml',
-                  'apps/android/runtime/command-smoke.mjs', 'apps/android/runtime/command-plugin.mjs',
+                  'apps/android/runtime/command-smoke.mjs', 'apps/android/runtime/command-plugin.mjs', 'apps/android/runtime/android-subprocess.mjs',
                   'apps/android/runtime/command-wire.mjs'}
         # Automated host decision fixture is not an Android execution component.
         files.discard('apps/android/tests/command-profile-reference.mjs')

@@ -25,7 +25,7 @@ export async function qualify(resultPath, runtime = fileURLToPath(new URL('../ru
         const reply = async () => {
           if (request.version !== 1) return { ok: false, code: 'MALFORMED_OR_DISCONNECTED' };
           if (request.token !== secret) return { ok: false, code: 'UNAUTHENTICATED' };
-          if (request.action === 'describe') return { ok: true, sessionId, callIds, cwd: workspace };
+          if (request.action === 'describe') return { ok: true, sessionId, callIds, cwd: workspace, fixedExecutableAvailable: true };
           if (!['prepare', 'execute', 'cancel'].includes(request.action)) return { ok: false, code: 'UNSUPPORTED_ACTION' };
           if ('uid' in request) return { ok: false, code: 'MALFORMED' };
           if (request.sessionId !== sessionId || !callIds.includes(request.callId) || request.cwd !== workspace || request.executable !== '/system/bin/pwd' || request.arguments.length) return { ok: false, code: 'REQUEST_CHANGED' };
