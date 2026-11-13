@@ -313,3 +313,7 @@ The [phone result review](apps/android/evidence/phone-apk7-terminal-result-revie
 ## Original terminal lifecycle qualification
 
 The [APK #8 qualification](apps/android/execution/TERMINAL_LIFECYCLE_PROOF.md) adds bounded wait timeout and explicit cancellation through the original terminal service without widening the fixed native allocation. Host execution passes; physical-device execution is pending. Gate 3 remains IN PROGRESS.
+
+## APK #8 phone lifecycle checkpoint
+
+The [phone lifecycle review](apps/android/evidence/phone-apk8-lifecycle-result-review.json) records a matching APK and four native-library hashes on Redmi Note 8 Pro/API 30. The bounded original-terminal wait timeout and SIGINT cancellation are VERIFIED at user-reported physical-device evidence level: timeout kept the single child running, explicit cancellation ended it, repeated cancellation failed, owner activity drained and original records recovered across runtime restart. Controller exit 0 is distinct from the child signal exit with null exitCode. Historical warnings and failures remain retained. Gate 3 remains IN PROGRESS pending a consolidated acceptance review and remaining target-device coverage; no app-restart, general-shell or malicious-plugin isolation claim is added.

@@ -1,6 +1,6 @@
 # Original terminal lifecycle qualification: APK #8
 
-Reference scope: fixed benign PTY wait timeout and cancellation through the original Harness terminal registry, tool pipeline, approval service and persisted session records. Host execution is verified; Android physical execution is pending. The previous input/resize phone evidence remains in the [APK #7 review](../evidence/phone-apk7-terminal-result-review.json).
+Reference scope: fixed benign PTY wait timeout and cancellation through the original Harness terminal registry, tool pipeline, approval service and persisted session records. Host execution is verified; the bounded Android 11/API 30 run is VERIFIED at user-reported physical-device evidence level in the [phone review](../evidence/phone-apk8-lifecycle-result-review.json). The previous input/resize phone evidence remains in the [APK #7 review](../evidence/phone-apk7-terminal-result-review.json).
 
 ## Execution and authorization
 
