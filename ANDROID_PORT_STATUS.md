@@ -2,7 +2,7 @@
 
 ## Summary
 
-Phase 0 is VERIFIED and Gate 1 is accepted. Phase 2 is IN PROGRESS; Gate 2 remains BLOCKED on trusted approved-command execution and remaining evidence. Three user-reported APK #2 results on Redmi Note 8 Pro / Android 11 ARM64 pass original Harness startup, native publication, JSONL recovery after Node runtime restart and repeated-invocation recovery. A third report follows the requested manual force-stop/reopen; automated app-restart detection, active-write process death and power loss remain unverified. Original frontend, agent and session format are preserved.
+Phase 0 is VERIFIED and Gate 1 is accepted. Gate 2 is accepted within the bounded local-engine scope of ANDROID_GATE2_REVIEW.md, based on user-reported Android 11 ARM64 phone results. Gate 3 is IN PROGRESS: fixed process/shell/PTY diagnostics are built and host tested, with physical execution BLOCKED pending phone output. External model requests, original frontend integration, general terminal support, broader device coverage and release qualification remain unverified. Historical milestone entries below retain their original status and failures.
 
 ## Upstream sync: Phase 1 evidence refreshed
 
@@ -261,3 +261,7 @@ Status: IMPLEMENTED with host integration and Android build checks; physical exe
 Status: VERIFIED for the bounded local-engine criteria in the [Gate 2 review](ANDROID_GATE2_REVIEW.md). The user-reported Android 11 ARM64 result matches APK/native hashes and passes the unchanged validator: original profile/tool/approval, explicit Deny then Approve, one actual pwd process with stdout/stderr/exit, concurrent/replay/mutation denial and identical recovered original records. Raw gate2Passed remains false; the review decision is recorded separately. External model inference remains unverified without credentials.
 
 Leaving the Activity during confirmation produced the intended cancellation message according to the tester. This is UI evidence only, not proof of native child termination or full background/lifecycle behavior. Retained nonfatal linker and SDK shutdown notes are explained in the owning review; historical failures remain untouched. The next milestone is Gate 3 process/shell/PTY qualification, with original UI, cross-UID isolation, device matrix and release acceptance still separate.
+
+## Gate 3 process and PTY qualification
+
+Status: IN PROGRESS; physical execution BLOCKED pending phone results. The [fixed native diagnostic](apps/android/execution/process-proof/PROCESS_CAPABILITY_PROOF.md) adds an explicitly authorized fifth test button. Host tests pass, Android assembly/lint and APK inspection pass, and the original seven native libraries remain unchanged. This is OS capability evidence collection, not a general shell provider or original terminal integration. Historical failures and Gate 2 review remain intact. See the separate APK #4 build and delivery records under apps/android/evidence.

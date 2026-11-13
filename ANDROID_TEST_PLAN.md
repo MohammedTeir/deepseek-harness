@@ -61,3 +61,7 @@ Follow the [two-prompt command tutorial](apps/android/execution/COMMAND_PROOF.md
 ## APK #3 physical review
 
 The [Gate 2 review](ANDROID_GATE2_REVIEW.md) records the passing actual phone result and unchanged artifact-aware validation. Source/native fingerprints, original approval pairs and tool batches, one native start and recovered history are checked separately from the user-described cancellation message. No Android negative instrumentation, cross-UID attacker or complete cancellation-run audit has executed; Gate 3 and broader lifecycle/device tests remain required.
+
+## Gate 3 fixed process/PTY qualification
+
+Run `python3 -m unittest discover -s apps/android/tests -p 'test_process*.py' -v` for three actual Linux native tests and two synthetic parser regressions. Android build command: `./apps/android/gradlew -p apps/android :app:assembleDebug :app:assembleDebugAndroidTest :app:lintDebug --console=plain -Pkotlin.compiler.execution.strategy=in-process`. Inspect with apps/android/scripts/inspect_process_apk.py and retain build evidence. No device was attached; physical verification is BLOCKED. Follow [the phone procedure](apps/android/execution/process-proof/PROCESS_CAPABILITY_PROOF.md) and validate its complete report against the APK #4 build record. Host PASS never substitutes for Android execution.

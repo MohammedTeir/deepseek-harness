@@ -40,3 +40,7 @@ The [APK #3 reference](apps/android/execution/COMMAND_PROOF.md) connects the ori
 ## APK #3 physical review
 
 The [Gate 2 review](ANDROID_GATE2_REVIEW.md) accepts the bounded original local-engine/tool/native-approval composition on the reported phone. Qualification-triggered tool results persist through the original command lifecycle; model-requested tool history, original frontend integration, broad process capability and hostile-plugin isolation remain separate.
+
+## Gate 3 diagnostic boundary
+
+The new process/PTY proof is a fixed native capability suite hosted by a private Android service. It is independent of Harness tool qualification and preserves the existing Node/profile architecture. It informs a later adapter for original subprocess and terminal interfaces; it is not that adapter. The original UI and Bash terminal protocol remain unchanged. See [the qualification guide](apps/android/execution/process-proof/PROCESS_CAPABILITY_PROOF.md).

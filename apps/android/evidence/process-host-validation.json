@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-13",
+  "environment": "Linux x86_64 cloud host; JDK 21; Node 24.22.1; NDK 28.2.13676358; no attached ADB device",
+  "hostTests": {
+    "command": "JAVA_HOME=/workspace/.setup-tools/jdk-21.0.13+9 python3 -m unittest discover -s apps/android/tests -p 'test_*.py' -v",
+    "exitCode": 0,
+    "status": "PASS",
+    "tests": 37,
+    "logSha256": "48143ed42739717a3ec3768349d3ff22b3515f3b14f3fe78ab09ce1a17b950fb"
+  },
+  "packageTests": {
+    "command": "python3 -m unittest discover -s apps/android/scripts -p 'test_*.py' -v",
+    "exitCode": 0,
+    "status": "PASS",
+    "tests": 20
+  },
+  "initialHostAttempt": {
+    "exitCode": 1,
+    "tests": 31,
+    "errors": 3,
+    "reason": "JAVA_HOME absent for existing Java fixtures; rerun with required JDK passed all 37.",
+    "logSha256": "7a2696039be286a97663db22db9f6ed8b1b8d075642d4c3d75791d753a4d33c2"
+  },
+  "initialCancellationTest": "procfs child polling did not observe readiness before process exit; cause unestablished. Replaced observer with real stderr readiness/reap events, preserving actual process cancellation.",
+  "signatureCertificateCheck": {
+    "exitCode": 0,
+    "output": "Signer #1 certificate DN: CN=Android Debug, O=Android, C=US\nSigner #1 certificate SHA-256 digest: f8bd2f18a8414169898623658a8812abc985606c73b9d14e9e05a4e8e59549fc\nSigner #1 certificate SHA-1 digest: 13312fb3a14c909192fcc57d2925775dfc11d89c\nSigner #1 certificate MD5 digest: 2fe527e311b0f11a950dab2cac2965c3\n"
+  },
+  "device": {
+    "command": "/workspace/android-sdk/platform-tools/adb devices -l",
+    "exitCode": 0,
+    "output": "List of devices attached\n\n",
+    "status": "BLOCKED"
+  },
+  "androidProcessProbeExecuted": false,
+  "gate3Passed": false,
+  "documentation": {
+    "command": "pnpm run doc-sync",
+    "status": "PASS",
+    "exitCode": 0,
+    "gates": 43,
+    "summary": "run-gates: 43 passed, 0 failed, 0 skipped in 223.46s.",
+    "logSha256": "cb72b59be93fb7c4ec9bbc2c710c5acf542e1c6756617b6026eb53035a3fc458"
+  },
+  "repositoryLint": {
+    "command": "pnpm run lint",
+    "status": "PASS",
+    "exitCode": 0,
+    "output": "$ tsx scripts/compile-referenced-projects.ts host-contracts && npm run lint:contracts-ready\ngenerate-typert: wrote 39 Typert artifact(s) for 39 package(s) in 19.6s\n\n> @deepseek-ai/dsh-root@0.2.2-rc.2 lint:contracts-ready\n> tsx scripts/run-oxlint.ts .\n\npackages/experimental/client-ui-cot-translation/src/index.ts:82:9: warning: Unused oxlint-disable directive (no problems were reported).\nnpm notice\nnpm notice New major version of npm available! 11.19.1 -> 12.2.2\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2\nnpm notice To update run: npm install -g npm@12.2.2\nnpm notice\n",
+    "logSha256": "f3d81e22b6ce7b8d830dbda4284fc924eff1f5d9082e145fbcfd60f56d5fa2f7"
+  }
+}

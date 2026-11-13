@@ -33,3 +33,7 @@ The [APK #3 command proof](apps/android/execution/COMMAND_PROOF.md) implements t
 ## Accepted local-engine checkpoint
 
 The [Gate 2 review](ANDROID_GATE2_REVIEW.md) accepts the supplied fixed-command local proof on one Android 11 ARM64 phone. Next qualify Gate 3 command availability, streaming, failure, cancellation and PTY behavior; preserve explicit provider capabilities and unavailable states. This acceptance does not verify model inference, original Web UI, arbitrary plugins, root, Termux or production readiness.
+
+## Gate 3 next runnable milestone
+
+The fixed process/PTY native diagnostic is IMPLEMENTED and host tested. Physical verification is BLOCKED without an attached device. Run APK #4 on the Android 11 ARM64 phone, preserve complete output, and review actual process, shell and PTY capabilities before adapting original subprocess/terminal interfaces. The [diagnostic guide](apps/android/execution/process-proof/PROCESS_CAPABILITY_PROOF.md) defines scope and phone steps. No general shell, original terminal or frontend integration is accepted yet.

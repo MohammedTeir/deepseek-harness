@@ -91,3 +91,7 @@ The [command qualification reference](apps/android/execution/COMMAND_PROOF.md) o
 ## APK #3 physical review
 
 The [Gate 2 review](ANDROID_GATE2_REVIEW.md) accepts the user-reported APK #3 fixed-command/native-approval and runtime-recovered original records on Android 11 ARM64. The controller flag is intentionally unchanged; external model inference remains unverified. The separately reported leave-Activity message is intended cancellation UI, not a full process-termination test.
+
+## APK #4 OS capability test
+
+Install the single APK from apps/android/evidence/process-apk4-delivery.json as an update to Harness runtime proof. Use the fifth process/PTY button, authorize the fixed suite once, keep the Activity visible and copy complete output. Do not clear app data. This diagnostic runs an installer-owned executable in a fresh private workspace and preserves previous sessions. See [the test guide](apps/android/execution/process-proof/PROCESS_CAPABILITY_PROOF.md). Gate 3 remains unaccepted pending phone evidence and terminal integration.

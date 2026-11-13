@@ -78,3 +78,13 @@ node-addon-require-builtin 0.1.9 and node-addon-native-custom-loader 0.1.9 are r
 V7's user transcript reaches original SDK session recovery after local initialization, so basic private-loader/profile startup has partial physical evidence on the reported phone. Persistent sessions remain BLOCKED: the new session is not found after restart. V8 adds acknowledged shutdown and actual storage/lookup diagnostics; its Linux permission-failure experiment is not an Android cause determination. No compatibility classification implies durable Android session recovery yet.
 
 APK #1's same-directory native primitive is VERIFIED on the [reported Android 11 ARM64 phone](apps/android/evidence/atomic-poc-physical-review.json). The shared [APK #2 JSONL adapter](apps/android/runtime/ATOMIC_PERSISTENCE_ADAPTER.md) is IMPLEMENTED and host-tested, with Android native-addon execution and genuine session recovery NOT YET VERIFIED. API 29, newer releases, cross-directory fs-local/attachment publication and retained-source aliases remain unqualified; neither phase acceptance nor universal compatibility is implied.
+
+## Gate 3 OS capability collection
+
+| Capability | Classification | Evidence | Remaining acceptance |
+| --- | --- | --- | --- |
+| Native fork/exec pipes, separate streams, exits and bounded signals | NOT YET VERIFIED on Android | Actual Linux native suite; API 29 ARM64 APK #4 compilation | Phone execution and original subprocess adapter |
+| PTY input, controlling TTY and resize | NOT YET VERIFIED on Android | Actual Linux openpty fixture; fixed Android diagnostic packaged | Phone permissions and behavior, original terminal integration |
+| Android system shell and Toybox tools | NOT YET VERIFIED | Fixed /system/bin discovery and shell script in APK #4 | Actual phone results; no GNU/Bash assumptions |
+
+The [process qualification guide](apps/android/execution/process-proof/PROCESS_CAPABILITY_PROOF.md) separates host evidence, synthetic parser tests and required physical-device evidence. This milestone does not enable the original Bash terminal backend or broaden agent command permissions.

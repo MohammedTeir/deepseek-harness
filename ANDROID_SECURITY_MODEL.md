@@ -34,3 +34,7 @@ The APK #2 publication worker opens one owned private directory with O_NOFOLLOW,
 ## APK #3 physical review
 
 The [phone command review](apps/android/evidence/phone-command-apk3-review.json) accepts the supplied exact-request, one-shot, denial and authentication-negative cases under the ordinary app UID. It does not verify a separate-UID attack, hostile same-UID isolation, all expiry/cancellation paths or background process termination. The manual leave-Activity message is retained as UI evidence only.
+
+## Fixed process capability diagnostic
+
+APK #4 adds a private same-UID service for reviewed fixed native tests only. Native human consent starts one bounded diagnostic; it does not authorize agent-selected commands. The executable and fixed system-shell script are not caller selectable. Own process groups, bounded streams and waitpid cleanup are host tested; Android lifecycle termination remains unverified. Parent-death setup and cooperative descendant cleanup do not establish isolation from malicious same-UID plugins or arbitrary process trees. Original command broker grants and Harness guards are unchanged.

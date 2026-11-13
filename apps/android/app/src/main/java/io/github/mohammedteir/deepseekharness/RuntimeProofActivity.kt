@@ -14,6 +14,7 @@ class RuntimeProofActivity : Activity() {
     private val handler = Handler(Looper.getMainLooper())
     private var generation = 0
     private var commandActive = false
+    private var processActive = false
     private var commandService: Messenger? = null
     private var approvalDialog: AlertDialog? = null
     private val timeout = Runnable { output.text = "BLOCKED: runtime probe timed out"; release() }
@@ -22,7 +23,7 @@ class RuntimeProofActivity : Activity() {
         super.onCreate(state)
         val layout = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         output = TextView(this).apply {
-            text = "Select a diagnostic. The profile test starts original Harness and checks session recovery; commands and model requests remain untested."
+            text = "Select a diagnostic. Original tool approval and fixed process/PTY capability tests are separate. Model requests remain untested."
             setTextIsSelectable(true)
         }
         layout.addView(Button(this).apply { text = "Run embedded Node API probe"; setOnClickListener { runProbe() } })
@@ -56,6 +57,16 @@ class RuntimeProofActivity : Activity() {
             }
         })
         layout.addView(Button(this).apply {
+            text = "Run fixed process + PTY capability tests"
+            setOnClickListener {
+                val executable = File(applicationInfo.nativeLibraryDir, "libharness_process_probe.so").canonicalPath
+                AlertDialog.Builder(this@RuntimeProofActivity).setTitle("Authorize fixed OS tests once?")
+                    .setMessage("Ordinary app UID ${android.os.Process.myUid()}. Runs fixed stdout/stderr, stdin, missing-executable, TERM/KILL, cooperative child-group and PTY input/resize tests. Invokes /system/bin/sh only with the bundled fixed printf/pwd/exit script. Checks /system/bin command availability. No caller-selected command or root.\n\nExecutable: $executable\nWorkspace: app-private process-probe/run-*\n\nLeaving the Activity cancels this test. This does not enable the original terminal or general shell tools.")
+                    .setNegativeButton("Deny", null)
+                    .setPositiveButton("Run fixed suite once") { _, _ -> runProbe(process = true) }.show()
+            }
+        })
+        layout.addView(Button(this).apply {
             text = "Copy complete result"
             setOnClickListener {
                 (getSystemService(CLIPBOARD_SERVICE) as ClipboardManager).setPrimaryClip(ClipData.newPlainText("Harness runtime proof", output.text))
@@ -66,11 +77,12 @@ class RuntimeProofActivity : Activity() {
         setContentView(layout)
     }
 
-    private fun runProbe(packaged: Boolean = false, profile: Boolean = false, command: Boolean = false) {
+    private fun runProbe(packaged: Boolean = false, profile: Boolean = false, command: Boolean = false, process: Boolean = false) {
         release()
         commandActive = command
+        processActive = process
         val current = generation
-        output.text = "Starting embedded API probe…"
+        output.text = if (process) "Running authorized fixed OS tests…" else "Starting embedded API probe…"
         val replies = Messenger(Handler(Looper.getMainLooper()) { message ->
             if (generation == current && command && message.what == 2) {
                 val request = org.json.JSONObject(message.data.getString("result") ?: "{}")
@@ -101,15 +113,16 @@ class RuntimeProofActivity : Activity() {
                 if (generation == current) { output.text = "BLOCKED: runtime process exited"; release() }
             }
         }
-        val target = if (command) CommandProbeService::class.java else if (profile) ProfileProbeService::class.java else if (packaged) ExecutableProbeService::class.java else RuntimeService::class.java
+        val target = if (process) ProcessCapabilityService::class.java else if (command) CommandProbeService::class.java else if (profile) ProfileProbeService::class.java else if (packaged) ExecutableProbeService::class.java else RuntimeService::class.java
         if (bindService(Intent(this, target), service, Context.BIND_AUTO_CREATE)) {
             connection = service
-            handler.postDelayed(timeout, if (command) 240000 else if (profile) 120000 else if (packaged) 60000 else 30000)
+            handler.postDelayed(timeout, if (process) 60000 else if (command) 240000 else if (profile) 120000 else if (packaged) 60000 else 30000)
         } else output.text = "BLOCKED: cannot bind runtime"
     }
 
     private fun release() {
         commandActive = false
+        processActive = false
         commandService = null
         approvalDialog?.dismiss(); approvalDialog = null
         generation++
@@ -117,6 +130,6 @@ class RuntimeProofActivity : Activity() {
         connection?.let { unbindService(it) }
         connection = null
     }
-    override fun onStop() { if (commandActive) { output.text = "BLOCKED: command proof cancelled while leaving the Activity"; release() }; super.onStop() }
+    override fun onStop() { if (commandActive || processActive) { output.text = if (processActive) "BLOCKED: process qualification cancelled while leaving the Activity" else "BLOCKED: command proof cancelled while leaving the Activity"; release() }; super.onStop() }
     override fun onDestroy() { release(); super.onDestroy() }
 }

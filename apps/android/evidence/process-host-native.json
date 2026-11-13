@@ -1,0 +1,195 @@
+{
+  "environment": "Linux x86_64 non-root cloud host; NOT Android evidence",
+  "command": "c++ -std=c++17 -O2 -Wall -Wextra -Werror apps/android/execution/process-proof/process_probe.cpp -lutil -o /tmp/harness-process-current; /tmp/harness-process-current --suite <private temporary directory>",
+  "exitCode": 0,
+  "result": {
+    "schemaVersion": 1,
+    "platform": "linux-host-only",
+    "suite": "android-process-capability-v1",
+    "status": "PASS",
+    "uid": 1000,
+    "pid": 8936,
+    "parentPid": 8935,
+    "kernel": "6.18.57",
+    "architecture": "x86_64",
+    "execPath": "/tmp/harness-process-current",
+    "cwd": "/tmp/harness-process-evidence-i0l19r6v",
+    "cases": {
+      "streaming": {
+        "pid": 8937,
+        "exitCode": 7,
+        "signal": 0,
+        "reaped": true,
+        "timedOut": false,
+        "explicitCancellation": false,
+        "stdoutReads": 2,
+        "stderrReads": 2,
+        "streamObservedBeforeAckAndExit": true,
+        "stdout": "OUT-1\nOUT-2\n",
+        "stderr": "ERR-1\nERR-2\n"
+      },
+      "backpressure": {
+        "pid": 8938,
+        "exitCode": 9,
+        "signal": 0,
+        "reaped": true,
+        "timedOut": false,
+        "explicitCancellation": false,
+        "stdoutReads": 16,
+        "stderrReads": 16,
+        "streamObservedBeforeAckAndExit": false,
+        "stdoutBytes": 16384,
+        "stderrBytes": 16384,
+        "completeBytesVerified": true
+      },
+      "missingExecutable": {
+        "pid": 8939,
+        "exitCode": 127,
+        "signal": 0,
+        "reaped": true,
+        "timedOut": false,
+        "explicitCancellation": false,
+        "stdoutReads": 0,
+        "stderrReads": 1,
+        "streamObservedBeforeAckAndExit": false,
+        "stdout": "",
+        "stderr": "exec errno=2\n"
+      },
+      "cancellation": {
+        "pid": 8940,
+        "exitCode": -1,
+        "signal": 15,
+        "reaped": true,
+        "timedOut": false,
+        "explicitCancellation": true,
+        "stdoutReads": 1,
+        "stderrReads": 0,
+        "streamObservedBeforeAckAndExit": false,
+        "stdout": "READY\n",
+        "stderr": ""
+      },
+      "timeoutAndKill": {
+        "pid": 8941,
+        "exitCode": -1,
+        "signal": 9,
+        "reaped": true,
+        "timedOut": true,
+        "explicitCancellation": false,
+        "stdoutReads": 1,
+        "stderrReads": 0,
+        "streamObservedBeforeAckAndExit": false,
+        "stdout": "READY\n",
+        "stderr": ""
+      },
+      "descendantGroup": {
+        "pid": 8942,
+        "exitCode": 0,
+        "signal": 0,
+        "reaped": true,
+        "timedOut": false,
+        "explicitCancellation": true,
+        "stdoutReads": 2,
+        "stderrReads": 0,
+        "streamObservedBeforeAckAndExit": false,
+        "stdout": "GRANDCHILD:8943\nREADY\nGRANDCHILD-REAPED\n",
+        "stderr": "",
+        "grandchildPid": 8943,
+        "descendantReaped": true
+      },
+      "systemShell": {
+        "pid": 8944,
+        "exitCode": 7,
+        "signal": 0,
+        "reaped": true,
+        "timedOut": false,
+        "explicitCancellation": false,
+        "stdoutReads": 1,
+        "stderrReads": 1,
+        "streamObservedBeforeAckAndExit": false,
+        "stdout": "SH-OUT\n/tmp/harness-process-evidence-i0l19r6v\n",
+        "stderr": "SH-ERR\n"
+      }
+    },
+    "discovery": {
+      "sh": {
+        "path": "/system/bin/sh",
+        "executable": false,
+        "errno": 2
+      },
+      "pwd": {
+        "path": "/system/bin/pwd",
+        "executable": false,
+        "errno": 2
+      },
+      "printf": {
+        "path": "/system/bin/printf",
+        "executable": false,
+        "errno": 2
+      },
+      "cat": {
+        "path": "/system/bin/cat",
+        "executable": false,
+        "errno": 2
+      },
+      "sleep": {
+        "path": "/system/bin/sleep",
+        "executable": false,
+        "errno": 2
+      },
+      "echo": {
+        "path": "/system/bin/echo",
+        "executable": false,
+        "errno": 2
+      },
+      "stty": {
+        "path": "/system/bin/stty",
+        "executable": false,
+        "errno": 2
+      },
+      "toybox": {
+        "path": "/system/bin/toybox",
+        "executable": false,
+        "errno": 2
+      },
+      "git": {
+        "path": "/system/bin/git",
+        "executable": false,
+        "errno": 2
+      },
+      "curl": {
+        "path": "/system/bin/curl",
+        "executable": false,
+        "errno": 2
+      },
+      "python3": {
+        "path": "/system/bin/python3",
+        "executable": false,
+        "errno": 2
+      },
+      "ssh": {
+        "path": "/system/bin/ssh",
+        "executable": false,
+        "errno": 2
+      }
+    },
+    "pty": {
+      "status": "PASS",
+      "pid": 8945,
+      "reaped": true,
+      "exitCode": 0,
+      "combinedOutput": "TTY-READY\r\npty-input\r\nTTY-INPUT:pty-input ROWS:40 COLS:100\r\nTTY-STDERR\r\n",
+      "stdinStdoutStderrAreTty": true,
+      "resizeAndInputVerified": true,
+      "stderrMergedByPty": true
+    },
+    "shellTestPath": "/bin/sh",
+    "nativeWorkersRequireParentDeathKill": true,
+    "generalShellProviderImplemented": false,
+    "originalTerminalIntegrated": false,
+    "descendantTreeCleanupTested": true,
+    "descendantCleanupScope": "cooperative native worker group; not arbitrary trees or OS process death",
+    "gate3Passed": false
+  },
+  "stderr": "HARNESS_PROCESS_REAPED pid=8940\nHARNESS_PROCESS_READY pid=8941 mode=--ignore-term\nHARNESS_PROCESS_REAPED pid=8941\nHARNESS_PROCESS_REAPED pid=8942\n",
+  "physicalDeviceVerified": false
+}
