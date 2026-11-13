@@ -16,6 +16,8 @@ export interface FixtureBackendOptions {
   createHandle(request: Readonly<TerminalBackendSpawnSpec>, ownerSignal: AbortSignal): SubprocessTerminalHandle
   startupMs: number
   authorizationMs?: number
+  /** Bounded send wait; timeout leaves the owned terminal running until cancellation or close. */
+  sendWaitMs?: number
 }
 
 function aborted(signal: AbortSignal): Promise<never> {
@@ -40,8 +42,10 @@ export function createAndroidFixtureTerminalBackend(options: FixtureBackendOptio
 function createBackend(options: FixtureBackendOptions, type: string): TerminalBackend {
   const { authorize, createHandle, startupMs } = options
   const authorizationMs = options.authorizationMs ?? startupMs
+  const sendWaitMs = options.sendWaitMs ?? 5000
   if (!Number.isSafeInteger(startupMs) || startupMs < 1 || startupMs > 10000
     || !Number.isSafeInteger(authorizationMs) || authorizationMs < 1 || authorizationMs > 70000
+    || !Number.isSafeInteger(sendWaitMs) || sendWaitMs < 1 || sendWaitMs > 10000
     || typeof authorize !== 'function' || typeof createHandle !== 'function') {
     throw new TerminalError('Invalid fixed backend configuration', 'INIT_REJECTED')
   }
@@ -106,7 +110,8 @@ function createBackend(options: FixtureBackendOptions, type: string): TerminalBa
             if (closing || state.kind !== 'running') throw new TerminalError('Fixture is closing/exited', 'SESSION_EXITED')
             if (active) throw new TerminalError('Fixture send already active', 'SEND_ACTIVE')
             input.signal?.throwIfAborted()
-            if (input.text !== 'pty-input' || input.submit !== true) {
+            const waitingOnly = input.text === '' && input.submit === false
+            if (!waitingOnly && (input.text !== 'pty-input' || input.submit !== true)) {
               throw new TerminalError('Only fixed submitted input is allowed', 'INIT_REJECTED')
             }
             const inputSignal = input.signal
@@ -121,13 +126,23 @@ function createBackend(options: FixtureBackendOptions, type: string): TerminalBa
             const onAbort = () => { cancel() }
             inputSignal?.addEventListener('abort', onAbort, { once: true })
             const done = (async () => {
-              await processHandle.resize(100, 40)
-              await processHandle.write('pty-input\n')
-              const outcome = await exit
-              await drain
-              if (cancellation) await cancellation
-              return { viewport: text, waitReason: 'session_exit' as const,
-                sessionStatus: { kind: 'exited' as const, ...outcome }, truncated }
+              let waitTimer: ReturnType<typeof setTimeout> | undefined
+              try {
+                if (!waitingOnly) {
+                  await processHandle.resize(100, 40)
+                  await processHandle.write('pty-input\n')
+                }
+                const outcome = await Promise.race([
+                  exit.then(value => ({ kind: 'exit' as const, value })),
+                  new Promise<{ kind: 'timeout' }>((resolve) => { waitTimer = setTimeout(() => resolve({ kind: 'timeout' }), sendWaitMs) }),
+                ])
+                if (transportFailure) throw transportFailure
+                if (outcome.kind === 'timeout') return { viewport: text, waitReason: 'timeout' as const, sessionStatus: state, truncated }
+                await drain
+                if (cancellation) await cancellation
+                return { viewport: text, waitReason: 'session_exit' as const,
+                  sessionStatus: { kind: 'exited' as const, ...outcome.value }, truncated }
+              } finally { clearTimeout(waitTimer) }
             })().finally(() => { settled = true; active = undefined; inputSignal?.removeEventListener('abort', onAbort) })
             void done.catch(() => {})
             active = {

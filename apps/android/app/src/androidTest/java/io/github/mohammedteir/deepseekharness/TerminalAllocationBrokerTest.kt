@@ -38,7 +38,7 @@ class TerminalAllocationBrokerTest {
     }
     private fun fields(description: JSONObject, call: Int, terminal: String): JSONObject {
         val result = JSONObject(description.getJSONObject("configuration").toString())
-        for (key in listOf("uid", "identitySource", "action")) result.remove(key)
+        for (key in listOf("uid", "identitySource", "action", "qualification")) result.remove(key)
         return result.put("callId", description.getJSONArray("callIds").getString(call)).put("terminalId", terminal)
     }
     private fun operation(fields: JSONObject, action: String) = JSONObject(fields.toString()).put("action", action).toString()

@@ -101,3 +101,7 @@ The [broker integration reference](apps/android/execution/TERMINAL_BROKER_INTEGR
 ## APK #7 phone acceptance
 
 The [APK #7 reference](apps/android/execution/TERMINAL_ANDROID_PROOF.md) records the original registry/tool/approval path, authenticated native broker, human UI and fixed Android PTY factory. Host and relocated-profile tests and Android build/inspection pass. Physical execution is BLOCKED pending phone evidence. This is a fixed benign fixture, not general shell or the original Web UI. Gate 3 remains IN PROGRESS; preserve existing data when updating the single runtime app.
+
+## Original terminal lifecycle acceptance
+
+Follow the [APK #8 procedure](apps/android/execution/TERMINAL_LIFECYCLE_PROOF.md#phone-procedure). Keep host transport-double results separate from physical-device results and retain the original APK #7 phone evidence.

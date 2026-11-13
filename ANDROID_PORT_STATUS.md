@@ -309,3 +309,7 @@ Physical execution reported `Terminal broker cleanup failed` without underlying 
 ## APK #7 fixed terminal phone result
 
 The [phone result review](apps/android/evidence/phone-apk7-terminal-result-review.json) records selected fields from the user-provided Redmi Note 8 Pro/API 30 report with a matching inspected APK hash. The bounded original terminal qualification is VERIFIED at user-reported physical-device evidence level: denial, one approved PTY, input/resize, exact-request/replay rejection and original history recovery across runtime restart. The previous broker cleanup failure did not recur in this report; its original cause is not conclusively established. Gate 3 remains IN PROGRESS, with cancellation/timeout through the original terminal integration and device coverage review still required. App restart, model requests, general shell support and malicious-plugin isolation are not established.
+
+## Original terminal lifecycle qualification
+
+The [APK #8 qualification](apps/android/execution/TERMINAL_LIFECYCLE_PROOF.md) adds bounded wait timeout and explicit cancellation through the original terminal service without widening the fixed native allocation. Host execution passes; physical-device execution is pending. Gate 3 remains IN PROGRESS.

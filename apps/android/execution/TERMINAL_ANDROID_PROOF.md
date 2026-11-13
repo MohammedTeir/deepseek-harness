@@ -42,3 +42,5 @@ The ZIP contains one app, not the instrumentation APK or the older separate atom
 ## Cleanup failure diagnosis
 
 A user-reported APK #7 run returned only `Terminal broker cleanup failed`; this does not establish whether terminal qualification passed before disposal. The broker shuts down the listening socket before closing it and still requires accept-thread and worker termination. Cleanup errors remain blocking. The service preserves a completed qualification report as `qualificationBeforeCleanup` and includes bounded cause/suppressed details when reporting cleanup failure. These diagnostics do not upgrade device acceptance. The idle-listener and incomplete-request shutdown instrumentation cases require Android execution; host compilation cannot verify Android socket wakeup.
+
+The current lifecycle successor is documented in the [APK #8 reference](TERMINAL_LIFECYCLE_PROOF.md); it does not replace the archived APK #7 input/resize result.

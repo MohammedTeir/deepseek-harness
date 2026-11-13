@@ -42,7 +42,7 @@ for name in ['LICENSE', 'THIRD_PARTY_NOTICES.md']:
     shutil.copy2(android.parents[1] / name, output / name)
 
 from package_profile import validate_archive, validate_host_qualification
-profile = android / 'runtime/out/profile-v8'
+profile = android / 'runtime/out/profile-v9'
 validate_host_qualification(profile)
 image = profile / 'profile-image.zip'
 manifest = json.loads((profile / 'image-manifest.json').read_text())

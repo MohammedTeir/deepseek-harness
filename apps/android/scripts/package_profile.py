@@ -116,7 +116,7 @@ def validate_host_qualification(directory):
         if marker.get('resultSha256',{}).get('terminal-relocated-result.json') != hashlib.sha256(data).hexdigest():
             raise ValueError('Terminal qualification digest mismatch')
         terminal=json.loads(data)
-        if terminal.get('platform') != 'linux' or not terminal.get('sessionRecoveredAcrossRuntimeRestart') or terminal.get('report',{}).get('starts') != 1:
+        if terminal.get('platform') != 'linux' or not terminal.get('sessionRecoveredAcrossRuntimeRestart') or terminal.get('report',{}).get('starts') != 1 or terminal.get('report',{}).get('qualification') != 'lifecycle':
             raise ValueError('Real relocated terminal qualification missing')
     relocation=json.loads((directory/'relocation.json').read_text())
     if not relocation.get('imageOutsideCheckout') or not relocation.get('stateOutsideCheckout'):
@@ -155,7 +155,7 @@ def build(output):
                           '-o', str(terminal_prefix), 'node', str(ANDROID/'tests/terminal-profile-reference.mjs'),
                           str(temp/'terminal-reference.json')]
         terminal_observed = subprocess.run(terminal_trace, cwd=ROOT, capture_output=True, text=True, timeout=150,
-                                          env={**os.environ, 'HARNESS_TERMINAL_FIXTURE': str(fixture)})
+                                          env={**os.environ, 'HARNESS_TERMINAL_FIXTURE': str(fixture), 'HARNESS_TERMINAL_LIFECYCLE': '1'})
         (output/'terminal-trace-run.txt').write_text(terminal_observed.stdout+terminal_observed.stderr)
         if terminal_observed.returncode:
             raise RuntimeError(f'Original terminal trace failed: {terminal_observed.stderr}')
@@ -282,7 +282,7 @@ def build(output):
         terminal_relocated = subprocess.run(['node', str(ANDROID/'tests/terminal-profile-reference.mjs'),
                                              str(output/'terminal-relocated-result.json'),
                                              str(host/'apps/android/runtime/terminal-smoke.mjs')], cwd=host,
-                                            env={**env, 'HARNESS_TERMINAL_FIXTURE': str(fixture)},
+                                            env={**env, 'HARNESS_TERMINAL_FIXTURE': str(fixture), 'HARNESS_TERMINAL_LIFECYCLE': '1'},
                                             capture_output=True, text=True, timeout=150)
         (output/'terminal-relocated-run.txt').write_text(terminal_relocated.stdout+terminal_relocated.stderr)
         if terminal_relocated.returncode:

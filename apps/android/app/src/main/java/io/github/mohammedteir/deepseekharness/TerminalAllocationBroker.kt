@@ -77,7 +77,8 @@ class TerminalAllocationBroker(context: Context, private val workspace: File,
         .put("arguments", JSONArray(listOf(TerminalAllocationGrant.ROLE))).put("cwd", workspace.path)
         .put("columns", TerminalAllocationGrant.COLUMNS).put("rows", TerminalAllocationGrant.ROWS)
         .put("uid", uid).put("identitySource", "android.os.Process")
-        .put("action", "Allocate one fixed benign PTY fixture; no shell")
+        .put("qualification", "lifecycle")
+        .put("action", "Allocate one fixed benign PTY fixture; test wait timeout and cancellation; no shell")
     private fun snapshot(call: String, terminal: String) = configuration().put("callId", call).put("terminalId", terminal)
     private fun record(action: String, code: String, peer: Int) = synchronized(audit) {
         if (audit.size >= 256) omittedAudit.incrementAndGet()

@@ -13,7 +13,7 @@ export async function qualify(resultPath, runtime = fileURLToPath(new URL('../ru
   if (!executable || !path.isAbsolute(executable) || path.basename(executable) !== 'libharness_pty_fixture.so') throw new Error('Prebuilt host fixture required');
   const sessionId = 'android-terminal-host', callIds = ['deny-host', 'allow-host'];
   const configuration = { sessionId, ownerId: sessionId, backend: 'android-fixed-pty-v1', executable,
-    arguments: ['--tty-child'], cwd: workspace, columns: 80, rows: 24, uid: process.getuid() };
+    qualification: process.env.HARNESS_TERMINAL_LIFECYCLE === '1' ? 'lifecycle' : 'input-resize', arguments: ['--tty-child'], cwd: workspace, columns: 80, rows: 24, uid: process.getuid() };
   const secret = crypto.randomBytes(32).toString('hex'), address = path.join(root, 's');
   const states = new Map(), peers = new Set(); let consumed = 0;
   const server = net.createServer(socket => {

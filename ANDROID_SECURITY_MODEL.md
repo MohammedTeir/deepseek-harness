@@ -74,3 +74,7 @@ The [broker integration reference](apps/android/execution/TERMINAL_BROKER_INTEGR
 ## Native terminal qualification boundary
 
 The [APK #7 reference](apps/android/execution/TERMINAL_ANDROID_PROOF.md) records the original registry/tool/approval path, authenticated native broker, human UI and fixed Android PTY factory. Host and relocated-profile tests and Android build/inspection pass. Physical execution is BLOCKED pending phone evidence. This is a fixed benign fixture, not general shell or the original Web UI. Gate 3 remains IN PROGRESS; preserve existing data when updating the single runtime app.
+
+## Fixed terminal lifecycle scope
+
+The [lifecycle qualification](apps/android/execution/TERMINAL_LIFECYCLE_PROOF.md#execution-and-authorization) uses the same single native-approved child. A wait timeout grants no new process authority; cancellation and owner cleanup operate only on that already-owned fixture.

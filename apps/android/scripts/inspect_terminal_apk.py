@@ -1,4 +1,4 @@
-"""Inspect APK #7 actual bytes; signing/build evidence is not device execution."""
+"""Inspect APK #8 actual bytes; signing/build evidence is not device execution."""
 import argparse
 import hashlib
 import json
@@ -33,7 +33,7 @@ for file in [apk,test]:
     run(SDK/'build-tools/36.0.0/zipalign','-c','-P','16','4',file)
 assert certificates[0]==certificates[1]
 badging=run(SDK/'build-tools/36.0.0/aapt','dump','badging',apk)
-for token in ["versionCode='14'","versionName='0.1.13-original-terminal-proof'","sdkVersion:'29'","targetSdkVersion:'36'","native-code: 'arm64-v8a'"]:
+for token in ["versionCode='15'","versionName='0.1.14-terminal-lifecycle-proof'","sdkVersion:'29'","targetSdkVersion:'36'","native-code: 'arm64-v8a'"]:
     assert token in badging,token
 xml=run(SDK/'build-tools/36.0.0/aapt','dump','xmltree',apk,'AndroidManifest.xml')
 service=next(block for block in re.split(r'\n\s*E: service',xml) if 'TerminalProbeService' in block)
@@ -43,7 +43,7 @@ previous=dict(previous_record['packagedLibraries'])
 previous['libharness_process_probe.so']=previous_record['processProbe']
 readelf=SDK/'ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readelf'
 libraries={}
-profile=ANDROID/'runtime/out/profile-v8'
+profile=ANDROID/'runtime/out/profile-v9'
 manifest=json.loads((profile/'image-manifest.json').read_text())
 assert manifest['terminalQualificationIncluded']
 validate_archive(profile/'profile-image.zip',manifest)
@@ -77,9 +77,9 @@ with zipfile.ZipFile(apk) as archive,tempfile.TemporaryDirectory(prefix='termina
         assert hashlib.sha256(archive.read('assets/node-pty/package/'+name)).hexdigest()==digest
 sources=list((ANDROID/'app/src/main').rglob('*.kt'))+list((ANDROID/'app/src/main').rglob('*.java'))
 sources+=[ANDROID/'app/build.gradle.kts',ANDROID/'app/src/main/AndroidManifest.xml']
-record=dict(schemaVersion=1,date='2026-11-13',scope='APK #7 original registry + native-approved fixed terminal; physical execution pending',
+record=dict(schemaVersion=1,date='2026-11-13',scope='APK #8 original registry + native-approved fixed terminal; physical execution pending',
     apkSha256={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in [apk,test]},apkBytes={p.name:p.stat().st_size for p in [apk,test]},
-    apkVersionCode=14,apkVersionName='0.1.13-original-terminal-proof',signingCertificateSha256=certificates[0],checks=checks,
+    apkVersionCode=15,apkVersionName='0.1.14-terminal-lifecycle-proof',signingCertificateSha256=certificates[0],checks=checks,
     buildLogSha256=hashlib.sha256(args.build_log.read_bytes()).hexdigest(),packagedLibraries=libraries,
     profileImage=dict(sha256=hashlib.sha256((profile/'profile-image.zip').read_bytes()).hexdigest(),files=len(manifest['files']),
                       links=len(manifest['links']),hostQualificationSha256=hashlib.sha256((profile/'profile-qualification.json').read_bytes()).hexdigest(),

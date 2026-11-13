@@ -84,6 +84,12 @@ async function main() {
     || commands[1].batch.results[0].result.isError || outcomes[0]?.outcome !== 'rejected' || outcomes[1]?.outcome !== 'allowed-once') throw new Error('Expected native Deny then Approve with original outcomes');
   const report = JSON.parse(commands[1].batch.results[0].result.content[0].text);
   if (report.starts !== 1 || report.concurrentConsumers !== 2 || report.concurrentRejections !== 1 || !report.originalTerminalRegistry || !report.ownerActivityDrained) throw new Error('Original terminal result differs');
+  if (configuration.qualification === 'lifecycle' && (report.qualification !== 'lifecycle'
+    || report.lifecycle?.timeout?.waitReason !== 'timeout' || report.lifecycle?.timeout?.sessionStatus?.kind !== 'running'
+    || !report.lifecycle?.explicitCancellation || !report.lifecycle?.childNoLongerObservable
+    || report.result.sessionStatus.signal !== 'SIGINT' || report.result.sessionStatus.exitCode !== null)) {
+    throw new Error('Original terminal lifecycle evidence differs');
+  }
   negative.replay = await terminalRequest('consume', allowedFields);
   if (negative.replay.ok || !['USED', 'CLOSED'].includes(negative.replay.code)) throw new Error('Native allocation replay accepted');
   stage = 'original-session-recovery';
