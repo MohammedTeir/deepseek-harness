@@ -57,3 +57,7 @@ The [source experiment](apps/android/execution/NODE_PTY_QUALIFICATION.md) builds
 ## Original node-pty physical checkpoint and next adapter step
 
 APK #6 is VERIFIED for the submitted fixed Android 11 ARM64 suite. The [handle prototype](apps/android/execution/PTY_HANDLE_QUALIFICATION.md) is host-only and implements the original interface with truthful unknown foreground/activity facts. Next implement trusted native-authorized allocation and original owner-scoped terminal registration, preserving allocation rollback and complete cleanup evidence. Do not activate the host prototype on Android merely by removing its platform guard.
+
+## Terminal registry next milestone
+
+The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.

@@ -52,3 +52,7 @@ AndroidFixedPwdSubprocess subclasses the original service and is mounted as a se
 ## Original node-pty selection experiment
 
 An isolated service qualifies the locked original node-pty source and JavaScript using an installer-owned NAPI addon and fixed native fixture. A scoped loader adapts its package-local native lookup; no agent or original terminal implementation is replaced. Cross-compilation and host behavior support testing this reuse path before considering a new bridge. Device execution and general terminal-session ownership remain unverified. See [the experiment](apps/android/execution/NODE_PTY_QUALIFICATION.md).
+
+## Original terminal backend seam
+
+The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.

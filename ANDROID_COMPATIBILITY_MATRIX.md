@@ -108,3 +108,7 @@ Original node-pty 1.2.0-beta.15 C++ is ADAPT / cross-compiled for Android ARM64 
 ## Original node-pty physical result
 
 Original node-pty source/addon and its original JavaScript are VERIFIED for the five fixed Android 11 ARM64 cases in [the phone review](ANDROID_GATE3_REVIEW.md). The original SubprocessTerminalHandle adapter is IMPLEMENTED / host VERIFIED only, with Android activation blocked on authorization/ownership integration. General shell jobs, foreground inspection, descendants and other Android versions remain NOT YET VERIFIED.
+
+## Terminal registry evidence level
+
+The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.

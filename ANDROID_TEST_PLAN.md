@@ -85,3 +85,7 @@ The [qualification guide](apps/android/execution/NODE_PTY_QUALIFICATION.md) defi
 ## Accepted node-pty report and handle tests
 
 phone-node-pty-apk6-run1.json passes validate_node_pty_result.py against runtime-node-pty-apk6-build.json, with all original result fields retained. The [host handle guide](apps/android/execution/PTY_HANDLE_QUALIFICATION.md) lists the strict original-interface typecheck and real source-addon test, including normal exit versus signals, explicit unsupported operations, owner abort and concurrent teardown. No new handle behavior is attributed to Android yet.
+
+## Original terminal ownership and recovery tests
+
+The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.

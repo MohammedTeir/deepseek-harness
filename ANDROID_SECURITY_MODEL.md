@@ -58,3 +58,7 @@ The new unexported same-UID service starts only a reviewed fixed suite after nat
 ## PTY qualification authority remains separate
 
 The APK #6 phone suite verifies fixed direct-child PTY behavior, not a general execution authority. The host terminal-handle prototype has no native grant or agent registration and rejects Android use. It refuses foreground signalling without proven group identity and never infers shell idle state from silence. Future activation requires trusted native authorization, original owner binding and verified cleanup/rollback. The same-UID malicious-plugin limitation remains unchanged.
+
+## Terminal qualification authority boundary
+
+The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.

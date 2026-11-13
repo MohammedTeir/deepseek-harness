@@ -115,3 +115,7 @@ Install the update without clearing data and select Run original node-pty proof,
 ## APK #6 received result
 
 The [submitted fixed original node-pty result](ANDROID_GATE3_REVIEW.md) passes artifact and behavior validation on Android 11 ARM64. No repeat or replacement APK is needed for that checkpoint. The new typed handle work is a host experiment, not an updated Android terminal feature. Existing app tests and data remain unchanged.
+
+## Host terminal registry qualification
+
+The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.

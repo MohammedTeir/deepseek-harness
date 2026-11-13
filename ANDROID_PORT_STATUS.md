@@ -285,3 +285,7 @@ Status: IMPLEMENTED and host tested; physical execution BLOCKED pending APK #6. 
 ## Original node-pty accepted; handle contract prototype
 
 The [APK #6 phone review](ANDROID_GATE3_REVIEW.md) verifies original node-pty loading and all five fixed cases on Android 11 ARM64 with matching fingerprints. A [host-only SubprocessTerminalHandle prototype](apps/android/execution/PTY_HANDLE_QUALIFICATION.md) now passes the original strict type contract and real input/resize, exit/signal and concurrent cleanup tests. It is explicitly disabled on Android and is not shipped or registered as an agent tool. Gate 3 remains IN PROGRESS. Next: native-authorized allocation, original Agent/terminal ownership, foreground identity and rollback/cleanup proof, followed by a new device milestone. No APK #6 replacement or repeat is required to accept its submitted result.
+
+## Original terminal registry checkpoint
+
+The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.
