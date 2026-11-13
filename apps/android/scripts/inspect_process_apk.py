@@ -8,21 +8,22 @@ import re
 import subprocess
 import tempfile
 import zipfile
-from package_node import inspect
+from package_node import inspect, inspect_addon
 
 ANDROID = Path(__file__).resolve().parents[1]
 ROOT = ANDROID.parents[1]
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--build-log', type=Path, required=True)
 parser.add_argument('--output', type=Path, required=True)
+parser.add_argument('--node-pty-proof', action='store_true')
 parser.add_argument('--subprocess-proof', action='store_true')
 args = parser.parse_args()
 base = ANDROID / 'runtime/out/process-base-inspection.json'
 subprocess.run(['python3', str(ANDROID/'scripts/inspect_runtime_apk.py'), '--build-log', str(args.build_log),
                 '--command-proof', '--output', str(base)], check=True)
 record = json.loads(base.read_text())
-assert record['apkVersionCode'] == (12 if args.subprocess_proof else 11)
-assert record['apkVersionName'] == ('0.1.11-native-subprocess-proof' if args.subprocess_proof else '0.1.10-process-capability-proof')
+assert record['apkVersionCode'] == (13 if args.node_pty_proof else 12 if args.subprocess_proof else 11)
+assert record['apkVersionName'] == ('0.1.12-original-node-pty-proof' if args.node_pty_proof else '0.1.11-native-subprocess-proof' if args.subprocess_proof else '0.1.10-process-capability-proof')
 previous = json.loads((ANDROID/'evidence/runtime-command-apk3-build.json').read_text())
 for name, data in previous['packagedLibraries'].items():
     assert record['packagedLibraries'][name]['sha256'] == data['sha256'], name
@@ -46,6 +47,33 @@ with zipfile.ZipFile(apk) as archive, tempfile.TemporaryDirectory(prefix='harnes
         'dependencies': sorted(dependencies), 'interpreter': '/system/bin/linker64', 'loadAlignmentAtLeast16384': True,
         'compiledApi': 29, 'ndk': '28.2.13676358', 'staticCppRuntime': True,
         'sourceSha256': hashlib.sha256((ANDROID/'execution/process-proof/process_probe.cpp').read_bytes()).hexdigest()}
+if args.node_pty_proof:
+    with zipfile.ZipFile(apk) as archive, tempfile.TemporaryDirectory(prefix='node-pty-inspect-') as directory:
+        for name in ['libharness_node_pty.so','libharness_pty_fixture.so']:
+            data=archive.read('lib/arm64-v8a/'+name); target=Path(directory)/name; target.write_bytes(data)
+            if name=='libharness_node_pty.so':inspect_addon(readelf,target)
+            deps=inspect(readelf,target,allow_node=name=='libharness_node_pty.so')
+            if name.endswith('fixture.so'):
+                header=subprocess.check_output([str(readelf),'-h','-l','-W',str(target)],text=True)
+                assert 'Requesting program interpreter: /system/bin/linker64' in header
+                assert int(re.search(r'Entry point address:\s*(0x[0-9a-fA-F]+)',header)[1],16)!=0
+            record['packagedLibraries'][name]={'sha256':hashlib.sha256(data).hexdigest(),'bytes':len(data),'dependencies':sorted(deps)}
+        native_build=json.loads(archive.read('assets/node-pty/build.json'))
+        assert native_build['binarySha256']==record['packagedLibraries']['libharness_node_pty.so']['sha256']
+        assert native_build['fixtureSha256']==record['packagedLibraries']['libharness_pty_fixture.so']['sha256']
+        for name,digest in native_build['packageFilesSha256'].items():
+            assert hashlib.sha256(archive.read('assets/node-pty/package/'+name)).hexdigest()==digest
+        assert archive.read('assets/node-pty/original-pty.cc')==(ROOT/native_build['sourcePackage']/'src/unix/pty.cc').read_bytes()
+        assert hashlib.sha256(archive.read('assets/node-pty/original-pty.cc')).hexdigest()==native_build['sourceSha256']
+        assert archive.read('assets/node-pty/loader.cjs')==(ANDROID/'runtime/node-pty-proof/loader.cjs').read_bytes()
+        assert archive.read('assets/node-pty/smoke.mjs').decode()==(ANDROID/'runtime/node-pty-proof/smoke.mjs').read_text().replace("'../proc-identity.mjs'","'./proc-identity.mjs'")
+        assert archive.read('assets/node-pty/proc-identity.mjs')==(ANDROID/'runtime/proc-identity.mjs').read_bytes()
+        assert archive.read('assets/node-pty/NODE_ADDON_API_LICENSE.md')
+        assert b'NodePtyProbeService' in dex
+        assert {name for name in archive.namelist() if name.startswith('lib/') and name.endswith('.so')} == {'lib/arm64-v8a/'+name for name in set(record['packagedLibraries']) | {'libharness_process_probe.so'}}
+        record['nodePtyBuild']=native_build
+    previous_process=json.loads((ANDROID/'evidence/process-apk4-build.json').read_text())
+    assert previous_process['processProbe']['sha256']==record['processProbe']['sha256']
 record['observedDate'] = '2026-11-13'
 record.pop('hostTests', None)
 record.pop('originalProfileReference', None)
@@ -53,11 +81,16 @@ record['scope'] = 'APK #4 fixed process/shell/PTY OS qualification; not an origi
 if args.subprocess_proof:
     record['scope'] = 'APK #5 original SubprocessRuntime fixed-pwd adapter; phone execution pending'
     record['androidSubprocessAdapterExecuted'] = False
+if args.node_pty_proof:
+    record['scope']='APK #6 original node-pty qualification; no live Harness terminal backend'
+    record['androidNodePtyExecuted']=False
 record['gate2NativeLibrariesUnchanged'] = True
 record['gate3Passed'] = False
 record['androidProcessProbeExecuted'] = False
 record['originalTerminalIntegrated'] = False
 record['sourceFilesSha256']['apps/android/execution/process-proof/process_probe.cpp'] = record['processProbe']['sourceSha256']
 record['sourceFilesSha256']['apps/android/scripts/inspect_process_apk.py'] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+for source in [ANDROID/'runtime/build-node-pty.py', *sorted((ANDROID/'runtime/node-pty-proof').glob('*'))]:
+    record['sourceFilesSha256'][str(source.relative_to(ROOT))]=hashlib.sha256(source.read_bytes()).hexdigest()
 args.output.write_text(json.dumps(record, indent=2)+'\n')
 print(json.dumps({'apkSha256': record['apkSha256'], 'apkBytes': record['apkBytes'], 'processProbe': record['processProbe']}, indent=2))

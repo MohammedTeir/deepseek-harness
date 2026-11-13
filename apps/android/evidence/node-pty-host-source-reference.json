@@ -1,0 +1,122 @@
+{
+  "environment": "Linux host only; NOT Android evidence",
+  "result": {
+    "schemaVersion": 1,
+    "suite": "original-node-pty-v1",
+    "status": "PASS",
+    "node": "v24.22.1",
+    "platform": "linux",
+    "arch": "x64",
+    "kernelIdentity": {
+      "pid": 38359,
+      "parentPid": 38348,
+      "uid": 1000,
+      "source": "/proc/self/status"
+    },
+    "originalNodePtyVersion": "1.2.0-beta.15",
+    "nativeSourceModified": false,
+    "spawnHelperUsed": false,
+    "fixtureExecutable": "/tmp/harness-node-pty-s_3fil61/fixture",
+    "cwd": "/tmp/harness-node-pty-s_3fil61",
+    "cases": [
+      {
+        "name": "input-resize",
+        "role": "--tty-child",
+        "status": "PASS",
+        "pid": 38366,
+        "exitCode": 0,
+        "signal": 0,
+        "ready": true,
+        "timedOut": false,
+        "output": "IDENTITY:{\"uid\":1000,\"pid\":38366,\"parentPid\":38359}\r\nTTY-READY\r\npty-input\r\nTTY-INPUT:pty-input ROWS:40 COLS:100\r\nTTY-STDERR\r\n",
+        "exitEventObserved": true,
+        "childNoLongerObservable": true,
+        "nativeIdentity": {
+          "uid": 1000,
+          "pid": 38366,
+          "parentPid": 38359
+        }
+      },
+      {
+        "name": "exit-seven",
+        "role": "--exit-seven",
+        "status": "PASS",
+        "pid": 38372,
+        "exitCode": 7,
+        "signal": 0,
+        "ready": true,
+        "timedOut": false,
+        "output": "IDENTITY:{\"uid\":1000,\"pid\":38372,\"parentPid\":38359}\r\nEXIT-SEVEN\r\n",
+        "exitEventObserved": true,
+        "childNoLongerObservable": true,
+        "nativeIdentity": {
+          "uid": 1000,
+          "pid": 38372,
+          "parentPid": 38359
+        }
+      },
+      {
+        "name": "ctrl-c",
+        "role": "--wait",
+        "status": "PASS",
+        "pid": 38374,
+        "exitCode": 0,
+        "signal": 2,
+        "ready": true,
+        "timedOut": false,
+        "output": "IDENTITY:{\"uid\":1000,\"pid\":38374,\"parentPid\":38359}\r\nREADY\r\n^C",
+        "exitEventObserved": true,
+        "childNoLongerObservable": true,
+        "nativeIdentity": {
+          "uid": 1000,
+          "pid": 38374,
+          "parentPid": 38359
+        }
+      },
+      {
+        "name": "terminate",
+        "role": "--wait",
+        "status": "PASS",
+        "pid": 38376,
+        "exitCode": 0,
+        "signal": 15,
+        "ready": true,
+        "timedOut": false,
+        "output": "IDENTITY:{\"uid\":1000,\"pid\":38376,\"parentPid\":38359}\r\nREADY\r\n",
+        "exitEventObserved": true,
+        "childNoLongerObservable": true,
+        "nativeIdentity": {
+          "uid": 1000,
+          "pid": 38376,
+          "parentPid": 38359
+        }
+      },
+      {
+        "name": "timeout-kill",
+        "role": "--ignore-term",
+        "status": "PASS",
+        "pid": 38378,
+        "exitCode": 0,
+        "signal": 9,
+        "ready": true,
+        "timedOut": true,
+        "output": "IDENTITY:{\"uid\":1000,\"pid\":38378,\"parentPid\":38359}\r\nREADY\r\n",
+        "exitEventObserved": true,
+        "childNoLongerObservable": true,
+        "nativeIdentity": {
+          "uid": 1000,
+          "pid": 38378,
+          "parentPid": 38359
+        }
+      }
+    ],
+    "stderrMergedByPty": true,
+    "harnessStarted": false,
+    "originalTerminalIntegrated": false,
+    "generalShellProviderImplemented": false,
+    "gate3Passed": false
+  },
+  "stdout": "",
+  "stderr": "",
+  "exitCode": 0
+}

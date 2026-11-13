@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-13",
+  "environment": "Linux x86_64 cloud host; Node 24.22.1; JDK 21; NDK 28.2.13676358; SDK/target 36, min API 29",
+  "scope": "Original node-pty source and JavaScript feasibility; not a Harness terminal backend",
+  "checks": [
+    {
+      "command": "ANDROID_NDK_HOME=/workspace/android-sdk/ndk/28.2.13676358 ANDROID_NODE_BUILD_DIR=/workspace/android-node python3 apps/android/runtime/build-node-pty.py",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Unmodified original C++ cross-compile, API 29 ARM64",
+      "logSha256": "a135c930b810f3d7df1c8d62b90cf90fab188fda2b68e22c2b157f14a6997150"
+    },
+    {
+      "command": "python3 -m unittest discover -s apps/android/tests -p 'test_*.py' -v",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "43 tests passed",
+      "logSha256": "90c23af316ba358a189cb3ae74b6c7395a8781e0a92f1fd33ff875ffc233af76"
+    },
+    {
+      "command": "python3 -m unittest discover -s apps/android/scripts -p 'test_*.py' -v",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "20 tests passed",
+      "logSha256": "ec4c385f5f0b8df28a6b98afd56bf458d69a209fe603aa49e66f36e8aa540356"
+    },
+    {
+      "command": "python3 -m unittest discover -s apps/android/tests -p 'test_node_pty_original.py' -v",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Actual host source addon, original JavaScript, real TTY/input/resize/signals and missing-fixture rejection",
+      "logSha256": "2bf3e714da797d50ebad4eab5edc877259761453d46f41c4ac1a47646a430dac"
+    },
+    {
+      "command": "pnpm run doc-sync",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "43/43 gates passed",
+      "logSha256": "adb23c836acfb56ef02a0cf9137a6a5d3bd1d0459a7b69ace91fbf09a28fd9ca"
+    },
+    {
+      "command": "pnpm run lint",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Passed with existing unused oxlint-disable warning",
+      "logSha256": "095905110100361fba3947fb990e9581232f6ac0d188330fcce4e22081aab422"
+    }
+  ],
+  "initialFailures": [
+    "APK packaging stripped native bytes after raw build hashes were calculated. Guard caught the mismatch before delivery; stripping now precedes hashing and packaged-byte inspection remains strict.",
+    "Inspection expected a return value from inspect_addon, which validates and returns None. Explicit validation is retained and dependencies are independently inspected.",
+    "After adding per-case PASS/FAIL diagnostics, an old generated host fixture lacked the new status fields. The actual source-addon run regenerated it; strict validation was retained and the full suite rerun."
+  ],
+  "device": {
+    "command": "/workspace/android-sdk/platform-tools/adb devices -l",
+    "exitCode": 0,
+    "status": "BLOCKED",
+    "output": "List of devices attached\n\n"
+  },
+  "androidNodePtyExecuted": false,
+  "originalTerminalIntegrated": false,
+  "generalShellProviderImplemented": false,
+  "gate3Passed": false,
+  "priorEightNativeLibrariesUnchanged": true
+}

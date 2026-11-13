@@ -50,3 +50,7 @@ The [original-service adapter](apps/android/execution/SUBPROCESS_ADAPTER.md) can
 ## APK #5 native grant through original service
 
 The [accepted submitted phone result](ANDROID_GATE3_REVIEW.md) verifies native denial followed by one approved execution through the original subprocess service, with changed-request rejection and one-shot replay/concurrency protection. It does not verify adapter cancellation on Android, root-context error propagation, process-death cleanup or isolation from hostile same-UID code. Those limits remain unchanged. Runtime diagnostic notes and denied canonical tool outcomes are preserved.
+
+## Fixed original node-pty qualification
+
+The new unexported same-UID service starts only a reviewed fixed suite after native consent. It exposes no arbitrary executable, arguments or PTY input interface. Original node-pty is loaded only in its isolated qualification runtime; this is not a malicious-plugin boundary. Fixture parent-death setup, direct-child identity and exit observations do not prove general descendant, descriptor or OS-death isolation. Android behavior remains unverified until APK #6 results. See [scope](apps/android/execution/NODE_PTY_QUALIFICATION.md).

@@ -100,3 +100,7 @@ Original SubprocessRuntime fixed pwd integration is ADAPT / IMPLEMENTED with hos
 ## APK #5 physical adapter update
 
 Fixed pwd through the original SubprocessRuntime service is now VERIFIED on the reported Android 11/API 30 ARM64 device, based on [matching artifact and session evidence](ANDROID_GATE3_REVIEW.md). Earlier host-only rows retain the build checkpoint. General subprocess commands, streaming raw pipes, nonzero/signal classification, interactive PTY transport and original terminal backend remain unsupported or NOT YET VERIFIED as documented in the adapter guide.
+
+## Original node-pty build result
+
+Original node-pty 1.2.0-beta.15 C++ is ADAPT / cross-compiled for Android ARM64 API 29 without native source changes. Its Linux/Android branch uses forkpty; spawn-helper is Apple-only here. Original JavaScript plus the installed-addon loader pass real host tests. Android loading and behavior remain NOT YET VERIFIED pending APK #6. Stock GNU/Linux prebuilds remain BLOCKED; the [source qualification](apps/android/execution/NODE_PTY_QUALIFICATION.md) does not enable the original terminal backend.

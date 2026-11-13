@@ -69,3 +69,7 @@ The separate atomic-proof module builds a fixed native syscall test and small An
 ## APK #2 runtime update
 
 Follow the [runtime rebuild tutorial](apps/android/runtime/ATOMIC_PERSISTENCE_ADAPTER.md#rebuild-tutorial). The new build-atomic-addon.sh and package_node.py require matching source/binary/Node hashes before APK assembly. [Runtime APK inspection](apps/android/evidence/runtime-atomic-persistence-build.json) records the new fixed binding, original profile image, signatures and alignment; Android execution is not inferred from these checks. APK #2 updates Harness runtime proof and preserves app data.
+
+## Original node-pty qualification build
+
+Build the locked source using ANDROID_NDK_HOME and ANDROID_NODE_BUILD_DIR with apps/android/runtime/build-node-pty.py, then run the existing Android Gradle build. The asset guard requires its inspected output and unchanged original package bytes. Use inspect_process_apk.py --node-pty-proof for APK #6 signature/alignment/native/notice inspection. Exact commands, supported scope and mandatory phone verification are in [the guide](apps/android/execution/NODE_PTY_QUALIFICATION.md).

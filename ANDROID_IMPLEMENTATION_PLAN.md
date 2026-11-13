@@ -49,3 +49,7 @@ The [fixed native adapter](apps/android/execution/SUBPROCESS_ADAPTER.md) is IMPL
 ## Fixed original subprocess phone checkpoint
 
 APK #5 is VERIFIED for the submitted Android 11 ARM64 fixed-pwd service run; see [the selected-device review](ANDROID_GATE3_REVIEW.md). The next engineering milestone first evaluates the original node-pty Android build/helper packaging before selecting a bounded live PTY adaptation. Require real input/output/resize/termination tests through the existing SubprocessTerminalHandle and original terminal registry. Do not default to a new native bridge or custom multiplexer. Preserve explicit authorization and do not enable arbitrary shells or claim a generic terminal from the fixed capability fixture. Version/lifecycle coverage remains outstanding.
+
+## Original node-pty before a custom bridge
+
+The [source experiment](apps/android/execution/NODE_PTY_QUALIFICATION.md) builds the original addon without C++ changes and passes host tests. APK #6 must verify actual Android loading, PTY I/O, nonzero exit and signals before production use. If accepted, implement the existing terminal-process contract with real ownership and foreground observations; keep Linux/Bash assumptions disabled until separately verified. No custom multiplexer or Termux fallback is selected.

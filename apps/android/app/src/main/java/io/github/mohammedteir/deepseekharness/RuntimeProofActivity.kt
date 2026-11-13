@@ -67,6 +67,14 @@ class RuntimeProofActivity : Activity() {
             }
         })
         layout.addView(Button(this).apply {
+            text = "Run original node-pty proof"
+            setOnClickListener {
+                AlertDialog.Builder(this@RuntimeProofActivity).setTitle("Authorize original node-pty fixed tests?")
+                    .setMessage("Runs bundled original node-pty against fixed benign native fixtures under app UID ${android.os.Process.myUid()}. Tests TTY input/resize, exit 7, Ctrl-C, TERM and timeout/KILL. No shell, caller-selected command, Root or Termux. Leaving cancels the qualification. This is not the original Harness terminal backend.")
+                    .setNegativeButton("Deny", null).setPositiveButton("Run fixed suite once") { _, _ -> runProbe(nodePty = true) }.show()
+            }
+        })
+        layout.addView(Button(this).apply {
             text = "Copy complete result"
             setOnClickListener {
                 (getSystemService(CLIPBOARD_SERVICE) as ClipboardManager).setPrimaryClip(ClipData.newPlainText("Harness runtime proof", output.text))
@@ -77,12 +85,12 @@ class RuntimeProofActivity : Activity() {
         setContentView(layout)
     }
 
-    private fun runProbe(packaged: Boolean = false, profile: Boolean = false, command: Boolean = false, process: Boolean = false) {
+    private fun runProbe(packaged: Boolean = false, profile: Boolean = false, command: Boolean = false, process: Boolean = false, nodePty: Boolean = false) {
         release()
         commandActive = command
-        processActive = process
+        processActive = process || nodePty
         val current = generation
-        output.text = if (process) "Running authorized fixed OS tests…" else "Starting embedded API probe…"
+        output.text = if (nodePty) "Running original node-pty fixed tests…" else if (process) "Running authorized fixed OS tests…" else "Starting embedded API probe…"
         val replies = Messenger(Handler(Looper.getMainLooper()) { message ->
             if (generation == current && command && message.what == 2) {
                 val request = org.json.JSONObject(message.data.getString("result") ?: "{}")
@@ -113,10 +121,10 @@ class RuntimeProofActivity : Activity() {
                 if (generation == current) { output.text = "BLOCKED: runtime process exited"; release() }
             }
         }
-        val target = if (process) ProcessCapabilityService::class.java else if (command) CommandProbeService::class.java else if (profile) ProfileProbeService::class.java else if (packaged) ExecutableProbeService::class.java else RuntimeService::class.java
+        val target = if (nodePty) NodePtyProbeService::class.java else if (process) ProcessCapabilityService::class.java else if (command) CommandProbeService::class.java else if (profile) ProfileProbeService::class.java else if (packaged) ExecutableProbeService::class.java else RuntimeService::class.java
         if (bindService(Intent(this, target), service, Context.BIND_AUTO_CREATE)) {
             connection = service
-            handler.postDelayed(timeout, if (process) 60000 else if (command) 240000 else if (profile) 120000 else if (packaged) 60000 else 30000)
+            handler.postDelayed(timeout, if (process || nodePty) 60000 else if (command) 240000 else if (profile) 120000 else if (packaged) 60000 else 30000)
         } else output.text = "BLOCKED: cannot bind runtime"
     }
 

@@ -77,3 +77,7 @@ Run the Android host regressions and subprocess-adapter-reference.mjs for actual
 ## APK #5 selected-device original service result
 
 The complete phone-subprocess-apk5-run1.json report passes validate_command_result.py with --require-subprocess against runtime-subprocess-apk5-build.json. Original registry, approval and service markers, one real execution, mutation/replay rejection and identical recovered events pass. Evidence is attributed to user-executed Android 11 ARM64 testing; no developer ADB instrumentation is claimed. Broader adapter cancellation, nonzero/signal handling and live terminal tests remain outstanding. See [the review](ANDROID_GATE3_REVIEW.md).
+
+## Original node-pty phone gate
+
+The [qualification guide](apps/android/execution/NODE_PTY_QUALIFICATION.md) defines real source-addon host tests, parser/asset negative controls and the new fixed phone suite. Require actual original node-pty loading, controlling TTY/input/resize, exit 7, Ctrl-C signal 2, TERM 15 and timeout/KILL 9 with direct-child exit observations. Validate complete output against runtime-node-pty-apk6-build.json. Host PASS and Android compilation do not satisfy the physical gate.

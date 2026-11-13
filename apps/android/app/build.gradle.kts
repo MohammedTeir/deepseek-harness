@@ -11,8 +11,8 @@ android {
         minSdk = 29
         targetSdk = 36
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        versionCode = 12
-        versionName = "0.1.11-native-subprocess-proof"
+        versionCode = 13
+        versionName = "0.1.12-original-node-pty-proof"
         ndk { abiFilters += "arm64-v8a" }
     }
     signingConfigs.getByName("debug").storeFile = rootProject.file(".local/debug.keystore")
@@ -54,3 +54,13 @@ val processProof by tasks.registering(Exec::class) {
         "-Wl,-z,max-page-size=16384", "-Wl,-z,relro,-z,now", source, "-o", destination)
 }
 tasks.named("preBuild") { dependsOn(processProof) }
+
+android.sourceSets["main"].assets.srcDir(layout.buildDirectory.dir("generated/nodePtyAssets"))
+android.sourceSets["main"].jniLibs.srcDir(layout.buildDirectory.dir("generated/nodePtyNative"))
+val nodePtyAssets by tasks.registering(Exec::class) {
+    workingDir(rootProject.projectDir)
+    commandLine("python3", "scripts/prepare_node_pty_assets.py", layout.buildDirectory.dir("generated/nodePtyAssets").get().asFile.absolutePath,
+        layout.buildDirectory.dir("generated/nodePtyNative").get().asFile.absolutePath)
+    outputs.upToDateWhen { false }
+}
+tasks.named("preBuild") { dependsOn(nodePtyAssets) }

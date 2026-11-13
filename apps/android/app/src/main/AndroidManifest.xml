@@ -13,5 +13,6 @@
         <service android:name=".RuntimeService" android:exported="false" android:process=":runtime" />
         <service android:name=".ProfileProbeService" android:exported="false" android:process=":profileproof" />
         <service android:name=".ExecutableProbeService" android:exported="false" android:process=":execproof" />
+        <service android:name=".NodePtyProbeService" android:exported="false" android:process=":nodepty" />
     </application>
 </manifest>

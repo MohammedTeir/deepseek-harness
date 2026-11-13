@@ -48,3 +48,7 @@ The new process/PTY proof is a fixed native capability suite hosted by a private
 ## Original subprocess service adapter
 
 AndroidFixedPwdSubprocess subclasses the original service and is mounted as a separate profile plugin. The registered tool now uses ctx.subprocess with a scoped immutable call binding. The authenticated native broker and human grant remain the execution authority. Only bounded collected fixed pwd is supported; batch RPC cannot provide raw streams or a live SubprocessTerminalHandle. See [the adapter contract](apps/android/execution/SUBPROCESS_ADAPTER.md).
+
+## Original node-pty selection experiment
+
+An isolated service qualifies the locked original node-pty source and JavaScript using an installer-owned NAPI addon and fixed native fixture. A scoped loader adapts its package-local native lookup; no agent or original terminal implementation is replaced. Cross-compilation and host behavior support testing this reuse path before considering a new bridge. Device execution and general terminal-session ownership remain unverified. See [the experiment](apps/android/execution/NODE_PTY_QUALIFICATION.md).

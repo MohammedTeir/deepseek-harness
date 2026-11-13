@@ -277,3 +277,7 @@ Status: IMPLEMENTED and host verified; physical execution BLOCKED pending APK #5
 ## APK #5 physical original-service acceptance
 
 Status: VERIFIED for fixed pwd through the original SubprocessRuntime service on Redmi Note 8 Pro / Android 11 API 30 ARM64. The [physical review](apps/android/evidence/phone-subprocess-apk5-review.json) accepts the delivered APK/native fingerprints, original service marker, native Deny then Approve, one actual process, exact-request/replay rejection, genuine stdout/exit and identical recovered session records. The complete submitted report and historical failures are retained. Earlier host-only/pending-device statements describe the build checkpoint. Gate 3 remains IN PROGRESS; live PTY/original terminal, adapter cancellation on Android, API 29/recent devices and broader lifecycle remain unverified. No new APK is required for this acceptance.
+
+## Original node-pty qualification checkpoint
+
+Status: IMPLEMENTED and host tested; physical execution BLOCKED pending APK #6. The [original dependency experiment](apps/android/execution/NODE_PTY_QUALIFICATION.md) cross-builds unmodified node-pty C++ for API 29 ARM64 and reuses its original JavaScript through a narrow installed-library loader. The Android compile path uses forkpty directly, not the Apple spawn-helper. Real host source-addon tests cover input/resize, exit 7, SIGINT, TERM and deadline/KILL. Existing engine/tool proofs remain unchanged. Gate 3 stays IN PROGRESS; no original terminal backend or generic command provider is enabled.
