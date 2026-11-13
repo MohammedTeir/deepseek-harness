@@ -36,6 +36,7 @@ function isMaintained(file: string): boolean {
 const auditRevisionFields: Readonly<Record<string, readonly string[]>> = {
   'audit/android/baseline.json': ['forkHead', 'forkAncestorUpstream', 'observedUpstreamHead', 'previousAuditedFork', 'refreshBranchHeadAtStart'],
   'audit/android/upstream-sync-impact.json': ['previousAuditedFork', 'syncedFork', 'includedUpstream'],
+  'apps/android/evidence/terminal-allocation-validation.json': ['baselineCommit'],
 }
 
 function auditRevisionLines(file: string, source: string, commits: ReadonlySet<string>): ReadonlySet<string> | undefined {
@@ -64,7 +65,7 @@ function auditRevisionLines(file: string, source: string, commits: ReadonlySet<s
  * @param commits - Lowercase, unambiguous full or abbreviated commit identifiers.
  * @returns One finding per line and reference kind; digests and other Git object types are accepted.
  * Decimal-only tokens are ignored, including actual commit identifiers.
- * The two audit records require canonical JSON and full known revisions; other fields retain reference rejection.
+ * Declared audit records require canonical JSON and full known revisions; other fields retain reference rejection.
  */
 export function findRepositoryReferences(
   file: string,
