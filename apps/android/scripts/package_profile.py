@@ -72,7 +72,13 @@ def validate_archive(archive, manifest):
             raise ValueError('Archive entries differ from manifest')
         if json.loads(zip.read('image-manifest.json')) != manifest:
             raise ValueError('Archive manifest differs from inspected metadata')
-        if 'apps/android/tests/command-profile-reference.mjs' in expected:
+        automated_approval_fixtures = {
+            'apps/android/tests/command-profile-reference.mjs',
+            'apps/android/tests/terminal-registry-reference.mjs',
+            'apps/android/tests/terminal-registry-plugin.mjs',
+            'apps/android/tests/terminal-authority-plugin.mjs',
+        }
+        if automated_approval_fixtures.intersection(expected):
             raise ValueError('Host approval fixture must not enter Android image')
         for name, digest in expected.items():
             if name.startswith('/') or '\\' in name or any(p in {'', '.', '..'} for p in name.split('/')):

@@ -65,3 +65,7 @@ The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGI
 ## Allocation authority integration checkpoint
 
 The [native grant component](apps/android/execution/TERMINAL_ALLOCATION_AUTHORIZATION.md) is implemented. Next wire the actual registry-issued terminal ID through original ApprovalService to authenticated native IPC, native human approval and one-shot consumption before allocation, then qualify rollback and build the phone test APK. Existing host authority remains a fixture.
+
+## Terminal broker composition checkpoint
+
+The [broker integration reference](apps/android/execution/TERMINAL_BROKER_INTEGRATION.md) records the private native protocol, exact original-service approval adapter and host-only genuine profile/PTY test with an explicit native transport double. Android broker instrumentation is compiled, not executed. UI/runtime activation and full APK/device acceptance remain pending; the existing Android guards are retained. Gate 3 remains IN PROGRESS.

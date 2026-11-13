@@ -19,8 +19,10 @@ class ProfileArchiveTest(unittest.TestCase):
 
     def test_host_approval_fixture_is_not_shippable(self):
         with tempfile.TemporaryDirectory() as directory:
-            with self.assertRaises(ValueError):
-                validate_archive(*self.archive(directory, 'apps/android/tests/command-profile-reference.mjs', b'host fixture'))
+            for name in ['command-profile-reference.mjs', 'terminal-registry-reference.mjs',
+                         'terminal-registry-plugin.mjs', 'terminal-authority-plugin.mjs']:
+                with self.subTest(name=name), self.assertRaises(ValueError):
+                    validate_archive(*self.archive(directory, 'apps/android/tests/' + name, b'host fixture'))
 
     def test_plain_interpreted_file_is_accepted(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -123,3 +123,7 @@ The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGI
 ## Native allocation policy evidence
 
 The [native grant reference](apps/android/execution/TERMINAL_ALLOCATION_AUTHORIZATION.md) separates JVM policy tests and Android compilation from pending IPC/UI/runtime/device evidence. The installed app and existing APK tests do not invoke this component.
+
+## Terminal approval relay evidence
+
+The [broker integration reference](apps/android/execution/TERMINAL_BROKER_INTEGRATION.md) records the private native protocol, exact original-service approval adapter and host-only genuine profile/PTY test with an explicit native transport double. Android broker instrumentation is compiled, not executed. UI/runtime activation and full APK/device acceptance remain pending; the existing Android guards are retained. Gate 3 remains IN PROGRESS.

@@ -93,3 +93,7 @@ The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGI
 ## Native terminal allocation policy tests
 
 Run the [JVM policy qualification](apps/android/execution/TERMINAL_ALLOCATION_AUTHORIZATION.md) for exact bindings, 32-consumer contention, expiry/revocation and changed native resources. Physical-device file identity support, native consent and end-to-end terminal allocation remain unverified; host policy success cannot satisfy them.
+
+## Native terminal broker instrumentation
+
+The [broker integration reference](apps/android/execution/TERMINAL_BROKER_INTEGRATION.md) records the private native protocol, exact original-service approval adapter and host-only genuine profile/PTY test with an explicit native transport double. Android broker instrumentation is compiled, not executed. UI/runtime activation and full APK/device acceptance remain pending; the existing Android guards are retained. Gate 3 remains IN PROGRESS.

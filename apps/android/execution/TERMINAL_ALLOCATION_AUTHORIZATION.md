@@ -1,6 +1,6 @@
 # Native terminal allocation grant
 
-Reference scope: a qualification-only Java policy component for one fixed PTY allocation. Status: IMPLEMENTED with host JVM tests and Android compilation/lint. IPC, human approval UI, original runtime wiring and physical execution of this component are NOT STARTED. The [original terminal registry host qualification](TERMINAL_REGISTRY_QUALIFICATION.md) remains a separate evidence level.
+Reference scope: a qualification-only Java policy component for one fixed PTY allocation. Status: IMPLEMENTED with host JVM tests and Android compilation/lint. The [private broker and original approval adapter](TERMINAL_BROKER_INTEGRATION.md) are implemented and compiled/tested at their stated evidence levels. Human approval UI, Android runtime wiring and physical execution remain NOT STARTED. The [original terminal registry host qualification](TERMINAL_REGISTRY_QUALIFICATION.md) remains a separate evidence level.
 
 ## Binding and consumption
 

@@ -293,3 +293,7 @@ The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGI
 ## Native terminal allocation grant checkpoint
 
 The [native allocation policy](apps/android/execution/TERMINAL_ALLOCATION_AUTHORIZATION.md) is IMPLEMENTED with JVM tests and Android compile/lint. It binds the registry terminal/Agent and complete fixed request to the existing one-shot grant, rejects resource changes and preserves denial/expiry/replay handling. It is not wired to IPC, UI or runtime allocation. No new APK or device result is claimed. Gate 3 remains IN PROGRESS.
+
+## Native broker and original approval relay checkpoint
+
+The [broker integration reference](apps/android/execution/TERMINAL_BROKER_INTEGRATION.md) records the private native protocol, exact original-service approval adapter and host-only genuine profile/PTY test with an explicit native transport double. Android broker instrumentation is compiled, not executed. UI/runtime activation and full APK/device acceptance remain pending; the existing Android guards are retained. Gate 3 remains IN PROGRESS.
