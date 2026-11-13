@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-12",
+  "url": "https://filebin.net/harness-command-9f46af5a570b48dd/deepseek-harness-runtime-apk3.zip",
+  "archiveSha256": "af5a7063755fbacc034ae23a2be0d42c10812aae0ce0ae07f0617ac39e7b8b5c",
+  "apkSha256": "3f0e2cd234fb64647b60d3953dc5c2a698b6d8e4f11399f0edbd6068ef0c7c00",
+  "apkBytes": 50336705,
+  "numberOfApksInArchive": 1,
+  "uploadExitCode": 0,
+  "downloadExitCode": 0,
+  "downloadedArchiveAndApkHashesMatch": true,
+  "serviceReportedExpiry": "2026-11-19T23:35:35.548381Z",
+  "physicalDeviceCommandVerified": false,
+  "gate2Passed": false
+}

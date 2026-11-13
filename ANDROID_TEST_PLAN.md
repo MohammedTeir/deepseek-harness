@@ -53,3 +53,7 @@ The [runtime qualification tutorial](apps/android/runtime/ATOMIC_PERSISTENCE_ADA
 ## Fixed command qualification
 
 The [native command reference](apps/android/execution/COMMAND_PROOF.md) records host-only request binding, rejection, expiry, revocation, concurrent one-shot consumption and real host pwd output checks. Android compilation/lint is separate from execution. A subsequent device test must exercise native human consent and the original tool pipeline together, demonstrate actual local output/exit, and reject unapproved, changed and replayed operations without spawning additional processes. No command-capable APK is delivered by the component checkpoint.
+
+## APK #3 physical acceptance
+
+Follow the [two-prompt command tutorial](apps/android/execution/COMMAND_PROOF.md#phone-test-tutorial). Require genuine original profile/tool/approval records, explicit native Deny then Approve, one actual start across concurrent consumers and replay, exact output/exit, malformed/authentication/mutation rejection and unchanged recovered records. Host fixture decisions, parser fixtures and compiled instrumentation cannot satisfy physical acceptance. Native negative instrumentation, cross-UID attacks and OS-kill lifecycle coverage must be identified separately from user-reported manual results.

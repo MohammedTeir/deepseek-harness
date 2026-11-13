@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-12",
+  "environment": "Linux x86_64 cloud, JDK 21.0.13, Node 24.22.1, SDK36/NDK28.2, Android min29 target36",
+  "checks": [
+    {
+      "command": "JAVA_HOME=/workspace/.setup-tools/jdk-21.0.13+9 python3 -m unittest discover -s apps/android/tests",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "32 passed; includes 12 JVM grant/process modes, actual lost-response child cleanup and downstream policy preservation",
+      "logSha256": "67de00ef1ba07f24a413144722199d692bd2bf9b5dde4da31da913eb94f6a776"
+    },
+    {
+      "command": "python3 -m unittest discover -s apps/android/scripts -p test_*.py",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "20 passed; excludes host decision fixture from Android image",
+      "logSha256": "655449feb6d3b9124483f29ce3c890fed3fbc3c2a305a0ff97ea874e63413623"
+    },
+    {
+      "command": "pnpm exec vitest run packages/core/tools/tests/tools.spec.ts packages/interaction/user-approval/tests/approval.spec.ts packages/interaction/commands/tests/commands.spec.ts packages/sdk/server/tests/approval.spec.ts",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "4 files, 277 passed",
+      "logSha256": "9f07e0c3ec678e88ec52468a80f3efc3b39472cda925e18d2387419e89f62718"
+    },
+    {
+      "command": "pnpm run lint",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "PASS; existing client-ui-cot-translation unused-disable warning",
+      "logSha256": "13816ccb2eb46cca6f00b7a159517ee0fdacf49dff9b6bac92704ab76bfdea01"
+    },
+    {
+      "command": "python3 apps/android/scripts/package_profile.py apps/android/runtime/out/profile-v7",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Original startup/session plus command profile traced; 1344 files, 855 aliases, 647 manifests; relocated profile and recovery pass",
+      "logSha256": "e52200d6eaaf78ccdbb610287e30900ca7d33a3ca0c0f85c65f2f1f3c24e6ac2"
+    },
+    {
+      "command": "./apps/android/gradlew -p apps/android :app:assembleDebug :app:assembleDebugAndroidTest :app:lintDebug --console=plain -Pkotlin.compiler.execution.strategy=in-process",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "BUILD SUCCESSFUL in 7s\n79 actionable tasks: 9 executed, 70 up-to-date",
+      "logSha256": "81fefa6272ba0dbd8d6992bedc83e10b1de182d425e1428aed83a368f29e9180"
+    },
+    {
+      "command": "python3 apps/android/scripts/inspect_runtime_apk.py --build-log /tmp/android-command-apk-build.log --command-proof --output apps/android/evidence/runtime-command-apk3-build.json",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Signatures, ZIP/ELF 16KB alignment, native dependencies, original image and notices inspected",
+      "logSha256": "f74a0b00a0f5e019f48b718ce7f9231ce9322165abfaf882a1108f36247aabd8"
+    },
+    {
+      "command": "pnpm run doc-sync",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "43/43 gates in 172.59s",
+      "logSha256": "34976c871f6b6df062b9c97c6dd49f4ea20eade71e3395d766ff6b225f1f5a77"
+    },
+    {
+      "command": "python3 -m unittest discover -s apps/android/tests -p test_command_evidence.py -v",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "2 parser tests after refreshing actual relocated host evidence; synthetic Android fields are only parser fixtures"
+    }
+  ],
+  "initialIntegrationFailures": [
+    "SDK request handler installed before start: corrected using original start/onRequest order",
+    "Dynamic plugin name rejected by original requirement validation: generated a literal-path patch from the shipped template",
+    "Raw tool schema rejected required-property syntax: used original defineTool normalizer",
+    "SDK intentionally does not route arbitrary slash commands: consumed original event notifications and inspected recovery through the original pre-step command extension instead; SDK contract unchanged"
+  ],
+  "hostDecisionFixtureAutomated": true,
+  "hostFixtureExcludedFromAndroidImage": true,
+  "nativeHumanApprovalTested": false,
+  "androidCommandExecuted": false,
+  "androidUiInspected": false,
+  "connectedDeviceCheck": {
+    "command": "/workspace/android-sdk/platform-tools/adb devices -l",
+    "exitCode": 0,
+    "output": "List of devices attached\n\n",
+    "status": "BLOCKED"
+  },
+  "unexecuted": [
+    "Physical two-dialog original tool proof",
+    "CommandBrokerTest negative instrumentation",
+    "Unexpected cross-UID peer attempt",
+    "Android cancellation/background/lifecycle rendering and execution",
+    "API29 and recent-device coverage",
+    "Model request without supplied credentials"
+  ],
+  "gate2Passed": false,
+  "initialDocumentationFailure": {
+    "command": "pnpm run test:docs",
+    "exitCode": 1,
+    "result": "20 passed, concrete-terms failed on abstract source-attribution wording; replaced with exact model-response attribution; validator unchanged"
+  },
+  "filesChanged": [
+    "ANDROID_ARCHITECTURE.md",
+    "ANDROID_IMPLEMENTATION_PLAN.md",
+    "ANDROID_PORT_STATUS.md",
+    "ANDROID_RUNTIME_GUIDE.md",
+    "ANDROID_SECURITY_MODEL.md",
+    "ANDROID_TEST_PLAN.md",
+    "apps/android/app/build.gradle.kts",
+    "apps/android/app/src/androidTest/java/io/github/mohammedteir/deepseekharness/CommandBrokerTest.kt",
+    "apps/android/app/src/main/AndroidManifest.xml",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/CommandBroker.kt",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/CommandProbeService.kt",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/FixedPwdExecution.java",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/RuntimeProofActivity.kt",
+    "apps/android/evidence/command-integration-validation.json",
+    "apps/android/evidence/host-command-profile-reference.json",
+    "apps/android/evidence/runtime-command-apk3-build.json",
+    "apps/android/evidence/runtime-command-apk3-delivery.json",
+    "apps/android/execution/COMMAND_PROOF.md",
+    "apps/android/runtime/command-plugin.mjs",
+    "apps/android/runtime/command-smoke.mjs",
+    "apps/android/runtime/command-wire.mjs",
+    "apps/android/runtime/profile/command-proof.patch.yml",
+    "apps/android/scripts/inspect_runtime_apk.py",
+    "apps/android/scripts/package_profile.py",
+    "apps/android/scripts/test_package_profile.py",
+    "apps/android/scripts/validate_command_result.py",
+    "apps/android/tests/CommandGrantFixture.java",
+    "apps/android/tests/command-policy-reference.mjs",
+    "apps/android/tests/command-profile-reference.mjs",
+    "apps/android/tests/command-wire-reference.mjs",
+    "apps/android/tests/test_command_evidence.py",
+    "apps/android/tests/test_command_grant.py",
+    "apps/android/tests/test_command_policy.py",
+    "apps/android/tests/test_command_wire.py"
+  ],
+  "evidenceLevels": {
+    "host": "Original profile/pipeline plus automated decision/transport fixture and actual Linux pwd; native JVM policy/process checks separately executed",
+    "androidBuild": "Signed debug APK and negative instrumentation sources compiled and inspected",
+    "physical": "BLOCKED; no connected ADB device; user manual test pending",
+    "ui": "Native approval rendering/interactions not inspected on device"
+  },
+  "historicalChecksUnchanged": [
+    "Prior physical-phone persistence reports",
+    "APK #1 and APK #2 build/delivery evidence",
+    "Phase 0/1 canonical baseline records"
+  ],
+  "historicalEvidenceByteComparisonsPassed": 58,
+  "updateSigningCompatibility": {
+    "status": "PASS",
+    "commands": [
+      [
+        "/workspace/android-sdk/build-tools/36.0.0/apksigner",
+        "verify",
+        "--print-certs",
+        "/tmp/android-apk2-preserved-for-signature.apk"
+      ],
+      [
+        "/workspace/android-sdk/build-tools/36.0.0/apksigner",
+        "verify",
+        "--print-certs",
+        "apps/android/app/build/outputs/apk/debug/app-debug.apk"
+      ]
+    ],
+    "previousApkMatchedVerifiedApk2Delivery": true,
+    "matchingPublicCertificateSha256": "f8bd2f18a8414169898623658a8812abc985606c73b9d14e9e05a4e8e59549fc",
+    "currentApkSha256": "3f0e2cd234fb64647b60d3953dc5c2a698b6d8e4f11399f0edbd6068ef0c7c00",
+    "finalApkCertificateRechecked": true
+  },
+  "transportFailureInjection": {
+    "status": "PASS",
+    "command": "python3 -m unittest discover -s apps/android/tests -p test_command_wire.py -v",
+    "observed": "Execution response deliberately lost while a real host Node child was alive; caller rejected only after fresh cancel acknowledgement and child close. Concurrent tool requests use allSettled."
+  },
+  "downstreamPolicyUnitTest": {
+    "command": "python3 -m unittest discover -s apps/android/tests -p test_command_policy.py -v",
+    "exitCode": 0,
+    "status": "PASS",
+    "scope": "Isolated hook unit fixture, not Android or full composition",
+    "observed": "Original downstream deny/cancel/ask and thrown failures retained; native ask added only to allow"
+  }
+}

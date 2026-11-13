@@ -2,7 +2,7 @@
 
 ## Summary
 
-Investigation record, not installation instructions for a working runtime. The root manifest requires Node >=24.9.0. Node 24.22.1's `BUILDING.md` explicitly calls Android unsupported and untested in its CI, despite retaining `android-configure`. This is a feasibility risk, not proof that a port is impossible.
+Investigation and bounded runtime qualification record. APK #2 has accepted user-reported physical profile/session recovery; APK #3 command/native-approval acceptance is pending. The root manifest requires Node >=24.9.0. Node 24.22.1's `BUILDING.md` explicitly calls Android unsupported and untested in its CI, despite retaining `android-configure`. This is a feasibility risk, not proof that a port is impossible.
 
 [Node source guidance](https://github.com/nodejs/node/blob/v24.22.1/BUILDING.md#android) and [retrieved platform references](audit/android/platform-references.json) support the candidate comparison in [architecture](ANDROID_ARCHITECTURE.md). The local source headers are investigation inputs, not evidence that Android Node executes.
 
@@ -83,3 +83,7 @@ Two physical APK #1 reports pass the [native mechanism review](apps/android/evid
 The [three-report physical review](apps/android/evidence/runtime-apk2-physical-review.json) accepts original session persistence/recovery and native-binding execution on the reported Android 11 ARM64 phone. Runtime restart and previous-invocation recovery are separate passing assertions; the third report follows requested manual force-stop/reopen. Raw appRestartVerified stays false because the controller cannot independently measure that action. Extra best-effort SDK close requests generate retained closed-input notes after explicit successful shutdown replies; they are not discarded or substituted for those replies. Active-write termination, power loss and broader devices remain unverified.
 
 The next command proof has isolated [native grant/process components](apps/android/execution/COMMAND_PROOF.md) with host tests and Android Java/lint validation. They are not wired to a UI, IPC or original tool yet, and do not change the delivered persistence APK or its acceptance scope.
+
+## APK #3 original registered tool
+
+The [command qualification reference](apps/android/execution/COMMAND_PROOF.md) owns the native broker, approval UI, original pre-step/tool/approval integration, command-event result persistence and phone instructions. The new fourth diagnostic action runs this proof; the three earlier diagnostics and existing persisted data remain available. The automated host decision fixture is excluded from the Android image. Android execution and UI acceptance for this APK remain pending physical results.

@@ -251,3 +251,7 @@ Gate 2 remains BLOCKED. The next milestone is one genuine registered Harness too
 ## Fixed command native components
 
 Status: IN PROGRESS. The [command qualification reference](apps/android/execution/COMMAND_PROOF.md) describes an isolated native one-shot grant and fixed pwd process owner, with host policy/process tests and Android Java/lint checks. They are not yet reachable from the app or original tool pipeline; no new APK or Android command result is claimed. Trusted native approval UI, identity derivation, authenticated IPC, original Harness tool integration and physical-device execution remain required. Gate 2 stays BLOCKED.
+
+## APK #3 original-tool/native approval qualification
+
+Status: IMPLEMENTED with host integration and Android build checks; physical execution BLOCKED. The [command reference](apps/android/execution/COMMAND_PROOF.md) documents the genuine registry/executor/approval path, private native broker/UI, one-shot concurrent consumption, actual output and original command-event persistence/recovery. The host uses explicitly automated decisions and a real Linux subprocess; it does not verify Android IPC, rendering or human consent. Install the delivered update and return the full two-prompt phone result. Gate 2 remains BLOCKED.

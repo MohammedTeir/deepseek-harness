@@ -2,7 +2,7 @@
 
 ## Summary
 
-Proposed controls only. Upstream `SAFETY.md` states the project is experimental and unaudited. No Android sandbox or authorization system is implemented or verified here.
+Upstream `SAFETY.md` states the project is experimental and unaudited. APK #3 implements bounded fixed-command native authorization for reviewed code; its physical acceptance is pending. Broader proposed controls and hostile-plugin isolation are not implemented or verified.
 
 | Risk | Evidence / effect | Mitigation and required proof |
 |---|---|---|
@@ -26,3 +26,7 @@ V7 user evidence reaches original runtime initialization but fails durable sessi
 The isolated atomic proof uses no Android permissions, accepts only a fixed test start, and writes only its own newly created private test tree. Installer-owned native execution, anchored directory descriptors and validated fixed basenames limit the proof; they do not isolate malicious same-UID writers. Unsupported syscall and synchronization errors fail closed. The [review](apps/android/atomic-proof/ATOMIC_PERSISTENCE_REVIEW.md) requires physical acceptance before any production publication integration and separates process-kill observations from power-loss durability.
 
 The APK #2 publication worker opens one owned private directory with O_NOFOLLOW, validates regular staging and distinct restricted basenames, and performs no-replace publication without elevation or fallback. Caller-owned staging must remain trusted; this is not same-UID isolation. Sync errors reject without deleting the visible destination. The carrier pins source/native/Node hashes and loads only an installer-owned fixed SONAME. See [implementation limits and evidence](apps/android/runtime/ATOMIC_PERSISTENCE_ADAPTER.md).
+
+## Bounded command qualification implementation
+
+[APK #3](apps/android/execution/COMMAND_PROOF.md) adds a private native human-decision path and AF_UNIX peer/secret checks for one fixed command, with exact native session/call/workspace bindings and one-shot consumption. The agent IPC exposes cancellation but no approval decision. Same-UID hostile-plugin confinement is not provided; only reviewed bundled code is qualified. Device peer rejection, UI/lifecycle behavior and human-approved execution remain unverified until physical tests; no general sandbox, credential isolation, root or Termux guarantee follows.

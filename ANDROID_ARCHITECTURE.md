@@ -2,7 +2,7 @@
 
 ## Summary
 
-Recommend retaining the original Cordis/profile engine and Web UI behind a Kotlin lifecycle/permission host. The [Gate 1 review](ANDROID_GATE1_REVIEW.md) selects an APK-loaded shared-library experiment; production packaging remains subject to qualification. The user-reported v5 phone results qualify the fixed Node API probes in both modes on one Android 11/API 30 ARM64 phone; authentic Harness execution is still unverified. The packaged executable is selected for the next bounded profile experiment, not production qualification.
+Recommend retaining the original Cordis/profile engine and Web UI behind a Kotlin lifecycle/permission host. The [Gate 1 review](ANDROID_GATE1_REVIEW.md) selects an APK-loaded shared-library experiment; production packaging remains subject to qualification. The user-reported v5 phone results qualify the fixed Node API probes in both modes on one Android 11/API 30 ARM64 phone; the later APK #2 physical review accepts authentic profile/session recovery on that phone, while APK #3 command execution remains pending. The packaged executable is selected for the next bounded profile experiment, not production qualification.
 
 | Candidate | Reuse and benefits | Blocking questions | Recommendation |
 |---|---|---|---|
@@ -32,3 +32,7 @@ No permanent root shell or plugin-controlled `su` is permitted. App UID process 
 The [atomic publication review](apps/android/atomic-proof/ATOMIC_PERSISTENCE_REVIEW.md) selects a same-directory renameat2 no-replace experiment, not a production adapter. APK #1 runs in a separate diagnostic package and does not alter the original JSONL implementation. Physical-device acceptance is required before selecting or integrating a native/filesystem adapter. Attachment aliases retain-source semantics and cross-directory staging remain separate unresolved requirements.
 
 The accepted [APK #1 physical checkpoint](apps/android/evidence/atomic-poc-physical-review.json) permits the narrow [APK #2 publication integration](apps/android/runtime/ATOMIC_PERSISTENCE_ADAPTER.md). The original JSONL materialization and generation paths share a platform entry: non-Android keeps hardlinks, Android ARM64 uses the carrier's fixed no-replace binding. Callers retain synchronization, collision validation and cleanup. Cross-directory publication and retained-source aliases are excluded pending separate qualification. This does not select a new engine or qualify Android sessions before phone tests.
+
+## Original tool qualification composition
+
+The [APK #3 reference](apps/android/execution/COMMAND_PROOF.md) connects the original tool pipeline and approval service to the private native fixed-command broker. A genuine pre-step context initiates qualification without a model response; canonical results persist through the existing command lifecycle rather than fabricated model-step tool events. Runtime restart/recovery is exercised on the host; the physical command/UI checkpoint remains pending. This does not change the original frontend or select general shell/PTY support.

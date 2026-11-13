@@ -2,7 +2,7 @@
 
 ## Summary
 
-The author has authorized Gate 1 review and a bounded Phase 2 proof when its acceptance criteria are satisfied. The [Gate 1 decision](ANDROID_GATE1_REVIEW.md) accepts the investigation strategy; the [v5 phone results](apps/android/evidence/phone-v5-user-results.json) now report fixed Node API and installed-child execution passing on Android 11/API 30. Authentic profile/session/tool execution remains unverified. The master prompt's gates take precedence over earlier prototype work, which is not imported into this branch.
+The author has authorized Gate 1 review and a bounded Phase 2 proof when its acceptance criteria are satisfied. The [Gate 1 decision](ANDROID_GATE1_REVIEW.md) accepts the investigation strategy; the [v5 phone results](apps/android/evidence/phone-v5-user-results.json) now report fixed Node API and installed-child execution passing on Android 11/API 30. The later APK #2 physical review accepts authentic profile/session recovery on one phone; original-tool/native-approval device execution remains pending. The master prompt's gates take precedence over earlier prototype work, which is not imported into this branch.
 
 | Milestone | Status | Acceptance / next action |
 |---|---|---|
@@ -10,7 +10,7 @@ The author has authorized Gate 1 review and a bounded Phase 2 proof when its acc
 | Phase 1: locked dependency graph | VERIFIED | All resolved nodes and 8,836 edges enumerated; zero unresolved targets; all package manifests accounted for locally or by integrity-matched registry metadata |
 | Phase 1: source/native/platform audit | IMPLEMENTED | Source-backed report, package payload inventory and risk matrix available; noninstalled payloads and device semantics explicitly unverified |
 | Gate 1 review | VERIFIED | Reviewed criteria and bounded experimental decision recorded; no runtime selected as proven |
-| Phase 2 / Gate 2 | IN PROGRESS | ARM64 runtime builds and user-reported fixed phone probes pass; authentic Android profile/session/tool proof remains blocked |
+| Phase 2 / Gate 2 | IN PROGRESS | ARM64 runtime builds and user-reported fixed phone probes pass; Android profile/session evidence is accepted; original-tool/native-approval physical proof remains blocked |
 | Gate 3 | NOT STARTED | Device commands, streams, signals, timeout/cancel and PTY proof |
 | Gate 4 | NOT STARTED | Original UI boot, origin authentication, deep links, genuine streaming/session result |
 | Gate 5 | NOT STARTED | Separate root policy, canonical request binding, deny/replay/mutation/adversarial tests |
@@ -25,3 +25,7 @@ Approve or revise the minimum trusted plugin set, first device/API targets, supp
 The [APK #2 physical review](apps/android/evidence/runtime-apk2-physical-review.json) accepts original Android session persistence across Node runtime restart and repeated invocations on the reported Android 11 ARM64 phone; the manual force-stop/reopen scenario is separately attributed. Implement the trusted harmless-command proof through the existing Harness tool registry/approval services and a native one-shot exact-request broker. Reject unapproved, changed and replayed operations and capture actual subprocess stdout/stderr/exit. Keep active-write kill, power loss, API 29/recent-device coverage, cross-directory publication and retained-source aliases distinct. Root, optional Termux, general PTY and original UI remain later milestones. Gate 2 is not passed until its remaining executed tool evidence exists.
 
 The isolated [native grant/process components](apps/android/execution/COMMAND_PROOF.md) now pass host qualification and Android compilation/lint. Next connect native identity and human approval to a bounded authenticated broker and an original registered tool inside the existing agent turn. Those integrations remain unimplemented; the classes alone cannot pass the command milestone.
+
+## Current command integration checkpoint
+
+The [APK #3 command proof](apps/android/execution/COMMAND_PROOF.md) implements the original-tool/native-approval path and passes host composition/relocation checks. Next run the signed update on the existing physical Android 11 ARM64 phone, deny the first request, approve the second and review native start counts, replay/mutation rejection and recovered original records. Do not begin broader providers or claim Gate 2 passed before that evidence is accepted.
