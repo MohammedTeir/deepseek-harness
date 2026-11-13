@@ -305,3 +305,7 @@ The [APK #7 reference](apps/android/execution/TERMINAL_ANDROID_PROOF.md) records
 ## APK #7 phone cleanup blocker
 
 Physical execution reported `Terminal broker cleanup failed` without underlying details. Gate 3 remains BLOCKED for phone acceptance. The [terminal diagnosis](apps/android/execution/TERMINAL_ANDROID_PROOF.md#cleanup-failure-diagnosis) describes the listener shutdown change and preservation of the original qualification report. Device confirmation remains pending.
+
+## APK #7 fixed terminal phone result
+
+The [phone result review](apps/android/evidence/phone-apk7-terminal-result-review.json) records selected fields from the user-provided Redmi Note 8 Pro/API 30 report with a matching inspected APK hash. The bounded original terminal qualification is VERIFIED at user-reported physical-device evidence level: denial, one approved PTY, input/resize, exact-request/replay rejection and original history recovery across runtime restart. The previous broker cleanup failure did not recur in this report; its original cause is not conclusively established. Gate 3 remains IN PROGRESS, with cancellation/timeout through the original terminal integration and device coverage review still required. App restart, model requests, general shell support and malicious-plugin isolation are not established.

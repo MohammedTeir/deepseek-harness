@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "evidenceType": "selected fields transcribed from user-provided physical-device JSON; not a complete raw capture",
+  "developerControlledInstrumentation": false,
+  "suite": "original-harness-native-terminal-v1",
+  "apkSha256": "6aea3e9fcc05d9c5ab14e07a0d09b28ab2de16beda492cffd73fcd37c61364a8",
+  "device": {
+    "model": "Redmi Note 8 Pro",
+    "api": 30,
+    "androidRelease": "11",
+    "abi": "arm64-v8a,armeabi-v7a,armeabi"
+  },
+  "sessionId": "android-terminal-e9566dad-0a99-486d-ab26-55770e2a9f10",
+  "testTimeMillis": 1794602233563,
+  "evidenceDirectory": "run-2562650825827201363",
+  "node": "v24.22.1",
+  "platform": "android",
+  "arch": "arm64",
+  "harnessStarted": true,
+  "nativeExitCode": 0,
+  "supervisorUid": 10751,
+  "supervisorPid": 22744,
+  "kernelIdentity": {
+    "pid": 22786,
+    "parentPid": 22744,
+    "uid": 10751,
+    "source": "/proc/self/status"
+  },
+  "report": {
+    "originalTerminalRegistry": true,
+    "terminalId": "pty-2",
+    "starts": 1,
+    "concurrentConsumers": 2,
+    "concurrentRejections": 1,
+    "changedReceiptRejected": true,
+    "replayedReceiptRejected": true,
+    "ownerActivityDrained": true,
+    "stderrMergedByPty": true,
+    "nativeIdentity": {
+      "uid": 10751,
+      "pid": 22817,
+      "parentPid": 22801
+    },
+    "engineIdentity": {
+      "pid": 22801,
+      "parentPid": 22786,
+      "uid": 10751,
+      "source": "/proc/self/status"
+    },
+    "result": {
+      "viewport": "IDENTITY:{\"uid\":10751,\"pid\":22817,\"parentPid\":22801}\r\nTTY-READY\r\npty-input\r\nTTY-INPUT:pty-input ROWS:40 COLS:100\r\nTTY-STDERR\r\n",
+      "waitReason": "session_exit",
+      "sessionStatus": {
+        "kind": "exited",
+        "exitCode": 0,
+        "signal": null
+      },
+      "truncated": false
+    }
+  },
+  "approvalOutcomes": [
+    {
+      "callId": "deny-4a1601d9-cef3-40c3-8147-b7dfa6e20546",
+      "outcome": "rejected"
+    },
+    {
+      "callId": "allow-b882254c-21d7-421f-b349-b392af4fbc03",
+      "outcome": "allowed-once"
+    }
+  ],
+  "sessionRecoveredAcrossRuntimeRestart": true,
+  "appRestartVerified": false,
+  "modelRequestExecuted": false,
+  "generalShellProviderImplemented": false,
+  "gate3Passed": false,
+  "nativeBrokerSelectedFields": {
+    "allocationsConsumed": 1,
+    "resourceFailure": null,
+    "omittedAuditEntries": 0,
+    "maliciousSameUidPluginIsolation": false
+  },
+  "installedCodeWritable": false,
+  "persistedSessionJsonlSha256": "77b66a79bb797b7ed5e64fba93b6c45a55d3fbd412867e5fe2c9fed2164134b8",
+  "warningsRetained": [
+    "libc++_shared.so unused processor-specific DT entry",
+    "shutdown request failed: sdk-minimal JSON-RPC input closed; exit code 0"
+  ],
+  "review": {
+    "boundedOriginalTerminalQualification": "PASS: user-reported physical run with matching APK hash",
+    "cleanupFailureReproducedInThisReport": false,
+    "originalCleanupFailureRootCauseConfirmed": false,
+    "newBrokerInstrumentationExecuted": false,
+    "powerLossTested": false,
+    "nextMilestone": "Qualify cancellation and timeout through the original terminal service on Android; review remaining Gate 3 device coverage before acceptance."
+  }
+}

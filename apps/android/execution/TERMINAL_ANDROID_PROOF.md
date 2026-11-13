@@ -1,6 +1,6 @@
 # Original terminal on Android: APK #7 qualification
 
-Reference scope: a fixed benign TTY fixture through the original Harness tool, approval and owner-scoped terminal services. Status: IMPLEMENTED with host tests, relocated-image qualification and Android APK build/inspection. Physical-device execution is BLOCKED pending the submitted phone result. This is not general shell support or the final original Web UI.
+Reference scope: a fixed benign TTY fixture through the original Harness tool, approval and owner-scoped terminal services. Status: IMPLEMENTED with host tests, relocated-image qualification and Android APK build/inspection. The bounded phone run is VERIFIED as user-reported evidence in the [phone result review](../evidence/phone-apk7-terminal-result-review.json); developer-controlled instrumentation and broader Gate 3 acceptance remain pending. This is not general shell support or the final original Web UI.
 
 ## Installed flow
 
