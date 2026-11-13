@@ -95,3 +95,7 @@ The [Gate 2 review](ANDROID_GATE2_REVIEW.md) accepts the user-reported APK #3 fi
 ## APK #4 OS capability test
 
 Install the single APK from apps/android/evidence/process-apk4-delivery.json as an update to Harness runtime proof. Use the fifth process/PTY button, authorize the fixed suite once, keep the Activity visible and copy complete output. Do not clear app data. This diagnostic runs an installer-owned executable in a fresh private workspace and preserves previous sessions. See [the test guide](apps/android/execution/process-proof/PROCESS_CAPABILITY_PROOF.md). Gate 3 remains unaccepted pending phone evidence and terminal integration.
+
+## APK #4 received phone result
+
+The [Gate 3 review](ANDROID_GATE3_REVIEW.md) accepts one matching user-reported Android 11 ARM64 run of the fixed process and PTY suite. No replacement APK or repeat test is required for accepting that specific report. Broader lifecycle/version tests remain outstanding. The old delivery instructions and blocked-at-build evidence are historical checkpoints, not current phone status.

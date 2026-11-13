@@ -51,3 +51,7 @@ Use --allow-partial only to inspect explicit unavailable-capability diagnostics;
 ## Next milestone
 
 Review device results and map verified primitives into the original Subprocess and TerminalBackend interfaces. Do not enable the Bash backend merely because openpty works. Broader PTY job control, Ctrl-C, cancellation during Activity/OS death, general process cleanup, API 29 and recent-device qualification remain separate tests. No original frontend integration or general shell availability is claimed by this APK.
+
+## Physical checkpoint received
+
+The [selected-device review](../../../../ANDROID_GATE3_REVIEW.md) accepts the submitted matching APK #4 report on Android 11/API 30 ARM64. Earlier blocked-at-build statements above retain the history of that milestone. Overall Gate 3 remains IN PROGRESS for coverage and limits; the original terminal and a general shell provider remain unimplemented. No additional device run is required to accept this particular submitted report.

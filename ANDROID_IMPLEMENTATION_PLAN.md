@@ -37,3 +37,7 @@ The [Gate 2 review](ANDROID_GATE2_REVIEW.md) accepts the supplied fixed-command 
 ## Gate 3 next runnable milestone
 
 The fixed process/PTY native diagnostic is IMPLEMENTED and host tested. Physical verification is BLOCKED without an attached device. Run APK #4 on the Android 11 ARM64 phone, preserve complete output, and review actual process, shell and PTY capabilities before adapting original subprocess/terminal interfaces. The [diagnostic guide](apps/android/execution/process-proof/PROCESS_CAPABILITY_PROOF.md) defines scope and phone steps. No general shell, original terminal or frontend integration is accepted yet.
+
+## APK #4 selected-device checkpoint
+
+The [physical review](ANDROID_GATE3_REVIEW.md) verifies the fixed capability suite on Android 11/API 30 ARM64. Overall Gate 3 remains IN PROGRESS for version coverage and limits. Next runnable task: inspect and design the smallest adapter for the existing Subprocess/TerminalBackend contracts, preserving native authorization and reporting missing capabilities. Do not assume Bash or general shell support from a passing native PTY fixture.

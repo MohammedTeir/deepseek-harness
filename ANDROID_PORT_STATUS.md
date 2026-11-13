@@ -2,7 +2,7 @@
 
 ## Summary
 
-Phase 0 is VERIFIED and Gate 1 is accepted. Gate 2 is accepted within the bounded local-engine scope of ANDROID_GATE2_REVIEW.md, based on user-reported Android 11 ARM64 phone results. Gate 3 is IN PROGRESS: fixed process/shell/PTY diagnostics are built and host tested, with physical execution BLOCKED pending phone output. External model requests, original frontend integration, general terminal support, broader device coverage and release qualification remain unverified. Historical milestone entries below retain their original status and failures.
+Phase 0 is VERIFIED and Gate 1 is accepted. Gate 2 is accepted within the bounded local-engine scope of ANDROID_GATE2_REVIEW.md, based on user-reported Android 11 ARM64 phone results. Gate 3 is IN PROGRESS: the fixed process/shell/PTY suite is VERIFIED on the user-tested Android 11 ARM64 phone; target-version coverage, broader lifecycle behavior and original terminal integration remain unverified. External model requests, original frontend integration, general terminal support, broader device coverage and release qualification remain unverified. Historical milestone entries below retain their original status and failures.
 
 ## Upstream sync: Phase 1 evidence refreshed
 
@@ -265,3 +265,7 @@ Leaving the Activity during confirmation produced the intended cancellation mess
 ## Gate 3 process and PTY qualification
 
 Status: IN PROGRESS; physical execution BLOCKED pending phone results. The [fixed native diagnostic](apps/android/execution/process-proof/PROCESS_CAPABILITY_PROOF.md) adds an explicitly authorized fifth test button. Host tests pass, Android assembly/lint and APK inspection pass, and the original seven native libraries remain unchanged. This is OS capability evidence collection, not a general shell provider or original terminal integration. Historical failures and Gate 2 review remain intact. See the separate APK #4 build and delivery records under apps/android/evidence.
+
+## APK #4 physical process capability review
+
+Status: VERIFIED for the selected-device fixed suite; overall Gate 3 remains IN PROGRESS. The [Gate 3 review](ANDROID_GATE3_REVIEW.md) accepts matching APK/native fingerprints, separate streams, stdin, nonzero exits, launch errors, TERM cancellation, timeout/KILL/reaping, cooperative descendant cleanup, fixed system-shell execution and PTY input/resize on Redmi Note 8 Pro / Android 11 API 30. The complete user-reported result is retained without changing gate3Passed=false. API 29/recent-device coverage, Activity/OS-death cleanup, general shell and original terminal integration remain unverified. Next: map the demonstrated capabilities into existing subprocess/terminal contracts with authorization preserved.

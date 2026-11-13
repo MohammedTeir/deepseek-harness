@@ -88,3 +88,7 @@ APK #1's same-directory native primitive is VERIFIED on the [reported Android 11
 | Android system shell and Toybox tools | NOT YET VERIFIED | Fixed /system/bin discovery and shell script in APK #4 | Actual phone results; no GNU/Bash assumptions |
 
 The [process qualification guide](apps/android/execution/process-proof/PROCESS_CAPABILITY_PROOF.md) separates host evidence, synthetic parser tests and required physical-device evidence. This milestone does not enable the original Bash terminal backend or broaden agent command permissions.
+
+## APK #4 physical capability update
+
+The earlier Gate 3 NOT YET VERIFIED rows describe the build checkpoint. The [received Android 11/API 30 ARM64 report](ANDROID_GATE3_REVIEW.md) now verifies the fixed native process, shell script and PTY cases on that phone. General shell provider and original terminal backend remain ADAPT / NOT YET VERIFIED; API 29 and recent-device behavior remain NOT YET VERIFIED. Discovery is limited to twelve exact system paths.
