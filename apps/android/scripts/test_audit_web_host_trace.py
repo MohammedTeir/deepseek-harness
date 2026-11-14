@@ -50,6 +50,23 @@ class WebHostTraceAuditTest(unittest.TestCase):
             (directory / 'trace.11').unlink()
             self.assertNotEqual(subprocess.run(command, capture_output=True).returncode, 0)
 
+    def test_overlay_must_be_present_in_root_launch(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            overlay = ROOT / 'apps/android/tests/fixtures/web-host-bounded.patch.yml'
+            trace = directory / 'trace.10'
+            trace.write_text(
+                f'execve("/node", ["/node", "{ROOT}/apps/cli/lib/bin.js", "--profile", "web", "--patch", "{overlay}"], 0) = 0\n'
+                f'openat(AT_FDCWD, "{ROOT}/app.js", O_RDONLY) = 3\n')
+            output = directory / 'result.json'
+            command = [sys.executable, str(SCRIPT), '--trace-glob', str(directory / 'trace.*'),
+                       '--root-pid', '10', '--overlay', str(overlay), '--output', str(output)]
+            subprocess.run(command, check=True, capture_output=True)
+            result = json.loads(output.read_text())
+            self.assertEqual(result['qualificationOverlay']['path'], overlay.relative_to(ROOT).as_posix())
+            trace.write_text(trace.read_text().replace(str(overlay), '/other.patch.yml'))
+            self.assertNotEqual(subprocess.run(command, capture_output=True).returncode, 0)
+
     def test_rejects_root_that_is_not_original_web_profile(self):
         with tempfile.TemporaryDirectory() as temporary:
             directory = Path(temporary)

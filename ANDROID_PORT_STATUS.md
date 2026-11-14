@@ -333,3 +333,7 @@ The [original host bootstrap check](apps/android/execution/ORIGINAL_WEB_ASSETS.m
 ## Isolated web-profile host trace
 
 The [isolated trace](apps/android/evidence/original-web-profile-isolated-host-trace.json) separates the built Linux web-profile process and its recognized descendants from the Vitest parent. Its limitations and the remaining Android dependency and authenticated transport work are in the [web asset reference](apps/android/execution/ORIGINAL_WEB_ASSETS.md#original-host-bootstrap-evidence). Gate 4 remains IN PROGRESS.
+
+## Bounded web-profile host experiment
+
+The original `web` profile starts on Linux with six explicitly disabled platform rows and still provides its authenticated boot graph and client batches. The [host-only experiment](apps/android/execution/ORIGINAL_WEB_ASSETS.md#bounded-host-composition-experiment) records the actual rows, an active client entry whose provider is disabled, origin denials and remaining security limits. This fixture cannot establish Android startup or enforce a general execution policy. Gate 4 remains IN PROGRESS.

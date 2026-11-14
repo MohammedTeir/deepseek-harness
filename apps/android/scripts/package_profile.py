@@ -79,6 +79,10 @@ def validate_archive(archive, manifest):
             'apps/android/tests/terminal-registry-plugin.mjs',
             'apps/android/tests/terminal-authority-plugin.mjs',
             'apps/android/tests/terminal-profile-reference.mjs',
+            'apps/android/tests/web-bootstrap.host.spec.mjs',
+            'apps/android/tests/web-bounded-profile.host.spec.mjs',
+            'apps/android/tests/vitest.web-host.config.mjs',
+            'apps/android/tests/fixtures/web-host-bounded.patch.yml',
         }
         if automated_approval_fixtures.intersection(expected):
             raise ValueError('Host approval fixture must not enter Android image')
@@ -186,6 +190,9 @@ def build(output):
         # Automated host decision fixture is not an Android execution component.
         files.discard('apps/android/tests/command-profile-reference.mjs')
         files.discard('apps/android/tests/terminal-profile-reference.mjs')
+        for fixture in ('web-bootstrap.host.spec.mjs', 'web-bounded-profile.host.spec.mjs',
+                        'vitest.web-host.config.mjs', 'fixtures/web-host-bounded.patch.yml'):
+            files.discard('apps/android/tests/' + fixture)
         packages = set()
         for name in list(files):
             directory = (ROOT / name).parent

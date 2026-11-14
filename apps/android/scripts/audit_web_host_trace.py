@@ -19,11 +19,17 @@ def main():
     parser.add_argument('--trace-glob', required=True)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--root-pid', type=int, help='select the built web-profile process and traced descendants')
+    parser.add_argument('--overlay', type=Path, help='require the named repository overlay in the root launch')
     args = parser.parse_args()
     traces = sorted(glob.glob(args.trace_glob))
     if not traces:
         raise ValueError('No traces found')
     isolated = args.root_pid is not None
+    if args.overlay is not None and not isolated:
+        raise ValueError('Overlay verification requires a root process')
+    overlay = args.overlay.resolve(strict=True) if args.overlay is not None else None
+    if overlay is not None:
+        overlay.relative_to(ROOT)
     if isolated:
         by_pid = {}
         for name in traces:
@@ -40,6 +46,9 @@ def main():
         if not any('execve(' in line and '/apps/cli/lib/bin.js"' in line
                    and '"--profile", "web"' in line and ' = 0' in line for line in root_text.splitlines()):
             raise ValueError('Root trace does not identify a successful built web-profile launch')
+        if overlay is not None and not any('execve(' in line and json.dumps(str(overlay)) in line
+                                           and ' = 0' in line for line in root_text.splitlines()):
+            raise ValueError('Root launch does not include the requested overlay')
         pending = [args.root_pid]
         selected = set()
         while pending:
@@ -87,6 +96,10 @@ def main():
         'relativePathsAndOtherSyscallsIncluded': False,
         'runnerAndProfileNotSeparated': not isolated,
         'selectedRootPid': args.root_pid,
+        'qualificationOverlay': None if overlay is None else {
+            'path': overlay.relative_to(ROOT).as_posix(),
+            'sha256': hashlib.sha256(overlay.read_bytes()).hexdigest(),
+        },
         'allRecognizedChildTracesPresent': isolated,
         'androidExecuted': False,
         'completeAndroidGraph': False,

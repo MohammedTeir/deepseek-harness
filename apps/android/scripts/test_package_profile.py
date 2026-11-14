@@ -20,7 +20,9 @@ class ProfileArchiveTest(unittest.TestCase):
     def test_host_approval_fixture_is_not_shippable(self):
         with tempfile.TemporaryDirectory() as directory:
             for name in ['command-profile-reference.mjs', 'terminal-registry-reference.mjs',
-                         'terminal-registry-plugin.mjs', 'terminal-authority-plugin.mjs', 'terminal-profile-reference.mjs']:
+                         'terminal-registry-plugin.mjs', 'terminal-authority-plugin.mjs', 'terminal-profile-reference.mjs',
+                         'web-bootstrap.host.spec.mjs', 'web-bounded-profile.host.spec.mjs',
+                         'vitest.web-host.config.mjs', 'fixtures/web-host-bounded.patch.yml']:
                 with self.subTest(name=name), self.assertRaises(ValueError):
                     validate_archive(*self.archive(directory, 'apps/android/tests/' + name, b'host fixture'))
 

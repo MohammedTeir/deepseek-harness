@@ -81,3 +81,7 @@ The next device checkpoint is the [APK #8 procedure](apps/android/execution/TERM
 ## Original WebView asset milestone
 
 The [asset inspection](apps/android/execution/ORIGINAL_WEB_ASSETS.md) precedes integration of the original web boot graph and authenticated runtime transport. Keep the Gate 3 API 29 and recent-device coverage gap explicit and independently testable.
+
+## Bounded web-profile qualification
+
+Use the [host-only composition and trace](apps/android/execution/ORIGINAL_WEB_ASSETS.md#bounded-host-composition-experiment) to guide a separately qualified Android profile image. Preserve the original client graph and auth checks, exclude test fixtures from shipped images, and report providers whose host rows are disabled. The host overlay is not an Android execution or security implementation.
