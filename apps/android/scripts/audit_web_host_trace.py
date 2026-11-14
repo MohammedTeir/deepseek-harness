@@ -9,6 +9,8 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[3]
+CHILD = re.compile(r'(?:clone3?|vfork|fork)\(.*\)\s+=\s+(\d+)\s*$')
+RESUMED_CHILD = re.compile(r'<\.\.\. (?:clone3?|vfork|fork) resumed>.*\)\s+=\s+(\d+)\s*$')
 OPEN = re.compile(r'openat\([^,]+, ("(?:[^"\\]|\\.)*"), ([^)]*)\)\s+=\s+(\d+)')
 
 
@@ -16,10 +18,42 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--trace-glob', required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--root-pid', type=int, help='select the built web-profile process and traced descendants')
     args = parser.parse_args()
     traces = sorted(glob.glob(args.trace_glob))
     if not traces:
         raise ValueError('No traces found')
+    isolated = args.root_pid is not None
+    if isolated:
+        by_pid = {}
+        for name in traces:
+            suffix = name.rsplit('.', 1)[-1]
+            if not suffix.isdecimal():
+                raise ValueError('Isolated traces must end in a numeric process identifier')
+            pid = int(suffix)
+            if pid in by_pid:
+                raise ValueError('Duplicate process trace')
+            by_pid[pid] = name
+        if args.root_pid not in by_pid:
+            raise ValueError('Root process trace missing')
+        root_text = Path(by_pid[args.root_pid]).read_text(errors='replace')
+        if not any('execve(' in line and '/apps/cli/lib/bin.js"' in line
+                   and '"--profile", "web"' in line and ' = 0' in line for line in root_text.splitlines()):
+            raise ValueError('Root trace does not identify a successful built web-profile launch')
+        pending = [args.root_pid]
+        selected = set()
+        while pending:
+            pid = pending.pop()
+            if pid in selected:
+                continue
+            if pid not in by_pid:
+                raise ValueError(f'Trace for child {pid} is missing')
+            selected.add(pid)
+            for line in Path(by_pid[pid]).read_text(errors='replace').splitlines():
+                match = CHILD.search(line) or RESUMED_CHILD.search(line)
+                if match:
+                    pending.append(int(match[1]))
+        traces = [by_pid[pid] for pid in sorted(selected)]
     paths = set()
     native = set()
     digests = []
@@ -44,13 +78,16 @@ def main():
         raise ValueError('No successful absolute checkout reads observed')
     result = {
         'schemaVersion': 1,
-        'scope': 'Linux host test process tree including Vitest and its actual Web profile; not an Android dependency graph',
+        'scope': ('Linux host built Web profile process tree with test observer; not an Android dependency graph' if isolated else
+                  'Linux host test process tree including Vitest and its actual Web profile; not an Android dependency graph'),
         'traceFiles': len(traces),
         'traceDigestSetSha256': hashlib.sha256(''.join(sorted(digests)).encode()).hexdigest(),
         'distinctSuccessfulAbsoluteCheckoutPaths': len(paths),
         'observedNativeAddons': sorted(native),
         'relativePathsAndOtherSyscallsIncluded': False,
-        'runnerAndProfileNotSeparated': True,
+        'runnerAndProfileNotSeparated': not isolated,
+        'selectedRootPid': args.root_pid,
+        'allRecognizedChildTracesPresent': isolated,
         'androidExecuted': False,
         'completeAndroidGraph': False,
         'gate4Passed': False,

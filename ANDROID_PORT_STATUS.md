@@ -329,3 +329,7 @@ The [original frontend asset inspection](apps/android/execution/ORIGINAL_WEB_ASS
 ## Original web host bootstrap checkpoint
 
 The [original host bootstrap check](apps/android/execution/ORIGINAL_WEB_ASSETS.md#original-host-bootstrap-evidence) exercises the actual built web profile, its authenticated index, all advertised client batches and HTTP origin-denial behavior on Linux. Android web composition, appassets-to-runtime authentication, original screens and physical WebView verification remain NOT YET VERIFIED; Gate 4 remains IN PROGRESS.
+
+## Isolated web-profile host trace
+
+The [isolated trace](apps/android/evidence/original-web-profile-isolated-host-trace.json) separates the built Linux web-profile process and its recognized descendants from the Vitest parent. Its limitations and the remaining Android dependency and authenticated transport work are in the [web asset reference](apps/android/execution/ORIGINAL_WEB_ASSETS.md#original-host-bootstrap-evidence). Gate 4 remains IN PROGRESS.

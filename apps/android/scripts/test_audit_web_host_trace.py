@@ -30,6 +30,34 @@ class WebHostTraceAuditTest(unittest.TestCase):
             self.assertFalse(result['androidExecuted'])
             self.assertFalse(result['completeAndroidGraph'])
 
+    def test_isolates_web_process_and_descendants(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            (directory / 'trace.10').write_text(
+                f'execve("/node", ["/node", "{ROOT}/apps/cli/lib/bin.js", "--profile", "web"], 0) = 0\n'
+                f'openat(AT_FDCWD, "{ROOT}/app.js", O_RDONLY) = 3\n'
+                'clone(flags=0) = 11\n')
+            (directory / 'trace.11').write_text(f'openat(AT_FDCWD, "{ROOT}/child.js", O_RDONLY) = 3\n')
+            (directory / 'trace.12').write_text(f'openat(AT_FDCWD, "{ROOT}/runner.js", O_RDONLY) = 3\n')
+            output = directory / 'result.json'
+            command = [sys.executable, str(SCRIPT), '--trace-glob', str(directory / 'trace.*'),
+                       '--root-pid', '10', '--output', str(output)]
+            subprocess.run(command, check=True, capture_output=True)
+            result = json.loads(output.read_text())
+            self.assertEqual(result['traceFiles'], 2)
+            self.assertEqual(result['distinctSuccessfulAbsoluteCheckoutPaths'], 2)
+            self.assertFalse(result['runnerAndProfileNotSeparated'])
+            (directory / 'trace.11').unlink()
+            self.assertNotEqual(subprocess.run(command, capture_output=True).returncode, 0)
+
+    def test_rejects_root_that_is_not_original_web_profile(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            (directory / 'trace.10').write_text('execve("/node", ["/node", "runner.js"], 0) = 0\n')
+            command = [sys.executable, str(SCRIPT), '--trace-glob', str(directory / 'trace.*'),
+                       '--root-pid', '10', '--output', str(directory / 'result.json')]
+            self.assertNotEqual(subprocess.run(command, capture_output=True).returncode, 0)
+
     def test_missing_trace_fails(self):
         with tempfile.TemporaryDirectory() as temporary:
             process = subprocess.run([sys.executable, str(SCRIPT), '--trace-glob', str(Path(temporary) / 'missing.*'),

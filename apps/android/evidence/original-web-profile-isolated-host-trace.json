@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "scope": "Linux host built Web profile process tree with test observer; not an Android dependency graph",
+  "traceFiles": 12,
+  "traceDigestSetSha256": "241ac1e70a83ae4c40dcc04cd9123d9bf64bae08bef39ac8567f051ece925868",
+  "distinctSuccessfulAbsoluteCheckoutPaths": 3147,
+  "observedNativeAddons": [
+    "node_modules/.pnpm/node-addon-require-builtin-linux-x64-gnu@0.1.9/node_modules/node-addon-require-builtin-linux-x64-gnu/prebuilt/linux-x64-gnu-napi-v9.node"
+  ],
+  "relativePathsAndOtherSyscallsIncluded": false,
+  "runnerAndProfileNotSeparated": false,
+  "selectedRootPid": 2746,
+  "allRecognizedChildTracesPresent": true,
+  "androidExecuted": false,
+  "completeAndroidGraph": false,
+  "gate4Passed": false
+}
