@@ -77,11 +77,42 @@ export async function withDefaultWeb(
     })
     test.signal.throwIfAborted()
     const args = ['--no-experimental-strip-types', ...launch.args]
+    const moduleObserver = process.env.ANDROID_WEB_PROFILE_MODULE_OBSERVER
+    const moduleTrace = process.env.ANDROID_WEB_PROFILE_MODULE_TRACE
+    const moduleRootPidFile = process.env.ANDROID_WEB_PROFILE_MODULE_ROOT_PID_FILE
+    const moduleTraceRequested = moduleObserver !== undefined || moduleTrace !== undefined || moduleRootPidFile !== undefined
+    if (moduleTraceRequested && (!moduleObserver || !moduleTrace || !moduleRootPidFile)) {
+      throw new Error('P3A module observation requires observer, trace, and root-PID paths together')
+    }
+    const childEnvironment: NodeJS.ProcessEnv = Object.fromEntries(
+      Object.entries({ ...process.env, ...launch.env }).filter(([, value]) => value !== undefined),
+    )
+    delete childEnvironment.ANDROID_WEB_PROFILE_MODULE_OBSERVER
+    delete childEnvironment.ANDROID_WEB_PROFILE_MODULE_ROOT_PID_FILE
+    if (moduleObserver && moduleTrace) {
+      childEnvironment.NODE_OPTIONS = [
+        childEnvironment.NODE_OPTIONS,
+        `--import=${pathToFileURL(moduleObserver).href}`,
+      ].filter((value): value is string => value !== undefined && value !== '').join(' ')
+      childEnvironment.ANDROID_WEB_PROFILE_MODULE_TRACE = moduleTrace
+    }
     const child = spawn(launch.command, args, {
       cwd: root,
-      env: { ...process.env, ...launch.env },
+      env: childEnvironment,
       stdio: ['ignore', 'pipe', 'pipe', 'ipc'],
     })
+    if (moduleRootPidFile) {
+      if (child.pid === undefined) {
+        child.kill('SIGKILL')
+        throw new Error('P3A module observation could not identify the Web Profile child PID')
+      }
+      try {
+        await writeFile(moduleRootPidFile, `${child.pid}\n`, { flag: 'wx' })
+      } catch (error) {
+        child.kill('SIGKILL')
+        throw error
+      }
+    }
     let stdout = ''
     let stderr = ''
     child.stdout!.setEncoding('utf8').on('data', (chunk: string) => { stdout += chunk })

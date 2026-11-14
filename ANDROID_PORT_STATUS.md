@@ -341,8 +341,6 @@ The original `web` profile starts on Linux with six explicitly disabled platform
 
 ## Current checkpoint — 2026-11-14 (supersedes earlier next-step snapshots)
 
-Development HEAD reviewed: `2c7b6cb12010e6291b7c5a6a1fc0af51664617cb`.
-
 ### Gate 3 / Phase 3
 
 - APK #7 original terminal registry + native approval phone result is recorded in `apps/android/evidence/phone-apk7-terminal-result-review.json`.
@@ -355,14 +353,17 @@ Development HEAD reviewed: `2c7b6cb12010e6291b7c5a6a1fc0af51664617cb`.
 - Original Vite frontend assets are built and packaged for restricted static inspection; see [asset evidence](apps/android/evidence/original-web-assets-build.json) and [inspection notes](apps/android/execution/ORIGINAL_WEB_ASSETS.md).
 - The original Web Profile has Linux-host bootstrap and bounded-composition evidence: [host boot](apps/android/evidence/original-web-host-boot.json), [bounded host result](apps/android/evidence/original-web-bounded-host.json), and [isolated trace](apps/android/evidence/original-web-profile-isolated-host-trace.json).
 - The host composition disabled six platform-sensitive provider rows. The client graph still exposed an active `ui-open-in-app` entry while its provider was disabled; UI capability-state handling remains an explicit issue.
-- The trace counts only a limited set of successful absolute `openat` reads and retains a test observer. It is not dependency-closure proof. The observed Linux native addon must not be packaged for Android.
+- P3A-001/002 Linux-host evidence is recorded in the separate [bootstrap](apps/android/evidence/original-web-profile-p3a001-host-observations.json) and [bounded-overlay](apps/android/evidence/original-web-bounded-p3a001-host-observations.json) reports; the [execution reference](apps/android/execution/ORIGINAL_WEB_ASSETS.md#p3a-001-linux-host-dependency-observations) owns their scope and interpretation.
+- P3A-002 adds compressed [bootstrap](apps/android/evidence/original-web-profile-p3a002-path-inventory.json.gz) and [bounded](apps/android/evidence/original-web-bounded-p3a002-path-inventory.json.gz) observed-path inventories and the [raw per-PID trace archive](apps/android/evidence/original-web-p3a002-raw-host-traces.tar.gz). The reports keep dependency inference not assessed and list known syscall and path blind spots.
+- P3A-002 evidence treatment is complete for these Linux host runs; it does not establish dependency closure, Android compatibility or Gate 4. The observed Linux native addon must not be packaged for Android. Gate 4 remains IN PROGRESS.
+- P3A-003 is next: separate the production runtime dependency set from the test runner, observer, fixtures, Vitest configuration, preview/development files and test-only modules.
 - The current `sdk-minimal` image is not a valid ready-made Web Runtime Image: the web profile requires additional runtime/frontend/configuration assets, while test fixtures and Linux-only native artifacts must be excluded.
 - No Android Web Runtime Image, authentic Android Web Profile startup, connected original UI, secure WebView/backend transport, SPA routing, streaming chat, or model request has been verified. Gate 4 remains IN PROGRESS.
 
 ### Immediate Gate 4 execution order
 
-1. Expand runtime dependency observation and static dependency analysis to include relative and absolute file access, `openat/openat2`, metadata/stat/access calls, directory enumeration, symlinks/realpath, dynamic imports, `dlopen`/native addon loading, child processes, configuration and runtime-generated paths. Record trace blind spots; never call a partial trace complete.
-2. Separate actual Web Profile runtime dependencies from test runner, observer, fixture, development and Linux-only artifacts.
+1. Complete P3A-003: separate the production runtime dependency set from the test runner, observer, fixtures, Vitest configuration, preview/development files and test-only modules.
+2. Continue Android runtime dependency and static import/asset analysis; do not label observed host paths as required dependencies or call the traces a dependency closure.
 3. Define a narrow Android ARM64/Bionic packaging allowlist and explicit denylist; validate every native ELF dependency, ABI, linkage and license. Do not loosen the packager globally.
 4. Build a deterministic Android Web Runtime Image with a content/hash manifest and reproducible validation.
 5. Start the authentic original Web Profile under embedded Android Node and verify boot graph, client batches and provider capability state on a physical Android device.
@@ -371,4 +372,4 @@ Development HEAD reviewed: `2c7b6cb12010e6291b7c5a6a1fc0af51664617cb`.
 
 ### Branch and change boundary
 
-`feature/android-port` is the implementation/evidence branch. `master` contains the living planning documents only. The branches are currently divergent; this documentation refresh does not merge them, create a PR, publish a release, or change implementation code.
+`feature/android-port` is the implementation/evidence branch. `master` contains the living planning documents only. The branches remain divergent; this task does not merge them, create a PR or publish a release.

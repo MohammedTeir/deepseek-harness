@@ -11,8 +11,8 @@ The author has authorized Gate 1 review and a bounded Phase 2 proof when its acc
 | Phase 1: source/native/platform audit | IMPLEMENTED | Source-backed report, package payload inventory and risk matrix available; noninstalled payloads and device semantics explicitly unverified |
 | Gate 1 review | VERIFIED | Reviewed criteria and bounded experimental decision recorded; no runtime selected as proven |
 | Phase 2 / Gate 2 | VERIFIED (bounded local engine) | ARM64 runtime builds and user-reported fixed phone probes pass; Android profile/session and fixed original-tool/native-approval phone evidence accepted; external model remains unverified without credentials |
-| Gate 3 | NOT STARTED | Device commands, streams, signals, timeout/cancel and PTY proof |
-| Gate 4 | NOT STARTED | Original UI boot, origin authentication, deep links, genuine streaming/session result |
+| Gate 3 | IN PROGRESS | APK #7/#8 phone results are recorded; API 29/recent-device, lifecycle, process-tree, resource and supported-shell gaps remain |
+| Gate 4 | IN PROGRESS | P3A-001/002 Linux-host evidence is recorded; P3A-003 runtime/test separation is next; Android Web Profile boot and original UI/transport remain unverified |
 | Gate 5 | NOT STARTED | Separate root policy, canonical request binding, deny/replay/mutation/adversarial tests |
 | Gate 6 | NOT STARTED | Device matrix, recovery, licenses and traceable artifacts; no release authorization |
 
@@ -95,8 +95,8 @@ The original frontend asset package and Linux-host Web Profile experiments are e
 
 ### Gate 4 task sequence
 
-1. **Dependency closure:** improve tracing and static analysis for relative/absolute opens, `openat/openat2`, metadata and directory operations, symlinks, dynamic imports, native addon loading, child processes and configuration. Distinguish observed files from proven required files and document unobserved paths.
-2. **Runtime/test separation:** isolate actual Web Profile dependencies from Vitest, test observers, fixtures, preview assets, development tooling and Linux-only native modules.
+1. **Trace evidence and blind spots:** P3A-001/002 records Linux-host path operations, module resolution and native-load observations, compressed path inventories, durable raw traces and known capture omissions. These records do not prove dependency closure.
+2. **Runtime/test separation:** P3A-003 isolates actual Web Profile dependencies from Vitest, test observers, fixtures, preview assets, development tooling and Linux-only native modules; use static import/asset analysis and manifest review to identify required production inputs.
 3. **Android packaging contract:** implement a narrow, explicit allowlist/denylist and validate ARM64/Bionic ELF dependencies, dynamic loader requirements, alignment and licenses. Do not package a Linux x64/ARM64 GNU addon as an Android binary.
 4. **Reproducible image:** generate the Android Web Runtime Image from pinned inputs, include a hash/integrity manifest, and add tests proving forbidden fixtures and incompatible native artifacts are absent.
 5. **Android runtime boot:** run the authentic original Web Profile with the embedded Android Node runtime on a physical Android device. Record exact device/API/ABI, logs, process tree, boot graph and client batches.
