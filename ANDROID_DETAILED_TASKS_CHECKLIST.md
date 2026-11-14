@@ -2,7 +2,7 @@
 
 > **Companion:** [ANDROID_COMPLETE_ROADMAP.md](ANDROID_COMPLETE_ROADMAP.md)  
 > **Authoritative scope:** [DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md](DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md), particularly sections **15, 15A and 17**.  
-> **Snapshot:** 2026-11-13; dev HEAD \`4496650e83bf16ce85eae9fd4e589270116ec742\`; \`master\` is the repository's real default branch.  
+> **Snapshot refresh:** 2026-11-14; dev HEAD \`2c7b6cb12010e6291b7c5a6a1fc0af51664617cb\`; master HEAD \`4f7421a98e48c4191f30da47a52a8e0d263a4614\`. See the dated refresh section below for status that supersedes the historical baseline dashboard.  
 > **Meaning of checkboxes:** \`[x]\` means **documented evidence exists for exactly the stated, sometimes limited, claim**; \`[ ]\` means not accepted, incomplete, blocked, or future work. A checkbox is **not** authorization to broaden scope. See [ANDROID_PORT_STATUS.md](ANDROID_PORT_STATUS.md) and the gate reviews.
 
 ## Usage: strict update protocol
@@ -377,3 +377,60 @@ Copy this template into the next session or completion summary:
 - [Security model](ANDROID_SECURITY_MODEL.md)
 - [Termux optional provider documentation](ANDROID_TERMUX_INTEGRATION.md)
 - [Root optional provider documentation](ANDROID_ROOT_INTEGRATION.md)
+
+
+# 2026-11-14 — Current status refresh and next execution checklist
+
+> This section supersedes stale baseline statuses and next-step instructions in the original 2026-11-13 snapshot. Historical task IDs and evidence are retained. Do not mark a task complete beyond its explicit scope.
+
+## Current dashboard
+
+| Phase / Gate | Current status | Boundary |
+| --- | --- | --- |
+| Phase 0 | VERIFIED | Baseline/fork audit. |
+| Phase 1 / Gate 1 | ACCEPTED | Audit and bounded feasibility decision. |
+| Phase 2 / Gate 2 | BOUNDED ACCEPTED | Android 11/API 30 ARM64 local-engine/session/fixed approved-command scope only. |
+| Phase 3 / Gate 3 | IN PROGRESS | APK #7 terminal/native approval and APK #8 lifecycle result reviews exist; API 29/recent-device and broader lifecycle/general-shell gaps remain. |
+| Phase 3A / Gate 4 | IN PROGRESS | Web assets and Linux-host Web Profile evidence exist; no integrated Android Web Runtime/UI/backend proof. |
+| Phase 4 | NOT COMPLETE | Platform adapters and original feature restoration. |
+| Phase 5 / Gate 5 | NOT COMPLETE | Optional Termux/Root and full authorization/security acceptance. |
+| Phase 6 | NOT COMPLETE | Hardening, reliability, performance and compatibility matrix. |
+| Phase 7 / Gate 6 | NOT COMPLETE | Reproducible distribution and release acceptance. |
+
+## Gate 3 delta — APK #7 and APK #8
+
+- [x] **P0-005** APK #7 delivery and phone-result review are present; see `apps/android/evidence/phone-apk7-terminal-result-review.json`. This does not certify general terminal support.
+- [x] **P0-008–P0-015** The submitted APK #7 native Deny/Approve, original terminal ownership/allocation, one-shot/replay protections and recovered-record result are reviewed in the APK #7 evidence. Preserve the submitted run's scope and limitations; do not upgrade it to generic shell acceptance.
+- [x] **P0-016** APK #8 includes the reviewed bounded timeout/cancellation/process-cleanup/session-recovery scenario; see `apps/android/evidence/phone-apk8-lifecycle-result-review.json`. This is not proof of all Activity/service death or arbitrary descendant behavior.
+- [x] **P0-017** Gate 3 review/status evidence has been updated on the development branch.
+- [ ] **P0-023–P0-032** Gate 3 closure remains open for broader original terminal contract coverage, API 29 and recent Android target coverage, resource/backpressure limits, process-tree/lifecycle behavior, explicit capability reporting and final criterion-by-criterion acceptance.
+
+## Gate 4 / Phase 3A — new task IDs
+
+- [ ] **P3A-001 — Complete dependency observation.** Extend tracing to relative/absolute `open`, `openat`, `openat2`, metadata/access calls, directory enumeration, symlinks/realpath, dynamic imports, `dlopen`, native addons, child processes, configuration and inherited file descriptors.
+- [ ] **P3A-002 — State trace blind spots.** Preserve raw trace data; distinguish observed files from inferred dependencies; explicitly list unobserved syscall classes and paths. Do not call an incomplete trace a dependency closure.
+- [ ] **P3A-003 — Separate runtime from test dependencies.** Remove test runner, observer, fixtures, Vitest configuration, preview/development files and test-only modules from the production dependency set.
+- [ ] **P3A-004 — Audit native artifacts.** For every native dependency, record target ABI, Android/Bionic build provenance, ELF interpreter, DT_NEEDED closure, symbols, minimum API, alignment and license. Reject Linux GNU/GLIBC artifacts.
+- [ ] **P3A-005 — Narrow image policy.** Add explicit Android packaging allowlist/denylist and negative tests. Do not broadly relax package validation.
+- [ ] **P3A-006 — Build reproducible Web Runtime Image.** Pin source inputs; emit included-path/hash/native metadata and license manifest; prove forbidden files and binaries are excluded.
+- [ ] **P3A-007 — Android runtime boot.** Start the authentic original Web Profile under embedded Android Node on a physical device; record exact device/API/ABI, logs, process tree, boot graph and client batches.
+- [ ] **P3A-008 — Capability-safe client graph.** Resolve the mismatch where the disabled host provider still leaves an active `ui-open-in-app` client entry. Missing providers must be visibly unavailable, not apparently functional.
+- [ ] **P3A-009 — Authenticated HTTP transport.** Design and test WebView-to-runtime session authentication while preserving launch-token/cookie, Host/Origin and expiry/replay protections.
+- [ ] **P3A-010 — Authenticated WebSocket transport.** Verify upgrade authentication, origin checks, cross-app denial, reconnect and stream cleanup. No credential exposure to page JavaScript.
+- [ ] **P3A-011 — Original UI integration.** Supply the original boot facade/graph/client batches and SPA fallback through the authenticated runtime; static assets alone do not satisfy this task.
+- [ ] **P3A-012 — End-to-end Android acceptance.** On-device original screens, SPA navigation, streamed model response, session persistence/recovery and one native-approved registered tool result.
+- [ ] **P3A-013 — Gate 4 review.** Update Gate 4 criterion matrix with Android device evidence. Gate remains IN PROGRESS until original UI and authentic backend are connected and exercised on Android.
+
+## Evidence links for this refresh
+
+- APK #7 phone review: `apps/android/evidence/phone-apk7-terminal-result-review.json`.
+- APK #8 lifecycle review: `apps/android/evidence/phone-apk8-lifecycle-result-review.json`.
+- Original frontend assets build: `apps/android/evidence/original-web-assets-build.json`.
+- Linux Web Profile boot: `apps/android/evidence/original-web-host-boot.json`.
+- Bounded Linux host composition: `apps/android/evidence/original-web-bounded-host.json`.
+- Isolated Linux host trace: `apps/android/evidence/original-web-profile-isolated-host-trace.json`.
+- Detailed limitations and next steps: `apps/android/execution/ORIGINAL_WEB_ASSETS.md`.
+
+## Branch discipline
+
+Implementation and detailed runtime evidence remain on `feature/android-port`. This checklist and the complete roadmap are maintained on `master`. The branches are divergent (19 commits ahead / 2 behind at this snapshot). This refresh is documentation-only: no feature merge, PR, release or implementation-code change is authorized by it.
