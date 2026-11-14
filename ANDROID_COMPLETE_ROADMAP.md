@@ -1,7 +1,8 @@
 # DeepSeek Harness Android — Complete Phases, Gates & Long-Term Product Roadmap
 
 > **Status:** Living project handoff / completion reference  
-> **Baseline refresh:** 2026-11-14; development branch \`feature/android-port\` at \`2c7b6cb12010e6291b7c5a6a1fc0af51664617cb\`; default branch \`master\` at \`4f7421a98e48c4191f30da47a52a8e0d263a4614\`  
+> **Baseline refresh:** 2026-11-14; current development evidence is recorded on `feature/android-port`, and the planning document is maintained on `master`.
+>
 > **Authority:** [DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md](DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md) is authoritative. This document expands and tracks it; it **does not** modify, override, silently waive, or replace its requirements.  
 > **Related execution tracker:** [ANDROID_DETAILED_TASKS_CHECKLIST.md](ANDROID_DETAILED_TASKS_CHECKLIST.md)  
 > **Working evidence:** [ANDROID_PORT_STATUS.md](ANDROID_PORT_STATUS.md), [ANDROID_IMPLEMENTATION_PLAN.md](ANDROID_IMPLEMENTATION_PLAN.md), [ANDROID_GATE1_REVIEW.md](ANDROID_GATE1_REVIEW.md), [ANDROID_GATE2_REVIEW.md](ANDROID_GATE2_REVIEW.md), [ANDROID_GATE3_REVIEW.md](ANDROID_GATE3_REVIEW.md).
@@ -46,7 +47,7 @@ Status vocabulary: **VERIFIED** only when supported by executed evidence; **IMPL
 | Gate 5 | NOT VERIFIED | A native approval dialog proves complete root security |
 | Gate 6 | NOT VERIFIED | Debug APK equals release readiness |
 
-**Git note:** PR #3 was merged into \`master\` on 2026-11-13 as commit \`9ba372e84aeb9e5754c0a5f8d2c9ca22ac4c27a5\`. The development branch subsequently gained 9 commits and remained ahead of master at the baseline. Future development merges/PRs/releases require explicit authorization. Adding planning documents to master is not authorization to merge feature code.
+**Git note:** PR #3 was merged into \`master\` on 2026-11-13 as a documentation update. The development branch subsequently gained 9 commits and remained ahead of master at the baseline. Future development merges/PRs/releases require explicit authorization. Adding planning documents to master is not authorization to merge feature code.
 
 ## 3. What has actually been achieved — historical evidence
 
@@ -69,7 +70,7 @@ Status vocabulary: **VERIFIED** only when supported by executed evidence; **IMPL
 - **APK #5:** fixed approved \`pwd\` routed through original \`SubprocessRuntime\` service on phone with original approval/session persistence (limited, not generic subprocess API proof).
 - **APK #6:** original **node-pty** source qualified as Android native addon on phone; input/resize, nonzero exit, Ctrl-C/TERM and timeout/KILL tested with a fixed fixture. A host-only prototype for original terminal handle follows; not general shell support.
 - Original terminal registry, Agent ownership, native terminal allocation authorization, private broker, exact approval relay and host integration have since been implemented and checked in bounded scope.
-- **APK #7** at \`4496650e\`: original registry/tool/ApprovalService + native human approval + fixed Android PTY path packaged, signed debug build/lint/tests/inspection reported passing; **physical APK #7 execution still BLOCKED at baseline**.
+- **APK #7:** original registry/tool/ApprovalService + native human approval + fixed Android PTY path packaged, signed debug build/lint/tests/inspection reported passing; **physical APK #7 execution still BLOCKED at baseline**.
 - **Limit:** all physical reports are user-reported and scoped; no claim of independent ADB attestation. Android 10/API 29, newer versions, OS death, arbitrary descendants, foreground/job-control correctness and general terminal/shell remain open.
 
 ### 3.4 Artifacts and test limitations
@@ -81,7 +82,7 @@ Status vocabulary: **VERIFIED** only when supported by executed evidence; **IMPL
 ## 4. Detailed execution phases and definitions of done
 
 ### Phase 0 — Fork verification and baseline (VERIFIED)
-**Outcome:** correct repository, provenance and reproducibility baseline. Inspect remotes and Git refs; preserve upstream history; pin toolchains/source/dependency graph; document security advisories and risk ownership. **Done:** audit artifacts and reproducible baseline accepted. **Ongoing:** refresh baseline on upstream changes; don't silently replace previously accepted baseline.
+**Outcome:** correct repository, source identity and reproducibility baseline. Inspect remotes and Git refs; preserve upstream history; pin toolchains/source/dependency graph; document security advisories and risk ownership. **Done:** audit artifacts and reproducible baseline accepted. **Ongoing:** refresh baseline on upstream changes; don't silently replace previously accepted baseline.
 
 ### Phase 1 — Architecture/dependency feasibility (Gate 1 ACCEPTED)
 **Outcome:** explicit compatibility matrix and reasoned runtime choice. Audit C/C++/Rust addons, Node APIs, Bionic/glibc boundaries, Android executable/W^X packaging, page-size assumptions, Web frontend routes/RPC and plugin closures. Decide minimum compatible profile and mark unsupported plugins. **Done for initial Gate:** inspected matrix, selected feasible bounded strategy, accepted Gate 1 review. **Ongoing:** repeat audits for newly enabled feature packages and Android versions.
@@ -175,7 +176,7 @@ Status vocabulary: **VERIFIED** only when supported by executed evidence; **IMPL
 **Deliverables:**
 1. Reproducible pinned source/build toolchain (Node, pnpm, JDK, SDK/NDK, dependencies); clean-checkout builds with recorded source and artifact fingerprints.
 2. Signed release build strategy, signing/key custody, versioning, upgrade/data migration, APK/ABI/SDK compliance; debug/release parity checks.
-3. CI pipeline generating inspectable artifacts: license notices, SBOM/dependency provenance where practicable, native ELF alignment/linking, package and signature checks.
+3. CI pipeline generating inspectable artifacts: license notices, SBOM and dependency inventory where practicable, native ELF alignment/linking, package and signature checks.
 4. Final QA: original frontend, local real Harness agent, valid authorized LLM round trip, explicit tool/root approvals, terminal, sessions across app restart, storage, negatives and device matrix.
 5. User documentation: setup, keys, provider capabilities, Termux/root optional setup, permissions, backups, troubleshooting and known limitations.
 6. Privacy/security and distribution policy review; release notes; final explicit go/no-go decision.
@@ -294,7 +295,7 @@ This section supersedes the dated status snapshot in Section 2 and any older nex
 | Phase 1 / Gate 1 | ACCEPTED | Source/dependency audit and bounded feasibility decision; not universal Android compatibility. |
 | Phase 2 / Gate 2 | BOUNDED ACCEPTED | User-reported Android 11/API 30 ARM64 local-engine, session and native-approved fixed-command scope. No model request or original chat UI proof. |
 | Phase 3 / Gate 3 | IN PROGRESS | APK #7 original terminal/native approval and APK #8 timeout/cancellation/session-recovery phone evidence reviewed for the reported Redmi Note 8 Pro / Android 11/API 30/ARM64. API 29/recent device, broader process lifecycle and general shell remain open. |
-| Phase 3A / Gate 4 | IN PROGRESS | Original frontend assets packaged; Linux-host original Web Profile boot/bounded composition and origin-denial evidence. No Android Web Runtime Image or integrated Android UI/backend. |
+| Phase 3A / Gate 4 | IN PROGRESS | P3A-001/002 Linux-host observation and trace-limit evidence is recorded on `feature/android-port`; dependency closure, Android Web Runtime Image and integrated Android UI/backend remain unproven. See the [current checklist](ANDROID_DETAILED_TASKS_CHECKLIST.md). |
 | Phase 4 | NOT COMPLETE | Full Android platform adapters, storage/SAF, Keystore, lifecycle and feature restoration remain. |
 | Phase 5 / Gate 5 | NOT COMPLETE | Optional Termux/Root providers and full adversarial authorization/security acceptance remain. |
 | Phase 6 | NOT COMPLETE | Security, reliability, performance and device/API matrix remain. |
@@ -315,17 +316,20 @@ This section supersedes the dated status snapshot in Section 2 and any older nex
 - Isolated profile trace: `apps/android/evidence/original-web-profile-isolated-host-trace.json`.
 - These tests establish bounded Linux-host behavior and static asset packaging only. Trace coverage is incomplete; the observed Linux native addon is not an Android artifact. The current `sdk-minimal` image is not a complete Android Web Runtime Image.
 - The bounded composition disables six platform-sensitive providers, yet the client graph still exposes `ui-open-in-app`; capability-aware UI behavior must be addressed.
+- P3A-001/002 host captures remain on `feature/android-port`: [bootstrap summary](https://github.com/MohammedTeir/deepseek-harness/blob/feature/android-port/apps/android/evidence/original-web-profile-p3a001-host-observations.json), [bounded summary](https://github.com/MohammedTeir/deepseek-harness/blob/feature/android-port/apps/android/evidence/original-web-bounded-p3a001-host-observations.json), and [execution notes](https://github.com/MohammedTeir/deepseek-harness/blob/feature/android-port/apps/android/execution/ORIGINAL_WEB_ASSETS.md). The raw host captures and compressed path inventories remain on that branch; the observations do not establish complete dependency closure or Android behavior.
+- The [Antigravity audit snapshot](apps/android/execution/antigravity-audit-report-2026-11-14.md) is supplemental historical context; its P3A-001/002 “NOT STARTED” entries predate this work and are not current status.
 
 ### Gate 4 critical path
 
-1. Improve trace and static dependency analysis for relative/absolute file access, `openat/openat2`, metadata/access calls, directory enumeration, symlinks, dynamic imports, native addon loading, child processes and configuration.
-2. Separate real Web Profile dependencies from test runner/observer/fixtures/development artifacts and Linux-only binaries.
-3. Define a strict Android ARM64/Bionic allowlist/denylist and validate ELF dependencies, symbols, API requirements, alignment and licenses.
-4. Build a deterministic Android Web Runtime Image with an integrity manifest and negative packaging tests.
-5. Boot the authentic original Web Profile under embedded Android Node on a physical device.
-6. Implement authenticated WebView-to-runtime HTTP/WebSocket transport and test cookie, Host/Origin, expiry, replay and cross-app denial.
-7. Verify original SPA/screens, streaming model response, session recovery and a native-approved registered tool operation on Android.
+1. Separate original Web Profile runtime inputs from test runner, observer, fixtures, preview/development files and Linux-only binaries (P3A-003), using host observations as inputs rather than treating them as a complete dependency closure.
+2. Audit each native runtime artifact for Android ARM64/Bionic build details and linkage; exclude or rebuild Linux GNU/GLIBC binaries (P3A-004).
+3. Define a strict Android ARM64/Bionic allowlist/denylist and validate ELF dependencies, symbols, API requirements, alignment and licenses (P3A-005).
+4. Build a deterministic Android Web Runtime Image with an integrity manifest and negative packaging tests (P3A-006).
+5. Boot the authentic original Web Profile under embedded Android Node on a physical device (P3A-007).
+6. Prevent disabled providers from appearing available in the client graph (P3A-008).
+7. Implement authenticated WebView-to-runtime HTTP/WebSocket transport and test cookie, Host/Origin, expiry, replay and cross-app denial (P3A-009/010).
+8. Integrate the original UI and verify SPA navigation, streamed model response, session recovery and a native-approved registered tool operation on Android (P3A-011/012).
 
 ### Repository workflow boundary
 
-At this refresh, `feature/android-port` is 19 commits ahead and 2 behind `master`; the branches are divergent. This documentation update does not merge branches, open a PR, publish a release or authorize feature-code integration. Keep implementation/evidence on the development branch and this roadmap/checklist on `master`.
+At this refresh, `feature/android-port` and `master` remain divergent. Implementation and detailed runtime evidence stay on the development branch; this roadmap and checklist stay on `master`. This documentation update does not merge feature code, open a PR, publish a release or authorize feature-code integration.

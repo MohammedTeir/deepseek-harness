@@ -2,7 +2,8 @@
 
 > **Companion:** [ANDROID_COMPLETE_ROADMAP.md](ANDROID_COMPLETE_ROADMAP.md)  
 > **Authoritative scope:** [DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md](DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md), particularly sections **15, 15A and 17**.  
-> **Snapshot refresh:** 2026-11-14; dev HEAD \`2c7b6cb12010e6291b7c5a6a1fc0af51664617cb\`; master HEAD \`4f7421a98e48c4191f30da47a52a8e0d263a4614\`. See the dated refresh section below for status that supersedes the historical baseline dashboard.  
+> **Snapshot refresh:** 2026-11-14; current status is recorded in the dated refresh below. Implementation and detailed runtime evidence remain on `feature/android-port`; master retains the planning board.
+>
 > **Meaning of checkboxes:** \`[x]\` means **documented evidence exists for exactly the stated, sometimes limited, claim**; \`[ ]\` means not accepted, incomplete, blocked, or future work. A checkbox is **not** authorization to broaden scope. See [ANDROID_PORT_STATUS.md](ANDROID_PORT_STATUS.md) and the gate reviews.
 
 ## Usage: strict update protocol
@@ -36,7 +37,7 @@
 
 ### P0.1 Verify test artifact and tester environment
 
-- [x] **P0-001** APK #7 original terminal proof implemented, built and recorded at \`4496650e\`: [guide](apps/android/execution/TERMINAL_ANDROID_PROOF.md).
+- [x] **P0-001** APK #7 original terminal proof implemented, built and recorded: [guide](apps/android/execution/TERMINAL_ANDROID_PROOF.md).
 - [x] **P0-002** Signed Android debug package, alignment, ARM64, minSdk 29, targetSdk 36 inspected: [build evidence](apps/android/evidence/runtime-terminal-apk7-build.json).
 - [x] **P0-003** Host original registry/tool/PTY proof and Android build/lint tests reported passing: [validation](apps/android/evidence/terminal-apk7-validation.json). **Scope: host/build only.**
 - [x] **P0-004** ZIP delivery and downloaded-byte hash match recorded: [delivery evidence](apps/android/evidence/runtime-terminal-apk7-delivery.json). **Does not establish phone execution.**
@@ -273,7 +274,7 @@
 ## Reproducible build and release artifacts
 
 - [ ] **P7-001** Clean-checkout documented build from pinned commit, Node/pnpm/JDK/SDK/NDK, native binaries and original frontend assets.
-- [ ] **P7-002** Produce traceable debug and release APK packages with SHA-256, provenance, versionCode/versionName, signing scheme, ABI and SDK configuration.
+- [ ] **P7-002** Produce traceable debug and release APK packages with SHA-256, build inputs, versionCode/versionName, signing scheme, ABI and SDK configuration.
 - [ ] **P7-003** Verify native ABI ELF dependencies, no writable-dir executable violations, 16 KB/page alignment where relevant and correct native license inclusion.
 - [ ] **P7-004** Secure release signing/key custody and debug/release configuration differences, secrets and WebView debugging restrictions.
 - [ ] **P7-005** CI artifact generation, test/report attachments, supply-chain/license notices, release-notes source linkage and binary reproducibility assessment.
@@ -322,7 +323,7 @@ Prioritize only after verifying impact, security and user approval.
 
 ### FUT-01 — Bundled utilities and tools management
 - [ ] **FUT-001** Feasibility study: Android Bionic-compatible packaged Git, curl, Python, OpenSSH, editors and other utilities; native addons/licensing/executable path/size constraints.
-- [ ] **FUT-002** Minimal trusted installable tool catalog with signed/hashed provenance and version compatibility.
+- [ ] **FUT-002** Minimal trusted installable tool catalog with signed/hashed origin record and version compatibility.
 - [ ] **FUT-003** Tools manager with discover/install/update/uninstall/verify/logs/capability diagnostics, *only* under approved trusted package pipeline.
 - [ ] **FUT-004** Storage quotas, failure rollback, offline packages and cleanup with no arbitrary unsafe script execution.
 
@@ -391,7 +392,7 @@ Copy this template into the next session or completion summary:
 | Phase 1 / Gate 1 | ACCEPTED | Audit and bounded feasibility decision. |
 | Phase 2 / Gate 2 | BOUNDED ACCEPTED | Android 11/API 30 ARM64 local-engine/session/fixed approved-command scope only. |
 | Phase 3 / Gate 3 | IN PROGRESS | APK #7 terminal/native approval and APK #8 lifecycle result reviews exist; API 29/recent-device and broader lifecycle/general-shell gaps remain. |
-| Phase 3A / Gate 4 | IN PROGRESS | Web assets and Linux-host Web Profile evidence exist; no integrated Android Web Runtime/UI/backend proof. |
+| Phase 3A / Gate 4 | IN PROGRESS | P3A-001/002 Linux-host observation and trace-limit records exist on `feature/android-port`; dependency closure and integrated Android Web Runtime/UI/backend proof remain open. |
 | Phase 4 | NOT COMPLETE | Platform adapters and original feature restoration. |
 | Phase 5 / Gate 5 | NOT COMPLETE | Optional Termux/Root and full authorization/security acceptance. |
 | Phase 6 | NOT COMPLETE | Hardening, reliability, performance and compatibility matrix. |
@@ -407,10 +408,10 @@ Copy this template into the next session or completion summary:
 
 ## Gate 4 / Phase 3A — new task IDs
 
-- [ ] **P3A-001 — Complete dependency observation.** Extend tracing to relative/absolute `open`, `openat`, `openat2`, metadata/access calls, directory enumeration, symlinks/realpath, dynamic imports, `dlopen`, native addons, child processes, configuration and inherited file descriptors.
-- [ ] **P3A-002 — State trace blind spots.** Preserve raw trace data; distinguish observed files from inferred dependencies; explicitly list unobserved syscall classes and paths. Do not call an incomplete trace a dependency closure.
+- [x] **P3A-001 — Complete dependency observation.** Original Web Profile bootstrap and bounded Linux-host runs now record syscall/path operations and separate Node module-resolution/native-load observations. This does not establish complete dependency closure or Android behavior.
+- [x] **P3A-002 — State trace blind spots.** Raw capture sets, compact reports, compressed observed-path inventories and explicit observed-versus-inferred/unobserved-scope notes are retained for those host runs. The evidence does not establish full runtime inputs.
 - [ ] **P3A-003 — Separate runtime from test dependencies.** Remove test runner, observer, fixtures, Vitest configuration, preview/development files and test-only modules from the production dependency set.
-- [ ] **P3A-004 — Audit native artifacts.** For every native dependency, record target ABI, Android/Bionic build provenance, ELF interpreter, DT_NEEDED closure, symbols, minimum API, alignment and license. Reject Linux GNU/GLIBC artifacts.
+- [ ] **P3A-004 — Audit native artifacts.** For every native dependency, record target ABI, Android/Bionic build inputs, compiler/toolchain, ELF interpreter, DT_NEEDED closure, symbols, minimum API, alignment and license. Reject Linux GNU/GLIBC artifacts.
 - [ ] **P3A-005 — Narrow image policy.** Add explicit Android packaging allowlist/denylist and negative tests. Do not broadly relax package validation.
 - [ ] **P3A-006 — Build reproducible Web Runtime Image.** Pin source inputs; emit included-path/hash/native metadata and license manifest; prove forbidden files and binaries are excluded.
 - [ ] **P3A-007 — Android runtime boot.** Start the authentic original Web Profile under embedded Android Node on a physical device; record exact device/API/ABI, logs, process tree, boot graph and client batches.
@@ -430,7 +431,9 @@ Copy this template into the next session or completion summary:
 - Bounded Linux host composition: `apps/android/evidence/original-web-bounded-host.json`.
 - Isolated Linux host trace: `apps/android/evidence/original-web-profile-isolated-host-trace.json`.
 - Detailed limitations and next steps: `apps/android/execution/ORIGINAL_WEB_ASSETS.md`.
+- P3A-001/002 host evidence remains on `feature/android-port`: [bootstrap summary](https://github.com/MohammedTeir/deepseek-harness/blob/feature/android-port/apps/android/evidence/original-web-profile-p3a001-host-observations.json), [bounded summary](https://github.com/MohammedTeir/deepseek-harness/blob/feature/android-port/apps/android/evidence/original-web-bounded-p3a001-host-observations.json), and [execution notes](https://github.com/MohammedTeir/deepseek-harness/blob/feature/android-port/apps/android/execution/ORIGINAL_WEB_ASSETS.md). These are host observations, not a dependency-closure or Android-runtime claim.
+- Supplemental historical audit: [Antigravity report snapshot](apps/android/execution/antigravity-audit-report-2026-11-14.md); its earlier P3A statuses do not supersede this refresh.
 
 ## Branch discipline
 
-Implementation and detailed runtime evidence remain on `feature/android-port`. This checklist and the complete roadmap are maintained on `master`. The branches are divergent (19 commits ahead / 2 behind at this snapshot). This refresh is documentation-only: no feature merge, PR, release or implementation-code change is authorized by it.
+Implementation and detailed runtime evidence remain on `feature/android-port`; this checklist and the complete roadmap are maintained on `master`. The branches remain divergent. This refresh is documentation-only: it does not merge feature code, open a PR, publish a release or change implementation code.
