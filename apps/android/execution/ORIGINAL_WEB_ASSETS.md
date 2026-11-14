@@ -25,3 +25,29 @@ A [host-only overlay](../tests/fixtures/web-host-bounded.patch.yml) disables six
 The host `open-in-app` row is disabled while the original client `ui-open-in-app` entry is active. Whether its controls are shown or how they behave was not tested. Missing providers must be surfaced truthfully before any Android use. Preset-scoped services and other paths require separate review; this overlay is not a sandbox, trusted authorization boundary or production Android composition. The image validator excludes this overlay, its host test and the associated host test configuration from Android interpreted images.
 
 The [bounded composition trace](../evidence/original-web-bounded-host-trace.json) selects the original web-profile process and recognized descendants, and verifies that the exact host-only overlay was present in the root launch. It retains the test observer and the same absolute-path and syscall limitations as the isolated host trace. Its observed Linux addon is not an Android artifact, and the trace is not a complete or minimal Android image. An Android-compatible runtime build, provider capability mapping, preserved approvals and authenticated transport are still required.
+
+
+## Dependency-closure and Android image work queue (2026-11-14)
+
+The current evidence narrows the next milestone but does not yet identify a complete runtime image. The isolated/bounded traces select the original Web Profile process and recognized descendants, yet count only successful absolute-path `openat` reads and retain a test-only observer. A zero count for relative successful reads is not evidence that relative reads do not occur.
+
+### Required trace and analysis coverage
+
+- Capture and classify relative and absolute `open`, `openat` and `openat2` operations, including successful and failed outcomes where available.
+- Observe metadata and access checks (`stat`, `fstatat`, `access`, `faccessat`), directory enumeration, symlink resolution, `realpath`, and file-descriptor inheritance/use.
+- Record dynamic module imports, CommonJS resolution, `dlopen` and native addon loads with resolved paths and ABI identity.
+- Include configuration, certificates, locale/data files, templates, runtime-generated files, child-process executables and files accessed by recognized descendants.
+- Separate the Web Profile process tree from the test runner, test observer, fixtures and development tooling. Preserve raw traces and report exactly which operations are not observable by the instrumentation.
+- Combine runtime observation with static import/asset analysis and explicit manifest review. Do not label the result complete or minimal until the blind spots have been addressed and independently checked.
+
+### Image construction and validation
+
+- Build an explicit Android ARM64/Bionic runtime allowlist; reject Linux GNU/GLIBC artifacts, test-only files, source maps, previews and unapproved executables.
+- Validate every packaged ELF machine, interpreter, DT_NEEDED dependency, symbol resolution, Android API requirement and alignment. Require Android-built native addons or keep their provider disabled.
+- Include a manifest of source revision, build inputs, included paths, hashes, native ABI metadata and license/notice references.
+- Add negative tests for path traversal, unexpected file classes, Linux native binaries, missing dependencies and manifest/hash mismatch.
+- Rebuild deterministically and compare manifests/hashes before calling the image reproducible.
+
+### Current limitation
+
+The bounded Linux host run disabled six provider rows, but its client graph still contained an active `ui-open-in-app` entry. The Android UI must represent unavailable capabilities truthfully; a disabled backend provider must not leave an apparently functional action. No Android runtime startup, secure WebView transport or original chat flow is established by the current host evidence.
