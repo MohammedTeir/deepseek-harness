@@ -1,7 +1,7 @@
 # DeepSeek Harness Android — Complete Phases, Gates & Long-Term Product Roadmap
 
 > **Status:** Living project handoff / completion reference  
-> **Baseline:** 2026-11-13; development branch \`feature/android-port\` at \`4496650e83bf16ce85eae9fd4e589270116ec742\`; default branch \`master\`  
+> **Baseline refresh:** 2026-11-14; development branch \`feature/android-port\` at \`2c7b6cb12010e6291b7c5a6a1fc0af51664617cb\`; default branch \`master\` at \`4f7421a98e48c4191f30da47a52a8e0d263a4614\`  
 > **Authority:** [DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md](DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md) is authoritative. This document expands and tracks it; it **does not** modify, override, silently waive, or replace its requirements.  
 > **Related execution tracker:** [ANDROID_DETAILED_TASKS_CHECKLIST.md](ANDROID_DETAILED_TASKS_CHECKLIST.md)  
 > **Working evidence:** [ANDROID_PORT_STATUS.md](ANDROID_PORT_STATUS.md), [ANDROID_IMPLEMENTATION_PLAN.md](ANDROID_IMPLEMENTATION_PLAN.md), [ANDROID_GATE1_REVIEW.md](ANDROID_GATE1_REVIEW.md), [ANDROID_GATE2_REVIEW.md](ANDROID_GATE2_REVIEW.md), [ANDROID_GATE3_REVIEW.md](ANDROID_GATE3_REVIEW.md).
@@ -280,3 +280,52 @@ At every new session:
 - [Security model](ANDROID_SECURITY_MODEL.md), [compatibility matrix](ANDROID_COMPATIBILITY_MATRIX.md), [Android build guide](ANDROID_BUILD_GUIDE.md), [test plan](ANDROID_TEST_PLAN.md), [Termux guidance](ANDROID_TERMUX_INTEGRATION.md), [Root guidance](ANDROID_ROOT_INTEGRATION.md).
 
 **Revalidation rule:** This is a dated baseline document, not a live status oracle. Newer commits and accepted evidence may change the status; update this document and the checklist together without erasing the history.
+
+
+## 11. Current evidence-based status refresh — 2026-11-14
+
+This section supersedes the dated status snapshot in Section 2 and any older next-step wording below it. The authoritative engineering requirements remain in `DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md`.
+
+### Current phase and gate dashboard
+
+| Workstream | Current status | Accepted evidence / remaining boundary |
+| --- | --- | --- |
+| Phase 0 | VERIFIED | Fork/baseline work documented. |
+| Phase 1 / Gate 1 | ACCEPTED | Source/dependency audit and bounded feasibility decision; not universal Android compatibility. |
+| Phase 2 / Gate 2 | BOUNDED ACCEPTED | User-reported Android 11/API 30 ARM64 local-engine, session and native-approved fixed-command scope. No model request or original chat UI proof. |
+| Phase 3 / Gate 3 | IN PROGRESS | APK #7 original terminal/native approval and APK #8 timeout/cancellation/session-recovery phone evidence reviewed for the reported Redmi Note 8 Pro / Android 11/API 30/ARM64. API 29/recent device, broader process lifecycle and general shell remain open. |
+| Phase 3A / Gate 4 | IN PROGRESS | Original frontend assets packaged; Linux-host original Web Profile boot/bounded composition and origin-denial evidence. No Android Web Runtime Image or integrated Android UI/backend. |
+| Phase 4 | NOT COMPLETE | Full Android platform adapters, storage/SAF, Keystore, lifecycle and feature restoration remain. |
+| Phase 5 / Gate 5 | NOT COMPLETE | Optional Termux/Root providers and full adversarial authorization/security acceptance remain. |
+| Phase 6 | NOT COMPLETE | Security, reliability, performance and device/API matrix remain. |
+| Phase 7 / Gate 6 | NOT COMPLETE | Reproducible distribution, release review and final acceptance remain. |
+
+### New Gate 3 evidence since the previous snapshot
+
+- APK #7 phone-result review: `apps/android/evidence/phone-apk7-terminal-result-review.json`.
+- APK #8 lifecycle-result review: `apps/android/evidence/phone-apk8-lifecycle-result-review.json`.
+- These are submitted physical-device results reviewed in the repository, not developer-controlled ADB tests or broad certification. Preserve their exact scope and raw evidence.
+- Gate 3 is not complete. Do not infer generic shell, arbitrary descendants, Activity/service death, API 29 or recent-Android support.
+
+### New Gate 4 evidence since the previous snapshot
+
+- Original web assets: `apps/android/evidence/original-web-assets-build.json`.
+- Linux host bootstrap: `apps/android/evidence/original-web-host-boot.json`.
+- Bounded host composition: `apps/android/evidence/original-web-bounded-host.json`.
+- Isolated profile trace: `apps/android/evidence/original-web-profile-isolated-host-trace.json`.
+- These tests establish bounded Linux-host behavior and static asset packaging only. Trace coverage is incomplete; the observed Linux native addon is not an Android artifact. The current `sdk-minimal` image is not a complete Android Web Runtime Image.
+- The bounded composition disables six platform-sensitive providers, yet the client graph still exposes `ui-open-in-app`; capability-aware UI behavior must be addressed.
+
+### Gate 4 critical path
+
+1. Improve trace and static dependency analysis for relative/absolute file access, `openat/openat2`, metadata/access calls, directory enumeration, symlinks, dynamic imports, native addon loading, child processes and configuration.
+2. Separate real Web Profile dependencies from test runner/observer/fixtures/development artifacts and Linux-only binaries.
+3. Define a strict Android ARM64/Bionic allowlist/denylist and validate ELF dependencies, symbols, API requirements, alignment and licenses.
+4. Build a deterministic Android Web Runtime Image with an integrity manifest and negative packaging tests.
+5. Boot the authentic original Web Profile under embedded Android Node on a physical device.
+6. Implement authenticated WebView-to-runtime HTTP/WebSocket transport and test cookie, Host/Origin, expiry, replay and cross-app denial.
+7. Verify original SPA/screens, streaming model response, session recovery and a native-approved registered tool operation on Android.
+
+### Repository workflow boundary
+
+At this refresh, `feature/android-port` is 19 commits ahead and 2 behind `master`; the branches are divergent. This documentation update does not merge branches, open a PR, publish a release or authorize feature-code integration. Keep implementation/evidence on the development branch and this roadmap/checklist on `master`.
