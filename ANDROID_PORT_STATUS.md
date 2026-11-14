@@ -325,3 +325,7 @@ The [Gate 3 coverage review](apps/android/execution/GATE3_REVIEW.md) accepts the
 ## Original WebView asset inspection
 
 The [original frontend asset inspection](apps/android/execution/ORIGINAL_WEB_ASSETS.md) builds and packages the existing web frontend in a restricted Android activity. Harness boot injection, client plugin bundles, authenticated transport, SPA routing and Android device verification remain incomplete. Gate 4 is IN PROGRESS; the APK does not yet demonstrate original screens or a connected backend.
+
+## Original web host bootstrap checkpoint
+
+The [original host bootstrap check](apps/android/execution/ORIGINAL_WEB_ASSETS.md#original-host-bootstrap-evidence) exercises the actual built web profile, its authenticated index, all advertised client batches and HTTP origin-denial behavior on Linux. Android web composition, appassets-to-runtime authentication, original screens and physical WebView verification remain NOT YET VERIFIED; Gate 4 remains IN PROGRESS.

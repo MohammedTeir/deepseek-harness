@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "environment": "Linux host; original built web profile with test-only roster observer; no Android execution",
+  "frontendBootstrapInjected": true,
+  "entries": 75,
+  "batches": [
+    {
+      "entries": 1,
+      "status": 200,
+      "bytes": 25885
+    },
+    {
+      "entries": 57,
+      "status": 200,
+      "bytes": 5580299
+    },
+    {
+      "entries": 17,
+      "status": 200,
+      "bytes": 2080719
+    }
+  ],
+  "originalHostApiRejections": {
+    "withoutCookie": 401,
+    "appassetsOrigin": 403,
+    "foreignOrigin": 403
+  },
+  "backendConnectedOnAndroid": false,
+  "webViewExecutedOnAndroid": false,
+  "gate4Passed": false
+}
