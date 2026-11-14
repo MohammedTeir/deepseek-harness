@@ -85,3 +85,24 @@ The [asset inspection](apps/android/execution/ORIGINAL_WEB_ASSETS.md) precedes i
 ## Bounded web-profile qualification
 
 Use the [host-only composition and trace](apps/android/execution/ORIGINAL_WEB_ASSETS.md#bounded-host-composition-experiment) to guide a separately qualified Android profile image. Preserve the original client graph and auth checks, exclude test fixtures from shipped images, and report providers whose host rows are disabled. The host overlay is not an Android execution or security implementation.
+
+
+## Current next milestone — Android Web Runtime Image (2026-11-14)
+
+The current Gate 4 checkpoint supersedes earlier sections that describe original WebView work as merely planned or APK #7 as awaiting its phone test. APK #7 and APK #8 have submitted phone-result reviews; Gate 3 is nevertheless still IN PROGRESS for API-version, lifecycle and general capability gaps.
+
+The original frontend asset package and Linux-host Web Profile experiments are evidence of preparation only. They do not constitute a functioning Android Harness UI. In particular, the static `OriginalWebActivity` does not supply the original `__ModuleLoader__` facade, `__DSH_BOOT__` graph, client plugin batches or live transport.
+
+### Gate 4 task sequence
+
+1. **Dependency closure:** improve tracing and static analysis for relative/absolute opens, `openat/openat2`, metadata and directory operations, symlinks, dynamic imports, native addon loading, child processes and configuration. Distinguish observed files from proven required files and document unobserved paths.
+2. **Runtime/test separation:** isolate actual Web Profile dependencies from Vitest, test observers, fixtures, preview assets, development tooling and Linux-only native modules.
+3. **Android packaging contract:** implement a narrow, explicit allowlist/denylist and validate ARM64/Bionic ELF dependencies, dynamic loader requirements, alignment and licenses. Do not package a Linux x64/ARM64 GNU addon as an Android binary.
+4. **Reproducible image:** generate the Android Web Runtime Image from pinned inputs, include a hash/integrity manifest, and add tests proving forbidden fixtures and incompatible native artifacts are absent.
+5. **Android runtime boot:** run the authentic original Web Profile with the embedded Android Node runtime on a physical Android device. Record exact device/API/ABI, logs, process tree, boot graph and client batches.
+6. **Secure transport:** design an authenticated local transport compatible with Android WebView's appassets origin. Verify HTTP and WebSocket authentication, cookies, Host/Origin checks, replay/expiry behavior and cross-app denial before enabling access.
+7. **Original UI end-to-end:** prove SPA navigation, original screens, streamed model response, session persistence/recovery and a native-approved registered tool result inside the original UI.
+
+### Acceptance boundary
+
+Gate 4 remains IN PROGRESS until the Android device run proves the original Web Profile and original UI are connected to the authentic local Harness backend over the approved secure transport. Linux host tests, static WebView assets, Gradle/APK builds and origin-fence tests alone cannot pass this gate. Gate 3's API 29/recent-device and lifecycle gaps remain separate and must not be silently closed by Gate 4 work.
