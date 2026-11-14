@@ -15,6 +15,7 @@ import shutil
 import subprocess
 import tempfile
 import zipfile
+from native_artifact_policy import load_policy, policy_sha256, validate_native_artifacts
 
 ROOT = Path(__file__).resolve().parents[3]
 ANDROID = ROOT / 'apps/android'
@@ -67,6 +68,10 @@ def collect(root, traces):
 def validate_archive(archive, manifest):
     """Reject path escape, extra files, changed bytes and native code in the image."""
     expected = manifest['files']
+    policy = load_policy()
+    if manifest.get('nativePolicySha256') != policy_sha256():
+        raise ValueError('Native artifact policy digest mismatch')
+    validate_native_artifacts(manifest.get('nativeArtifacts'), policy, set(expected))
     with zipfile.ZipFile(archive) as zip:
         names = zip.namelist()
         if len(names) != len(set(names)) or set(names) != set(expected) | {'image-manifest.json'}:
@@ -115,6 +120,7 @@ def validate_host_qualification(directory):
     if not command_proof.get('originalRegistryAndPipeline') or not command_proof.get('sessionRecoveredAcrossRuntimeRestart') or command_proof.get('hostQualification', {}).get('processLaunches') != 1:
         raise ValueError('Original command qualification missing')
     manifest=json.loads((directory/'image-manifest.json').read_text())
+    validate_archive(image, manifest)
     if manifest.get('terminalQualificationIncluded'):
         data=(directory/'terminal-relocated-result.json').read_bytes()
         if marker.get('resultSha256',{}).get('terminal-relocated-result.json') != hashlib.sha256(data).hexdigest():
@@ -190,9 +196,9 @@ def build(output):
         # Automated host decision fixture is not an Android execution component.
         files.discard('apps/android/tests/command-profile-reference.mjs')
         files.discard('apps/android/tests/terminal-profile-reference.mjs')
-        for fixture in ('web-bootstrap.host.spec.mjs', 'web-bounded-profile.host.spec.mjs',
-                        'vitest.web-host.config.mjs', 'fixtures/web-host-bounded.patch.yml'):
-            files.discard('apps/android/tests/' + fixture)
+        for fixture_name in ('web-bootstrap.host.spec.mjs', 'web-bounded-profile.host.spec.mjs',
+                             'vitest.web-host.config.mjs', 'fixtures/web-host-bounded.patch.yml'):
+            files.discard('apps/android/tests/' + fixture_name)
         packages = set()
         for name in list(files):
             directory = (ROOT / name).parent
@@ -231,7 +237,8 @@ def build(output):
         manifest = dict(schemaVersion=1,scope='Observed original sdk-minimal startup/session and fixed-command qualification; not full distribution',
                         completeDependencyDistribution=False,files=dict(sorted(digests.items())),links=dict(sorted(links.items())),
                         directories=sorted({target for target in links.values() if (ROOT/target).is_dir()}),
-                        packageManifests=sorted(packages),excludedHostNative=sorted(natives),terminalQualificationIncluded=True,
+        packageManifests=sorted(packages),excludedHostNative=sorted(natives),terminalQualificationIncluded=True,
+        nativeArtifacts=[],nativePolicySha256=policy_sha256(),
                         adapterSourcesSha256={name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in [
                             'apps/android/runtime/node-pty-proof/terminal-backend.ts',
                             'apps/android/runtime/node-pty-proof/terminal-handle.ts',

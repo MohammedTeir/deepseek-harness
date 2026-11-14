@@ -12,7 +12,7 @@ The author has authorized Gate 1 review and a bounded Phase 2 proof when its acc
 | Gate 1 review | VERIFIED | Reviewed criteria and bounded experimental decision recorded; no runtime selected as proven |
 | Phase 2 / Gate 2 | VERIFIED (bounded local engine) | ARM64 runtime builds and user-reported fixed phone probes pass; Android profile/session and fixed original-tool/native-approval phone evidence accepted; external model remains unverified without credentials |
 | Gate 3 | IN PROGRESS | APK #7/#8 phone results are recorded; API 29/recent-device, lifecycle, process-tree, resource and supported-shell gaps remain |
-| Gate 4 | IN PROGRESS | P3A-001/002 Linux-host evidence is recorded; P3A-003 runtime/test separation is next; Android Web Profile boot and original UI/transport remain unverified |
+| Gate 4 | IN PROGRESS | P3A-001/002 Linux-host evidence, P3A-003 runtime/test separation and partial P3A-004 native-candidate audit are recorded; exact Android Web Runtime Image closure, Web Profile boot and original UI/transport remain unverified |
 | Gate 5 | NOT STARTED | Separate root policy, canonical request binding, deny/replay/mutation/adversarial tests |
 | Gate 6 | NOT STARTED | Device matrix, recovery, licenses and traceable artifacts; no release authorization |
 
@@ -96,12 +96,14 @@ The original frontend asset package and Linux-host Web Profile experiments are e
 ### Gate 4 task sequence
 
 1. **Trace evidence and blind spots:** P3A-001/002 records Linux-host path operations, module resolution and native-load observations, compressed path inventories, durable raw traces and known capture omissions. These records do not prove dependency closure.
-2. **Runtime/test separation:** P3A-003 isolates actual Web Profile dependencies from Vitest, test observers, fixtures, preview assets, development tooling and Linux-only native modules; use static import/asset analysis and manifest review to identify required production inputs.
-3. **Android packaging contract:** implement a narrow, explicit allowlist/denylist and validate ARM64/Bionic ELF dependencies, dynamic loader requirements, alignment and licenses. Do not package a Linux x64/ARM64 GNU addon as an Android binary.
-4. **Reproducible image:** generate the Android Web Runtime Image from pinned inputs, include a hash/integrity manifest, and add tests proving forbidden fixtures and incompatible native artifacts are absent.
-5. **Android runtime boot:** run the authentic original Web Profile with the embedded Android Node runtime on a physical Android device. Record exact device/API/ABI, logs, process tree, boot graph and client batches.
-6. **Secure transport:** design an authenticated local transport compatible with Android WebView's appassets origin. Verify HTTP and WebSocket authentication, cookies, Host/Origin checks, replay/expiry behavior and cross-app denial before enabling access.
-7. **Original UI end-to-end:** prove SPA navigation, original screens, streamed model response, session persistence/recovery and a native-approved registered tool result inside the original UI.
+2. **Runtime/test separation (P3A-003 complete):** the [partition report](apps/android/evidence/original-web-p3a003-runtime-test-separation.json) separates production manifest trees from host test/observer inputs and frontend build assets. It does not establish a file-level dependency closure.
+3. **Native-artifact audit (P3A-004 in progress):** the [candidate inventory](apps/android/evidence/original-web-p3a004-native-candidates.tsv), [historical Android build/package matrix](apps/android/evidence/original-web-p3a004-android-apk-native-matrix.tsv), and [structured audit](apps/android/evidence/original-web-p3a004-native-artifact-audit.json) reject the host-loaded Linux GNU/glibc addon and record 16 build/package snapshots covering 10 unique Android library names. The historical package matrix finds exact output-hash matches for node-pty and its fixture and hash mismatches for atomic and require-builtin; it is not an image closure. Keep P3A-004 open until the exact Web Runtime Image exists and its hash-bound ARM64/Bionic set has complete build/toolchain/interpreter/DT_NEEDED/symbol/API/alignment/license evidence.
+4. **Narrow native packaging policy (P3A-005 complete):** the [default-deny policy](apps/android/runtime/native-artifact-policy.json), [audit report](apps/android/evidence/original-web-p3a005-native-policy-audit.json), and packager tests enforce exact-hash Android ARM64/Bionic approvals, license/dependency closure, and desktop/test-fixture deny rules. The production Web Runtime Image allowlist remains empty.
+5. **Reproducible image (P3A-006 — next):** generate the Android Web Runtime Image from pinned inputs, include a hash/integrity manifest, and add tests proving forbidden fixtures and incompatible native artifacts are absent. Return to P3A-004 and audit this exact image before Android boot qualification.
+6. **Android runtime boot (P3A-007):** run the authentic original Web Profile with the embedded Android Node runtime on a physical Android device. Record exact device/API/ABI, logs, process tree, boot graph and client batches.
+7. **Capability-safe client graph (P3A-008):** prevent disabled providers from appearing available in the client graph.
+8. **Secure transport (P3A-009/010):** design an authenticated local transport compatible with Android WebView's appassets origin. Verify HTTP and WebSocket authentication, cookies, Host/Origin checks, replay/expiry behavior and cross-app denial before enabling access.
+9. **Original UI end-to-end (P3A-011/012):** prove SPA navigation, original screens, streamed model response, session persistence/recovery and a native-approved registered tool result inside the original UI.
 
 ### Acceptance boundary
 
