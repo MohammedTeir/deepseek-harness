@@ -2,7 +2,7 @@
 
 ## Summary
 
-Phase 0 is VERIFIED and Gate 1 is accepted. Gate 2 is accepted within the bounded local-engine scope of ANDROID_GATE2_REVIEW.md, based on user-reported Android 11 ARM64 phone results. Gate 3 is IN PROGRESS: the fixed process/shell/PTY suite is VERIFIED on the user-tested Android 11 ARM64 phone; target-version coverage, broader lifecycle behavior and original terminal integration remain unverified. External model requests, original frontend integration, general terminal support, broader device coverage and release qualification remain unverified. Historical milestone entries below retain their original status and failures.
+Current snapshot (2026-11-14): Phase 0 is VERIFIED; Gate 1 is ACCEPTED; Gate 2 is ACCEPTED only within its documented bounded local-engine scope. Gate 3 remains IN PROGRESS: fixed process/shell/PTY, original terminal/native approval and the APK #8 timeout/cancellation/session-recovery lifecycle scope have user-reported Android 11/API 30 ARM64 evidence, but API 29/recent-device coverage, broader lifecycle/process-tree behavior and general terminal support remain unverified. Phase 3A / Gate 4 is IN PROGRESS: original web assets are packaged and the original Web Profile has bounded Linux-host bootstrap/composition evidence, but no Android Web Runtime Image, Android WebView-to-backend integration, original chat UI, streamed model response or Android device boot proof has been accepted. Gates 5 and 6 and Phases 4–7 remain incomplete. Historical milestone entries below retain their original status and failures; later dated sections supersede stale next-step wording.
 
 ## Upstream sync: Phase 1 evidence refreshed
 
@@ -337,3 +337,38 @@ The [isolated trace](apps/android/evidence/original-web-profile-isolated-host-tr
 ## Bounded web-profile host experiment
 
 The original `web` profile starts on Linux with six explicitly disabled platform rows and still provides its authenticated boot graph and client batches. The [host-only experiment](apps/android/execution/ORIGINAL_WEB_ASSETS.md#bounded-host-composition-experiment) records the actual rows, an active client entry whose provider is disabled, origin denials and remaining security limits. This fixture cannot establish Android startup or enforce a general execution policy. Gate 4 remains IN PROGRESS.
+
+
+## Current checkpoint — 2026-11-14 (supersedes earlier next-step snapshots)
+
+Development HEAD reviewed: `2c7b6cb12010e6291b7c5a6a1fc0af51664617cb`.
+
+### Gate 3 / Phase 3
+
+- APK #7 original terminal registry + native approval phone result is recorded in `apps/android/evidence/phone-apk7-terminal-result-review.json`.
+- APK #8 lifecycle result is recorded in `apps/android/evidence/phone-apk8-lifecycle-result-review.json`; its accepted scope is the submitted timeout/cancellation/process-cleanup/session-recovery scenario on the reported Redmi Note 8 Pro, Android 11/API 30/ARM64.
+- These are user-submitted physical-device results reviewed and normalized in-repository, not developer-controlled ADB runs or broad device certification.
+- Gate 3 remains IN PROGRESS. Outstanding work includes API 29 and a recent Android target, service/Activity/process-death and orphan-descendant coverage, resource/backpressure limits, and an explicit supported-shell/capability contract. A fixed fixture or the current PTY qualification does not prove arbitrary shell support.
+
+### Gate 4 / Phase 3A
+
+- Original Vite frontend assets are built and packaged for restricted static inspection; see [asset evidence](apps/android/evidence/original-web-assets-build.json) and [inspection notes](apps/android/execution/ORIGINAL_WEB_ASSETS.md).
+- The original Web Profile has Linux-host bootstrap and bounded-composition evidence: [host boot](apps/android/evidence/original-web-host-boot.json), [bounded host result](apps/android/evidence/original-web-bounded-host.json), and [isolated trace](apps/android/evidence/original-web-profile-isolated-host-trace.json).
+- The host composition disabled six platform-sensitive provider rows. The client graph still exposed an active `ui-open-in-app` entry while its provider was disabled; UI capability-state handling remains an explicit issue.
+- The trace counts only a limited set of successful absolute `openat` reads and retains a test observer. It is not dependency-closure proof. The observed Linux native addon must not be packaged for Android.
+- The current `sdk-minimal` image is not a valid ready-made Web Runtime Image: the web profile requires additional runtime/frontend/configuration assets, while test fixtures and Linux-only native artifacts must be excluded.
+- No Android Web Runtime Image, authentic Android Web Profile startup, connected original UI, secure WebView/backend transport, SPA routing, streaming chat, or model request has been verified. Gate 4 remains IN PROGRESS.
+
+### Immediate Gate 4 execution order
+
+1. Expand runtime dependency observation and static dependency analysis to include relative and absolute file access, `openat/openat2`, metadata/stat/access calls, directory enumeration, symlinks/realpath, dynamic imports, `dlopen`/native addon loading, child processes, configuration and runtime-generated paths. Record trace blind spots; never call a partial trace complete.
+2. Separate actual Web Profile runtime dependencies from test runner, observer, fixture, development and Linux-only artifacts.
+3. Define a narrow Android ARM64/Bionic packaging allowlist and explicit denylist; validate every native ELF dependency, ABI, linkage and license. Do not loosen the packager globally.
+4. Build a deterministic Android Web Runtime Image with a content/hash manifest and reproducible validation.
+5. Start the authentic original Web Profile under embedded Android Node and verify boot graph, client batches and provider capability state on a physical Android device.
+6. Design and test authenticated WebView-to-runtime HTTP and WebSocket transport, preserving launch-token/cookie and Host/Origin denial properties. Do not enable broad WebView network access or expose credentials to JavaScript.
+7. Verify the original UI, SPA navigation, streamed conversation, session recovery and one native-approved tool operation end-to-end on Android.
+
+### Branch and change boundary
+
+`feature/android-port` is the implementation/evidence branch. `master` contains the living planning documents only. The branches are currently divergent; this documentation refresh does not merge them, create a PR, publish a release, or change implementation code.
