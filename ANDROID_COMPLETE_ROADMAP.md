@@ -1,7 +1,7 @@
 # DeepSeek Harness Android — Complete Phases, Gates & Long-Term Product Roadmap
 
 > **Status:** Living project handoff / completion reference  
-> **Baseline refresh:** 2026-11-14; current development evidence is recorded on `feature/android-port`, and the planning document is maintained on `master`.
+> **Baseline refresh:** 2026-11-14; active development and planning edits are on `feature/android-port`; `master` receives these documents when the branch is merged.
 >
 > **Authority:** [DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md](DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md) is authoritative. This document expands and tracks it; it **does not** modify, override, silently waive, or replace its requirements.  
 > **Related execution tracker:** [ANDROID_DETAILED_TASKS_CHECKLIST.md](ANDROID_DETAILED_TASKS_CHECKLIST.md)  
@@ -332,4 +332,4 @@ This section supersedes the dated status snapshot in Section 2 and any older nex
 
 ### Repository workflow boundary
 
-At this refresh, `feature/android-port` and `master` remain divergent. Implementation and detailed runtime evidence stay on the development branch; this roadmap and checklist stay on `master`. This documentation update does not merge feature code, open a PR, publish a release or authorize feature-code integration.
+At this refresh, `feature/android-port` and `master` remain divergent. The feature branch is the active home for implementation, evidence and planning edits; `master` receives these documents when the branch is merged. This copy does not merge feature code into `master`, open a PR, publish a release or authorize feature-code integration.

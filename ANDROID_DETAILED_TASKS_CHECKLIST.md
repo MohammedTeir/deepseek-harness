@@ -2,7 +2,7 @@
 
 > **Companion:** [ANDROID_COMPLETE_ROADMAP.md](ANDROID_COMPLETE_ROADMAP.md)  
 > **Authoritative scope:** [DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md](DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md), particularly sections **15, 15A and 17**.  
-> **Snapshot refresh:** 2026-11-14; current status is recorded in the dated refresh below. Implementation and detailed runtime evidence remain on `feature/android-port`; master retains the planning board.
+> **Snapshot refresh:** 2026-11-14; current status is recorded in the dated refresh below. `feature/android-port` is the active planning copy; `master` receives updates when the branch is merged.
 >
 > **Meaning of checkboxes:** \`[x]\` means **documented evidence exists for exactly the stated, sometimes limited, claim**; \`[ ]\` means not accepted, incomplete, blocked, or future work. A checkbox is **not** authorization to broaden scope. See [ANDROID_PORT_STATUS.md](ANDROID_PORT_STATUS.md) and the gate reviews.
 
@@ -14,7 +14,7 @@
 4. Update \`ANDROID_PORT_STATUS.md\` and the relevant Gate review *before* marking gate acceptance. Do not edit historical test reports or auto-clear known failures.
 5. If blocked for device, credentials, SDK or upstream behavior, preserve \`[ ]\`, annotate **BLOCKED: cause**, and continue independent work.
 6. All product functionality must still comply with authoritative master prompt. Tests below add detail but do not substitute for its explicit acceptance.
-7. This checklist was committed to documentation in \`master\` by user request; **do not merge feature code, open a PR or publish a release** without separate user authorization.
+7. Keep active planning edits on \`feature/android-port\`; \`master\` receives this checklist when the branch is merged. **Do not merge feature implementation, open a PR or publish a release** without separate user authorization.
 8. Keep all test artifacts free of secrets, access tokens, private data and unredacted user files.
 
 ## Status dashboard (baseline)
@@ -436,4 +436,4 @@ Copy this template into the next session or completion summary:
 
 ## Branch discipline
 
-Implementation and detailed runtime evidence remain on `feature/android-port`; this checklist and the complete roadmap are maintained on `master`. The branches remain divergent. This refresh is documentation-only: it does not merge feature code, open a PR, publish a release or change implementation code.
+Implementation, detailed runtime evidence and active planning edits are on `feature/android-port`; `master` receives these documents when the branch is merged. This documentation-only copy does not merge feature code into `master`, open a PR, publish a release or change implementation code.
