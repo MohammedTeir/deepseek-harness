@@ -337,3 +337,7 @@ This section supersedes the dated status snapshot in Section 2 and any older nex
 ### Repository workflow boundary
 
 The implementation and evidence changes from `feature/android-port` are now merged into `master` at the current repository checkpoint. Future planning edits may continue on the active development branch and should be synchronized after an authorized merge. This documentation update does not publish a release or broaden any feature-code claim.
+
+## Android 10 / API 29 follow-up note
+
+The Redmi Note 8 Pro evidence is Android 11 / API 30 and must not be represented as API 29 coverage. After the current P3A-004 native-closure work and the first API 30 Web Profile path, run a separately identified Android 10 / API 29 ARM64 emulator or physical-device pass: install the exact APK, verify native ELF/API-29 compatibility, boot the embedded runtime, exercise the original WebView and authenticated transport, repeat session recovery and native-approved tool flows, and record lifecycle, storage, PTY and WebView results. Keep API 29 results separate from API 30 evidence and mark each unavailable or untested capability explicitly.

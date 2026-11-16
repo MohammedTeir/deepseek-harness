@@ -398,3 +398,7 @@ The original `web` profile starts on Linux with six explicitly disabled platform
 ### Branch and change boundary
 
 `feature/android-port` supplied the implementation/evidence changes and has been merged into `master` at the current repository checkpoint. The merge does not change the documented phase or gate statuses and does not constitute a release publication.
+
+### API 29 follow-up note
+
+The Redmi Note 8 Pro results are Android 11 / API 30 evidence only. Once P3A-004 is closed and the first API 30 Web Profile path is exercised, run a separately recorded Android 10 / API 29 ARM64 emulator or physical-device check covering the exact APK, native ELF/API-29 compatibility, embedded runtime boot, original WebView, authenticated HTTP/WebSocket transport, session recovery, native-approved tool flow, lifecycle, storage, PTY behavior and unavailable states. Do not merge API 29 claims into the existing API 30 evidence; retain explicit PASS/FAIL/BLOCKED results and device/WebView/build hashes.

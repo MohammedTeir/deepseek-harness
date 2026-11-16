@@ -103,3 +103,7 @@ The current evidence includes the reproducible host-built P3A-006 candidate, but
 ### Current limitation
 
 The bounded Linux host run disabled six provider rows, but its client graph still contained an active `ui-open-in-app` entry. The Android UI must represent unavailable capabilities truthfully; a disabled backend provider must not leave an apparently functional action. No Android runtime startup, secure WebView transport or original chat flow is established by the current host evidence.
+
+## Android 10 / API 29 follow-up
+
+The Redmi Note 8 Pro evidence is Android 11 / API 30 and is not API 29 coverage. After P3A-004 native closure and the initial API 30 Web Profile path, repeat this original-web-assets work on a separately identified Android 10 / API 29 ARM64 emulator or physical device: install the exact APK, inspect the packaged native set, verify embedded runtime boot, exercise the original WebView and authenticated HTTP/WebSocket transport, and record navigation, session recovery, lifecycle, WebView, storage and unavailable-state results with APK/source/device/WebView hashes. Keep host, API 30 and API 29 evidence separate.
