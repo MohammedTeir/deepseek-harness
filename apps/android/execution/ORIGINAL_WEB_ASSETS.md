@@ -1,6 +1,6 @@
 # Original WebView asset inspection
 
-The Android diagnostic activity loads the actual Vite build from apps/web under the AndroidX WebViewAssetLoader HTTPS origin. Gradle builds the original workspace frontend and packages its output under assets/web, excluding sourcemaps and the experimental preview. The activity is private and opened from the existing diagnostic host. This is a static asset inspection, not an integrated application.
+The Android diagnostic activity packages the actual Vite build from apps/web under the AndroidX WebViewAssetLoader HTTPS origin. Gradle builds the original workspace frontend and packages its output under assets/web, excluding sourcemaps and the experimental preview. The activity is private and opened from the existing diagnostic host. Because the Harness web runtime and WebView transport are not connected, the current diagnostic screen now shows an explicit unavailable-state message instead of attempting to load the static page. This is a static asset inspection, not an integrated application.
 
 The original browser entry requires the host-generated __ModuleLoader__ facade, __DSH_BOOT__ graph, client plugin bundles and live transport. Those are not provided by this activity, so the original boot error is expected and original screens, streaming and runtime operation remain unverified. Gate 4 is IN PROGRESS. The next milestone is to qualify the existing web profile's boot graph and dynamic bundle delivery, then authenticate the original transport before enabling network access.
 

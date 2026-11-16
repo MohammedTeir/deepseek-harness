@@ -1,7 +1,7 @@
 # DeepSeek Harness Android — Complete Phases, Gates & Long-Term Product Roadmap
 
 > **Status:** Living project handoff / completion reference  
-> **Baseline refresh:** 2026-11-14; active development and planning edits are on `feature/android-port`; `master` receives these documents when the branch is merged.
+> **Baseline refresh:** 2026-11-14; the Android implementation and planning changes from `feature/android-port` are now merged into `master` at the current repository checkpoint.
 >
 > **Authority:** [DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md](DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md) is authoritative. This document expands and tracks it; it **does not** modify, override, silently waive, or replace its requirements.  
 > **Related execution tracker:** [ANDROID_DETAILED_TASKS_CHECKLIST.md](ANDROID_DETAILED_TASKS_CHECKLIST.md)  
@@ -47,7 +47,7 @@ Status vocabulary: **VERIFIED** only when supported by executed evidence; **IMPL
 | Gate 5 | NOT VERIFIED | A native approval dialog proves complete root security |
 | Gate 6 | NOT VERIFIED | Debug APK equals release readiness |
 
-**Git note:** PR #3 was merged into \`master\` on 2026-11-13 as a documentation update. The development branch subsequently gained 9 commits and remained ahead of master at the baseline. Future development merges/PRs/releases require explicit authorization. Adding planning documents to master is not authorization to merge feature code.
+**Git note:** PR #3 was merged into \`master\` on 2026-11-13 as a documentation update. The subsequent Android implementation/evidence work from `feature/android-port` was merged into `master` at the current repository checkpoint. Future development merges/PRs/releases still require explicit authorization; this note records the completed merge and does not broaden any phase or gate claim.
 
 ## 3. What has actually been achieved — historical evidence
 
@@ -336,4 +336,4 @@ This section supersedes the dated status snapshot in Section 2 and any older nex
 
 ### Repository workflow boundary
 
-At this refresh, `feature/android-port` and `master` remain divergent. The feature branch is the active home for implementation, evidence and planning edits; `master` receives these documents when the branch is merged. This copy does not merge feature code into `master`, open a PR, publish a release or authorize feature-code integration.
+The implementation and evidence changes from `feature/android-port` are now merged into `master` at the current repository checkpoint. Future planning edits may continue on the active development branch and should be synchronized after an authorized merge. This documentation update does not publish a release or broaden any feature-code claim.

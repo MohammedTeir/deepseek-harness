@@ -386,6 +386,7 @@ The original `web` profile starts on Linux with six explicitly disabled platform
 - The P3A-004 [native audit](apps/android/evidence/original-web-p3a004-native-artifact-audit.json) now binds the P3A-006 report SHA-256 and verifies its passing two-build comparison, current native-policy digest, file/symlink totals, and zero included native artifacts. It keeps the separate Android APK/runtime ELF closure explicitly unaccepted.
 - The same P3A-004 report parses ten native outputs declared by the current Gradle/CMake graph (six runtime JNI libraries, two node-pty libraries, the `libharness_probe.so` RuntimeService JNI bridge, and one process-proof executable). No APK/AAB or raw native ELF file exists in this checkout. This sandbox also has no Android SDK/NDK, SDK Manager or ADB; the Gradle configuration requests compile/target API 36, minimum API 29, and NDK 28.2.13676358. The report corrects the bridge’s role and flags the main-source-set process proof and PTY fixture for release-scope review.
 - This host-built candidate is not Android boot evidence and does not prove a complete file or Android native closure. P3A-004 remains IN PROGRESS; Gate 4 remains IN PROGRESS.
+- The merged Android diagnostic activity now presents an explicit unavailable-state message for the original web assets instead of attempting to load the static page. This is truthful UI for the missing Harness runtime connection; it does not advance Gate 4 or claim original WebView/runtime integration.
 
 ### Current immediate Gate 4 execution order
 
@@ -396,4 +397,4 @@ The original `web` profile starts on Linux with six explicitly disabled platform
 
 ### Branch and change boundary
 
-`feature/android-port` is the implementation/evidence branch. `master` contains the living planning documents only. The branches remain divergent; this task does not merge them, create a PR or publish a release.
+`feature/android-port` supplied the implementation/evidence changes and has been merged into `master` at the current repository checkpoint. The merge does not change the documented phase or gate statuses and does not constitute a release publication.

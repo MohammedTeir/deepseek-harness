@@ -2,7 +2,7 @@
 
 > **Companion:** [ANDROID_COMPLETE_ROADMAP.md](ANDROID_COMPLETE_ROADMAP.md)  
 > **Authoritative scope:** [DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md](DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md), particularly sections **15, 15A and 17**.  
-> **Snapshot refresh:** 2026-11-14; current status is recorded in the dated refresh below. `feature/android-port` is the active planning copy; `master` receives updates when the branch is merged.
+> **Snapshot refresh:** 2026-11-14; current status is recorded in the dated refresh below. The Android implementation and planning changes from `feature/android-port` are now present on `master` at the current repository checkpoint.
 >
 > **Meaning of checkboxes:** \`[x]\` means **documented evidence exists for exactly the stated, sometimes limited, claim**; \`[ ]\` means not accepted, incomplete, blocked, or future work. A checkbox is **not** authorization to broaden scope. See [ANDROID_PORT_STATUS.md](ANDROID_PORT_STATUS.md) and the gate reviews.
 
@@ -14,7 +14,7 @@
 4. Update \`ANDROID_PORT_STATUS.md\` and the relevant Gate review *before* marking gate acceptance. Do not edit historical test reports or auto-clear known failures.
 5. If blocked for device, credentials, SDK or upstream behavior, preserve \`[ ]\`, annotate **BLOCKED: cause**, and continue independent work.
 6. All product functionality must still comply with authoritative master prompt. Tests below add detail but do not substitute for its explicit acceptance.
-7. Keep active planning edits on \`feature/android-port\`; \`master\` receives this checklist when the branch is merged. **Do not merge feature implementation, open a PR or publish a release** without separate user authorization.
+7. Keep future planning edits on the active development branch and synchronize this checklist with `master` after an authorized merge. The current `feature/android-port` implementation merge is already recorded; **do not merge additional feature implementation, open a PR or publish a release** without separate user authorization.
 8. Keep all test artifacts free of secrets, access tokens, private data and unredacted user files.
 
 ## Status dashboard (baseline)
@@ -432,9 +432,9 @@ Copy this template into the next session or completion summary:
 - Isolated Linux host trace: `apps/android/evidence/original-web-profile-isolated-host-trace.json`.
 - Detailed limitations and next steps: `apps/android/execution/ORIGINAL_WEB_ASSETS.md`.
 - P3A-003 reproducible partition report: `apps/android/evidence/original-web-p3a003-runtime-test-separation.json`; analyzer/tests: `apps/android/scripts/audit_web_runtime_test_split.py` and `apps/android/tests/test_web_runtime_test_split.py`.
-- P3A-001/002 host evidence remains on `feature/android-port`: [bootstrap summary](https://github.com/MohammedTeir/deepseek-harness/blob/feature/android-port/apps/android/evidence/original-web-profile-p3a001-host-observations.json), [bounded summary](https://github.com/MohammedTeir/deepseek-harness/blob/feature/android-port/apps/android/evidence/original-web-bounded-p3a001-host-observations.json), and [execution notes](https://github.com/MohammedTeir/deepseek-harness/blob/feature/android-port/apps/android/execution/ORIGINAL_WEB_ASSETS.md). These are host observations, not a dependency-closure or Android-runtime claim.
+- P3A-001/002 host evidence is now present on `master`: [bootstrap summary](https://github.com/MohammedTeir/deepseek-harness/blob/master/apps/android/evidence/original-web-profile-p3a001-host-observations.json), [bounded summary](https://github.com/MohammedTeir/deepseek-harness/blob/master/apps/android/evidence/original-web-bounded-p3a001-host-observations.json), and [execution notes](https://github.com/MohammedTeir/deepseek-harness/blob/master/apps/android/execution/ORIGINAL_WEB_ASSETS.md). These are host observations, not a dependency-closure or Android-runtime claim.
 - Supplemental historical audit: [Antigravity report snapshot](apps/android/execution/antigravity-audit-report-2026-11-14.md); its earlier P3A statuses do not supersede this refresh.
 
 ## Branch discipline
 
-Implementation, detailed runtime evidence and active planning edits are on `feature/android-port`; `master` receives these documents when the branch is merged. This documentation-only copy does not merge feature code into `master`, open a PR, publish a release or change implementation code.
+Implementation and detailed runtime evidence from `feature/android-port` are now present on `master` at the current repository checkpoint. Future planning edits should be synchronized after an authorized merge. This checklist update does not open a PR, publish a release or change the documented implementation scope.
