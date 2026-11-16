@@ -37,7 +37,7 @@ git -C "$require_source" checkout --detach a58d3599a2e551d7d706d1ff796c9fd4bbaff
 addon_api_archive="$ANDROID_NODE_BUILD_DIR/node-addon-api-8.9.0.tgz"
 if [[ ! -f "$addon_api_archive" ]]; then
   npm pack node-addon-api@8.9.0 --pack-destination "$ANDROID_NODE_BUILD_DIR" >/dev/null
-  mv "$ANDROID_NODE_BUILD_DIR/node-addon-api-8.9.0.tgz" "$addon_api_archive"
+  test -f "$addon_api_archive"
 fi
 python3 "$android_dir/runtime/build_require_builtin.py" "$require_source" "$addon_api_archive"
 python3 "$android_dir/runtime/build-node-pty.py"
