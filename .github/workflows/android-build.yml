@@ -49,6 +49,8 @@ jobs:
           package-manager-cache: false
 
       - uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
 
       - name: Install pinned Android SDK packages and accept their licenses
         run: |
