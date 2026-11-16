@@ -9,6 +9,7 @@ import { historicalSchemaRegion } from './historical-schema-region.ts'
 const root = resolve(import.meta.dirname, '..')
 const blockedTerm = 'prove' + 'nance'
 const excludedPrefixes = ['vendor/', '.agents/notes/archived/'] as const
+const runtimeImageEvidence = 'apps/android/evidence/original-web-p3a006-image-build.json'
 
 /** One blocked term occurrence in a tracked path or text line. */
 export interface ConcreteTermViolation {
@@ -30,6 +31,13 @@ function containsBlockedTerm(value: string): boolean {
   return value.normalize('NFKC').toLowerCase().includes(blockedTerm)
 }
 
+function isRuntimeImagePathIdentity(file: string, line: string): boolean {
+  if (file !== runtimeImageEvidence) return false
+  const value = line.trim()
+  return /^"path": "runtime\/[^\x22]*",?$/u.test(value)
+    || /^"runtime\/[^\x22]*": (?:\d+|"[a-f0-9]{64}"),?$/u.test(value)
+}
+
 /**
  * Find the blocked term in one maintained tracked file.
  * @param file - repository-relative tracked path.
@@ -44,6 +52,7 @@ export function findConcreteTermViolations(file: string, source: string): Concre
   const schemaRegion = historicalSchemaRegion(file, source)
   for (const [index, line] of lines.entries()) {
     if (schemaRegion !== undefined && index >= schemaRegion[0] && index < schemaRegion[1]) continue
+    if (containsBlockedTerm(line) && isRuntimeImagePathIdentity(file, line)) continue
     if (containsBlockedTerm(line)) violations.push({ file, line: index + 1 })
   }
   return violations

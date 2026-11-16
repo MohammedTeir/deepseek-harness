@@ -2,7 +2,7 @@
 
 ## Summary
 
-Current snapshot (2026-11-14): Phase 0 is VERIFIED; Gate 1 is ACCEPTED; Gate 2 is ACCEPTED only within its documented bounded local-engine scope. Gate 3 remains IN PROGRESS: fixed process/shell/PTY, original terminal/native approval and the APK #8 timeout/cancellation/session-recovery lifecycle scope have user-reported Android 11/API 30 ARM64 evidence, but API 29/recent-device coverage, broader lifecycle/process-tree behavior and general terminal support remain unverified. Phase 3A / Gate 4 is IN PROGRESS: P3A-001/002 Linux-host observations and P3A-003 manifest-backed runtime/test separation are recorded; P3A-004 has a partial native-candidate inventory and rejects the observed Linux GNU addon, but the exact Android Web Runtime Image native closure is not audited. No Android Web Runtime Image, Android WebView-to-backend integration, original chat UI, streamed model response or Android device boot proof has been accepted. Gates 5 and 6 and Phases 4–7 remain incomplete. Historical milestone entries below retain their original status and failures; later dated sections supersede stale next-step wording.
+Current snapshot (2026-11-15): Phase 0 is VERIFIED; Gate 1 is ACCEPTED; Gate 2 is ACCEPTED only within its documented bounded local-engine scope. Gate 3 remains IN PROGRESS: fixed process/shell/PTY, original terminal/native approval and the APK #8 timeout/cancellation/session-recovery lifecycle scope have user-reported Android 11/API 30 ARM64 evidence, but API 29/recent-device coverage, broader lifecycle/process-tree behavior and general terminal support remain unverified. Phase 3A / Gate 4 is IN PROGRESS: P3A-001/002 Linux-host observations and P3A-003 runtime/test separation are recorded; P3A-006 now has a reproducible host-built package/static-asset candidate; P3A-004 remains open for exact Android APK/runtime ARM64/Bionic native closure. No Android device boot, original Android UI connection, secure WebView/backend transport or streamed model response has been accepted. Gates 5 and 6 and Phases 4–7 remain incomplete. Historical milestone entries below retain their original status and failures; later dated sections supersede stale next-step wording.
 
 ## Upstream sync: Phase 1 evidence refreshed
 
@@ -339,7 +339,7 @@ The [isolated trace](apps/android/evidence/original-web-profile-isolated-host-tr
 The original `web` profile starts on Linux with six explicitly disabled platform rows and still provides its authenticated boot graph and client batches. The [host-only experiment](apps/android/execution/ORIGINAL_WEB_ASSETS.md#bounded-host-composition-experiment) records the actual rows, an active client entry whose provider is disabled, origin denials and remaining security limits. This fixture cannot establish Android startup or enforce a general execution policy. Gate 4 remains IN PROGRESS.
 
 
-## Current checkpoint — 2026-11-14 (supersedes earlier next-step snapshots)
+## Previous checkpoint — 2026-11-14 (superseded by the 2026-11-15 update below)
 
 ### Gate 3 / Phase 3
 
@@ -365,7 +365,7 @@ The original `web` profile starts on Linux with six explicitly disabled platform
 - The current `sdk-minimal` image is not a valid ready-made Web Runtime Image: the web profile requires additional runtime/frontend/configuration assets, while test fixtures and Linux-only native artifacts must be excluded.
 - No Android Web Runtime Image, authentic Android Web Profile startup, connected original UI, secure WebView/backend transport, SPA routing, streaming chat, or model request has been verified. Gate 4 remains IN PROGRESS.
 
-### Immediate Gate 4 execution order
+### Immediate Gate 4 execution order at 2026-11-14 (superseded)
 
 1. Continue file-level dependency and static import/asset analysis; do not label observed host paths as required or call the traces a complete dependency closure.
 2. **Complete:** P3A-005 adds the strict Android ARM64/Bionic allow/deny policy and negative tests; no production Web Runtime Image native artifacts are approved.
@@ -374,6 +374,25 @@ The original `web` profile starts on Linux with six explicitly disabled platform
 5. Start the authentic original Web Profile under embedded Android Node and verify boot graph, client batches and provider capability state on a physical Android device.
 6. Design and test authenticated WebView-to-runtime HTTP and WebSocket transport, preserving launch-token/cookie and Host/Origin denial properties. Do not enable broad WebView network access or expose credentials to JavaScript.
 7. Verify the original UI, SPA navigation, streamed conversation, session recovery and one native-approved tool operation end-to-end on Android.
+
+## Current checkpoint — 2026-11-16
+
+### Gate 4 / Phase 3A update
+
+- P3A-006 is complete for reproducible host packaging. The [build report](apps/android/evidence/original-web-p3a006-image-build.json) compares two independent full builds under Node 24.22.1: each archive is 129,118,094 bytes, with SHA-256 `513cdc8313f8bfff797dec586201192d799609a331d00ad22aae4ca880448c0d` and manifest SHA-256 `92f482574429bdcd5826442800d25b570ffecd7434e6c42d0f2c0fcf352f9d79`; all eight reproducibility checks pass.
+- The corrected candidate records 28,043 files, 2,993 contained symlinks, 628 production package manifests and 94 frontend assets. It excludes 35 OS-native candidates (13 ELF, 6 Mach-O/FAT, 14 PE/MZ, 2 static `.a` archives) and includes zero native binaries under the default-deny policy; one 127,846,009-byte WebAssembly asset is explicitly recorded as portable non-native content.
+- The license manifest binds all 628 declared package license identifiers to package.json hashes, lists separate notice files for 249 packages, and explicitly records 379 packages with no separate package license text. Project LICENSE and THIRD_PARTY_NOTICES.md are included.
+- The build evidence records 87 normalized pnpm workspace dependency specs and 56 generated JavaScript region-comment path normalizations. Absolute checkout paths are rejected outside those generated comments; the final image text scan found no checkout path leak.
+- The P3A-004 [native audit](apps/android/evidence/original-web-p3a004-native-artifact-audit.json) now binds the P3A-006 report SHA-256 and verifies its passing two-build comparison, current native-policy digest, file/symlink totals, and zero included native artifacts. It keeps the separate Android APK/runtime ELF closure explicitly unaccepted.
+- The same P3A-004 report parses ten native outputs declared by the current Gradle/CMake graph (six runtime JNI libraries, two node-pty libraries, the `libharness_probe.so` RuntimeService JNI bridge, and one process-proof executable). No APK/AAB or raw native ELF file exists in this checkout. This sandbox also has no Android SDK/NDK, SDK Manager or ADB; the Gradle configuration requests compile/target API 36, minimum API 29, and NDK 28.2.13676358. The report corrects the bridge’s role and flags the main-source-set process proof and PTY fixture for release-scope review.
+- This host-built candidate is not Android boot evidence and does not prove a complete file or Android native closure. P3A-004 remains IN PROGRESS; Gate 4 remains IN PROGRESS.
+
+### Current immediate Gate 4 execution order
+
+1. Continue P3A-004: obtain/build the exact APK for the current Gradle graph, extract its Android ARM64/Bionic native library set, resolve proof-only main-source-set inputs, and qualify each selected artifact with hash-bound ABI, build/toolchain, interpreter, dependency, symbol, API, alignment and license evidence. This sandbox lacks the Android toolchain and the checkout contains no APK/AAB; the empty host-image native list is not APK closure proof.
+2. After P3A-004 closure, boot the authentic original Web Profile under embedded Android Node on a physical device (P3A-007), recording device/API/ABI, logs, process tree, boot graph and client batches.
+3. Resolve capability-safe client graph behavior (P3A-008), then implement and test authenticated HTTP/WebSocket transport (P3A-009/010).
+4. Integrate the original UI and verify SPA navigation, streaming, session recovery and a native-approved tool operation on Android (P3A-011/012).
 
 ### Branch and change boundary
 

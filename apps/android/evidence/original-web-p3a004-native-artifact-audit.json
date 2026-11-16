@@ -11,7 +11,7 @@
   "inputs": {
     "scanner": {
       "path": "apps/android/scripts/audit_web_native_artifacts.py",
-      "sha256": "4e3de51905e99d3e64468490f494bfd24b740338eff670f70b1c616fd6007e26"
+      "sha256": "fc50e64c5d67fc1622d57543b680660bb990e67dd31f609c792088b697db40f1"
     },
     "lockfile": {
       "path": "pnpm-lock.yaml",
@@ -20,6 +20,10 @@
     "p3a003": {
       "path": "apps/android/evidence/original-web-p3a003-runtime-test-separation.json",
       "sha256": "e8c18a73c86c35e74868c96be77e628837d6b8d867c8217ffc8821ecd52031e4"
+    },
+    "p3a006ImageReport": {
+      "path": "apps/android/evidence/original-web-p3a006-image-build.json",
+      "sha256": "d62c97f03178a664009193d81527e08ce01b84414660a6ff767ec1fb6c5c0c52"
     },
     "hostObservations": [
       {
@@ -123,6 +127,44 @@
         "sha256": "e4676cde15c1e1fad0fd66ee30c7e6f4c98796da787933a1fe6065dd41cc71cb"
       }
     ],
+    "androidPackagingGraphSources": [
+      {
+        "path": "apps/android/app/build.gradle.kts",
+        "sha256": "315bafd71ead7c844944d0ad6604a30e8bb358817f94de0c2a2d1776535d0cc1"
+      },
+      {
+        "path": "apps/android/native/CMakeLists.txt",
+        "sha256": "5030b40254202693ec1c2274d9a76fdefe421f2d870ebaf792a8190ab983d3ec"
+      },
+      {
+        "path": "apps/android/native/probe.cpp",
+        "sha256": "33d6f0fac41aea30b6873814fa72c2ee2ed44f1c8e9849f749dbfe54bcfc7e36"
+      },
+      {
+        "path": "apps/android/scripts/prepare_runtime_assets.py",
+        "sha256": "881081ac3b0738ab685d7597a402c444fa05557d8d9061cc855dc81e57662b20"
+      },
+      {
+        "path": "apps/android/scripts/prepare_node_pty_assets.py",
+        "sha256": "004e5ba3d51c3efabd8d787de426a1f531664e74c6d69b225f770787113799bf"
+      },
+      {
+        "path": "apps/android/execution/process-proof/process_probe.cpp",
+        "sha256": "b237ebea36b32491ab1cb851a39c4dce8ad43f16c250500b00a0ee59bb070d3a"
+      },
+      {
+        "path": "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/RuntimeService.kt",
+        "sha256": "4240450604d31dfd101e30d7e09de2b75bbdb782640ce8f2701112f118c9c129"
+      },
+      {
+        "path": "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/ProcessCapabilityService.kt",
+        "sha256": "06eea4132a896a9e5ee7a3469de6d841b0bc8df653e385ed71f66ed7f381d512"
+      },
+      {
+        "path": "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/NodePtyProbeService.kt",
+        "sha256": "0f06f099cddcb00eba737ac0ef0fb0387bbe1f813db79712e49a429117b125c5"
+      }
+    ],
     "androidLicenseSources": [
       {
         "path": "LICENSE",
@@ -175,9 +217,9 @@
     "membersOfBothTrees": 9,
     "installedOnlyOrOtherTree": 42,
     "candidateTsv": "apps/android/evidence/original-web-p3a004-native-candidates.tsv",
-    "candidateTsvSha256": "966532877ba699c0e2e64fee29829c771938729eb2561e5b0c0840c77cb257a4",
+    "candidateTsvSha256": "f564a90d2a4c66de79648442cda6e39cff1e24e97325c03c393f0583120c5828",
     "historicalAndroidNativeMatrixTsv": "apps/android/evidence/original-web-p3a004-android-apk-native-matrix.tsv",
-    "historicalAndroidNativeMatrixTsvSha256": "d1404ea3d9c0b3fec4508b5edda584bf2cbf815a057747fd2d89259849445974",
+    "historicalAndroidNativeMatrixTsvSha256": "e3aba11bfbed6f6f55160ad27d399d5100b5068cedd9cdd39b21955e0a1a8b9b",
     "files": [
       {
         "path": "native/system/packages/linux-x64/bin/glibc/system.node",
@@ -293,7 +335,7 @@
           "frame-forwarding/LICENSE",
           "frame-forwarding/src/win-delay-load.LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/@deepseek-ai+libreoffice-kit@0.2.3/node_modules/@deepseek-ai/libreoffice-kit/frame-forwarding/prebuilds/darwin-arm64/libdsh_frame_forwarding_sdk.a",
@@ -320,7 +362,7 @@
           "frame-forwarding/LICENSE",
           "frame-forwarding/src/win-delay-load.LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/@deepseek-ai+libreoffice-kit@0.2.3/node_modules/@deepseek-ai/libreoffice-kit/frame-forwarding/prebuilds/darwin-x64/frame-forwarding.node",
@@ -347,7 +389,7 @@
           "frame-forwarding/LICENSE",
           "frame-forwarding/src/win-delay-load.LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/@deepseek-ai+libreoffice-kit@0.2.3/node_modules/@deepseek-ai/libreoffice-kit/frame-forwarding/prebuilds/darwin-x64/libdsh_frame_forwarding_sdk.a",
@@ -374,7 +416,7 @@
           "frame-forwarding/LICENSE",
           "frame-forwarding/src/win-delay-load.LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/@deepseek-ai+libreoffice-kit@0.2.3/node_modules/@deepseek-ai/libreoffice-kit/frame-forwarding/prebuilds/win32-arm64/frame-forwarding.node",
@@ -401,7 +443,7 @@
           "frame-forwarding/LICENSE",
           "frame-forwarding/src/win-delay-load.LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/@deepseek-ai+libreoffice-kit@0.2.3/node_modules/@deepseek-ai/libreoffice-kit/frame-forwarding/prebuilds/win32-x64/frame-forwarding.node",
@@ -428,7 +470,7 @@
           "frame-forwarding/LICENSE",
           "frame-forwarding/src/win-delay-load.LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/@earendil-works+pi-tui@1.3.0/node_modules/@earendil-works/pi-tui/native/darwin/prebuilds/darwin-arm64/darwin-platform.node",
@@ -447,7 +489,7 @@
         "packageCPU": null,
         "packageLibc": null,
         "licenseFiles": [],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/@earendil-works+pi-tui@1.3.0/node_modules/@earendil-works/pi-tui/native/darwin/prebuilds/darwin-x64/darwin-platform.node",
@@ -466,7 +508,7 @@
         "packageCPU": null,
         "packageLibc": null,
         "licenseFiles": [],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/@earendil-works+pi-tui@1.3.0/node_modules/@earendil-works/pi-tui/native/linux/prebuilds/linux-arm64/linux-platform-x11.node",
@@ -642,7 +684,7 @@
         "packageCPU": null,
         "packageLibc": null,
         "licenseFiles": [],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/@earendil-works+pi-tui@1.3.0/node_modules/@earendil-works/pi-tui/native/win32/prebuilds/win32-x64/win32-platform.node",
@@ -661,7 +703,7 @@
         "packageCPU": null,
         "packageLibc": null,
         "licenseFiles": [],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/@electron-internal+extract-zip@1.0.5/node_modules/@electron-internal/extract-zip/index.darwin-universal.node",
@@ -679,7 +721,7 @@
         "packageCPU": null,
         "packageLibc": null,
         "licenseFiles": [],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/@electron-internal+extract-zip@1.0.5/node_modules/@electron-internal/extract-zip/index.linux-arm-gnueabihf.node",
@@ -1678,7 +1720,7 @@
         "packageCPU": null,
         "packageLibc": null,
         "licenseFiles": [],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/@electron-internal+extract-zip@1.0.5/node_modules/@electron-internal/extract-zip/index.win32-x64-msvc.node",
@@ -1697,7 +1739,7 @@
         "packageCPU": null,
         "packageLibc": null,
         "licenseFiles": [],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/@img+sharp-libvips-linux-x64@1.3.4/node_modules/@img/sharp-libvips-linux-x64/lib/libvips-cpp.so.8.18.7",
@@ -5460,7 +5502,7 @@
         "licenseFiles": [
           "LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/electron-winstaller@5.4.0_supports-color@9.4.0/node_modules/electron-winstaller/vendor/7z-x64.dll",
@@ -5480,7 +5522,7 @@
         "licenseFiles": [
           "LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/electron-winstaller@5.4.0_supports-color@9.4.0/node_modules/electron-winstaller/vendor/Microsoft.Deployment.Resources.dll",
@@ -5498,7 +5540,7 @@
         "licenseFiles": [
           "LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/electron-winstaller@5.4.0_supports-color@9.4.0/node_modules/electron-winstaller/vendor/Microsoft.Deployment.WindowsInstaller.dll",
@@ -5518,7 +5560,7 @@
         "licenseFiles": [
           "LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/electron-winstaller@5.4.0_supports-color@9.4.0/node_modules/electron-winstaller/vendor/WixNetFxExtension.dll",
@@ -5536,7 +5578,7 @@
         "licenseFiles": [
           "LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/electron-winstaller@5.4.0_supports-color@9.4.0/node_modules/electron-winstaller/vendor/wconsole.dll",
@@ -5554,7 +5596,7 @@
         "licenseFiles": [
           "LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/electron-winstaller@5.4.0_supports-color@9.4.0/node_modules/electron-winstaller/vendor/winterop.dll",
@@ -5572,7 +5614,7 @@
         "licenseFiles": [
           "LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/electron-winstaller@5.4.0_supports-color@9.4.0/node_modules/electron-winstaller/vendor/wix.dll",
@@ -5590,7 +5632,7 @@
         "licenseFiles": [
           "LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/lightningcss-linux-x64-gnu@1.33.0/node_modules/lightningcss-linux-x64-gnu/lightningcss.linux-x64-gnu.node",
@@ -6027,7 +6069,7 @@
         "licenseFiles": [
           "LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/darwin-x64/pty.node",
@@ -6050,7 +6092,7 @@
         "licenseFiles": [
           "LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/linux-arm64/pty.node",
@@ -6418,7 +6460,7 @@
         "licenseFiles": [
           "LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/win32-arm64/conpty/conpty.dll",
@@ -6441,7 +6483,7 @@
         "licenseFiles": [
           "LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/win32-arm64/conpty_console_list.node",
@@ -6464,7 +6506,7 @@
         "licenseFiles": [
           "LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/win32-x64/conpty.node",
@@ -6487,7 +6529,7 @@
         "licenseFiles": [
           "LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/win32-x64/conpty/conpty.dll",
@@ -6510,7 +6552,7 @@
         "licenseFiles": [
           "LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/win32-x64/conpty_console_list.node",
@@ -6533,7 +6575,7 @@
         "licenseFiles": [
           "LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/third_party/conpty/1.25.260303002/win10-arm64/conpty.dll",
@@ -6555,7 +6597,7 @@
         "licenseFiles": [
           "LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/third_party/conpty/1.25.260303002/win10-x64/conpty.dll",
@@ -6577,7 +6619,7 @@
         "licenseFiles": [
           "LICENSE"
         ],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/pnpm@11.28.5/node_modules/pnpm/dist/node_modules/@reflink/reflink-darwin-arm64/reflink.darwin-arm64.node",
@@ -6600,7 +6642,7 @@
         ],
         "packageLibc": null,
         "licenseFiles": [],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/pnpm@11.28.5/node_modules/pnpm/dist/node_modules/@reflink/reflink-darwin-x64/reflink.darwin-x64.node",
@@ -6623,7 +6665,7 @@
         ],
         "packageLibc": null,
         "licenseFiles": [],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/pnpm@11.28.5/node_modules/pnpm/dist/node_modules/@reflink/reflink-win32-arm64-msvc/reflink.win32-arm64-msvc.node",
@@ -6646,7 +6688,7 @@
         ],
         "packageLibc": null,
         "licenseFiles": [],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/pnpm@11.28.5/node_modules/pnpm/dist/node_modules/@reflink/reflink-win32-x64-msvc/reflink.win32-x64-msvc.node",
@@ -6669,7 +6711,7 @@
         ],
         "packageLibc": null,
         "licenseFiles": [],
-        "androidPackagingDecision": "deny_non_android_platform_or_archive; no Android build provenance"
+        "androidPackagingDecision": "deny_non_android_platform_or_archive; no ELF metadata"
       },
       {
         "path": "node_modules/.pnpm/quickjs-wasi@3.6.2/node_modules/quickjs-wasi/extensions/crypto/crypto.so",
@@ -11320,7 +11362,7 @@
     },
     {
       "artifact": "libharness_probe.so",
-      "purposeAndWebImageDisposition": "Native probe/test support; exclude from the production Web Runtime Image.",
+      "purposeAndWebImageDisposition": "Android JNI bridge loaded by RuntimeService; it loads libnode.so and calls Node::Start. This is outside the interpreted Web Runtime Image and is part of the Android runtime bridge.",
       "buildContext": {
         "recipes": [],
         "toolchainTarget": "APK-level arm64-v8a/minSdk 29 context only; per-artifact compiler/toolchain record not located.",
@@ -11730,7 +11772,7 @@
     },
     {
       "artifact": "libharness_process_probe.so",
-      "purposeAndWebImageDisposition": "Process-probe test support; exclude from the production Web Runtime Image.",
+      "purposeAndWebImageDisposition": "Fixed process-capability proof executable staged through the main jniLibs source set; production-release scoping requires explicit review.",
       "buildContext": {
         "recipes": [],
         "toolchainTarget": "APK-level arm64-v8a/minSdk 29 context; readelf snapshots show AArch64 and /system/bin/linker64, but are not hash-bound.",
@@ -13658,22 +13700,590 @@
       "licenseMappingStatus": "Source license/asset claims are contextual; exact packaged per-artifact notice binding is not established."
     }
   ],
+  "currentAndroidPackagingNativeInputs": {
+    "status": "declared-build-graph-only; no raw Android package/native output available in the worktree",
+    "target": {
+      "abi": "arm64-v8a",
+      "minimumApi": 29
+    },
+    "declaredNativeInputCount": 10,
+    "rawApkOrAabAvailable": false,
+    "rawApkOrAabPaths": [],
+    "rawNativeArtifactFileCount": 0,
+    "rawNativeArtifactPaths": [],
+    "groups": {
+      "android-jni-runtime-bridge": 1,
+      "process-capability-proof": 1,
+      "runtime-jni-libraries": 6,
+      "terminal-node-pty-jni-libraries": 2
+    },
+    "items": [
+      {
+        "artifact": "libc++_shared.so",
+        "packagingGroup": "runtime-jni-libraries",
+        "role": "NDK shared C++ runtime in historical APKs; include in a Web Runtime Image only if selected Android libraries require it.",
+        "declaredBy": "apps/android/scripts/prepare_runtime_assets.py",
+        "expectedPackagePath": "lib/arm64-v8a/libc++_shared.so",
+        "expectedBuildOrStagingPath": "apps/android/app/src/main/jniLibs/arm64-v8a/libc++_shared.so",
+        "sourcePath": null,
+        "expectedBuildOrStagingPathExists": false,
+        "sourcePathExists": false,
+        "rawArtifactPathsFound": [],
+        "rawArtifactSha256": [],
+        "historicalSha256Variants": [
+          "cd61762848882a16c8244c964a6f396c0caa0b440588a210ce9cc4ab0e6d9f0c"
+        ],
+        "historicalBuildHashLinkStatuses": [
+          "no_artifact_output_hash_in_build_record"
+        ],
+        "historicalApkAbis": [
+          "arm64-v8a"
+        ]
+      },
+      {
+        "artifact": "libharness_atomic.so",
+        "packagingGroup": "runtime-jni-libraries",
+        "role": "Atomic-publication proof addon; not established as a Web Profile dependency.",
+        "declaredBy": "apps/android/scripts/prepare_runtime_assets.py",
+        "expectedPackagePath": "lib/arm64-v8a/libharness_atomic.so",
+        "expectedBuildOrStagingPath": "apps/android/app/src/main/jniLibs/arm64-v8a/libharness_atomic.so",
+        "sourcePath": null,
+        "expectedBuildOrStagingPathExists": false,
+        "sourcePathExists": false,
+        "rawArtifactPathsFound": [],
+        "rawArtifactSha256": [],
+        "historicalSha256Variants": [
+          "1c5fae1ac01ebdc9431f3ec9b5b11691d8fce489ec096fdef7cae566d7ced34e"
+        ],
+        "historicalBuildHashLinkStatuses": [
+          "build_record_hash_differs_from_packaged_hash",
+          "no_artifact_output_hash_in_build_record"
+        ],
+        "historicalApkAbis": [
+          "arm64-v8a"
+        ]
+      },
+      {
+        "artifact": "libharness_require_builtin.so",
+        "packagingGroup": "runtime-jni-libraries",
+        "role": "Android require-builtin carrier candidate; packaged hash is not linked to the recorded carrier-build hash.",
+        "declaredBy": "apps/android/scripts/prepare_runtime_assets.py",
+        "expectedPackagePath": "lib/arm64-v8a/libharness_require_builtin.so",
+        "expectedBuildOrStagingPath": "apps/android/app/src/main/jniLibs/arm64-v8a/libharness_require_builtin.so",
+        "sourcePath": null,
+        "expectedBuildOrStagingPathExists": false,
+        "sourcePathExists": false,
+        "rawArtifactPathsFound": [],
+        "rawArtifactSha256": [],
+        "historicalSha256Variants": [
+          "0f577571c27c6148be2173a660f146d826d259e7001ff3bdaefdcf5f5f8b5757"
+        ],
+        "historicalBuildHashLinkStatuses": [
+          "build_record_hash_differs_from_packaged_hash",
+          "no_artifact_output_hash_in_build_record"
+        ],
+        "historicalApkAbis": [
+          "arm64-v8a"
+        ]
+      },
+      {
+        "artifact": "libharness_system.so",
+        "packagingGroup": "runtime-jni-libraries",
+        "role": "System/flock addon from a separate platform-capability proof; Web Profile necessity is unproven.",
+        "declaredBy": "apps/android/scripts/prepare_runtime_assets.py",
+        "expectedPackagePath": "lib/arm64-v8a/libharness_system.so",
+        "expectedBuildOrStagingPath": "apps/android/app/src/main/jniLibs/arm64-v8a/libharness_system.so",
+        "sourcePath": null,
+        "expectedBuildOrStagingPathExists": false,
+        "sourcePathExists": false,
+        "rawArtifactPathsFound": [],
+        "rawArtifactSha256": [],
+        "historicalSha256Variants": [
+          "78469b9ea728137161615e1993a09d8297d51692b054b9e54500eccdab13c2e5",
+          "8fe9bd01db838f6be1e84264d5efd1b148721a47364fd52f3b30d78303759a60"
+        ],
+        "historicalBuildHashLinkStatuses": [
+          "no_artifact_output_hash_in_build_record"
+        ],
+        "historicalApkAbis": [
+          "arm64-v8a"
+        ]
+      },
+      {
+        "artifact": "libnode.so",
+        "packagingGroup": "runtime-jni-libraries",
+        "role": "Embedded Node shared-runtime candidate; exact Web Runtime Image inclusion remains unproven.",
+        "declaredBy": "apps/android/scripts/prepare_runtime_assets.py",
+        "expectedPackagePath": "lib/arm64-v8a/libnode.so",
+        "expectedBuildOrStagingPath": "apps/android/app/src/main/jniLibs/arm64-v8a/libnode.so",
+        "sourcePath": null,
+        "expectedBuildOrStagingPathExists": false,
+        "sourcePathExists": false,
+        "rawArtifactPathsFound": [],
+        "rawArtifactSha256": [],
+        "historicalSha256Variants": [
+          "dce2e18255bd582ff3651f3c00013d026799e0eb549f2da24fee0feedfa29437"
+        ],
+        "historicalBuildHashLinkStatuses": [
+          "no_artifact_output_hash_in_build_record"
+        ],
+        "historicalApkAbis": [
+          "arm64-v8a"
+        ]
+      },
+      {
+        "artifact": "libnode_executable.so",
+        "packagingGroup": "runtime-jni-libraries",
+        "role": "Node executable-carrier proof artifact; exact Web Runtime Image inclusion remains unproven.",
+        "declaredBy": "apps/android/scripts/prepare_runtime_assets.py",
+        "expectedPackagePath": "lib/arm64-v8a/libnode_executable.so",
+        "expectedBuildOrStagingPath": "apps/android/app/src/main/jniLibs/arm64-v8a/libnode_executable.so",
+        "sourcePath": null,
+        "expectedBuildOrStagingPathExists": false,
+        "sourcePathExists": false,
+        "rawArtifactPathsFound": [],
+        "rawArtifactSha256": [],
+        "historicalSha256Variants": [
+          "07b91cc6fa5ed0489b95bc237929fd14a009c9bfa8d309b514fceca3d977e408"
+        ],
+        "historicalBuildHashLinkStatuses": [
+          "no_artifact_output_hash_in_build_record"
+        ],
+        "historicalApkAbis": [
+          "arm64-v8a"
+        ]
+      },
+      {
+        "artifact": "libharness_node_pty.so",
+        "packagingGroup": "terminal-node-pty-jni-libraries",
+        "role": "Terminal-specific node-pty addon; not established as a Web Profile dependency.",
+        "declaredBy": "apps/android/scripts/prepare_node_pty_assets.py",
+        "expectedPackagePath": "lib/arm64-v8a/libharness_node_pty.so",
+        "expectedBuildOrStagingPath": "apps/android/app/build/generated/nodePtyNative/arm64-v8a/libharness_node_pty.so",
+        "sourcePath": "apps/android/runtime/out/node-pty/libharness_node_pty.so",
+        "expectedBuildOrStagingPathExists": false,
+        "sourcePathExists": false,
+        "rawArtifactPathsFound": [],
+        "rawArtifactSha256": [],
+        "historicalSha256Variants": [
+          "2b84420de3db82f41003524ef8b62ff33984c0f168c8401f8eeb521fdb0c47f3"
+        ],
+        "historicalBuildHashLinkStatuses": [
+          "exact_build_output_hash_match",
+          "no_artifact_output_hash_in_build_record"
+        ],
+        "historicalApkAbis": [
+          "arm64-v8a"
+        ]
+      },
+      {
+        "artifact": "libharness_pty_fixture.so",
+        "packagingGroup": "terminal-node-pty-jni-libraries",
+        "role": "PTY proof fixture executable; exclude from the production Web Runtime Image.",
+        "declaredBy": "apps/android/scripts/prepare_node_pty_assets.py",
+        "expectedPackagePath": "lib/arm64-v8a/libharness_pty_fixture.so",
+        "expectedBuildOrStagingPath": "apps/android/app/build/generated/nodePtyNative/arm64-v8a/libharness_pty_fixture.so",
+        "sourcePath": "apps/android/runtime/out/node-pty/libharness_pty_fixture.so",
+        "expectedBuildOrStagingPathExists": false,
+        "sourcePathExists": false,
+        "rawArtifactPathsFound": [],
+        "rawArtifactSha256": [],
+        "historicalSha256Variants": [
+          "2c4d85b720e001d8769d805cb348439d283e7a8aafd7cee098215d6b32c8f54e"
+        ],
+        "historicalBuildHashLinkStatuses": [
+          "exact_build_output_hash_match",
+          "no_artifact_output_hash_in_build_record"
+        ],
+        "historicalApkAbis": [
+          "arm64-v8a"
+        ]
+      },
+      {
+        "artifact": "libharness_process_probe.so",
+        "packagingGroup": "process-capability-proof",
+        "role": "Fixed process-capability proof executable staged through the main jniLibs source set; production-release scoping requires explicit review.",
+        "declaredBy": "apps/android/app/build.gradle.kts: processProof",
+        "expectedPackagePath": "lib/arm64-v8a/libharness_process_probe.so",
+        "expectedBuildOrStagingPath": "apps/android/app/build/generated/processNative/arm64-v8a/libharness_process_probe.so",
+        "sourcePath": "apps/android/execution/process-proof/process_probe.cpp",
+        "expectedBuildOrStagingPathExists": false,
+        "sourcePathExists": true,
+        "rawArtifactPathsFound": [],
+        "rawArtifactSha256": [],
+        "historicalSha256Variants": [
+          "d136b262d110039dff02b788844dd563db3f4c24b629a9fed767f37d0fa372d3"
+        ],
+        "historicalBuildHashLinkStatuses": [
+          "no_artifact_output_hash_in_build_record"
+        ],
+        "historicalApkAbis": [
+          "arm64-v8a"
+        ]
+      },
+      {
+        "artifact": "libharness_probe.so",
+        "packagingGroup": "android-jni-runtime-bridge",
+        "role": "Android JNI bridge loaded by RuntimeService; it loads libnode.so and calls Node::Start. This is outside the interpreted Web Runtime Image and is part of the Android runtime bridge.",
+        "declaredBy": "apps/android/app/build.gradle.kts: externalNativeBuild + apps/android/native/CMakeLists.txt",
+        "expectedPackagePath": "lib/arm64-v8a/libharness_probe.so",
+        "expectedBuildOrStagingPath": "Gradle externalNativeBuild output (variant-specific)",
+        "sourcePath": "apps/android/native/probe.cpp",
+        "expectedBuildOrStagingPathExists": false,
+        "sourcePathExists": true,
+        "rawArtifactPathsFound": [],
+        "rawArtifactSha256": [],
+        "historicalSha256Variants": [
+          "3e40d78a05ade0152ccc9f5551358cd85538aa752fe1ba37a84bd028b13c8190",
+          "4b387cde02c6c248966fec13b8ff0721b294914e8f02b624eb9024ad4be113dc"
+        ],
+        "historicalBuildHashLinkStatuses": [
+          "no_artifact_output_hash_in_build_record"
+        ],
+        "historicalApkAbis": [
+          "arm64-v8a"
+        ]
+      }
+    ],
+    "interpretation": "Gradle/CMake declarations identify expected app-package inputs, not a built APK inventory. Source recipes and historical package snapshots do not substitute for the absent raw APK and exact packaged ELF bytes."
+  },
+  "p3a006ImageNativeAudit": {
+    "reportPath": "apps/android/evidence/original-web-p3a006-image-build.json",
+    "reportSha256": "d62c97f03178a664009193d81527e08ce01b84414660a6ff767ec1fb6c5c0c52",
+    "artifactSha256": "513cdc8313f8bfff797dec586201192d799609a331d00ad22aae4ca880448c0d",
+    "artifactManifestSha256": "92f482574429bdcd5826442800d25b570ffecd7434e6c42d0f2c0fcf352f9d79",
+    "artifactBytes": 129118094,
+    "reproducibilityStatus": "reproducibility-verified-host-only",
+    "reproducibilityChecks": {
+      "archiveSha256Identical": true,
+      "archiveSizeIdentical": true,
+      "filePathHashesIdentical": true,
+      "manifestIdentical": true,
+      "packageLicenseManifestIdentical": true,
+      "sourceInputsIdentical": true,
+      "sourceRevisionIdentical": true,
+      "symlinkManifestIdentical": true
+    },
+    "sourceRevision": "25024d387e2ba9b68436e7cc290172189597877f",
+    "nativePolicySha256": "fec1191139cdd94b319e1a53be1dad2e7026f2e9d9ec67b18752f8a9f077cbb6",
+    "imageFileCount": 28043,
+    "imageSymlinkCount": 2993,
+    "packageManifestCount": 628,
+    "includedNativeArtifactCount": 0,
+    "includedNativeArtifacts": [],
+    "excludedNativeArtifactCount": 35,
+    "excludedNativeByFormat": {
+      "ELF": 13,
+      "Mach-O/FAT": 6,
+      "PE/MZ": 14,
+      "native-suffix:.a": 2
+    },
+    "excludedNativeArtifacts": [
+      {
+        "bytes": 197952,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "Mach-O/FAT",
+        "path": "runtime/node_modules/.pnpm/@deepseek-ai+libreoffice-kit@0.2.3/node_modules/@deepseek-ai/libreoffice-kit/frame-forwarding/prebuilds/darwin-arm64/frame-forwarding.node",
+        "sha256": "4682ac70dc8c02e17e659a1cd28e4dda7db44b7ff6a939bf46f5436e4fb91a5b"
+      },
+      {
+        "bytes": 57584,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "native-suffix:.a",
+        "path": "runtime/node_modules/.pnpm/@deepseek-ai+libreoffice-kit@0.2.3/node_modules/@deepseek-ai/libreoffice-kit/frame-forwarding/prebuilds/darwin-arm64/libdsh_frame_forwarding_sdk.a",
+        "sha256": "a05ca6dab9ff6c73cc908b7b6b73d0d61f519537ae648955554480bc56e6023f"
+      },
+      {
+        "bytes": 182416,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "Mach-O/FAT",
+        "path": "runtime/node_modules/.pnpm/@deepseek-ai+libreoffice-kit@0.2.3/node_modules/@deepseek-ai/libreoffice-kit/frame-forwarding/prebuilds/darwin-x64/frame-forwarding.node",
+        "sha256": "ca36836fabbf9217102eab0226e3590984f34491b044a7ef7587e06cca877ed4"
+      },
+      {
+        "bytes": 57984,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "native-suffix:.a",
+        "path": "runtime/node_modules/.pnpm/@deepseek-ai+libreoffice-kit@0.2.3/node_modules/@deepseek-ai/libreoffice-kit/frame-forwarding/prebuilds/darwin-x64/libdsh_frame_forwarding_sdk.a",
+        "sha256": "c59c43b6880ed6aa9a478779213277019b0a2ad88348c88fcf817410262d3f1a"
+      },
+      {
+        "bytes": 209920,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "PE/MZ",
+        "path": "runtime/node_modules/.pnpm/@deepseek-ai+libreoffice-kit@0.2.3/node_modules/@deepseek-ai/libreoffice-kit/frame-forwarding/prebuilds/win32-arm64/frame-forwarding.node",
+        "sha256": "0fa51d85ffac1ecbeb57204c7dbad8bef33981a37119a2b43da2d4d6c89421a2"
+      },
+      {
+        "bytes": 222720,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "PE/MZ",
+        "path": "runtime/node_modules/.pnpm/@deepseek-ai+libreoffice-kit@0.2.3/node_modules/@deepseek-ai/libreoffice-kit/frame-forwarding/prebuilds/win32-x64/frame-forwarding.node",
+        "sha256": "218335f7144a143a7eabd3943824c28747c84498cbdb69f7f74038460a192825"
+      },
+      {
+        "bytes": 17360,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "ELF",
+        "path": "runtime/node_modules/.pnpm/@deepseek-ai+node-addon-system-linux-x64@file++++WORKSPACE+native+system+packages+linux-x64/node_modules/@deepseek-ai/node-addon-system-linux-x64/bin/glibc/system.node",
+        "sha256": "54a9c25c05186c17520f6b7a5ced5f005752c08044c3eb76524cd517287600bc"
+      },
+      {
+        "bytes": 18699288,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "ELF",
+        "path": "runtime/node_modules/.pnpm/@img+sharp-libvips-linux-x64@1.3.4/node_modules/@img/sharp-libvips-linux-x64/lib/libvips-cpp.so.8.18.7",
+        "sha256": "4aa73553408c3964071728f4a231a8e86918e39bc49f1fbae75355f7ea933ea9"
+      },
+      {
+        "bytes": 415112,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "ELF",
+        "path": "runtime/node_modules/.pnpm/@img+sharp-linux-x64@0.35.5/node_modules/@img/sharp-linux-x64/lib/sharp-linux-x64-0.35.5.node",
+        "sha256": "cf896cc1b7f3ae9c3e8eb3d7b2b198b8de2824ff7d0681d684bab5a825def335"
+      },
+      {
+        "bytes": 1150432,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "ELF",
+        "path": "runtime/node_modules/.pnpm/@koromix+koffi-linux-x64@3.1.1/node_modules/@koromix/koffi-linux-x64/linux_x64/koffi.node",
+        "sha256": "df687b8c68598c3ee83d06dcbc1d72fca032475e62b6108c4badfb5e43a3e7ff"
+      },
+      {
+        "bytes": 1210360,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "ELF",
+        "path": "runtime/node_modules/.pnpm/@koromix+koffi-linux-x64@3.1.1/node_modules/@koromix/koffi-linux-x64/musl_x64/koffi.node",
+        "sha256": "41adcb13df1a3ffac902dab2d3a1baef4f4dc1470964971ccfff1618c8aeb804"
+      },
+      {
+        "bytes": 5728032,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "ELF",
+        "path": "runtime/node_modules/.pnpm/@vscode+ripgrep-linux-x64@1.18.0/node_modules/@vscode/ripgrep-linux-x64/bin/rg",
+        "sha256": "193906679498de4d939345b937fa24e0e69a03c244bd70c859f5e41232713f21"
+      },
+      {
+        "bytes": 295392,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "ELF",
+        "path": "runtime/node_modules/.pnpm/node-addon-require-builtin-linux-x64-gnu@0.1.9/node_modules/node-addon-require-builtin-linux-x64-gnu/prebuilt/linux-x64-gnu-napi-v9.node",
+        "sha256": "40c34d27d8339e246a8f7415a06152935496cdc06555ea8fce0e052011acc70f"
+      },
+      {
+        "bytes": 86904,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "Mach-O/FAT",
+        "path": "runtime/node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/darwin-arm64/pty.node",
+        "sha256": "0aae85518beb134a666f8e415f78bf528b2e9d40b47498af97433dc459661366"
+      },
+      {
+        "bytes": 50480,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "Mach-O/FAT",
+        "path": "runtime/node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/darwin-arm64/spawn-helper",
+        "sha256": "08bc83a084651d095645010d34783f94b9af443614747e953e66d6578027e999"
+      },
+      {
+        "bytes": 58576,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "Mach-O/FAT",
+        "path": "runtime/node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/darwin-x64/pty.node",
+        "sha256": "811f4a357e260fc0e520c250a3de5990483761d82afd635effbdf4b793b8a0e9"
+      },
+      {
+        "bytes": 9248,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "Mach-O/FAT",
+        "path": "runtime/node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/darwin-x64/spawn-helper",
+        "sha256": "a3bed36ae3ed83b2ac2fce475bd578c51f5b536041f0b2dfe116987f565e9758"
+      },
+      {
+        "bytes": 69112,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "ELF",
+        "path": "runtime/node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/linux-arm64/pty.node",
+        "sha256": "5a3b8930d62535edabec2eac79fe8eca70a178d93fbb76b1ae875dd60ee8f825"
+      },
+      {
+        "bytes": 75976,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "ELF",
+        "path": "runtime/node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/linux-x64/pty.node",
+        "sha256": "123792d8f22f36d519b21dfb6f4b716f9b18b9e579085ea2840d0773d88d35fd"
+      },
+      {
+        "bytes": 279040,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "PE/MZ",
+        "path": "runtime/node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/win32-arm64/conpty.node",
+        "sha256": "6da15dc84b864bb4630d95faef97da5f323a078b53d73f395b5efd6f7952c3e0"
+      },
+      {
+        "bytes": 122368,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "PE/MZ",
+        "path": "runtime/node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/win32-arm64/conpty_console_list.node",
+        "sha256": "327cf47db8b524a75813c98871037bc60f0a08660e75635897aed957a059b690"
+      },
+      {
+        "bytes": 1110560,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "PE/MZ",
+        "path": "runtime/node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/win32-arm64/conpty/OpenConsole.exe",
+        "sha256": "7fa560be0c9b6c81db5d1b855a4a6e0f3ee5a2ea75d36eebb3ae44443b8d4866"
+      },
+      {
+        "bytes": 106528,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "PE/MZ",
+        "path": "runtime/node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/win32-arm64/conpty/conpty.dll",
+        "sha256": "b3a9f975c51d5b9b96d290bf784e990e3f85203b063c21614457353f566266ff"
+      },
+      {
+        "bytes": 291328,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "PE/MZ",
+        "path": "runtime/node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/win32-x64/conpty.node",
+        "sha256": "ec2fd8545c30e051ee3fa17d26127f7e615919814879c7f746cf4c80845226e0"
+      },
+      {
+        "bytes": 134656,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "PE/MZ",
+        "path": "runtime/node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/win32-x64/conpty_console_list.node",
+        "sha256": "d46800643f90fc56b9fd67398f04a04a871521de0e825211c8382d187859d3ed"
+      },
+      {
+        "bytes": 1062472,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "PE/MZ",
+        "path": "runtime/node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/win32-x64/conpty/OpenConsole.exe",
+        "sha256": "7f68c840226505004215c0b82d4e502c24b5bc3f4b93c4baaaa19bd679c0def8"
+      },
+      {
+        "bytes": 110152,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "PE/MZ",
+        "path": "runtime/node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/win32-x64/conpty/conpty.dll",
+        "sha256": "3319b484b80bb53d1f4d0a9eb0ea60fd0f61da69db7280ca43b84215f19245ff"
+      },
+      {
+        "bytes": 1110560,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "PE/MZ",
+        "path": "runtime/node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/third_party/conpty/1.25.260303002/win10-arm64/OpenConsole.exe",
+        "sha256": "7fa560be0c9b6c81db5d1b855a4a6e0f3ee5a2ea75d36eebb3ae44443b8d4866"
+      },
+      {
+        "bytes": 106528,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "PE/MZ",
+        "path": "runtime/node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/third_party/conpty/1.25.260303002/win10-arm64/conpty.dll",
+        "sha256": "b3a9f975c51d5b9b96d290bf784e990e3f85203b063c21614457353f566266ff"
+      },
+      {
+        "bytes": 1062472,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "PE/MZ",
+        "path": "runtime/node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/third_party/conpty/1.25.260303002/win10-x64/OpenConsole.exe",
+        "sha256": "7f68c840226505004215c0b82d4e502c24b5bc3f4b93c4baaaa19bd679c0def8"
+      },
+      {
+        "bytes": 110152,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "PE/MZ",
+        "path": "runtime/node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/third_party/conpty/1.25.260303002/win10-x64/conpty.dll",
+        "sha256": "3319b484b80bb53d1f4d0a9eb0ea60fd0f61da69db7280ca43b84215f19245ff"
+      },
+      {
+        "bytes": 27026609,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "ELF",
+        "path": "runtime/node_modules/.pnpm/sherpa-onnx-linux-x64@1.13.8/node_modules/sherpa-onnx-linux-x64/libonnxruntime.so",
+        "sha256": "4b3607aebd1784b26b6f9b20e4bd974c7ab8287043e4d095cb7d2cb40b5e566e"
+      },
+      {
+        "bytes": 5116576,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "ELF",
+        "path": "runtime/node_modules/.pnpm/sherpa-onnx-linux-x64@1.13.8/node_modules/sherpa-onnx-linux-x64/libsherpa-onnx-c-api.so",
+        "sha256": "b1019f8c9583e3e576c2ba6032b580677fcf6e2230c241a8b423c65aceded021"
+      },
+      {
+        "bytes": 261840,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "ELF",
+        "path": "runtime/node_modules/.pnpm/sherpa-onnx-linux-x64@1.13.8/node_modules/sherpa-onnx-linux-x64/libsherpa-onnx-cxx-api.so",
+        "sha256": "795b88737a57f63404c8d17ddd08b5f0c28b5679ee9517cd6766ae95ee6fdb0d"
+      },
+      {
+        "bytes": 974496,
+        "decision": "excluded-default-deny-no-approved-web-image-native-artifacts",
+        "format": "ELF",
+        "path": "runtime/node_modules/.pnpm/sherpa-onnx-linux-x64@1.13.8/node_modules/sherpa-onnx-linux-x64/sherpa-onnx.node",
+        "sha256": "d8f1181559e7aecaa99493e8c441c16a4d51a18a1f3fcdf48fd7884e510f3767"
+      }
+    ],
+    "portableBinaryAssets": [
+      {
+        "bytes": 127846009,
+        "format": "WebAssembly-non-native",
+        "path": "runtime/node_modules/.pnpm/@deepseek-ai+libreoffice-kit-wasm@0.2.3/node_modules/@deepseek-ai/libreoffice-kit-wasm/assets/dsoffice.wasm",
+        "sha256": "bb7d1121c7200020f0b6219e37655719cde0c63f905f9826c43c40bf5a7c17c8"
+      }
+    ],
+    "negativeAssertions": {
+      "archiveValidatedAgainstManifest": true,
+      "checkoutSpecificWorkspacePathLeak": false,
+      "credentialsOrLocalConfigIncluded": false,
+      "deterministicSecondBuildPending": false,
+      "deterministicSecondBuildVerified": true,
+      "elfOrOtherNativeBinariesIncluded": false,
+      "nativePolicyAcceptedEmptyImageSet": true,
+      "p3a003ForbiddenTestOrBuildPackageIdentitiesPresent": [],
+      "previewAssetsIncluded": false,
+      "sourceMapsIncluded": false,
+      "symlinksContainedInImage": true,
+      "testFixtureOrVitestPathsIncluded": false
+    },
+    "licenseManifestSummary": {
+      "packageCount": 628,
+      "packagesWithDeclaredLicense": 628,
+      "packagesWithLicenseFiles": 249,
+      "packagesMissingLicenseFiles": 379,
+      "projectFiles": [
+        {
+          "path": "licenses/project/LICENSE",
+          "sha256": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be"
+        },
+        {
+          "path": "licenses/project/THIRD_PARTY_NOTICES.md",
+          "sha256": "4bd8832885ca31daf3e480fb950b9e849446438c0089b05fab67d6c2673fa2ef"
+        }
+      ]
+    },
+    "androidApkRuntimeNativeClosureAccepted": false,
+    "decision": "candidate-image-contains-no-native-artifacts; this does not prove the separate Android APK/runtime ELF closure"
+  },
   "policy": {
     "decision": "Reject all Linux GNU/GLIBC, Linux musl, Darwin and Windows prebuilt native payloads from an Android ARM64/Bionic runtime image unless rebuilt and re-audited for Android.",
     "acceptedAndroidWebRuntimeNativeArtifacts": [],
-    "reason": "The final Web Runtime Image and its native ELF closure do not exist in the inspected checkout. Historical APK proof records are separate, incomplete Android packaging evidence and are not a Web Runtime Image qualification."
+    "reason": "The reproducible P3A-006 host candidate reports no included OS-native artifact and rejects its host-native candidates. The Android Gradle graph declares ten APK native inputs, but this worktree contains no APK/AAB or extracted native bytes to qualify that separate closure."
   },
   "openAcceptanceGaps": [
-    "No deterministic Android Web Runtime Image exists to enumerate its actual native ELF closure.",
+    "The current Android Gradle/CMake graph declares ten native package inputs (six runtime libraries, two node-pty libraries, the RuntimeService JNI bridge, and a process-capability proof executable), but no raw APK/AAB or native ELF payload is present in the worktree for exact packaged-hash inspection.",
+    "P3A-006 is a reproducible host package/static-asset candidate; its empty in-archive native list does not prove the separate Android APK/runtime ELF set is empty or qualified.",
     "The P3A-001 host-loaded addon is an x86-64 Linux GNU ELF requiring glibc and is explicitly rejected for Android.",
     "P3A-003 package-tree membership is not proof that any candidate file is required by the Web Profile.",
     "Historical APK min SDK and arm64-v8a metadata are package-level context; they do not prove each ELF minimum API note or Android build target.",
     "Build-output hash linkage is absent for most historical libraries; recorded require-builtin and atomic build hashes differ from their packaged ELF hashes.",
     "Retained readelf checks cover only selected carrier/probe/fixture binaries and are not cryptographically bound to every packaged-library hash; full symbol/version requirements and per-artifact license notice mapping remain incomplete.",
+    "The app main source set currently stages the process-capability proof executable and PTY fixture; their production-release scope requires explicit review.",
     "The Android APK test profile records incomplete dependency distribution and cannot substitute for the Web Runtime Image."
   ],
   "acceptance": {
     "p3a004Complete": false,
-    "next": "Resolve historical package-to-build hash gaps, then build or identify the exact Android Web Runtime Image inputs and audit its selected Android ARM64/Bionic ELF closure and license manifest."
+    "next": "Build or locate the exact Android APK for the current Gradle graph, extract all packaged ARM64/Bionic ELF files, resolve proof-only fixture/probe packaging, and bind every selected artifact hash to build/toolchain/readelf/dependency/API/alignment/license evidence."
   }
 }

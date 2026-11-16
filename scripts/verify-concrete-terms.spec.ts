@@ -52,6 +52,20 @@ describe('concrete terminology policy', () => {
     )).toEqual([])
   })
 
+  it('allows the exact P3A-006 runtime path identity but not prose or other files', () => {
+    const file = 'apps/android/evidence/original-web-p3a006-image-build.json'
+    const assetPath = `runtime/node_modules/pkg/${blockedTerm}-checks.js`
+    expect(findConcreteTermViolations(file, [
+      `  "path": "${assetPath}",`,
+      `  "${assetPath}": 420,`,
+      `  "description": "${blockedTerm} is not an artifact path",`,
+    ].join('\n'))).toEqual([{ file, line: 3 }])
+    expect(findConcreteTermViolations('apps/android/evidence/other.json',
+      `  "path": "${assetPath}",`)).toEqual([
+      { file: 'apps/android/evidence/other.json', line: 1 },
+    ])
+  })
+
   it('excludes vendored sources and frozen Agent Notes', () => {
     expect(findConcreteTermViolations(`vendor/example/${blockedTerm}.ts`, blockedTerm)).toEqual([])
     expect(findConcreteTermViolations(

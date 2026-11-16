@@ -345,4 +345,27 @@ describe('Android revision evidence validation', () => {
       .toContainEqual({ file: path, line: 1, kind: 'invalid-audit-evidence' })
   })
 
+  it('validates only declared nested P3A-004/P3A-006 revision paths', () => {
+    const imagePath = 'apps/android/evidence/original-web-p3a006-image-build.json'
+    const image = { manifest: { source: { revision: hash } }, source: { revision: hash } }
+    expect(findRepositoryReferences(imagePath, json(image), new Set([hash]))).toEqual([])
+    const withNote = { ...image, note: hash }
+    const noteLine = json(withNote).split('\n').findIndex(line => line.includes('"note"')) + 1
+    expect(findRepositoryReferences(imagePath, json(withNote), new Set([hash])))
+      .toContainEqual({ file: imagePath, line: noteLine, kind: 'commit-hash' })
+    const lookalike = { ...image, unrelated: { revision: hash } }
+    const lookalikeLine = json(lookalike).split('\n').findLastIndex(line => line.includes('"revision"')) + 1
+    expect(findRepositoryReferences(imagePath, json(lookalike), new Set([hash])))
+      .toContainEqual({ file: imagePath, line: lookalikeLine, kind: 'commit-hash' })
+    expect(findRepositoryReferences(imagePath,
+      json({ ...image, source: { revision: 'defab'.repeat(8) } }), new Set([hash])))
+      .toContainEqual({ file: imagePath, line: 1, kind: 'invalid-audit-evidence' })
+
+    const nativePath = 'apps/android/evidence/original-web-p3a004-native-artifact-audit.json'
+    const native = { p3a006ImageNativeAudit: { sourceRevision: hash } }
+    expect(findRepositoryReferences(nativePath, json(native), new Set([hash]))).toEqual([])
+    expect(findRepositoryReferences('apps/android/evidence/other.json', json(native), new Set([hash])))
+      .toContainEqual({ file: 'apps/android/evidence/other.json', line: 3, kind: 'commit-hash' })
+  })
+
 })

@@ -325,13 +325,14 @@ This section supersedes the dated status snapshot in Section 2 and any older nex
 ### Gate 4 critical path
 
 1. **Complete:** separate original Web Profile runtime package trees from test runner, observer, fixture, preview and frontend build inputs (P3A-003); keep unresolved observed paths and the file-level closure open.
-2. **In progress: P3A-004.** The historical artifact matrix is recorded, but final acceptance requires the exact selected Web Runtime Image native set; the deterministic image does not exist yet.
+2. **In progress: P3A-004.** The historical artifact matrix remains open. Its image-bound audit verifies the P3A-006 host candidate includes zero native artifacts and rejects 35 candidates (including 2 static `.a` files). The current Gradle/CMake graph declares ten APK native inputs, but no raw APK/AAB or native ELF payload is present in the worktree; final acceptance still requires hash-bound qualification of the separate Android ARM64/Bionic ELF set.
 3. **Complete: P3A-005.** Enforce the strict Android ARM64/Bionic allowlist/denylist and negative package tests without broadly relaxing validation.
-4. **Next: P3A-006.** Build a deterministic Android Web Runtime Image with an integrity manifest and negative packaging tests, then return to P3A-004 for exact hash-bound ELF, symbol, API, alignment and license closure.
-5. Boot the authentic original Web Profile under embedded Android Node on a physical device (P3A-007).
-6. Prevent disabled providers from appearing available in the client graph (P3A-008).
-7. Implement authenticated WebView-to-runtime HTTP/WebSocket transport and test cookie, Host/Origin, expiry, replay and cross-app denial (P3A-009/010).
-8. Integrate the original UI and verify SPA navigation, streamed model response, session recovery and a native-approved registered tool operation on Android (P3A-011/012).
+4. **Complete for host packaging: P3A-006.** The [build/reproducibility report](apps/android/evidence/original-web-p3a006-image-build.json) records two independent full builds with identical 129,118,093-byte archives, path/hash manifests, license metadata, and default-deny exclusion of 35 native candidates. This is not Android boot or native-closure acceptance.
+5. **Next: return to P3A-004.** Build or locate the exact APK for the current Gradle graph, resolve proof-only main-source-set inputs, and complete per-artifact ABI/build/toolchain/interpreter/DT_NEEDED/symbol/API/alignment/license evidence; the host image’s empty native list does not close that set.
+6. Boot the authentic original Web Profile under embedded Android Node on a physical Android device (P3A-007).
+7. Prevent disabled providers from appearing available in the client graph (P3A-008).
+8. Implement authenticated WebView-to-runtime HTTP/WebSocket transport and test cookie, Host/Origin, expiry, replay and cross-app denial (P3A-009/010).
+9. Integrate the original UI and verify SPA navigation, streamed model response, session recovery and a native-approved registered tool operation on Android (P3A-011/012).
 
 ### Repository workflow boundary
 

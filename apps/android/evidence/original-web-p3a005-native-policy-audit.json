@@ -3,7 +3,7 @@
     "acceptedWebRuntimeImageNativeArtifactCount": 0,
     "archiveValidator": "apps/android/scripts/package_profile.py::validate_archive",
     "interpretedProfileArchiveStillRejectsEveryELF": true,
-    "p3a004EvidenceSha256": "18db19a6abd26a697f4842b96d27d75972b29d8cabf87f947686cd16b40d2581",
+    "p3a004EvidenceSha256": "9ba4a4976973384e8cbf4b2f8b77cf8c0dc9e43e3e80fc5d2848161eec345775",
     "policyDigestPinnedInImageManifest": true,
     "scope": "Policy and bounded sdk-minimal host profile packaging only; no production Web Runtime Image native set is approved."
   },

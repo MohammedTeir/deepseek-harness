@@ -33,13 +33,21 @@ function isMaintained(file: string): boolean {
 }
 
 // Revision evidence is validated independently of prose-reference policy.
-const auditRevisionFields: Readonly<Record<string, readonly string[]>> = {
-  'audit/android/baseline.json': ['forkHead', 'forkAncestorUpstream', 'observedUpstreamHead', 'previousAuditedFork', 'refreshBranchHeadAtStart'],
-  'audit/android/upstream-sync-impact.json': ['previousAuditedFork', 'syncedFork', 'includedUpstream'],
-  'apps/android/evidence/terminal-allocation-validation.json': ['baselineCommit'],
+type AuditRevisionPath = readonly string[]
+const auditRevisionFields: Readonly<Record<string, readonly AuditRevisionPath[]>> = {
+  'audit/android/baseline.json': [['forkHead'], ['forkAncestorUpstream'], ['observedUpstreamHead'], ['previousAuditedFork'], ['refreshBranchHeadAtStart']],
+  'audit/android/upstream-sync-impact.json': [['previousAuditedFork'], ['syncedFork'], ['includedUpstream']],
+  'apps/android/evidence/terminal-allocation-validation.json': [['baselineCommit']],
+  'apps/android/evidence/original-web-p3a006-image-build.json': [
+    ['manifest', 'source', 'revision'],
+    ['source', 'revision'],
+  ],
+  'apps/android/evidence/original-web-p3a004-native-artifact-audit.json': [
+    ['p3a006ImageNativeAudit', 'sourceRevision'],
+  ],
 }
 
-function auditRevisionLines(file: string, source: string, commits: ReadonlySet<string>): ReadonlySet<string> | undefined {
+function auditRevisionLines(file: string, source: string, commits: ReadonlySet<string>): ReadonlySet<number> | undefined {
   const required = Object.hasOwn(auditRevisionFields, file) ? auditRevisionFields[file] : undefined
   if (required === undefined) return new Set()
   let parsed: unknown
@@ -47,13 +55,72 @@ function auditRevisionLines(file: string, source: string, commits: ReadonlySet<s
   catch (_error: unknown) { return undefined /* Invalid evidence must fail the gate. */ }
   if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)
     || JSON.stringify(parsed, null, 2) + '\n' !== source) return undefined
-  const fields: [string, unknown][] = Object.entries(parsed)
-  const approved = new Set<string>()
-  for (const key of required) {
-    const value = fields.find(([name]) => name === key)?.[1]
+  const approved = new Set<number>()
+  const lines = source.split('\n')
+  const lineOffsets: number[] = []
+  let offset = 0
+  for (const line of lines) {
+    lineOffsets.push(offset)
+    offset += line.length + 1
+  }
+  for (const path of required) {
+    let value: unknown = parsed
+    for (const segment of path) {
+      if (value === null || typeof value !== 'object' || Array.isArray(value)) return undefined
+      value = (value as Record<string, unknown>)[segment]
+    }
     if (typeof value !== 'string' || !/^[a-f0-9]{40}$/.test(value) || !commits.has(value)) return undefined
-    approved.add(`  "${key}": "${value}",`)
-    approved.add(`  "${key}": "${value}"`)
+    let containerStart = source.indexOf('{')
+    let containerEnd = source.length - 1
+    for (const [depth, key] of path.entries()) {
+      const prefix = `${'  '.repeat(depth + 1)}${JSON.stringify(key)}: `
+      const matchingIndexes = lines.flatMap((line, index) => {
+        const lineOffset = lineOffsets[index]
+        const isInContainer = lineOffset !== undefined
+          && lineOffset > containerStart
+          && lineOffset < containerEnd
+        return isInContainer && line.startsWith(prefix) ? [index] : []
+      })
+      if (matchingIndexes.length !== 1) return undefined
+      const lineIndex = matchingIndexes[0]
+      if (lineIndex === undefined) return undefined
+      const line = lines[lineIndex]
+      if (line === undefined) return undefined
+      if (depth === path.length - 1) {
+        const serializedValue = line.slice(prefix.length).replace(/,$/u, '')
+        if (serializedValue !== JSON.stringify(value)) return undefined
+        approved.add(lineIndex + 1)
+        break
+      }
+      const lineOffset = lineOffsets[lineIndex]
+      if (lineOffset === undefined) return undefined
+      const openIndex = lineOffset + prefix.length
+      if (source[openIndex] !== '{') return undefined
+      let nestedDepth = 0
+      let inString = false
+      let escaped = false
+      for (let index = openIndex; index < source.length; index += 1) {
+        const character = source[index]
+        if (character === undefined) return undefined
+        if (inString) {
+          if (escaped) escaped = false
+          else if (character === '\\') escaped = true
+          else if (character === '"') inString = false
+          continue
+        }
+        if (character === '"') inString = true
+        else if (character === '{') nestedDepth += 1
+        else if (character === '}') {
+          nestedDepth -= 1
+          if (nestedDepth === 0) {
+            containerStart = openIndex
+            containerEnd = index
+            break
+          }
+        }
+      }
+      if (containerStart !== openIndex) return undefined
+    }
   }
   return approved
 }
@@ -80,7 +147,7 @@ export function findRepositoryReferences(
     if (organizationUrl.test(canonicalReferenceText(line).replace(kitRepositoryUrl, ''))) {
       references.push({ file, line: index + 1, kind: 'organization-url' })
     }
-    if (!evidenceLines?.has(line) && [...line.matchAll(commitCandidate)].some(match => commits.has(match[0].toLowerCase()))) {
+    if (!evidenceLines?.has(index + 1) && [...line.matchAll(commitCandidate)].some(match => commits.has(match[0].toLowerCase()))) {
       references.push({ file, line: index + 1, kind: 'commit-hash' })
     }
   }
