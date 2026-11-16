@@ -1,0 +1,149 @@
+name: Android Build
+
+on:
+  workflow_call:
+    inputs:
+      source_ref:
+        description: Source branch, commit, or tag to build; defaults to the calling workflow revision.
+        required: false
+        type: string
+        default: ''
+      sign_release:
+        description: Sign the release APK after the unsigned build completes.
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: android-build-${{ inputs.source_ref || github.ref }}
+  cancel-in-progress: ${{ !inputs.sign_release }}
+
+jobs:
+  build:
+    name: Build Android APK (Linux x86_64)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: ${{ inputs.source_ref || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/setup-java@v5.0.0
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - uses: pnpm/action-setup@v5.0.0
+        with:
+          package_json_file: package.json
+          dest: ${{ runner.temp }}/setup-pnpm-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '24.22.1'
+          package-manager-cache: false
+
+      - uses: android-actions/setup-android@v3
+
+      - name: Install pinned Android SDK packages and accept their licenses
+        run: |
+          yes | sdkmanager --licenses >/dev/null
+          sdkmanager --install \
+            'platform-tools' \
+            'platforms;android-36' \
+            'build-tools;36.0.0' \
+            'ndk;28.2.13676358' \
+            'cmake;3.22.1'
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/28.2.13676358" >> "$GITHUB_ENV"
+          echo "ANDROID_NODE_BUILD_DIR=$RUNNER_TEMP/android-node-build" >> "$GITHUB_ENV"
+          echo 'ANDROID_NODE_JOBS=2' >> "$GITHUB_ENV"
+
+      - name: Install host trace dependency
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes strace
+
+      - name: Install locked workspace dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build workspace artifacts for the profile qualification
+        run: pnpm run build:artifacts
+
+      - name: Build pinned Android native inputs and profile image
+        run: bash apps/android/scripts/build-android-ci.sh
+
+      - name: Assemble release APK, run unit tests, and lint
+        working-directory: apps/android
+        run: ./gradlew --no-daemon :app:assembleRelease :app:testReleaseUnitTest :app:lint
+
+      - name: Verify unsigned release APK exists
+        run: test -s apps/android/app/build/outputs/apk/release/app-release-unsigned.apk
+
+      - uses: actions/upload-artifact@v7.0.1
+        with:
+          name: android-release-unsigned
+          path: apps/android/app/build/outputs/apk/release/app-release-unsigned.apk
+          if-no-files-found: error
+          retention-days: 14
+
+  sign:
+    name: Sign Android release APK
+    if: inputs.sign_release
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    environment: android-release
+    steps:
+      - uses: actions/setup-java@v5.0.0
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - uses: android-actions/setup-android@v3
+
+      - name: Install Android APK signer
+        run: |
+          yes | sdkmanager --licenses >/dev/null
+          sdkmanager --install 'build-tools;36.0.0'
+
+      - uses: actions/download-artifact@v8.0.1
+        with:
+          name: android-release-unsigned
+          path: unsigned
+
+      - name: Sign and verify APK
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_STORE_PASSWORD: ${{ secrets.ANDROID_STORE_PASSWORD }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          set -euo pipefail
+          for name in ANDROID_KEYSTORE_BASE64 ANDROID_KEY_ALIAS ANDROID_STORE_PASSWORD ANDROID_KEY_PASSWORD; do
+            if [[ -z "${!name}" ]]; then echo "Missing environment secret: $name" >&2; exit 1; fi
+          done
+          keystore="$RUNNER_TEMP/android-release.p12"
+          printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$keystore"
+          chmod 600 "$keystore"
+          "$ANDROID_HOME/build-tools/36.0.0/apksigner" sign \
+            --ks "$keystore" \
+            --ks-type PKCS12 \
+            --ks-key-alias "$ANDROID_KEY_ALIAS" \
+            --ks-pass env:ANDROID_STORE_PASSWORD \
+            --key-pass env:ANDROID_KEY_PASSWORD \
+            --out app-release.apk \
+            unsigned/app-release-unsigned.apk
+          "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --verbose --print-certs app-release.apk
+          rm -f "$keystore"
+
+      - uses: actions/upload-artifact@v7.0.1
+        with:
+          name: android-release-signed
+          path: app-release.apk
+          if-no-files-found: error
+          retention-days: 30
