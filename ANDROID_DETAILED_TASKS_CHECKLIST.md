@@ -2,7 +2,7 @@
 
 > **Companion:** [ANDROID_COMPLETE_ROADMAP.md](ANDROID_COMPLETE_ROADMAP.md)  
 > **Authoritative scope:** [DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md](DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md), particularly sections **15, 15A and 17**.  
-> **Snapshot refresh:** 2026-11-14; current status is recorded in the dated refresh below. The Android implementation and planning changes from `feature/android-port` are now present on `master` at the current repository checkpoint.
+> **Snapshot refresh:** 2026-11-16; current status is recorded in the dated refresh below. The Android implementation and planning changes from `feature/android-port` are now present on `master` at the current repository checkpoint.
 >
 > **Meaning of checkboxes:** \`[x]\` means **documented evidence exists for exactly the stated, sometimes limited, claim**; \`[ ]\` means not accepted, incomplete, blocked, or future work. A checkbox is **not** authorization to broaden scope. See [ANDROID_PORT_STATUS.md](ANDROID_PORT_STATUS.md) and the gate reviews.
 
@@ -24,8 +24,8 @@
 | Phase 0 | VERIFIED | None, keep baseline fresh |
 | Phase 1 / Gate 1 | ACCEPTED | Audit recheck for any newly enabled packages |
 | Phase 2 / Gate 2 | BOUNDED ACCEPTED | Model-provider round trip remains untested without credentials |
-| Phase 3 / Gate 3 | IN PROGRESS | **APK #7 physical original-terminal/native-approval test** |
-| Phase 3A / Gate 4 | NOT VERIFIED | Original WebView + secure transport + streaming |
+| Phase 3 / Gate 3 | IN PROGRESS | API 29/recent-device, broader lifecycle, resource-limit and capability-contract coverage |
+| Phase 3A / Gate 4 | IN PROGRESS | **P3A-004 exact Android APK/native closure; then P3A-007 boot and authenticated WebView transport** |
 | Phase 4 | INTEGRATION NOT COMPLETE | SAF/Keystore/lifecycle/models/plugins/MCP/workflows |
 | Phase 5 / Gate 5 root-related work | NOT COMPLETE | Optional Termux/root providers and adversarial authorization |
 | Phase 6 | NOT COMPLETE | Security, performance, device/API and lifecycle matrix |
@@ -33,7 +33,7 @@
 
 ---
 
-# P0 — Current critical path: APK #7 and Phase 3
+# P0 — Gate 3 closure and retained Phase 3 coverage
 
 ### P0.1 Verify test artifact and tester environment
 
