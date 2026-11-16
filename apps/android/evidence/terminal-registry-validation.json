@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-13",
+  "environment": "Managed Linux x86_64 host; Node v24.22.1; non-root UID 1000; original SDK/profile and real node-pty fixture",
+  "scope": "Original terminal registry host qualification; automated approval only; Android guards retained; no APK change",
+  "checks": [
+    {
+      "command": "pnpm exec tsc --ignoreConfig --noEmit --strict --target ES2024 --module NodeNext --moduleResolution NodeNext --skipLibCheck --allowImportingTsExtensions --types node apps/android/runtime/node-pty-proof/terminal-backend.ts",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Original strict TerminalBackend interface",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "python3 -m unittest discover -s apps/android/tests -p 'test_*.py' -v",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "44 host tests passed",
+      "logSha256": "d6a0c255714cf92cd31b00dfb9f62775b6766bad4bd299e6cbcff4fb294c0c9f"
+    },
+    {
+      "command": "pnpm run doc-sync",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "43 passed, 0 failed, 0 skipped",
+      "logSha256": "6b211414712fad6337d44c52ee592f71c7ae45fb53bbee20776c40480d99ae82"
+    },
+    {
+      "command": "pnpm run lint",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Repository lint passed; unrelated existing unused-disable warning retained",
+      "logSha256": "c0e47520f22b0921e2b6ca98cf79f0ef053accfd47c071f03759bfc7743b2c24"
+    }
+  ],
+  "initialFailures": [
+    "SDK onRequest registration before start was rejected; controller now starts the original client before registering handlers.",
+    "Original tool validation rejected missing output renderer; the qualification implements the existing output schema/render contract.",
+    "Standalone typecheck required ES2024 for Promise.withResolvers; strict typechecking remains enabled."
+  ],
+  "filesSha256": {
+    "apps/android/runtime/node-pty-proof/terminal-backend.ts": "b24affa01193ea0965584e57692183291e8587f7cdec078a685d9ba68a3ed489",
+    "apps/android/tests/terminal-registry-plugin.mjs": "8102baff035fcb229de1d204ddad5cee3509028660871a9478132c7cd990abce",
+    "apps/android/tests/terminal-registry-reference.mjs": "d5a54562ca5a9cb8cd3190017b5f78dec6ffb00688bb0b37085966e7fc77a4a1",
+    "apps/android/tests/test_terminal_registry_profile.py": "fbfd3fa4648f21196946c5fbde6ecf4efe3064148a38e059353fddbdf0a8f1e6",
+    "apps/android/evidence/terminal-registry-host-reference.json": "6c6ec680d38b57b37a1b53748043c06ab215e0402e841519df51b8f9adaac383"
+  },
+  "androidTerminalIntegrated": false,
+  "nativeHumanApprovalVerified": false,
+  "gate3Passed": false,
+  "nextMilestone": "Native-owned exact-request terminal allocation authority and authenticated IPC, then Android APK and mandatory phone tests"
+}

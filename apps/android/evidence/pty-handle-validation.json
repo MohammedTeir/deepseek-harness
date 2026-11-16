@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-13",
+  "environment": "Linux x86_64 managed cloud host; Node 24.22.1; original node-pty source addon and native fixture",
+  "scope": "Host-only fixed SubprocessTerminalHandle prototype; no Android activation or execution authority",
+  "checks": [
+    {
+      "command": "pnpm exec tsc --ignoreConfig --noEmit --strict --target ES2022 --module NodeNext --moduleResolution NodeNext --skipLibCheck --allowImportingTsExtensions --types node apps/android/runtime/node-pty-proof/terminal-handle.ts",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Actual original interface and node-pty type declarations",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "python3 -m unittest discover -s apps/android/tests -p 'test_*.py' -v",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "43 host regressions including the new real handle scenarios",
+      "logSha256": "29644d55f8643007d05bb8aa8e5be260c66492bb00cb13697942d13965789abc"
+    },
+    {
+      "command": "python3 -m unittest discover -s apps/android/tests -p 'test_node_pty_original.py' -v",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Final source-addon and typed handle behavior after formatting/type-only correction",
+      "logSha256": "f85abd08e4e7cc5bcf4616ee97977eabeb056e636c1fc67bf4548113ab3cc72d"
+    },
+    {
+      "command": "pnpm run doc-sync",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "43/43 documentation gates",
+      "logSha256": "230e0b5a9216fc308c4406197b55ce7b3c4314c684f3b60239fc9a5f17445fcf"
+    },
+    {
+      "command": "pnpm run lint",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Full repository lint passed; existing unused oxlint-disable warning retained",
+      "logSha256": "d5ac01afc462f439ccc365da44acfcb565d8821bc8daf03cedbade66ce72dad2"
+    }
+  ],
+  "initialFailures": [
+    "Standalone TypeScript invocation was rejected until --ignoreConfig selected explicit-file compilation with strict checks.",
+    "Initial full lint found nine formatting errors in the new prototype; line layout and original node-pty option typing were corrected without changing validation rules."
+  ],
+  "androidHandleExecuted": false,
+  "originalTerminalIntegrated": false,
+  "gate3Passed": false,
+  "filesSha256": {
+    "apps/android/runtime/node-pty-proof/terminal-handle.ts": "8e09907ffedf40bc01947a49e4a91021b1683094b8dda0c2c02e8aaed97cab8a",
+    "apps/android/evidence/pty-handle-host-reference.json": "b0f0025f5cc121cab0ad396228e0d0563931edb92b86fbeccdaf8971c17b18b9"
+  }
+}

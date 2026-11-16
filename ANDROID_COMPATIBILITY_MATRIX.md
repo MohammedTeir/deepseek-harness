@@ -92,3 +92,27 @@ The [process qualification guide](apps/android/execution/process-proof/PROCESS_C
 ## APK #4 physical capability update
 
 The earlier Gate 3 NOT YET VERIFIED rows describe the build checkpoint. The [received Android 11/API 30 ARM64 report](ANDROID_GATE3_REVIEW.md) now verifies the fixed native process, shell script and PTY cases on that phone. General shell provider and original terminal backend remain ADAPT / NOT YET VERIFIED; API 29 and recent-device behavior remain NOT YET VERIFIED. Discovery is limited to twelve exact system paths.
+
+## Original subprocess adapter
+
+Original SubprocessRuntime fixed pwd integration is ADAPT / IMPLEMENTED with host tests; Android adapter execution remains NOT YET VERIFIED pending APK #5. Native process/PTY primitives retain their separate Android 11 acceptance. Raw streams, general commands, spills, custom environment, signal classification and the original interactive terminal backend remain unsupported by this bounded adapter. See [scope and evidence](apps/android/execution/SUBPROCESS_ADAPTER.md).
+
+## APK #5 physical adapter update
+
+Fixed pwd through the original SubprocessRuntime service is now VERIFIED on the reported Android 11/API 30 ARM64 device, based on [matching artifact and session evidence](ANDROID_GATE3_REVIEW.md). Earlier host-only rows retain the build checkpoint. General subprocess commands, streaming raw pipes, nonzero/signal classification, interactive PTY transport and original terminal backend remain unsupported or NOT YET VERIFIED as documented in the adapter guide.
+
+## Original node-pty build result
+
+Original node-pty 1.2.0-beta.15 C++ is ADAPT / cross-compiled for Android ARM64 API 29 without native source changes. Its Linux/Android branch uses forkpty; spawn-helper is Apple-only here. Original JavaScript plus the installed-addon loader pass real host tests. Android loading and behavior remain NOT YET VERIFIED pending APK #6. Stock GNU/Linux prebuilds remain BLOCKED; the [source qualification](apps/android/execution/NODE_PTY_QUALIFICATION.md) does not enable the original terminal backend.
+
+## Original node-pty physical result
+
+Original node-pty source/addon and its original JavaScript are VERIFIED for the five fixed Android 11 ARM64 cases in [the phone review](ANDROID_GATE3_REVIEW.md). The original SubprocessTerminalHandle adapter is IMPLEMENTED / host VERIFIED only, with Android activation blocked on authorization/ownership integration. General shell jobs, foreground inspection, descendants and other Android versions remain NOT YET VERIFIED.
+
+## Terminal registry evidence level
+
+The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.
+
+## Original terminal Android evidence level
+
+The [APK #7 reference](apps/android/execution/TERMINAL_ANDROID_PROOF.md) records the original registry/tool/approval path, authenticated native broker, human UI and fixed Android PTY factory. Host and relocated-profile tests and Android build/inspection pass. Physical execution is BLOCKED pending phone evidence. This is a fixed benign fixture, not general shell or the original Web UI. Gate 3 remains IN PROGRESS; preserve existing data when updating the single runtime app.

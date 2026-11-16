@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "command": "compare packaged assets/web bytes against apps/web/dist excluding sourcemaps and preview",
+  "exitCode": 0,
+  "files": 94,
+  "apkSha256": "a273892a8a49516e6c8e35086fef085a46f6ddb519f59c1f9bdf18ca4d8c9061",
+  "indexSha256": "7246f07b19e44632673e0f88aefae452518983923e394025ec631f0c330adf36",
+  "originalBootInjected": false,
+  "androidWebViewExecuted": false,
+  "backendConnected": false,
+  "gate4Passed": false,
+  "frontendBuildCommand": "pnpm --filter @deepseek-ai/dsh-web-frontend build",
+  "frontendBuildExitCode": 0,
+  "androidBuildCommand": "GRADLE_USER_HOME=/workspace/.cache/gradle ANDROID_HOME=/workspace/android-sdk JAVA_HOME=/workspace/.setup-tools/jdk-21.0.13+9 ./apps/android/gradlew -p apps/android :app:assembleDebug :app:lintDebug --console=plain",
+  "androidBuildExitCode": 0,
+  "apkSignatureV2Verified": true,
+  "zipalign16kVerified": true,
+  "device": "BLOCKED: no connected ADB device",
+  "limitations": [
+    "Original host boot graph and client plugin bundles not injected",
+    "HTTP and WebSocket transport disabled",
+    "SPA fallback not implemented",
+    "Android WebView security behavior not device tested"
+  ],
+  "earlierBuildFailure": "Lint rejected legacy back-gesture override; removed and build passed"
+}

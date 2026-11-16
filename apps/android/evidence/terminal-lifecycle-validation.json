@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "environment": "Linux host; no connected adb device",
+  "scope": "Original-terminal fixed-fixture wait timeout and cancellation; Android physical run pending",
+  "validation": [
+    {
+      "name": "Original profile/tool/approval/registry tests",
+      "command": "python3 -m unittest discover -s apps/android/tests -p test_terminal\\*.py -v",
+      "result": "FAIL: five methods passed; JVM method errored because JAVA_HOME was absent. The isolated JVM rerun passed.",
+      "exitCode": 1
+    },
+    {
+      "name": "Native allocation JVM test",
+      "command": "JAVA_HOME=/workspace/.setup-tools/jdk-21.0.13+9 python3 -m unittest discover -s apps/android/tests -p test_terminal_allocation_grant.py -v",
+      "result": "PASS: 1 method",
+      "exitCode": 0
+    },
+    {
+      "name": "Final controller tests",
+      "command": "python3 -m unittest discover -s apps/android/tests -p test_terminal_runtime.py -v",
+      "result": "PASS: 2 methods",
+      "exitCode": 0
+    },
+    {
+      "name": "Packaging regression tests",
+      "command": "python3 -m unittest discover -s apps/android/scripts -p test_\\*.py -v",
+      "result": "PASS: 20 methods",
+      "exitCode": 0
+    },
+    {
+      "name": "Adapter types",
+      "command": "pnpm exec tsc --ignoreConfig --noEmit --strict --target ES2024 --module NodeNext --moduleResolution NodeNext --skipLibCheck --allowImportingTsExtensions --types node apps/android/runtime/node-pty-proof/terminal-backend.ts apps/android/runtime/node-pty-proof/terminal-handle.ts",
+      "result": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "Repository lint",
+      "command": "pnpm run lint",
+      "result": "PASS: existing unused-disable warning",
+      "exitCode": 0
+    },
+    {
+      "name": "Documentation",
+      "command": "pnpm run doc-sync",
+      "result": "PASS: 43/43",
+      "exitCode": 0
+    },
+    {
+      "name": "Aggregate TypeScript",
+      "command": "pnpm run build:check",
+      "result": "PASS: 2/2",
+      "exitCode": 0
+    },
+    {
+      "name": "Final documentation links and records",
+      "command": "pnpm run test:docs",
+      "result": "PASS: 21/21",
+      "exitCode": 0
+    }
+  ],
+  "resolvedFailures": [
+    "Initial JVM test lacked JAVA_HOME; rerun with installed JDK passed",
+    "Direct ESLint invocation found no ESLint configuration; official repository oxlint command used instead",
+    "Initial focused oxlint rejected one arrow-parentheses style; corrected and official focused/full lint passed"
+  ],
+  "buildInspection": "apps/android/evidence/terminal-lifecycle-apk8-build.json",
+  "hostEvidence": "apps/android/evidence/terminal-lifecycle-host.json",
+  "relocatedHostEvidence": "apps/android/evidence/terminal-lifecycle-relocated-host.json",
+  "delivery": "apps/android/evidence/terminal-lifecycle-apk8-delivery.json",
+  "profileImageSha256": "728198729ea0a9e17e6d75e15e394ee3a4dd3f127601036de1824f093aa8402a",
+  "apkSha256": "31df3f9a8132bf5bfb8289b6100e489ae8c96a4b239a4d903c1a4354590dd8a6",
+  "nativeBinariesUnchangedFromApk6": true,
+  "androidBuild": "PASS: assembleDebug, assembleDebugAndroidTest and lintDebug",
+  "androidBuildLogSha256": "8a4b64107d27d263447c044c3adbf083ae2d816aaa99a62abd4446bcd73242dc",
+  "nativeHumanApprovalVerified": false,
+  "androidLifecycleVerified": false,
+  "gate3Passed": false
+}

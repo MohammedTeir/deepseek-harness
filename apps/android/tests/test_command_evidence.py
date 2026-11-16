@@ -29,6 +29,14 @@ class CommandEvidenceTest(unittest.TestCase):
         value, build = self.fixture()
         validator.validate(value, build)
 
+    def test_subprocess_mode_rejects_prior_direct_broker_proof(self):
+        value, build = self.fixture()
+        with self.assertRaisesRegex(ValueError, 'subprocess service'):
+            validator.validate(value, build, require_subprocess=True)
+        value['originalSubprocessService'] = True
+        with self.assertRaisesRegex(ValueError, 'adapter result'):
+            validator.validate(value, build, require_subprocess=True)
+
     def test_rejects_missing_or_changed_proof(self):
         value, build = self.fixture()
         changes = [

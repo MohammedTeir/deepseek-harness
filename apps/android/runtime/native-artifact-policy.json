@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "deny_unless_exact_hash_and_metadata_match",
+  "target": {
+    "operatingSystem": "Android",
+    "abi": "arm64-v8a",
+    "libc": "Bionic",
+    "minimumApi": 29,
+    "machine": "AArch64",
+    "elfClass": 64,
+    "allowedElfTypes": ["DYN", "EXEC"]
+  },
+  "requiredArtifactFields": [
+    "path",
+    "sha256",
+    "soname",
+    "operatingSystem",
+    "abi",
+    "libc",
+    "machine",
+    "elfClass",
+    "elfType",
+    "minimumAndroidApi",
+    "neededLibraries",
+    "artifactRole",
+    "licenseId",
+    "licenseEvidencePath"
+  ],
+  "allowedSystemLibraries": ["libc.so", "libm.so", "libdl.so", "liblog.so"],
+  "denyPathPatterns": [
+    "**/prebuilds/linux-*",
+    "**/prebuilds/darwin-*",
+    "**/prebuilds/win32-*",
+    "**/prebuilds/windows-*",
+    "**/node-addon-require-builtin-linux-x64-gnu/**",
+    "native/system/packages/linux-*/*",
+    "**/tests/**/libharness_*probe.so"
+  ],
+  "denyArtifactRoles": [
+    "host-prebuild",
+    "host-test",
+    "host-instrumentation",
+    "test-fixture",
+    "test_fixture",
+    "fixture",
+    "probe",
+    "process-probe",
+    "observer"
+  ],
+  "approvedArtifacts": [],
+  "approvalNote": "No native ELF is currently approved for the original Web Runtime Image. Add only exact Android ARM64/Bionic artifacts after P3A-004 hash-bound closure, symbol/API/alignment and license review."
+}

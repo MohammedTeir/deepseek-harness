@@ -1,10 +1,11 @@
 // Bounded native qualification plugin, mounted into the original sdk-minimal profile.
 import { brokerRequest } from './command-wire.mjs';
+import { withFixedPwdCall } from './android-subprocess.mjs';
 import { createRequire } from 'node:module';
 const resolveCli = createRequire(new URL('../../cli/package.json', import.meta.url));
 const { defineTool } = await import(resolveCli.resolve('@deepseek-ai/dsh-tools'));
 export const name = 'android-command-qualification';
-export const inject = ['tools', 'approval', 'commands'];
+export const inject = ['tools', 'approval', 'commands', 'subprocess'];
 const tool = 'android_qualified_pwd';
 export function apply(ctx) {
   const sessionId = process.env.HARNESS_COMMAND_SESSION;
@@ -14,6 +15,7 @@ export function apply(ctx) {
     name: tool, description: 'Qualification only: native approved fixed pwd, no arguments.', parameters: {},
     output: {
       schema: { type: 'object', additionalProperties: false, properties: {
+        subprocessProvider: { type: 'string', required: true },
         stdout: { type: 'string', required: true }, stderr: { type: 'string', required: true },
         exitCode: { type: 'integer', required: true }, cwd: { type: 'string', required: true },
         nativeConcurrentConsumers: { type: 'integer', required: true }, nativeConcurrentRejections: { type: 'integer', required: true },
@@ -24,14 +26,20 @@ export function apply(ctx) {
       if (!exec.agent || exec.agent.id !== sessionId) throw new Error('Qualification session mismatch');
       const config = await brokerRequest('describe', {}, exec.signal);
       const fields = { sessionId, callId: exec.callId, executable: '/system/bin/pwd', arguments: [], cwd: config.cwd };
-      const settled = await Promise.allSettled([brokerRequest('execute', fields, exec.signal), brokerRequest('execute', fields, exec.signal)]);
-      const failures = settled.filter(item => item.status === 'rejected');
-      if (failures.length) throw new AggregateError(failures.map(item => item.reason), 'Native execution communication failed after cancellation');
-      const attempts = settled.map(item => item.value);
-      const winners = attempts.filter(result => result.ok);
-      const rejected = attempts.filter(result => !result.ok && result.code === 'USED');
-      if (winners.length !== 1 || rejected.length !== 1) throw new Error('Native concurrent one-shot invariant failed: ' + JSON.stringify(attempts));
-      return { ...winners[0].result, nativeConcurrentConsumers: attempts.length, nativeConcurrentRejections: rejected.length };
+      return withFixedPwdCall(fields, async () => {
+        const executable = await ctx.subprocess.resolveExecutable('/system/bin/pwd', undefined, exec.signal);
+        const spec = { argv: [executable], cwd: config.cwd, stdio: { stdin: 'ignore', stdout: { maxBytes: 65536 }, stderr: { maxBytes: 65536 } }, graceMs: 2000, signal: exec.signal };
+        const handles = [ctx.subprocess.spawn(spec), ctx.subprocess.spawn(spec)];
+        const attempts = await Promise.allSettled(handles.map(handle => handle.done));
+        await Promise.all(handles.map(handle => handle.waitForExit()));
+        const winners = attempts.flatMap((result, index) => result.status === 'fulfilled' ? [{ result: result.value, handle: handles[index] }] : []);
+        const rejected = attempts.filter(result => result.status === 'rejected' && result.reason.nativeCode === 'USED');
+        if (winners.length !== 1 || rejected.length !== 1) throw new Error('Original subprocess/native one-shot invariant failed');
+        const winner = winners[0];
+        return { stdout: winner.handle.collected.stdout.readFrom(0).text, stderr: winner.handle.collected.stderr.readFrom(0).text,
+          exitCode: winner.result.exitCode, cwd: config.cwd, nativeConcurrentConsumers: handles.length, nativeConcurrentRejections: rejected.length,
+          subprocessProvider: 'android-fixed-pwd-v1' };
+      });
     },
   }));
   // The original pipeline resolves ask through ApprovalService, including its audit pair.

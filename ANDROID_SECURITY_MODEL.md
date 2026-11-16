@@ -42,3 +42,39 @@ APK #4 adds a private same-UID service for reviewed fixed native tests only. Nat
 ## APK #4 reported signal and cleanup evidence
 
 The [selected-device review](ANDROID_GATE3_REVIEW.md) records actual TERM cancellation, readiness-triggered timeout/KILL, waitpid completion and cooperative grandchild reaping on Android 11/API 30. This improves the earlier host-only evidence for those fixed cases. It does not prove Activity/service/OS-death cleanup, hostile process containment, arbitrary descendant cleanup or same-UID plugin isolation. Parent-death setup was reached but actual parent termination was not tested. Existing command grants and agent authorization remain unchanged.
+
+## Fixed subprocess adapter authority
+
+The [original-service adapter](apps/android/execution/SUBPROCESS_ADAPTER.md) cannot approve a grant or select a command. It binds a reviewed original tool call and still relies on native one-shot exact-request authorization. Cleanup acknowledgment is required before reporting quiescence; unsupported commands, environment forwarding and descriptor modes fail closed. Same-UID plugins are not isolated. Android execution of this added service path remains unverified until APK #5 results arrive.
+
+## APK #5 native grant through original service
+
+The [accepted submitted phone result](ANDROID_GATE3_REVIEW.md) verifies native denial followed by one approved execution through the original subprocess service, with changed-request rejection and one-shot replay/concurrency protection. It does not verify adapter cancellation on Android, root-context error propagation, process-death cleanup or isolation from hostile same-UID code. Those limits remain unchanged. Runtime diagnostic notes and denied canonical tool outcomes are preserved.
+
+## Fixed original node-pty qualification
+
+The new unexported same-UID service starts only a reviewed fixed suite after native consent. It exposes no arbitrary executable, arguments or PTY input interface. Original node-pty is loaded only in its isolated qualification runtime; this is not a malicious-plugin boundary. Fixture parent-death setup, direct-child identity and exit observations do not prove general descendant, descriptor or OS-death isolation. Android behavior remains unverified until APK #6 results. See [scope](apps/android/execution/NODE_PTY_QUALIFICATION.md).
+
+## PTY qualification authority remains separate
+
+The APK #6 phone suite verifies fixed direct-child PTY behavior, not a general execution authority. The host terminal-handle prototype has no native grant or agent registration and rejects Android use. It refuses foreground signalling without proven group identity and never infers shell idle state from silence. Future activation requires trusted native authorization, original owner binding and verified cleanup/rollback. The same-UID malicious-plugin limitation remains unchanged.
+
+## Terminal qualification authority boundary
+
+The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.
+
+## Native terminal allocation binding
+
+The [allocation authority reference](apps/android/execution/TERMINAL_ALLOCATION_AUTHORIZATION.md) defines the immutable request and resource checks, required native identity derivation, and remaining TOCTOU/same-UID limits. The Java policy alone authenticates no caller and launches no process; it is not yet reachable from the application.
+
+## Fixed terminal broker trust boundary
+
+The [broker integration reference](apps/android/execution/TERMINAL_BROKER_INTEGRATION.md) records the private native protocol, exact original-service approval adapter and host-only genuine profile/PTY test with an explicit native transport double. Android broker instrumentation is compiled, not executed. UI/runtime activation and full APK/device acceptance remain pending; the existing Android guards are retained. Gate 3 remains IN PROGRESS.
+
+## Native terminal qualification boundary
+
+The [APK #7 reference](apps/android/execution/TERMINAL_ANDROID_PROOF.md) records the original registry/tool/approval path, authenticated native broker, human UI and fixed Android PTY factory. Host and relocated-profile tests and Android build/inspection pass. Physical execution is BLOCKED pending phone evidence. This is a fixed benign fixture, not general shell or the original Web UI. Gate 3 remains IN PROGRESS; preserve existing data when updating the single runtime app.
+
+## Fixed terminal lifecycle scope
+
+The [lifecycle qualification](apps/android/execution/TERMINAL_LIFECYCLE_PROOF.md#execution-and-authorization) uses the same single native-approved child. A wait timeout grants no new process authority; cancellation and owner cleanup operate only on that already-owned fixture.

@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "evidenceType": "Selected fields transcribed from user-provided physical-device JSON; not a complete raw capture",
+  "developerControlledInstrumentation": false,
+  "suite": "original-harness-native-terminal-v1",
+  "apkSha256": "31df3f9a8132bf5bfb8289b6100e489ae8c96a4b239a4d903c1a4354590dd8a6",
+  "device": {
+    "model": "Redmi Note 8 Pro",
+    "api": 30,
+    "androidRelease": "11",
+    "abi": "arm64-v8a,armeabi-v7a,armeabi"
+  },
+  "sessionId": "android-terminal-a38ed9e7-497d-461b-b086-afdd21b9dffe",
+  "testTimeMillis": 1794603298641,
+  "evidenceDirectory": "run-6307179634536542747",
+  "node": "v24.22.1",
+  "platform": "android",
+  "arch": "arm64",
+  "harnessStarted": true,
+  "nativeExitCode": 0,
+  "supervisorUid": 10751,
+  "supervisorPid": 25766,
+  "kernelIdentity": {
+    "pid": 25823,
+    "parentPid": 25766,
+    "uid": 10751,
+    "source": "/proc/self/status"
+  },
+  "report": {
+    "originalTerminalRegistry": true,
+    "terminalId": "pty-2",
+    "qualification": "lifecycle",
+    "result": {
+      "viewport": "IDENTITY:{\"uid\":10751,\"pid\":25856,\"parentPid\":25837}\r\nTTY-READY\r\n^C",
+      "waitReason": "session_exit",
+      "sessionStatus": {
+        "kind": "exited",
+        "exitCode": null,
+        "signal": "SIGINT"
+      },
+      "truncated": false
+    },
+    "nativeIdentity": {
+      "uid": 10751,
+      "pid": 25856,
+      "parentPid": 25837
+    },
+    "engineIdentity": {
+      "pid": 25837,
+      "parentPid": 25823,
+      "uid": 10751,
+      "source": "/proc/self/status"
+    },
+    "lifecycle": {
+      "timeout": {
+        "viewport": "IDENTITY:{\"uid\":10751,\"pid\":25856,\"parentPid\":25837}\r\nTTY-READY\r\n",
+        "waitReason": "timeout",
+        "sessionStatus": {
+          "kind": "running"
+        },
+        "truncated": false
+      },
+      "timeoutLeavesChildRunning": true,
+      "explicitCancellation": true,
+      "repeatedCancellationRejected": true,
+      "childNoLongerObservable": true
+    },
+    "starts": 1,
+    "concurrentConsumers": 2,
+    "concurrentRejections": 1,
+    "changedReceiptRejected": true,
+    "replayedReceiptRejected": true,
+    "ownerActivityDrained": true,
+    "stderrMergedByPty": true
+  },
+  "approvalOutcomes": [
+    {
+      "callId": "deny-23b710a9-3dca-44c7-ac5e-00405e10407a",
+      "outcome": "rejected"
+    },
+    {
+      "callId": "allow-b37d2c5c-f906-4678-b5f2-a7add6bb147a",
+      "outcome": "allowed-once"
+    }
+  ],
+  "negativeCodes": {
+    "unapproved": "APPROVAL_REQUIRED",
+    "unauthenticated": "UNAUTHENTICATED",
+    "agentApproval": "UNSUPPORTED_ACTION",
+    "duplicate": "DUPLICATE",
+    "terminal": "REQUEST_CHANGED",
+    "owner": "REQUEST_CHANGED",
+    "executable": "REQUEST_CHANGED",
+    "arguments": "REQUEST_CHANGED",
+    "cwd": "REQUEST_CHANGED",
+    "columns": "REQUEST_CHANGED",
+    "rows": "REQUEST_CHANGED",
+    "session": "REQUEST_CHANGED",
+    "call": "REQUEST_CHANGED",
+    "uid": "MALFORMED_OR_DISCONNECTED",
+    "replay": "CLOSED"
+  },
+  "selectedHistoryFields": {
+    "eventSequences": [
+      4,
+      5,
+      6,
+      12,
+      13,
+      14
+    ],
+    "deniedProcessStarts": 0,
+    "approvedProcessStarts": 1
+  },
+  "sessionRecoveredAcrossRuntimeRestart": true,
+  "appRestartVerified": false,
+  "modelRequestExecuted": false,
+  "generalShellProviderImplemented": false,
+  "gate3Passed": false,
+  "nativeBrokerSelectedFields": {
+    "allocationsConsumed": 1,
+    "resourceFailure": null,
+    "omittedAuditEntries": 0,
+    "maliciousSameUidPluginIsolation": false
+  },
+  "installedCodeWritable": false,
+  "persistedSessionJsonlSha256": "7a6e12cf37937a4bc58ba887b6c2d8ff3b9bb5d8261fab0e030834d0b05cf4a3",
+  "binarySha256": {
+    "libnode_executable.so": "07b91cc6fa5ed0489b95bc237929fd14a009c9bfa8d309b514fceca3d977e408",
+    "libharness_node_pty.so": "2b84420de3db82f41003524ef8b62ff33984c0f168c8401f8eeb521fdb0c47f3",
+    "libharness_pty_fixture.so": "2c4d85b720e001d8769d805cb348439d283e7a8aafd7cee098215d6b32c8f54e",
+    "libharness_atomic.so": "1c5fae1ac01ebdc9431f3ec9b5b11691d8fce489ec096fdef7cae566d7ced34e"
+  },
+  "warningsRetained": [
+    "libc++_shared.so unused processor-specific DT entry",
+    "shutdown request failed: sdk-minimal JSON-RPC input closed; exit code 0"
+  ],
+  "review": {
+    "boundedLifecycleQualification": "PASS: user-reported Android 11/API 30 physical run with matching inspected APK and native hashes",
+    "powerLossTested": false,
+    "androidInstrumentationExecuted": false,
+    "stderrNote": "PTY merged transport mode is reported; this cancelled fixture does not generate the separate TTY-STDERR line from the earlier input/resize run.",
+    "nextMilestone": "Review accumulated subprocess, PTY and original-terminal evidence against every Gate 3 condition; identify required remaining target-device coverage before accepting Gate 3."
+  }
+}

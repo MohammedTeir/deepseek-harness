@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 
-def validate(value, build):
+def validate(value, build, require_subprocess=False):
     def require(condition, message):
         if not condition:
             raise ValueError(message)
@@ -17,6 +17,9 @@ def validate(value, build):
     require(value.get('apkSha256') == build['apkSha256']['app-debug.apk'], 'APK mismatch')
     for field, library in [('nativeNodeSha256', 'libnode_executable.so'), ('nativePublicationSha256', 'libharness_atomic.so')]:
         require(value.get(field) == build['packagedLibraries'][library]['sha256'], field)
+    if require_subprocess:
+        require(value.get('originalSubprocessService') is True, 'Original subprocess service missing')
+        require(value.get('commandResult', {}).get('subprocessProvider') == 'android-fixed-pwd-v1', 'Fixed adapter result missing')
     native = value.get('nativeBroker', {})
     uid = value.get('supervisorUid', 0)
     require(type(uid) is int and uid > 0 and native.get('uid') == uid == value.get('kernelIdentity', {}).get('uid'), 'UID mismatch')
@@ -59,6 +62,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('result', type=Path)
     parser.add_argument('--build-record', type=Path, required=True)
+    parser.add_argument('--require-subprocess', action='store_true')
     args = parser.parse_args()
-    validate(json.loads(args.result.read_text()), json.loads(args.build_record.read_text()))
+    validate(json.loads(args.result.read_text()), json.loads(args.build_record.read_text()), args.require_subprocess)
     print('PASS: supplied original-tool/native-command report matches required evidence; physical attribution must be reviewed separately')

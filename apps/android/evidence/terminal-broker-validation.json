@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-13",
+  "baselineEvidence": "apps/android/evidence/terminal-allocation-validation.json",
+  "environment": "Managed Linux x86_64, UID 1000, Node 24.22.1, JDK 21.0.13, Android SDK 36/minSDK29; no ADB device",
+  "scope": "Private native allocation broker plus original-service approval relay; not activated in Android app",
+  "checks": [
+    {
+      "command": "HARNESS_TERMINAL_AUTHORITY_HOST_EVIDENCE=apps/android/evidence/terminal-authority-host-reference.json python3 -m unittest discover -s apps/android/tests -p 'test_*.py' -v",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "47 host test methods passed; native transport is a labelled double in the new genuine profile path",
+      "logSha256": "5817bf8993b950ea4e76cc40fd19271f4af0b8f3bb37cc03832153cadb7af69b",
+      "logTail": [
+        "test_original_runtime_exact_binding_and_real_host_execution (test_subprocess_adapter.SubprocessAdapterTest.test_original_runtime_exact_binding_and_real_host_execution) ... ok",
+        "test_exact_terminal_allocation_and_native_resource_revocation (test_terminal_allocation_grant.TerminalAllocationGrantTest.test_exact_terminal_allocation_and_native_resource_revocation) ... ok",
+        "test_denial_mutation_receipt_and_late_answer (test_terminal_authorization.TerminalAuthorizationTest.test_denial_mutation_receipt_and_late_answer) ... ok",
+        "test_original_approval_at_allocation_with_explicit_transport_double (test_terminal_registry_profile.TerminalRegistryProfileTest.test_original_approval_at_allocation_with_explicit_transport_double) ... ok",
+        "test_real_profile_approval_owners_allocation_cleanup_and_recovery (test_terminal_registry_profile.TerminalRegistryProfileTest.test_real_profile_approval_owners_allocation_cleanup_and_recovery) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 47 tests in 27.234s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "command": "python3 -m unittest discover -s apps/android/tests -p 'test_terminal_authorization.py' -v",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "Final additional receipt revocation, disposed-owner and configuration snapshot cases passed",
+      "logSha256": "0454ce8feb87c6bc9bb05c55c8a7da9979ac6a7802a9842ccc8e9304e61e4de5",
+      "logTail": [
+        "test_denial_mutation_receipt_and_late_answer (test_terminal_authorization.TerminalAuthorizationTest.test_denial_mutation_receipt_and_late_answer) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 1 test in 0.276s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "command": "./apps/android/gradlew -p apps/android :app:compileDebugKotlin :app:compileDebugJavaWithJavac :app:compileDebugAndroidTestKotlin :app:lintDebug --console=plain",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "App and Android test sources compiled; lint passed; no instrumentation executed",
+      "logSha256": "1bd8260c50dfaf8831a7a8334b291fe1a1b92ea5db1708e0a7b029a3ae8f6a22",
+      "logTail": [
+        "If it does not look related to your configuration, please file an issue with logs to https://kotl.in/issue",
+        "",
+        "> Task :app:lintAnalyzeDebug",
+        "> Task :app:lintAnalyzeDebugAndroidTest",
+        "> Task :app:lintAnalyzeDebugUnitTest",
+        "> Task :app:lintReportDebug UP-TO-DATE",
+        "> Task :app:lintDebug",
+        "",
+        "BUILD SUCCESSFUL in 1m 14s",
+        "41 actionable tasks: 12 executed, 29 up-to-date"
+      ]
+    },
+    {
+      "command": "pnpm exec vitest run scripts/verify-repository-references.spec.ts",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "47 reference-policy regression cases passed",
+      "logSha256": "6c03efe2919bb2809bc501eafad24f34abf7b8e32f1cba263e06fd07a828090f",
+      "logTail": [
+        "The plugin \"vite-tsconfig-paths\" is detected. Vite now supports tsconfig paths resolution natively via the resolve.tsconfigPaths option. You can remove the plugin and set resolve.tsconfigPaths: true in your Vite config instead.",
+        "",
+        " RUN  v4.1.11 /workspace/deepseek-harness",
+        "",
+        "",
+        " Test Files  1 passed (1)",
+        "      Tests  47 passed (47)",
+        "   Start at  12:31:16",
+        "   Duration  919ms (transform 116ms, setup 88ms, import 66ms, tests 564ms, environment 0ms)",
+        ""
+      ]
+    },
+    {
+      "command": "pnpm exec tsx scripts/run-oxlint.ts scripts/verify-repository-references.ts scripts/verify-repository-references.spec.ts",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "Focused lint passed after the reference-rule registration",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logTail": []
+    },
+    {
+      "command": "pnpm run lint",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "Repository lint passed before reference-rule edit; focused lint covers that later edit",
+      "logSha256": "9e2ddca67d8478809dd6adce116f7e2a1f6d85ee65b11ae917da92781b0f9c5f",
+      "logTail": [
+        "",
+        "> @deepseek-ai/dsh-root@0.2.2-rc.2 lint:contracts-ready",
+        "> tsx scripts/run-oxlint.ts .",
+        "",
+        "packages/experimental/client-ui-cot-translation/src/index.ts:82:9: warning: Unused oxlint-disable directive (no problems were reported).",
+        "npm notice",
+        "npm notice New major version of npm available! 11.19.1 -> 12.2.2",
+        "npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2",
+        "npm notice To update run: npm install -g npm@12.2.2",
+        "npm notice"
+      ]
+    },
+    {
+      "command": "pnpm run build:check",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "2 aggregate checks passed",
+      "logSha256": "5bffc2f32b3a194e15c2fde2f76ff528f3b6f9dcf141072472169185a8fd2858",
+      "logTail": [
+        "$ tsx scripts/build.ts --scope check",
+        "run-gates: build:check running 2 gate(s) with 2 worker(s) from 4 local default worker(s) of 4 CPU(s).",
+        "run-gates: start host aggregate check",
+        "run-gates: start client aggregate check",
+        "run-gates: PASS client aggregate check (20.07s)",
+        "run-gates: PASS host aggregate check (37.69s)",
+        "",
+        "run-gates: 2 passed, 0 failed, 0 skipped in 37.69s."
+      ]
+    },
+    {
+      "command": "pnpm run doc-sync",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "Final 43 passed, 0 failed, 0 skipped",
+      "logSha256": "3dc0238659163c80db3ecb13ed88fcfdfe3b8aebef5290683eb8fe878008c094",
+      "logTail": [
+        "run-gates: PASS doc budgets (1.44s)",
+        "run-gates: start documentation site checks",
+        "run-gates: PASS upgrade guides (2.61s)",
+        "run-gates: start package README limitations",
+        "run-gates: PASS package README model experience (9.14s)",
+        "run-gates: PASS documentation standard tests (4.55s)",
+        "run-gates: PASS package README limitations (9.86s)",
+        "run-gates: PASS documentation site checks (19.65s)",
+        "",
+        "run-gates: 43 passed, 0 failed, 0 skipped in 189.42s."
+      ]
+    },
+    {
+      "command": "python3 -m unittest discover -s apps/android/scripts -p 'test_package_profile.py' -v",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "8 archive tests passed; four known automated approval fixtures rejected",
+      "logSha256": "34706c590a07b6b37f7d1a73d783bfaacb7fe45a2de952cf29c1694b184f5b18",
+      "logTail": [
+        "test_native_file_rejects_even_with_matching_digest (test_package_profile.ProfileArchiveTest.test_native_file_rejects_even_with_matching_digest) ... ok",
+        "test_plain_interpreted_file_is_accepted (test_package_profile.ProfileArchiveTest.test_plain_interpreted_file_is_accepted) ... ok",
+        "test_stale_host_qualification_cannot_approve_new_image (test_package_profile.ProfileArchiveTest.test_stale_host_qualification_cannot_approve_new_image) ... ok",
+        "test_successful_read_through_outside_symlink_rejects (test_package_profile.ProfileArchiveTest.test_successful_read_through_outside_symlink_rejects) ... ok",
+        "test_traversal_and_absolute_paths_reject (test_package_profile.ProfileArchiveTest.test_traversal_and_absolute_paths_reject) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 8 tests in 0.005s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "command": "validate_archive(existing profile-v7 ZIP, existing image manifest) and compare SHA-256 before/after",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "Existing archive accepted unchanged by the stricter fixture gate",
+      "logSha256": "610115a70950d117b3ab918d06e47552e16a5fc79d4ceb8f636d2e30a911482f",
+      "logTail": [
+        "PASS unchanged existing interpreted archive: cedf24356d99a0c61dc1a5add993d9fc687083f6cafb3ccc14c181514134fbad"
+      ]
+    }
+  ],
+  "initialDocumentationFailure": {
+    "summary": "42/43 passed; undeclared baselineCommit in existing terminal-allocation evidence rejected",
+    "logSha256": "113f8a605215ad920fcda8fbd7215cdf5a172504a1bbc6f186b86d7c27315b7d",
+    "remediation": "Register only that canonical top-level full-known revision field; negative tests retain unknown/abbreviated/extra-field/other-path/noncanonical/duplicate rejection",
+    "evidenceBytesChanged": false,
+    "preservedSha256": "edd7f3f5457e498d2bab5b15dbb6a350481deccc18ae53ee83f52c57a925ae6f"
+  },
+  "filesSha256": {
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/TerminalAllocationBroker.kt": "587bda128e33ed301fbc6d577a7c7dd5a42e1cbff048b5431ced2dc071cc1675",
+    "apps/android/app/src/androidTest/java/io/github/mohammedteir/deepseekharness/TerminalAllocationBrokerTest.kt": "ca2728bafe61ce37794acf85a7c35b8235f6bda1fd98e2aa41eeb982f03eff7e",
+    "apps/android/runtime/terminal-authorization.mjs": "ca85bc54a1a313a90c31510eb1215f5345efa54f2bad59543b61feac754916f0",
+    "apps/android/tests/terminal-authority-plugin.mjs": "aeac7e60f96edeb51a891edaf425389e930ec96694f3e42595f31cc354321a3c",
+    "apps/android/tests/terminal-authorization-negative.mjs": "f36a844362575ff4c0fdec2baf6e4b684c5e3d01ac69d1df1bce03f9bb684f20",
+    "apps/android/tests/test_terminal_authorization.py": "b7dbecc3ce0a3bd9d21b60ef8fc871de5dd97c2ea230c88eb8b67d33e5ca2596",
+    "apps/android/tests/terminal-registry-reference.mjs": "40230ccc8aefa0280c3fadf46098217c1a646a7984ac5cfd648a72ef3841feb0",
+    "apps/android/tests/test_terminal_registry_profile.py": "852362106d6f962cfb5d0f682b8f90dc0187950fe37874c6b0f1c530f1630980",
+    "apps/android/scripts/package_profile.py": "f43defa4a0001ff274039a867f35df8fde26af4da2af0f619f56ab3c98091fe4",
+    "apps/android/scripts/test_package_profile.py": "8b171f8a2a28a6dd0286dfa10115de4c9a69fc10776171f87da0c981a58cd367",
+    "scripts/verify-repository-references.ts": "dbb846119b970cec6f847531345b3302fdf6d9bfb9677615f5f7eae8795141e9",
+    "scripts/verify-repository-references.spec.ts": "8dcd735ef2828c1b6fa6b832c7e09c75d0c08e9b2348328fcfc96bedc003feee",
+    "apps/android/evidence/terminal-authority-host-reference.json": "10362186d7bcebd696efd626cdca60250e6836af14edff919587b447bf88b8e6"
+  },
+  "device": {
+    "command": "/workspace/android-sdk/platform-tools/adb devices -l",
+    "exitCode": 0,
+    "connectedDevices": 0,
+    "instrumentationStatus": "BLOCKED"
+  },
+  "notes": [
+    "Kotlin daemon could not write under read-only home; ordinary non-daemon compiler fallback completed successfully without configuration changes.",
+    "Host authority transport and native decisions are test doubles; real original Agent/registry/approval and PTY output/session recovery are host evidence only.",
+    "No new native binary, APK assembly, signing, upload or release is claimed."
+  ],
+  "nativeSocketTestsExecuted": false,
+  "nativeHumanApprovalVerified": false,
+  "androidRuntimeActivated": false,
+  "hostNativeTransportIsDouble": true,
+  "apkBuilt": false,
+  "gate3Passed": false,
+  "nextMilestone": "Private Android human UI/service, authenticated Node transport, fixed Android backend and qualified profile-image closure, then signed full-runtime APK and physical acceptance"
+}

@@ -2,7 +2,7 @@
 
 > **Companion:** [ANDROID_COMPLETE_ROADMAP.md](ANDROID_COMPLETE_ROADMAP.md)  
 > **Authoritative scope:** [DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md](DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md), particularly sections **15, 15A and 17**.  
-> **Snapshot refresh:** 2026-11-14; current status is recorded in the dated refresh below. Implementation and detailed runtime evidence remain on `feature/android-port`; master retains the planning board.
+> **Snapshot refresh:** 2026-11-14; current status is recorded in the dated refresh below. `feature/android-port` is the active planning copy; `master` receives updates when the branch is merged.
 >
 > **Meaning of checkboxes:** \`[x]\` means **documented evidence exists for exactly the stated, sometimes limited, claim**; \`[ ]\` means not accepted, incomplete, blocked, or future work. A checkbox is **not** authorization to broaden scope. See [ANDROID_PORT_STATUS.md](ANDROID_PORT_STATUS.md) and the gate reviews.
 
@@ -14,7 +14,7 @@
 4. Update \`ANDROID_PORT_STATUS.md\` and the relevant Gate review *before* marking gate acceptance. Do not edit historical test reports or auto-clear known failures.
 5. If blocked for device, credentials, SDK or upstream behavior, preserve \`[ ]\`, annotate **BLOCKED: cause**, and continue independent work.
 6. All product functionality must still comply with authoritative master prompt. Tests below add detail but do not substitute for its explicit acceptance.
-7. This checklist was committed to documentation in \`master\` by user request; **do not merge feature code, open a PR or publish a release** without separate user authorization.
+7. Keep active planning edits on \`feature/android-port\`; \`master\` receives this checklist when the branch is merged. **Do not merge feature implementation, open a PR or publish a release** without separate user authorization.
 8. Keep all test artifacts free of secrets, access tokens, private data and unredacted user files.
 
 ## Status dashboard (baseline)
@@ -392,7 +392,7 @@ Copy this template into the next session or completion summary:
 | Phase 1 / Gate 1 | ACCEPTED | Audit and bounded feasibility decision. |
 | Phase 2 / Gate 2 | BOUNDED ACCEPTED | Android 11/API 30 ARM64 local-engine/session/fixed approved-command scope only. |
 | Phase 3 / Gate 3 | IN PROGRESS | APK #7 terminal/native approval and APK #8 lifecycle result reviews exist; API 29/recent-device and broader lifecycle/general-shell gaps remain. |
-| Phase 3A / Gate 4 | IN PROGRESS | P3A-001/002 Linux-host observation and trace-limit records exist on `feature/android-port`; dependency closure and integrated Android Web Runtime/UI/backend proof remain open. |
+| Phase 3A / Gate 4 | IN PROGRESS | P3A-001/002 host evidence and P3A-003 manifest-backed runtime/test separation are recorded on `feature/android-port`; native audit, file closure and integrated Android Web Runtime/UI/backend proof remain open. |
 | Phase 4 | NOT COMPLETE | Platform adapters and original feature restoration. |
 | Phase 5 / Gate 5 | NOT COMPLETE | Optional Termux/Root and full authorization/security acceptance. |
 | Phase 6 | NOT COMPLETE | Hardening, reliability, performance and compatibility matrix. |
@@ -410,10 +410,10 @@ Copy this template into the next session or completion summary:
 
 - [x] **P3A-001 — Complete dependency observation.** Original Web Profile bootstrap and bounded Linux-host runs now record syscall/path operations and separate Node module-resolution/native-load observations. This does not establish complete dependency closure or Android behavior.
 - [x] **P3A-002 — State trace blind spots.** Raw capture sets, compact reports, compressed observed-path inventories and explicit observed-versus-inferred/unobserved-scope notes are retained for those host runs. The evidence does not establish full runtime inputs.
-- [ ] **P3A-003 — Separate runtime from test dependencies.** Remove test runner, observer, fixtures, Vitest configuration, preview/development files and test-only modules from the production dependency set.
-- [ ] **P3A-004 — Audit native artifacts.** For every native dependency, record target ABI, Android/Bionic build inputs, compiler/toolchain, ELF interpreter, DT_NEEDED closure, symbols, minimum API, alignment and license. Reject Linux GNU/GLIBC artifacts.
-- [ ] **P3A-005 — Narrow image policy.** Add explicit Android packaging allowlist/denylist and negative tests. Do not broadly relax package validation.
-- [ ] **P3A-006 — Build reproducible Web Runtime Image.** Pin source inputs; emit included-path/hash/native metadata and license manifest; prove forbidden files and binaries are excluded.
+- [x] **P3A-003 — Separate runtime from test dependencies.** Manifest-backed CLI/Web Profile production package trees are separated from devDependencies; Vitest/test tools are absent from those trees; host observer/spec/config/fixture inputs and frontend build assets are explicitly classified. See `apps/android/evidence/original-web-p3a003-runtime-test-separation.json` and `apps/android/execution/ORIGINAL_WEB_ASSETS.md`. This is not a file-level dependency closure or Android compatibility result.
+- [ ] **P3A-004 — Audit native artifacts (IN PROGRESS).** The [candidate inventory](apps/android/evidence/original-web-p3a004-native-candidates.tsv) and [structured report](apps/android/evidence/original-web-p3a004-native-artifact-audit.json) bind P3A-006 and its zero-included/35-rejected native result. The source-bound Gradle/CMake graph declares ten Android APK inputs: six runtime libraries, two node-pty libraries, the `libharness_probe.so` JNI bridge that starts `libnode.so`, and one process-proof executable. No raw APK/AAB or native ELF files are present in this worktree; the process proof and PTY fixture are in the main JNI source set and require release-scope review. The [historical build/package matrix](apps/android/evidence/original-web-p3a004-android-apk-native-matrix.tsv) covers 16 snapshots and 10 unique library names. Acceptance remains open until an exact APK’s selected ARM64/Bionic native set has per-artifact ABI/build/toolchain/interpreter/DT_NEEDED/symbol/API/alignment/license evidence.
+- [x] **P3A-005 — Narrow image policy.** The [default-deny Android ARM64/Bionic policy](apps/android/runtime/native-artifact-policy.json) is enforced in `package_profile.py`, pins a policy digest in the image manifest, rejects unlisted or mismatched hashes/metadata, and keeps the interpreted archive ELF-free. The [generated policy audit](apps/android/evidence/original-web-p3a005-native-policy-audit.json) records 13 positive/negative cases; the profile packager suite passes 16 tests. The allowlist remains empty because no exact production Web Runtime Image native artifact is qualified; host smoke evidence is not Android or full-distribution proof.
+- [x] **P3A-006 — Build reproducible Web Runtime Image (host candidate only).** Two independent full builds matched byte-for-byte; the [build/reproducibility report](apps/android/evidence/original-web-p3a006-image-build.json) binds source inputs, included path hashes, native exclusions, workspace normalization, and package license declarations. The corrected candidate is 129,118,093 bytes with 28,043 files, 2,993 symlinks, 628 package manifests and 94 frontend assets; zero OS-native binaries are included and 35 native candidates are rejected, including static `.a` archives. This does not accept an Android native closure, Android boot, or secure transport; 379 packages lack a separate package license text file and are explicitly listed.
 - [ ] **P3A-007 — Android runtime boot.** Start the authentic original Web Profile under embedded Android Node on a physical device; record exact device/API/ABI, logs, process tree, boot graph and client batches.
 - [ ] **P3A-008 — Capability-safe client graph.** Resolve the mismatch where the disabled host provider still leaves an active `ui-open-in-app` client entry. Missing providers must be visibly unavailable, not apparently functional.
 - [ ] **P3A-009 — Authenticated HTTP transport.** Design and test WebView-to-runtime session authentication while preserving launch-token/cookie, Host/Origin and expiry/replay protections.
@@ -431,9 +431,10 @@ Copy this template into the next session or completion summary:
 - Bounded Linux host composition: `apps/android/evidence/original-web-bounded-host.json`.
 - Isolated Linux host trace: `apps/android/evidence/original-web-profile-isolated-host-trace.json`.
 - Detailed limitations and next steps: `apps/android/execution/ORIGINAL_WEB_ASSETS.md`.
+- P3A-003 reproducible partition report: `apps/android/evidence/original-web-p3a003-runtime-test-separation.json`; analyzer/tests: `apps/android/scripts/audit_web_runtime_test_split.py` and `apps/android/tests/test_web_runtime_test_split.py`.
 - P3A-001/002 host evidence remains on `feature/android-port`: [bootstrap summary](https://github.com/MohammedTeir/deepseek-harness/blob/feature/android-port/apps/android/evidence/original-web-profile-p3a001-host-observations.json), [bounded summary](https://github.com/MohammedTeir/deepseek-harness/blob/feature/android-port/apps/android/evidence/original-web-bounded-p3a001-host-observations.json), and [execution notes](https://github.com/MohammedTeir/deepseek-harness/blob/feature/android-port/apps/android/execution/ORIGINAL_WEB_ASSETS.md). These are host observations, not a dependency-closure or Android-runtime claim.
 - Supplemental historical audit: [Antigravity report snapshot](apps/android/execution/antigravity-audit-report-2026-11-14.md); its earlier P3A statuses do not supersede this refresh.
 
 ## Branch discipline
 
-Implementation and detailed runtime evidence remain on `feature/android-port`; this checklist and the complete roadmap are maintained on `master`. The branches remain divergent. This refresh is documentation-only: it does not merge feature code, open a PR, publish a release or change implementation code.
+Implementation, detailed runtime evidence and active planning edits are on `feature/android-port`; `master` receives these documents when the branch is merged. This documentation-only copy does not merge feature code into `master`, open a PR, publish a release or change implementation code.

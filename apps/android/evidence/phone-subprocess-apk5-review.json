@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-11-13",
+  "evidenceAttribution": "User-reported physical Android execution; not developer-controlled ADB or cryptographic attestation",
+  "completeNormalizedReport": "apps/android/evidence/phone-subprocess-apk5-run1.json",
+  "reportSha256": "2c2509ff1b7df2af606551df98915026e0ea44fa71791675e8852afe70da3084",
+  "device": {
+    "model": "Redmi Note 8 Pro",
+    "api": 30,
+    "androidRelease": "11",
+    "abi": "arm64-v8a,armeabi-v7a,armeabi"
+  },
+  "apkSha256": "548ae205e3c57d7a6c2ce75ef066a66914ec94ac3de763612e15f39ffad9c1f9",
+  "nativeNodeSha256": "07b91cc6fa5ed0489b95bc237929fd14a009c9bfa8d309b514fceca3d977e408",
+  "nativePublicationSha256": "1c5fae1ac01ebdc9431f3ec9b5b11691d8fce489ec096fdef7cae566d7ced34e",
+  "testTimeMillis": 1794558160294,
+  "decision": "PASS for bounded original SubprocessRuntime fixed-pwd integration on reported Android 11 ARM64 device",
+  "gate3Status": "IN PROGRESS",
+  "originalSubprocessServiceVerified": true,
+  "provider": "android-fixed-pwd-v1",
+  "nativeProcessLaunches": 1,
+  "identity": {
+    "uid": 10751,
+    "supervisorPid": 1747,
+    "controllerPid": 1792,
+    "executionPeerPid": 1812
+  },
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "apps/android/scripts/validate_command_result.py",
+        "apps/android/evidence/phone-subprocess-apk5-run1.json",
+        "--build-record",
+        "apps/android/evidence/runtime-subprocess-apk5-build.json",
+        "--require-subprocess"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "output": "PASS: supplied original-tool/native-command report matches required evidence; physical attribution must be reviewed separately\n"
+    },
+    {
+      "command": "python3 -m unittest discover -s apps/android/tests -p 'test_command_evidence.py' -v",
+      "exitCode": 0,
+      "status": "PASS",
+      "tests": 3
+    },
+    {
+      "command": "pnpm run doc-sync",
+      "exitCode": 0,
+      "status": "PASS",
+      "gates": 43,
+      "summary": "run-gates: 43 passed, 0 failed, 0 skipped in 242.65s.",
+      "logSha256": "18cfbe54b2c6a6f3ca4fb5d169d24b35f5b60e643f9553a01d3778929d1f076f"
+    },
+    {
+      "command": "pnpm run lint",
+      "exitCode": 0,
+      "status": "PASS",
+      "logSha256": "095905110100361fba3947fb990e9581232f6ac0d188330fcce4e22081aab422",
+      "retainedWarning": "Existing unused oxlint-disable in packages/experimental/client-ui-cot-translation/src/index.ts:82:9"
+    }
+  ],
+  "rawGate2PassedRetained": false,
+  "rawModelRequestExecutedRetained": false,
+  "runtimeNotes": "Submitted linker warning and duplicate SDK close/shutdown notes retained. The pinned controller requires explicit successful shutdown acknowledgment and identical recovered events before producing this result.",
+  "notVerified": [
+    "Interactive PTY transport",
+    "Original terminal backend",
+    "Android cancellation/timeout of this service adapter",
+    "Nonzero/signal outcome support beyond existing explicit rejection",
+    "Android cleanup-failure diagnostics; host root Context is known to collect rather than propagate errors",
+    "API 29 and recent Android",
+    "Arbitrary descendants and OS-death cleanup",
+    "Hostile same-UID plugins",
+    "Model request",
+    "Original Web UI integration"
+  ]
+}

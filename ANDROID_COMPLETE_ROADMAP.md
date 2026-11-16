@@ -1,7 +1,7 @@
 # DeepSeek Harness Android — Complete Phases, Gates & Long-Term Product Roadmap
 
 > **Status:** Living project handoff / completion reference  
-> **Baseline refresh:** 2026-11-14; current development evidence is recorded on `feature/android-port`, and the planning document is maintained on `master`.
+> **Baseline refresh:** 2026-11-14; active development and planning edits are on `feature/android-port`; `master` receives these documents when the branch is merged.
 >
 > **Authority:** [DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md](DEEPSEEK_HARNESS_ANDROID_MASTER_PROMPT.md) is authoritative. This document expands and tracks it; it **does not** modify, override, silently waive, or replace its requirements.  
 > **Related execution tracker:** [ANDROID_DETAILED_TASKS_CHECKLIST.md](ANDROID_DETAILED_TASKS_CHECKLIST.md)  
@@ -317,19 +317,23 @@ This section supersedes the dated status snapshot in Section 2 and any older nex
 - These tests establish bounded Linux-host behavior and static asset packaging only. Trace coverage is incomplete; the observed Linux native addon is not an Android artifact. The current `sdk-minimal` image is not a complete Android Web Runtime Image.
 - The bounded composition disables six platform-sensitive providers, yet the client graph still exposes `ui-open-in-app`; capability-aware UI behavior must be addressed.
 - P3A-001/002 host captures remain on `feature/android-port`: [bootstrap summary](https://github.com/MohammedTeir/deepseek-harness/blob/feature/android-port/apps/android/evidence/original-web-profile-p3a001-host-observations.json), [bounded summary](https://github.com/MohammedTeir/deepseek-harness/blob/feature/android-port/apps/android/evidence/original-web-bounded-p3a001-host-observations.json), and [execution notes](https://github.com/MohammedTeir/deepseek-harness/blob/feature/android-port/apps/android/execution/ORIGINAL_WEB_ASSETS.md). The raw host captures and compressed path inventories remain on that branch; the observations do not establish complete dependency closure or Android behavior.
+- P3A-003 runtime/test separation is recorded in the [manifest-backed partition report](apps/android/evidence/original-web-p3a003-runtime-test-separation.json); test/observer inputs and frontend build dependencies are outside the declared production package trees. This is not a file-level closure or Android proof.
+- P3A-004 is in progress: the [native-candidate inventory](apps/android/evidence/original-web-p3a004-native-candidates.tsv), [historical Android build/package matrix](apps/android/evidence/original-web-p3a004-android-apk-native-matrix.tsv), and [structured audit](apps/android/evidence/original-web-p3a004-native-artifact-audit.json) enumerate 70 installed native-like payloads and 10 unique libraries across 16 historical build/package snapshots. The host-loaded x86-64 Linux GNU addon is rejected; the historical ARM64/minSdk-29 package records do not qualify a Web Runtime Image.
+- P3A-005 is complete: the [default-deny Android native policy](apps/android/runtime/native-artifact-policy.json) is integrated with the profile archive validator; the [policy audit](apps/android/evidence/original-web-p3a005-native-policy-audit.json) records allow/deny decisions, and the approved production Web Runtime Image native set remains empty.
 - The [Antigravity audit snapshot](apps/android/execution/antigravity-audit-report-2026-11-14.md) is supplemental historical context; its P3A-001/002 “NOT STARTED” entries predate this work and are not current status.
 
 ### Gate 4 critical path
 
-1. Separate original Web Profile runtime inputs from test runner, observer, fixtures, preview/development files and Linux-only binaries (P3A-003), using host observations as inputs rather than treating them as a complete dependency closure.
-2. Audit each native runtime artifact for Android ARM64/Bionic build details and linkage; exclude or rebuild Linux GNU/GLIBC binaries (P3A-004).
-3. Define a strict Android ARM64/Bionic allowlist/denylist and validate ELF dependencies, symbols, API requirements, alignment and licenses (P3A-005).
-4. Build a deterministic Android Web Runtime Image with an integrity manifest and negative packaging tests (P3A-006).
-5. Boot the authentic original Web Profile under embedded Android Node on a physical device (P3A-007).
-6. Prevent disabled providers from appearing available in the client graph (P3A-008).
-7. Implement authenticated WebView-to-runtime HTTP/WebSocket transport and test cookie, Host/Origin, expiry, replay and cross-app denial (P3A-009/010).
-8. Integrate the original UI and verify SPA navigation, streamed model response, session recovery and a native-approved registered tool operation on Android (P3A-011/012).
+1. **Complete:** separate original Web Profile runtime package trees from test runner, observer, fixture, preview and frontend build inputs (P3A-003); keep unresolved observed paths and the file-level closure open.
+2. **In progress: P3A-004.** The historical artifact matrix remains open. Its image-bound audit verifies the P3A-006 host candidate includes zero native artifacts and rejects 35 candidates (including 2 static `.a` files). The current Gradle/CMake graph declares ten APK native inputs, but no raw APK/AAB or native ELF payload is present in the worktree; final acceptance still requires hash-bound qualification of the separate Android ARM64/Bionic ELF set.
+3. **Complete: P3A-005.** Enforce the strict Android ARM64/Bionic allowlist/denylist and negative package tests without broadly relaxing validation.
+4. **Complete for host packaging: P3A-006.** The [build/reproducibility report](apps/android/evidence/original-web-p3a006-image-build.json) records two independent full builds with identical 129,118,093-byte archives, path/hash manifests, license metadata, and default-deny exclusion of 35 native candidates. This is not Android boot or native-closure acceptance.
+5. **Next: return to P3A-004.** Build or locate the exact APK for the current Gradle graph, resolve proof-only main-source-set inputs, and complete per-artifact ABI/build/toolchain/interpreter/DT_NEEDED/symbol/API/alignment/license evidence; the host image’s empty native list does not close that set.
+6. Boot the authentic original Web Profile under embedded Android Node on a physical Android device (P3A-007).
+7. Prevent disabled providers from appearing available in the client graph (P3A-008).
+8. Implement authenticated WebView-to-runtime HTTP/WebSocket transport and test cookie, Host/Origin, expiry, replay and cross-app denial (P3A-009/010).
+9. Integrate the original UI and verify SPA navigation, streamed model response, session recovery and a native-approved registered tool operation on Android (P3A-011/012).
 
 ### Repository workflow boundary
 
-At this refresh, `feature/android-port` and `master` remain divergent. Implementation and detailed runtime evidence stay on the development branch; this roadmap and checklist stay on `master`. This documentation update does not merge feature code, open a PR, publish a release or authorize feature-code integration.
+At this refresh, `feature/android-port` and `master` remain divergent. The feature branch is the active home for implementation, evidence and planning edits; `master` receives these documents when the branch is merged. This copy does not merge feature code into `master`, open a PR, publish a release or authorize feature-code integration.

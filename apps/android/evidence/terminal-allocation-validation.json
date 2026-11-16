@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-13",
+  "baselineCommit": "abf59f5176674ea15abda0d60ff6761a65fe66a4",
+  "environment": "Managed Linux x86_64 host, non-root UID 1000, Node 24.22.1, JDK 21.0.13; Android SDK 36, minSDK 29, Java target 17",
+  "scope": "Native Java terminal-allocation policy only; no IPC, UI, registry/runtime wiring or process execution added",
+  "checks": [
+    {
+      "command": "python3 -m unittest discover -s apps/android/tests -p 'test_*.py' -v",
+      "workingDirectory": "repository root",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "45 host test methods passed; new allocation fixture includes 12 policy cases and 32 concurrent consumers",
+      "logSha256": "e498e96c1bf8c85a55c6298e73861af1c4a008e6905cdc651807a8093d7a1852",
+      "logTail": [
+        "test_inventory_reports_symlinks_without_following_them (test_session_diagnostics.SessionDiagnosticsTest.test_inventory_reports_symlinks_without_following_them) ... ok",
+        "test_capture_and_restore_on_explicit_and_scope_exit (test_stderr_capture.StderrCaptureTest.test_capture_and_restore_on_explicit_and_scope_exit) ... ok",
+        "test_symlink_log_is_rejected_without_overwriting_target (test_stderr_capture.StderrCaptureTest.test_symlink_log_is_rejected_without_overwriting_target) ... ok",
+        "test_unavailable_log_preserves_original_stderr (test_stderr_capture.StderrCaptureTest.test_unavailable_log_preserves_original_stderr) ... ok",
+        "test_original_runtime_exact_binding_and_real_host_execution (test_subprocess_adapter.SubprocessAdapterTest.test_original_runtime_exact_binding_and_real_host_execution) ... ok",
+        "test_exact_terminal_allocation_and_native_resource_revocation (test_terminal_allocation_grant.TerminalAllocationGrantTest.test_exact_terminal_allocation_and_native_resource_revocation) ... ok",
+        "test_real_profile_approval_owners_allocation_cleanup_and_recovery (test_terminal_registry_profile.TerminalRegistryProfileTest.test_real_profile_approval_owners_allocation_cleanup_and_recovery) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 45 tests in 35.979s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "command": "./gradlew :app:compileDebugKotlin :app:compileDebugJavaWithJavac :app:lintDebug --console=plain",
+      "workingDirectory": "apps/android",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "Android compilation and lint passed; lint report contains 0 errors and 19 existing warnings",
+      "logSha256": "29a178c80139e9b4f381eb88d2aa0f41b7b1a448c02c5abb5bf2ddd9974f2f29",
+      "logTail": [
+        "> Task :app:bundleDebugClassesToCompileJar",
+        "> Task :app:generateDebugLintReportModel",
+        "> Task :app:generateDebugAndroidTestLintModel",
+        "> Task :app:generateDebugUnitTestLintModel",
+        "> Task :app:lintAnalyzeDebugAndroidTest",
+        "> Task :app:lintAnalyzeDebugUnitTest",
+        "> Task :app:lintAnalyzeDebug",
+        "> Task :app:lintReportDebug UP-TO-DATE",
+        "> Task :app:lintDebug",
+        "",
+        "BUILD SUCCESSFUL in 52s",
+        "32 actionable tasks: 12 executed, 20 up-to-date"
+      ]
+    },
+    {
+      "command": "pnpm run doc-sync",
+      "workingDirectory": "repository root",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "43 passed, 0 failed, 0 skipped",
+      "logSha256": "0de2ed07f8219949a6b2d4fae210d359c7adb5495267491b56686f2fc9ae8eee",
+      "logTail": [
+        "run-gates: PASS doc budgets (2.00s)",
+        "run-gates: start documentation standard tests",
+        "run-gates: PASS skill invocation metadata (2.92s)",
+        "run-gates: start documentation site checks",
+        "run-gates: PASS upgrade guides (3.72s)",
+        "run-gates: start package README limitations",
+        "run-gates: PASS package README model experience (10.75s)",
+        "run-gates: PASS documentation standard tests (4.60s)",
+        "run-gates: PASS package README limitations (13.23s)",
+        "run-gates: PASS documentation site checks (30.18s)",
+        "",
+        "run-gates: 43 passed, 0 failed, 0 skipped in 260.56s."
+      ]
+    },
+    {
+      "command": "pnpm run lint",
+      "workingDirectory": "repository root",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "Repository lint passed; existing unused-disable warning retained",
+      "logSha256": "b3292bcd0619362c5d44304c0c3a3fc02bdde28cc0e6eadb4183be8fb3d2ea0c",
+      "logTail": [
+        "$ tsx scripts/compile-referenced-projects.ts host-contracts && npm run lint:contracts-ready",
+        "generate-typert: wrote 39 Typert artifact(s) for 39 package(s) in 27.5s",
+        "",
+        "> @deepseek-ai/dsh-root@0.2.2-rc.2 lint:contracts-ready",
+        "> tsx scripts/run-oxlint.ts .",
+        "",
+        "packages/experimental/client-ui-cot-translation/src/index.ts:82:9: warning: Unused oxlint-disable directive (no problems were reported).",
+        "npm notice",
+        "npm notice New major version of npm available! 11.19.1 -> 12.2.2",
+        "npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2",
+        "npm notice To update run: npm install -g npm@12.2.2",
+        "npm notice"
+      ]
+    }
+  ],
+  "policyCases": [
+    "approval",
+    "denial",
+    "bindings",
+    "revocation",
+    "expiry",
+    "immutable",
+    "concurrency",
+    "workspace-replacement",
+    "workspace-symlink",
+    "executable-replacement",
+    "executable-writable",
+    "constructor"
+  ],
+  "filesSha256": {
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/TerminalAllocationGrant.java": "d02ebf0bfc71195c0af513f842d41855ef0c2381f256909552e496ae9b75513a",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/CommandGrant.java": "5e5f9afa184a0b6bf29bc39c766a5d456804b788641fa4e7ac7ebe09e718557e",
+    "apps/android/tests/TerminalAllocationGrantFixture.java": "5679775263b2576d20b701e1f3df20d36096fe0eaab4846e7aa8a38fdcdac52c",
+    "apps/android/tests/test_terminal_allocation_grant.py": "e93420d4985b505d291b5201ce65514061be86dd16ede70404d3efadab2dc25a"
+  },
+  "buildNotes": [
+    "Gradle retained its Kotlin daemon connection failure and successfully compiled using its ordinary non-daemon fallback; no Gradle configuration or validation rule was changed.",
+    "No APK assembled or delivered for this checkpoint."
+  ],
+  "deviceCheck": {
+    "command": "/workspace/android-sdk/platform-tools/adb devices -l",
+    "exitCode": 0,
+    "output": "List of devices attached\n\n",
+    "connectedDevices": 0
+  },
+  "androidResourceIdentityVerified": false,
+  "nativeIpcIntegrated": false,
+  "nativeHumanApprovalVerified": false,
+  "originalAndroidTerminalIntegrated": false,
+  "apkBuilt": false,
+  "gate3Passed": false,
+  "nextMilestone": "Authenticated native broker/UI, actual registry-owned binding and original ApprovalService integration, then full-runtime APK qualification on phone"
+}

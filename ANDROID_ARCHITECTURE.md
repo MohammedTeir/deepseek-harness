@@ -44,3 +44,19 @@ The [Gate 2 review](ANDROID_GATE2_REVIEW.md) accepts the bounded original local-
 ## Gate 3 diagnostic boundary
 
 The new process/PTY proof is a fixed native capability suite hosted by a private Android service. It is independent of Harness tool qualification and preserves the existing Node/profile architecture. It informs a later adapter for original subprocess and terminal interfaces; it is not that adapter. The original UI and Bash terminal protocol remain unchanged. See [the qualification guide](apps/android/execution/process-proof/PROCESS_CAPABILITY_PROOF.md).
+
+## Original subprocess service adapter
+
+AndroidFixedPwdSubprocess subclasses the original service and is mounted as a separate profile plugin. The registered tool now uses ctx.subprocess with a scoped immutable call binding. The authenticated native broker and human grant remain the execution authority. Only bounded collected fixed pwd is supported; batch RPC cannot provide raw streams or a live SubprocessTerminalHandle. See [the adapter contract](apps/android/execution/SUBPROCESS_ADAPTER.md).
+
+## Original node-pty selection experiment
+
+An isolated service qualifies the locked original node-pty source and JavaScript using an installer-owned NAPI addon and fixed native fixture. A scoped loader adapts its package-local native lookup; no agent or original terminal implementation is replaced. Cross-compilation and host behavior support testing this reuse path before considering a new bridge. Device execution and general terminal-session ownership remain unverified. See [the experiment](apps/android/execution/NODE_PTY_QUALIFICATION.md).
+
+## Original terminal backend seam
+
+The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.
+
+## Fixed native terminal vertical slice
+
+The [APK #7 reference](apps/android/execution/TERMINAL_ANDROID_PROOF.md) records the original registry/tool/approval path, authenticated native broker, human UI and fixed Android PTY factory. Host and relocated-profile tests and Android build/inspection pass. Physical execution is BLOCKED pending phone evidence. This is a fixed benign fixture, not general shell or the original Web UI. Gate 3 remains IN PROGRESS; preserve existing data when updating the single runtime app.

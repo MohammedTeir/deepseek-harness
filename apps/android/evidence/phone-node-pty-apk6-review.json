@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-11-13",
+  "attribution": "User-reported physical execution; not developer-controlled ADB or cryptographic attestation",
+  "rawReport": "apps/android/evidence/phone-node-pty-apk6-run1.json",
+  "rawReportSha256": "000a3725a8126140c393cc21d028bbb5aea66e36c89f4a4d42005a0ed880deeb",
+  "decision": "PASS for original node-pty fixed qualification on reported Android 11 ARM64 device",
+  "device": {
+    "model": "Redmi Note 8 Pro",
+    "api": 30,
+    "androidRelease": "11",
+    "abi": "arm64-v8a,armeabi-v7a,armeabi"
+  },
+  "apkSha256": "25c1cc21274d3f9e1eb678bc9c9fe3515e76718fce4f2a877b3641f1b0c8a51c",
+  "nodePtyAddonSha256": "2b84420de3db82f41003524ef8b62ff33984c0f168c8401f8eeb521fdb0c47f3",
+  "fixtureSha256": "2c4d85b720e001d8769d805cb348439d283e7a8aafd7cee098215d6b32c8f54e",
+  "nodeSha256": "07b91cc6fa5ed0489b95bc237929fd14a009c9bfa8d309b514fceca3d977e408",
+  "uid": 10751,
+  "nodePid": 1688,
+  "supervisorPid": 1634,
+  "testTimeMillis": 1794564893362,
+  "cases": [
+    {
+      "name": "input-resize",
+      "status": "PASS",
+      "pid": 1702,
+      "exitCode": 0,
+      "signal": 0
+    },
+    {
+      "name": "exit-seven",
+      "status": "PASS",
+      "pid": 1710,
+      "exitCode": 7,
+      "signal": 0
+    },
+    {
+      "name": "ctrl-c",
+      "status": "PASS",
+      "pid": 1712,
+      "exitCode": 0,
+      "signal": 2
+    },
+    {
+      "name": "terminate",
+      "status": "PASS",
+      "pid": 1715,
+      "exitCode": 0,
+      "signal": 15
+    },
+    {
+      "name": "timeout-kill",
+      "status": "PASS",
+      "pid": 1717,
+      "exitCode": 0,
+      "signal": 9
+    }
+  ],
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "apps/android/scripts/validate_node_pty_result.py",
+        "apps/android/evidence/phone-node-pty-apk6-run1.json",
+        "--build-record",
+        "apps/android/evidence/runtime-node-pty-apk6-build.json"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "output": "PASS: supplied original node-pty record is consistent; physical attribution and terminal integration require separate review\n"
+    }
+  ],
+  "rawGate3PassedRetained": false,
+  "originalTerminalIntegrated": false,
+  "gate3Status": "IN PROGRESS",
+  "runtimeWarningRetained": true,
+  "limits": [
+    "API 29/recent Android untested",
+    "General shells, foreground groups, stopped jobs and descendants unverified",
+    "Actual parent death and Android lifecycle interruption untested",
+    "This standalone suite does not start the Harness engine",
+    "Host terminal-handle prototype is not Android integration or execution authority"
+  ]
+}

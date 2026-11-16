@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-13",
+  "environment": "Linux x86_64 cloud host; JDK 21, Node 24.22.1, NDK 28.2.13676358; no attached ADB device",
+  "scope": "Original service fixed-pwd integration; host fixture decisions/transport are not Android or human evidence",
+  "checks": [
+    {
+      "command": "python3 -m unittest discover -s apps/android/tests -p 'test_*.py' -v",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "39 tests",
+      "logSha256": "c7a4819f1d463baad8ff4d197c753519772b2e6ab3eb74fa9ff21f043ae95d5d"
+    },
+    {
+      "command": "python3 -m unittest discover -s apps/android/scripts -p 'test_*.py' -v",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "20 tests",
+      "logSha256": "7c9f9b0981fc03f9d432a5e4ab1c321dba0833b5b29b06f9891a9c52e95e7324"
+    },
+    {
+      "command": "node apps/android/tests/subprocess-adapter-reference.mjs",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "Original service, exact bindings, live cancellation/disposal protocol and actual Linux processes",
+      "logSha256": "d2944f58e3aa544abb37b794e774b64176c545f98c01c82ce0a825f40cf8d614"
+    },
+    {
+      "command": "python3 apps/android/scripts/package_profile.py apps/android/runtime/out/profile-v7",
+      "status": "PASS",
+      "exitCode": 0,
+      "summary": "Original profile and command trace; relocated sessions, repeated invocation and original subprocess/tool recovery",
+      "logSha256": "aeda5e3a6f23c9bb35e4415d68e017a6c9e10c081f3988566f2c177b5af0cea1"
+    },
+    {
+      "command": "pnpm run doc-sync",
+      "status": "PASS",
+      "exitCode": 0,
+      "logSha256": "efcc119b1b30ff174d3c74d6ba0dee9340ba1e37208217e6270c54f0989d53c1",
+      "summary": "43/43 gates"
+    },
+    {
+      "command": "pnpm run lint",
+      "status": "PASS",
+      "exitCode": 0,
+      "logSha256": "166712ccc0a9556f18176ba97fd50c50ca2ee45cb4fd7967f0fdf7f7d42d7824",
+      "summary": "Passed; existing unused oxlint-disable warning retained"
+    }
+  ],
+  "initialFailures": [
+    "Service resolution from CLI failed because that manifest has no direct dependency; resolved using the declared subprocess-local dependency owner.",
+    "Original tool accessed ctx.subprocess without inject; mounted adapter as separate profile plugin and declared injection.",
+    "Packager correctly rejected an existing output directory; preserved old generated images before rebuilding.",
+    "An added negative-control assertion expected root Context disposal to reject. Original root disposal collects cleanup failures; the test now verifies actual behavior and retains mandatory waitForExit rejection."
+  ],
+  "device": {
+    "command": "/workspace/android-sdk/platform-tools/adb devices -l",
+    "exitCode": 0,
+    "status": "BLOCKED",
+    "output": "List of devices attached\n\n"
+  },
+  "androidSubprocessAdapterExecuted": false,
+  "originalTerminalIntegrated": false,
+  "gate3Passed": false,
+  "priorEightNativeLibrariesUnchanged": true,
+  "currentImageInputsMatchPackagedHashes": true,
+  "rootContextCleanupLimitation": "Root Context disposal collects effect failures instead of rejecting; waitForExit rejects when native cleanup cannot be acknowledged. Negative fixture verifies both behaviors.",
+  "hostProfileReference": {
+    "path": "apps/android/evidence/host-subprocess-profile-reference.json",
+    "sha256": "91880b8ef23a1512434dec93c2560fbe771729b5a6f4ab78dbbeefcdb7858b15",
+    "androidExecutionTested": false,
+    "humanApprovalTested": false
+  }
+}

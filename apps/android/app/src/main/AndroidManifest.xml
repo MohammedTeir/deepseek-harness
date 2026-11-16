@@ -8,10 +8,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".OriginalWebActivity" android:exported="false" />
         <service android:name=".ProcessCapabilityService" android:exported="false" android:process=":processproof" />
         <service android:name=".CommandProbeService" android:exported="false" android:process=":commandproof" />
         <service android:name=".RuntimeService" android:exported="false" android:process=":runtime" />
         <service android:name=".ProfileProbeService" android:exported="false" android:process=":profileproof" />
         <service android:name=".ExecutableProbeService" android:exported="false" android:process=":execproof" />
+        <service android:name=".TerminalProbeService" android:exported="false" android:process=":terminalproof" />
+        <service android:name=".NodePtyProbeService" android:exported="false" android:process=":nodepty" />
     </application>
 </manifest>

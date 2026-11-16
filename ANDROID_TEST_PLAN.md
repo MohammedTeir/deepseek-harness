@@ -69,3 +69,43 @@ Run `python3 -m unittest discover -s apps/android/tests -p 'test_process*.py' -v
 ## APK #4 physical evidence received
 
 apps/android/evidence/phone-process-apk4-run1.json passes the unchanged process-result validator against process-apk4-build.json. This is user-reported physical execution with exact artifact digests, not host evidence. See [the acceptance review](ANDROID_GATE3_REVIEW.md) for observed streams, signals, exits, PTY and limited discovery. API 29, recent Android, actual parent death, Activity cancellation and broader PTY/process behavior remain unverified.
+
+## Original subprocess service proof
+
+Run the Android host regressions and subprocess-adapter-reference.mjs for actual original-service contracts, real Linux pwd, exact-request rejection, bounded readers, cancellation acknowledgment and awaited disposal. The original command-profile reference and relocated image check must pass before packaging. Synthetic transport/parser fixtures are not phone evidence. Run the fourth APK #5 test with native Deny then Approve and validate using --require-subprocess as described in [the adapter guide](apps/android/execution/SUBPROCESS_ADAPTER.md). Old direct-broker results must fail this new requirement.
+
+## APK #5 selected-device original service result
+
+The complete phone-subprocess-apk5-run1.json report passes validate_command_result.py with --require-subprocess against runtime-subprocess-apk5-build.json. Original registry, approval and service markers, one real execution, mutation/replay rejection and identical recovered events pass. Evidence is attributed to user-executed Android 11 ARM64 testing; no developer ADB instrumentation is claimed. Broader adapter cancellation, nonzero/signal handling and live terminal tests remain outstanding. See [the review](ANDROID_GATE3_REVIEW.md).
+
+## Original node-pty phone gate
+
+The [qualification guide](apps/android/execution/NODE_PTY_QUALIFICATION.md) defines real source-addon host tests, parser/asset negative controls and the new fixed phone suite. Require actual original node-pty loading, controlling TTY/input/resize, exit 7, Ctrl-C signal 2, TERM 15 and timeout/KILL 9 with direct-child exit observations. Validate complete output against runtime-node-pty-apk6-build.json. Host PASS and Android compilation do not satisfy the physical gate.
+
+## Accepted node-pty report and handle tests
+
+phone-node-pty-apk6-run1.json passes validate_node_pty_result.py against runtime-node-pty-apk6-build.json, with all original result fields retained. The [host handle guide](apps/android/execution/PTY_HANDLE_QUALIFICATION.md) lists the strict original-interface typecheck and real source-addon test, including normal exit versus signals, explicit unsupported operations, owner abort and concurrent teardown. No new handle behavior is attributed to Android yet.
+
+## Original terminal ownership and recovery tests
+
+The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.
+
+## Native terminal allocation policy tests
+
+Run the [JVM policy qualification](apps/android/execution/TERMINAL_ALLOCATION_AUTHORIZATION.md) for exact bindings, 32-consumer contention, expiry/revocation and changed native resources. Physical-device file identity support, native consent and end-to-end terminal allocation remain unverified; host policy success cannot satisfy them.
+
+## Native terminal broker instrumentation
+
+The [broker integration reference](apps/android/execution/TERMINAL_BROKER_INTEGRATION.md) records the private native protocol, exact original-service approval adapter and host-only genuine profile/PTY test with an explicit native transport double. Android broker instrumentation is compiled, not executed. UI/runtime activation and full APK/device acceptance remain pending; the existing Android guards are retained. Gate 3 remains IN PROGRESS.
+
+## APK #7 phone acceptance
+
+The [APK #7 reference](apps/android/execution/TERMINAL_ANDROID_PROOF.md) records the original registry/tool/approval path, authenticated native broker, human UI and fixed Android PTY factory. Host and relocated-profile tests and Android build/inspection pass. Physical execution is BLOCKED pending phone evidence. This is a fixed benign fixture, not general shell or the original Web UI. Gate 3 remains IN PROGRESS; preserve existing data when updating the single runtime app.
+
+## Original terminal lifecycle acceptance
+
+Follow the [APK #8 procedure](apps/android/execution/TERMINAL_LIFECYCLE_PROOF.md#phone-procedure). Keep host transport-double results separate from physical-device results and retain the original APK #7 phone evidence.
+
+## Original web asset inspection
+
+The [asset inspection](apps/android/execution/ORIGINAL_WEB_ASSETS.md) requires APK asset-integrity inspection and Android WebView tests for local origin, denied navigation, missing assets, CSP, file access and lifecycle. The original boot error is expected until the actual host boot graph and transport are connected.

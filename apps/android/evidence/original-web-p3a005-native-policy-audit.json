@@ -1,0 +1,130 @@
+{
+  "integration": {
+    "acceptedWebRuntimeImageNativeArtifactCount": 0,
+    "archiveValidator": "apps/android/scripts/package_profile.py::validate_archive",
+    "interpretedProfileArchiveStillRejectsEveryELF": true,
+    "p3a004EvidenceSha256": "9ba4a4976973384e8cbf4b2f8b77cf8c0dc9e43e3e80fc5d2848161eec345775",
+    "policyDigestPinnedInImageManifest": true,
+    "scope": "Policy and bounded sdk-minimal host profile packaging only; no production Web Runtime Image native set is approved."
+  },
+  "policy": {
+    "allowedSystemLibraries": [
+      "libc.so",
+      "libm.so",
+      "libdl.so",
+      "liblog.so"
+    ],
+    "approvedArtifactCount": 0,
+    "denyArtifactRoles": [
+      "host-prebuild",
+      "host-test",
+      "host-instrumentation",
+      "test-fixture",
+      "test_fixture",
+      "fixture",
+      "probe",
+      "process-probe",
+      "observer"
+    ],
+    "denyPathPatterns": [
+      "**/prebuilds/linux-*",
+      "**/prebuilds/darwin-*",
+      "**/prebuilds/win32-*",
+      "**/prebuilds/windows-*",
+      "**/node-addon-require-builtin-linux-x64-gnu/**",
+      "native/system/packages/linux-*/*",
+      "**/tests/**/libharness_*probe.so"
+    ],
+    "mode": "deny_unless_exact_hash_and_metadata_match",
+    "path": "apps/android/runtime/native-artifact-policy.json",
+    "sha256": "fec1191139cdd94b319e1a53be1dad2e7026f2e9d9ec67b18752f8a9f077cbb6",
+    "target": {
+      "abi": "arm64-v8a",
+      "allowedElfTypes": [
+        "DYN",
+        "EXEC"
+      ],
+      "elfClass": 64,
+      "libc": "Bionic",
+      "machine": "AArch64",
+      "minimumApi": 29,
+      "operatingSystem": "Android"
+    }
+  },
+  "schemaVersion": 1,
+  "sourceSha256": {
+    "auditScript": "8fa8446966b553e397508ee4683614527dc4446aa85295479997d7dfefb36a5e",
+    "policyValidator": "e0a9cbc3e51c9cb5245c147e1fb860775d648ef04b5f06139ebf0a2902695389",
+    "profilePacker": "05cdb2716cf96669b20dc4e52f9a656c7e76ea3fb47857dc2aa24600e4c13af4",
+    "regressionTests": "b2ab72c90aa0ffb64087156b1d823c51db7cdfdd31d8732bbed3e705063640b1"
+  },
+  "status": "PASS",
+  "task": "P3A-005",
+  "validationCases": [
+    {
+      "case": "empty native set passes default-deny policy",
+      "reason": null,
+      "result": "accepted"
+    },
+    {
+      "case": "unlisted Android ARM64 artifact rejected",
+      "reason": "Native artifact is not on the exact-hash allowlist: lib/arm64-v8a/libsample.so",
+      "result": "rejected"
+    },
+    {
+      "case": "Linux GNU host addon path rejected",
+      "reason": "Android native-artifact deny pattern matched: **/node-addon-require-builtin-linux-x64-gnu/**",
+      "result": "rejected"
+    },
+    {
+      "case": "Darwin prebuild path rejected",
+      "reason": "Android native-artifact deny pattern matched: **/prebuilds/darwin-*",
+      "result": "rejected"
+    },
+    {
+      "case": "Windows prebuild path rejected",
+      "reason": "Android native-artifact deny pattern matched: **/prebuilds/win32-*",
+      "result": "rejected"
+    },
+    {
+      "case": "test fixture role rejected",
+      "reason": "Android native-artifact role is denied: test-fixture",
+      "result": "rejected"
+    },
+    {
+      "case": "non-Android ABI rejected",
+      "reason": "Native artifact ABI/machine does not match Android arm64-v8a",
+      "result": "rejected"
+    },
+    {
+      "case": "non-Bionic libc rejected",
+      "reason": "Native artifact libc is not Bionic",
+      "result": "rejected"
+    },
+    {
+      "case": "minimum API above 29 rejected",
+      "reason": "Native artifact minimum API exceeds the supported API 29 floor",
+      "result": "rejected"
+    },
+    {
+      "case": "missing license payload rejected",
+      "reason": "Native artifact license evidence is absent from the image",
+      "result": "rejected"
+    },
+    {
+      "case": "same path with changed SHA-256 rejected",
+      "reason": "Native artifact metadata or hash differs from its allowlist entry: lib/arm64-v8a/libsample.so",
+      "result": "rejected"
+    },
+    {
+      "case": "unresolved DT_NEEDED dependency rejected",
+      "reason": "Unclosed DT_NEEDED dependencies for lib/arm64-v8a/libsample.so: libnode.so",
+      "result": "rejected"
+    },
+    {
+      "case": "exact hash metadata license and system dependency accepted",
+      "reason": null,
+      "result": "accepted"
+    }
+  ]
+}

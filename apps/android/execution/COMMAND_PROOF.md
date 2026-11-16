@@ -40,3 +40,7 @@ With an explicitly selected connected device, install the main and instrumentati
 ## Accepted physical report
 
 The [phone review](../evidence/phone-command-apk3-review.json) links the complete supplied result and unchanged validator command. It accepts the fixed original-tool/native-approval execution and exact recovered records on the reported Android 11 phone. The cancellation text is a separate manual UI observation, with no structured cancellation-run or termination audit. Raw gate2Passed stays false and the review carries the local acceptance decision. Original linker/SDK diagnostic notes remain retained. Broader model, UI, shell, isolation and lifecycle claims stay outside this proof.
+
+## APK #5 original-service extension
+
+The [bounded subprocess adapter](SUBPROCESS_ADAPTER.md) routes positive fixed execution through original SubprocessRuntime methods while preserving this tool/approval/native grant workflow. Earlier APK #3 physical evidence remains intact; it does not verify the new service path. Repeat the fourth test with native Deny then Approve on APK #5 and require --require-subprocess when validating its output.

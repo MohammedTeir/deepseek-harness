@@ -11,8 +11,8 @@ The author has authorized Gate 1 review and a bounded Phase 2 proof when its acc
 | Phase 1: source/native/platform audit | IMPLEMENTED | Source-backed report, package payload inventory and risk matrix available; noninstalled payloads and device semantics explicitly unverified |
 | Gate 1 review | VERIFIED | Reviewed criteria and bounded experimental decision recorded; no runtime selected as proven |
 | Phase 2 / Gate 2 | VERIFIED (bounded local engine) | ARM64 runtime builds and user-reported fixed phone probes pass; Android profile/session and fixed original-tool/native-approval phone evidence accepted; external model remains unverified without credentials |
-| Gate 3 | NOT STARTED | Device commands, streams, signals, timeout/cancel and PTY proof |
-| Gate 4 | NOT STARTED | Original UI boot, origin authentication, deep links, genuine streaming/session result |
+| Gate 3 | IN PROGRESS | APK #7/#8 phone results are recorded; API 29/recent-device, lifecycle, process-tree, resource and supported-shell gaps remain |
+| Gate 4 | IN PROGRESS | P3A-001/002 Linux-host evidence, P3A-003 runtime/test separation and partial P3A-004 native-candidate audit are recorded; exact Android Web Runtime Image closure, Web Profile boot and original UI/transport remain unverified |
 | Gate 5 | NOT STARTED | Separate root policy, canonical request binding, deny/replay/mutation/adversarial tests |
 | Gate 6 | NOT STARTED | Device matrix, recovery, licenses and traceable artifacts; no release authorization |
 
@@ -41,3 +41,71 @@ The fixed process/PTY native diagnostic is IMPLEMENTED and host tested. Physical
 ## APK #4 selected-device checkpoint
 
 The [physical review](ANDROID_GATE3_REVIEW.md) verifies the fixed capability suite on Android 11/API 30 ARM64. Overall Gate 3 remains IN PROGRESS for version coverage and limits. Next runnable task: inspect and design the smallest adapter for the existing Subprocess/TerminalBackend contracts, preserving native authorization and reporting missing capabilities. Do not assume Bash or general shell support from a passing native PTY fixture.
+
+## Bounded original subprocess integration
+
+The [fixed native adapter](apps/android/execution/SUBPROCESS_ADAPTER.md) is IMPLEMENTED and host tested through the original service/profile. Next acceptance is the APK #5 original-tool test on the phone, requiring native Deny then Approve and original session recovery. Then design persistent authenticated PTY I/O and accurate process signal outcomes before extending TerminalBackend or enabling general commands. Do not infer interactive-shell support from the earlier fixed PTY fixture.
+
+## Fixed original subprocess phone checkpoint
+
+APK #5 is VERIFIED for the submitted Android 11 ARM64 fixed-pwd service run; see [the selected-device review](ANDROID_GATE3_REVIEW.md). The next engineering milestone first evaluates the original node-pty Android build/helper packaging before selecting a bounded live PTY adaptation. Require real input/output/resize/termination tests through the existing SubprocessTerminalHandle and original terminal registry. Do not default to a new native bridge or custom multiplexer. Preserve explicit authorization and do not enable arbitrary shells or claim a generic terminal from the fixed capability fixture. Version/lifecycle coverage remains outstanding.
+
+## Original node-pty before a custom bridge
+
+The [source experiment](apps/android/execution/NODE_PTY_QUALIFICATION.md) builds the original addon without C++ changes and passes host tests. APK #6 must verify actual Android loading, PTY I/O, nonzero exit and signals before production use. If accepted, implement the existing terminal-process contract with real ownership and foreground observations; keep Linux/Bash assumptions disabled until separately verified. No custom multiplexer or Termux fallback is selected.
+
+## Original node-pty physical checkpoint and next adapter step
+
+APK #6 is VERIFIED for the submitted fixed Android 11 ARM64 suite. The [handle prototype](apps/android/execution/PTY_HANDLE_QUALIFICATION.md) is host-only and implements the original interface with truthful unknown foreground/activity facts. Next implement trusted native-authorized allocation and original owner-scoped terminal registration, preserving allocation rollback and complete cleanup evidence. Do not activate the host prototype on Android merely by removing its platform guard.
+
+## Terminal registry next milestone
+
+The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.
+
+## Allocation authority integration checkpoint
+
+The [native grant component](apps/android/execution/TERMINAL_ALLOCATION_AUTHORIZATION.md) is implemented. Next wire the actual registry-issued terminal ID through original ApprovalService to authenticated native IPC, native human approval and one-shot consumption before allocation, then qualify rollback and build the phone test APK. Existing host authority remains a fixture.
+
+## Terminal broker composition checkpoint
+
+The [broker integration reference](apps/android/execution/TERMINAL_BROKER_INTEGRATION.md) records the private native protocol, exact original-service approval adapter and host-only genuine profile/PTY test with an explicit native transport double. Android broker instrumentation is compiled, not executed. UI/runtime activation and full APK/device acceptance remain pending; the existing Android guards are retained. Gate 3 remains IN PROGRESS.
+
+## Native terminal physical checkpoint
+
+The [APK #7 reference](apps/android/execution/TERMINAL_ANDROID_PROOF.md) records the original registry/tool/approval path, authenticated native broker, human UI and fixed Android PTY factory. Host and relocated-profile tests and Android build/inspection pass. Physical execution is BLOCKED pending phone evidence. This is a fixed benign fixture, not general shell or the original Web UI. Gate 3 remains IN PROGRESS; preserve existing data when updating the single runtime app.
+
+## Original terminal lifecycle milestone
+
+The next device checkpoint is the [APK #8 procedure](apps/android/execution/TERMINAL_LIFECYCLE_PROOF.md#phone-procedure). Require a real running timeout result, SIGINT cancellation, child cleanup and recovered original records before accepting this milestone.
+
+## Original WebView asset milestone
+
+The [asset inspection](apps/android/execution/ORIGINAL_WEB_ASSETS.md) precedes integration of the original web boot graph and authenticated runtime transport. Keep the Gate 3 API 29 and recent-device coverage gap explicit and independently testable.
+
+## Bounded web-profile qualification
+
+Use the [host-only composition and trace](apps/android/execution/ORIGINAL_WEB_ASSETS.md#bounded-host-composition-experiment) to guide a separately qualified Android profile image. Preserve the original client graph and auth checks, exclude test fixtures from shipped images, and report providers whose host rows are disabled. The host overlay is not an Android execution or security implementation.
+
+
+## Current next milestone — Android Web Runtime Image (2026-11-14)
+
+The current Gate 4 checkpoint supersedes earlier sections that describe original WebView work as merely planned or APK #7 as awaiting its phone test. APK #7 and APK #8 have submitted phone-result reviews; Gate 3 is nevertheless still IN PROGRESS for API-version, lifecycle and general capability gaps.
+
+The original frontend asset package and Linux-host Web Profile experiments are evidence of preparation only. They do not constitute a functioning Android Harness UI. In particular, the static `OriginalWebActivity` does not supply the original `__ModuleLoader__` facade, `__DSH_BOOT__` graph, client plugin batches or live transport.
+
+### Gate 4 task sequence
+
+1. **Trace evidence and blind spots:** P3A-001/002 records Linux-host path operations, module resolution and native-load observations, compressed path inventories, durable raw traces and known capture omissions. These records do not prove dependency closure.
+2. **Runtime/test separation (P3A-003 complete):** the [partition report](apps/android/evidence/original-web-p3a003-runtime-test-separation.json) separates production manifest trees from host test/observer inputs and frontend build assets. It does not establish a file-level dependency closure.
+3. **Native-artifact audit (P3A-004 in progress):** the [candidate inventory](apps/android/evidence/original-web-p3a004-native-candidates.tsv), [historical Android build/package matrix](apps/android/evidence/original-web-p3a004-android-apk-native-matrix.tsv), and [structured audit](apps/android/evidence/original-web-p3a004-native-artifact-audit.json) reject the host-loaded Linux GNU/glibc addon and record 16 build/package snapshots covering 10 unique Android library names. The image-bound audit confirms the P3A-006 host candidate includes zero native binaries and rejects 35 native candidates, including two static `.a` archives. The current Gradle/CMake graph declares ten APK native inputs, including the RuntimeService JNI bridge, but no raw APK/AAB or native bytes are present in the worktree. Keep P3A-004 open until those exact packaged ARM64/Bionic files are bound to build/toolchain/interpreter/DT_NEEDED/symbol/API/alignment/license evidence and proof-only main-source-set inputs are scoped.
+4. **Narrow native packaging policy (P3A-005 complete):** the [default-deny policy](apps/android/runtime/native-artifact-policy.json), [audit report](apps/android/evidence/original-web-p3a005-native-policy-audit.json), and packager tests enforce exact-hash Android ARM64/Bionic approvals, license/dependency closure, and desktop/test-fixture deny rules. The production Web Runtime Image allowlist remains empty.
+5. **Reproducible image (P3A-006 complete for host packaging):** the [build/reproducibility report](apps/android/evidence/original-web-p3a006-image-build.json) records two independent full builds with identical archive SHA-256 `02cd6dacbfa57f0691fab89a46f61c75607288f6d3e742a5155f7af974bb1439` and manifest SHA-256 `de7465f65078b62728e7c3f8506ae5dcbc63763d4f8096ed5f7161f7aaabc4ab`. The corrected 129,118,093-byte candidate is host-only and has not booted on Android.
+6. **Return to P3A-004 (next):** build or locate the exact APK for the current Gradle graph, extract its native libraries, resolve proof-only fixture/probe packaging, and fill per-artifact build/readelf/dependency/API/alignment/license evidence. Do not treat the 35 excluded host native payloads or the portable WebAssembly asset as Android native qualification.
+7. **Android runtime boot (P3A-007):** after P3A-004 closure, run the authentic original Web Profile with the embedded Android Node runtime on a physical Android device. Record exact device/API/ABI, logs, process tree, boot graph and client batches.
+8. **Capability-safe client graph (P3A-008):** prevent disabled providers from appearing available in the client graph.
+9. **Secure transport (P3A-009/010):** design an authenticated local transport compatible with Android WebView's appassets origin. Verify HTTP and WebSocket authentication, cookies, Host/Origin checks, replay/expiry behavior and cross-app denial before enabling access.
+10. **Original UI end-to-end (P3A-011/012):** prove SPA navigation, original screens, streamed model response, session persistence/recovery and a native-approved registered tool result inside the original UI.
+
+### Acceptance boundary
+
+Gate 4 remains IN PROGRESS until the Android device run proves the original Web Profile and original UI are connected to the authentic local Harness backend over the approved secure transport. Linux host tests, static WebView assets, Gradle/APK builds and origin-fence tests alone cannot pass this gate. Gate 3's API 29/recent-device and lifecycle gaps remain separate and must not be silently closed by Gate 4 work.

@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-13",
+  "scope": "APK #7 original registry + native-approved fixed terminal; physical execution pending",
+  "apkSha256": {
+    "app-debug.apk": "c55fde2fca0ef5cc6732c267580b736acf22c808ab822cdc1653933a2ef73da0",
+    "app-debug-androidTest.apk": "cfcb222c8aae07d0fdb4fce04a20accee363ecb5bcf10d88ee4e9c71b4f138b2"
+  },
+  "apkBytes": {
+    "app-debug.apk": 48994607,
+    "app-debug-androidTest.apk": 2215143
+  },
+  "apkVersionCode": 14,
+  "apkVersionName": "0.1.13-original-terminal-proof",
+  "signingCertificateSha256": "f8bd2f18a8414169898623658a8812abc985606c73b9d14e9e05a4e8e59549fc",
+  "checks": [
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/apksigner",
+        "verify",
+        "--print-certs",
+        "/workspace/deepseek-harness/apps/android/app/build/outputs/apk/debug/app-debug.apk"
+      ],
+      "exitCode": 0,
+      "output": "Signer #1 certificate DN: CN=Android Debug, O=Android, C=US\nSigner #1 certificate SHA-256 digest: f8bd2f18a8414169898623658a8812abc985606c73b9d14e9e05a4e8e59549fc\nSigner #1 certificate SHA-1 digest: 13312fb3a14c909192fcc57d2925775dfc11d89c\nSigner #1 certificate MD5 digest: 2fe527e311b0f11a950dab2cac2965c3\n"
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/zipalign",
+        "-c",
+        "-P",
+        "16",
+        "4",
+        "/workspace/deepseek-harness/apps/android/app/build/outputs/apk/debug/app-debug.apk"
+      ],
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/apksigner",
+        "verify",
+        "--print-certs",
+        "/workspace/deepseek-harness/apps/android/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
+      ],
+      "exitCode": 0,
+      "output": "Signer #1 certificate DN: CN=Android Debug, O=Android, C=US\nSigner #1 certificate SHA-256 digest: f8bd2f18a8414169898623658a8812abc985606c73b9d14e9e05a4e8e59549fc\nSigner #1 certificate SHA-1 digest: 13312fb3a14c909192fcc57d2925775dfc11d89c\nSigner #1 certificate MD5 digest: 2fe527e311b0f11a950dab2cac2965c3\n"
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/zipalign",
+        "-c",
+        "-P",
+        "16",
+        "4",
+        "/workspace/deepseek-harness/apps/android/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
+      ],
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/aapt",
+        "dump",
+        "badging",
+        "/workspace/deepseek-harness/apps/android/app/build/outputs/apk/debug/app-debug.apk"
+      ],
+      "exitCode": 0,
+      "output": "package: name='ai.deepseek.harness.android.runtimepoc' versionCode='14' versionName='0.1.13-original-terminal-proof' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'\nsdkVersion:'29'\ntargetSdkVersion:'36'\nuses-permission: name='android.permission.INTERNET'\napplication: label='' icon=''\napplication-debuggable\nlaunchable-activity: name='io.github.mohammedteir.deepseekharness.RuntimeProofActivity'  label='' icon=''\nfeature-group: label=''\n  uses-feature: name='android.hardware.faketouch'\n  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'\nmain\nother-services\nsupports-screens: 'small' 'normal' 'large' 'xlarge'\nsupports-any-density: 'true'\nlocales:\ndensities:\nnative-code: 'arm64-v8a'\n"
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/build-tools/36.0.0/aapt",
+        "dump",
+        "xmltree",
+        "/workspace/deepseek-harness/apps/android/app/build/outputs/apk/debug/app-debug.apk",
+        "AndroidManifest.xml"
+      ],
+      "exitCode": 0,
+      "output": "N: android=http://schemas.android.com/apk/res/android\n  E: manifest (line=2)\n    A: android:versionCode(0x0101021b)=(type 0x10)0xe\n    A: android:versionName(0x0101021c)=\"0.1.13-original-terminal-proof\" (Raw: \"0.1.13-original-terminal-proof\")\n    A: android:compileSdkVersion(0x01010572)=(type 0x10)0x24\n    A: android:compileSdkVersionCodename(0x01010573)=\"16\" (Raw: \"16\")\n    A: package=\"ai.deepseek.harness.android.runtimepoc\" (Raw: \"ai.deepseek.harness.android.runtimepoc\")\n    A: platformBuildVersionCode=(type 0x10)0x24\n    A: platformBuildVersionName=(type 0x10)0x10\n    E: uses-sdk (line=7)\n      A: android:minSdkVersion(0x0101020c)=(type 0x10)0x1d\n      A: android:targetSdkVersion(0x01010270)=(type 0x10)0x24\n    E: uses-permission (line=11)\n      A: android:name(0x01010003)=\"android.permission.INTERNET\" (Raw: \"android.permission.INTERNET\")\n    E: application (line=13)\n      A: android:theme(0x01010000)=@0x01030241\n      A: android:label(0x01010001)=\"Harness runtime proof\" (Raw: \"Harness runtime proof\")\n      A: android:debuggable(0x0101000f)=(type 0x12)0xffffffff\n      A: android:allowBackup(0x01010280)=(type 0x12)0x0\n      A: android:extractNativeLibs(0x010104ea)=(type 0x12)0xffffffff\n      A: android:usesCleartextTraffic(0x010104ec)=(type 0x12)0x0\n      E: activity (line=20)\n        A: android:name(0x01010003)=\"io.github.mohammedteir.deepseekharness.RuntimeProofActivity\" (Raw: \"io.github.mohammedteir.deepseekharness.RuntimeProofActivity\")\n        A: android:exported(0x01010010)=(type 0x12)0xffffffff\n        E: intent-filter (line=23)\n          E: action (line=24)\n            A: android:name(0x01010003)=\"android.intent.action.MAIN\" (Raw: \"android.intent.action.MAIN\")\n          E: category (line=26)\n            A: android:name(0x01010003)=\"android.intent.category.LAUNCHER\" (Raw: \"android.intent.category.LAUNCHER\")\n      E: service (line=30)\n        A: android:name(0x01010003)=\"io.github.mohammedteir.deepseekharness.ProcessCapabilityService\" (Raw: \"io.github.mohammedteir.deepseekharness.ProcessCapabilityService\")\n        A: android:exported(0x01010010)=(type 0x12)0x0\n        A: android:process(0x01010011)=\":processproof\" (Raw: \":processproof\")\n      E: service (line=34)\n        A: android:name(0x01010003)=\"io.github.mohammedteir.deepseekharness.CommandProbeService\" (Raw: \"io.github.mohammedteir.deepseekharness.CommandProbeService\")\n        A: android:exported(0x01010010)=(type 0x12)0x0\n        A: android:process(0x01010011)=\":commandproof\" (Raw: \":commandproof\")\n      E: service (line=38)\n        A: android:name(0x01010003)=\"io.github.mohammedteir.deepseekharness.RuntimeService\" (Raw: \"io.github.mohammedteir.deepseekharness.RuntimeService\")\n        A: android:exported(0x01010010)=(type 0x12)0x0\n        A: android:process(0x01010011)=\":runtime\" (Raw: \":runtime\")\n      E: service (line=42)\n        A: android:name(0x01010003)=\"io.github.mohammedteir.deepseekharness.ProfileProbeService\" (Raw: \"io.github.mohammedteir.deepseekharness.ProfileProbeService\")\n        A: android:exported(0x01010010)=(type 0x12)0x0\n        A: android:process(0x01010011)=\":profileproof\" (Raw: \":profileproof\")\n      E: service (line=46)\n        A: android:name(0x01010003)=\"io.github.mohammedteir.deepseekharness.ExecutableProbeService\" (Raw: \"io.github.mohammedteir.deepseekharness.ExecutableProbeService\")\n        A: android:exported(0x01010010)=(type 0x12)0x0\n        A: android:process(0x01010011)=\":execproof\" (Raw: \":execproof\")\n      E: service (line=50)\n        A: android:name(0x01010003)=\"io.github.mohammedteir.deepseekharness.TerminalProbeService\" (Raw: \"io.github.mohammedteir.deepseekharness.TerminalProbeService\")\n        A: android:exported(0x01010010)=(type 0x12)0x0\n        A: android:process(0x01010011)=\":terminalproof\" (Raw: \":terminalproof\")\n      E: service (line=54)\n        A: android:name(0x01010003)=\"io.github.mohammedteir.deepseekharness.NodePtyProbeService\" (Raw: \"io.github.mohammedteir.deepseekharness.NodePtyProbeService\")\n        A: android:exported(0x01010010)=(type 0x12)0x0\n        A: android:process(0x01010011)=\":nodepty\" (Raw: \":nodepty\")\n"
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readelf",
+        "-h",
+        "-l",
+        "-W",
+        "/tmp/terminal-apk-inspect-50wgpkxc/libharness_process_probe.so"
+      ],
+      "exitCode": 0,
+      "output": "ELF Header:\n  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00\n  Class:                             ELF64\n  Data:                              2's complement, little endian\n  Version:                           1 (current)\n  OS/ABI:                            UNIX - System V\n  ABI Version:                       0\n  Type:                              DYN (Shared object file)\n  Machine:                           AArch64\n  Version:                           0x1\n  Entry point address:               0x40170\n  Start of program headers:          64 (bytes into file)\n  Start of section headers:          756048 (bytes into file)\n  Flags:                             0x0\n  Size of this header:               64 (bytes)\n  Size of program headers:           56 (bytes)\n  Number of program headers:         12\n  Size of section headers:           64 (bytes)\n  Number of section headers:         28\n  Section header string table index: 27\n\nElf file type is DYN (Shared object file)\nEntry point 0x40170\nThere are 12 program headers, starting at offset 64\n\nProgram Headers:\n  Type           Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align\n  PHDR           0x000040 0x0000000000000040 0x0000000000000040 0x0002a0 0x0002a0 R   0x8\n  INTERP         0x0002e0 0x00000000000002e0 0x00000000000002e0 0x000015 0x000015 R   0x1\n      [Requesting program interpreter: /system/bin/linker64]\n  LOAD           0x000000 0x0000000000000000 0x0000000000000000 0x03c164 0x03c164 R   0x4000\n  LOAD           0x03c170 0x0000000000040170 0x0000000000040170 0x0744c0 0x0744c0 R E 0x4000\n  LOAD           0x0b0640 0x00000000000b8640 0x00000000000b8640 0x007f30 0x0089c0 RW  0x4000\n  LOAD           0x0b8570 0x00000000000c4570 0x00000000000c4570 0x000200 0x0028c0 RW  0x4000\n  TLS            0x0b0640 0x00000000000b8640 0x00000000000b8640 0x000000 0x000000 R   0x40\n  DYNAMIC        0x0b79e0 0x00000000000bf9e0 0x00000000000bf9e0 0x000190 0x000190 RW  0x8\n  GNU_RELRO      0x0b0640 0x00000000000b8640 0x00000000000b8640 0x007f30 0x0089c0 R   0x1\n  GNU_EH_FRAME   0x02265c 0x000000000002265c 0x000000000002265c 0x003d54 0x003d54 R   0x4\n  GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x0\n  NOTE           0x0002f8 0x00000000000002f8 0x00000000000002f8 0x000098 0x000098 R   0x4\n\n Section to Segment mapping:\n  Segment Sections...\n   00     \n   01     .interp \n   02     .interp .note.android.ident .dynsym .gnu.version .gnu.version_r .gnu.hash .dynstr .rela.dyn .rela.plt .rodata .gcc_except_table .eh_frame_hdr .eh_frame \n   03     .text __lcxx_override .plt \n   04     .tdata .data.rel.ro .init_array .dynamic .got .got.plt .relro_padding \n   05     .data .bss \n   06     \n   07     .dynamic \n   08     .tdata .data.rel.ro .init_array .dynamic .got .got.plt .relro_padding \n   09     .eh_frame_hdr \n   10     \n   11     .note.android.ident \n   None   .comment .shstrtab \n"
+    },
+    {
+      "command": [
+        "/workspace/android-sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readelf",
+        "-h",
+        "-l",
+        "-W",
+        "/tmp/terminal-apk-inspect-50wgpkxc/libharness_pty_fixture.so"
+      ],
+      "exitCode": 0,
+      "output": "ELF Header:\n  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00\n  Class:                             ELF64\n  Data:                              2's complement, little endian\n  Version:                           1 (current)\n  OS/ABI:                            UNIX - System V\n  ABI Version:                       0\n  Type:                              DYN (Shared object file)\n  Machine:                           AArch64\n  Version:                           0x1\n  Entry point address:               0x4B78\n  Start of program headers:          64 (bytes into file)\n  Start of section headers:          5336 (bytes into file)\n  Flags:                             0x0\n  Size of this header:               64 (bytes)\n  Size of program headers:           56 (bytes)\n  Number of program headers:         12\n  Size of section headers:           64 (bytes)\n  Number of section headers:         24\n  Section header string table index: 23\n\nElf file type is DYN (Shared object file)\nEntry point 0x4b78\nThere are 12 program headers, starting at offset 64\n\nProgram Headers:\n  Type           Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align\n  PHDR           0x000040 0x0000000000000040 0x0000000000000040 0x0002a0 0x0002a0 R   0x8\n  INTERP         0x0002e0 0x00000000000002e0 0x00000000000002e0 0x000015 0x000015 R   0x1\n      [Requesting program interpreter: /system/bin/linker64]\n  LOAD           0x000000 0x0000000000000000 0x0000000000000000 0x000b78 0x000b78 R   0x4000\n  LOAD           0x000b78 0x0000000000004b78 0x0000000000004b78 0x000548 0x000548 R E 0x4000\n  LOAD           0x0010c0 0x00000000000090c0 0x00000000000090c0 0x000258 0x000f40 RW  0x4000\n  LOAD           0x001318 0x000000000000d318 0x000000000000d318 0x000018 0x000020 RW  0x4000\n  TLS            0x0010c0 0x00000000000090c0 0x00000000000090c0 0x000000 0x000000 R   0x40\n  DYNAMIC        0x0010c0 0x00000000000090c0 0x00000000000090c0 0x000170 0x000170 RW  0x8\n  GNU_RELRO      0x0010c0 0x00000000000090c0 0x00000000000090c0 0x000258 0x000f40 R   0x1\n  GNU_EH_FRAME   0x000a5c 0x0000000000000a5c 0x0000000000000a5c 0x00003c 0x00003c R   0x4\n  GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x0\n  NOTE           0x0002f8 0x00000000000002f8 0x00000000000002f8 0x000098 0x000098 R   0x4\n\n Section to Segment mapping:\n  Segment Sections...\n   00     \n   01     .interp \n   02     .interp .note.android.ident .dynsym .gnu.version .gnu.version_r .gnu.hash .dynstr .rela.dyn .rela.plt .rodata .eh_frame_hdr .eh_frame \n   03     .text .plt \n   04     .tdata .dynamic .got .got.plt .relro_padding \n   05     .data .bss \n   06     \n   07     .dynamic \n   08     .tdata .dynamic .got .got.plt .relro_padding \n   09     .eh_frame_hdr \n   10     \n   11     .note.android.ident \n   None   .comment .shstrtab \n"
+    }
+  ],
+  "buildLogSha256": "21d27c82740d4c24a397ca260072f7b98178d71bac7b0a12af6edc0f72b71334",
+  "packagedLibraries": {
+    "libc++_shared.so": {
+      "sha256": "cd61762848882a16c8244c964a6f396c0caa0b440588a210ce9cc4ab0e6d9f0c",
+      "bytes": 1253544,
+      "dependencies": [
+        "libc.so",
+        "libdl.so",
+        "libm.so"
+      ],
+      "unchangedFromApk6": true
+    },
+    "libharness_atomic.so": {
+      "sha256": "1c5fae1ac01ebdc9431f3ec9b5b11691d8fce489ec096fdef7cae566d7ced34e",
+      "bytes": 10880,
+      "dependencies": [
+        "libc.so",
+        "libdl.so",
+        "libnode.so"
+      ],
+      "unchangedFromApk6": true
+    },
+    "libharness_node_pty.so": {
+      "sha256": "2b84420de3db82f41003524ef8b62ff33984c0f168c8401f8eeb521fdb0c47f3",
+      "bytes": 1084368,
+      "dependencies": [
+        "libc.so",
+        "libdl.so",
+        "libm.so",
+        "libnode.so"
+      ],
+      "unchangedFromApk6": true
+    },
+    "libharness_probe.so": {
+      "sha256": "4b387cde02c6c248966fec13b8ff0721b294914e8f02b624eb9024ad4be113dc",
+      "bytes": 349600,
+      "dependencies": [
+        "libc.so",
+        "libdl.so",
+        "libm.so"
+      ],
+      "unchangedFromApk6": true
+    },
+    "libharness_process_probe.so": {
+      "sha256": "d136b262d110039dff02b788844dd563db3f4c24b629a9fed767f37d0fa372d3",
+      "bytes": 757840,
+      "dependencies": [
+        "libc.so",
+        "libdl.so",
+        "libm.so"
+      ],
+      "unchangedFromApk6": true
+    },
+    "libharness_pty_fixture.so": {
+      "sha256": "2c4d85b720e001d8769d805cb348439d283e7a8aafd7cee098215d6b32c8f54e",
+      "bytes": 6872,
+      "dependencies": [
+        "libc.so",
+        "libdl.so",
+        "libm.so"
+      ],
+      "unchangedFromApk6": true
+    },
+    "libharness_require_builtin.so": {
+      "sha256": "0f577571c27c6148be2173a660f146d826d259e7001ff3bdaefdcf5f5f8b5757",
+      "bytes": 69568,
+      "dependencies": [
+        "libc++_shared.so",
+        "libc.so",
+        "libdl.so",
+        "libm.so",
+        "libnode.so"
+      ],
+      "unchangedFromApk6": true
+    },
+    "libharness_system.so": {
+      "sha256": "78469b9ea728137161615e1993a09d8297d51692b054b9e54500eccdab13c2e5",
+      "bytes": 8720,
+      "dependencies": [
+        "libc.so",
+        "libdl.so",
+        "libnode.so"
+      ],
+      "unchangedFromApk6": true
+    },
+    "libnode.so": {
+      "sha256": "dce2e18255bd582ff3651f3c00013d026799e0eb549f2da24fee0feedfa29437",
+      "bytes": 110704112,
+      "dependencies": [
+        "libc++_shared.so",
+        "libc.so",
+        "libdl.so",
+        "liblog.so",
+        "libm.so"
+      ],
+      "unchangedFromApk6": true
+    },
+    "libnode_executable.so": {
+      "sha256": "07b91cc6fa5ed0489b95bc237929fd14a009c9bfa8d309b514fceca3d977e408",
+      "bytes": 4456,
+      "dependencies": [
+        "libc++_shared.so",
+        "libc.so",
+        "libdl.so",
+        "libm.so",
+        "libnode.so"
+      ],
+      "unchangedFromApk6": true
+    }
+  },
+  "profileImage": {
+    "sha256": "41655d48198958ed1539d9793a05fc2a6bd4696e84372376c0827c07e3734303",
+    "files": 1359,
+    "links": 862,
+    "hostQualificationSha256": "6b7b6f1a031009c09f783bcfcd25a74b65dc051d99f25183c96866f92a686e90",
+    "completeDependencyDistribution": false,
+    "excludedHostNative": [
+      "native/system/packages/linux-x64/bin/glibc/system.node",
+      "node_modules/.pnpm/node-addon-require-builtin-linux-x64-gnu@0.1.9/node_modules/node-addon-require-builtin-linux-x64-gnu/prebuilt/linux-x64-gnu-napi-v9.node",
+      "node_modules/.pnpm/node-pty@1.2.0-beta.15_patch_hash=9d30053266d0f39d3debe894c675867f6782da6bcadbc94a693b3cfb9eff8ed0/node_modules/node-pty/prebuilds/linux-x64/pty.node"
+    ]
+  },
+  "sourceFilesSha256": {
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/TerminalProbeService.kt": "dfbda01be0a4d2de486fe802efe489d10b5332dd0269b7f1a5986c68f5c8e327",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/ExecutableProbeService.kt": "333e11ca5cf63235bbe77a65937223a926d3fa33cec85b5694f002be48cbd205",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/NodePtyProbeService.kt": "0f06f099cddcb00eba737ac0ef0fb0387bbe1f813db79712e49a429117b125c5",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/ProfileImage.kt": "6e6c7d2715c25f3eda59aecaf401f1f2b368b4c5fe94f5da03dd6537eb86cbc0",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/ProfileProbeService.kt": "f50111909dc07a740d0267cd1dbab0f57948d77037d1f0bff4a4780a57880e8f",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/CommandBroker.kt": "4a63be889c679b5bbb27c08e34a1862543a774676fb292cd7484e89001e94347",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/RuntimeService.kt": "4240450604d31dfd101e30d7e09de2b75bbdb782640ce8f2701112f118c9c129",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/TerminalAllocationBroker.kt": "30010e5f7a5d673997cdd388c0a930d13d5ce3ce4a386ac93c1dc1a252eadd42",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/RuntimeProofActivity.kt": "bf94eb0e777cec5e93d098b40bb76851b246c0749bf4dc8072f04c12d628220b",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/CommandProbeService.kt": "cc55a34f38c16dc0e48f0096fbc53b30e54c2a922e99ca8b04f7a0dc101bc9b4",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/ProcessCapabilityService.kt": "06eea4132a896a9e5ee7a3469de6d841b0bc8df653e385ed71f66ed7f381d512",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/FixedPwdExecution.java": "72f3e39292ef9bfe13bf72f7801f14f086569c57644ff6d362db304087969c19",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/ImageFiles.java": "c002c7263f2d51acf32d4dd5eaa30af35315306cc44058ed1bf16a0741233563",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/CommandGrant.java": "5e5f9afa184a0b6bf29bc39c766a5d456804b788641fa4e7ac7ebe09e718557e",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/TerminalAllocationGrant.java": "d02ebf0bfc71195c0af513f842d41855ef0c2381f256909552e496ae9b75513a",
+    "apps/android/app/src/main/java/io/github/mohammedteir/deepseekharness/OwnedProcess.java": "4cae9672555adaf39fcc31e4f64899f3cd118b8fcc4f0ba52ac8121b7dbfd3ac",
+    "apps/android/app/build.gradle.kts": "d7d7b436640488ba9096f527800c7beb70d0319af3dd01c7d69a07ae01f8c21f",
+    "apps/android/app/src/main/AndroidManifest.xml": "4a95f14fe7e2bd0a338fab346bfc3bc8755145c937b5e3bfbdf777f477277c06"
+  },
+  "nativeHumanApprovalVerified": false,
+  "androidTerminalExecutionVerified": false,
+  "gate3Passed": false
+}

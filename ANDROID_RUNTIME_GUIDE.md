@@ -99,3 +99,39 @@ Install the single APK from apps/android/evidence/process-apk4-delivery.json as 
 ## APK #4 received phone result
 
 The [Gate 3 review](ANDROID_GATE3_REVIEW.md) accepts one matching user-reported Android 11 ARM64 run of the fixed process and PTY suite. No replacement APK or repeat test is required for accepting that specific report. Broader lifecycle/version tests remain outstanding. The old delivery instructions and blocked-at-build evidence are historical checkpoints, not current phone status.
+
+## APK #5 original subprocess proof
+
+Use the fourth original-tool approval test in the updated large app. Deny the first request, approve the second, keep the Activity visible and copy complete result. Data and old sessions must be preserved. The [adapter guide](apps/android/execution/SUBPROCESS_ADAPTER.md) defines required service markers and the validator command. This update keeps the fifth fixed capability test but does not implement an interactive terminal.
+
+## APK #5 phone result accepted
+
+The [selected-device review](ANDROID_GATE3_REVIEW.md) accepts the new original subprocess service path with matching delivered fingerprints, native denial/approval and recovered canonical tool results. The submitted report is retained under apps/android/evidence/phone-subprocess-apk5-run1.json. The tester does not need to repeat this fixed successful run. The current app remains a qualification host; live interactive terminal and original Web UI integration remain future milestones.
+
+## APK #6 original node-pty probe
+
+Install the update without clearing data and select Run original node-pty proof, below the previous process/PTY button. Authorize the fixed suite once, keep the Activity visible and copy complete result. The [guide](apps/android/execution/NODE_PTY_QUALIFICATION.md) distinguishes original addon qualification from the existing agent/tool proof and lists the validator. This suite intentionally reports harnessStarted=false and originalTerminalIntegrated=false. The fourth original-tool test remains available and unchanged.
+
+## APK #6 received result
+
+The [submitted fixed original node-pty result](ANDROID_GATE3_REVIEW.md) passes artifact and behavior validation on Android 11 ARM64. No repeat or replacement APK is needed for that checkpoint. The new typed handle work is a host experiment, not an updated Android terminal feature. Existing app tests and data remain unchanged.
+
+## Host terminal registry qualification
+
+The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.
+
+## Native allocation policy evidence
+
+The [native grant reference](apps/android/execution/TERMINAL_ALLOCATION_AUTHORIZATION.md) separates JVM policy tests and Android compilation from pending IPC/UI/runtime/device evidence. The installed app and existing APK tests do not invoke this component.
+
+## Terminal approval relay evidence
+
+The [broker integration reference](apps/android/execution/TERMINAL_BROKER_INTEGRATION.md) records the private native protocol, exact original-service approval adapter and host-only genuine profile/PTY test with an explicit native transport double. Android broker instrumentation is compiled, not executed. UI/runtime activation and full APK/device acceptance remain pending; the existing Android guards are retained. Gate 3 remains IN PROGRESS.
+
+## Original terminal qualification APK
+
+The [APK #7 reference](apps/android/execution/TERMINAL_ANDROID_PROOF.md) records the original registry/tool/approval path, authenticated native broker, human UI and fixed Android PTY factory. Host and relocated-profile tests and Android build/inspection pass. Physical execution is BLOCKED pending phone evidence. This is a fixed benign fixture, not general shell or the original Web UI. Gate 3 remains IN PROGRESS; preserve existing data when updating the single runtime app.
+
+## Terminal lifecycle qualification
+
+The [lifecycle reference](apps/android/execution/TERMINAL_LIFECYCLE_PROOF.md) distinguishes an original-terminal wait timeout from process termination and specifies the fixed APK #8 phone test.

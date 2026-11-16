@@ -1,0 +1,47 @@
+name: Android Signed Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Merged release tag to build (for example android-v0.1.14).
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate merged Android release tag
+    runs-on: ubuntu-24.04
+    outputs:
+      source_ref: ${{ steps.tag.outputs.source_ref }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: master
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Require a release tag merged to master
+        id: tag
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: |
+          set -euo pipefail
+          if [[ ! "$RELEASE_TAG" =~ ^android-v[0-9]+\.[0-9]+\.[0-9]+([.-][A-Za-z0-9.-]+)?$ ]]; then
+            echo 'Release tag must match android-vMAJOR.MINOR.PATCH[-PRERELEASE].' >&2
+            exit 1
+          fi
+          git rev-parse --verify "refs/tags/$RELEASE_TAG^{commit}" >/dev/null
+          tag_commit="$(git rev-parse "refs/tags/$RELEASE_TAG^{commit}")"
+          git merge-base --is-ancestor "$tag_commit" origin/master
+          echo "source_ref=$RELEASE_TAG" >> "$GITHUB_OUTPUT"
+
+  build-and-sign:
+    name: Build, then sign after environment approval
+    needs: validate
+    uses: ./.github/workflows/android-build.yml
+    with:
+      source_ref: ${{ needs.validate.outputs.source_ref }}
+      sign_release: true

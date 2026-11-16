@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-13",
+  "baselineEvidence": "apps/android/evidence/terminal-broker-validation.json",
+  "environment": "Managed Linux x86_64; Node 24.22.1; JDK21; SDK36/NDK28.2/API29 ARM64 packaging; no ADB device",
+  "checks": [
+    {
+      "command": "pnpm exec tsc --ignoreConfig --noEmit --strict --target ES2024 --module NodeNext --moduleResolution NodeNext --skipLibCheck --allowImportingTsExtensions --types node apps/android/runtime/node-pty-proof/terminal-backend.ts apps/android/runtime/node-pty-proof/terminal-handle.ts",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Original handle/backend strict contracts passed",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logTail": []
+    },
+    {
+      "command": "HARNESS_TERMINAL_RUNTIME_HOST_EVIDENCE=apps/android/evidence/terminal-runtime-host-reference.json python3 -m unittest discover -s apps/android/tests -p 'test_*.py' -v",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "48 host tests; real production controller/profile/registry/PTY, native broker double labelled",
+      "logSha256": "045aa39e6e1c71421fe0b52af64351ccdfe5b1bc886d413a69b2880171f49d74",
+      "logTail": [
+        "test_original_approval_at_allocation_with_explicit_transport_double (test_terminal_registry_profile.TerminalRegistryProfileTest.test_original_approval_at_allocation_with_explicit_transport_double) ... ok",
+        "test_real_profile_approval_owners_allocation_cleanup_and_recovery (test_terminal_registry_profile.TerminalRegistryProfileTest.test_real_profile_approval_owners_allocation_cleanup_and_recovery) ... ok",
+        "test_real_controller_original_profile_registry_and_recovery (test_terminal_runtime.TerminalRuntimeTest.test_real_controller_original_profile_registry_and_recovery) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 48 tests in 36.132s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "command": "python3 -m unittest discover -s apps/android/scripts -p 'test_*.py' -v",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "20 script tests passed",
+      "logSha256": "d37d8dc1fbf60f0c1ce61584bb6840392f14054aef0cae764a7aa8924a92aa09",
+      "logTail": [
+        "test_manifest_without_atomic_binding_is_rejected (test_prepare_runtime_assets.AssetGuardTest.test_manifest_without_atomic_binding_is_rejected) ... ok",
+        "test_manifest_without_inspected_executable_is_rejected (test_prepare_runtime_assets.AssetGuardTest.test_manifest_without_inspected_executable_is_rejected) ... ok",
+        "test_old_manifest_cannot_package_an_unlinked_addon (test_prepare_runtime_assets.AssetGuardTest.test_old_manifest_cannot_package_an_unlinked_addon) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 20 tests in 0.128s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "command": "python3 -m unittest discover -s apps/android/scripts -p 'test_package_profile.py' -v",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Final 8 archive tests include all five named automated approval fixtures",
+      "logSha256": "3dced4e386c2d9509a2547a0ba032cd8d222093ccc97024521a41bbd7017bdaa",
+      "logTail": [
+        "test_stale_host_qualification_cannot_approve_new_image (test_package_profile.ProfileArchiveTest.test_stale_host_qualification_cannot_approve_new_image) ... ok",
+        "test_successful_read_through_outside_symlink_rejects (test_package_profile.ProfileArchiveTest.test_successful_read_through_outside_symlink_rejects) ... ok",
+        "test_traversal_and_absolute_paths_reject (test_package_profile.ProfileArchiveTest.test_traversal_and_absolute_paths_reject) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 8 tests in 0.006s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "command": "python3 apps/android/scripts/package_profile.py apps/android/runtime/out/profile-v8",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Real original profile/pwd/terminal relocation qualification passed outside checkout",
+      "logSha256": "da805a85c8f898988e1d1f0130792df07562ce9c1326758df36cea941e29cb09",
+      "logTail": [
+        "  \"filesSha256\": {",
+        "    \"apps/android/runtime/node-pty-proof/terminal-backend.ts\": \"f28640966c3676315f2d993769679558a290f985ccdde3052d7ad0e93bff7949\",",
+        "    \"apps/android/runtime/node-pty-proof/terminal-handle.ts\": \"84f0f423d9312c560e6739c1af28d586dfb73999af50954a0963ba6cc133c1ac\",",
+        "    \"apps/android/runtime/node-pty-proof/terminal-backend.bundle.mjs\": \"ab713cca8a8e0e23cb69c37b567b1d4ff58ecea06ae12f02bb0cbb65387bd835\",",
+        "    \"apps/android/runtime/node-pty-proof/terminal-handle.bundle.mjs\": \"1746e9477c414daf1a7ed8ed0b182f2409ed5e2eaa75e5d2d0441271fa8f8d42\"",
+        "  }",
+        "}",
+        "{\"files\": 1359, \"links\": 862, \"packages\": 647, \"archiveBytes\": 2641572}"
+      ]
+    },
+    {
+      "command": "./apps/android/gradlew -p apps/android :app:assembleDebug :app:assembleDebugAndroidTest :app:lintDebug --console=plain",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Both signed debug APKs built; Android lint 0 errors, 20 warnings",
+      "logSha256": "21d27c82740d4c24a397ca260072f7b98178d71bac7b0a12af6edc0f72b71334",
+      "logTail": [
+        "",
+        "> Task :app:lintReportDebug",
+        "Wrote HTML report to file:///workspace/deepseek-harness/apps/android/app/build/reports/lint-results-debug.html",
+        "",
+        "> Task :app:lintDebug",
+        "",
+        "BUILD SUCCESSFUL in 22s",
+        "81 actionable tasks: 17 executed, 64 up-to-date"
+      ]
+    },
+    {
+      "command": "python3 apps/android/scripts/inspect_terminal_apk.py --build-log /tmp/terminal-apk7-build-final.log --output apps/android/evidence/runtime-terminal-apk7-build.json",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Signatures/alignment/ARM64/minSDK29/target36/image/licenses/native ELF checks pass; ten ELF binaries unchanged from APK6",
+      "logSha256": "1e1e8b65d6c61d560e4497ba0268bdf89b13626523c391882c3dd50906e0b522",
+      "logTail": [
+        "    \"app-debug-androidTest.apk\": \"cfcb222c8aae07d0fdb4fce04a20accee363ecb5bcf10d88ee4e9c71b4f138b2\"",
+        "  },",
+        "  \"apkBytes\": {",
+        "    \"app-debug.apk\": 48994607,",
+        "    \"app-debug-androidTest.apk\": 2215143",
+        "  },",
+        "  \"signingCertificateSha256\": \"f8bd2f18a8414169898623658a8812abc985606c73b9d14e9e05a4e8e59549fc\"",
+        "}"
+      ]
+    },
+    {
+      "command": "pnpm run lint",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Repository lint passed with the pre-existing unused-disable warning",
+      "logSha256": "42c0e5753bad821b1dd652ef4ab19f48fc03abe5cc21f7a266b6edb365476164",
+      "logTail": [
+        "> tsx scripts/run-oxlint.ts .",
+        "",
+        "packages/experimental/client-ui-cot-translation/src/index.ts:82:9: warning: Unused oxlint-disable directive (no problems were reported).",
+        "npm notice",
+        "npm notice New major version of npm available! 11.19.1 -> 12.2.2",
+        "npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2",
+        "npm notice To update run: npm install -g npm@12.2.2",
+        "npm notice"
+      ]
+    },
+    {
+      "command": "pnpm run build:check",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "2/2 aggregate checks passed",
+      "logSha256": "429fd3b25403628d11d94585bcb19e1d1b75dbcb77e5b1950653c18214619cc3",
+      "logTail": [
+        "$ tsx scripts/build.ts --scope check",
+        "run-gates: build:check running 2 gate(s) with 2 worker(s) from 4 local default worker(s) of 4 CPU(s).",
+        "run-gates: start host aggregate check",
+        "run-gates: start client aggregate check",
+        "run-gates: PASS client aggregate check (13.42s)",
+        "run-gates: PASS host aggregate check (23.77s)",
+        "",
+        "run-gates: 2 passed, 0 failed, 0 skipped in 23.77s."
+      ]
+    },
+    {
+      "command": "pnpm run doc-sync",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "43/43 passed; final owning-reference prose refresh followed by focused Markdown/reference checks",
+      "logSha256": "163567ba3f035b0f4c2319a11d842edc4852c6dee07d447cdb49deffb365e679",
+      "logTail": [
+        "run-gates: PASS upgrade guides (2.12s)",
+        "run-gates: start package README limitations",
+        "run-gates: PASS package README model experience (8.34s)",
+        "run-gates: PASS documentation standard tests (3.99s)",
+        "run-gates: PASS package README limitations (9.37s)",
+        "run-gates: PASS documentation site checks (19.98s)",
+        "",
+        "run-gates: 43 passed, 0 failed, 0 skipped in 182.07s."
+      ]
+    },
+    {
+      "command": "pnpm run verify-md-links",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Final cross-links passed",
+      "logSha256": "5df5525cf1dd7af2c53496b22c795dbfd1e8a1d444820987bdb4b0215a6bf6b1",
+      "logTail": [
+        "$ tsx scripts/verify-md-links.ts",
+        "verify-md-links: 2531 file(s) checked, all relative cross-links and fragments resolve."
+      ]
+    },
+    {
+      "command": "pnpm run verify-md-wrap",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Final prose formatting passed",
+      "logSha256": "5a0c6fe55bc8a463065aa150d70f057b884fd5016da9d5b51118e4c81b53461e",
+      "logTail": [
+        "$ tsx scripts/verify-md-wrap.ts",
+        "verify-md-wrap: 2566 file(s) checked, no hard-wrapped prose paragraphs."
+      ]
+    },
+    {
+      "command": "pnpm run verify-repository-references",
+      "exitCode": 0,
+      "status": "PASS",
+      "summary": "Final reference policy passed",
+      "logSha256": "c88f10b04db9ef289348a1788172ea5649e1b884262a233eb4959fb1c84c94fa",
+      "logTail": [
+        "$ tsx scripts/verify-repository-references.ts",
+        "verify-repository-references: maintained files contain no prohibited references (decimal-only tokens are ignored)."
+      ]
+    }
+  ],
+  "filesSha256": {
+    "apps/android/runtime/terminal-plugin.mjs": "f3d4f64d3d712f12337393f8c8c72c326a012125c0a7e28b97b573ab8426031f",
+    "apps/android/runtime/terminal-smoke.mjs": "e6ab5c3169501b3ec44bd63fcf95d97b9aa06da16594deecc1590e607587c724",
+    "apps/android/runtime/terminal-wire.mjs": "ba7f18fa469d0a5e94d7f3185a0d4a3202811e54f07a4250f58e08fb1fa500b1",
+    "apps/android/runtime/node-pty-proof/terminal-backend.ts": "f28640966c3676315f2d993769679558a290f985ccdde3052d7ad0e93bff7949",
+    "apps/android/runtime/node-pty-proof/terminal-handle.ts": "84f0f423d9312c560e6739c1af28d586dfb73999af50954a0963ba6cc133c1ac",
+    "apps/android/scripts/build_terminal_bundle.mjs": "9b192fbc41c56f38ac87d02c87cc97756e67c398803a9029e4ea058595a97e66",
+    "apps/android/scripts/package_profile.py": "403100353ed20409489cb083356a82822ffa7fe627836011de9607c13d9c0f73",
+    "apps/android/scripts/prepare_runtime_assets.py": "2cb52ab6faa10b7a4fb47e99456564bbf02132e070acd64060bfbb43d13fd50c",
+    "apps/android/scripts/inspect_terminal_apk.py": "67ec33ee7f1014596223d4ff7b7bd2b164d3a8056d1e718dc595cb8a3724f654",
+    "apps/android/tests/terminal-profile-reference.mjs": "b20b5d8a2c2acf9fdc82a2340b52d3fbaf8333e685f8ea1e8793b99d4cfb6567",
+    "apps/android/tests/test_terminal_runtime.py": "2b774f042ab4ff6410637afd6c83262ef328d297f040af70d05ac571568a6fbf",
+    "apps/android/scripts/test_package_profile.py": "226bdee51521723cf9f50164160d62afa8917fb490991957b1962695d409963f",
+    "apps/android/evidence/terminal-runtime-host-reference.json": "8360424577adac80dff0e852377fd3811e8caac1d7dd2b0d276e10767c9157bb",
+    "apps/android/evidence/terminal-relocated-host-reference.json": "5a0169a00deec4292254a404ced08b15feaca2097b8793967d2226020893cec9"
+  },
+  "initialFailures": [
+    "Build bundler could not resolve esbuild through the unresolved pnpm owner symlink; resolve the declared tsx owner realpath instead.",
+    "ESM output initially used .js; explicit .mjs output extensions corrected before profile qualification.",
+    "Inspection initially omitted the separately recorded APK6 process fixture and incorrectly applied a Node-linked executable check to standalone PIE fixtures; use the complete ten-library baseline and the existing standalone Android linker/entry-point checks. No validation invariant was removed.",
+    "Initial Filebin GET did not follow its redirect and produced zero bytes. Followed redirects, downloaded and verified the final ZIP and contained APK before recording delivery."
+  ],
+  "apkEvidence": "apps/android/evidence/runtime-terminal-apk7-build.json",
+  "deliveryEvidence": "apps/android/evidence/runtime-terminal-apk7-delivery.json",
+  "physicalDeviceStatus": "BLOCKED",
+  "nativeHumanApprovalVerified": false,
+  "androidTerminalExecutionVerified": false,
+  "gate3Passed": false,
+  "nextMilestone": "User phone: update the main runtime APK, run original terminal/native approval, Deny then Approve and return full JSON for review"
+}

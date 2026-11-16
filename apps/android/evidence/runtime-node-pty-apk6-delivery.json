@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-13",
+  "url": "https://filebin.net/harness-node-pty-3c2943ee93e3242d/deepseek-harness-runtime-apk6.zip",
+  "archiveSha256": "5863a03bcc78f580f81ed67110d572b5f4b8949fd7a4d0cd523ea5b561412f61",
+  "apkSha256": "25c1cc21274d3f9e1eb678bc9c9fe3515e76718fce4f2a877b3641f1b0c8a51c",
+  "apkBytes": 48879703,
+  "numberOfApksInArchive": 1,
+  "uploadExitCode": 0,
+  "downloadExitCode": 0,
+  "downloadedArchiveAndApkHashesMatch": true,
+  "serviceReportedExpiry": "2026-11-20T09:10:52.154886Z",
+  "androidNodePtyVerified": false,
+  "originalTerminalIntegrated": false,
+  "gate3Passed": false
+}

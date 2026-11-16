@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "suite": "original-node-pty-v1",
+  "status": "PASS",
+  "node": "v24.22.1",
+  "platform": "android",
+  "arch": "arm64",
+  "kernelIdentity": {
+    "pid": 1688,
+    "parentPid": 1634,
+    "uid": 10751,
+    "source": "/proc/self/status"
+  },
+  "originalNodePtyVersion": "1.2.0-beta.15",
+  "nativeSourceModified": false,
+  "spawnHelperUsed": false,
+  "fixtureExecutable": "/data/app/~~sWa2yarFIwjAWrvPuKU0DQ==/ai.deepseek.harness.android.runtimepoc-uo9iFiDWFOZChNCNfRWHcw==/lib/arm64/libharness_pty_fixture.so",
+  "cwd": "/data/data/ai.deepseek.harness.android.runtimepoc/files/node-pty-probe/run-1550907559645373875",
+  "cases": [
+    {
+      "name": "input-resize",
+      "role": "--tty-child",
+      "status": "PASS",
+      "pid": 1702,
+      "exitCode": 0,
+      "signal": 0,
+      "ready": true,
+      "timedOut": false,
+      "output": "IDENTITY:{\"uid\":10751,\"pid\":1702,\"parentPid\":1688}\r\nTTY-READY\r\npty-input\r\nTTY-INPUT:pty-input ROWS:40 COLS:100\r\nTTY-STDERR\r\n",
+      "exitEventObserved": true,
+      "childNoLongerObservable": true,
+      "nativeIdentity": {
+        "uid": 10751,
+        "pid": 1702,
+        "parentPid": 1688
+      }
+    },
+    {
+      "name": "exit-seven",
+      "role": "--exit-seven",
+      "status": "PASS",
+      "pid": 1710,
+      "exitCode": 7,
+      "signal": 0,
+      "ready": true,
+      "timedOut": false,
+      "output": "IDENTITY:{\"uid\":10751,\"pid\":1710,\"parentPid\":1688}\r\nEXIT-SEVEN\r\n",
+      "exitEventObserved": true,
+      "childNoLongerObservable": true,
+      "nativeIdentity": {
+        "uid": 10751,
+        "pid": 1710,
+        "parentPid": 1688
+      }
+    },
+    {
+      "name": "ctrl-c",
+      "role": "--wait",
+      "status": "PASS",
+      "pid": 1712,
+      "exitCode": 0,
+      "signal": 2,
+      "ready": true,
+      "timedOut": false,
+      "output": "IDENTITY:{\"uid\":10751,\"pid\":1712,\"parentPid\":1688}\r\nREADY\r\n^C",
+      "exitEventObserved": true,
+      "childNoLongerObservable": true,
+      "nativeIdentity": {
+        "uid": 10751,
+        "pid": 1712,
+        "parentPid": 1688
+      }
+    },
+    {
+      "name": "terminate",
+      "role": "--wait",
+      "status": "PASS",
+      "pid": 1715,
+      "exitCode": 0,
+      "signal": 15,
+      "ready": true,
+      "timedOut": false,
+      "output": "IDENTITY:{\"uid\":10751,\"pid\":1715,\"parentPid\":1688}\r\nREADY\r\n",
+      "exitEventObserved": true,
+      "childNoLongerObservable": true,
+      "nativeIdentity": {
+        "uid": 10751,
+        "pid": 1715,
+        "parentPid": 1688
+      }
+    },
+    {
+      "name": "timeout-kill",
+      "role": "--ignore-term",
+      "status": "PASS",
+      "pid": 1717,
+      "exitCode": 0,
+      "signal": 9,
+      "ready": true,
+      "timedOut": true,
+      "output": "IDENTITY:{\"uid\":10751,\"pid\":1717,\"parentPid\":1688}\r\nREADY\r\n",
+      "exitEventObserved": true,
+      "childNoLongerObservable": true,
+      "nativeIdentity": {
+        "uid": 10751,
+        "pid": 1717,
+        "parentPid": 1688
+      }
+    }
+  ],
+  "stderrMergedByPty": true,
+  "harnessStarted": false,
+  "originalTerminalIntegrated": false,
+  "generalShellProviderImplemented": false,
+  "gate3Passed": false,
+  "nativeExitCode": 0,
+  "nativeStderr": "WARNING: linker: Warning: \"/data/app/~~sWa2yarFIwjAWrvPuKU0DQ==/ai.deepseek.harness.android.runtimepoc-uo9iFiDWFOZChNCNfRWHcw==/lib/arm64/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n",
+  "nativeStdout": "",
+  "apkSha256": "25c1cc21274d3f9e1eb678bc9c9fe3515e76718fce4f2a877b3641f1b0c8a51c",
+  "nodePtyAddonSha256": "2b84420de3db82f41003524ef8b62ff33984c0f168c8401f8eeb521fdb0c47f3",
+  "fixtureSha256": "2c4d85b720e001d8769d805cb348439d283e7a8aafd7cee098215d6b32c8f54e",
+  "nodeSha256": "07b91cc6fa5ed0489b95bc237929fd14a009c9bfa8d309b514fceca3d977e408",
+  "installedCodeWritable": false,
+  "supervisorUid": 10751,
+  "supervisorPid": 1634,
+  "expectedWorkspace": "/data/data/ai.deepseek.harness.android.runtimepoc/files/node-pty-probe/run-1550907559645373875",
+  "testTimeMillis": 1794564893362,
+  "evidenceDirectory": "run-1550907559645373875",
+  "device": {
+    "model": "Redmi Note 8 Pro",
+    "api": 30,
+    "androidRelease": "11",
+    "abi": "arm64-v8a,armeabi-v7a,armeabi"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "scope": "Linux host original Web profile with host-only disabled-service overlay and test roster observer",
+  "disabledRows": {
+    "subprocess": "@deepseek-ai/dsh-subprocess-local",
+    "bash-sandbox": "@deepseek-ai/dsh-bash-sandbox",
+    "pwsh-sandbox": "@deepseek-ai/dsh-pwsh-sandbox",
+    "open-in-app": "@deepseek-ai/dsh-host-open-in-app",
+    "directory-picker": "@deepseek-ai/dsh-host-directory-picker-auto",
+    "mcp-manager": "@deepseek-ai/dsh-mcp-manager"
+  },
+  "apiRejections": {
+    "noCookie": 401,
+    "appassetsOrigin": 403,
+    "foreignOrigin": 403
+  },
+  "bootEntries": 74,
+  "bootBatches": 3,
+  "clientOpenInAppEntryActive": true,
+  "clientBehaviorVerified": false,
+  "runtimeSecurityBoundary": false,
+  "modelRequestExecuted": false,
+  "androidExecuted": false,
+  "gate4Passed": false
+}

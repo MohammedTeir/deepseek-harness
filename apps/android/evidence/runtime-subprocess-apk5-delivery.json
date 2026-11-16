@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-13",
+  "url": "https://filebin.net/harness-subprocess-9f2316c23e0ddbe8/deepseek-harness-runtime-apk5.zip",
+  "archiveSha256": "e66243858e0a9df77700285554ab5602a87c93f2fe4937e4d8ed56a3f5dd3bd5",
+  "apkSha256": "548ae205e3c57d7a6c2ce75ef066a66914ec94ac3de763612e15f39ffad9c1f9",
+  "apkBytes": 48342367,
+  "numberOfApksInArchive": 1,
+  "uploadExitCode": 0,
+  "downloadExitCode": 0,
+  "downloadedArchiveAndApkHashesMatch": true,
+  "serviceReportedExpiry": "2026-11-20T08:09:19.22652Z",
+  "physicalDeviceSubprocessAdapterVerified": false,
+  "gate3Passed": false
+}

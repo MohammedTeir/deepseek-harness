@@ -1,0 +1,14 @@
+# HOST-ONLY qualification: this is not an Android security boundary or shipped profile.
+# These existing services require dedicated Android providers before use.
+- id: subprocess
+  disabled: true
+- id: bash-sandbox
+  disabled: true
+- id: pwsh-sandbox
+  disabled: true
+- id: open-in-app
+  disabled: true
+- id: directory-picker
+  disabled: true
+- id: mcp-manager
+  disabled: true

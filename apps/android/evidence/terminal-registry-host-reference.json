@@ -1,0 +1,178 @@
+{
+  "environment": "Linux host only; NOT Android evidence",
+  "profile": "sdk-minimal",
+  "result": {
+    "originalTerminalRegistry": true,
+    "genuineAgentOwners": 2,
+    "unscopedAuthorityRejected": true,
+    "negatives": {
+      "foreign": "FOREIGN_SESSION",
+      "duplicateName": "DUPLICATE_NAME",
+      "forgedOwner": "OWNER_NOT_LIVE",
+      "unknownForeground": "SUBPROCESS_PTY_UNAVAILABLE",
+      "concurrentSend": "SEND_ACTIVE",
+      "startupExit": "STARTUP_EXITED",
+      "disposedOwner": "OWNER_NOT_LIVE"
+    },
+    "result": {
+      "viewport": "IDENTITY:{\"uid\":1000,\"pid\":54989,\"parentPid\":54977}\r\nTTY-READY\r\npty-input\r\nTTY-INPUT:pty-input ROWS:40 COLS:100\r\nTTY-STDERR\r\n",
+      "waitReason": "session_exit",
+      "sessionStatus": {
+        "kind": "exited",
+        "exitCode": 0,
+        "signal": null
+      },
+      "truncated": false
+    },
+    "starts": 6,
+    "pids": [
+      54989,
+      54991,
+      54993,
+      54995,
+      54997,
+      54999
+    ],
+    "allocationCancellationBeforeSpawn": true,
+    "allocationCancellationAfterSpawn": true,
+    "registryPublicationRollbackObserved": true,
+    "ownerDisposalObserved": true,
+    "registeredOwnerActivityDrained": true,
+    "startupFailureCleanupObserved": true,
+    "authority": "host fixture only; not Android native authorization"
+  },
+  "history": [
+    {
+      "type": "approval/asked",
+      "seq": 4,
+      "time": 1794568609039,
+      "data": {
+        "id": "6ae51b31-2494-405d-b17c-44ff39bdd7be",
+        "toolName": "host_qualified_terminal",
+        "callId": "deny-terminal",
+        "reason": "HOST ONLY terminal registry fixture"
+      }
+    },
+    {
+      "type": "approval/decided",
+      "seq": 5,
+      "time": 1794568609041,
+      "data": {
+        "id": "6ae51b31-2494-405d-b17c-44ff39bdd7be",
+        "outcome": "rejected"
+      }
+    },
+    {
+      "type": "command/done",
+      "seq": 6,
+      "time": 1794568609042,
+      "data": {
+        "commandId": "cmd-45f302cc-1",
+        "kind": "success",
+        "text": "{\"terminalProof\":true,\"callId\":\"deny-terminal\",\"batch\":{\"results\":[{\"callId\":\"deny-terminal\",\"result\":{\"isError\":true,\"error\":{\"message\":\"the user rejected tool \\\"host_qualified_terminal\\\"\",\"info\":{\"name\":\"ApprovalError\",\"code\":\"APPROVAL_REJECTED\"}},\"content\":[{\"type\":\"text\",\"text\":\"Error: the user rejected tool \\\"host_qualified_terminal\\\"\"}]}}],\"additionalContexts\":[],\"concluded\":false},\"processStarts\":0}"
+      }
+    },
+    {
+      "type": "approval/asked",
+      "seq": 12,
+      "time": 1794568609048,
+      "data": {
+        "id": "d2f5fbc8-8ce0-4efb-a860-28e1f1ed125e",
+        "toolName": "host_qualified_terminal",
+        "callId": "allow-terminal",
+        "reason": "HOST ONLY terminal registry fixture"
+      }
+    },
+    {
+      "type": "approval/decided",
+      "seq": 13,
+      "time": 1794568609049,
+      "data": {
+        "id": "d2f5fbc8-8ce0-4efb-a860-28e1f1ed125e",
+        "outcome": "allowed-once"
+      }
+    },
+    {
+      "type": "command/done",
+      "seq": 14,
+      "time": 1794568609091,
+      "data": {
+        "commandId": "cmd-45f302cc-2",
+        "kind": "success",
+        "text": "{\"terminalProof\":true,\"callId\":\"allow-terminal\",\"batch\":{\"results\":[{\"callId\":\"allow-terminal\",\"result\":{\"isError\":false,\"content\":[{\"type\":\"text\",\"text\":\"{\\\"originalTerminalRegistry\\\":true,\\\"genuineAgentOwners\\\":2,\\\"unscopedAuthorityRejected\\\":true,\\\"negatives\\\":{\\\"foreign\\\":\\\"FOREIGN_SESSION\\\",\\\"duplicateName\\\":\\\"DUPLICATE_NAME\\\",\\\"forgedOwner\\\":\\\"OWNER_NOT_LIVE\\\",\\\"unknownForeground\\\":\\\"SUBPROCESS_PTY_UNAVAILABLE\\\",\\\"concurrentSend\\\":\\\"SEND_ACTIVE\\\",\\\"startupExit\\\":\\\"STARTUP_EXITED\\\",\\\"disposedOwner\\\":\\\"OWNER_NOT_LIVE\\\"},\\\"result\\\":{\\\"viewport\\\":\\\"IDENTITY:{\\\\\\\"uid\\\\\\\":1000,\\\\\\\"pid\\\\\\\":54989,\\\\\\\"parentPid\\\\\\\":54977}\\\\r\\\\nTTY-READY\\\\r\\\\npty-input\\\\r\\\\nTTY-INPUT:pty-input ROWS:40 COLS:100\\\\r\\\\nTTY-STDERR\\\\r\\\\n\\\",\\\"waitReason\\\":\\\"session_exit\\\",\\\"sessionStatus\\\":{\\\"kind\\\":\\\"exited\\\",\\\"exitCode\\\":0,\\\"signal\\\":null},\\\"truncated\\\":false},\\\"starts\\\":6,\\\"pids\\\":[54989,54991,54993,54995,54997,54999],\\\"allocationCancellationBeforeSpawn\\\":true,\\\"allocationCancellationAfterSpawn\\\":true,\\\"registryPublicationRollbackObserved\\\":true,\\\"ownerDisposalObserved\\\":true,\\\"registeredOwnerActivityDrained\\\":true,\\\"startupFailureCleanupObserved\\\":true,\\\"authority\\\":\\\"host fixture only; not Android native authorization\\\"}\"}],\"value\":{\"report\":\"{\\\"originalTerminalRegistry\\\":true,\\\"genuineAgentOwners\\\":2,\\\"unscopedAuthorityRejected\\\":true,\\\"negatives\\\":{\\\"foreign\\\":\\\"FOREIGN_SESSION\\\",\\\"duplicateName\\\":\\\"DUPLICATE_NAME\\\",\\\"forgedOwner\\\":\\\"OWNER_NOT_LIVE\\\",\\\"unknownForeground\\\":\\\"SUBPROCESS_PTY_UNAVAILABLE\\\",\\\"concurrentSend\\\":\\\"SEND_ACTIVE\\\",\\\"startupExit\\\":\\\"STARTUP_EXITED\\\",\\\"disposedOwner\\\":\\\"OWNER_NOT_LIVE\\\"},\\\"result\\\":{\\\"viewport\\\":\\\"IDENTITY:{\\\\\\\"uid\\\\\\\":1000,\\\\\\\"pid\\\\\\\":54989,\\\\\\\"parentPid\\\\\\\":54977}\\\\r\\\\nTTY-READY\\\\r\\\\npty-input\\\\r\\\\nTTY-INPUT:pty-input ROWS:40 COLS:100\\\\r\\\\nTTY-STDERR\\\\r\\\\n\\\",\\\"waitReason\\\":\\\"session_exit\\\",\\\"sessionStatus\\\":{\\\"kind\\\":\\\"exited\\\",\\\"exitCode\\\":0,\\\"signal\\\":null},\\\"truncated\\\":false},\\\"starts\\\":6,\\\"pids\\\":[54989,54991,54993,54995,54997,54999],\\\"allocationCancellationBeforeSpawn\\\":true,\\\"allocationCancellationAfterSpawn\\\":true,\\\"registryPublicationRollbackObserved\\\":true,\\\"ownerDisposalObserved\\\":true,\\\"registeredOwnerActivityDrained\\\":true,\\\"startupFailureCleanupObserved\\\":true,\\\"authority\\\":\\\"host fixture only; not Android native authorization\\\"}\"}}}],\"additionalContexts\":[],\"concluded\":false},\"processStarts\":6}"
+      }
+    }
+  ],
+  "recoveredHistory": [
+    {
+      "type": "approval/asked",
+      "seq": 4,
+      "time": 1794568609039,
+      "data": {
+        "id": "6ae51b31-2494-405d-b17c-44ff39bdd7be",
+        "toolName": "host_qualified_terminal",
+        "callId": "deny-terminal",
+        "reason": "HOST ONLY terminal registry fixture"
+      }
+    },
+    {
+      "type": "approval/decided",
+      "seq": 5,
+      "time": 1794568609041,
+      "data": {
+        "id": "6ae51b31-2494-405d-b17c-44ff39bdd7be",
+        "outcome": "rejected"
+      }
+    },
+    {
+      "type": "command/done",
+      "seq": 6,
+      "time": 1794568609042,
+      "data": {
+        "commandId": "cmd-45f302cc-1",
+        "kind": "success",
+        "text": "{\"terminalProof\":true,\"callId\":\"deny-terminal\",\"batch\":{\"results\":[{\"callId\":\"deny-terminal\",\"result\":{\"isError\":true,\"error\":{\"message\":\"the user rejected tool \\\"host_qualified_terminal\\\"\",\"info\":{\"name\":\"ApprovalError\",\"code\":\"APPROVAL_REJECTED\"}},\"content\":[{\"type\":\"text\",\"text\":\"Error: the user rejected tool \\\"host_qualified_terminal\\\"\"}]}}],\"additionalContexts\":[],\"concluded\":false},\"processStarts\":0}"
+      }
+    },
+    {
+      "type": "approval/asked",
+      "seq": 12,
+      "time": 1794568609048,
+      "data": {
+        "id": "d2f5fbc8-8ce0-4efb-a860-28e1f1ed125e",
+        "toolName": "host_qualified_terminal",
+        "callId": "allow-terminal",
+        "reason": "HOST ONLY terminal registry fixture"
+      }
+    },
+    {
+      "type": "approval/decided",
+      "seq": 13,
+      "time": 1794568609049,
+      "data": {
+        "id": "d2f5fbc8-8ce0-4efb-a860-28e1f1ed125e",
+        "outcome": "allowed-once"
+      }
+    },
+    {
+      "type": "command/done",
+      "seq": 14,
+      "time": 1794568609091,
+      "data": {
+        "commandId": "cmd-45f302cc-2",
+        "kind": "success",
+        "text": "{\"terminalProof\":true,\"callId\":\"allow-terminal\",\"batch\":{\"results\":[{\"callId\":\"allow-terminal\",\"result\":{\"isError\":false,\"content\":[{\"type\":\"text\",\"text\":\"{\\\"originalTerminalRegistry\\\":true,\\\"genuineAgentOwners\\\":2,\\\"unscopedAuthorityRejected\\\":true,\\\"negatives\\\":{\\\"foreign\\\":\\\"FOREIGN_SESSION\\\",\\\"duplicateName\\\":\\\"DUPLICATE_NAME\\\",\\\"forgedOwner\\\":\\\"OWNER_NOT_LIVE\\\",\\\"unknownForeground\\\":\\\"SUBPROCESS_PTY_UNAVAILABLE\\\",\\\"concurrentSend\\\":\\\"SEND_ACTIVE\\\",\\\"startupExit\\\":\\\"STARTUP_EXITED\\\",\\\"disposedOwner\\\":\\\"OWNER_NOT_LIVE\\\"},\\\"result\\\":{\\\"viewport\\\":\\\"IDENTITY:{\\\\\\\"uid\\\\\\\":1000,\\\\\\\"pid\\\\\\\":54989,\\\\\\\"parentPid\\\\\\\":54977}\\\\r\\\\nTTY-READY\\\\r\\\\npty-input\\\\r\\\\nTTY-INPUT:pty-input ROWS:40 COLS:100\\\\r\\\\nTTY-STDERR\\\\r\\\\n\\\",\\\"waitReason\\\":\\\"session_exit\\\",\\\"sessionStatus\\\":{\\\"kind\\\":\\\"exited\\\",\\\"exitCode\\\":0,\\\"signal\\\":null},\\\"truncated\\\":false},\\\"starts\\\":6,\\\"pids\\\":[54989,54991,54993,54995,54997,54999],\\\"allocationCancellationBeforeSpawn\\\":true,\\\"allocationCancellationAfterSpawn\\\":true,\\\"registryPublicationRollbackObserved\\\":true,\\\"ownerDisposalObserved\\\":true,\\\"registeredOwnerActivityDrained\\\":true,\\\"startupFailureCleanupObserved\\\":true,\\\"authority\\\":\\\"host fixture only; not Android native authorization\\\"}\"}],\"value\":{\"report\":\"{\\\"originalTerminalRegistry\\\":true,\\\"genuineAgentOwners\\\":2,\\\"unscopedAuthorityRejected\\\":true,\\\"negatives\\\":{\\\"foreign\\\":\\\"FOREIGN_SESSION\\\",\\\"duplicateName\\\":\\\"DUPLICATE_NAME\\\",\\\"forgedOwner\\\":\\\"OWNER_NOT_LIVE\\\",\\\"unknownForeground\\\":\\\"SUBPROCESS_PTY_UNAVAILABLE\\\",\\\"concurrentSend\\\":\\\"SEND_ACTIVE\\\",\\\"startupExit\\\":\\\"STARTUP_EXITED\\\",\\\"disposedOwner\\\":\\\"OWNER_NOT_LIVE\\\"},\\\"result\\\":{\\\"viewport\\\":\\\"IDENTITY:{\\\\\\\"uid\\\\\\\":1000,\\\\\\\"pid\\\\\\\":54989,\\\\\\\"parentPid\\\\\\\":54977}\\\\r\\\\nTTY-READY\\\\r\\\\npty-input\\\\r\\\\nTTY-INPUT:pty-input ROWS:40 COLS:100\\\\r\\\\nTTY-STDERR\\\\r\\\\n\\\",\\\"waitReason\\\":\\\"session_exit\\\",\\\"sessionStatus\\\":{\\\"kind\\\":\\\"exited\\\",\\\"exitCode\\\":0,\\\"signal\\\":null},\\\"truncated\\\":false},\\\"starts\\\":6,\\\"pids\\\":[54989,54991,54993,54995,54997,54999],\\\"allocationCancellationBeforeSpawn\\\":true,\\\"allocationCancellationAfterSpawn\\\":true,\\\"registryPublicationRollbackObserved\\\":true,\\\"ownerDisposalObserved\\\":true,\\\"registeredOwnerActivityDrained\\\":true,\\\"startupFailureCleanupObserved\\\":true,\\\"authority\\\":\\\"host fixture only; not Android native authorization\\\"}\"}}}],\"additionalContexts\":[],\"concluded\":false},\"processStarts\":6}"
+      }
+    }
+  ],
+  "runtimeStderr": [
+    "shutdown request failed: dsh profile \"sdk-minimal\": JSON-RPC input closed\nexit code: 0",
+    "shutdown request failed: dsh profile \"sdk-minimal\": JSON-RPC input closed\nexit code: 0"
+  ],
+  "sessionRecoveredAcrossRuntimeRestart": true,
+  "automatedApprovalFixture": true,
+  "nativeHumanApprovalVerified": false,
+  "modelRequestExecuted": false,
+  "androidTerminalIntegrated": false,
+  "gate3Passed": false
+}

@@ -326,4 +326,46 @@ describe('Android revision evidence validation', () => {
     expect(findRepositoryReferences(file, json({ ...record, url: organizationUrl }), new Set([hash])))
       .toContainEqual({ file, line: 7, kind: 'organization-url' })
   })
+  it('validates the terminal milestone baseline without admitting prose references', () => {
+    const path = 'apps/android/evidence/terminal-allocation-validation.json'
+    const evidence = { baselineCommit: hash }
+    expect(findRepositoryReferences(path, json(evidence), new Set([hash]))).toEqual([])
+    for (const value of [hash.slice(0, 12), 'defab'.repeat(8), undefined, 123]) {
+      expect(findRepositoryReferences(path, json({ baselineCommit: value }), new Set([hash, hash.slice(0, 12)])))
+        .toContainEqual({ file: path, line: 1, kind: 'invalid-audit-evidence' })
+    }
+    expect(findRepositoryReferences(path, json({ ...evidence, note: hash }), new Set([hash])))
+      .toContainEqual({ file: path, line: 3, kind: 'commit-hash' })
+    expect(findRepositoryReferences('apps/android/evidence/other.json', json(evidence), new Set([hash])))
+      .toContainEqual({ file: 'apps/android/evidence/other.json', line: 2, kind: 'commit-hash' })
+    expect(findRepositoryReferences(path, JSON.stringify(evidence), new Set([hash])))
+      .toContainEqual({ file: path, line: 1, kind: 'invalid-audit-evidence' })
+    const duplicate = json(evidence).replace('{', `{\n  "baselineCommit": "${hash}",`)
+    expect(findRepositoryReferences(path, duplicate, new Set([hash])))
+      .toContainEqual({ file: path, line: 1, kind: 'invalid-audit-evidence' })
+  })
+
+  it('validates only declared nested P3A-004/P3A-006 revision paths', () => {
+    const imagePath = 'apps/android/evidence/original-web-p3a006-image-build.json'
+    const image = { manifest: { source: { revision: hash } }, source: { revision: hash } }
+    expect(findRepositoryReferences(imagePath, json(image), new Set([hash]))).toEqual([])
+    const withNote = { ...image, note: hash }
+    const noteLine = json(withNote).split('\n').findIndex(line => line.includes('"note"')) + 1
+    expect(findRepositoryReferences(imagePath, json(withNote), new Set([hash])))
+      .toContainEqual({ file: imagePath, line: noteLine, kind: 'commit-hash' })
+    const lookalike = { ...image, unrelated: { revision: hash } }
+    const lookalikeLine = json(lookalike).split('\n').findLastIndex(line => line.includes('"revision"')) + 1
+    expect(findRepositoryReferences(imagePath, json(lookalike), new Set([hash])))
+      .toContainEqual({ file: imagePath, line: lookalikeLine, kind: 'commit-hash' })
+    expect(findRepositoryReferences(imagePath,
+      json({ ...image, source: { revision: 'defab'.repeat(8) } }), new Set([hash])))
+      .toContainEqual({ file: imagePath, line: 1, kind: 'invalid-audit-evidence' })
+
+    const nativePath = 'apps/android/evidence/original-web-p3a004-native-artifact-audit.json'
+    const native = { p3a006ImageNativeAudit: { sourceRevision: hash } }
+    expect(findRepositoryReferences(nativePath, json(native), new Set([hash]))).toEqual([])
+    expect(findRepositoryReferences('apps/android/evidence/other.json', json(native), new Set([hash])))
+      .toContainEqual({ file: 'apps/android/evidence/other.json', line: 3, kind: 'commit-hash' })
+  })
+
 })

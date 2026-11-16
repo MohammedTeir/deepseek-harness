@@ -11,8 +11,8 @@ android {
         minSdk = 29
         targetSdk = 36
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        versionCode = 11
-        versionName = "0.1.10-process-capability-proof"
+        versionCode = 15
+        versionName = "0.1.14-terminal-lifecycle-proof"
         ndk { abiFilters += "arm64-v8a" }
     }
     signingConfigs.getByName("debug").storeFile = rootProject.file(".local/debug.keystore")
@@ -36,6 +36,7 @@ val prepareRuntimeAssets by tasks.registering(Exec::class) {
 tasks.named("preBuild") { dependsOn(prepareRuntimeAssets) }
 
 dependencies {
+    implementation("androidx.webkit:webkit:1.14.0")
     androidTestImplementation("androidx.test:runner:1.6.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
 }
@@ -54,3 +55,26 @@ val processProof by tasks.registering(Exec::class) {
         "-Wl,-z,max-page-size=16384", "-Wl,-z,relro,-z,now", source, "-o", destination)
 }
 tasks.named("preBuild") { dependsOn(processProof) }
+
+android.sourceSets["main"].assets.srcDir(layout.buildDirectory.dir("generated/nodePtyAssets"))
+android.sourceSets["main"].jniLibs.srcDir(layout.buildDirectory.dir("generated/nodePtyNative"))
+val nodePtyAssets by tasks.registering(Exec::class) {
+    workingDir(rootProject.projectDir)
+    commandLine("python3", "scripts/prepare_node_pty_assets.py", layout.buildDirectory.dir("generated/nodePtyAssets").get().asFile.absolutePath,
+        layout.buildDirectory.dir("generated/nodePtyNative").get().asFile.absolutePath)
+    outputs.upToDateWhen { false }
+}
+tasks.named("preBuild") { dependsOn(nodePtyAssets) }
+
+// The original compiled web frontend; runtime boot and transport remain separate.
+val buildOriginalWeb by tasks.registering(Exec::class) {
+    workingDir(rootProject.projectDir.parentFile.parentFile)
+    commandLine("pnpm", "--filter", "@deepseek-ai/dsh-web-frontend", "build")
+}
+val bundleOriginalWeb by tasks.registering(Sync::class) {
+    dependsOn(buildOriginalWeb)
+    from(rootProject.file("../../apps/web/dist")) { exclude("**/*.map", "preview/**", "preview.html") }
+    into(layout.buildDirectory.dir("generated/originalWebAssets/web"))
+}
+android.sourceSets["main"].assets.srcDir(layout.buildDirectory.dir("generated/originalWebAssets"))
+tasks.named("preBuild") { dependsOn(bundleOriginalWeb) }

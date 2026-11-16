@@ -2,7 +2,7 @@
 
 ## Summary
 
-Phase 0 is VERIFIED and Gate 1 is accepted. Gate 2 is accepted within the bounded local-engine scope of ANDROID_GATE2_REVIEW.md, based on user-reported Android 11 ARM64 phone results. Gate 3 is IN PROGRESS: the fixed process/shell/PTY suite is VERIFIED on the user-tested Android 11 ARM64 phone; target-version coverage, broader lifecycle behavior and original terminal integration remain unverified. External model requests, original frontend integration, general terminal support, broader device coverage and release qualification remain unverified. Historical milestone entries below retain their original status and failures.
+Current snapshot (2026-11-15): Phase 0 is VERIFIED; Gate 1 is ACCEPTED; Gate 2 is ACCEPTED only within its documented bounded local-engine scope. Gate 3 remains IN PROGRESS: fixed process/shell/PTY, original terminal/native approval and the APK #8 timeout/cancellation/session-recovery lifecycle scope have user-reported Android 11/API 30 ARM64 evidence, but API 29/recent-device coverage, broader lifecycle/process-tree behavior and general terminal support remain unverified. Phase 3A / Gate 4 is IN PROGRESS: P3A-001/002 Linux-host observations and P3A-003 runtime/test separation are recorded; P3A-006 now has a reproducible host-built package/static-asset candidate; P3A-004 remains open for exact Android APK/runtime ARM64/Bionic native closure. No Android device boot, original Android UI connection, secure WebView/backend transport or streamed model response has been accepted. Gates 5 and 6 and Phases 4–7 remain incomplete. Historical milestone entries below retain their original status and failures; later dated sections supersede stale next-step wording.
 
 ## Upstream sync: Phase 1 evidence refreshed
 
@@ -269,3 +269,131 @@ Status: IN PROGRESS; physical execution BLOCKED pending phone results. The [fixe
 ## APK #4 physical process capability review
 
 Status: VERIFIED for the selected-device fixed suite; overall Gate 3 remains IN PROGRESS. The [Gate 3 review](ANDROID_GATE3_REVIEW.md) accepts matching APK/native fingerprints, separate streams, stdin, nonzero exits, launch errors, TERM cancellation, timeout/KILL/reaping, cooperative descendant cleanup, fixed system-shell execution and PTY input/resize on Redmi Note 8 Pro / Android 11 API 30. The complete user-reported result is retained without changing gate3Passed=false. API 29/recent-device coverage, Activity/OS-death cleanup, general shell and original terminal integration remain unverified. Next: map the demonstrated capabilities into existing subprocess/terminal contracts with authorization preserved.
+
+## Original subprocess adapter checkpoint
+
+Status: IMPLEMENTED and host verified; physical execution BLOCKED pending APK #5. The [fixed adapter](apps/android/execution/SUBPROCESS_ADAPTER.md) mounts the original SubprocessRuntime service in the authentic profile and routes the existing approved pwd tool through its spawn/done/collected/waitForExit contract. Unsupported pipes, spill, custom environment, commands and interactive PTY fail closed. Native authorization and session format remain unchanged. Gate 3 remains IN PROGRESS; APK #4 phone evidence does not verify this new integration.
+
+## APK #5 physical original-service acceptance
+
+Status: VERIFIED for fixed pwd through the original SubprocessRuntime service on Redmi Note 8 Pro / Android 11 API 30 ARM64. The [physical review](apps/android/evidence/phone-subprocess-apk5-review.json) accepts the delivered APK/native fingerprints, original service marker, native Deny then Approve, one actual process, exact-request/replay rejection, genuine stdout/exit and identical recovered session records. The complete submitted report and historical failures are retained. Earlier host-only/pending-device statements describe the build checkpoint. Gate 3 remains IN PROGRESS; live PTY/original terminal, adapter cancellation on Android, API 29/recent devices and broader lifecycle remain unverified. No new APK is required for this acceptance.
+
+## Original node-pty qualification checkpoint
+
+Status: IMPLEMENTED and host tested; physical execution BLOCKED pending APK #6. The [original dependency experiment](apps/android/execution/NODE_PTY_QUALIFICATION.md) cross-builds unmodified node-pty C++ for API 29 ARM64 and reuses its original JavaScript through a narrow installed-library loader. The Android compile path uses forkpty directly, not the Apple spawn-helper. Real host source-addon tests cover input/resize, exit 7, SIGINT, TERM and deadline/KILL. Existing engine/tool proofs remain unchanged. Gate 3 stays IN PROGRESS; no original terminal backend or generic command provider is enabled.
+
+## Original node-pty accepted; handle contract prototype
+
+The [APK #6 phone review](ANDROID_GATE3_REVIEW.md) verifies original node-pty loading and all five fixed cases on Android 11 ARM64 with matching fingerprints. A [host-only SubprocessTerminalHandle prototype](apps/android/execution/PTY_HANDLE_QUALIFICATION.md) now passes the original strict type contract and real input/resize, exit/signal and concurrent cleanup tests. It is explicitly disabled on Android and is not shipped or registered as an agent tool. Gate 3 remains IN PROGRESS. Next: native-authorized allocation, original Agent/terminal ownership, foreground identity and rollback/cleanup proof, followed by a new device milestone. No APK #6 replacement or repeat is required to accept its submitted result.
+
+## Original terminal registry checkpoint
+
+The [fixed terminal registry qualification](apps/android/execution/TERMINAL_REGISTRY_QUALIFICATION.md) exercises the original profile, genuine Agent ownership, tool/approval pipeline, registry rollback and persisted history with real host PTY processes. Status: IMPLEMENTED with host verification; Android integration NOT STARTED. Automated host decisions are not native human approval. Android guards remain active and no APK changes are included. Gate 3 remains IN PROGRESS; next implement native-authorized allocation before a new physical-device checkpoint.
+
+## Native terminal allocation grant checkpoint
+
+The [native allocation policy](apps/android/execution/TERMINAL_ALLOCATION_AUTHORIZATION.md) is IMPLEMENTED with JVM tests and Android compile/lint. It binds the registry terminal/Agent and complete fixed request to the existing one-shot grant, rejects resource changes and preserves denial/expiry/replay handling. It is not wired to IPC, UI or runtime allocation. No new APK or device result is claimed. Gate 3 remains IN PROGRESS.
+
+## Native broker and original approval relay checkpoint
+
+The [broker integration reference](apps/android/execution/TERMINAL_BROKER_INTEGRATION.md) records the private native protocol, exact original-service approval adapter and host-only genuine profile/PTY test with an explicit native transport double. Android broker instrumentation is compiled, not executed. UI/runtime activation and full APK/device acceptance remain pending; the existing Android guards are retained. Gate 3 remains IN PROGRESS.
+
+## APK #7 original terminal qualification
+
+The [APK #7 reference](apps/android/execution/TERMINAL_ANDROID_PROOF.md) records the original registry/tool/approval path, authenticated native broker, human UI and fixed Android PTY factory. Host and relocated-profile tests and Android build/inspection pass. Physical execution is BLOCKED pending phone evidence. This is a fixed benign fixture, not general shell or the original Web UI. Gate 3 remains IN PROGRESS; preserve existing data when updating the single runtime app.
+
+## APK #7 phone cleanup blocker
+
+Physical execution reported `Terminal broker cleanup failed` without underlying details. Gate 3 remains BLOCKED for phone acceptance. The [terminal diagnosis](apps/android/execution/TERMINAL_ANDROID_PROOF.md#cleanup-failure-diagnosis) describes the listener shutdown change and preservation of the original qualification report. Device confirmation remains pending.
+
+## APK #7 fixed terminal phone result
+
+The [phone result review](apps/android/evidence/phone-apk7-terminal-result-review.json) records selected fields from the user-provided Redmi Note 8 Pro/API 30 report with a matching inspected APK hash. The bounded original terminal qualification is VERIFIED at user-reported physical-device evidence level: denial, one approved PTY, input/resize, exact-request/replay rejection and original history recovery across runtime restart. The previous broker cleanup failure did not recur in this report; its original cause is not conclusively established. Gate 3 remains IN PROGRESS, with cancellation/timeout through the original terminal integration and device coverage review still required. App restart, model requests, general shell support and malicious-plugin isolation are not established.
+
+## Original terminal lifecycle qualification
+
+The [APK #8 qualification](apps/android/execution/TERMINAL_LIFECYCLE_PROOF.md) adds bounded wait timeout and explicit cancellation through the original terminal service without widening the fixed native allocation. Host execution passes; physical-device execution is pending. Gate 3 remains IN PROGRESS.
+
+## APK #8 phone lifecycle checkpoint
+
+The [phone lifecycle review](apps/android/evidence/phone-apk8-lifecycle-result-review.json) records a matching APK and four native-library hashes on Redmi Note 8 Pro/API 30. The bounded original-terminal wait timeout and SIGINT cancellation are VERIFIED at user-reported physical-device evidence level: timeout kept the single child running, explicit cancellation ended it, repeated cancellation failed, owner activity drained and original records recovered across runtime restart. Controller exit 0 is distinct from the child signal exit with null exitCode. Historical warnings and failures remain retained. Gate 3 remains IN PROGRESS pending a consolidated acceptance review and remaining target-device coverage; no app-restart, general-shell or malicious-plugin isolation claim is added.
+
+## Consolidated Gate 3 review
+
+The [Gate 3 coverage review](apps/android/execution/GATE3_REVIEW.md) accepts the bounded user-reported API 30 subprocess, node-pty and original-terminal capabilities, including APK #8 lifecycle results. Gate 3 remains IN PROGRESS: Android 10/API 29 and recent-Android coverage are BLOCKED by unavailable target execution evidence. The next checkpoint reuses the existing diagnostic APK on those environments; no new general shell or frontend implementation is claimed.
+
+## Original WebView asset inspection
+
+The [original frontend asset inspection](apps/android/execution/ORIGINAL_WEB_ASSETS.md) builds and packages the existing web frontend in a restricted Android activity. Harness boot injection, client plugin bundles, authenticated transport, SPA routing and Android device verification remain incomplete. Gate 4 is IN PROGRESS; the APK does not yet demonstrate original screens or a connected backend.
+
+## Original web host bootstrap checkpoint
+
+The [original host bootstrap check](apps/android/execution/ORIGINAL_WEB_ASSETS.md#original-host-bootstrap-evidence) exercises the actual built web profile, its authenticated index, all advertised client batches and HTTP origin-denial behavior on Linux. Android web composition, appassets-to-runtime authentication, original screens and physical WebView verification remain NOT YET VERIFIED; Gate 4 remains IN PROGRESS.
+
+## Isolated web-profile host trace
+
+The [isolated trace](apps/android/evidence/original-web-profile-isolated-host-trace.json) separates the built Linux web-profile process and its recognized descendants from the Vitest parent. Its limitations and the remaining Android dependency and authenticated transport work are in the [web asset reference](apps/android/execution/ORIGINAL_WEB_ASSETS.md#original-host-bootstrap-evidence). Gate 4 remains IN PROGRESS.
+
+## Bounded web-profile host experiment
+
+The original `web` profile starts on Linux with six explicitly disabled platform rows and still provides its authenticated boot graph and client batches. The [host-only experiment](apps/android/execution/ORIGINAL_WEB_ASSETS.md#bounded-host-composition-experiment) records the actual rows, an active client entry whose provider is disabled, origin denials and remaining security limits. This fixture cannot establish Android startup or enforce a general execution policy. Gate 4 remains IN PROGRESS.
+
+
+## Previous checkpoint — 2026-11-14 (superseded by the 2026-11-15 update below)
+
+### Gate 3 / Phase 3
+
+- APK #7 original terminal registry + native approval phone result is recorded in `apps/android/evidence/phone-apk7-terminal-result-review.json`.
+- APK #8 lifecycle result is recorded in `apps/android/evidence/phone-apk8-lifecycle-result-review.json`; its accepted scope is the submitted timeout/cancellation/process-cleanup/session-recovery scenario on the reported Redmi Note 8 Pro, Android 11/API 30/ARM64.
+- These are user-submitted physical-device results reviewed and normalized in-repository, not developer-controlled ADB runs or broad device certification.
+- Gate 3 remains IN PROGRESS. Outstanding work includes API 29 and a recent Android target, service/Activity/process-death and orphan-descendant coverage, resource/backpressure limits, and an explicit supported-shell/capability contract. A fixed fixture or the current PTY qualification does not prove arbitrary shell support.
+
+### Gate 4 / Phase 3A
+
+- Original Vite frontend assets are built and packaged for restricted static inspection; see [asset evidence](apps/android/evidence/original-web-assets-build.json) and [inspection notes](apps/android/execution/ORIGINAL_WEB_ASSETS.md).
+- The original Web Profile has Linux-host bootstrap and bounded-composition evidence: [host boot](apps/android/evidence/original-web-host-boot.json), [bounded host result](apps/android/evidence/original-web-bounded-host.json), and [isolated trace](apps/android/evidence/original-web-profile-isolated-host-trace.json).
+- The host composition disabled six platform-sensitive provider rows. The client graph still exposed an active `ui-open-in-app` entry while its provider was disabled; UI capability-state handling remains an explicit issue.
+- P3A-001/002 Linux-host evidence is recorded in the separate [bootstrap](apps/android/evidence/original-web-profile-p3a001-host-observations.json) and [bounded-overlay](apps/android/evidence/original-web-bounded-p3a001-host-observations.json) reports; the [execution reference](apps/android/execution/ORIGINAL_WEB_ASSETS.md#p3a-001-linux-host-dependency-observations) owns their scope and interpretation.
+- P3A-002 adds compressed [bootstrap](apps/android/evidence/original-web-profile-p3a002-path-inventory.json.gz) and [bounded](apps/android/evidence/original-web-bounded-p3a002-path-inventory.json.gz) observed-path inventories and the [raw per-PID trace archive](apps/android/evidence/original-web-p3a002-raw-host-traces.tar.gz). The reports keep dependency inference not assessed and list known syscall and path blind spots.
+- P3A-002 evidence treatment is complete for these Linux host runs; it does not establish dependency closure, Android compatibility or Gate 4. The observed Linux native addon must not be packaged for Android.
+- P3A-003 runtime/test separation is recorded in [the generated report](apps/android/evidence/original-web-p3a003-runtime-test-separation.json). The CLI and Web Profile bundle production package trees exclude `devDependencies` and named test/build tools; the test-only roster observer, host specs/configuration, bounded fixture and frontend asset/build boundary are separately identified. This is manifest-level package separation, not a file-level closure.
+- The report retains 1,243 bootstrap and 1,211 bounded checkout paths outside the identified production package trees; observed paths within those trees are still candidates rather than proven required files. The frontend asset list and Linux-host dependency tree do not establish Android compatibility. Gate 4 remains IN PROGRESS.
+- P3A-004 is IN PROGRESS. The [candidate TSV](apps/android/evidence/original-web-p3a004-native-candidates.tsv) and [structured audit](apps/android/evidence/original-web-p3a004-native-artifact-audit.json) cover 70 installed native-like payloads: 28 have CLI-tree membership, 9 have Web Profile-tree membership (all 9 are shared), and 42 are outside both trees; thus 28 distinct files are in at least one production tree. The sole addon loaded in both P3A-001 host captures is x86-64 Linux GNU/glibc and is explicitly rejected for Android.
+- The [historical Android build/package matrix](apps/android/evidence/original-web-p3a004-android-apk-native-matrix.tsv) consolidates 16 evidence snapshots and 10 unique packaged library names. APK-level records report arm64-v8a/minSdk 29; exact build-output hashes match node-pty and its PTY fixture but differ for atomic and require-builtin. Most artifacts lack build-output hash linkage, complete symbol/version and ELF minimum-API-note data, or per-artifact notice mapping. This remains historical package evidence, not Web Runtime Image qualification.
+- Candidate-file observation and package-tree membership do not prove required image inputs. The Web Runtime Image native closure has not been built or enumerated, so the P3A-004 report accepts no artifact for it; final acceptance must follow image generation and an exact hash-bound closure audit.
+- P3A-005 is complete: the [default-deny Android native policy](apps/android/runtime/native-artifact-policy.json) is enforced by the profile packer, its digest is pinned in the image manifest, and [13 policy decisions](apps/android/evidence/original-web-p3a005-native-policy-audit.json) plus 16 packager tests cover allow/deny, hash/metadata, license, API, dependency and fixture boundaries. A Node 24.22.1 host smoke image passed with 1,251 files, 862 links, 647 package manifests and zero native artifacts; it is explicitly not a complete Android Web Runtime Image.
+- The current `sdk-minimal` image is not a valid ready-made Web Runtime Image: the web profile requires additional runtime/frontend/configuration assets, while test fixtures and Linux-only native artifacts must be excluded.
+- No Android Web Runtime Image, authentic Android Web Profile startup, connected original UI, secure WebView/backend transport, SPA routing, streaming chat, or model request has been verified. Gate 4 remains IN PROGRESS.
+
+### Immediate Gate 4 execution order at 2026-11-14 (superseded)
+
+1. Continue file-level dependency and static import/asset analysis; do not label observed host paths as required or call the traces a complete dependency closure.
+2. **Complete:** P3A-005 adds the strict Android ARM64/Bionic allow/deny policy and negative tests; no production Web Runtime Image native artifacts are approved.
+3. Build the deterministic Android Web Runtime Image with pinned inputs, a content/hash manifest and reproducible negative-package validation (P3A-006).
+4. Return to P3A-004 to audit that exact image’s selected ARM64/Bionic ELF set, fill compiler/interpreter/symbol/API/alignment/license gaps, and accept only hash-bound artifacts.
+5. Start the authentic original Web Profile under embedded Android Node and verify boot graph, client batches and provider capability state on a physical Android device.
+6. Design and test authenticated WebView-to-runtime HTTP and WebSocket transport, preserving launch-token/cookie and Host/Origin denial properties. Do not enable broad WebView network access or expose credentials to JavaScript.
+7. Verify the original UI, SPA navigation, streamed conversation, session recovery and one native-approved tool operation end-to-end on Android.
+
+## Current checkpoint — 2026-11-16
+
+### Gate 4 / Phase 3A update
+
+- P3A-006 is complete for reproducible host packaging. The [build report](apps/android/evidence/original-web-p3a006-image-build.json) compares two independent full builds under Node 24.22.1: each archive is 129,118,094 bytes, with SHA-256 `513cdc8313f8bfff797dec586201192d799609a331d00ad22aae4ca880448c0d` and manifest SHA-256 `92f482574429bdcd5826442800d25b570ffecd7434e6c42d0f2c0fcf352f9d79`; all eight reproducibility checks pass.
+- The corrected candidate records 28,043 files, 2,993 contained symlinks, 628 production package manifests and 94 frontend assets. It excludes 35 OS-native candidates (13 ELF, 6 Mach-O/FAT, 14 PE/MZ, 2 static `.a` archives) and includes zero native binaries under the default-deny policy; one 127,846,009-byte WebAssembly asset is explicitly recorded as portable non-native content.
+- The license manifest binds all 628 declared package license identifiers to package.json hashes, lists separate notice files for 249 packages, and explicitly records 379 packages with no separate package license text. Project LICENSE and THIRD_PARTY_NOTICES.md are included.
+- The build evidence records 87 normalized pnpm workspace dependency specs and 56 generated JavaScript region-comment path normalizations. Absolute checkout paths are rejected outside those generated comments; the final image text scan found no checkout path leak.
+- The P3A-004 [native audit](apps/android/evidence/original-web-p3a004-native-artifact-audit.json) now binds the P3A-006 report SHA-256 and verifies its passing two-build comparison, current native-policy digest, file/symlink totals, and zero included native artifacts. It keeps the separate Android APK/runtime ELF closure explicitly unaccepted.
+- The same P3A-004 report parses ten native outputs declared by the current Gradle/CMake graph (six runtime JNI libraries, two node-pty libraries, the `libharness_probe.so` RuntimeService JNI bridge, and one process-proof executable). No APK/AAB or raw native ELF file exists in this checkout. This sandbox also has no Android SDK/NDK, SDK Manager or ADB; the Gradle configuration requests compile/target API 36, minimum API 29, and NDK 28.2.13676358. The report corrects the bridge’s role and flags the main-source-set process proof and PTY fixture for release-scope review.
+- This host-built candidate is not Android boot evidence and does not prove a complete file or Android native closure. P3A-004 remains IN PROGRESS; Gate 4 remains IN PROGRESS.
+
+### Current immediate Gate 4 execution order
+
+1. Continue P3A-004: obtain/build the exact APK for the current Gradle graph, extract its Android ARM64/Bionic native library set, resolve proof-only main-source-set inputs, and qualify each selected artifact with hash-bound ABI, build/toolchain, interpreter, dependency, symbol, API, alignment and license evidence. This sandbox lacks the Android toolchain and the checkout contains no APK/AAB; the empty host-image native list is not APK closure proof.
+2. After P3A-004 closure, boot the authentic original Web Profile under embedded Android Node on a physical device (P3A-007), recording device/API/ABI, logs, process tree, boot graph and client batches.
+3. Resolve capability-safe client graph behavior (P3A-008), then implement and test authenticated HTTP/WebSocket transport (P3A-009/010).
+4. Integrate the original UI and verify SPA navigation, streaming, session recovery and a native-approved tool operation on Android (P3A-011/012).
+
+### Branch and change boundary
+
+`feature/android-port` is the implementation/evidence branch. `master` contains the living planning documents only. The branches remain divergent; this task does not merge them, create a PR or publish a release.
