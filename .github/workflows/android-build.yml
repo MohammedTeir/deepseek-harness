@@ -61,7 +61,14 @@ jobs:
             'cmake;3.22.1'
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/28.2.13676358" >> "$GITHUB_ENV"
           echo "ANDROID_NODE_BUILD_DIR=$RUNNER_TEMP/android-node-build" >> "$GITHUB_ENV"
-          echo 'ANDROID_NODE_JOBS=2' >> "$GITHUB_ENV"
+          echo 'ANDROID_NODE_JOBS=4' >> "$GITHUB_ENV"
+
+      - name: Restore Android Node build cache
+        id: android-node-cache
+        uses: actions/cache/restore@v6.1.0
+        with:
+          path: ${{ runner.temp }}/android-node-build/node-v24.22.1
+          key: ${{ runner.os }}-${{ runner.arch }}-android-node-v24.22.1-ndk28.2.13676358-${{ hashFiles('.github/workflows/android-build.yml', 'apps/android/runtime/build-node.sh', 'apps/android/runtime/patches/*.patch') }}
 
       - name: Install host trace dependency
         run: |
@@ -76,6 +83,13 @@ jobs:
 
       - name: Build pinned Android native inputs and profile image
         run: bash apps/android/scripts/build-android-ci.sh
+
+      - name: Save Android Node build cache
+        if: ${{ success() && steps.android-node-cache.outputs.cache-hit != 'true' }}
+        uses: actions/cache/save@v6.1.0
+        with:
+          path: ${{ runner.temp }}/android-node-build/node-v24.22.1
+          key: ${{ runner.os }}-${{ runner.arch }}-android-node-v24.22.1-ndk28.2.13676358-${{ hashFiles('.github/workflows/android-build.yml', 'apps/android/runtime/build-node.sh', 'apps/android/runtime/patches/*.patch') }}
 
       - name: Assemble release APK, run unit tests, and lint
         working-directory: apps/android
