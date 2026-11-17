@@ -43,7 +43,10 @@ python3 "$android_dir/runtime/build_require_builtin.py" "$require_source" "$addo
 python3 "$android_dir/runtime/build-node-pty.py"
 python3 "$android_dir/scripts/package_node.py" \
   --build "$ANDROID_NODE_BUILD_DIR" --ndk "$ANDROID_NDK_HOME"
-
+# The relocated Linux host qualification uses the original flock binding. This
+# host-only artifact is excluded from the Android image but must exist to drain
+# and persist the reference session during qualification.
+pnpm run build:native-system
 # This trace-backed packager validates the original profile, command, and terminal
 # host references before producing the profile-v9 image consumed by Gradle.
 python3 "$android_dir/scripts/package_profile.py" "$android_dir/runtime/out/profile-v9"

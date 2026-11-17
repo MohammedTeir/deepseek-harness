@@ -1,12 +1,15 @@
 """Archive and observed-file rejection tests; no Android execution is simulated."""
 import hashlib
 import json
+import os
 from pathlib import Path
 import tempfile
 import unittest
 import zipfile
 from native_artifact_policy import load_policy, policy_sha256, validate_native_artifacts
-from package_profile import collect, validate_archive, validate_host_qualification
+from package_profile import (REQUIRED_CORDIS_OVERLAYS, add_required_cordis_links,
+                             add_required_cordis_overlays, collect, validate_archive,
+                             validate_host_qualification)
 
 
 class ProfileArchiveTest(unittest.TestCase):
@@ -72,6 +75,52 @@ class ProfileArchiveTest(unittest.TestCase):
             root=Path(directory);secret=root/'.credentials.yaml';secret.write_text('not a real credential')
             trace=root/'trace';trace.write_text(f'openat(AT_FDCWD, "{secret}", O_RDONLY) = 3\n')
             with self.assertRaisesRegex(ValueError,'Credential'): collect(root,[trace])
+
+    def test_required_cordis_overlays_use_canonical_files_behind_cli_aliases(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            files=set()
+            for runtime_path, source_path in REQUIRED_CORDIS_OVERLAYS.items():
+                source=root/source_path
+                source.parent.mkdir(parents=True, exist_ok=True)
+                source.write_text(f'# source for {source_path}\n')
+            add_required_cordis_overlays(files, root)
+            links={}
+            add_required_cordis_links(links)
+            host=root/'host'
+            for name in files:
+                destination=host/name
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_bytes((root/name).read_bytes())
+            for name,target in sorted(links.items()):
+                destination=host/name
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.symlink_to(os.path.relpath(host/target,destination.parent),target_is_directory=True)
+            for alias,source in REQUIRED_CORDIS_OVERLAYS.items():
+                self.assertEqual((host/alias).read_bytes(),(host/source).read_bytes())
+            digests={name:hashlib.sha256((root/name).read_bytes()).hexdigest() for name in files}
+            self.assertEqual(set(digests),set(REQUIRED_CORDIS_OVERLAYS.values()))
+            required={name:digests[source] for name,source in REQUIRED_CORDIS_OVERLAYS.items()}
+            manifest={
+                'files':digests,
+                'links':links,
+                'requiredCordisOverlays':required,
+                'nativeArtifacts':[],
+                'nativePolicySha256':policy_sha256(),
+            }
+            archive=Path(directory)/'profile.zip'
+            with zipfile.ZipFile(archive,'w') as zip:
+                for name in files: zip.write(root/name,name)
+                zip.writestr('image-manifest.json',json.dumps(manifest))
+            validate_archive(archive,manifest)
+            bad_manifest=json.loads(json.dumps(manifest))
+            bad_manifest['requiredCordisOverlays'].pop(next(iter(bad_manifest['requiredCordisOverlays'])))
+            bad_archive=Path(directory)/'missing-overlay.zip'
+            with zipfile.ZipFile(bad_archive,'w') as zip:
+                for name in files: zip.write(root/name,name)
+                zip.writestr('image-manifest.json',json.dumps(bad_manifest))
+            with self.assertRaisesRegex(ValueError,'alias set'):
+                validate_archive(bad_archive,bad_manifest)
 
     def native_record(self, **overrides):
         record={

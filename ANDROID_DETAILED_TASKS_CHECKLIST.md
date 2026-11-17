@@ -459,3 +459,13 @@ The Redmi Note 8 Pro evidence is Android 11 / API 30, not API 29. After P3A-004 
 
 
 The APK selected for the first original-Web device run is `b64a25842615b56f69fca1c984fd1b9376e798d5776450b10c30671b09fa4855`; record that same hash in the physical-device evidence before accepting the run.
+
+## 2026-11-17 — P3A-007 physical failure and retest
+
+- [x] Preserve the user-submitted failure screenshots and structured result in `apps/android/evidence/p3a007-user-failure.json`. The error is `ENOENT` for the `dsh-base` and `dsh-web-app` Cordis overlays under the CLI `node_modules` aliases; the profile never published a URL.
+- [x] Correct the profile packager to include both overlays at canonical package paths and preserve the CLI package-directory symlinks; bind alias targets and hashes in the manifest. Profile tests pass 17/17, runtime-asset guards 4/4, and Web Runtime Image tests 11/11.
+- [ ] **IN PROGRESS — build new APK:** host diagnostics identified the missing Linux/glibc `system.node`; `pnpm run build:native-system` restored it. Full profile-image packaging and relocated host qualification now pass (1,253 files, 862 links, 647 package manifests). The Android Node/runtime source build is running; Gradle assembly and APK inspection remain pending. The CI script now builds the host addon before qualification. No fixed APK/hash exists yet.
+- [ ] Install/test the exact new APK on the API 30 Redmi Note 8 Pro; phone testing was not run in this task.
+- [ ] Verify original boot/UI, batches, navigation, authenticated HTTP/API and WebSocket, streaming, activity/runtime recovery, unauthenticated and foreign-origin denials, and clean shutdown; retain failures without broadening claims.
+
+The supplied screenshots do not show APK hash or device properties. They are user-submitted evidence only and are not bound to the previously audited candidate hash. P3A-007/Gate 4 remain open until exact-APK device results are recorded.

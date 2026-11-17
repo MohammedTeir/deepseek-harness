@@ -21,6 +21,12 @@ ROOT = Path(__file__).resolve().parents[3]
 ANDROID = ROOT / 'apps/android'
 HOST_NATIVE = {'native/system/packages/linux-x64/bin/glibc/system.node',
     'node_modules/.pnpm/node-addon-require-builtin-linux-x64-gnu@0.1.9/node_modules/node-addon-require-builtin-linux-x64-gnu/prebuilt/linux-x64-gnu-napi-v9.node'}
+REQUIRED_CORDIS_OVERLAYS = {
+    'apps/cli/node_modules/@deepseek-ai/dsh-base/cordis.patch.yml':
+        'packages/bundle/base/cordis.patch.yml',
+    'apps/cli/node_modules/@deepseek-ai/dsh-web-app/cordis.patch.yml':
+        'packages/bundle/web-app/cordis.patch.yml',
+}
 OPEN = re.compile(r'openat\([^,]+, ("(?:[^"\\]|\\.)*"), ([^)]*)\)\s+=\s+(\d+)')
 LINK = re.compile(r'readlink(?:at)?\((?:[^,]+, )?("(?:[^"\\]|\\.)*"), ("(?:[^"\\]|\\.)*")')
 
@@ -65,6 +71,25 @@ def collect(root, traces):
     return files, links
 
 
+def add_required_cordis_overlays(files, root):
+    """Include Cordis overlays at canonical package paths behind CLI aliases."""
+    for runtime_path, source_path in REQUIRED_CORDIS_OVERLAYS.items():
+        source = root / source_path
+        if not source.is_file() or source.is_symlink():
+            raise ValueError(f'Required Cordis overlay is missing or not a regular file: {source_path}')
+        files.add(source_path)
+
+
+def add_required_cordis_links(links):
+    """Keep runtime package aliases as directory symlinks, never duplicate trees."""
+    for runtime_path, source_path in REQUIRED_CORDIS_OVERLAYS.items():
+        alias = str(Path(runtime_path).parent)
+        target = str(Path(source_path).parent)
+        if alias in links and links[alias] != target:
+            raise ValueError(f'Required Cordis package alias changed: {alias}')
+        links[alias] = target
+
+
 def validate_archive(archive, manifest):
     """Reject path escape, extra files, changed bytes and native code in the image."""
     expected = manifest['files']
@@ -78,6 +103,18 @@ def validate_archive(archive, manifest):
             raise ValueError('Archive entries differ from manifest')
         if json.loads(zip.read('image-manifest.json')) != manifest:
             raise ValueError('Archive manifest differs from inspected metadata')
+        required_overlays = manifest.get('requiredCordisOverlays', {})
+        if required_overlays:
+            if set(required_overlays) != set(REQUIRED_CORDIS_OVERLAYS):
+                raise ValueError('Required Cordis overlay alias set differs from the reviewed runtime set')
+            for name, digest in required_overlays.items():
+                source_name = REQUIRED_CORDIS_OVERLAYS[name]
+                if expected.get(source_name) != digest:
+                    raise ValueError(f'Required Cordis overlay missing or changed: {name}')
+                alias = str(Path(name).parent)
+                target = str(Path(source_name).parent)
+                if manifest.get('links', {}).get(alias) != target:
+                    raise ValueError(f'Required Cordis package alias is not preserved: {alias}')
         automated_approval_fixtures = {
             'apps/android/tests/command-profile-reference.mjs',
             'apps/android/tests/terminal-registry-reference.mjs',
@@ -173,6 +210,8 @@ def build(output):
         command_files, command_links = collect(ROOT, sorted(temp.glob('command-access.*')))
         files, links = collect(ROOT, sorted(temp.glob('access.*')))
         files |= command_files | terminal_files
+        add_required_cordis_overlays(files, ROOT)
+        add_required_cordis_links(links)
         for key, value in list(command_links.items()) + list(terminal_links.items()):
             if key in links and links[key] != value:
                 raise ValueError(f'Command alias differs: {key}')
@@ -236,13 +275,16 @@ def build(output):
             digests[name]=hashlib.sha256(data).hexdigest()
         manifest = dict(schemaVersion=1,scope='Observed original sdk-minimal startup/session and fixed-command qualification; not full distribution',
                         completeDependencyDistribution=False,files=dict(sorted(digests.items())),links=dict(sorted(links.items())),
+                        requiredCordisOverlays={name: digests[REQUIRED_CORDIS_OVERLAYS[name]]
+                                                for name in sorted(REQUIRED_CORDIS_OVERLAYS)},
                         directories=sorted({target for target in links.values() if (ROOT/target).is_dir()}),
         packageManifests=sorted(packages),excludedHostNative=sorted(natives),terminalQualificationIncluded=True,
-        nativeArtifacts=[],nativePolicySha256=policy_sha256(),
+                        nativeArtifacts=[],nativePolicySha256=policy_sha256(),
                         adapterSourcesSha256={name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in [
                             'apps/android/runtime/node-pty-proof/terminal-backend.ts',
                             'apps/android/runtime/node-pty-proof/terminal-handle.ts',
-                            'apps/android/scripts/build_terminal_bundle.mjs','pnpm-lock.yaml']},
+                            'apps/android/scripts/build_terminal_bundle.mjs','pnpm-lock.yaml',
+                            *REQUIRED_CORDIS_OVERLAYS.values()]},
                         modelRequestExecuted=False,androidVerified=False,gate2Passed=False)
         (output / 'image-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
         archive = output / 'profile-image.zip'

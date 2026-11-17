@@ -16,10 +16,26 @@ if (!output || !path.isAbsolute(output)) throw new Error('Absolute evidence path
 // Use the existing CLI workspace's declared same-version public SDK dependency.
 const resolveCli = createRequire(new URL('../../cli/package.json', import.meta.url));
 const { HarnessClient } = await import(resolveCli.resolve('@deepseek-ai/dsh-sdk-client'));
+async function sessionInventory(home) {
+  try {
+    const base = path.join(home, 'sessions');
+    const names = await fs.readdir(base, { recursive: true });
+    const inventory = [];
+    for (const name of names) {
+      const stat = await fs.stat(path.join(base, name));
+      if (stat.isFile()) inventory.push({ name, bytes: stat.size });
+    }
+    return inventory;
+  } catch (error) {
+    if (error?.code === 'ENOENT') return [];
+    throw error;
+  }
+}
 const root = await fs.mkdtemp(path.join(os.tmpdir(), 'android-host-profile-'));
 try {
   const workspace = path.join(root, 'workspace');
   const nested = path.join(workspace, 'nested');
+  const home = path.join(root, 'home');
   await fs.mkdir(nested, { recursive: true });
   const env = { ...process.env };
   delete env.DEEPSEEK_API_KEY;
@@ -27,7 +43,7 @@ try {
   if (bounded) {
     const dsh = path.join(path.dirname(resolveCli.resolve('@deepseek-ai/dsh/package.json')), 'lib/bin.js');
     const dump = spawnSync(process.execPath, [dsh, '--profile', 'sdk-minimal', '--patch', patch, '--dump-config'],
-      { env: { ...env, DSH_HOME: path.join(root, 'home') }, cwd: workspace, encoding: 'utf8', timeout: 30000 });
+      { env: { ...env, DSH_HOME: home }, cwd: workspace, encoding: 'utf8', timeout: 30000 });
     if (dump.error || dump.status !== 0) throw new Error(`Profile dump failed: ${dump.error ?? dump.stderr}`);
     const rows = loadYaml(dump.stdout, { schema: (await import(resolveCli.resolve('@deepseek-ai/cordis-plugin-include'))).entryListSchema });
     const disabled = ['subprocess', 'pty', 'terminal-bash', 'terminal-pwsh', 'persistent-bash', 'persistent-pwsh', 'tool-fs'];
@@ -42,7 +58,7 @@ try {
       patchSha256: crypto.createHash('sha256').update(await fs.readFile(patch)).digest('hex'),
       originalProfileWithOverlay: true, requiresPersistenceBeforeSdk: true, securitySandboxClaim: false };
   }
-  const options = { profile: 'sdk-minimal', ...(bounded ? { patches: [patch] } : {}), dshHome: path.join(root, 'home'), processCwd: workspace,
+  const options = { profile: 'sdk-minimal', ...(bounded ? { patches: [patch] } : {}), dshHome: home, processCwd: workspace,
     env, initializeTimeoutMs: 30000, requestTimeoutMs: 10000 };
   const initialize = { cwd: workspace, provider: 'deepseek-official', model: 'deepseek-v4-flash' };
   const sessionId = 'android-host-reference-' + crypto.randomUUID();
@@ -52,15 +68,27 @@ try {
     identity = await first.initialize(initialize);
     await first.setWorkingDirectory(sessionId, nested);
   } finally { await first.close(); }
+  const firstRuntimeStderr = await first.runtimeStderr();
+  const preResumeInventory = await sessionInventory(home);
   const second = new HarnessClient(options);
   let recovered;
   try {
     await second.initialize(initialize);
-    await second.resumeSession(sessionId);
+    try {
+      await second.resumeSession(sessionId);
+    } catch (error) {
+      await second.close();
+      const secondRuntimeStderr = await second.runtimeStderr();
+      console.error(JSON.stringify({ stage: 'resumeSession', sessionId, preResumeInventory,
+        firstRuntimeStderrLines: firstRuntimeStderr ? firstRuntimeStderr.split('\n').slice(-20) : [],
+        secondRuntimeStderrLines: secondRuntimeStderr ? secondRuntimeStderr.split('\n').slice(-20) : [],
+        error: error instanceof Error ? { name: error.name, message: error.message } : String(error) }, null, 2));
+      throw error;
+    }
     recovered = await second.getWorkingDirectory(sessionId);
   } finally { await second.close(); }
   if (recovered !== nested) throw new Error('Persisted working directory did not recover');
-  const store = path.join(root, 'home', 'sessions');
+  const store = path.join(home, 'sessions');
   const files = await fs.readdir(store, { recursive: true });
   const persisted = {};
   for (const name of files) {

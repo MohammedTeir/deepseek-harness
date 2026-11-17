@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "task": "P3A-007",
+  "evidenceType": "user-submitted-physical-device-screenshots",
+  "result": "FAIL",
+  "sourceRevisionUnderTest": null,
+  "apk": {
+    "sha256": null,
+    "note": "The screenshots do not show an APK digest. Do not attribute this failure to the documented candidate hash without separate verification."
+  },
+  "device": {
+    "model": null,
+    "androidRelease": null,
+    "apiLevel": null,
+    "abi": null,
+    "note": "The screenshots do not expose device properties. Redmi Note 8 Pro / Android 11 / API 30 is the planned test target in the handoff, not independently established by these images."
+  },
+  "capture": {
+    "reportedLocalTimestamps": [
+      "2026-11-17 10:13:29 +02:00",
+      "2026-11-17 10:13:38 +02:00"
+    ],
+    "webViewResult": "Original web runtime unavailable; the web profile did not publish a URL.",
+    "failureStage": "Original Web Profile boot, before authenticated startup URL publication.",
+    "failureDetails": [
+      "Cordis skipped profile bundle @deepseek-ai/dsh-base after ENOENT opening apps/cli/node_modules/@deepseek-ai/dsh-base/cordis.patch.yml inside the installed profile image.",
+      "Cordis skipped profile bundle @deepseek-ai/dsh-web-app after ENOENT opening apps/cli/node_modules/@deepseek-ai/dsh-web-app/cordis.patch.yml inside the installed profile image.",
+      "The activity displayed BLOCKED: IllegalStateException: Web profile did not publish a URL."
+    ],
+    "nonFatalWarning": "The linker reported an unused processor-specific DT entry in libc++_shared.so (type 0x70000001, arg 0x0), marked as ignored in the screenshot. The screenshot does not establish this warning as causal."
+  },
+  "untestedOrNotEstablished": [
+    "Original UI boot and navigation",
+    "Client batch delivery",
+    "Authenticated HTTP/API behavior",
+    "WebSocket /api/remote.mux behavior",
+    "Streaming",
+    "Activity/runtime recovery",
+    "Unauthenticated and foreign-origin denial behavior",
+    "Clean process shutdown",
+    "Exact APK SHA-256 and device properties"
+  ],
+  "attachments": [
+    {
+      "path": "apps/android/evidence/p3a007-user-failure-screen-1.jpg"
+    },
+    {
+      "path": "apps/android/evidence/p3a007-user-failure-screen-2.jpg"
+    }
+  ],
+  "assessment": {
+    "rootCause": "The observed profile image omitted the Cordis overlays from their canonical package targets. Cordis accesses those targets through apps/cli/node_modules/@deepseek-ai directory symlinks, so the profile image must retain both target files and the package-directory alias links.",
+    "fixImplemented": "The profile image builder now includes the two source overlays at packages/bundle/base/cordis.patch.yml and packages/bundle/web-app/cordis.patch.yml, preserves the CLI alias-directory symlinks to those package directories, and binds/validates the runtime alias mapping and exact overlay digests in the image manifest. It does not create regular files beneath alias directories that must be recreated as symlinks.",
+    "checks": {
+      "profilePackagerRegression": "PASS 17/17",
+      "runtimeAssetGuard": "PASS 4/4",
+      "webRuntimeImagePackager": "PASS 11/11",
+      "nativePolicyAuditCheck": "PASS",
+      "diffAndPythonSyntax": "PASS"
+    },
+    "newApkBuild": {
+      "status": "IN_PROGRESS; Android Node/runtime source build running",
+      "resolvedPrerequisite": "The host reference initially failed to load the missing Linux/glibc system.node during shutdown, so no session JSONL was persisted. Building with pnpm run build:native-system resolved it. Full trace-backed profile packaging and relocated qualification then passed (1,253 files, 862 links, 647 package manifests; archive 2,318,271 bytes). The Android CI script now builds this host-only addon before profile qualification.",
+      "gradleAssembly": "Pending; no APK has been assembled or inspected.",
+      "apkSha256": null
+    },
+    "physicalDeviceRetest": "Not run. The packaging correction has not been built into an APK and is not evidence that the fix succeeds on Android."
+  }
+}

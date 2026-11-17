@@ -3,7 +3,7 @@
     "acceptedWebRuntimeImageNativeArtifactCount": 0,
     "archiveValidator": "apps/android/scripts/package_profile.py::validate_archive",
     "interpretedProfileArchiveStillRejectsEveryELF": true,
-    "p3a004EvidenceSha256": "9ba4a4976973384e8cbf4b2f8b77cf8c0dc9e43e3e80fc5d2848161eec345775",
+    "p3a004EvidenceSha256": "89312d5e1d2872f043581b766c3c722bc60f5bf4efa838f8f137b57402b32229",
     "policyDigestPinnedInImageManifest": true,
     "scope": "Policy and bounded sdk-minimal host profile packaging only; no production Web Runtime Image native set is approved."
   },
@@ -55,8 +55,8 @@
   "sourceSha256": {
     "auditScript": "8fa8446966b553e397508ee4683614527dc4446aa85295479997d7dfefb36a5e",
     "policyValidator": "e0a9cbc3e51c9cb5245c147e1fb860775d648ef04b5f06139ebf0a2902695389",
-    "profilePacker": "05cdb2716cf96669b20dc4e52f9a656c7e76ea3fb47857dc2aa24600e4c13af4",
-    "regressionTests": "b2ab72c90aa0ffb64087156b1d823c51db7cdfdd31d8732bbed3e705063640b1"
+    "profilePacker": "ca8cde91ad07b8afc31aea31d245300357b1df9a69bdb5d62abf9aec59c1a5c9",
+    "regressionTests": "26274f5f89cef312057952a7d451f2f04a2a04aa86d5952a2d6579625abe4da5"
   },
   "status": "PASS",
   "task": "P3A-005",
