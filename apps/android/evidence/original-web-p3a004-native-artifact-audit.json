@@ -11,7 +11,7 @@
   "inputs": {
     "scanner": {
       "path": "apps/android/scripts/audit_web_native_artifacts.py",
-      "sha256": "fc50e64c5d67fc1622d57543b680660bb990e67dd31f609c792088b697db40f1"
+      "sha256": "33d09d564ec2290923040eb907a07ba695620993a636a0662987e0c1e38b5e54"
     },
     "lockfile": {
       "path": "pnpm-lock.yaml",
@@ -24,6 +24,10 @@
     "p3a006ImageReport": {
       "path": "apps/android/evidence/original-web-p3a006-image-build.json",
       "sha256": "d62c97f03178a664009193d81527e08ce01b84414660a6ff767ec1fb6c5c0c52"
+    },
+    "currentReleaseApkAudit": {
+      "path": "apps/android/evidence/original-web-p3a004-release-apk-audit.json",
+      "sha256": "6718889ea0d4c33cfa9baba790e12742fdef8180310203a9e771f51a6f0154a1"
     },
     "hostObservations": [
       {
@@ -13701,16 +13705,72 @@
     }
   ],
   "currentAndroidPackagingNativeInputs": {
-    "status": "declared-build-graph-only; no raw Android package/native output available in the worktree",
+    "status": "exact-release-apk-native-closure-inspected; device execution and proof-only production scope remain open",
     "target": {
       "abi": "arm64-v8a",
       "minimumApi": 29
     },
     "declaredNativeInputCount": 10,
-    "rawApkOrAabAvailable": false,
-    "rawApkOrAabPaths": [],
-    "rawNativeArtifactFileCount": 0,
-    "rawNativeArtifactPaths": [],
+    "rawApkOrAabAvailable": true,
+    "rawApkOrAabPaths": [
+      "apps/android/app/build/outputs/apk/release/app-release-unsigned.apk"
+    ],
+    "rawNativeArtifactFileCount": 53,
+    "rawNativeArtifactPaths": [
+      "apps/android/app/src/main/jniLibs/arm64-v8a/libharness_atomic.so",
+      "apps/android/app/src/main/jniLibs/arm64-v8a/libharness_require_builtin.so",
+      "apps/android/app/src/main/jniLibs/arm64-v8a/libnode.so",
+      "apps/android/app/src/main/jniLibs/arm64-v8a/libharness_system.so",
+      "apps/android/app/src/main/jniLibs/arm64-v8a/libnode_executable.so",
+      "apps/android/app/src/main/jniLibs/arm64-v8a/libc++_shared.so",
+      "apps/android/app/build/generated/nodePtyNative/arm64-v8a/libharness_node_pty.so",
+      "apps/android/app/build/generated/nodePtyNative/arm64-v8a/libharness_pty_fixture.so",
+      "apps/android/app/build/generated/processNative/arm64-v8a/libharness_process_probe.so",
+      "apps/android/app/build/intermediates/cxx/RelWithDebInfo/6n1dx2e5/obj/arm64-v8a/libharness_probe.so",
+      "apps/android/app/build/intermediates/merged_jni_libs/release/mergeReleaseJniLibFolders/out/arm64-v8a/libc++_shared.so",
+      "apps/android/app/build/intermediates/merged_jni_libs/release/mergeReleaseJniLibFolders/out/arm64-v8a/libharness_require_builtin.so",
+      "apps/android/app/build/intermediates/merged_jni_libs/release/mergeReleaseJniLibFolders/out/arm64-v8a/libnode.so",
+      "apps/android/app/build/intermediates/merged_jni_libs/release/mergeReleaseJniLibFolders/out/arm64-v8a/libnode_executable.so",
+      "apps/android/app/build/intermediates/merged_jni_libs/release/mergeReleaseJniLibFolders/out/arm64-v8a/libharness_atomic.so",
+      "apps/android/app/build/intermediates/merged_jni_libs/release/mergeReleaseJniLibFolders/out/arm64-v8a/libharness_node_pty.so",
+      "apps/android/app/build/intermediates/merged_jni_libs/release/mergeReleaseJniLibFolders/out/arm64-v8a/libharness_pty_fixture.so",
+      "apps/android/app/build/intermediates/merged_jni_libs/release/mergeReleaseJniLibFolders/out/arm64-v8a/libharness_system.so",
+      "apps/android/app/build/intermediates/merged_jni_libs/release/mergeReleaseJniLibFolders/out/arm64-v8a/libharness_process_probe.so",
+      "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libc++_shared.so",
+      "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libharness_atomic.so",
+      "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libharness_node_pty.so",
+      "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libharness_process_probe.so",
+      "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libharness_pty_fixture.so",
+      "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libharness_require_builtin.so",
+      "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libharness_system.so",
+      "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libnode.so",
+      "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libnode_executable.so",
+      "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libharness_probe.so",
+      "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libharness_atomic.so",
+      "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libc++_shared.so",
+      "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libharness_node_pty.so",
+      "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libharness_probe.so",
+      "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libharness_process_probe.so",
+      "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libharness_pty_fixture.so",
+      "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libharness_require_builtin.so",
+      "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libharness_system.so",
+      "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libnode.so",
+      "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libnode_executable.so",
+      "apps/android/app/build/intermediates/native_symbol_tables/release/extractReleaseNativeSymbolTables/out/arm64-v8a/libharness_process_probe.so.sym",
+      "apps/android/app/build/intermediates/native_symbol_tables/release/extractReleaseNativeSymbolTables/out/arm64-v8a/libc++_shared.so.sym",
+      "apps/android/app/build/intermediates/native_symbol_tables/release/extractReleaseNativeSymbolTables/out/arm64-v8a/libharness_require_builtin.so.sym",
+      "apps/android/app/build/intermediates/native_symbol_tables/release/extractReleaseNativeSymbolTables/out/arm64-v8a/libharness_atomic.so.sym",
+      "apps/android/app/build/intermediates/native_symbol_tables/release/extractReleaseNativeSymbolTables/out/arm64-v8a/libharness_system.so.sym",
+      "apps/android/app/build/intermediates/native_symbol_tables/release/extractReleaseNativeSymbolTables/out/arm64-v8a/libnode_executable.so.sym",
+      "apps/android/app/build/intermediates/native_symbol_tables/release/extractReleaseNativeSymbolTables/out/arm64-v8a/libnode.so.sym",
+      "apps/android/app/build/intermediates/native_symbol_tables/release/extractReleaseNativeSymbolTables/out/arm64-v8a/libharness_probe.so.sym",
+      "apps/android/runtime/out/system/libharness_system.so",
+      "apps/android/runtime/out/atomic/libharness_atomic.so",
+      "apps/android/runtime/out/executable/libnode_executable.so",
+      "apps/android/runtime/out/require-builtin/libharness_require_builtin.so",
+      "apps/android/runtime/out/node-pty/libharness_node_pty.so",
+      "apps/android/runtime/out/node-pty/libharness_pty_fixture.so"
+    ],
     "groups": {
       "android-jni-runtime-bridge": 1,
       "process-capability-proof": 1,
@@ -13726,10 +13786,20 @@
         "expectedPackagePath": "lib/arm64-v8a/libc++_shared.so",
         "expectedBuildOrStagingPath": "apps/android/app/src/main/jniLibs/arm64-v8a/libc++_shared.so",
         "sourcePath": null,
-        "expectedBuildOrStagingPathExists": false,
+        "expectedBuildOrStagingPathExists": true,
         "sourcePathExists": false,
-        "rawArtifactPathsFound": [],
-        "rawArtifactSha256": [],
+        "rawArtifactPathsFound": [
+          "apps/android/app/src/main/jniLibs/arm64-v8a/libc++_shared.so",
+          "apps/android/app/build/intermediates/merged_jni_libs/release/mergeReleaseJniLibFolders/out/arm64-v8a/libc++_shared.so",
+          "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libc++_shared.so",
+          "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libc++_shared.so"
+        ],
+        "rawArtifactSha256": [
+          "ab4e6c71b96b851de45a8a9bd86369e7dbc2130a44b3b4520564be94847910f2",
+          "ab4e6c71b96b851de45a8a9bd86369e7dbc2130a44b3b4520564be94847910f2",
+          "ab4e6c71b96b851de45a8a9bd86369e7dbc2130a44b3b4520564be94847910f2",
+          "cd61762848882a16c8244c964a6f396c0caa0b440588a210ce9cc4ab0e6d9f0c"
+        ],
         "historicalSha256Variants": [
           "cd61762848882a16c8244c964a6f396c0caa0b440588a210ce9cc4ab0e6d9f0c"
         ],
@@ -13748,10 +13818,22 @@
         "expectedPackagePath": "lib/arm64-v8a/libharness_atomic.so",
         "expectedBuildOrStagingPath": "apps/android/app/src/main/jniLibs/arm64-v8a/libharness_atomic.so",
         "sourcePath": null,
-        "expectedBuildOrStagingPathExists": false,
+        "expectedBuildOrStagingPathExists": true,
         "sourcePathExists": false,
-        "rawArtifactPathsFound": [],
-        "rawArtifactSha256": [],
+        "rawArtifactPathsFound": [
+          "apps/android/app/src/main/jniLibs/arm64-v8a/libharness_atomic.so",
+          "apps/android/app/build/intermediates/merged_jni_libs/release/mergeReleaseJniLibFolders/out/arm64-v8a/libharness_atomic.so",
+          "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libharness_atomic.so",
+          "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libharness_atomic.so",
+          "apps/android/runtime/out/atomic/libharness_atomic.so"
+        ],
+        "rawArtifactSha256": [
+          "155dd604f72754ce459380aa600141f5579f78d1e08192380c9e09a923cda2ed",
+          "155dd604f72754ce459380aa600141f5579f78d1e08192380c9e09a923cda2ed",
+          "155dd604f72754ce459380aa600141f5579f78d1e08192380c9e09a923cda2ed",
+          "1c5fae1ac01ebdc9431f3ec9b5b11691d8fce489ec096fdef7cae566d7ced34e",
+          "155dd604f72754ce459380aa600141f5579f78d1e08192380c9e09a923cda2ed"
+        ],
         "historicalSha256Variants": [
           "1c5fae1ac01ebdc9431f3ec9b5b11691d8fce489ec096fdef7cae566d7ced34e"
         ],
@@ -13771,10 +13853,22 @@
         "expectedPackagePath": "lib/arm64-v8a/libharness_require_builtin.so",
         "expectedBuildOrStagingPath": "apps/android/app/src/main/jniLibs/arm64-v8a/libharness_require_builtin.so",
         "sourcePath": null,
-        "expectedBuildOrStagingPathExists": false,
+        "expectedBuildOrStagingPathExists": true,
         "sourcePathExists": false,
-        "rawArtifactPathsFound": [],
-        "rawArtifactSha256": [],
+        "rawArtifactPathsFound": [
+          "apps/android/app/src/main/jniLibs/arm64-v8a/libharness_require_builtin.so",
+          "apps/android/app/build/intermediates/merged_jni_libs/release/mergeReleaseJniLibFolders/out/arm64-v8a/libharness_require_builtin.so",
+          "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libharness_require_builtin.so",
+          "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libharness_require_builtin.so",
+          "apps/android/runtime/out/require-builtin/libharness_require_builtin.so"
+        ],
+        "rawArtifactSha256": [
+          "596f0b0e9dd80f36db9310ef7e5789b08417e265b93a606dc575cd05fa12367c",
+          "596f0b0e9dd80f36db9310ef7e5789b08417e265b93a606dc575cd05fa12367c",
+          "596f0b0e9dd80f36db9310ef7e5789b08417e265b93a606dc575cd05fa12367c",
+          "443c3e101fee06d988618e442e4ad40e1a191eb7c0d0ddf737d1df22c650b575",
+          "596f0b0e9dd80f36db9310ef7e5789b08417e265b93a606dc575cd05fa12367c"
+        ],
         "historicalSha256Variants": [
           "0f577571c27c6148be2173a660f146d826d259e7001ff3bdaefdcf5f5f8b5757"
         ],
@@ -13794,10 +13888,22 @@
         "expectedPackagePath": "lib/arm64-v8a/libharness_system.so",
         "expectedBuildOrStagingPath": "apps/android/app/src/main/jniLibs/arm64-v8a/libharness_system.so",
         "sourcePath": null,
-        "expectedBuildOrStagingPathExists": false,
+        "expectedBuildOrStagingPathExists": true,
         "sourcePathExists": false,
-        "rawArtifactPathsFound": [],
-        "rawArtifactSha256": [],
+        "rawArtifactPathsFound": [
+          "apps/android/app/src/main/jniLibs/arm64-v8a/libharness_system.so",
+          "apps/android/app/build/intermediates/merged_jni_libs/release/mergeReleaseJniLibFolders/out/arm64-v8a/libharness_system.so",
+          "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libharness_system.so",
+          "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libharness_system.so",
+          "apps/android/runtime/out/system/libharness_system.so"
+        ],
+        "rawArtifactSha256": [
+          "e152b019f39204c71c6f2bd002fc83724a3342a579c7c1d60d2ce23b504a5204",
+          "e152b019f39204c71c6f2bd002fc83724a3342a579c7c1d60d2ce23b504a5204",
+          "e152b019f39204c71c6f2bd002fc83724a3342a579c7c1d60d2ce23b504a5204",
+          "78469b9ea728137161615e1993a09d8297d51692b054b9e54500eccdab13c2e5",
+          "e152b019f39204c71c6f2bd002fc83724a3342a579c7c1d60d2ce23b504a5204"
+        ],
         "historicalSha256Variants": [
           "78469b9ea728137161615e1993a09d8297d51692b054b9e54500eccdab13c2e5",
           "8fe9bd01db838f6be1e84264d5efd1b148721a47364fd52f3b30d78303759a60"
@@ -13817,10 +13923,20 @@
         "expectedPackagePath": "lib/arm64-v8a/libnode.so",
         "expectedBuildOrStagingPath": "apps/android/app/src/main/jniLibs/arm64-v8a/libnode.so",
         "sourcePath": null,
-        "expectedBuildOrStagingPathExists": false,
+        "expectedBuildOrStagingPathExists": true,
         "sourcePathExists": false,
-        "rawArtifactPathsFound": [],
-        "rawArtifactSha256": [],
+        "rawArtifactPathsFound": [
+          "apps/android/app/src/main/jniLibs/arm64-v8a/libnode.so",
+          "apps/android/app/build/intermediates/merged_jni_libs/release/mergeReleaseJniLibFolders/out/arm64-v8a/libnode.so",
+          "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libnode.so",
+          "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libnode.so"
+        ],
+        "rawArtifactSha256": [
+          "24736f2b38d76036ddd3188ced7599cc559c18520d9a42f996b1e379fe178a8c",
+          "24736f2b38d76036ddd3188ced7599cc559c18520d9a42f996b1e379fe178a8c",
+          "24736f2b38d76036ddd3188ced7599cc559c18520d9a42f996b1e379fe178a8c",
+          "7650e279f2fc1f1b91d520933704ba49f1deb63b0afdc519c3de7e1bc73206fe"
+        ],
         "historicalSha256Variants": [
           "dce2e18255bd582ff3651f3c00013d026799e0eb549f2da24fee0feedfa29437"
         ],
@@ -13839,10 +13955,22 @@
         "expectedPackagePath": "lib/arm64-v8a/libnode_executable.so",
         "expectedBuildOrStagingPath": "apps/android/app/src/main/jniLibs/arm64-v8a/libnode_executable.so",
         "sourcePath": null,
-        "expectedBuildOrStagingPathExists": false,
+        "expectedBuildOrStagingPathExists": true,
         "sourcePathExists": false,
-        "rawArtifactPathsFound": [],
-        "rawArtifactSha256": [],
+        "rawArtifactPathsFound": [
+          "apps/android/app/src/main/jniLibs/arm64-v8a/libnode_executable.so",
+          "apps/android/app/build/intermediates/merged_jni_libs/release/mergeReleaseJniLibFolders/out/arm64-v8a/libnode_executable.so",
+          "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libnode_executable.so",
+          "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libnode_executable.so",
+          "apps/android/runtime/out/executable/libnode_executable.so"
+        ],
+        "rawArtifactSha256": [
+          "45a12744cf069b24d7bee5f1a8eb548a873d03df0f405b5f99eccde075ece4ee",
+          "45a12744cf069b24d7bee5f1a8eb548a873d03df0f405b5f99eccde075ece4ee",
+          "45a12744cf069b24d7bee5f1a8eb548a873d03df0f405b5f99eccde075ece4ee",
+          "07b91cc6fa5ed0489b95bc237929fd14a009c9bfa8d309b514fceca3d977e408",
+          "45a12744cf069b24d7bee5f1a8eb548a873d03df0f405b5f99eccde075ece4ee"
+        ],
         "historicalSha256Variants": [
           "07b91cc6fa5ed0489b95bc237929fd14a009c9bfa8d309b514fceca3d977e408"
         ],
@@ -13861,10 +13989,22 @@
         "expectedPackagePath": "lib/arm64-v8a/libharness_node_pty.so",
         "expectedBuildOrStagingPath": "apps/android/app/build/generated/nodePtyNative/arm64-v8a/libharness_node_pty.so",
         "sourcePath": "apps/android/runtime/out/node-pty/libharness_node_pty.so",
-        "expectedBuildOrStagingPathExists": false,
-        "sourcePathExists": false,
-        "rawArtifactPathsFound": [],
-        "rawArtifactSha256": [],
+        "expectedBuildOrStagingPathExists": true,
+        "sourcePathExists": true,
+        "rawArtifactPathsFound": [
+          "apps/android/app/build/generated/nodePtyNative/arm64-v8a/libharness_node_pty.so",
+          "apps/android/app/build/intermediates/merged_jni_libs/release/mergeReleaseJniLibFolders/out/arm64-v8a/libharness_node_pty.so",
+          "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libharness_node_pty.so",
+          "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libharness_node_pty.so",
+          "apps/android/runtime/out/node-pty/libharness_node_pty.so"
+        ],
+        "rawArtifactSha256": [
+          "56b9f8c78d2ffaecaedb096bd368d1556121a24cf49b704fb46562cdb05d1085",
+          "56b9f8c78d2ffaecaedb096bd368d1556121a24cf49b704fb46562cdb05d1085",
+          "56b9f8c78d2ffaecaedb096bd368d1556121a24cf49b704fb46562cdb05d1085",
+          "56b9f8c78d2ffaecaedb096bd368d1556121a24cf49b704fb46562cdb05d1085",
+          "56b9f8c78d2ffaecaedb096bd368d1556121a24cf49b704fb46562cdb05d1085"
+        ],
         "historicalSha256Variants": [
           "2b84420de3db82f41003524ef8b62ff33984c0f168c8401f8eeb521fdb0c47f3"
         ],
@@ -13884,10 +14024,22 @@
         "expectedPackagePath": "lib/arm64-v8a/libharness_pty_fixture.so",
         "expectedBuildOrStagingPath": "apps/android/app/build/generated/nodePtyNative/arm64-v8a/libharness_pty_fixture.so",
         "sourcePath": "apps/android/runtime/out/node-pty/libharness_pty_fixture.so",
-        "expectedBuildOrStagingPathExists": false,
-        "sourcePathExists": false,
-        "rawArtifactPathsFound": [],
-        "rawArtifactSha256": [],
+        "expectedBuildOrStagingPathExists": true,
+        "sourcePathExists": true,
+        "rawArtifactPathsFound": [
+          "apps/android/app/build/generated/nodePtyNative/arm64-v8a/libharness_pty_fixture.so",
+          "apps/android/app/build/intermediates/merged_jni_libs/release/mergeReleaseJniLibFolders/out/arm64-v8a/libharness_pty_fixture.so",
+          "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libharness_pty_fixture.so",
+          "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libharness_pty_fixture.so",
+          "apps/android/runtime/out/node-pty/libharness_pty_fixture.so"
+        ],
+        "rawArtifactSha256": [
+          "2c4d85b720e001d8769d805cb348439d283e7a8aafd7cee098215d6b32c8f54e",
+          "2c4d85b720e001d8769d805cb348439d283e7a8aafd7cee098215d6b32c8f54e",
+          "2c4d85b720e001d8769d805cb348439d283e7a8aafd7cee098215d6b32c8f54e",
+          "2c4d85b720e001d8769d805cb348439d283e7a8aafd7cee098215d6b32c8f54e",
+          "2c4d85b720e001d8769d805cb348439d283e7a8aafd7cee098215d6b32c8f54e"
+        ],
         "historicalSha256Variants": [
           "2c4d85b720e001d8769d805cb348439d283e7a8aafd7cee098215d6b32c8f54e"
         ],
@@ -13907,10 +14059,20 @@
         "expectedPackagePath": "lib/arm64-v8a/libharness_process_probe.so",
         "expectedBuildOrStagingPath": "apps/android/app/build/generated/processNative/arm64-v8a/libharness_process_probe.so",
         "sourcePath": "apps/android/execution/process-proof/process_probe.cpp",
-        "expectedBuildOrStagingPathExists": false,
+        "expectedBuildOrStagingPathExists": true,
         "sourcePathExists": true,
-        "rawArtifactPathsFound": [],
-        "rawArtifactSha256": [],
+        "rawArtifactPathsFound": [
+          "apps/android/app/build/generated/processNative/arm64-v8a/libharness_process_probe.so",
+          "apps/android/app/build/intermediates/merged_jni_libs/release/mergeReleaseJniLibFolders/out/arm64-v8a/libharness_process_probe.so",
+          "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libharness_process_probe.so",
+          "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libharness_process_probe.so"
+        ],
+        "rawArtifactSha256": [
+          "7c3750093e1a14f4a10826cac3e783624158c7871d435393f5e3e7dd07c5ad92",
+          "7c3750093e1a14f4a10826cac3e783624158c7871d435393f5e3e7dd07c5ad92",
+          "7c3750093e1a14f4a10826cac3e783624158c7871d435393f5e3e7dd07c5ad92",
+          "d136b262d110039dff02b788844dd563db3f4c24b629a9fed767f37d0fa372d3"
+        ],
         "historicalSha256Variants": [
           "d136b262d110039dff02b788844dd563db3f4c24b629a9fed767f37d0fa372d3"
         ],
@@ -13931,8 +14093,16 @@
         "sourcePath": "apps/android/native/probe.cpp",
         "expectedBuildOrStagingPathExists": false,
         "sourcePathExists": true,
-        "rawArtifactPathsFound": [],
-        "rawArtifactSha256": [],
+        "rawArtifactPathsFound": [
+          "apps/android/app/build/intermediates/cxx/RelWithDebInfo/6n1dx2e5/obj/arm64-v8a/libharness_probe.so",
+          "apps/android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib/arm64-v8a/libharness_probe.so",
+          "apps/android/app/build/intermediates/stripped_native_libs/release/stripReleaseDebugSymbols/out/lib/arm64-v8a/libharness_probe.so"
+        ],
+        "rawArtifactSha256": [
+          "485b8c2f506687a0c94e8f61a1524853cb03e70ed4c8b8d03c111f197f3eec57",
+          "485b8c2f506687a0c94e8f61a1524853cb03e70ed4c8b8d03c111f197f3eec57",
+          "eb816df0eeadee744a725ffa355f16d0ba1ab4a5622588adee6b964a291638e1"
+        ],
         "historicalSha256Variants": [
           "3e40d78a05ade0152ccc9f5551358cd85538aa752fe1ba37a84bd028b13c8190",
           "4b387cde02c6c248966fec13b8ff0721b294914e8f02b624eb9024ad4be113dc"
@@ -13945,7 +14115,7 @@
         ]
       }
     ],
-    "interpretation": "Gradle/CMake declarations identify expected app-package inputs, not a built APK inventory. Source recipes and historical package snapshots do not substitute for the absent raw APK and exact packaged ELF bytes."
+    "interpretation": "The exact unsigned release APK is separately audited in apps/android/evidence/original-web-p3a004-release-apk-audit.json; this graph summary remains a declaration inventory."
   },
   "p3a006ImageNativeAudit": {
     "reportPath": "apps/android/evidence/original-web-p3a006-image-build.json",
@@ -14269,21 +14439,21 @@
   "policy": {
     "decision": "Reject all Linux GNU/GLIBC, Linux musl, Darwin and Windows prebuilt native payloads from an Android ARM64/Bionic runtime image unless rebuilt and re-audited for Android.",
     "acceptedAndroidWebRuntimeNativeArtifacts": [],
-    "reason": "The reproducible P3A-006 host candidate reports no included OS-native artifact and rejects its host-native candidates. The Android Gradle graph declares ten APK native inputs, but this worktree contains no APK/AAB or extracted native bytes to qualify that separate closure."
+    "reason": "The reproducible P3A-006 host candidate reports no included OS-native artifact and rejects its host-native candidates. The exact release APK native closure is now separately hash-bound; production scope of proof artifacts and device execution remain open."
   },
   "openAcceptanceGaps": [
-    "The current Android Gradle/CMake graph declares ten native package inputs (six runtime libraries, two node-pty libraries, the RuntimeService JNI bridge, and a process-capability proof executable), but no raw APK/AAB or native ELF payload is present in the worktree for exact packaged-hash inspection.",
+    "The exact unsigned release APK is inspected in apps/android/evidence/original-web-p3a004-release-apk-audit.json; its ten ARM64 native entries are bound to hashes, DT_NEEDED, API context and 16 KiB alignment. This remains package-only and does not prove device execution.",
     "P3A-006 is a reproducible host package/static-asset candidate; its empty in-archive native list does not prove the separate Android APK/runtime ELF set is empty or qualified.",
     "The P3A-001 host-loaded addon is an x86-64 Linux GNU ELF requiring glibc and is explicitly rejected for Android.",
     "P3A-003 package-tree membership is not proof that any candidate file is required by the Web Profile.",
     "Historical APK min SDK and arm64-v8a metadata are package-level context; they do not prove each ELF minimum API note or Android build target.",
-    "Build-output hash linkage is absent for most historical libraries; recorded require-builtin and atomic build hashes differ from their packaged ELF hashes.",
-    "Retained readelf checks cover only selected carrier/probe/fixture binaries and are not cryptographically bound to every packaged-library hash; full symbol/version requirements and per-artifact license notice mapping remain incomplete.",
+    "Gradle release stripping changes the packaged hashes of several native inputs relative to their pre-strip build records; the exact APK report records both values, and post-strip hashes are the release identity.",
+    "The exact APK report binds readelf checks to every packaged native hash, but per-artifact license notice mapping and full production-scope review remain incomplete.",
     "The app main source set currently stages the process-capability proof executable and PTY fixture; their production-release scope requires explicit review.",
     "The Android APK test profile records incomplete dependency distribution and cannot substitute for the Web Runtime Image."
   ],
   "acceptance": {
     "p3a004Complete": false,
-    "next": "Build or locate the exact Android APK for the current Gradle graph, extract all packaged ARM64/Bionic ELF files, resolve proof-only fixture/probe packaging, and bind every selected artifact hash to build/toolchain/readelf/dependency/API/alignment/license evidence."
+    "next": "Resolve production scope of the packaged proof-only process/PTY artifacts, complete per-artifact notice mapping, and perform Android device execution; the exact release APK native closure is now hash-bound."
   }
 }

@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parents[3]
 EVIDENCE = ROOT / 'apps/android/evidence'
 P3A003 = EVIDENCE / 'original-web-p3a003-runtime-test-separation.json'
 P3A006_IMAGE_REPORT = EVIDENCE / 'original-web-p3a006-image-build.json'
+CURRENT_APK_AUDIT = EVIDENCE / 'original-web-p3a004-release-apk-audit.json'
 HOST_SUMMARIES = [
     EVIDENCE / 'original-web-profile-p3a001-host-observations.json',
     EVIDENCE / 'original-web-bounded-p3a001-host-observations.json',
@@ -623,7 +624,9 @@ def current_android_packaging_inputs(matrix: list[dict]) -> tuple[dict, list[dic
     raw_native_files = [p.relative_to(ROOT).as_posix() for p in (ROOT / 'apps/android').rglob('*')
                         if p.is_file() and (p.suffix.lower() in NATIVE_SUFFIXES or '.so.' in p.name.lower())]
     summary = {
-        'status': 'declared-build-graph-only; no raw Android package/native output available in the worktree',
+        'status': ('exact-release-apk-native-closure-inspected; device execution and proof-only production scope remain open'
+                   if apk_paths else
+                   'declared-build-graph-only; no raw Android package/native output available in the worktree'),
         'target': {'abi': abi.group(1), 'minimumApi': int(minimum_api.group(1))},
         'declaredNativeInputCount': len(entries),
         'rawApkOrAabAvailable': bool(apk_paths),
@@ -635,7 +638,9 @@ def current_android_packaging_inputs(matrix: list[dict]) -> tuple[dict, list[dic
             for group in sorted({item['packagingGroup'] for item in entries})
         },
         'items': entries,
-        'interpretation': 'Gradle/CMake declarations identify expected app-package inputs, not a built APK inventory. Source recipes and historical package snapshots do not substitute for the absent raw APK and exact packaged ELF bytes.',
+        'interpretation': ('The exact unsigned release APK is separately audited in apps/android/evidence/original-web-p3a004-release-apk-audit.json; this graph summary remains a declaration inventory.'
+                           if apk_paths else
+                           'Gradle/CMake declarations identify expected app-package inputs, not a built APK inventory. Source recipes and historical package snapshots do not substitute for the absent raw APK and exact packaged ELF bytes.'),
     }
     return summary, source_inputs
 
@@ -873,6 +878,8 @@ def build_outputs() -> tuple[str, str, str]:
             'lockfile': {'path': 'pnpm-lock.yaml', 'sha256': sha256(ROOT / 'pnpm-lock.yaml')},
             'p3a003': {'path': P3A003.relative_to(ROOT).as_posix(), 'sha256': sha256(P3A003)},
             'p3a006ImageReport': {'path': P3A006_IMAGE_REPORT.relative_to(ROOT).as_posix(), 'sha256': sha256(P3A006_IMAGE_REPORT)},
+            'currentReleaseApkAudit': ({'path': CURRENT_APK_AUDIT.relative_to(ROOT).as_posix(), 'sha256': sha256(CURRENT_APK_AUDIT)}
+                                       if CURRENT_APK_AUDIT.is_file() else None),
             'hostObservations': [
                 {'path': p.relative_to(ROOT).as_posix(), 'sha256': sha256(p)}
                 for p in HOST_SUMMARIES if p.exists()
@@ -909,20 +916,20 @@ def build_outputs() -> tuple[str, str, str]:
         'policy': {
             'decision': 'Reject all Linux GNU/GLIBC, Linux musl, Darwin and Windows prebuilt native payloads from an Android ARM64/Bionic runtime image unless rebuilt and re-audited for Android.',
             'acceptedAndroidWebRuntimeNativeArtifacts': [],
-            'reason': 'The reproducible P3A-006 host candidate reports no included OS-native artifact and rejects its host-native candidates. The Android Gradle graph declares ten APK native inputs, but this worktree contains no APK/AAB or extracted native bytes to qualify that separate closure.',
+            'reason': 'The reproducible P3A-006 host candidate reports no included OS-native artifact and rejects its host-native candidates. The exact release APK native closure is now separately hash-bound; production scope of proof artifacts and device execution remain open.',
         },
         'openAcceptanceGaps': [
-            'The current Android Gradle/CMake graph declares ten native package inputs (six runtime libraries, two node-pty libraries, the RuntimeService JNI bridge, and a process-capability proof executable), but no raw APK/AAB or native ELF payload is present in the worktree for exact packaged-hash inspection.',
+            'The exact unsigned release APK is inspected in apps/android/evidence/original-web-p3a004-release-apk-audit.json; its ten ARM64 native entries are bound to hashes, DT_NEEDED, API context and 16 KiB alignment. This remains package-only and does not prove device execution.',
             'P3A-006 is a reproducible host package/static-asset candidate; its empty in-archive native list does not prove the separate Android APK/runtime ELF set is empty or qualified.',
             'The P3A-001 host-loaded addon is an x86-64 Linux GNU ELF requiring glibc and is explicitly rejected for Android.',
             'P3A-003 package-tree membership is not proof that any candidate file is required by the Web Profile.',
             'Historical APK min SDK and arm64-v8a metadata are package-level context; they do not prove each ELF minimum API note or Android build target.',
-            'Build-output hash linkage is absent for most historical libraries; recorded require-builtin and atomic build hashes differ from their packaged ELF hashes.',
-            'Retained readelf checks cover only selected carrier/probe/fixture binaries and are not cryptographically bound to every packaged-library hash; full symbol/version requirements and per-artifact license notice mapping remain incomplete.',
+            'Gradle release stripping changes the packaged hashes of several native inputs relative to their pre-strip build records; the exact APK report records both values, and post-strip hashes are the release identity.',
+            'The exact APK report binds readelf checks to every packaged native hash, but per-artifact license notice mapping and full production-scope review remain incomplete.',
             'The app main source set currently stages the process-capability proof executable and PTY fixture; their production-release scope requires explicit review.',
             'The Android APK test profile records incomplete dependency distribution and cannot substitute for the Web Runtime Image.',
         ],
-        'acceptance': {'p3a004Complete': False, 'next': 'Build or locate the exact Android APK for the current Gradle graph, extract all packaged ARM64/Bionic ELF files, resolve proof-only fixture/probe packaging, and bind every selected artifact hash to build/toolchain/readelf/dependency/API/alignment/license evidence.'},
+        'acceptance': {'p3a004Complete': False, 'next': 'Resolve production scope of the packaged proof-only process/PTY artifacts, complete per-artifact notice mapping, and perform Android device execution; the exact release APK native closure is now hash-bound.'},
     }
     json_text = json.dumps(report, indent=2, ensure_ascii=False) + '\n'
     return raw_tsv, android_matrix, json_text

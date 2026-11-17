@@ -1,0 +1,434 @@
+{
+  "schemaVersion": 1,
+  "task": "P3A-004",
+  "scope": "exact locally assembled unsigned release APK; package inspection only, no device execution",
+  "apk": {
+    "path": "apps/android/app/build/outputs/apk/release/app-release-unsigned.apk",
+    "bytes": 46614465,
+    "sha256": "45f7e3664af1e98f6f77056f0c9970d2a79422ba7b62d8d624adb9ca7ab1bd4a"
+  },
+  "package": {
+    "applicationId": "ai.deepseek.harness.android.runtimepoc",
+    "versionCode": 15,
+    "versionName": "0.1.14-terminal-lifecycle-proof",
+    "minimumSdk": 29,
+    "targetSdk": 36,
+    "nativeCode": [
+      "arm64-v8a"
+    ],
+    "allNativeEntries": [
+      "lib/arm64-v8a/libc++_shared.so",
+      "lib/arm64-v8a/libharness_atomic.so",
+      "lib/arm64-v8a/libharness_node_pty.so",
+      "lib/arm64-v8a/libharness_probe.so",
+      "lib/arm64-v8a/libharness_process_probe.so",
+      "lib/arm64-v8a/libharness_pty_fixture.so",
+      "lib/arm64-v8a/libharness_require_builtin.so",
+      "lib/arm64-v8a/libharness_system.so",
+      "lib/arm64-v8a/libnode.so",
+      "lib/arm64-v8a/libnode_executable.so"
+    ],
+    "nonArm64NativeEntries": []
+  },
+  "checks": [
+    {
+      "name": "zipalign_16k",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "name": "apksigner",
+      "passed": false,
+      "output": "DOES NOT VERIFY\nERROR: Missing META-INF/MANIFEST.MF\n",
+      "expectedForUnsignedApk": true
+    },
+    {
+      "name": "aapt_badging",
+      "passed": true,
+      "output": "package: name='ai.deepseek.harness.android.runtimepoc' versionCode='15' versionName='0.1.14-terminal-lifecycle-proof' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'\nsdkVersion:'29'\ntargetSdkVersion:'36'\nuses-permission: name='android.permission.INTERNET'\napplication-label:'Harness runtime proof'\napplication-label-af:'Harness runtime proof'\napplication-label-am:'Harness runtime proof'\napplication-label-ar:'Harness runtime proof'\napplication-label-as:'Harness runtime proof'\napplication-label-az:'Harness runtime proof'\napplication-label-be:'Harness runtime proof'\napplication-label-bg:'Harness runtime proof'\napplication-label-bn:'Harness runtime proof'\napplication-label-bs:'Harness runtime proof'\napplication-label-ca:'Harness runtime proof'\napplication-label-cs:'Harness runtime proof'\napplication-label-da:'Harness runtime proof'\napplication-label-de:'Harness runtime proof'\napplication-label-el:'Harness runtime proof'\napplication-label-en-AU:'Harness runtime proof'\napplication-label-en-CA:'Harness runtime proof'\napplication-label-en-GB:'Harness runtime proof'\napplication-label-en-IN:'Harness runtime proof'\napplication-label-en-XC:'Harness runtime proof'\napplication-label-es:'Harness runtime proof'\napplication-label-es-US:'Harness runtime proof'\napplication-label-et:'Harness runtime proof'\napplication-label-eu:'Harness runtime proof'\napplication-label-fa:'Harness runtime proof'\napplication-label-fi:'Harness runtime proof'\napplication-label-fr:'Harness runtime proof'\napplication-label-fr-CA:'Harness runtime proof'\napplication-label-gl:'Harness runtime proof'\napplication-label-gu:'Harness runtime proof'\napplication-label-hi:'Harness runtime proof'\napplication-label-hr:'Harness runtime proof'\napplication-label-hu:'Harness runtime proof'\napplication-label-hy:'Harness runtime proof'\napplication-label-in:'Harness runtime proof'\napplication-label-is:'Harness runtime proof'\napplication-label-it:'Harness runtime proof'\napplication-label-iw:'Harness runtime proof'\napplication-label-ja:'Harness runtime proof'\napplication-label-ka:'Harness runtime proof'\napplication-label-kk:'Harness runtime proof'\napplication-label-km:'Harness runtime proof'\napplication-label-kn:'Harness runtime proof'\napplication-label-ko:'Harness runtime proof'\napplication-label-ky:'Harness runtime proof'\napplication-label-lo:'Harness runtime proof'\napplication-label-lt:'Harness runtime proof'\napplication-label-lv:'Harness runtime proof'\napplication-label-mk:'Harness runtime proof'\napplication-label-ml:'Harness runtime proof'\napplication-label-mn:'Harness runtime proof'\napplication-label-mr:'Harness runtime proof'\napplication-label-ms:'Harness runtime proof'\napplication-label-my:'Harness runtime proof'\napplication-label-nb:'Harness runtime proof'\napplication-label-ne:'Harness runtime proof'\napplication-label-nl:'Harness runtime proof'\napplication-label-or:'Harness runtime proof'\napplication-label-pa:'Harness runtime proof'\napplication-label-pl:'Harness runtime proof'\napplication-label-pt:'Harness runtime proof'\napplication-label-pt-BR:'Harness runtime proof'\napplication-label-pt-PT:'Harness runtime proof'\napplication-label-ro:'Harness runtime proof'\napplication-label-ru:'Harness runtime proof'\napplication-label-si:'Harness runtime proof'\napplication-label-sk:'Harness runtime proof'\napplication-label-sl:'Harness runtime proof'\napplication-label-sq:'Harness runtime proof'\napplication-label-sr:'Harness runtime proof'\napplication-label-sr-Latn:'Harness runtime proof'\napplication-label-sv:'Harness runtime proof'\napplication-label-sw:'Harness runtime proof'\napplication-label-ta:'Harness runtime proof'\napplication-label-te:'Harness runtime proof'\napplication-label-th:'Harness runtime proof'\napplication-label-tl:'Harness runtime proof'\napplication-label-tr:'Harness runtime proof'\napplication-label-uk:'Harness runtime proof'\napplication-label-ur:'Harness runtime proof'\napplication-label-uz:'Harness runtime proof'\napplication-label-vi:'Harness runtime proof'\napplication-label-zh-CN:'Harness runtime proof'\napplication-label-zh-HK:'Harness runtime proof'\napplication-label-zh-TW:'Harness runtime proof'\napplication-label-zu:'Harness runtime proof'\napplication: label='Harness runtime proof' icon=''\nlaunchable-activity: name='io.github.mohammedteir.deepseekharness.RuntimeProofActivity'  label='' icon=''\nfeature-group: label=''\n  uses-feature: name='android.hardware.faketouch'\n  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'\nmain\nother-activities\nother-services\nsupports-screens: 'small' 'normal' 'large' 'xlarge'\nsupports-any-density: 'true'\nlocales: '--_--' 'af' 'am' 'ar' 'as' 'az' 'be' 'bg' 'bn' 'bs' 'ca' 'cs' 'da' 'de' 'el' 'en-AU' 'en-CA' 'en-GB' 'en-IN' 'en-XC' 'es' 'es-US' 'et' 'eu' 'fa' 'fi' 'fr' 'fr-CA' 'gl' 'gu' 'hi' 'hr' 'hu' 'hy' 'in' 'is' 'it' 'iw' 'ja' 'ka' 'kk' 'km' 'kn' 'ko' 'ky' 'lo' 'lt' 'lv' 'mk' 'ml' 'mn' 'mr' 'ms' 'my' 'nb' 'ne' 'nl' 'or' 'pa' 'pl' 'pt' 'pt-BR' 'pt-PT' 'ro' 'ru' 'si' 'sk' 'sl' 'sq' 'sr' 'sr-Latn' 'sv' 'sw' 'ta' 'te' 'th' 'tl' 'tr' 'uk' 'ur' 'uz' 'vi' 'zh-CN' 'zh-HK' 'zh-TW' 'zu'\ndensities: '160' '240' '320'\nnative-code: 'arm64-v8a'\n"
+    }
+  ],
+  "nativeArtifacts": [
+    {
+      "apkPath": "lib/arm64-v8a/libc++_shared.so",
+      "artifact": "libc++_shared.so",
+      "bytes": 1253544,
+      "sha256": "cd61762848882a16c8244c964a6f396c0caa0b440588a210ce9cc4ab0e6d9f0c",
+      "elf": {
+        "machine": "AArch64",
+        "type": "DYN (Shared object file)",
+        "interpreter": null,
+        "neededLibraries": [
+          "libc.so",
+          "libdl.so",
+          "libm.so"
+        ],
+        "loadSegmentAlignmentsBytes": [
+          16384,
+          16384,
+          16384,
+          16384
+        ],
+        "minimumAndroidApiNote": null,
+        "androidIdentNotePresent": false,
+        "allLoadSegments16KiBAligned": true,
+        "readelfSha256": "586df8126978d99c22ff428f5d63c8ea14b5c9d9bde85918cd45d3620e8cfada"
+      },
+      "classification": "runtime-jni-or-addon",
+      "proofOnlyReviewRequired": false
+    },
+    {
+      "apkPath": "lib/arm64-v8a/libharness_atomic.so",
+      "artifact": "libharness_atomic.so",
+      "bytes": 10880,
+      "sha256": "1c5fae1ac01ebdc9431f3ec9b5b11691d8fce489ec096fdef7cae566d7ced34e",
+      "elf": {
+        "machine": "AArch64",
+        "type": "DYN (Shared object file)",
+        "interpreter": null,
+        "neededLibraries": [
+          "libc.so",
+          "libdl.so",
+          "libnode.so"
+        ],
+        "loadSegmentAlignmentsBytes": [
+          16384,
+          16384,
+          16384
+        ],
+        "minimumAndroidApiNote": null,
+        "androidIdentNotePresent": false,
+        "allLoadSegments16KiBAligned": true,
+        "readelfSha256": "c0735f946512063047ca979f4e3ced623c4ad8428fc9c3a5c176420af59f6096"
+      },
+      "classification": "runtime-jni-or-addon",
+      "proofOnlyReviewRequired": false
+    },
+    {
+      "apkPath": "lib/arm64-v8a/libharness_node_pty.so",
+      "artifact": "libharness_node_pty.so",
+      "bytes": 1084368,
+      "sha256": "56b9f8c78d2ffaecaedb096bd368d1556121a24cf49b704fb46562cdb05d1085",
+      "elf": {
+        "machine": "AArch64",
+        "type": "DYN (Shared object file)",
+        "interpreter": null,
+        "neededLibraries": [
+          "libc.so",
+          "libdl.so",
+          "libm.so",
+          "libnode.so"
+        ],
+        "loadSegmentAlignmentsBytes": [
+          16384,
+          16384,
+          16384,
+          16384
+        ],
+        "minimumAndroidApiNote": null,
+        "androidIdentNotePresent": false,
+        "allLoadSegments16KiBAligned": true,
+        "readelfSha256": "7f0a2cf0274bfd07e685a8686f99e39f080495ae045b2ba818cef33e4cca2a7f"
+      },
+      "classification": "runtime-jni-or-addon",
+      "proofOnlyReviewRequired": false
+    },
+    {
+      "apkPath": "lib/arm64-v8a/libharness_probe.so",
+      "artifact": "libharness_probe.so",
+      "bytes": 328360,
+      "sha256": "eb816df0eeadee744a725ffa355f16d0ba1ab4a5622588adee6b964a291638e1",
+      "elf": {
+        "machine": "AArch64",
+        "type": "DYN (Shared object file)",
+        "interpreter": null,
+        "neededLibraries": [
+          "libc.so",
+          "libdl.so",
+          "libm.so"
+        ],
+        "loadSegmentAlignmentsBytes": [
+          16384,
+          16384,
+          16384
+        ],
+        "minimumAndroidApiNote": null,
+        "androidIdentNotePresent": false,
+        "allLoadSegments16KiBAligned": true,
+        "readelfSha256": "50286034748fa0b70cd3e84338dfc377c0bf06cd78f0f46dbfa0fbb35e0d3fd2"
+      },
+      "classification": "android-runtime-bridge",
+      "proofOnlyReviewRequired": false
+    },
+    {
+      "apkPath": "lib/arm64-v8a/libharness_process_probe.so",
+      "artifact": "libharness_process_probe.so",
+      "bytes": 757840,
+      "sha256": "d136b262d110039dff02b788844dd563db3f4c24b629a9fed767f37d0fa372d3",
+      "elf": {
+        "machine": "AArch64",
+        "type": "DYN (Shared object file)",
+        "interpreter": "/system/bin/linker64",
+        "neededLibraries": [
+          "libc.so",
+          "libdl.so",
+          "libm.so"
+        ],
+        "loadSegmentAlignmentsBytes": [
+          16384,
+          16384,
+          16384,
+          16384
+        ],
+        "minimumAndroidApiNote": null,
+        "androidIdentNotePresent": false,
+        "allLoadSegments16KiBAligned": true,
+        "readelfSha256": "7b9fa557cccc269d8f87dbd3bf1c5053be963e3126d0642d87a01119222c074a"
+      },
+      "classification": "process-proof-executable-carrier",
+      "proofOnlyReviewRequired": true
+    },
+    {
+      "apkPath": "lib/arm64-v8a/libharness_pty_fixture.so",
+      "artifact": "libharness_pty_fixture.so",
+      "bytes": 6872,
+      "sha256": "2c4d85b720e001d8769d805cb348439d283e7a8aafd7cee098215d6b32c8f54e",
+      "elf": {
+        "machine": "AArch64",
+        "type": "DYN (Shared object file)",
+        "interpreter": "/system/bin/linker64",
+        "neededLibraries": [
+          "libc.so",
+          "libdl.so",
+          "libm.so"
+        ],
+        "loadSegmentAlignmentsBytes": [
+          16384,
+          16384,
+          16384,
+          16384
+        ],
+        "minimumAndroidApiNote": null,
+        "androidIdentNotePresent": false,
+        "allLoadSegments16KiBAligned": true,
+        "readelfSha256": "57bed16cfebf06ada75c1a1fcc66fb431258f5fbacc34aded4de435da6317c77"
+      },
+      "classification": "pty-proof-fixture",
+      "proofOnlyReviewRequired": true
+    },
+    {
+      "apkPath": "lib/arm64-v8a/libharness_require_builtin.so",
+      "artifact": "libharness_require_builtin.so",
+      "bytes": 69568,
+      "sha256": "443c3e101fee06d988618e442e4ad40e1a191eb7c0d0ddf737d1df22c650b575",
+      "elf": {
+        "machine": "AArch64",
+        "type": "DYN (Shared object file)",
+        "interpreter": null,
+        "neededLibraries": [
+          "libc++_shared.so",
+          "libc.so",
+          "libdl.so",
+          "libm.so",
+          "libnode.so"
+        ],
+        "loadSegmentAlignmentsBytes": [
+          16384,
+          16384,
+          16384,
+          16384
+        ],
+        "minimumAndroidApiNote": null,
+        "androidIdentNotePresent": false,
+        "allLoadSegments16KiBAligned": true,
+        "readelfSha256": "a5ffd7c58a3b98a2022b95f2b247f5c5e972da5dffcb6627679b39dfb33b0bf6"
+      },
+      "classification": "runtime-jni-or-addon",
+      "proofOnlyReviewRequired": false
+    },
+    {
+      "apkPath": "lib/arm64-v8a/libharness_system.so",
+      "artifact": "libharness_system.so",
+      "bytes": 8720,
+      "sha256": "78469b9ea728137161615e1993a09d8297d51692b054b9e54500eccdab13c2e5",
+      "elf": {
+        "machine": "AArch64",
+        "type": "DYN (Shared object file)",
+        "interpreter": null,
+        "neededLibraries": [
+          "libc.so",
+          "libdl.so",
+          "libnode.so"
+        ],
+        "loadSegmentAlignmentsBytes": [
+          16384,
+          16384,
+          16384
+        ],
+        "minimumAndroidApiNote": null,
+        "androidIdentNotePresent": false,
+        "allLoadSegments16KiBAligned": true,
+        "readelfSha256": "6b5c8a2a1556622bfae56fa6a93f13fc4f7bfe06c21432eb18deec19c57d1f98"
+      },
+      "classification": "runtime-jni-or-addon",
+      "proofOnlyReviewRequired": false
+    },
+    {
+      "apkPath": "lib/arm64-v8a/libnode.so",
+      "artifact": "libnode.so",
+      "bytes": 110704112,
+      "sha256": "7650e279f2fc1f1b91d520933704ba49f1deb63b0afdc519c3de7e1bc73206fe",
+      "elf": {
+        "machine": "AArch64",
+        "type": "DYN (Shared object file)",
+        "interpreter": null,
+        "neededLibraries": [
+          "libc++_shared.so",
+          "libc.so",
+          "libdl.so",
+          "liblog.so",
+          "libm.so"
+        ],
+        "loadSegmentAlignmentsBytes": [
+          16384,
+          16384,
+          16384,
+          16384
+        ],
+        "minimumAndroidApiNote": null,
+        "androidIdentNotePresent": false,
+        "allLoadSegments16KiBAligned": true,
+        "readelfSha256": "241d80f7948f4d08df3411699cb558780ed537535a08c49fa967c539016798a7"
+      },
+      "classification": "runtime-jni-or-addon",
+      "proofOnlyReviewRequired": false
+    },
+    {
+      "apkPath": "lib/arm64-v8a/libnode_executable.so",
+      "artifact": "libnode_executable.so",
+      "bytes": 4456,
+      "sha256": "07b91cc6fa5ed0489b95bc237929fd14a009c9bfa8d309b514fceca3d977e408",
+      "elf": {
+        "machine": "AArch64",
+        "type": "DYN (Shared object file)",
+        "interpreter": "/system/bin/linker64",
+        "neededLibraries": [
+          "libc++_shared.so",
+          "libc.so",
+          "libdl.so",
+          "libm.so",
+          "libnode.so"
+        ],
+        "loadSegmentAlignmentsBytes": [
+          16384,
+          16384,
+          16384,
+          16384
+        ],
+        "minimumAndroidApiNote": null,
+        "androidIdentNotePresent": false,
+        "allLoadSegments16KiBAligned": true,
+        "readelfSha256": "c25c1d60a131f98485201f971e887605da1e39db33f5e6f43dedab581706b2c8"
+      },
+      "classification": "runtime-jni-or-addon",
+      "proofOnlyReviewRequired": false
+    }
+  ],
+  "buildRecordComparisons": [
+    {
+      "artifact": "libc++_shared.so",
+      "buildRecordSha256": "ab4e6c71b96b851de45a8a9bd86369e7dbc2130a44b3b4520564be94847910f2",
+      "matchesBuildRecord": false
+    },
+    {
+      "artifact": "libharness_atomic.so",
+      "buildRecordSha256": "155dd604f72754ce459380aa600141f5579f78d1e08192380c9e09a923cda2ed",
+      "matchesBuildRecord": false
+    },
+    {
+      "artifact": "libharness_node_pty.so",
+      "buildRecordSha256": "56b9f8c78d2ffaecaedb096bd368d1556121a24cf49b704fb46562cdb05d1085",
+      "matchesBuildRecord": true
+    },
+    {
+      "artifact": "libharness_probe.so",
+      "buildRecordSha256": null,
+      "matchesBuildRecord": null
+    },
+    {
+      "artifact": "libharness_process_probe.so",
+      "buildRecordSha256": null,
+      "matchesBuildRecord": null
+    },
+    {
+      "artifact": "libharness_pty_fixture.so",
+      "buildRecordSha256": "2c4d85b720e001d8769d805cb348439d283e7a8aafd7cee098215d6b32c8f54e",
+      "matchesBuildRecord": true
+    },
+    {
+      "artifact": "libharness_require_builtin.so",
+      "buildRecordSha256": "596f0b0e9dd80f36db9310ef7e5789b08417e265b93a606dc575cd05fa12367c",
+      "matchesBuildRecord": false
+    },
+    {
+      "artifact": "libharness_system.so",
+      "buildRecordSha256": "e152b019f39204c71c6f2bd002fc83724a3342a579c7c1d60d2ce23b504a5204",
+      "matchesBuildRecord": false
+    },
+    {
+      "artifact": "libnode.so",
+      "buildRecordSha256": "24736f2b38d76036ddd3188ced7599cc559c18520d9a42f996b1e379fe178a8c",
+      "matchesBuildRecord": false
+    },
+    {
+      "artifact": "libnode_executable.so",
+      "buildRecordSha256": "45a12744cf069b24d7bee5f1a8eb548a873d03df0f405b5f99eccde075ece4ee",
+      "matchesBuildRecord": false
+    }
+  ],
+  "licenseAssets": {
+    "runtimeAndThirdPartyCount": 22,
+    "sha256": {
+      "assets/runtime/ANDROID_CPU_FEATURES_NOTICE": "c870d52f42a8f93023b99a85fe68d02637d6b04e5f35bbcd7f98759adb4e4d49",
+      "assets/runtime/LICENSE": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be",
+      "assets/runtime/NDK_NOTICE": "faf0dc52cf6ce9ab09a04b0c074a378dd2565ee1ed9bc1179d83793bcdba012e",
+      "assets/runtime/NODE_ADDON_API_LICENSE": "89024017b88a9f2b763f79b941a4f2db3b4428edfcacdc0b23866b2da633ad0c",
+      "assets/runtime/NODE_LICENSE": "5888dbb9a1d2b18f2c3e6c5f6af1b39de658372b402a0577b002777f14c62ace",
+      "assets/runtime/REQUIRE_BUILTIN_LICENSE": "75bd0a6d6b9f9f0a6c792ca89832360b19749ebe16af0222e34387f262baa95e",
+      "assets/runtime/SYSTEM_ADDON_LICENSE": "fed2134d7f6af959ff9fbf2c0a35ea747db10e21d1b5d2d1ac58be88ce43ad90",
+      "assets/runtime/THIRD_PARTY_NOTICES.md": "4bd8832885ca31daf3e480fb950b9e849446438c0089b05fab67d6c2673fa2ef",
+      "assets/runtime/atomic-build.json": "299cf9fb5c7f01ba5b65c3afdeb0e0f0866018fb99ea54b0428769a85d7dcbe8",
+      "assets/runtime/child-node.mjs": "3758568aaf64cbf9aa69c9561551b6c5b1e1076b182cbe3e8a47453d7aaca6f0",
+      "assets/runtime/executable-smoke.mjs": "efd7169f8f41289eab52c74e8b3305e1fec5a98f60a73e54b65bb20f0d6c44b7",
+      "assets/runtime/harness-flock.mjs": "10f2bf5333f2f5f69632901c77c7ddfb0fd2660311f5622fc6b9b66b22bacab9",
+      "assets/runtime/proc-identity.mjs": "04ef65df8fbe352337a43390ca94777583ffacb916fae85d8bf3621a35723d40",
+      "assets/runtime/profile-image.sha256": "abbd556a59654341874f5773cab3751ca47f525da917c0ad06c5ec977a1dc3bf",
+      "assets/runtime/profile-image.zip": "66550dfa2f82520a9674ba4aee612e984343c8e5dc68c31c4c641e7f51cb2d83",
+      "assets/runtime/require-builtin-build.json": "6977309722fe47bd4dd372de30702d78614c0b55f1a9d5305dc375cecb56d7b5",
+      "assets/runtime/runtime-build.json": "894e124b7caf33647c487f481ca7a1b424734f0ba04a9c74f3cebde8009772d1",
+      "assets/runtime/smoke.mjs": "ffd35a510a2479d7f84ebb4719a2aa8d34ec00e7eb771f2bbbcfcc85de0318e8",
+      "assets/third-party/APACHE-2.0.txt": "bb28c48e3e078166e91cfc2b6db7ffebb8a0973b9e23b3df060561292d8d69ec",
+      "assets/third-party/HAMCREST-BSD.txt": "3810798072d089fb5e521688b868df0885f7e1b312b1e20c345be34c8e21f06a",
+      "assets/third-party/JUNIT-LICENSE.txt": "0cb0b0dc8909e3ec2e4b72e3d94112f23e98fc66b9024b94b1887dc4bdc708eb",
+      "assets/third-party/NOTICE.txt": "21c699566bf7e3f3107a72c3e7e5c45dbecfb4e4d724c01344ed2ee9bc84b586"
+    }
+  },
+  "sourceBuild": {
+    "nodeVersion": "24.22.1",
+    "nodeArchiveSha256": "4f5379796280cdaeb0c2f358fd04b6a16cc4fb7dfa83b5a8c91a9d963b435231",
+    "ndk": "28.2.13676358",
+    "compileApi": 29,
+    "abi": "arm64-v8a",
+    "profileImageSha256": "66550dfa2f82520a9674ba4aee612e984343c8e5dc68c31c4c641e7f51cb2d83",
+    "profileQualificationSha256": "67ce82a1292722408815f2ab7fe798bbb3d72fefa74fe1a4184961d5754af0eb"
+  },
+  "acceptance": {
+    "exactApkNativeClosureInspected": true,
+    "allArm64ArtifactsAligned16KiB": true,
+    "allBuildHashesMatchedWhereRecorded": false,
+    "proofOnlyArtifactsRequireProductionScopeDecision": true,
+    "androidExecutionVerified": false,
+    "p3a004Complete": false,
+    "remaining": "Resolve production scope of proof-only process/PTY artifacts and perform Android device execution; package closure is now hash-bound for this APK."
+  }
+}
