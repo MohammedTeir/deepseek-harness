@@ -402,3 +402,10 @@ The original `web` profile starts on Linux with six explicitly disabled platform
 ### API 29 follow-up note
 
 The Redmi Note 8 Pro results are Android 11 / API 30 evidence only. Once P3A-004 is closed and the first API 30 Web Profile path is exercised, run a separately recorded Android 10 / API 29 ARM64 emulator or physical-device check covering the exact APK, native ELF/API-29 compatibility, embedded runtime boot, original WebView, authenticated HTTP/WebSocket transport, session recovery, native-approved tool flow, lifecycle, storage, PTY behavior and unavailable states. Do not merge API 29 claims into the existing API 30 evidence; retain explicit PASS/FAIL/BLOCKED results and device/WebView/build hashes.
+
+
+### Scope handoff before original Web Profile integration
+
+The earlier Redmi Note 8 Pro / Android 11 / API 30 evidence is retained and valid for the exact APK hashes named by those records. It covers embedded runtime startup, session persistence, terminal/process/PTY behavior, timeout/cancellation, cleanup, recovery and bounded lifecycle scenarios. It must not be relabeled as evidence for the newer release APK unless that APK's SHA-256 is explicitly recorded.
+
+The remaining work is not a restart of those phone tests. The unfinished scope is the original Web Profile connection: boot the original web runtime graph, connect the original WebView/UI through authenticated local HTTP/WebSocket transport, and verify original navigation, streaming, recovery and capability-unavailable behavior. After that integration changes the APK, perform one focused API 30 phone validation of the new APK. API 29 remains a separate follow-up matrix item.

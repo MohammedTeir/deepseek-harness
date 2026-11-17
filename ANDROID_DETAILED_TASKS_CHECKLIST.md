@@ -442,3 +442,11 @@ Implementation and detailed runtime evidence from `feature/android-port` are now
 ## API 29 follow-up note
 
 The Redmi Note 8 Pro evidence is Android 11 / API 30, not API 29. After P3A-004 native closure and the initial API 30 Web Profile path, complete a separate Android 10 / API 29 ARM64 run: install the exact APK, verify the packaged native set and API floor, boot embedded Node/Harness, test the original WebView and authenticated HTTP/WebSocket transport, repeat session recovery and native-approved tool execution, and exercise lifecycle, storage, PTY and unavailable-capability behavior. Record device/emulator identity, APK/source/native hashes, WebView version, logs and PASS/FAIL/BLOCKED results separately from the API 30 evidence.
+
+
+## Pre-integration evidence handoff
+
+- [x] Earlier API 30 phone evidence is retained for the exact APK hashes named in its records and covers bounded embedded-runtime, terminal/process/PTY, lifecycle, timeout/cancellation and recovery behavior.
+- [x] New release APK package/native evidence is recorded separately; do not merge its package audit with older phone-run hashes.
+- [ ] Original Web Profile integration remains open: original runtime graph boot, authenticated WebView transport, original UI/navigation/streaming, recovery and capability-safe unavailable states.
+- [ ] After that integration changes the APK, run one focused API 30 phone validation; keep API 29 as a separate compatibility pass.

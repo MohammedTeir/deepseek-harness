@@ -107,3 +107,10 @@ The bounded Linux host run disabled six provider rows, but its client graph stil
 ## Android 10 / API 29 follow-up
 
 The Redmi Note 8 Pro evidence is Android 11 / API 30 and is not API 29 coverage. After P3A-004 native closure and the initial API 30 Web Profile path, repeat this original-web-assets work on a separately identified Android 10 / API 29 ARM64 emulator or physical device: install the exact APK, inspect the packaged native set, verify embedded runtime boot, exercise the original WebView and authenticated HTTP/WebSocket transport, and record navigation, session recovery, lifecycle, WebView, storage and unavailable-state results with APK/source/device/WebView hashes. Keep host, API 30 and API 29 evidence separate.
+
+
+## Evidence boundary before original Web Profile integration
+
+The existing Redmi Note 8 Pro / Android 11 / API 30 records are valid for the APK hashes and bounded runtime/terminal/process/PTY/lifecycle scenarios explicitly named in those records. They are not evidence for the newer release APK and do not establish that the original Web Profile/UI is connected; the current diagnostic unavailable-state screen remains honest for that missing connection.
+
+Do not repeat the completed runtime proof as the next task. Continue with the original Web Profile path: boot the original graph, establish authenticated local HTTP/WebSocket transport, load the original UI, and verify navigation, streaming, recovery and unavailable capabilities. Retest the phone only after this integration produces a new APK; keep API 29 evidence separate.
