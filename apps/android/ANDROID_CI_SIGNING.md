@@ -4,7 +4,7 @@
 
 `.github/workflows/android-ci.yml` builds the current Android app on Linux x86_64 for pull requests, pushes to `feature/android-port` or `master`, and manual runs. The reusable `.github/workflows/android-build.yml` installs the pinned Android SDK/NDK, builds Node 24.22.1 and the Android native add-ons from pinned inputs, creates and validates the host profile image, assembles the unsigned release APK, runs release unit tests, and runs Gradle lint. The unsigned release APK is retained as the `android-release-unsigned` Actions artifact.
 
-The first clean run compiles Node from source and can take a while. Build inputs stay in the runner's temporary directory; generated binaries and keystores are not committed.
+The first clean run compiles Node from source and can take a while. The workflow now stores the prepared `apps/android/runtime/out` bundle in a GitHub Actions cache keyed by the workflow, lockfile, Android runtime/profile sources, web/CLI sources, native packaging graph, Node/NDK versions and patch inputs. Later runs with the same key restore and verify the bundle instead of repeating native compilation and profile tracing. Generated binaries and keystores are not committed; a cache hit is not treated as Android device-execution evidence.
 
 ## Signing setup
 

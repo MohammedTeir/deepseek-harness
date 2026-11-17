@@ -83,8 +83,32 @@ jobs:
       - name: Build workspace artifacts for the profile qualification
         run: pnpm run build:artifacts
 
+      - name: Restore prepared Android runtime bundle
+        id: android-runtime-cache
+        uses: actions/cache/restore@v6.1.0
+        with:
+          path: apps/android/runtime/out
+          key: ${{ runner.os }}-${{ runner.arch }}-android-runtime-v9-node24.22.1-ndk28.2.13676358-${{ hashFiles('.github/workflows/android-build.yml', 'pnpm-lock.yaml', 'apps/android/runtime/**', '!apps/android/runtime/out/**', 'apps/android/scripts/package_node.py', 'apps/android/scripts/package_profile.py', 'apps/android/scripts/prepare_runtime_assets.py', 'apps/android/scripts/prepare_node_pty_assets.py', 'apps/android/native/**', 'apps/android/execution/process-proof/**', 'apps/android/app/build.gradle.kts', 'apps/android/app/src/main/**', 'apps/cli/**', 'apps/web/**', '!apps/web/dist/**') }}
+
       - name: Build pinned Android native inputs and profile image
+        if: ${{ steps.android-runtime-cache.outputs.cache-hit != 'true' }}
         run: bash apps/android/scripts/build-android-ci.sh
+
+      - name: Verify prepared Android runtime bundle
+        run: |
+          set -euo pipefail
+          test -s apps/android/runtime/out/runtime-build.json
+          test -s apps/android/runtime/out/node-pty/build.json
+          test -s apps/android/runtime/out/profile-v9/profile-image.zip
+          test -s apps/android/runtime/out/profile-v9/image-manifest.json
+          test -s apps/android/runtime/out/profile-v9/profile-qualification.json
+
+      - name: Save prepared Android runtime bundle cache
+        if: ${{ success() && steps.android-runtime-cache.outputs.cache-hit != 'true' }}
+        uses: actions/cache/save@v6.1.0
+        with:
+          path: apps/android/runtime/out
+          key: ${{ runner.os }}-${{ runner.arch }}-android-runtime-v9-node24.22.1-ndk28.2.13676358-${{ hashFiles('.github/workflows/android-build.yml', 'pnpm-lock.yaml', 'apps/android/runtime/**', '!apps/android/runtime/out/**', 'apps/android/scripts/package_node.py', 'apps/android/scripts/package_profile.py', 'apps/android/scripts/prepare_runtime_assets.py', 'apps/android/scripts/prepare_node_pty_assets.py', 'apps/android/native/**', 'apps/android/execution/process-proof/**', 'apps/android/app/build.gradle.kts', 'apps/android/app/src/main/**', 'apps/cli/**', 'apps/web/**', '!apps/web/dist/**') }}
 
       - name: Save Android Node build cache
         if: ${{ success() && steps.android-node-cache.outputs.cache-hit != 'true' }}
