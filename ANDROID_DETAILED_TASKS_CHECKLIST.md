@@ -450,3 +450,9 @@ The Redmi Note 8 Pro evidence is Android 11 / API 30, not API 29. After P3A-004 
 - [x] New release APK package/native evidence is recorded separately; do not merge its package audit with older phone-run hashes.
 - [ ] Original Web Profile integration remains open: original runtime graph boot, authenticated WebView transport, original UI/navigation/streaming, recovery and capability-safe unavailable states.
 - [ ] After that integration changes the APK, run one focused API 30 phone validation; keep API 29 as a separate compatibility pass.
+
+
+## P3A-007 implementation checkpoint
+
+- [x] Add the first carrier path: install the packaged profile image, launch the real web profile on loopback with private `DSH_HOME`, capture its authenticated URL, and load it in a restricted WebView.
+- [ ] Install the resulting APK on the API 30 Redmi Note 8 Pro and verify original WebView boot, client batches, navigation, streaming, WebSocket authentication, recovery and denial behavior.

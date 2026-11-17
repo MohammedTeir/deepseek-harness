@@ -114,3 +114,8 @@ The Redmi Note 8 Pro evidence is Android 11 / API 30 and is not API 29 coverage.
 The existing Redmi Note 8 Pro / Android 11 / API 30 records are valid for the APK hashes and bounded runtime/terminal/process/PTY/lifecycle scenarios explicitly named in those records. They are not evidence for the newer release APK and do not establish that the original Web Profile/UI is connected; the current diagnostic unavailable-state screen remains honest for that missing connection.
 
 Do not repeat the completed runtime proof as the next task. Continue with the original Web Profile path: boot the original graph, establish authenticated local HTTP/WebSocket transport, load the original UI, and verify navigation, streaming, recovery and unavailable capabilities. Retest the phone only after this integration produces a new APK; keep API 29 evidence separate.
+
+
+## P3A-007 carrier implementation checkpoint
+
+The first Android carrier is implemented but not yet device-qualified. `OriginalWebRuntimeService` installs the packaged interpreted image and launches the real `dsh --profile web` entry on loopback with an app-private home; `OriginalWebActivity` receives the authenticated URL and loads it in a restricted WebView. The network policy permits cleartext only for loopback hosts. This remains an implementation checkpoint, not Gate 4 evidence: physical original-Web boot, client batches, WebSocket streaming, recovery and denial cases still require the API 30 device run.

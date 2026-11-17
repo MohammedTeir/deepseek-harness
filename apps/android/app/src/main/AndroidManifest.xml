@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET" />
     <application android:label="Harness runtime proof" android:allowBackup="false" android:extractNativeLibs="true"
-        android:usesCleartextTraffic="false" android:theme="@android:style/Theme.Material.Light.NoActionBar">
+        android:usesCleartextTraffic="false" android:networkSecurityConfig="@xml/network_security_config"
+        android:theme="@android:style/Theme.Material.Light.NoActionBar">
         <activity android:name=".RuntimeProofActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -9,6 +10,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".OriginalWebActivity" android:exported="false" />
+        <service android:name=".OriginalWebRuntimeService" android:exported="false" />
         <service android:name=".ProcessCapabilityService" android:exported="false" android:process=":processproof" />
         <service android:name=".CommandProbeService" android:exported="false" android:process=":commandproof" />
         <service android:name=".RuntimeService" android:exported="false" android:process=":runtime" />

@@ -409,3 +409,8 @@ The Redmi Note 8 Pro results are Android 11 / API 30 evidence only. Once P3A-004
 The earlier Redmi Note 8 Pro / Android 11 / API 30 evidence is retained and valid for the exact APK hashes named by those records. It covers embedded runtime startup, session persistence, terminal/process/PTY behavior, timeout/cancellation, cleanup, recovery and bounded lifecycle scenarios. It must not be relabeled as evidence for the newer release APK unless that APK's SHA-256 is explicitly recorded.
 
 The remaining work is not a restart of those phone tests. The unfinished scope is the original Web Profile connection: boot the original web runtime graph, connect the original WebView/UI through authenticated local HTTP/WebSocket transport, and verify original navigation, streaming, recovery and capability-unavailable behavior. After that integration changes the APK, perform one focused API 30 phone validation of the new APK. API 29 remains a separate follow-up matrix item.
+
+
+### P3A-007 implementation checkpoint
+
+The first carrier implementation is now present locally: `OriginalWebRuntimeService` installs the packaged interpreted profile image, launches the real `dsh --profile web` entry on `127.0.0.1` with an Android-private `DSH_HOME`, captures the authenticated startup URL, and `OriginalWebActivity` loads that URL in a restricted WebView. Cleartext is permitted only for loopback hosts through the network-security configuration. This is an implementation checkpoint only; physical WebView boot, original screens, streaming, WebSocket behavior and recovery remain unverified until the APK is installed on the API 30 device.

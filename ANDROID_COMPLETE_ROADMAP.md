@@ -348,3 +348,8 @@ The Redmi Note 8 Pro evidence is Android 11 / API 30 and must not be represented
 The existing Redmi Note 8 Pro / Android 11 / API 30 phone records are accepted only for their named APK hashes and documented bounded runtime, terminal, process, PTY, lifecycle, timeout, cancellation and recovery scenarios. They are not evidence that the newer release APK has been tested, and they are not evidence that the original Web Profile/UI is connected.
 
 The next implementation target is the missing original Web Profile path: embedded runtime boot of the original graph, authenticated WebView-to-runtime HTTP/WebSocket transport, original UI/navigation/streaming, recovery, and capability-safe unavailable states. A focused phone run of the resulting new APK follows that integration; API 29 remains separate.
+
+
+## Original Web Profile carrier implementation checkpoint
+
+The Android app now has a first carrier path that installs the packaged profile image, starts the real web profile on loopback, obtains its authenticated URL, and loads it through a restricted WebView. This does not yet pass Gate 4: physical WebView boot, original screens, client-batch delivery, WebSocket streaming, recovery and denial behavior still require device evidence.
