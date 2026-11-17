@@ -353,3 +353,8 @@ The next implementation target is the missing original Web Profile path: embedde
 ## Original Web Profile carrier implementation checkpoint
 
 The Android app now has a first carrier path that installs the packaged profile image, starts the real web profile on loopback, obtains its authenticated URL, and loads it through a restricted WebView. This does not yet pass Gate 4: physical WebView boot, original screens, client-batch delivery, WebSocket streaming, recovery and denial behavior still require device evidence.
+
+
+## P3A-007 candidate APK
+
+The current release candidate is hash-bound as `b64a25842615b56f69fca1c984fd1b9376e798d5776450b10c30671b09fa4855`; its package audit records 10 arm64 native artifacts with 16 KiB alignment. The next acceptance step is installation and original-WebView execution on the API 30 Redmi Note 8 Pro. The hash-bound package audit is not device evidence.

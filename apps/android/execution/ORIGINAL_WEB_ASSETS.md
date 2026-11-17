@@ -119,3 +119,8 @@ Do not repeat the completed runtime proof as the next task. Continue with the or
 ## P3A-007 carrier implementation checkpoint
 
 The first Android carrier is implemented but not yet device-qualified. `OriginalWebRuntimeService` installs the packaged interpreted image and launches the real `dsh --profile web` entry on loopback with an app-private home; `OriginalWebActivity` receives the authenticated URL and loads it in a restricted WebView. The network policy permits cleartext only for loopback hosts. This remains an implementation checkpoint, not Gate 4 evidence: physical original-Web boot, client batches, WebSocket streaming, recovery and denial cases still require the API 30 device run.
+
+
+### P3A-007 candidate APK
+
+The release candidate selected for physical validation has SHA-256 `b64a25842615b56f69fca1c984fd1b9376e798d5776450b10c30671b09fa4855`. The [candidate APK audit](../evidence/original-web-p3a007-release-apk-audit.json) binds its package/native closure, but it does not establish Android execution. Install this exact hash on the API 30 Redmi Note 8 Pro and capture original-WebView boot, client-batch, transport, streaming, recovery and denial results.

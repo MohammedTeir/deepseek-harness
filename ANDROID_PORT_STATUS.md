@@ -414,3 +414,8 @@ The remaining work is not a restart of those phone tests. The unfinished scope i
 ### P3A-007 implementation checkpoint
 
 The first carrier implementation is now present locally: `OriginalWebRuntimeService` installs the packaged interpreted profile image, launches the real `dsh --profile web` entry on `127.0.0.1` with an Android-private `DSH_HOME`, captures the authenticated startup URL, and `OriginalWebActivity` loads that URL in a restricted WebView. Cleartext is permitted only for loopback hosts through the network-security configuration. This is an implementation checkpoint only; physical WebView boot, original screens, streaming, WebSocket behavior and recovery remain unverified until the APK is installed on the API 30 device.
+
+
+### P3A-007 candidate APK for device validation
+
+The newly assembled release candidate is `apps/android/app/build/outputs/apk/release/app-release-unsigned.apk` with SHA-256 `b64a25842615b56f69fca1c984fd1b9376e798d5776450b10c30671b09fa4855`. Its exact package audit records 10 arm64 native artifacts and 16 KiB alignment for all inspected artifacts. This hash is the candidate for the next API 30 Redmi Note 8 Pro run; no device execution is claimed yet.
