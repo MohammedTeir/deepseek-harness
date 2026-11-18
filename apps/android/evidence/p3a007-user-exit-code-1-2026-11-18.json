@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "recordType": "user-submitted-device-failure",
+  "milestone": "P3A-007",
+  "reportedAt": "2026-11-18T16:16:25+02:00",
+  "source": "User message in Manus session",
+  "screenTitle": "Original web runtime unavailable",
+  "reportedDiagnostic": "BLOCKED: IllegalStateException: Web profile exited before publishing a URL (exit code 1): WARNING: linker: Warning: \"/data/app/~~ecw7aDdsZXThQQid-DvIgw==/ai.deepseek.harness.android.runtimepoc-Q0jFheU21N2WwRiYBV0wlw==/lib/arm64/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)",
+  "observed": {
+    "runtimeUrlPublished": false,
+    "childExitedBeforeUrl": true,
+    "exitCode": 1,
+    "capturedChildOutput": "Android linker warning: unused processor-specific DT entry in libc++_shared.so; warning says it is ignored"
+  },
+  "unknown": [
+    "Tested APK SHA-256 and whether it is CI run 44305067665",
+    "Whether a locally signed/modified copy was tested",
+    "Device model, Android API, ABI and Android linker version",
+    "Android logcat messages for the child process and runtime startup"
+  ],
+  "assessment": {
+    "status": "BLOCKED",
+    "rootCause": "Not established. The new supervisor confirms the child process exited with status 1 before publishing the web URL, but the captured child output contains no runtime exception or additional diagnostic beyond the linker warning.",
+    "linkerWarning": "The message says the unknown DT entry is ignored. The observation does not establish that this warning caused the later process exit.",
+    "sourceResponse": "The previous diagnostic was improved to expose early exit versus timeout. Further root-cause analysis needs the exact tested APK identity, device/API/ABI, and Android logcat around the failed launch.",
+    "physicalDeviceValidation": "Failed: exact tested APK and device identity remain unknown; original WebView and authenticated transport are not verified."
+  }
+}
