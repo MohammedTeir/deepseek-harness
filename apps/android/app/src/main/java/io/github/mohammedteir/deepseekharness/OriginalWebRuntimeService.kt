@@ -9,7 +9,6 @@ import android.os.Looper
 import android.os.Message
 import android.os.Messenger
 import android.os.RemoteException
-import android.util.Log
 import java.io.File
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
@@ -31,13 +30,20 @@ class OriginalWebRuntimeService : Service() {
         } catch (_: RemoteException) { }
     }
 
+    private fun appendDiagnostic(output: StringBuilder, line: String) {
+        output.appendLine(line)
+        if (output.length > MAX_DIAGNOSTIC_CHARS) {
+            output.delete(0, output.length - MAX_DIAGNOSTIC_CHARS)
+        }
+    }
+
     private fun startWebProfile(): String {
         val root = ProfileImage.install(assets, filesDir)
         imageRoot = root
         val executable = File(applicationInfo.nativeLibraryDir, "libnode_executable.so").canonicalFile
         check(executable.isFile && !executable.canWrite()) { "Installed Node executable unavailable" }
-        val entry = File(root, "apps/cli/lib/bin.js")
-        check(entry.isFile) { "Packaged dsh CLI entry unavailable" }
+        val entry = File(root, "runtime/lib/bin.js")
+        check(entry.isFile) { "Packaged production dsh CLI entry unavailable" }
         val home = File(root, "home").apply { mkdirs() }
         val builder = ProcessBuilder(
             executable.absolutePath, entry.absolutePath,
@@ -60,12 +66,11 @@ class OriginalWebRuntimeService : Service() {
                     continue
                 }
                 val line = reader.readLine() ?: break
-                output.appendLine(line)
+                appendDiagnostic(output, line)
                 if (line.startsWith("dsh web: ")) return line.removePrefix("dsh web: ").trim()
             }
         }
-        val suffix = output.toString().takeLast(8192)
-        throw IllegalStateException("Web profile did not publish a URL: $suffix")
+        throw IllegalStateException("Web profile did not publish a URL: ${output}")
     }
 
     private val messenger = Messenger(Handler(Looper.getMainLooper()) { message ->
@@ -106,5 +111,9 @@ class OriginalWebRuntimeService : Service() {
         executor.shutdownNow()
         stopServer()
         super.onDestroy()
+    }
+
+    private companion object {
+        const val MAX_DIAGNOSTIC_CHARS = 64 * 1024
     }
 }

@@ -454,18 +454,21 @@ The Redmi Note 8 Pro evidence is Android 11 / API 30, not API 29. After P3A-004 
 
 ## P3A-007 implementation checkpoint
 
-- [x] Add the first carrier path: install the packaged profile image, launch the real web profile on loopback with private `DSH_HOME`, capture its authenticated URL, and load it in a restricted WebView.
-- [ ] Install the resulting APK on the API 30 Redmi Note 8 Pro and verify original WebView boot, client batches, navigation, streaming, WebSocket authentication, recovery and denial behavior.
+- [x] Add the carrier path: install the app-private image, launch the production CLI on loopback with private `DSH_HOME`, capture its authenticated URL, and load it in a restricted WebView.
+- [x] Select the full production Web Runtime Image for the app; keep `profile-v9` as a separate host-qualification image. Validate the CLI entry, web API provider, Cordis overlays, and frontend package link before Gradle packages the image.
+- [x] Make startup diagnostics scrollable, selectable, and copyable as a complete result. Focused packager, image-contract, asset-guard, and image-path tests pass; details are in `apps/android/execution/ORIGINAL_WEB_ASSETS.md`.
+- [ ] Build and inspect a new version 17 APK from the current source. No Node/V8 or Gradle build has been run for this change; the previous CI APK is unsigned and does not contain the full-image correction.
+- [ ] Install the exact new APK on the API 30 Redmi Note 8 Pro and verify original WebView boot, client batches, navigation, streaming, WebSocket authentication, recovery, and denial behavior.
 
 
-The APK selected for the first original-Web device run is `b64a25842615b56f69fca1c984fd1b9376e798d5776450b10c30671b09fa4855`; record that same hash in the physical-device evidence before accepting the run.
+Record the SHA-256 of the rebuilt APK in the physical-device evidence before accepting the run. The latest inspected prior CI APK is `c31332746dcebc2c9c9cbaaab07b8cf4cec3dd4ed5f88657f8a020272edc7647`; it is unsigned and predates the current source correction.
 
 ## 2026-11-17 — P3A-007 physical failure and retest
 
-- [x] Preserve the user-submitted failure screenshots and structured result in `apps/android/evidence/p3a007-user-failure.json`. The error is `ENOENT` for the `dsh-base` and `dsh-web-app` Cordis overlays under the CLI `node_modules` aliases; the profile never published a URL.
-- [x] Correct the profile packager to include both overlays at canonical package paths and preserve the CLI package-directory symlinks; bind alias targets and hashes in the manifest. Profile tests pass 17/17, runtime-asset guards 4/4, and Web Runtime Image tests 11/11.
-- [ ] **IN PROGRESS — build new APK:** host diagnostics identified the missing Linux/glibc `system.node`; `pnpm run build:native-system` restored it. Full profile-image packaging and relocated host qualification now pass (1,253 files, 862 links, 647 package manifests). The Android Node/runtime source build is running; Gradle assembly and APK inspection remain pending. The CI script now builds the host addon before qualification. No fixed APK/hash exists yet.
-- [ ] Install/test the exact new APK on the API 30 Redmi Note 8 Pro; phone testing was not run in this task.
+- [x] Preserve the first user-submitted overlay failure in `apps/android/evidence/p3a007-user-failure.json` and the later provider-module failure in `apps/android/evidence/p3a007-web-provider-module-not-found-2026-11-17.json`; keep their unknown APK/device identity explicit.
+- [x] Implement the full-image source correction and verify the existing production-image manifest plus focused regression suites. No new image archive or APK was generated for this source change.
+- [ ] Run the updated source through GitHub Actions, inspect the resulting APK and resolve signing/install requirements; changes remain local and unpushed.
+- [ ] Install/test the exact new APK on the API 30 Redmi Note 8 Pro; no phone test has been run for the current source.
 - [ ] Verify original boot/UI, batches, navigation, authenticated HTTP/API and WebSocket, streaming, activity/runtime recovery, unauthenticated and foreign-origin denials, and clean shutdown; retain failures without broadening claims.
 
-The supplied screenshots do not show APK hash or device properties. They are user-submitted evidence only and are not bound to the previously audited candidate hash. P3A-007/Gate 4 remain open until exact-APK device results are recorded.
+The supplied screenshots do not show APK hashes or device properties and are not bound to either the previous CI artifact or the source changes now in the checkout. P3A-007/Gate 4 remain open until exact-APK device results are recorded.

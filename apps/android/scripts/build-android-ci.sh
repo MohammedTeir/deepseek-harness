@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build the pinned Android runtime inputs and qualified host profile image from source.
+# Build the pinned Android runtime inputs and both profile images from source.
 set -euo pipefail
 
 repo_dir="$(git rev-parse --show-toplevel)"
@@ -48,11 +48,18 @@ python3 "$android_dir/scripts/package_node.py" \
 # and persist the reference session during qualification.
 pnpm run build:native-system
 # This trace-backed packager validates the original profile, command, and terminal
-# host references before producing the profile-v9 image consumed by Gradle.
+# host references before producing the profile-v9 qualification image consumed by tests.
 python3 "$android_dir/scripts/package_profile.py" "$android_dir/runtime/out/profile-v9"
+# The full production tree is a separate, larger image for the real Web profile.
+# Its bundle and frontend package closure are checked again during Gradle asset preparation.
+web_image="$android_dir/runtime/out/original-web-runtime-image.zip"
+web_report="$android_dir/runtime/out/original-web-runtime-image-build.json"
+rm -f "$web_image" "$web_report"
+python3 "$android_dir/scripts/package_web_runtime_image.py" "$web_image" --report "$web_report"
 
-printf '\nPrepared Android native runtime inputs and profile-v9 image.\n'
+printf '\nPrepared Android native runtime inputs, profile-v9 qualification image, and full Original Web image.\n'
 sha256sum \
   "$android_dir/runtime/out/runtime-build.json" \
   "$android_dir/runtime/out/node-pty/build.json" \
-  "$android_dir/runtime/out/profile-v9/profile-image.zip"
+  "$android_dir/runtime/out/profile-v9/profile-image.zip" \
+  "$web_image"

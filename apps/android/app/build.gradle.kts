@@ -11,8 +11,8 @@ android {
         minSdk = 29
         targetSdk = 36
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        versionCode = 16
-        versionName = "0.1.15-original-web-overlay-fix"
+        versionCode = 17
+        versionName = "0.1.16-original-web-full-image"
         ndk { abiFilters += "arm64-v8a" }
     }
     signingConfigs.getByName("debug").storeFile = rootProject.file(".local/debug.keystore")
@@ -65,16 +65,3 @@ val nodePtyAssets by tasks.registering(Exec::class) {
     outputs.upToDateWhen { false }
 }
 tasks.named("preBuild") { dependsOn(nodePtyAssets) }
-
-// The original compiled web frontend; runtime boot and transport remain separate.
-val buildOriginalWeb by tasks.registering(Exec::class) {
-    workingDir(rootProject.projectDir.parentFile.parentFile)
-    commandLine("pnpm", "--filter", "@deepseek-ai/dsh-web-frontend", "build")
-}
-val bundleOriginalWeb by tasks.registering(Sync::class) {
-    dependsOn(buildOriginalWeb)
-    from(rootProject.file("../../apps/web/dist")) { exclude("**/*.map", "preview/**", "preview.html") }
-    into(layout.buildDirectory.dir("generated/originalWebAssets/web"))
-}
-android.sourceSets["main"].assets.srcDir(layout.buildDirectory.dir("generated/originalWebAssets"))
-tasks.named("preBuild") { dependsOn(bundleOriginalWeb) }

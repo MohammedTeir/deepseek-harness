@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "task": "P3A-007",
+  "evidenceType": "user-submitted-physical-device-screenshot",
+  "result": "FAIL",
+  "sourceRevisionUnderTest": null,
+  "apk": {
+    "sha256": null,
+    "note": "The screenshot does not show an APK digest. Do not attribute this failure to the earlier CI candidate without separate verification."
+  },
+  "device": {
+    "model": null,
+    "androidRelease": null,
+    "apiLevel": null,
+    "abi": null,
+    "note": "The screenshot does not expose device properties; the planned Redmi Note 8 Pro / Android 11 / API 30 target is not established by this image."
+  },
+  "capture": {
+    "reportedLocalTimestamp": "2026-11-17 15:57:55 +02:00",
+    "webViewResult": "Original web runtime unavailable; startup did not publish a URL.",
+    "failureStage": "Original Web Profile startup, before authenticated URL publication.",
+    "failureDetails": [
+      "The web-deepseek-api plugin failed to import @deepseek-ai/dsh-web-deepseek-api.",
+      "The runtime reported ERR_MODULE_NOT_FOUND for packages/bundle/base/node_modules/@deepseek-ai/dsh-web-deepseek-api/lib/index.js.",
+      "The activity displayed the JavaScript module-resolution stack trace; no WebView URL was published."
+    ]
+  },
+  "attachments": [
+    {
+      "path": "apps/android/evidence/p3a007-user-failure-screen-3.jpg",
+      "bytes": 843004,
+      "sha256": "5a4cfb2f1d67b5400a2e8cdb99ca8847ef8845de11c0da92a82f0b11f184b515"
+    }
+  ],
+  "untestedOrNotEstablished": [
+    "Exact APK SHA-256 and source revision under test",
+    "Device model, Android release, API level and ABI",
+    "Original UI boot and navigation",
+    "Client batch delivery",
+    "Authenticated HTTP/API behavior",
+    "WebSocket /api/remote.mux behavior",
+    "Streaming",
+    "Activity/runtime recovery",
+    "Unauthenticated and foreign-origin denial behavior",
+    "Clean process shutdown"
+  ],
+  "assessment": {
+    "rootCause": "The app packaged the smaller trace-backed profile image for the Original Web Profile, but that image does not contain the full production web-profile dependency closure, including the dsh-web-deepseek-api provider entrypoint.",
+    "sourceCorrection": "Use the full production Web Runtime Image for the Android Original Web Profile, retain profile-v9 only for its independent host qualification, launch runtime/lib/bin.js, and reject image manifests missing package manifests, the dsh-base resolver link to the provider, either Cordis overlay, or the frontend package link and dist index.",
+    "existingImageEvidence": "The previously recorded P3A-006 production-image manifest passes the new Android closure check: 129118094 archive bytes, 403468984 file bytes, 28043 files and 2993 links. This is inspection of an existing candidate, not a new build or APK.",
+    "checks": {
+      "profilePackagerRegression": "PASS 17/17",
+      "webRuntimeImagePackager": "PASS 11/11",
+      "androidWebImageContract": "PASS 7/7",
+      "runtimeAssetGuards": "PASS 4/4",
+      "imagePathHostTests": "PASS 1/1",
+      "nodeV8Build": "NOT RUN",
+      "gradleApkBuild": "NOT RUN",
+      "physicalDeviceRetest": "NOT RUN"
+    },
+    "publication": "Source and documentation changes are local only; no commit or push was made."
+  }
+}

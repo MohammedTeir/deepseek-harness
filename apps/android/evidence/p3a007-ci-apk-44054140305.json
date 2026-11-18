@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "task": "P3A-007",
+  "evidenceType": "github-actions-apk-artifact-inspection",
+  "ciRun": {
+    "id": 44054140305,
+    "url": "https://github.com/MohammedTeir/deepseek-harness/actions/runs/44054140305",
+    "branch": "master",
+    "status": "completed",
+    "conclusion": "success",
+    "createdAt": "2026-11-17T09:16:57Z"
+  },
+  "artifact": {
+    "name": "android-release-unsigned",
+    "id": 14325207142,
+    "sizeBytes": 44214888,
+    "expired": false
+  },
+  "apk": {
+    "filename": "app-release-unsigned.apk",
+    "sizeBytes": 46638269,
+    "sha256": "c31332746dcebc2c9c9cbaaab07b8cf4cec3dd4ed5f88657f8a020272edc7647",
+    "applicationId": "ai.deepseek.harness.android.runtimepoc",
+    "versionCode": 16,
+    "versionName": "0.1.15-original-web-overlay-fix",
+    "minimumSdk": 29,
+    "targetSdk": 36,
+    "compileSdk": 36,
+    "abis": [
+      "arm64-v8a"
+    ],
+    "zipEntries": 192,
+    "nativeEntries": [
+      "lib/arm64-v8a/libc++_shared.so",
+      "lib/arm64-v8a/libharness_atomic.so",
+      "lib/arm64-v8a/libharness_node_pty.so",
+      "lib/arm64-v8a/libharness_probe.so",
+      "lib/arm64-v8a/libharness_process_probe.so",
+      "lib/arm64-v8a/libharness_pty_fixture.so",
+      "lib/arm64-v8a/libharness_require_builtin.so",
+      "lib/arm64-v8a/libharness_system.so",
+      "lib/arm64-v8a/libnode.so",
+      "lib/arm64-v8a/libnode_executable.so"
+    ],
+    "contentsSummary": "Contains the Android runtime profile image, bundled web frontend assets, runtime notices/licenses, and the listed ARM64 native libraries.",
+    "integrity": {
+      "apkZipTest": "PASS",
+      "profileImageZipTest": "PASS",
+      "zipalign4Byte": "PASS",
+      "zipalign16KiBNativeEntries": "PASS"
+    },
+    "signature": {
+      "state": "unsigned",
+      "apksignerOutput": "DOES NOT VERIFY; ERROR: Missing META-INF/MANIFEST.MF",
+      "installableAsProvided": false
+    }
+  },
+  "embeddedProfileImage": {
+    "apkEntry": "assets/runtime/profile-image.zip",
+    "sizeBytes": 2318271,
+    "sha256": "c63103030b5d56c502b2bac072566bd9a7262dfd16b89be3c5ee5347e1e892dc",
+    "embeddedChecksumMatches": true,
+    "zipEntries": 1254,
+    "requiredCordisOverlays": [
+      {
+        "path": "packages/bundle/base/cordis.patch.yml",
+        "sizeBytes": 21537,
+        "sha256": "026fa70d7746609549ea7607f5b60c76fd19476e13549729dc1171f0a1d96cc8"
+      },
+      {
+        "path": "packages/bundle/web-app/cordis.patch.yml",
+        "sizeBytes": 24174,
+        "sha256": "58dffac57b73cd06b84fb81e6adcfcf3ba7175952e607c0753b5535712388afe"
+      }
+    ]
+  },
+  "physicalDeviceExecution": "Not run. The user's screenshots remain unattributed to this APK; their APK digest and device properties are unknown.",
+  "scopeLimitations": [
+    "Static package inspection does not establish Android runtime boot, WebView behavior, authenticated transport, streaming, or recovery.",
+    "The alignment check does not replace a complete per-ELF dependency/symbol audit for this exact APK.",
+    "No signing key was used. Signing identity compatibility with any installed app was not assessed."
+  ]
+}

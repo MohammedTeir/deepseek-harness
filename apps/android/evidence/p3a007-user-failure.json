@@ -59,11 +59,12 @@
       "diffAndPythonSyntax": "PASS"
     },
     "newApkBuild": {
-      "status": "IN_PROGRESS; Android Node/runtime source build running",
+      "status": "SUCCESS; CI APK assembled and statically inspected; artifact is unsigned",
       "resolvedPrerequisite": "The host reference initially failed to load the missing Linux/glibc system.node during shutdown, so no session JSONL was persisted. Building with pnpm run build:native-system resolved it. Full trace-backed profile packaging and relocated qualification then passed (1,253 files, 862 links, 647 package manifests; archive 2,318,271 bytes). The Android CI script now builds this host-only addon before profile qualification.",
-      "gradleAssembly": "Pending; no APK has been assembled or inspected.",
-      "apkSha256": null
+      "gradleAssembly": "PASS; GitHub Actions run 44054140305 completed successfully; its run metadata records the source revision.",
+      "apkSha256": "c31332746dcebc2c9c9cbaaab07b8cf4cec3dd4ed5f88657f8a020272edc7647",
+      "artifactEvidence": "p3a007-ci-apk-44054140305.json"
     },
-    "physicalDeviceRetest": "Not run. The packaging correction has not been built into an APK and is not evidence that the fix succeeds on Android."
+    "physicalDeviceRetest": "Not run. The CI APK is unsigned and has not been executed on an Android device; the screenshots' APK digest and device properties remain unknown, and the original Web Profile fix is not device-qualified."
   }
 }

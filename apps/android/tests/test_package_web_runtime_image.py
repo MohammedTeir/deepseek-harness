@@ -46,6 +46,15 @@ class WebRuntimeImageTests(unittest.TestCase):
         (package_root / 'lib/index.js').write_text('module.exports = {};\n')
         link = stage / 'node_modules/@deepseek-ai/dsh-web-app'
         link.symlink_to(os.path.relpath(package_root, link.parent), target_is_directory=True)
+        frontend_root = stage / 'node_modules/.pnpm/dsh-web-frontend@1/node_modules/@deepseek-ai/dsh-web-frontend'
+        (frontend_root / 'dist/assets').mkdir(parents=True)
+        (frontend_root / 'package.json').write_text(json.dumps({'name': '@deepseek-ai/dsh-web-frontend', 'version': '1.0.0', 'license': 'MIT'}))
+        (frontend_root / 'LICENSE').write_text('Frontend package MIT license\n')
+        (frontend_root / 'dist/index.html').write_text('<html><script src="./assets/app.js"></script></html>\n')
+        (frontend_root / 'dist/assets/app.js').write_text('window.frontend = true;\n')
+        frontend_link = package_root / 'node_modules/@deepseek-ai/dsh-web-frontend'
+        frontend_link.parent.mkdir(parents=True, exist_ok=True)
+        frontend_link.symlink_to(os.path.relpath(frontend_root, frontend_link.parent), target_is_directory=True)
         native = package_root / 'lib/native.node'
         native.write_bytes(b'\x7fELF\x02\x01\x01\x00' + b'fixture native payload')
         native_link = stage / 'node_modules/native-carrier.node'
@@ -182,10 +191,13 @@ class WebRuntimeImageTests(unittest.TestCase):
             self.assertEqual(len(native), 3)
             self.assertTrue(any(item['path'] == 'runtime/lib/libfixture.a' and item['format'] == 'native-suffix:.a' for item in native))
             self.assertIn('runtime/node_modules/@deepseek-ai/dsh-web-app', links)
+            self.assertTrue(any('/node_modules/@deepseek-ai/dsh-web-app/node_modules/@deepseek-ai/dsh-web-frontend' in name for name in links))
+            self.assertTrue(any(name.endswith('/node_modules/@deepseek-ai/dsh-web-frontend/dist/index.html') for name in files))
             self.assertIn('@deepseek-ai/dsh@1.0.0', [item['identity'] for item in metadata['packages']])
             self.assertIn('@deepseek-ai/dsh-web-app@1.0.0', [item['identity'] for item in metadata['packages']])
-            self.assertEqual(metadata['packageManifestCount'], 2)
-            self.assertGreaterEqual(metadata['licenseManifest']['packagesWithLicenseFiles'], 2)
+            self.assertIn('@deepseek-ai/dsh-web-frontend@1.0.0', [item['identity'] for item in metadata['packages']])
+            self.assertEqual(metadata['packageManifestCount'], 3)
+            self.assertGreaterEqual(metadata['licenseManifest']['packagesWithLicenseFiles'], 3)
             self.assertTrue(any(item['reason'] == 'source-map' for item in exclusions))
             self.assertTrue(any(item['reason'] == 'test-fixture-or-test-runner' for item in exclusions))
             file_hashes = {name: image.sha256_file(path) for name, path in files.items()}
