@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "recordType": "ci-apk-inspection",
+  "milestone": "P3A-007",
+  "workflow": "Android CI",
+  "runId": 44305067665,
+  "runUrl": "https://github.com/MohammedTeir/deepseek-harness/actions/runs/44305067665",
+  "conclusion": "success",
+  "buildDuration": "11m25s",
+  "cacheObservations": {
+    "nodeV8SourceBuild": "cache hit; cache restored",
+    "preparedRuntimeBundle": "cache miss; bundle rebuilt and cache saved"
+  },
+  "artifact": {
+    "name": "android-release-unsigned",
+    "filename": "app-release-unsigned.apk",
+    "sizeBytes": 160515704,
+    "sha256": "9f6743b6ada4f1d746626f5cabc07bebea88d9c90b3222caf124a9dd8eb886c4",
+    "packageName": "ai.deepseek.harness.android.runtimepoc",
+    "versionCode": 17,
+    "versionName": "0.1.16-original-web-full-image",
+    "minSdk": 29,
+    "targetSdk": 36,
+    "signature": "unsigned; apksigner reports missing META-INF/MANIFEST.MF; not ready for installation or store release"
+  },
+  "checks": {
+    "apkZipIntegrity": "PASS",
+    "repositoryRuntimeManifestValidator": "PASS",
+    "embeddedProfileImageZipIntegrity": "PASS",
+    "providerEntryPoint": "present: @deepseek-ai/dsh-web-deepseek-api/lib/index.js",
+    "dshBasePnpmResolverLink": "present and target present",
+    "frontendIndex": "present: @deepseek-ai/dsh-web-frontend/dist/index.html",
+    "cordisOverlays": [
+      "@deepseek-ai/dsh-base/cordis.patch.yml",
+      "@deepseek-ai/dsh-web-app/cordis.patch.yml"
+    ],
+    "profileImageCompressedBytes": 129618946,
+    "profileImageExpandedRegularFileBytes": 403468694,
+    "zipalign16KiB": "PASS",
+    "androidGradleUnitTestsAndLint": "PASS; testReleaseUnitTest included"
+  },
+  "deviceValidation": "Not run by agent; requires user-signed test copy and physical-device retest. The previously reported failure is not attributed to this APK until its digest is confirmed."
+}

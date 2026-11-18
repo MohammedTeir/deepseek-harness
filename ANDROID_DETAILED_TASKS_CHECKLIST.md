@@ -480,3 +480,8 @@ The supplied screenshots do not show APK hashes or device properties and are not
 - [x] Improve the Android supervisor so child output is drained while waiting and a missing readiness URL reports process exit code or bounded timeout/alive state; add JVM regressions for successful readiness, early exit and timeout cleanup.
 - [ ] Build from GitHub Actions only, inspect the resulting unsigned APK and checksum, have the user sign a test copy, and repeat physical-device validation. The linker warning is not identified as causal; do not claim runtime boot fixed until the new device result is available.
 - [ ] Verify original WebView/UI, authenticated HTTP and WebSocket behavior, streaming, recovery, denial cases and shutdown against an APK hash/device record. P3A-007 is implemented but device validation is **BLOCKED**; Gate 4 remains open.
+
+
+### Successful diagnostic build — CI run 44305067665
+
+The [inspection record](apps/android/evidence/p3a007-ci-apk-44305067665.json) records the successful CI run, source commit, APK SHA-256 and validation results. It is unsigned; have the user sign a test copy before physical installation. The artifact's static package checks and CI Android unit-test/lint step passed, but it has not been phone-tested. P3A-007 boot remains unverified until the user retests this exact APK and supplies the device identity and result.
