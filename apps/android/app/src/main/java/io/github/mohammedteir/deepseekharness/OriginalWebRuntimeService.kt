@@ -30,13 +30,6 @@ class OriginalWebRuntimeService : Service() {
         } catch (_: RemoteException) { }
     }
 
-    private fun appendDiagnostic(output: StringBuilder, line: String) {
-        output.appendLine(line)
-        if (output.length > MAX_DIAGNOSTIC_CHARS) {
-            output.delete(0, output.length - MAX_DIAGNOSTIC_CHARS)
-        }
-    }
-
     private fun startWebProfile(): String {
         val root = ProfileImage.install(assets, filesDir)
         imageRoot = root
@@ -56,21 +49,8 @@ class OriginalWebRuntimeService : Service() {
         builder.environment()["LD_LIBRARY_PATH"] = applicationInfo.nativeLibraryDir
         val process = builder.start()
         server = process
-        val deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(45)
-        val output = StringBuilder()
-        process.inputStream.bufferedReader().use { reader ->
-            while (System.nanoTime() < deadline) {
-                if (!reader.ready()) {
-                    if (!process.isAlive) break
-                    Thread.sleep(25)
-                    continue
-                }
-                val line = reader.readLine() ?: break
-                appendDiagnostic(output, line)
-                if (line.startsWith("dsh web: ")) return line.removePrefix("dsh web: ").trim()
-            }
-        }
-        throw IllegalStateException("Web profile did not publish a URL: ${output}")
+        process.outputStream.close()
+        return awaitWebProfileUrl(process, STARTUP_TIMEOUT_SECONDS * 1_000)
     }
 
     private val messenger = Messenger(Handler(Looper.getMainLooper()) { message ->
@@ -114,6 +94,6 @@ class OriginalWebRuntimeService : Service() {
     }
 
     private companion object {
-        const val MAX_DIAGNOSTIC_CHARS = 64 * 1024
+        const val STARTUP_TIMEOUT_SECONDS = 45L
     }
 }

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "recordType": "user-submitted-device-failure",
+  "milestone": "P3A-007",
+  "reportedAt": "2026-11-18T14:26:18+02:00",
+  "source": "User message in Manus session",
+  "screenTitle": "Original web runtime unavailable",
+  "reportedDiagnostic": "BLOCKED: IllegalStateException: Web profile did not publish a URL: WARNING: linker: Warning: \"/data/app/~~YRhKl7JrOZ1Z0vwmr2gX9g==/ai.deepseek.harness.android.runtimepoc-Holct49ldt5rRSx9WVP02g==/lib/arm64/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)",
+  "observed": {
+    "runtimeUrlPublished": false,
+    "reportedLinkerMessage": "Unused processor-specific DT entry warning from libc++_shared.so",
+    "processExitCode": null,
+    "processAliveAtTimeout": null
+  },
+  "unknown": [
+    "Installed APK SHA-256 and whether it is the CI artifact from run 44254280059",
+    "Device model, Android API, ABI, and Android linker version",
+    "Whether the Node child exited early or remained alive until the startup deadline",
+    "Any child output after the reported warning"
+  ],
+  "assessment": {
+    "status": "BLOCKED",
+    "rootCause": "Not established. The message establishes only that the Android service did not observe the dsh web readiness URL. The existing service did not include the child exit code and could stop before draining buffered output.",
+    "linkerWarning": "The warning is not itself proof of a fatal linker error and is not established as causal.",
+    "sourceResponse": "Improve bounded process-output capture and report exit-versus-timeout state; rebuild from successful GitHub Actions CI and request a repeat device run with the new diagnostic artifact.",
+    "physicalDeviceValidation": "Failed to publish readiness URL in this user-reported run; original WebView boot and transport remain unverified."
+  }
+}

@@ -472,3 +472,11 @@ Record the SHA-256 of the rebuilt APK in the physical-device evidence before acc
 - [ ] Verify original boot/UI, batches, navigation, authenticated HTTP/API and WebSocket, streaming, activity/runtime recovery, unauthenticated and foreign-origin denials, and clean shutdown; retain failures without broadening claims.
 
 The supplied screenshots do not show APK hashes or device properties and are not bound to either the previous CI artifact or the source changes now in the checkout. P3A-007/Gate 4 remain open until exact-APK device results are recorded.
+
+
+## 2026-11-18 — P3A-007 runtime URL failure and next validation
+
+- [x] Preserve the user's exact `Web profile did not publish a URL` diagnostic in `apps/android/evidence/p3a007-user-no-url-after-linker-warning-2026-11-18.json`; APK SHA-256 and device/API/ABI remain unknown.
+- [x] Improve the Android supervisor so child output is drained while waiting and a missing readiness URL reports process exit code or bounded timeout/alive state; add JVM regressions for successful readiness, early exit and timeout cleanup.
+- [ ] Build from GitHub Actions only, inspect the resulting unsigned APK and checksum, have the user sign a test copy, and repeat physical-device validation. The linker warning is not identified as causal; do not claim runtime boot fixed until the new device result is available.
+- [ ] Verify original WebView/UI, authenticated HTTP and WebSocket behavior, streaming, recovery, denial cases and shutdown against an APK hash/device record. P3A-007 is implemented but device validation is **BLOCKED**; Gate 4 remains open.
