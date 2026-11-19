@@ -112,6 +112,44 @@ class WebRuntimeImageTests(unittest.TestCase):
         packages = [{'name': '@deepseek-ai/dsh'}, {'name': 'vitest'}, {'name': 'commander'}]
         self.assertEqual(image.forbidden_runtime_package_names(packages, report), ['vitest'])
 
+    def test_production_deploy_provides_required_app_boot_peers(self):
+        with tempfile.TemporaryDirectory() as temp:
+            stage = Path(temp) / 'stage'
+            node_modules = stage / 'node_modules'
+            app_boot = node_modules / '.pnpm/app-boot@1/node_modules/@deepseek-ai/dsh-app-boot'
+            group = node_modules / '.pnpm/group@1/node_modules/@deepseek-ai/cordis-plugin-group'
+            app_boot.mkdir(parents=True)
+            group.mkdir(parents=True)
+            (stage / 'package.json').write_text(json.dumps({
+                'name': '@deepseek-ai/dsh', 'version': '1.0.0',
+                'dependencies': {'@deepseek-ai/cordis-plugin-group': 'workspace:~'},
+            }))
+            (app_boot / 'package.json').write_text(json.dumps({
+                'name': '@deepseek-ai/dsh-app-boot', 'version': '1.0.0',
+                'peerDependencies': {'@deepseek-ai/cordis-plugin-group': 'workspace:~'},
+            }))
+            (group / 'package.json').write_text(json.dumps({
+                'name': '@deepseek-ai/cordis-plugin-group', 'version': '1.1.0',
+            }))
+            (node_modules / '@deepseek-ai').mkdir()
+            (node_modules / '@deepseek-ai/dsh-app-boot').symlink_to(
+                os.path.relpath(app_boot, node_modules / '@deepseek-ai'), target_is_directory=True)
+            (node_modules / '@deepseek-ai/cordis-plugin-group').symlink_to(
+                os.path.relpath(group, node_modules / '@deepseek-ai'), target_is_directory=True)
+
+            image.verify_app_boot_peer_dependencies(stage)
+            peer_link = node_modules / '@deepseek-ai/cordis-plugin-group'
+            peer_link.unlink()
+            with self.assertRaisesRegex(ValueError, 'omitted required dsh-app-boot peer dependency'):
+                image.verify_app_boot_peer_dependencies(stage)
+            peer_link.symlink_to(os.path.relpath(group, peer_link.parent), target_is_directory=True)
+
+            root_manifest = json.loads((stage / 'package.json').read_text())
+            del root_manifest['dependencies']['@deepseek-ai/cordis-plugin-group']
+            (stage / 'package.json').write_text(json.dumps(root_manifest))
+            with self.assertRaisesRegex(ValueError, 'does not provide required dsh-app-boot peer dependency'):
+                image.verify_app_boot_peer_dependencies(stage)
+
     def test_workspace_dependency_url_normalization(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

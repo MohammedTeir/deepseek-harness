@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "recordType": "user-submitted-device-logcat-diagnosis",
+  "milestone": "P3A-007",
+  "source": "User-uploaded root-level p3a007-logcat.txt",
+  "eventObservedAt": "2026-11-18T17:14:42.808+02:00",
+  "runtime": {
+    "process": "nodejs",
+    "pid": 14546,
+    "version": "v24.22.1"
+  },
+  "observed": {
+    "errorCode": "ERR_MODULE_NOT_FOUND",
+    "missingPackage": "@deepseek-ai/cordis-plugin-group",
+    "importer": "runtime/node_modules/.pnpm/@deepseek-ai+dsh-app-boot@file++++WORKSPACE+packages+boot+app-boot/node_modules/@deepseek-ai/dsh-app-boot/lib/index.js",
+    "childExitedBeforeUrl": true,
+    "runtimeUrlPublished": false
+  },
+  "assessment": {
+    "status": "SOURCE_FIX_APPLIED_DEVICE_RETEST_PENDING",
+    "failureMechanism": "The Node child failed during ES module package resolution before the Web Profile could publish its URL.",
+    "sourceDependencyGap": "The production CLI deployment did not provide a required dsh-app-boot peer dependency.",
+    "linkerWarning": "The ignored libc++_shared.so DT-entry warning is not implicated by the module-not-found exception in this logcat.",
+    "apkAndDeviceAttribution": "The exact APK digest, source revision, device model, Android API and ABI remain unknown; this logcat is not attributed to a specific APK."
+  },
+  "sourceFix": {
+    "productionDependency": "apps/cli/package.json now provides @deepseek-ai/cordis-plugin-group as a workspace runtime dependency.",
+    "packagingGuard": "The Android Web Runtime Image builder now rejects a production deployment that omits a required dsh-app-boot peer dependency.",
+    "regressionTest": "apps/android/tests/test_package_web_runtime_image.py covers both a missing peer link and an undeclared peer."
+  },
+  "verification": {
+    "imagePackagerTests": {
+      "command": "python3 -m unittest apps/android/tests/test_package_web_runtime_image.py -v",
+      "result": "12 passed"
+    },
+    "lockfile": "Frozen lockfile validation passed.",
+    "p3a003Audit": {
+      "status": "regenerated-and-current",
+      "sha256": "7fd0e285ff66327e88ec45afc219d54f279af8bec5937dfb4cda2e3254bc1a44",
+      "checks": "audit --check passed; captured host-trace path classifications/counts preserved by regression test."
+    },
+    "runtimeImageBuild": {
+      "status": "temporary-host-image-candidate-built",
+      "sha256": "579db5459dd0d155e959a7e559bbb647da0b67c85dc1039b48698471f6a7a6b7",
+      "bytes": 129124482,
+      "includedFiles": 28049,
+      "includedLinks": 2997,
+      "productionPackageManifests": 629,
+      "node": "v24.22.1",
+      "packageManager": "pnpm 11.28.5",
+      "includesMissingPackage": "@deepseek-ai/cordis-plugin-group@1.1.0",
+      "scope": "Host-side Web Runtime Image candidate only; not an Android APK or device verification."
+    },
+    "androidApkBuild": "Not built locally; the repository GitHub Actions Android build is expected after push.",
+    "physicalDeviceRetest": "Pending exact APK identity and device logcat.",
+    "repositoryGates": {
+      "build": "10 passed, 0 failed",
+      "documentation": "21 passed, 0 failed",
+      "docSync": "43 passed, 0 failed",
+      "hygiene": "24 passed, 0 failed",
+      "lint": "passed (one pre-existing unused-disable warning)",
+      "runtimeImagePackagerTests": "12 passed",
+      "runtimeAuditTests": "9 passed",
+      "frozenLockfile": "passed"
+    }
+  }
+}

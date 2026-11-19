@@ -34,7 +34,8 @@ DEPLOY_PACKAGE = '@deepseek-ai/dsh'
 FRONTEND_PACKAGE = '@deepseek-ai/dsh-web-frontend'
 SOURCE_INPUTS = [
     'package.json', 'pnpm-workspace.yaml', 'pnpm-lock.yaml',
-    'apps/cli/package.json', 'packages/bundle/web-app/package.json', 'apps/web/package.json',
+    'apps/cli/package.json', 'packages/boot/app-boot/package.json',
+    'packages/bundle/web-app/package.json', 'apps/web/package.json',
     'apps/android/runtime/native-artifact-policy.json',
     'apps/android/runtime/require-builtin-carrier/index.cjs',
     'apps/android/runtime/require-builtin-carrier/package.json',
@@ -599,6 +600,44 @@ def forbidden_runtime_package_names(packages: list[dict], report: dict) -> list[
     return sorted(denied & present)
 
 
+def verify_app_boot_peer_dependencies(stage: Path) -> None:
+    """Fail closed if the production CLI deploy omits a required app-boot peer."""
+    root_manifest = _read_package_manifest(stage / 'package.json')
+    app_boot_link = stage / 'node_modules/@deepseek-ai/dsh-app-boot'
+    try:
+        app_boot_root = app_boot_link.resolve(strict=True)
+    except OSError as error:
+        raise ValueError('Production deployment omitted @deepseek-ai/dsh-app-boot') from error
+    app_boot = _read_package_manifest(app_boot_root / 'package.json')
+    peer_dependencies = app_boot.get('peerDependencies', {})
+    peer_metadata = app_boot.get('peerDependenciesMeta', {})
+    if not isinstance(peer_dependencies, dict) or not isinstance(peer_metadata, dict):
+        raise ValueError('Invalid dsh-app-boot peer dependency metadata')
+    root_dependencies = {}
+    for field in ('dependencies', 'optionalDependencies'):
+        values = root_manifest.get(field, {})
+        if not isinstance(values, dict):
+            raise ValueError(f'Invalid {field} in deployed root package.json')
+        root_dependencies.update(values)
+    for name in sorted(peer_dependencies):
+        metadata = peer_metadata.get(name, {})
+        if not isinstance(metadata, dict):
+            raise ValueError(f'Invalid peer dependency metadata for {name}')
+        optional = metadata.get('optional') is True
+        if optional:
+            continue
+        if name not in root_dependencies:
+            raise ValueError(f'Production CLI does not provide required dsh-app-boot peer dependency {name}')
+        peer_link = stage / 'node_modules' / name
+        try:
+            peer_root = peer_link.resolve(strict=True)
+        except OSError as error:
+            raise ValueError(f'Production deployment omitted required dsh-app-boot peer dependency {name}') from error
+        peer_manifest = _read_package_manifest(peer_root / 'package.json')
+        if peer_manifest.get('name') != name:
+            raise ValueError(f'Production peer dependency package name mismatch for {name}')
+
+
 def runtime_environment(root: Path) -> tuple[str, str]:
     node = shutil.which('node')
     pnpm = shutil.which('pnpm')
@@ -652,6 +691,7 @@ def build(output: Path, report_path: Path = OUTPUT_REPORT, *, run_builds: bool =
         stage = Path(temporary) / 'production-deploy'
         command = ['pnpm', '--filter', DEPLOY_PACKAGE, 'deploy', '--prod', '--ignore-scripts', str(stage)]
         logs.append(run_command(command, root, env))
+        verify_app_boot_peer_dependencies(stage)
         workspace_dependency_normalization = normalize_workspace_dependency_specs(stage, root)
         files, links, exclusions, native_exclusions, package_meta = collect_image_items(stage, web_assets, CARRIER_DIR, root)
         p3a003_forbidden = forbidden_runtime_package_names(package_meta['packages'], p3a003)

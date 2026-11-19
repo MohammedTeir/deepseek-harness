@@ -15,6 +15,8 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[3]
 EVIDENCE = ROOT / 'apps/android/evidence'
+# The preserved P3A-002 host captures record absolute paths from this checkout.
+CAPTURED_REPOSITORY_ROOTS = (Path('/tmp/deepseek-harness-feature'),)
 MANIFESTS = {
     'cli': 'apps/cli/package.json',
     'webProfileBundle': 'packages/bundle/web-app/package.json',
@@ -206,10 +208,13 @@ def package_name_from_path(relative_path):
 
 
 def repo_relative(absolute):
-    try:
-        return Path(absolute).relative_to(ROOT).as_posix()
-    except ValueError:
-        return None
+    path = Path(absolute)
+    for root in (ROOT, *CAPTURED_REPOSITORY_ROOTS):
+        try:
+            return path.relative_to(root).as_posix()
+        except ValueError:
+            continue
+    return None
 
 
 def path_from_module_url(value):

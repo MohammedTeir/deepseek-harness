@@ -9,11 +9,13 @@ SCRIPT_DIR = Path(__file__).resolve().parents[1] / 'scripts'
 sys.path.insert(0, str(SCRIPT_DIR))
 
 from audit_web_runtime_test_split import (  # noqa: E402
+    ROOT,
     classify_package_name,
     classify_path,
     is_test_path,
     path_from_module_url,
     production_tree,
+    repo_relative,
     resolve_dist_reference,
 )
 
@@ -138,6 +140,14 @@ class WebRuntimeTestSplitTest(unittest.TestCase):
             '/tmp/observer module.mjs',
         )
         self.assertIsNone(path_from_module_url('node:fs'))
+
+    def test_absolute_capture_paths_map_from_current_and_recorded_checkout_roots(self):
+        self.assertEqual(repo_relative(str(ROOT / 'apps/cli/lib/bin.js')), 'apps/cli/lib/bin.js')
+        self.assertEqual(
+            repo_relative('/tmp/deepseek-harness-feature/apps/cli/lib/bin.js'),
+            'apps/cli/lib/bin.js',
+        )
+        self.assertIsNone(repo_relative('/tmp/unrelated-checkout/apps/cli/lib/bin.js'))
 
 
 if __name__ == '__main__':

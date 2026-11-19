@@ -2148,11 +2148,11 @@
     "apps/android/evidence/original-web-bounded-p3a002-path-inventory.json.gz": "c607038e8757401741ae0603e139693d5fa1f66b3b53e0a96fa65a04cd07e9b3",
     "apps/android/evidence/original-web-profile-p3a001-host-observations.json": "71afd2510332f4a0fa983da3f7ba54f810d7b0c1b8b284180f4026932f486f5e",
     "apps/android/evidence/original-web-profile-p3a002-path-inventory.json.gz": "db74e344a9adfdf31ef0f5820324978de2d14e0d34411f287e777965143abdc9",
-    "apps/cli/package.json": "014a4d3ad8effd1317986652e27f60a3cb88c5eb2d8da953236d1b2d91fb8b9f",
+    "apps/cli/package.json": "4826f45c810457fb0537d87887f4eca1b50adaa501dbde65f894529eef270518",
     "apps/web/package.json": "e73d88a6cc6e79953b80b23834e50cea0b02012875aa97dda191862540aefa5b",
     "package.json": "61f908005c8c0cdfe532bf888400b0628c3fa6e8946306f2f90fd5c73dc4fdba",
     "packages/bundle/web-app/package.json": "73eb945414b1c67326284ebe557a8069ed543c3159ea7b4f3bde0e1051942907",
-    "pnpm-lock.yaml": "c42783bd9f1c61f18867e0b41b60f7514d1447c09f993673cc02dbe90fab21c0"
+    "pnpm-lock.yaml": "ad0b2fce63f662c2523084e4e683bb12dc2b0cf84a2ca65f788a4b0316a53fd5"
   },
   "limits": [
     "P3A-002 path rows are observations, not a required-file verdict; successful lookup/open does not prove content read or necessity.",
@@ -2278,6 +2278,7 @@
       ],
       "directProductionDependencies": [
         "@deepseek-ai/cordis",
+        "@deepseek-ai/cordis-plugin-group",
         "@deepseek-ai/cordis-plugin-include",
         "@deepseek-ai/cordis-plugin-loader",
         "@deepseek-ai/cordis-plugin-timer",
@@ -2370,7 +2371,7 @@
       ],
       "package": "@deepseek-ai/dsh",
       "path": "apps/cli/package.json",
-      "sha256": "014a4d3ad8effd1317986652e27f60a3cb88c5eb2d8da953236d1b2d91fb8b9f"
+      "sha256": "4826f45c810457fb0537d87887f4eca1b50adaa501dbde65f894529eef270518"
     },
     "webFrontend": {
       "devOnlyDirectDependencies": [
@@ -2673,6 +2674,7 @@
     "cli": {
       "directProductionDependencies": [
         "@deepseek-ai/cordis",
+        "@deepseek-ai/cordis-plugin-group",
         "@deepseek-ai/cordis-plugin-include",
         "@deepseek-ai/cordis-plugin-loader",
         "@deepseek-ai/cordis-plugin-timer",
