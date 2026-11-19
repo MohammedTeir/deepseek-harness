@@ -135,3 +135,10 @@ The [APK #7 reference](apps/android/execution/TERMINAL_ANDROID_PROOF.md) records
 ## Terminal lifecycle qualification
 
 The [lifecycle reference](apps/android/execution/TERMINAL_LIFECYCLE_PROOF.md) distinguishes an original-terminal wait timeout from process termination and specifies the fixed APK #8 phone test.
+
+
+## 2026-11-19 — Android image reuse and workspace correction
+
+The Android Web Profile carrier now installs the full interpreted Web Runtime Image into a stable `files/profile-image-current` directory keyed by the APK archive SHA-256. It reuses that directory across Activity/service restarts, removes interrupted staging directories, and reclaims legacy `profile-image-<UUID>` directories created by the previous implementation. The image remains immutable runtime data; native libraries continue to come from Android's installer-managed `nativeLibraryDir`.
+
+The carrier now keeps user state outside the runtime image: `DSH_HOME` is `files/harness-home`, and the default workspace is `files/harness-documents/deepseek-harness/default`. It supplies a generated `--patch` overlay for `workspace-controller.documentsDirectory`, avoiding the desktop Linux `xdg-user-dir DOCUMENTS` lookup that caused `Unable to create default workspace` on Android. The process working directory is the persistent default workspace. This change is source-level and requires a new GitHub Actions APK build plus a device retest; it does not itself establish Web Profile boot, WebView transport, or Gate 4 acceptance.

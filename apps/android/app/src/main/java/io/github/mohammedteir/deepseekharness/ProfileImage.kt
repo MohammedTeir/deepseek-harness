@@ -16,6 +16,9 @@ object ProfileImage {
     private const val WEB_RUNTIME_KIND = "original-web-runtime-candidate"
     private const val MAX_ENTRIES = 40_000
     private const val MAX_UNCOMPRESSED_BYTES = 512L * 1024 * 1024
+    private const val CURRENT_DIR = "profile-image-current"
+    private const val VERSION_FILE = ".profile-image-archive-sha256"
+    private const val STAGING_PREFIX = "profile-image-staging-"
 
     private fun hash(file: File): String = file.inputStream().use { input ->
         val digest = MessageDigest.getInstance("SHA-256")
@@ -31,14 +34,33 @@ object ProfileImage {
     private fun child(root: File, name: String): File = ImageFiles.child(root, name)
     fun remove(root: File) = ImageFiles.remove(root)
 
+    /**
+     * Install the immutable interpreted image once per APK image hash. Previous
+     * code used a UUID directory on every launch, which made startup copy the
+     * entire 407 MiB expanded image repeatedly and leaked it when Android killed
+     * the service before onDestroy ran.
+     */
+    @Synchronized
     fun install(assets: AssetManager, files: File): File {
-        val staging = File(files, "profile-image-${UUID.randomUUID()}").canonicalFile
-        check(staging.mkdir()) { "Cannot create interpreted image directory" }
+        val expected = assets.open("runtime/profile-image.sha256").bufferedReader().use { it.readText().trim() }
+        require(expected.matches(Regex("[0-9a-fA-F]{64}"))) { "Invalid APK image hash" }
+        val current = File(files, CURRENT_DIR).canonicalFile
+        val version = File(current, VERSION_FILE)
+        val entry = File(current, "runtime/lib/bin.js")
+        if (version.isFile && version.readText().trim().equals(expected, ignoreCase = true)
+            && entry.isFile && File(current, "web-runtime-image-manifest.json").isFile) {
+            cleanupStaging(files)
+            return current
+        }
+
+        cleanupStaging(files)
+        if (current.exists()) remove(current)
+        val staging = File(files, "$STAGING_PREFIX${UUID.randomUUID()}").canonicalFile
+        check(staging.mkdir()) { "Cannot create interpreted image staging directory" }
         try {
             val archive = File(staging, "payload.zip")
             assets.open("runtime/profile-image.zip").use { source -> archive.outputStream().use(source::copyTo) }
-            val expected = assets.open("runtime/profile-image.sha256").bufferedReader().use { it.readText().trim() }
-            check(hash(archive) == expected) { "APK image hash mismatch" }
+            check(hash(archive).equals(expected, ignoreCase = true)) { "APK image hash mismatch" }
             val root = File(staging, "tree").apply { check(mkdir()) }
             val names = mutableSetOf<String>()
             var total = 0L
@@ -84,15 +106,11 @@ object ProfileImage {
             for (name in fileNames) {
                 val file = child(root, name)
                 check(file.isFile && hash(file) == entries.getString(name)) { "Interpreted file hash mismatch: $name" }
-                if (fileBytes != null) {
-                    check(file.length() == fileBytes.getLong(name)) { "Interpreted file size mismatch: $name" }
-                }
+                if (fileBytes != null) check(file.length() == fileBytes.getLong(name)) { "Interpreted file size mismatch: $name" }
                 file.inputStream().use { input ->
                     val prefix = ByteArray(4)
                     val count = input.read(prefix)
-                    check(count < 4 || !prefix.contentEquals(byteArrayOf(127, 69, 76, 70))) {
-                        "Native binary in interpreted image"
-                    }
+                    check(count < 4 || !prefix.contentEquals(byteArrayOf(127, 69, 76, 70))) { "Native binary in interpreted image" }
                 }
             }
 
@@ -103,8 +121,6 @@ object ProfileImage {
                 }
             }
 
-            // Image v9 stores root-relative link targets in its manifest. The full
-            // production image stores relative symlink entries in the ZIP itself.
             for (name in linkNames) {
                 check(fileNames.none { it == name || it.startsWith("$name/") }) { "Alias shadows image file" }
                 val link = child(root, name)
@@ -121,25 +137,29 @@ object ProfileImage {
                     val resolved = parent.toPath().resolve(targetPath).normalize()
                     check(resolved.startsWith(rootPath)) { "Packaged symlink escapes image" }
                     check(link.delete()) { "Cannot prepare packaged symlink: $name" }
-                    val relative = parent.toPath().relativize(resolved)
-                    Files.createSymbolicLink(link.toPath(), relative)
+                    Files.createSymbolicLink(link.toPath(), parent.toPath().relativize(resolved))
                 } else {
                     val target = child(root, targetText)
-                    val relative = parent.toPath().relativize(target.toPath())
-                    Files.createSymbolicLink(link.toPath(), relative)
+                    Files.createSymbolicLink(link.toPath(), link.parentFile!!.toPath().relativize(target.toPath()))
                 }
             }
-            if (webRuntimeImage) {
-                for (name in linkNames) {
-                    check(File(root, name).exists()) { "Broken packaged symlink: $name" }
-                }
-            }
+            if (webRuntimeImage) for (name in linkNames) check(File(root, name).exists()) { "Broken packaged symlink: $name" }
             check(archive.delete())
-            return root
+            File(root, VERSION_FILE).writeText(expected.lowercase() + "\n")
+            check(staging.renameTo(current)) { "Cannot publish interpreted image" }
+            return current
         } catch (error: Exception) {
-            try { remove(staging) }
-            catch (cleanup: Exception) { error.addSuppressed(cleanup) }
+            try { remove(staging) } catch (cleanup: Exception) { error.addSuppressed(cleanup) }
             throw error
         }
+    }
+
+    private fun cleanupStaging(files: File) {
+        // Also reclaim profile-image-<UUID> directories created by the old
+        // implementation. Never remove the new stable directory.
+        files.listFiles { file ->
+            file.isDirectory && file.name.startsWith("profile-image-") && file.name != CURRENT_DIR
+        }
+            ?.forEach { runCatching { remove(it) } }
     }
 }

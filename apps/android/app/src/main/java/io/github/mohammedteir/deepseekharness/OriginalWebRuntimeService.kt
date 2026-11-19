@@ -37,13 +37,22 @@ class OriginalWebRuntimeService : Service() {
         check(executable.isFile && !executable.canWrite()) { "Installed Node executable unavailable" }
         val entry = File(root, "runtime/lib/bin.js")
         check(entry.isFile) { "Packaged production dsh CLI entry unavailable" }
-        val home = File(root, "home").apply { mkdirs() }
+        val home = File(filesDir, "harness-home").canonicalFile.apply { check(mkdirs() || isDirectory) }
+        val documents = File(filesDir, "harness-documents").canonicalFile.apply { check(mkdirs() || isDirectory) }
+        val workspace = File(documents, "deepseek-harness/default").canonicalFile.apply { check(mkdirs() || isDirectory) }
+        val patch = File(filesDir, "android-web-runtime.patch.yml")
+        patch.writeText(
+            "- id: workspace-controller\n"
+                + "  config:\n"
+                + "    documentsDirectory: ${yamlPath(documents)}\n",
+        )
         val builder = ProcessBuilder(
             executable.absolutePath, entry.absolutePath,
-            "--profile", "web", "--host", "127.0.0.1", "--port", "0", "--no-open",
-        ).directory(root).redirectErrorStream(true)
+            "--profile", "web", "--patch", patch.absolutePath,
+            "--host", "127.0.0.1", "--port", "0", "--no-open",
+        ).directory(workspace).redirectErrorStream(true)
         builder.environment()["DSH_HOME"] = home.absolutePath
-        builder.environment()["HOME"] = filesDir.absolutePath
+        builder.environment()["HOME"] = home.absolutePath
         builder.environment()["TMPDIR"] = cacheDir.absolutePath
         builder.environment()["DSH_TELEMETRY_DISABLED"] = "1"
         builder.environment()["LD_LIBRARY_PATH"] = applicationInfo.nativeLibraryDir
@@ -52,6 +61,8 @@ class OriginalWebRuntimeService : Service() {
         process.outputStream.close()
         return awaitWebProfileUrl(process, STARTUP_TIMEOUT_SECONDS * 1_000)
     }
+
+    private fun yamlPath(file: File): String = "'" + file.absolutePath.replace("'", "''") + "'"
 
     private val messenger = Messenger(Handler(Looper.getMainLooper()) { message ->
         if (message.what == 1 && message.replyTo != null) {
@@ -81,7 +92,6 @@ class OriginalWebRuntimeService : Service() {
             if (!process.waitFor(3, TimeUnit.SECONDS)) process.destroyForcibly()
         }
         server = null
-        imageRoot?.parentFile?.let { ProfileImage.remove(it) }
         imageRoot = null
     }
 
