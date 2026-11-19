@@ -17,7 +17,7 @@
     "runtimeUrlPublished": false
   },
   "assessment": {
-    "status": "INITIAL_FIX_INSUFFICIENT_ADDITIONAL_PRODUCTION_PEERS_MISSING",
+    "status": "CI_APK_STATIC_VERIFICATION_PASSED_DEVICE_RETEST_PENDING",
     "failureMechanism": "The Node child failed during ESM package resolution before the Web Profile could publish its URL. The first correction shipped cordis-plugin-group, but the next CI APK diagnostic identifies additional unresolved workspace peers.",
     "sourceDependencyGap": "The production CLI deployment omitted required peer providers used by deployed workspace packages. A production-deploy audit found 20 unprovided non-optional peer names; seven are explicitly listed in the user's copied CI-app error.",
     "linkerWarning": "The ignored libc++_shared.so DT-entry warning is not implicated by the ESM module-resolution errors.",
@@ -73,12 +73,36 @@
       "docSync": "43 passed, 0 failed",
       "hygiene": "24 passed, 0 failed",
       "lint": "passed (one unused-disable warning)"
+    },
+    "androidApkBuild": "GitHub Actions Android CI run 44482844191 succeeded; the downloaded unsigned APK and embedded profile image passed ZIP integrity checks.",
+    "replacementAndroidApk": {
+      "ciRunId": 44482844191,
+      "ciRunUrl": "https://github.com/MohammedTeir/deepseek-harness/actions/runs/44482844191",
+      "status": "success",
+      "signatureState": "unsigned",
+      "sha256": "0a6c4eef2e833c01a58e20c6aa36e688dc14c57fbbcd11ff61bb41f0c7e4bb16",
+      "bytes": 161255560,
+      "apkZipIntegrity": "passed",
+      "embeddedProfileImageSha256": "f33f007e4f827a7fb841af2ac05b9419431aeed069c87c6651a7d9e37a00638d",
+      "embeddedProfileImageBytes": 130597815,
+      "embeddedProfileImageZipIntegrity": "passed",
+      "runtimePackageManifestCount": 649,
+      "verifiedPreviouslyMissingPackages": [
+        "@deepseek-ai/dsh-anonymous-user-id",
+        "@deepseek-ai/dsh-error",
+        "@deepseek-ai/dsh-fs",
+        "@deepseek-ai/dsh-llm-deepseek",
+        "@deepseek-ai/dsh-ptc-runtime",
+        "@deepseek-ai/dsh-scope",
+        "@deepseek-ai/dsh-spill"
+      ],
+      "rootNodeModulesLinksVerified": true,
+      "physicalDeviceRetest": "pending"
     }
   },
   "nextSteps": [
-    "Run focused tests, build, hygiene, and documentation checks for the expanded peer-closure fix.",
-    "Push the correction and wait for a new successful Android CI APK build.",
-    "Sign/install that new APK with the same signing key where possible, then repeat startup and capture the complete copied diagnostic or logcat.",
-    "Record the exact installed signed APK SHA-256 and device model, Android API, and ABI."
+    "Sign the replacement APK with the same key used for the previous installation, then install it as an update where the signing certificate matches.",
+    "Start Original Web runtime and confirm the URL is published without ERR_MODULE_NOT_FOUND.",
+    "If startup still fails, capture the complete app diagnostic/logcat and record the exact signed APK SHA-256, device model, Android API and ABI."
   ]
 }
