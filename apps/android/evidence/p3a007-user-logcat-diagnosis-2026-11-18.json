@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "recordType": "user-submitted-device-logcat-diagnosis",
   "milestone": "P3A-007",
-  "source": "User-uploaded root-level p3a007-logcat.txt",
+  "source": "User-uploaded root-level p3a007-logcat.txt plus follow-up copied Android app diagnostic",
   "eventObservedAt": "2026-11-18T17:14:42.808+02:00",
   "runtime": {
     "process": "nodejs",
@@ -17,51 +17,68 @@
     "runtimeUrlPublished": false
   },
   "assessment": {
-    "status": "SOURCE_FIX_APPLIED_DEVICE_RETEST_PENDING",
-    "failureMechanism": "The Node child failed during ES module package resolution before the Web Profile could publish its URL.",
-    "sourceDependencyGap": "The production CLI deployment did not provide a required dsh-app-boot peer dependency.",
-    "linkerWarning": "The ignored libc++_shared.so DT-entry warning is not implicated by the module-not-found exception in this logcat.",
-    "apkAndDeviceAttribution": "The exact APK digest, source revision, device model, Android API and ABI remain unknown; this logcat is not attributed to a specific APK."
+    "status": "INITIAL_FIX_INSUFFICIENT_ADDITIONAL_PRODUCTION_PEERS_MISSING",
+    "failureMechanism": "The Node child failed during ESM package resolution before the Web Profile could publish its URL. The first correction shipped cordis-plugin-group, but the next CI APK diagnostic identifies additional unresolved workspace peers.",
+    "sourceDependencyGap": "The production CLI deployment omitted required peer providers used by deployed workspace packages. A production-deploy audit found 20 unprovided non-optional peer names; seven are explicitly listed in the user's copied CI-app error.",
+    "linkerWarning": "The ignored libc++_shared.so DT-entry warning is not implicated by the ESM module-resolution errors.",
+    "apkAndDeviceAttribution": "The user confirms the follow-up app error is from the Android CI run listed below. The downloaded CI APK is unsigned; the exact user-signed installed APK digest, device model, Android API, and ABI have not been provided."
+  },
+  "followUpCiApkDiagnostic": {
+    "ciRunId": 44475881103,
+    "ciRunUrl": "https://github.com/MohammedTeir/deepseek-harness/actions/runs/44475881103",
+    "downloadedUnsignedApkSha256": "099d212b0105c94689ac864b3273485e0ec331f912c33a56e3651c0c3db497ee",
+    "downloadedUnsignedApkBytes": 160516956,
+    "embeddedProfileImageSha256": "77138fa2feac3e89e2d067dcf6f5a3b93143977bef15c0af99c35e93747d4cc3",
+    "embeddedProfileImageZipIntegrity": "passed",
+    "unresolvedPackagesReportedByApp": [
+      "@deepseek-ai/dsh-anonymous-user-id",
+      "@deepseek-ai/dsh-error",
+      "@deepseek-ai/dsh-fs",
+      "@deepseek-ai/dsh-llm-deepseek",
+      "@deepseek-ai/dsh-ptc-runtime",
+      "@deepseek-ai/dsh-scope",
+      "@deepseek-ai/dsh-spill"
+    ],
+    "exactInstalledSignedApkSha256": null
   },
   "sourceFix": {
-    "productionDependency": "apps/cli/package.json now provides @deepseek-ai/cordis-plugin-group as a workspace runtime dependency.",
-    "packagingGuard": "The Android Web Runtime Image builder now rejects a production deployment that omits a required dsh-app-boot peer dependency.",
-    "regressionTest": "apps/android/tests/test_package_web_runtime_image.py covers both a missing peer link and an undeclared peer."
+    "productionDependencies": "apps/cli/package.json provides cordis-plugin-group and all 20 required production peer providers identified by auditing the pnpm --prod deployment.",
+    "packagingGuard": "The Android Web Runtime Image builder checks every deployed package's required non-optional peers and rejects missing or mismatched package links.",
+    "regressionTest": "apps/android/tests/test_package_web_runtime_image.py verifies missing transitive peer rejection and optional peer handling."
   },
   "verification": {
-    "imagePackagerTests": {
-      "command": "python3 -m unittest apps/android/tests/test_package_web_runtime_image.py -v",
-      "result": "12 passed"
-    },
-    "lockfile": "Frozen lockfile validation passed.",
+    "initialImagePackagerTests": "12 passed before the follow-up fix; rerun for the expanded guard before push.",
+    "frozenLockfile": "passed after adding all peer providers.",
+    "productionDeployPeerClosure": "The fresh pnpm --prod deployment passed the generalized required-peer guard.",
     "p3a003Audit": {
       "status": "regenerated-and-current",
-      "sha256": "7fd0e285ff66327e88ec45afc219d54f279af8bec5937dfb4cda2e3254bc1a44",
-      "checks": "audit --check passed; captured host-trace path classifications/counts preserved by regression test."
+      "sha256": "6aea2dc2e37ecb91e6d2b69f0fb216d83d8cd1645addf192ce7fd64f2fba4c34",
+      "checks": "audit --check passed; direct production dependency inventory reflects the expanded CLI manifest."
     },
     "runtimeImageBuild": {
       "status": "temporary-host-image-candidate-built",
-      "sha256": "579db5459dd0d155e959a7e559bbb647da0b67c85dc1039b48698471f6a7a6b7",
-      "bytes": 129124482,
-      "includedFiles": 28049,
-      "includedLinks": 2997,
-      "productionPackageManifests": 629,
+      "sha256": "e7b99725d23ddbc7792fb132c82812b0d3386692e600a9f17862f5d3fc2eac3b",
+      "bytes": 130082755,
+      "includedFiles": 28367,
+      "includedLinks": 3256,
+      "productionPackageManifests": 649,
       "node": "v24.22.1",
       "packageManager": "pnpm 11.28.5",
-      "includesMissingPackage": "@deepseek-ai/cordis-plugin-group@1.1.0",
-      "scope": "Host-side Web Runtime Image candidate only; not an Android APK or device verification."
+      "containsAllSevenReportedPackages": true,
+      "scope": "Host-side Web Runtime Image candidate only; no second Android APK or device verification yet."
     },
-    "androidApkBuild": "Not built locally; the repository GitHub Actions Android build is expected after push.",
-    "physicalDeviceRetest": "Pending exact APK identity and device logcat.",
-    "repositoryGates": {
+    "repositoryGatesFromInitialFix": {
       "build": "10 passed, 0 failed",
       "documentation": "21 passed, 0 failed",
       "docSync": "43 passed, 0 failed",
       "hygiene": "24 passed, 0 failed",
-      "lint": "passed (one pre-existing unused-disable warning)",
-      "runtimeImagePackagerTests": "12 passed",
-      "runtimeAuditTests": "9 passed",
-      "frozenLockfile": "passed"
+      "lint": "passed (one unused-disable warning)"
     }
-  }
+  },
+  "nextSteps": [
+    "Run focused tests, build, hygiene, and documentation checks for the expanded peer-closure fix.",
+    "Push the correction and wait for a new successful Android CI APK build.",
+    "Sign/install that new APK with the same signing key where possible, then repeat startup and capture the complete copied diagnostic or logcat.",
+    "Record the exact installed signed APK SHA-256 and device model, Android API, and ABI."
+  ]
 }

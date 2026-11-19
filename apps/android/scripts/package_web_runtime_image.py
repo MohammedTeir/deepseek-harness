@@ -600,42 +600,47 @@ def forbidden_runtime_package_names(packages: list[dict], report: dict) -> list[
     return sorted(denied & present)
 
 
-def verify_app_boot_peer_dependencies(stage: Path) -> None:
-    """Fail closed if the production CLI deploy omits a required app-boot peer."""
+def verify_required_production_peer_dependencies(stage: Path) -> None:
+    """Fail closed when any deployed package's required peer cannot resolve."""
     root_manifest = _read_package_manifest(stage / 'package.json')
     app_boot_link = stage / 'node_modules/@deepseek-ai/dsh-app-boot'
     try:
-        app_boot_root = app_boot_link.resolve(strict=True)
+        app_boot_link.resolve(strict=True)
     except OSError as error:
         raise ValueError('Production deployment omitted @deepseek-ai/dsh-app-boot') from error
-    app_boot = _read_package_manifest(app_boot_root / 'package.json')
-    peer_dependencies = app_boot.get('peerDependencies', {})
-    peer_metadata = app_boot.get('peerDependenciesMeta', {})
-    if not isinstance(peer_dependencies, dict) or not isinstance(peer_metadata, dict):
-        raise ValueError('Invalid dsh-app-boot peer dependency metadata')
     root_dependencies = {}
     for field in ('dependencies', 'optionalDependencies'):
         values = root_manifest.get(field, {})
         if not isinstance(values, dict):
             raise ValueError(f'Invalid {field} in deployed root package.json')
         root_dependencies.update(values)
-    for name in sorted(peer_dependencies):
-        metadata = peer_metadata.get(name, {})
-        if not isinstance(metadata, dict):
-            raise ValueError(f'Invalid peer dependency metadata for {name}')
-        optional = metadata.get('optional') is True
-        if optional:
-            continue
-        if name not in root_dependencies:
-            raise ValueError(f'Production CLI does not provide required dsh-app-boot peer dependency {name}')
-        peer_link = stage / 'node_modules' / name
-        try:
-            peer_root = peer_link.resolve(strict=True)
-        except OSError as error:
-            raise ValueError(f'Production deployment omitted required dsh-app-boot peer dependency {name}') from error
-        peer_manifest = _read_package_manifest(peer_root / 'package.json')
-        if peer_manifest.get('name') != name:
-            raise ValueError(f'Production peer dependency package name mismatch for {name}')
+    for identity, package_root, package_manifest in package_roots(stage):
+        peer_dependencies = package_manifest.get('peerDependencies', {})
+        peer_metadata = package_manifest.get('peerDependenciesMeta', {})
+        if not isinstance(peer_dependencies, dict) or not isinstance(peer_metadata, dict):
+            raise ValueError(f'Invalid peer dependency metadata for {identity}')
+        virtual_node_modules = package_root.parent.parent if package_root.parent.name.startswith('@') else package_root.parent
+        for name in sorted(peer_dependencies):
+            metadata = peer_metadata.get(name, {})
+            if not isinstance(metadata, dict):
+                raise ValueError(f'Invalid peer dependency metadata for {identity}: {name}')
+            if metadata.get('optional') is True:
+                continue
+            links = [virtual_node_modules / name]
+            if name in root_dependencies:
+                links.append(stage / 'node_modules' / name)
+            peer_root = None
+            for link in links:
+                try:
+                    candidate = link.resolve(strict=True)
+                except OSError:
+                    continue
+                peer_manifest_path = candidate / 'package.json'
+                if peer_manifest_path.is_file() and _read_package_manifest(peer_manifest_path).get('name') == name:
+                    peer_root = candidate
+                    break
+            if peer_root is None:
+                raise ValueError(f'Production deployment omitted required peer dependency {name} for {identity}')
 
 
 def runtime_environment(root: Path) -> tuple[str, str]:
@@ -691,7 +696,7 @@ def build(output: Path, report_path: Path = OUTPUT_REPORT, *, run_builds: bool =
         stage = Path(temporary) / 'production-deploy'
         command = ['pnpm', '--filter', DEPLOY_PACKAGE, 'deploy', '--prod', '--ignore-scripts', str(stage)]
         logs.append(run_command(command, root, env))
-        verify_app_boot_peer_dependencies(stage)
+        verify_required_production_peer_dependencies(stage)
         workspace_dependency_normalization = normalize_workspace_dependency_specs(stage, root)
         files, links, exclusions, native_exclusions, package_meta = collect_image_items(stage, web_assets, CARRIER_DIR, root)
         p3a003_forbidden = forbidden_runtime_package_names(package_meta['packages'], p3a003)
