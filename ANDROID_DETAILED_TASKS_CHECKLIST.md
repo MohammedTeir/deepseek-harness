@@ -491,3 +491,7 @@ The [inspection record](apps/android/evidence/p3a007-ci-apk-44305067665.json) re
 - [x] Preserve the new user diagnostic in `apps/android/evidence/p3a007-user-exit-code-1-2026-11-18.json`; it confirms child exit code 1 before URL publication.
 - [ ] Obtain SHA-256 of the tested APK (and signed copy if modified), device model, Android API/ABI, and Android logcat for the failed launch. The sole captured linker warning says the DT entry is ignored and is not proven causal.
 - [ ] Diagnose and correct the underlying process exit, then have the user retest the exact CI-built artifact. P3A-007 physical validation remains **BLOCKED**; Gate 4 remains open.
+
+## 2026-11-19 — Current P3A-007 source and CI status
+
+The runtime-image reuse and Android default-workspace correction is complete in source and documentation. Commit [the pushed Android fix](https://github.com/MohammedTeir/deepseek-harness/actions/runs/44506017022) is pushed to `master`; Android CI run [44506017022](https://github.com/MohammedTeir/deepseek-harness/actions/runs/44506017022) is building it. The older checklist entries above that say the source is local/unpushed describe their historical checkpoint and are superseded by this entry. Physical installation, exact APK identity, original WebView boot, authenticated transport, streaming, recovery and denial behavior remain unchecked.
