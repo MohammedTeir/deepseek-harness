@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-19",
+  "userReport": {
+    "reportedAt": "2026-11-19T13:13:25+02:00",
+    "visibleMessage": "Unable to create default workspace. Use Choose workspace to select a folder.",
+    "screenshotSha256": "c04010bb1333e2acca93f758378f6ac9f75d7f4f390b6ad6082b44005d4e99ff",
+    "pageRendered": true
+  },
+  "diagnosis": {
+    "toastSource": "packages/client/ui-workspace/src/client/navigation.ts catches any failure from workspaces.initializeDefault and emits a generic defaultWorkspaceFailed notice, discarding the underlying error detail.",
+    "confirmedPathMismatch": "Android started Node in files/harness-documents/deepseek-harness/default, while the workspace-controller documentsDirectory override derives files/harness-documents/deepseek-harness/default-workspace.",
+    "causality": "The path mismatch is confirmed, but the screenshot alone does not prove it caused the caught initialization failure. Device-level verification or a captured underlying exception is still required."
+  },
+  "localCorrection": {
+    "implementation": "Added the exact defaultWorkspacePath workspace-controller configuration and set it to the existing Android-private deepseek-harness/default path, keeping the Node cwd and registered Workspace aligned without moving the existing folder.",
+    "hostRegressionTest": "packages/api/workspace-controller/tests/workspace-controller.host.spec.ts verifies exact-path initialization bypasses system Documents lookup.",
+    "androidRegressionTest": "apps/android/app/src/test/java/io/github/mohammedteir/deepseekharness/AndroidDefaultWorkspacePathTest.kt verifies the Android path helper retains deepseek-harness/default.",
+    "versionCode": 19,
+    "versionName": "0.1.18-original-web-workspace-path-fix"
+  },
+  "phoneDirectoryRequest": {
+    "requestedBehavior": "Use Choose workspace to select and use folders in the phone's shared storage.",
+    "currentSupport": "The Android app currently composes the in-app browse picker over Node filesystem paths; it has no Storage Access Framework tree grant or URI-aware filesystem adapter and declares no broad storage permission.",
+    "securityConstraint": "ANDROID_SECURITY_MODEL.md requires app-private storage by default, a URI-aware adapter with grant-revocation and traversal tests for SAF, and no assumption of broad shared-storage permission.",
+    "nextWork": "Implement a scoped SAF-backed workspace filesystem adapter; do not add MANAGE_EXTERNAL_STORAGE as a shortcut."
+  },
+  "validation": {
+    "sourceTests": "PASS: workspace-controller focused tests 28/28; repository TypeScript typecheck 5/5 gates; Android runtime-image asset/packager tests 19/19",
+    "documentationChecks": "PASS: quick documentation gates 21/21",
+    "androidSdkBuild": "not available in this environment; GitHub Actions is the intended Android build environment",
+    "physicalDeviceRetest": "pending; preserve app data and retest the exact signed APK",
+    "gate4Passed": false
+  }
+}

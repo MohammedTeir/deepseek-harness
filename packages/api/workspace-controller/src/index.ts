@@ -37,6 +37,8 @@ export { DirectoryPickerController } from './directory-picker.ts'
 export interface Config {
   /** Override the system Documents directory with a fully qualified path. */
   documentsDirectory?: string
+  /** Override the exact first-use Workspace path for deployments with a controlled storage location. */
+  defaultWorkspacePath?: string
   /** Maximum duration of the operating system's Documents lookup. */
   documentsLookupTimeoutMs?: number
 }
@@ -57,6 +59,7 @@ export class WorkspaceController extends TypertRemoteService {
 
   static Config: z<Config, ResolvedConfig> = z.object({
     documentsDirectory: z.string(),
+    defaultWorkspacePath: z.string(),
     documentsLookupTimeoutMs: z.natural().min(1).default(10_000),
   })
 
@@ -73,6 +76,7 @@ export class WorkspaceController extends TypertRemoteService {
     ctx.typert.resources.register('workspace', { field: 'workspaceId' })
     this.config = WorkspaceController.Config(config)
     if (this.config.documentsDirectory !== undefined) validateDocumentsDirectory(this.config.documentsDirectory)
+    if (this.config.defaultWorkspacePath !== undefined) validateDocumentsDirectory(this.config.defaultWorkspacePath)
     this.commands = new WorkspaceCommands(ctx)
     this.feed = new WorkspaceFeed(ctx)
     // This package is the Loader entry for both Remote owners it hosts: the
@@ -93,16 +97,20 @@ export class WorkspaceController extends TypertRemoteService {
   }
 
   /**
-   * Initialize or reuse the default Workspace during first-use startup. The
-   * directory name is fixed, so the Host never renames or relocates an
-   * existing default; its initial title is that same name, which browser
-   * consumers label in the reader's language.
-   * @param signal - caller lifetime; cancels native directory lookup.
+   * Initialize or reuse the default Workspace during first-use startup. Without
+   * an exact path override, the directory name is fixed, so the Host never
+   * renames or relocates an existing default; with an override, the registry
+   * derives its initial title from that path's final segment.
+   * @param signal - caller lifetime; cancels directory lookup or initialization.
    * @returns the durable Workspace, or undefined when first-use initialization is ineligible; creates no Session or message.
    */
   @Remote('initializeDefault')
   async initializeDefault(signal: AbortSignal): Promise<WorkspaceValue | undefined> {
     const workspace = await this.ctx.workspaceRegistry.initializeDefault(async () => {
+      if (this.config.defaultWorkspacePath !== undefined) {
+        signal.throwIfAborted()
+        return this.config.defaultWorkspacePath
+      }
       const timeout = AbortSignal.timeout(this.config.documentsLookupTimeoutMs)
       return await defaultWorkspaceDirectory(
         this.config.documentsDirectory, AbortSignal.any([signal, timeout]),

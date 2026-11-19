@@ -51,7 +51,7 @@ function deferred<T>(): Deferred<T> {
   return { promise, resolve }
 }
 
-async function harness(options: { systemDocuments?: boolean } = {}) {
+async function harness(options: { systemDocuments?: boolean; defaultWorkspacePath?: string } = {}) {
   const root = realpathSync.native(mkdtempSync(join(tmpdir(), 'dsh-workspace-controller-')))
   tempDirs.push(root)
   const ctx = new Context()
@@ -71,7 +71,10 @@ async function harness(options: { systemDocuments?: boolean } = {}) {
     resources: { register: vi.fn(() => dispose) },
   } as never)
   new RemoteAccessService(ctx)
-  const controller = new WorkspaceController(ctx, options.systemDocuments === true ? {} : { documentsDirectory: root })
+  const config = options.defaultWorkspacePath !== undefined
+    ? { defaultWorkspacePath: options.defaultWorkspacePath }
+    : options.systemDocuments === true ? {} : { documentsDirectory: root }
+  const controller = new WorkspaceController(ctx, config)
   return { controller, ctx, root, storageDomain }
 }
 
@@ -599,6 +602,19 @@ describe('first-use Remote', () => {
     expect(existsSync(result!.workspace.path)).toBe(true)
     expect(ctx.sessions.list()).toEqual([])
     expect(await controller.initializeDefault(signal)).toEqual(result)
+  })
+
+  it('uses an exact configured Workspace path without looking up system Documents', async () => {
+    const targetRoot = realpathSync.native(mkdtempSync(join(tmpdir(), 'dsh-android-workspace-')))
+    tempDirs.push(targetRoot)
+    const path = join(targetRoot, 'deepseek-harness', 'default')
+    const { controller, ctx } = await harness({ defaultWorkspacePath: path, systemDocuments: true })
+    const result = await controller.initializeDefault(new AbortController().signal)
+
+    expect(result!.workspace.path).toBe(realpathSync.native(path))
+    expect(result!.workspace.title).toBe('default')
+    expect(existsSync(path)).toBe(true)
+    expect(ctx.sessions.list()).toEqual([])
   })
 
   it('skips ineligible first use and propagates preparation failures', async () => {

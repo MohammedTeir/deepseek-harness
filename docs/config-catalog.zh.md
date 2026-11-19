@@ -357,6 +357,8 @@ export interface Config {
 export interface Config {
   /** Override the system Documents directory with a fully qualified path. */
   documentsDirectory?: string
+  /** Override the exact first-use Workspace path for deployments with a controlled storage location. */
+  defaultWorkspacePath?: string
   /** Maximum duration of the operating system's Documents lookup. */
   documentsLookupTimeoutMs?: number
 }

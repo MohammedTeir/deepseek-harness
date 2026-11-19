@@ -39,12 +39,12 @@ class OriginalWebRuntimeService : Service() {
         check(entry.isFile) { "Packaged production dsh CLI entry unavailable" }
         val home = File(filesDir, "harness-home").canonicalFile.apply { check(mkdirs() || isDirectory) }
         val documents = File(filesDir, "harness-documents").canonicalFile.apply { check(mkdirs() || isDirectory) }
-        val workspace = File(documents, "deepseek-harness/default").canonicalFile.apply { check(mkdirs() || isDirectory) }
+        val workspace = androidDefaultWorkspaceDirectory(documents).apply { check(mkdirs() || isDirectory) }
         val patch = File(filesDir, "android-web-runtime.patch.yml")
         patch.writeText(
             "- id: workspace-controller\n"
                 + "  config:\n"
-                + "    documentsDirectory: ${yamlPath(documents)}\n",
+                + "    defaultWorkspacePath: ${yamlPath(workspace)}\n",
         )
         val builder = ProcessBuilder(
             executable.absolutePath, entry.absolutePath,
@@ -107,3 +107,7 @@ class OriginalWebRuntimeService : Service() {
         const val STARTUP_TIMEOUT_SECONDS = 45L
     }
 }
+
+/** Android's intentional app-private default path, shared by cwd and the Workspace controller. */
+internal fun androidDefaultWorkspaceDirectory(documents: File): File =
+    File(documents, "deepseek-harness/default").canonicalFile

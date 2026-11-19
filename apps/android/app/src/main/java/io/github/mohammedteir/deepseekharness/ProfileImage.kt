@@ -146,12 +146,21 @@ object ProfileImage {
             if (webRuntimeImage) for (name in linkNames) check(File(root, name).exists()) { "Broken packaged symlink: $name" }
             check(archive.delete())
             File(root, VERSION_FILE).writeText(expected.lowercase() + "\n")
-            check(staging.renameTo(current)) { "Cannot publish interpreted image" }
-            return current
+            return publishTree(root, current)
         } catch (error: Exception) {
             try { remove(staging) } catch (cleanup: Exception) { error.addSuppressed(cleanup) }
             throw error
         }
+    }
+
+    internal fun publishTree(root: File, current: File): File {
+        val staging = root.parentFile ?: error("Image tree has no staging parent")
+        check(staging.parentFile?.canonicalFile == current.parentFile?.canonicalFile) {
+            "Image staging and cache directories must share a parent"
+        }
+        check(root.renameTo(current)) { "Cannot publish interpreted image" }
+        staging.delete()
+        return current
     }
 
     private fun cleanupStaging(files: File) {

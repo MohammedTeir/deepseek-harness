@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-19",
+  "topic": "P3A-007 Original Web Runtime CLI entry unavailable",
+  "userReport": {
+    "reportedAt": "2026-11-19T12:56:11+02:00",
+    "exactDiagnostic": "Original web runtime unavailable\n\nBLOCKED: IllegalStateException: Packaged production dsh CLI entry unavailable",
+    "evidenceType": "user-reported text",
+    "screenshotOrFullCopiedDiagnostic": "not supplied",
+    "installedApkSha256": null,
+    "deviceModel": null,
+    "androidApi": null,
+    "abi": null,
+    "installationMode": null
+  },
+  "sourceInspection": {
+    "repository": "MohammedTeir/deepseek-harness",
+    "branch": "master",
+    "commitUrl": "https://github.com/MohammedTeir/deepseek-harness/actions/runs/44508078912",
+    "origin": "https://github.com/MohammedTeir/deepseek-harness.git",
+    "upstream": "https://github.com/deepseek-ai/deepseek-harness.git",
+    "upstreamMasterAtInspection": "2e39e70496aa02986ca6a820c5d497e816b69d7e",
+    "guard": "OriginalWebRuntimeService.startWebProfile checks File(root, \"runtime/lib/bin.js\").isFile after ProfileImage.install returns.",
+    "imageBuilderContract": "prepare_runtime_assets.py requires runtime/lib/bin.js in the full production image manifest and validates the archive before copying it into APK assets."
+  },
+  "latestAndroidCi": {
+    "runId": 44508078912,
+    "url": "https://github.com/MohammedTeir/deepseek-harness/actions/runs/44508078912",
+    "sourceCommitUrl": "https://github.com/MohammedTeir/deepseek-harness/actions/runs/44508078912",
+    "conclusion": "success",
+    "buildJob": "success",
+    "signJob": "skipped",
+    "artifactName": "android-release-unsigned",
+    "artifactId": 14522740541,
+    "artifactArchiveDigest": "sha256:34eca867e54a9d2465806b685641f37b9c0d31a32663ed2e7cce34060004613f",
+    "artifactArchiveSizeBytes": 158875407,
+    "apkFilename": "app-release-unsigned.apk",
+    "apkSizeBytes": 161257720,
+    "apkSha256": "b6cdad3cd955533d986abbf077b83b4ad07cb389d87ed2bf16e4bcf40d9d1698",
+    "apkSignatureState": "unsigned; not installable as an update unless signed with the installed app's matching key"
+  },
+  "apkImageInspection": {
+    "imageAsset": "assets/runtime/profile-image.zip",
+    "imageSizeBytes": 130597814,
+    "imageSha256": "ac99a598776c4b79528a4001098d14b268e15e9a1569fd8872468201b8e566d7",
+    "declaredImageSha256MatchesAsset": true,
+    "imageKind": "original-web-runtime-candidate",
+    "zipEntryCount": 31624,
+    "cliEntryPath": "runtime/lib/bin.js",
+    "cliEntryInImageArchive": true,
+    "cliEntryInManifestFileMap": true,
+    "cliEntrySizeBytes": 1182,
+    "cliEntrySha256": "36f86742e0c3cc1c3b2dbaa6582ee00b0c37bc4f5a190f7531b5303bf3efb6d9",
+    "cliEntryHashMatchesManifest": true,
+    "frontendIndexPresent": true
+  },
+  "checks": {
+    "focusedHostTests": "19/19 passed: Web Runtime Image packaging and Android image-manifest contract tests",
+    "deviceRuntimeTest": "not run; no Android device attached",
+    "artifactSignatureOrInstallTest": "not run; artifact is unsigned"
+  },
+  "assessment": {
+    "staticApkPackaging": "VERIFIED for presence and integrity of runtime/lib/bin.js in this exact unsigned CI APK",
+    "userFailureAttribution": "unknown: the digest of the APK installed on the user's device and device properties were not supplied",
+    "rootCause": "not established",
+    "likelyDiagnosticBoundary": "If the report came from source matching this commit, the Android service returned from ProfileImage.install and then found the CLI path absent or not a regular file in the app-private installed image. Static inspection rules out this exact CI APK omitting the entry; it does not rule out a different installed APK, extraction/cache state, or device-specific filesystem behavior.",
+    "gate4Passed": false,
+    "nextEvidenceRequired": [
+      "SHA-256 of the signed APK actually installed on the device",
+      "complete text from the app's Copy complete error button",
+      "device model, Android version/API and ABI",
+      "whether the APK was installed as an update with app data preserved"
+    ]
+  }
+}

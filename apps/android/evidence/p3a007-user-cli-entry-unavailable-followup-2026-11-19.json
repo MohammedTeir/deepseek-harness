@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-19",
+  "supersedesRecord": "apps/android/evidence/p3a007-user-cli-entry-unavailable-2026-11-19.json",
+  "userClarification": {
+    "reportedAt": "2026-11-19T13:05:06+02:00",
+    "detail": "The missing CLI entry error appeared while testing the attempted fix for repeated runtime-image extraction and app-data growth on each app open."
+  },
+  "confirmedSourceRegression": {
+    "introducingActionsRun": "https://github.com/MohammedTeir/deepseek-harness/actions/runs/44506017022",
+    "commitTitle": "fix(android): reuse web runtime image and persist workspace",
+    "beforeChange": "ProfileImage.install returned the extracted root directory at staging/tree; OriginalWebRuntimeService resolved runtime/lib/bin.js relative to that root.",
+    "regression": "The stable-cache change created root=staging/tree, wrote the archive marker inside root, then renamed staging to profile-image-current and returned that parent. The actual entry therefore landed at profile-image-current/tree/runtime/lib/bin.js, but both the cache-hit predicate and OriginalWebRuntimeService expected profile-image-current/runtime/lib/bin.js.",
+    "effects": [
+      "The CLI entry check reports Packaged production dsh CLI entry unavailable even though the APK image archive contains the entry.",
+      "The cache-hit predicate cannot see the marker or CLI entry at the expected stable-root paths, so it misses and re-extracts the image on subsequent opens instead of reusing it."
+    ],
+    "supportingEvidence": [
+      "The source diff from Android CI run 44506017022 shows staging.renameTo(current) followed by return current while extracted files and marker are under root=staging/tree.",
+      "The exact APK from Android CI run 44508078912 contains runtime/lib/bin.js in assets/runtime/profile-image.zip with a matching manifest hash."
+    ]
+  },
+  "localCorrection": {
+    "implementation": "Move the extracted root directory itself to profile-image-current; remove the now-empty staging parent best-effort.",
+    "regressionTest": "apps/android/app/src/test/java/io/github/mohammedteir/deepseekharness/ProfileImagePublicationTest.kt checks that profile-image-current/runtime/lib/bin.js and the cache marker exist directly, with no extra tree/ segment.",
+    "versionCode": 18,
+    "versionName": "0.1.17-original-web-image-publish-fix",
+    "sourceBuild": "not run; this environment has no Android SDK configured",
+    "GitHubActionsBuild": "pending; local changes have not been pushed",
+    "deviceRetest": "pending; preserve app data and install the corrected APK as an update with the matching signing key"
+  },
+  "status": {
+    "rootCause": "CONFIRMED by source-path analysis",
+    "sourceCorrection": "IMPLEMENTED LOCALLY; not yet built or device-verified",
+    "repeatedExtractionFix": "NOT YET VERIFIED on device",
+    "gate4Passed": false
+  }
+}

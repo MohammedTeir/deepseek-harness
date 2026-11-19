@@ -359,11 +359,11 @@ Host service backing the generated `ctx.remote.workspace` namespace.
 @Remote('create') create(request: WorkspaceCreateRequest): Promise<WorkspaceCreateValue>
 
 /**
- * Initialize or reuse the default Workspace during first-use startup. The
- * directory name is fixed, so the Host never renames or relocates an
- * existing default; its initial title is that same name, which browser
- * consumers label in the reader's language.
- * @param signal - caller lifetime; cancels native directory lookup.
+ * Initialize or reuse the default Workspace during first-use startup. Without
+ * an exact path override, the directory name is fixed, so the Host never
+ * renames or relocates an existing default; with an override, the registry
+ * derives its initial title from that path's final segment.
+ * @param signal - caller lifetime; cancels directory lookup or initialization.
  * @returns the durable Workspace, or undefined when first-use initialization is ineligible; creates no Session or message.
  */
 @Remote('initializeDefault') async initializeDefault(signal: AbortSignal): Promise<WorkspaceValue | undefined>
